@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The View From Above - Stoic Philosophy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            background: #f5f1e8;
+            color: #2d2520;
+            overflow-x: hidden;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 60px 40px;
+        }
+
+        .page.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-content {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* Cover Page */
+        .cover-page {
+            background: linear-gradient(135deg, #6b5b4f 0%, #4a3f35 100%);
+            color: #f5f1e8;
+            text-align: center;
+        }
+
+        .cover-page h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        .cover-page .subtitle {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .cover-page .setting {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .series-info {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 60px;
+            letter-spacing: 1px;
+        }
+
+        .begin-button {
+            margin-top: 40px;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-family: inherit;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #f5f1e8;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .begin-button:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Content Pages */
+        .content-page {
+            background: #f5f1e8;
+        }
+
+        .content-page h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #5d4e37;
+            font-weight: normal;
+            border-bottom: 1px solid #c4b5a0;
+            padding-bottom: 10px;
+        }
+
+        .content-page p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .dialogue {
+            margin: 25px 0;
+            padding-left: 20px;
+            border-left: 3px solid #c4b5a0;
+        }
+
+        .speaker {
+            font-weight: bold;
+            color: #5d4e37;
+        }
+
+        /* Image Containers */
+        .image-container {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 60vh;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+        .nav-button {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-family: inherit;
+            background: #5d4e37;
+            border: none;
+            color: #f5f1e8;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: #4a3f2d;
+        }
+
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .page-indicator {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #8b7355;
+        }
+
+        /* End Page */
+        .end-page {
+            background: linear-gradient(135deg, #6b5b4f 0%, #4a3f35 100%);
+            color: #f5f1e8;
+            text-align: center;
+        }
+
+        .end-page h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        .greek-ornament {
+            font-size: 24px;
+            margin: 20px 0;
+            opacity: 0.7;
+        }
+
+        .latin-quote {
+            font-size: 20px;
+            font-style: italic;
+            margin: 20px 0;
+            opacity: 0.9;
+        }
+
+        .quote-attribution {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+
+        .next-story {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-top: 40px;
+        }
+
+        /* Quiz Section */
+        .quiz-page {
+            background: #f5f1e8;
+        }
+
+        .quiz-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #c4b5a0;
+        }
+
+        .quiz-intro h2 {
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        .question-block {
+            background: #fff;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .question-block h3 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #2d2520;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .question-number {
+            display: inline-block;
+            background: #5d4e37;
+            color: #f5f1e8;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .options {
+            margin: 20px 0;
+        }
+
+        .option {
+            display: block;
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: #f9f7f4;
+            border: 2px solid #e0d8cc;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option:hover {
+            background: #f0ebe3;
+            border-color: #c4b5a0;
+        }
+
+        .option input {
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+
+        .option.selected {
+            border-color: #5d4e37;
+            background: #f0ebe3;
+        }
+
+        .option.correct {
+            border-color: #4a7c4e;
+            background: #e8f5e9;
+        }
+
+        .option.incorrect {
+            border-color: #b55454;
+            background: #ffebee;
+        }
+
+        .check-button {
+            padding: 10px 25px;
+            font-size: 16px;
+            font-family: inherit;
+            background: #5d4e37;
+            border: none;
+            color: #f5f1e8;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .check-button:hover {
+            background: #4a3f2d;
+        }
+
+        .check-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+            line-height: 1.6;
+        }
+
+        .feedback.correct {
+            background: #e8f5e9;
+            color: #2e5a32;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background: #ffebee;
+            color: #8b3a3a;
+            display: block;
+        }
+
+        .score-display {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .score-display h3 {
+            font-size: 24px;
+            color: #5d4e37;
+            font-weight: normal;
+        }
+
+        @media (max-width: 768px) {
+            .page {
+                padding: 40px 20px;
+            }
+
+            .cover-page h1 {
+                font-size: 32px;
+            }
+
+            .content-page p {
+                font-size: 16px;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+
+            .nav-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cover Page -->
+    <section class="page cover-page active" id="page-0">
+        <div class="page-content">
+            <div class="greek-ornament">☙ ❧</div>
+            <h1>The View From Above</h1>
+            <p class="subtitle">A Stoic Tale of Perspective</p>
+            <p class="setting">Rome, 170 CE</p>
+            <div class="image-container">
+                <img src="cover.png" alt="Rome at dusk, palace gardens in foreground">
+            </div>
+            <button class="begin-button" onclick="nextPage()">Begin Reading</button>
+            <p class="series-info">STOIC PHILOSOPHY • STORY ONE</p>
+        </div>
+    </section>
+
+    <!-- Page 1: The Humiliation -->
+    <section class="page content-page" id="page-1">
+        <div class="page-content">
+            <h2>The Humiliation</h2>
+            <div class="image-container">
+                <img src="image1.png" alt="Gaius running through twilight gardens">
+            </div>
+            <p>Gaius ran. He didn't know where he was going—just away. Away from the stage, away from the laughter, away from all those faces.</p>
+            <p>The Festival of Minerva was supposed to be his moment. He had practiced the poem for weeks. Every word, every pause, every gesture. His father had said he would make the family proud.</p>
+            <p>Instead, his mind had gone blank. He had stood there, mouth open, while the silence stretched. Then someone had laughed. Then everyone.</p>
+            <p>His sandals slapped against the stone paths of the palace gardens. The evening light was turning golden, but Gaius didn't notice. All he could hear was the echo of that laughter, playing over and over in his head.</p>
+            <p><em>Everyone saw. Everyone knows. I'll never live this down.</em></p>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevPage()">← Previous</button>
+                <button class="nav-button" onclick="nextPage()">Next →</button>
+            </div>
+            <div class="page-indicator">Page 1 of 11</div>
+        </div>
+    </section>
+
+    <!-- Page 2: The Encounter -->
+    <section class="page content-page" id="page-2">
+        <div class="page-content">
+            <h2>The Encounter</h2>
+            <div class="image-container">
+                <img src="image2.png" alt="Gaius and Marcus meeting in the garden">
+            </div>
+            <p>Gaius rounded a corner and nearly collided with an older man walking alone among the cypress trees.</p>
+            <p>"Forgive me!" Gaius stumbled backward, his face flushing even deeper. "I wasn't watching where I was—"</p>
+            <p>He stopped. The man was looking at him with calm, curious eyes. He wore simple gray-brown robes, nothing fancy. His beard was gray and neatly trimmed, his face weathered but kind.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"You seem troubled, young man,"</span> the stranger said. His voice was gentle, unhurried. <span class="speaker">"What weighs on you so heavily that you must run from it?"</span></p>
+            </div>
+            <p>Gaius shook his head. "It's nothing. I just—I made a fool of myself. In front of everyone."</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Ah."</span> The man nodded slowly. <span class="speaker">"I'm Marcus. Would you like to walk with me for a moment? Sometimes it helps to speak of these things."</span></p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevPage()">← Previous</button>
+                <button class="nav-button" onclick="nextPage()">Next →</button>
+            </div>
+            <div class="page-indicator">Page 2 of 11</div>
+        </div>
+    </section>
+
+    <!-- Page 3: The Problem -->
+    <section class="page content-page" id="page-3">
+        <div class="page-content">
+            <h2>The Problem</h2>
+            <div class="image-container">
+                <img src="image3.png" alt="Marcus listening as Gaius speaks">
+            </div>
+            <p>They walked together along the garden path. Something about the man's quiet presence made Gaius want to talk.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"I was supposed to recite a poem at the festival,"</span> Gaius said, the words tumbling out. <span class="speaker">"I practiced for weeks. But when I got up there, I just... forgot. Everything. Everyone was watching, and I couldn't remember a single word."</span></p>
+            </div>
+            <p>He felt his eyes stinging. "They laughed at me. All of them. My father was there. My teachers. Everyone I know."</p>
+            <div class="dialogue">
+                <p><span class="speaker">"And now?"</span> Marcus asked.</p>
+                <p><span class="speaker">"Now my life is ruined,"</span> Gaius said miserably. <span class="speaker">"I'll never be able to show my face again. They'll remember this forever."</span></p>
+            </div>
+            <p>Marcus was quiet for a moment. Then he asked:</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Is it? Truly ruined?"</span></p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevPage()">← Previous</button>
+                <button class="nav-button" onclick="nextPage()">Next →</button>
+            </div>
+            <div class="page-indicator">Page 3 of 11</div>
+        </div>
+    </section>
+
+    <!-- Page 4: The First Shift -->
+    <section class="page content-page" id="page-4">
+        <div class="page-content">
+            <h2>The First Shift</h2>
+            <p>Gaius frowned. "What do you mean?"</p>
+            <div class="dialogue">
+                <p><span class="speaker">"I'd like to try something with you,"</span> Marcus said. <span class="speaker">"A way of seeing that I practice when I feel overwhelmed. Would you humor an old man?"</span></p>
+            </div>
+            <p>Gaius shrugged. What did he have to lose?</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Close your eyes,"</span> Marcus said. <span class="speaker">"Imagine you are a bird—an eagle, perhaps—rising up from this very spot. You lift above these gardens. What do you see?"</span></p>
+            </div>
+            <p>Gaius closed his eyes and tried to picture it. "I see... the gardens. The paths. The fountains."</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Good. Now rise higher. Above the palace. What do you see?"</span></p>
+            </div>
+            <p>"The whole palace complex. The courtyards. People walking—they look small."</p>
+            <div class="image-container">
+                <img src="image4.png" alt="Bird's eye view of Roman palace gardens">
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevPage()">← Previous</button>
+                <button class="nav-button" onclick="nextPage()">Next →</button>
+            </div>
+            <div class="page-indicator">Page 4 of 11</div>
+        </div>
+    </section>
+
+    <!-- Page 5: Rising Higher -->
+    <section class="page content-page" id="page-5">
+        <div class="page-content">
+            <h2>Rising Higher</h2>
+            <div class="dialogue">
+                <p><span class="speaker">"Higher still,"</span> Marcus continued. <span class="speaker">"Above the city of Rome itself. Above the seven hills. What do you see now?"</span></p>
+            </div>
+            <p>Gaius kept his eyes closed, picturing it. "Rome looks... smaller. I can see the river. The roads leading out into the countryside. Fields. Mountains in the distance."</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Now rise even higher. Above Italia. Above the sea. You can see the whole empire now—Gaul, Hispania, Africa, the Eastern provinces. Millions of people, each with their own troubles, their own triumphs, their own moments of shame."</span></p>
+            </div>
+            <div class="image-container">
+                <img src="image5.png" alt="Aerial view of Rome and Italy from high above">
+            </div>
+            <p>Gaius's breath slowed. From up there, he couldn't see the festival. Couldn't see the stage. Couldn't see himself standing frozen, mouth open.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"From up there,"</span> Marcus said quietly, <span class="speaker">"what becomes of your humiliation?"</span></p>
+            </div>
+            <p>Gaius opened his eyes slowly. "I can't even see it. It's just... a tiny moment. In one tiny place."</p>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevPage()">← Previous</button>
+                <button class="nav-button" onclick="nextPage()">Next →</button>
+            </div>
+            <div class="page-indicator">Page 5 of 11</div>
+        </div>
+    </section>
+
+    <!-- Page 6: The Emperor's Secret -->
+    <section class="page content-page" id="page-6">
+        <div class="page-content">
+            <h2>The Emperor's Secret</h2>
+            <div class="image-container">
+                <img src="image6.png" alt="Marcus speaking earnestly, Gaius looking amazed">
+            </div>
+            <p>Gaius looked at the old man with new eyes. "Do you really do this? When you're upset?"</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Often,"</span> Marcus said. <span class="speaker">"Ruling an empire brings many opportunities for embarrassment, you know. For failure. For decisions that hurt people, no matter how carefully I try."</span></p>
+            </div>
+            <p>Gaius froze. "Ruling an... You're—you're the <em>Emperor</em>?"</p>
+            <p>Marcus smiled gently. "I am. Though I find the title sits more comfortably when I remember how small I am, seen from above. Even emperors are tiny specks, Gaius. Even our greatest triumphs and worst failures are brief flickers in the vastness of time."</p>
+            <p>Gaius stared. The Emperor of Rome, dressed in simple robes, walking alone in the gardens. Talking to him about feeling small.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"I worry about what people think too,"</span> Marcus said. <span class="speaker">"More than I should. But this exercise—this view from above—helps me remember what's true."</span></p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevPage()">← Previous</button>
+                <button class="nav-button" onclick="nextPage()">Next →</button>
+            </div>
+            <div class="page-indicator">Page 6 of 11</div>
+        </div>
+    </section>
+
+    <!-- Page 7: The Teaching -->
+    <section class="page content-page" id="page-7">
+        <div class="page-content">
+            <h2>The Teaching</h2>
+            <div class="image-container">
+                <img src="image7.png" alt="Marcus and Gaius sitting together under the stars">
+            </div>
+            <p>They sat together on a stone bench. The first stars were beginning to appear in the darkening sky.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"I'm not saying your embarrassment doesn't hurt,"</span> Marcus said. <span class="speaker">"It does. Those feelings are real, and I won't pretend otherwise."</span></p>
+            </div>
+            <p>He paused, looking up at the stars.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"But that moment—that one moment of forgetting your words—is not the whole of you. It is not the whole of your life. It is not even a large part of this vast world we live in."</span></p>
+            </div>
+            <p>Gaius followed his gaze upward. The sky was filling with stars now, countless points of light.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Tomorrow, the sun will rise,"</span> Marcus continued. <span class="speaker">"In a week, some people will have forgotten. In a year, nearly everyone. In a hundred years? No one alive will remember this festival at all."</span></p>
+            </div>
+            <p>Gaius felt something loosen in his chest. The laughter still echoed in his memory, but it seemed quieter now. Smaller.</p>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevPage()">← Previous</button>
+                <button class="nav-button" onclick="nextPage()">Next →</button>
+            </div>
+            <div class="page-indicator">Page 7 of 11</div>
+        </div>
+    </section>
+
+    <!-- Page 8: The Return -->
+    <section class="page content-page" id="page-8">
+        <div class="page-content">
+            <h2>The Return</h2>
+            <p>Gaius stood up. He felt different. Not happy, exactly—the sting was still there. But lighter. Like he could breathe again.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Thank you,"</span> he said. <span class="speaker">"I... I think I understand. My troubles are real. But they're not everything."</span></p>
+            </div>
+            <p>Marcus rose and placed a hand briefly on Gaius's shoulder.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Thank yourself,"</span> he said. <span class="speaker">"You did the rising. I just pointed the way."</span></p>
+            </div>
+            <p>Gaius looked toward the distant lights of the festival. The music was still playing. People were still celebrating. Life was going on.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Go back, if you wish,"</span> Marcus said. <span class="speaker">"Or don't. The choice is yours. But remember: you have the power to rise above at any moment. No one can take that from you."</span></p>
+            </div>
+            <div class="image-container">
+                <img src="image8.png" alt="Gaius walking back toward the festival lights">
+            </div>
+            <p>Gaius took a deep breath, squared his shoulders, and began walking back toward the lights. The laughter might come again. But he knew now: he could always rise above it.</p>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevPage()">← Previous</button>
+                <button class="nav-button" onclick="nextPage()">Take the Quiz →</button>
+            </div>
+            <div class="page-indicator">Page 8 of 11</div>
+        </div>
+    </section>
+
+    <!-- Quiz Page -->
+    <section class="page quiz-page" id="page-9">
+        <div class="page-content">
+            <div class="quiz-intro">
+                <h2>Reading Comprehension</h2>
+                <p>Test your understanding of the story. Select an answer for each question and click "Check Answer."</p>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="question-block" id="q1">
+                <h3><span class="question-number">1</span> What exercise did Marcus teach Gaius to help with his distress?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q1" value="a"> Counting to ten slowly
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="b"> Imagining rising high above and looking down
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="c"> Writing in a journal
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="d"> Talking to a friend about his problems
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(1, 'b')">Check Answer</button>
+                <div class="feedback" id="feedback1"></div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-block" id="q2">
+                <h3><span class="question-number">2</span> Why was Gaius surprised to learn he was talking to the Emperor?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q2" value="a"> He thought emperors never left the palace
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="b"> He was dressed simply and spoke humbly, not like Gaius expected
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="c"> He didn't believe emperors existed
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="d"> He thought Marcus Aurelius had died
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(2, 'b')">Check Answer</button>
+                <div class="feedback" id="feedback2"></div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-block" id="q3">
+                <h3><span class="question-number">3</span> What did Marcus mean when he said "Your embarrassment is real... but it is not the whole of you"?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q3" value="a"> Gaius should pretend the embarrassment didn't happen
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="b"> His feelings are valid, but they don't define his entire life or identity
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="c"> He should feel embarrassed forever
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="d"> Other people's feelings don't matter
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(3, 'b')">Check Answer</button>
+                <div class="feedback" id="feedback3"></div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-block" id="q4">
+                <h3><span class="question-number">4</span> How might you use "the view from above" in your own life?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q4" value="a"> Only when you're on an airplane
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="b"> When you feel overwhelmed by a problem, imagine zooming out to see it as a small part of a bigger picture
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="c"> To avoid ever feeling bad about anything
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="d"> To pretend problems don't exist
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(4, 'b')">Check Answer</button>
+                <div class="feedback" id="feedback4"></div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question-block" id="q5">
+                <h3><span class="question-number">5</span> Why did Marcus say "Thank yourself. You did the rising"?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q5" value="a"> Because Gaius literally flew into the sky
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="b"> Because the exercise only works if you do it yourself—perspective is an internal shift
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="c"> Because Marcus didn't actually help him at all
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="d"> Because Gaius was being rude
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(5, 'b')">Check Answer</button>
+                <div class="feedback" id="feedback5"></div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay" style="display: none;">
+                <h3>Your Score: <span id="scoreValue">0</span> out of 5</h3>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevPage()">← Back to Story</button>
+                <button class="nav-button" onclick="nextPage()">Finish →</button>
+            </div>
+            <div class="page-indicator">Page 9 of 11</div>
+        </div>
+    </section>
+
+    <!-- End Page -->
+    <section class="page end-page" id="page-10">
+        <div class="page-content">
+            <div class="greek-ornament">☙ ❧</div>
+            <h1>End</h1>
+            <p class="latin-quote">"Recedit a te quantum vis in altum et despice res humanas."</p>
+            <p class="quote-attribution">"Rise as high as you wish and look down upon human affairs."<br>— Marcus Aurelius, <em>Meditations</em></p>
+            <div class="greek-ornament" style="margin-top: 40px;">☙ ❧</div>
+            <p class="next-story">This is the first in a series of Stoic philosophy tales.<br>Next: Epictetus and the Slave Who Was Free</p>
+            <div class="nav-buttons" style="justify-content: center;">
+                <button class="nav-button" onclick="prevPage()">← Back to Quiz</button>
+            </div>
+            <div class="page-indicator">Page 10 of 11</div>
+        </div>
+    </section>
+
+    <script>
+        let currentPage = 0;
+        const totalPages = 11;
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        const feedback = {
+            1: {
+                correct: "That's right! Marcus taught Gaius the Stoic exercise of \"the view from above\"—imagining yourself rising higher and higher until your problems look small.",
+                incorrect: "Not quite. Marcus taught Gaius to imagine rising up like a bird, looking down from higher and higher until his problems seemed tiny. This is called \"the view from above.\""
+            },
+            2: {
+                correct: "Exactly! Marcus was known for his humility. He dressed simply and spoke like a philosopher, not a powerful ruler. This surprised Gaius.",
+                incorrect: "The answer is B. Gaius was surprised because Marcus was dressed simply and speaking humbly—not how he expected an emperor to act. This shows his Stoic values of humility."
+            },
+            3: {
+                correct: "Perfect! Marcus wasn't dismissing his feelings—he was helping him see that while the pain is real, it's just one small part of who he is and what his life will be.",
+                incorrect: "The answer is B. Marcus was teaching that feelings are valid AND that they're only one small part of who we are. He wasn't dismissing his pain—he was putting it in perspective."
+            },
+            4: {
+                correct: "Great thinking! When something feels overwhelming—a bad grade, an argument, an embarrassing moment—you can imagine rising above it. The problem doesn't disappear, but you can see it's not the whole world.",
+                incorrect: "The answer is B. \"The view from above\" is a mental exercise for when you feel overwhelmed. It doesn't make problems disappear, but it helps you see them as part of a bigger picture."
+            },
+            5: {
+                correct: "Exactly! Marcus taught him the technique, but Gaius was the one who used his own mind to shift his perspective. Stoics believe we have the power within ourselves to change how we see things.",
+                incorrect: "The answer is B. Marcus was pointing out that while he offered guidance, Gaius was the one who actually did the mental work of shifting his perspective. This is a key Stoic idea: we have power over our own minds."
+            }
+        };
+
+        function showPage(pageNum) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(`page-${pageNum}`).classList.add('active');
+            currentPage = pageNum;
+            window.scrollTo(0, 0);
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages - 1) {
+                showPage(currentPage + 1);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                showPage(currentPage - 1);
+            }
+        }
+
+        function checkAnswer(questionNum, correctAnswer) {
+            if (answeredQuestions.has(questionNum)) return;
+
+            const selectedOption = document.querySelector(`input[name="q${questionNum}"]:checked`);
+            if (!selectedOption) {
+                alert("Please select an answer first.");
+                return;
+            }
+
+            const feedbackEl = document.getElementById(`feedback${questionNum}`);
+            const options = document.querySelectorAll(`#q${questionNum} .option`);
+            const isCorrect = selectedOption.value === correctAnswer;
+
+            answeredQuestions.add(questionNum);
+
+            options.forEach(option => {
+                const input = option.querySelector('input');
+                if (input.value === correctAnswer) {
+                    option.classList.add('correct');
+                } else if (input.checked) {
+                    option.classList.add('incorrect');
+                }
+                input.disabled = true;
+            });
+
+            if (isCorrect) {
+                score++;
+                feedbackEl.textContent = feedback[questionNum].correct;
+                feedbackEl.className = 'feedback correct';
+            } else {
+                feedbackEl.textContent = feedback[questionNum].incorrect;
+                feedbackEl.className = 'feedback incorrect';
+            }
+
+            // Disable the check button
+            document.querySelector(`#q${questionNum} .check-button`).disabled = true;
+
+            // Update score display if all questions answered
+            if (answeredQuestions.size === 5) {
+                const scoreDisplay = document.getElementById('scoreDisplay');
+                document.getElementById('scoreValue').textContent = score;
+                scoreDisplay.style.display = 'block';
+            }
+        }
+
+        // Highlight selected option
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const input = this.querySelector('input');
+                if (!input.disabled) {
+                    const questionBlock = this.closest('.question-block');
+                    questionBlock.querySelectorAll('.option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                    input.checked = true;
+                }
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                nextPage();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                prevPage();
+            }
+        });
+    </script>
+
+</body>
+</html>
