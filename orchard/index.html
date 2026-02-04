@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Orchard of Small Things</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', 'Garamond', 'Times New Roman', serif;
+            background: #f2efe7;
+            color: #2b2420;
+            overflow-x: hidden;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #7a6148, #4b3b2d);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 60px 40px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .page.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .page-content {
+            max-width: 760px;
+            width: 100%;
+        }
+
+        .cover-page {
+            background: linear-gradient(135deg, #57483b 0%, #3a2f27 100%);
+            color: #f2efe7;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .cover-page .series-badge {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.75;
+            margin-bottom: 30px;
+            padding: 8px 20px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 20px;
+        }
+
+        .cover-page h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .cover-page .subtitle {
+            font-size: 18px;
+            margin-bottom: 8px;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        .cover-page .setting {
+            font-size: 14px;
+            opacity: 0.65;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .cover-page .image-container {
+            margin: 30px auto;
+            max-width: 640px;
+        }
+
+        .cover-page .image-container img {
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+        }
+
+        .begin-button {
+            margin-top: 30px;
+            padding: 14px 50px;
+            font-size: 16px;
+            font-family: inherit;
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.45);
+            color: #f2efe7;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .begin-button:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.7);
+            transform: translateY(-2px);
+        }
+
+        .content-page {
+            background: #f2efe7;
+        }
+
+        .chapter-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e1d8ca;
+        }
+
+        .chapter-number {
+            font-size: 12px;
+            color: #7a6148;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .content-page h2 {
+            font-size: 26px;
+            color: #3a2f27;
+            font-weight: normal;
+        }
+
+        .content-page p {
+            font-size: 18px;
+            line-height: 1.85;
+            margin-bottom: 22px;
+            text-align: justify;
+            color: #3a2f27;
+        }
+
+        .content-page em {
+            color: #5b4634;
+        }
+
+        .dialogue {
+            margin: 28px 0;
+            padding: 20px 25px;
+            background: linear-gradient(135deg, #fbfaf7 0%, #f2efe7 100%);
+            border-left: 4px solid #7a6148;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .dialogue p {
+            margin-bottom: 12px;
+        }
+
+        .dialogue p:last-child {
+            margin-bottom: 0;
+        }
+
+        .speaker {
+            color: #5b4634;
+        }
+
+        .image-container {
+            margin: 35px 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 55vh;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.14);
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid #e1d8ca;
+        }
+
+        .nav-button {
+            padding: 12px 28px;
+            font-size: 15px;
+            font-family: inherit;
+            background: #5b4634;
+            border: none;
+            color: #f2efe7;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: #4a3a2b;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-button.secondary {
+            background: transparent;
+            color: #5b4634;
+            border: 2px solid #c9b9a7;
+        }
+
+        .nav-button.secondary:hover {
+            background: #ece5d8;
+            border-color: #7a6148;
+        }
+
+        .nav-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .page-indicator {
+            font-size: 13px;
+            color: #a08f7a;
+            letter-spacing: 1px;
+        }
+
+        .end-page {
+            background: linear-gradient(135deg, #57483b 0%, #3a2f27 100%);
+            color: #f2efe7;
+            text-align: center;
+        }
+
+        .end-page h1 {
+            font-size: 32px;
+            margin-bottom: 35px;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        .ornament {
+            font-size: 20px;
+            margin: 25px 0;
+            opacity: 0.5;
+            letter-spacing: 8px;
+        }
+
+        .end-quote {
+            max-width: 520px;
+            margin: 0 auto 40px;
+        }
+
+        .end-quote blockquote {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .end-quote cite {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .next-story {
+            font-size: 13px;
+            opacity: 0.6;
+            margin-top: 50px;
+            line-height: 1.8;
+        }
+
+        .quiz-page {
+            background: #f2efe7;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .quiz-header h2 {
+            font-size: 28px;
+            color: #3a2f27;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .quiz-header p {
+            font-size: 16px;
+            color: #7a6148;
+        }
+
+        .question-block {
+            background: #fff;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e8e1d6;
+        }
+
+        .question-block h3 {
+            font-size: 17px;
+            font-weight: normal;
+            color: #3a2f27;
+            margin-bottom: 22px;
+            line-height: 1.6;
+        }
+
+        .question-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #5b4634;
+            color: #f2efe7;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            font-size: 13px;
+            margin-right: 12px;
+        }
+
+        .options {
+            margin: 20px 0;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 14px 18px;
+            margin: 10px 0;
+            background: #fbfaf7;
+            border: 2px solid #e8e1d6;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option:hover {
+            background: #f2efe7;
+            border-color: #c9b9a7;
+        }
+
+        .option input {
+            margin-right: 14px;
+            transform: scale(1.15);
+            accent-color: #5b4634;
+        }
+
+        .option.selected {
+            border-color: #5b4634;
+            background: #f2efe7;
+        }
+
+        .option.correct {
+            border-color: #4a7c4e;
+            background: #e8f5e9;
+        }
+
+        .option.incorrect {
+            border-color: #b55454;
+            background: #ffebee;
+        }
+
+        .check-button {
+            padding: 11px 28px;
+            font-size: 15px;
+            font-family: inherit;
+            background: #5b4634;
+            border: none;
+            color: #f2efe7;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .check-button:hover {
+            background: #4a3a2b;
+        }
+
+        .check-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .feedback {
+            margin-top: 18px;
+            padding: 16px 20px;
+            border-radius: 8px;
+            display: none;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .feedback.correct {
+            background: #e8f5e9;
+            color: #2e5a32;
+            border-left: 4px solid #4a7c4e;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background: #ffebee;
+            color: #8b3a3a;
+            border-left: 4px solid #b55454;
+            display: block;
+        }
+
+        .score-display {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #5b4634 0%, #4a3a2b 100%);
+            border-radius: 12px;
+            margin-top: 30px;
+            color: #f2efe7;
+        }
+
+        .score-display h3 {
+            font-size: 22px;
+            font-weight: normal;
+        }
+
+        .score-display .score-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .page {
+                padding: 30px 20px;
+            }
+
+            .cover-page h1 {
+                font-size: 32px;
+            }
+
+            .content-page p {
+                font-size: 16px;
+                text-align: left;
+            }
+
+            .dialogue {
+                padding: 15px 18px;
+            }
+
+            .nav-buttons {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav-button {
+                flex: 1;
+                min-width: 120px;
+                text-align: center;
+            }
+
+            .page-indicator {
+                width: 100%;
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            .question-block {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <section class="page cover-page active" id="page-0">
+        <div class="page-content">
+            <span class="series-badge">Illustrated Stories</span>
+            <h1>The Orchard of Small Things</h1>
+            <p class="subtitle">A Tale of Patience</p>
+            <p class="setting">Mediterranean Coast · 12th Century</p>
+            <div class="image-container">
+                <img src="cover.png" alt="Terraced orchard at dusk with a village and sea beyond">
+            </div>
+            <button class="begin-button" onclick="nextPage()">Begin Reading</button>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-1">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 1</span>
+                <h2>The Restlessness</h2>
+            </div>
+            <div class="image-container">
+                <img src="image1.png" alt="Theo standing on a terrace overlooking the village">
+            </div>
+            <p>Theo stood at the edge of the highest terrace, the village clustered below him like a handful of stones. The sea beyond was a thin line of silver, promising roads he could not yet walk.</p>
+            <p>He was thirteen, quick with his hands and quicker with his impatience. He wanted a life that moved faster than the seasons, a name that traveled farther than the sea breeze.</p>
+            <p>But the orchards moved slowly. Trees that took years to bear fruit, walls that had been laid stone by stone, day after day. The work felt small, and he wanted something large.</p>
+            <p><em>There must be a better way,</em> he thought. <em>There must be a secret that the old ones keep.</em></p>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">← Back</button>
+                <span class="page-indicator">1 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue →</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-2">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 2</span>
+                <h2>The Orchard</h2>
+            </div>
+            <div class="image-container">
+                <img src="image2.png" alt="Theo meets Elias among olive trees">
+            </div>
+            <p>That evening, Theo wandered into the oldest terraces, where the olive trees were knotted like old hands. There he found Elias, the orchard keeper, trimming a branch with patient care.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"You're late for supper,"</span> Elias said without looking up.</p>
+                <p><span class="speaker">"I needed air,"</span> Theo answered. <span class="speaker">"I wanted to ask you something."</span></p>
+            </div>
+            <p>Elias finally turned. His eyes were quiet and steady, the kind that had watched many seasons come and go.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Ask,"</span> he said.</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">← Back</button>
+                <span class="page-indicator">2 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue →</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-3">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 3</span>
+                <h2>The Bargain</h2>
+            </div>
+            <div class="image-container">
+                <img src="image3.png" alt="Elias shows Theo pruning and clearing stones">
+            </div>
+            <p>Theo spoke quickly. "Teach me to be great. Teach me the thing that makes a life bigger than this village."</p>
+            <div class="dialogue">
+                <p><span class="speaker">"There is no secret,"</span> Elias said. <span class="speaker">"Only small things done with care."</span></p>
+                <p><span class="speaker">"Small things won't make me known,"</span> Theo insisted.</p>
+                <p><span class="speaker">"Come tomorrow,"</span> Elias said, handing him a basket of stones. <span class="speaker">"Bring your strength. We will begin there."</span></p>
+            </div>
+            <p>Theo felt both disappointed and curious. A basket of stones did not sound like greatness. But he returned the next morning anyway.</p>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">← Back</button>
+                <span class="page-indicator">3 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue →</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-4">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 4</span>
+                <h2>The Small Things</h2>
+            </div>
+            <div class="image-container">
+                <img src="image4.png" alt="Theo ties a sapling to a stake">
+            </div>
+            <p>Day by day, Elias gave him tasks that felt almost invisible: clear stones from the roots, tie saplings straight, prune only what must be pruned. Nothing dramatic, nothing that made him feel special.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Why does any of this matter?"</span> Theo asked one afternoon, his hands raw from twine.</p>
+                <p><span class="speaker">"Because the tree remembers,"</span> Elias said. <span class="speaker">"It remembers if you were careless. It remembers if you were patient."</span></p>
+            </div>
+            <p>Theo looked at the sapling in his hands. It was small, but it was alive. He realized that small things were not nothing. They were the only things that could become more.</p>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">← Back</button>
+                <span class="page-indicator">4 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue →</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-5">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 5</span>
+                <h2>The Setback</h2>
+            </div>
+            <div class="image-container">
+                <img src="image5.png" alt="After a storm, Theo and Elias re-stake a broken branch">
+            </div>
+            <p>One night a storm came hard from the sea. In the morning, a young branch lay broken, its leaves plastered to the stones.</p>
+            <p>Theo stared at the damage. "So much work, and for what?"</p>
+            <div class="dialogue">
+                <p><span class="speaker">"For the chance to repair it,"</span> Elias said. <span class="speaker">"The storm is part of the bargain. We don't work to avoid the wind. We work to be ready when it comes."</span></p>
+            </div>
+            <p>Together they pruned the torn edges and tied the branch upright. Theo's hands moved slower, steadier. He felt the orchard's quiet insistence.</p>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">← Back</button>
+                <span class="page-indicator">5 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue →</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-6">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 6</span>
+                <h2>The Passing of Time</h2>
+            </div>
+            <div class="image-container">
+                <img src="image6.png" alt="Theo and Elias working at dawn in the orchard">
+            </div>
+            <p>Summer softened into autumn. The orchard changed by inches: thicker leaves, deeper roots, a shade where there had been none.</p>
+            <p>Theo changed too. He woke earlier without being told. He noticed when a leaf curled from thirst. He was not less ambitious—only less hurried.</p>
+            <p>Elias said little. But when he did speak, it was enough. <em>Show up,</em> he would say. <em>That's most of it.</em></p>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">← Back</button>
+                <span class="page-indicator">6 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue →</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-7">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 7</span>
+                <h2>The First Harvest</h2>
+            </div>
+            <div class="image-container">
+                <img src="image7.png" alt="Theo holds a basket as Elias shares fruit">
+            </div>
+            <p>When the first figs ripened, there were only a few. Theo carried the basket as if it were something rare.</p>
+            <p>Elias took some of the fruit and handed it to a neighbor at the gate. The old woman smiled as if it were a treasure.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"You give it away?"</span> Theo asked.</p>
+                <p><span class="speaker">"That's why we grow it,"</span> Elias said. <span class="speaker">"Small things become enough when they are shared."</span></p>
+            </div>
+            <p>Theo looked at the remaining figs in the basket, smaller now, and somehow more meaningful.</p>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">← Back</button>
+                <span class="page-indicator">7 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue →</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-8">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 8</span>
+                <h2>The Promise</h2>
+            </div>
+            <div class="image-container">
+                <img src="image8.png" alt="Theo plants a new sapling at twilight">
+            </div>
+            <p>Later that season, Elias fell ill for a few weeks. Theo tended the terraces alone, moving through the rows with a steadiness he did not recognize at first.</p>
+            <p>At twilight, he planted a new sapling near the edge of the highest terrace. He did not know if he would ever become famous. But he knew the shape of a good day.</p>
+            <p>He pressed the soil around the roots and felt something settle inside him: a quiet promise to return, to show up, to do the small things well.</p>
+            <p>The orchard did not answer. It did not need to. It simply grew.</p>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">← Back</button>
+                <span class="page-indicator">8 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Take the Quiz →</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page quiz-page" id="page-9">
+        <div class="page-content">
+            <div class="quiz-header">
+                <h2>Check Your Understanding</h2>
+                <p>Answer the questions below to test what you learned from the story.</p>
+            </div>
+
+            <div class="question-block" id="q1">
+                <h3><span class="question-number">1</span> Why does Theo feel restless at the beginning of the story?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q1" value="a"> He wants to leave the village quickly and become known
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="b"> He dislikes the sea and dreams of the mountains
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="c"> He is afraid of the orchard and avoids it
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="d"> He has already harvested the orchard and feels bored
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(1, 'a')">Check Answer</button>
+                <div class="feedback" id="feedback1"></div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <h3><span class="question-number">2</span> What does Elias mean by “small things done with care”?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q2" value="a"> Only easy tasks are worth doing
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="b"> Lasting growth comes from steady, patient attention
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="c"> Shortcuts are the fastest path to success
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="d"> The orchard is too small to matter
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(2, 'b')">Check Answer</button>
+                <div class="feedback" id="feedback2"></div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <h3><span class="question-number">3</span> What lesson does Theo learn after the storm?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q3" value="a"> Storms mean the work was pointless
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="b"> The work is to be ready to repair, not to avoid hardship
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="c"> Hard work guarantees no setbacks
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="d"> He should leave the orchard immediately
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(3, 'b')">Check Answer</button>
+                <div class="feedback" id="feedback3"></div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <h3><span class="question-number">4</span> Why does Elias give some of the first figs to a neighbor?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q4" value="a"> He dislikes figs and wants to get rid of them
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="b"> He believes small things become enough when shared
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="c"> He is trying to sell the orchard
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="d"> He forgot where he put his basket
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(4, 'b')">Check Answer</button>
+                <div class="feedback" id="feedback4"></div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <h3><span class="question-number">5</span> What does Theo promise himself at the end?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q5" value="a"> To abandon the orchard and seek fame
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="b"> To keep returning and do the small things well
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="c"> To never work with Elias again
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="d"> To stop caring about growth
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(5, 'b')">Check Answer</button>
+                <div class="feedback" id="feedback5"></div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay" style="display: none;">
+                <h3>Your Score</h3>
+                <div class="score-number"><span id="scoreValue">0</span>/5</div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">← Back to Story</button>
+                <span class="page-indicator">9 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Finish →</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page end-page" id="page-10">
+        <div class="page-content">
+            <div class="ornament">✦ ✦ ✦</div>
+            <h1>The End</h1>
+            <div class="end-quote">
+                <blockquote><em>Small things, done faithfully, become a harvest.</em></blockquote>
+                <cite>— An old orchard saying</cite>
+            </div>
+            <div class="ornament">✦</div>
+            <p class="next-story">Thank you for reading.<br>More stories coming soon.</p>
+            <div class="nav-buttons" style="justify-content: center; border: none; margin-top: 40px;">
+                <button class="nav-button" onclick="showPage(0)">Read Again</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentPage = 0;
+        const totalPages = 11;
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        const feedback = {
+            1: {
+                correct: "Yes. Theo wants a faster, more celebrated life than the slow orchard seems to offer.",
+                incorrect: "Not quite. Theo is restless because he wants to leave quickly and become known."
+            },
+            2: {
+                correct: "Exactly. Elias teaches that lasting growth comes from steady, careful attention.",
+                incorrect: "The answer is B. Small things done with care compound into lasting growth."
+            },
+            3: {
+                correct: "Right. The work isn't to prevent storms, but to be ready to repair and continue.",
+                incorrect: "The answer is B. Elias teaches that the work prepares them to respond to hardship."
+            },
+            4: {
+                correct: "Yes. Elias believes small things become enough when they are shared.",
+                incorrect: "The answer is B. Elias gives the fruit away because sharing is part of its purpose."
+            },
+            5: {
+                correct: "Exactly. Theo promises to return and keep doing the small things well.",
+                incorrect: "The answer is B. Theo chooses the slow path of steady, faithful work."
+            }
+        };
+
+        function updateProgress() {
+            const progress = (currentPage / (totalPages - 1)) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function showPage(pageNum) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(`page-${pageNum}`).classList.add('active');
+            currentPage = pageNum;
+            updateProgress();
+            window.scrollTo(0, 0);
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages - 1) {
+                showPage(currentPage + 1);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                showPage(currentPage - 1);
+            }
+        }
+
+        function checkAnswer(questionNum, correctAnswer) {
+            if (answeredQuestions.has(questionNum)) return;
+
+            const selectedOption = document.querySelector(`input[name="q${questionNum}"]:checked`);
+            if (!selectedOption) {
+                alert("Please select an answer first.");
+                return;
+            }
+
+            const feedbackEl = document.getElementById(`feedback${questionNum}`);
+            const options = document.querySelectorAll(`#q${questionNum} .option`);
+            const isCorrect = selectedOption.value === correctAnswer;
+
+            answeredQuestions.add(questionNum);
+
+            options.forEach(option => {
+                const input = option.querySelector('input');
+                if (input.value === correctAnswer) {
+                    option.classList.add('correct');
+                } else if (input.checked) {
+                    option.classList.add('incorrect');
+                }
+                input.disabled = true;
+            });
+
+            if (isCorrect) {
+                score++;
+                feedbackEl.textContent = feedback[questionNum].correct;
+                feedbackEl.className = 'feedback correct';
+            } else {
+                feedbackEl.textContent = feedback[questionNum].incorrect;
+                feedbackEl.className = 'feedback incorrect';
+            }
+
+            document.querySelector(`#q${questionNum} .check-button`).disabled = true;
+
+            if (answeredQuestions.size === 5) {
+                const scoreDisplay = document.getElementById('scoreDisplay');
+                document.getElementById('scoreValue').textContent = score;
+                scoreDisplay.style.display = 'block';
+                scoreDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const input = this.querySelector('input');
+                if (!input.disabled) {
+                    const questionBlock = this.closest('.question-block');
+                    questionBlock.querySelectorAll('.option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                    input.checked = true;
+                }
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT') return;
+            if (e.key === 'ArrowRight') nextPage();
+            else if (e.key === 'ArrowLeft') prevPage();
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', e => {
+            const touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) nextPage();
+                else prevPage();
+            }
+        }, { passive: true });
+
+        updateProgress();
+    </script>
+
+</body>
+</html>
