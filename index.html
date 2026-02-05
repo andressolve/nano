@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Illustrated Stories</title>
+  <style>
+    :root {
+      --bg0: #f3efe7;
+      --bg1: #efe7da;
+      --ink: #221f1c;
+      --muted: rgba(34, 31, 28, 0.68);
+      --card: rgba(255, 255, 255, 0.72);
+      --card-border: rgba(34, 31, 28, 0.12);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      --shadow2: 0 18px 48px rgba(0, 0, 0, 0.18);
+      --accent: #6b4f3a;
+      --accent2: #2f2a26;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Garamond, Georgia, serif;
+      background:
+        radial-gradient(1200px 800px at 15% 10%, rgba(107, 79, 58, 0.12), transparent 55%),
+        radial-gradient(900px 600px at 85% 20%, rgba(47, 42, 38, 0.10), transparent 52%),
+        radial-gradient(900px 700px at 35% 95%, rgba(132, 104, 73, 0.10), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x: hidden;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 22px 80px;
+    }
+
+    header {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      width: fit-content;
+      font-size: 12px;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+      color: rgba(34, 31, 28, 0.76);
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 31, 28, 0.16);
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      margin: 0;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height: 1.06;
+    }
+
+    .subhead {
+      max-width: 72ch;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .card {
+      grid-column: span 6;
+      display: grid;
+      gap: 14px;
+      padding: 16px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      transform: translateZ(0);
+      transition: transform 200ms ease, box-shadow 250ms ease, border-color 250ms ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background:
+        radial-gradient(500px 260px at 10% 10%, rgba(107, 79, 58, 0.20), transparent 60%),
+        radial-gradient(480px 240px at 90% 0%, rgba(47, 42, 38, 0.16), transparent 55%);
+      opacity: 0.75;
+      pointer-events: none;
+      filter: saturate(1.05);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow2);
+      border-color: rgba(34, 31, 28, 0.22);
+    }
+
+    .thumb {
+      position: relative;
+      border-radius: calc(var(--radius) - 6px);
+      overflow: hidden;
+      border: 1px solid rgba(34, 31, 28, 0.10);
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    .thumb img {
+      display: block;
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      transform: scale(1.02);
+      filter: contrast(1.03) saturate(1.03);
+      transition: transform 260ms ease;
+    }
+
+    .card:hover .thumb img { transform: scale(1.06); }
+
+    .meta {
+      position: relative;
+      display: grid;
+      gap: 10px;
+      padding: 2px 4px 6px;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .story-title {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .cta {
+      font-size: 14px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: rgba(107, 79, 58, 0.95);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      user-select: none;
+    }
+
+    .desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .chip {
+      font-size: 12px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: rgba(34, 31, 28, 0.72);
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 31, 28, 0.12);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(8px);
+    }
+
+    footer {
+      margin-top: 34px;
+      color: rgba(34, 31, 28, 0.55);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    footer code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 920px) {
+      .card { grid-column: span 12; }
+      .thumb img { height: 240px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card, .thumb img { transition: none; }
+      .card:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="badge">Illustrated Stories</div>
+      <h1>Two short stories, built to be reread.</h1>
+      <p class="subhead">
+        Each story pairs reflective narrative with scene-by-scene illustrations. Pick one, read through, then take the short quiz at the end.
+      </p>
+    </header>
+
+    <main class="grid" aria-label="Story cards">
+      <a class="card" href="marcus/index.html" aria-label="Open The View From Above">
+        <div class="thumb">
+          <img src="marcus/cover.png" alt="Rome at dusk with palace gardens" />
+        </div>
+        <div class="meta">
+          <div class="title-row">
+            <h2 class="story-title">The View From Above</h2>
+            <span class="cta">Read <span aria-hidden="true">→</span></span>
+          </div>
+          <p class="desc">A moment of humiliation becomes a lesson in scale, time, and perspective.</p>
+          <div class="chips" aria-label="Story tags">
+            <span class="chip">Rome</span>
+            <span class="chip">170 CE</span>
+            <span class="chip">Perspective</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="orchard/index.html" aria-label="Open The Orchard of Small Things">
+        <div class="thumb">
+          <img src="orchard/cover.png" alt="Terraced orchard at dusk with village and sea" />
+        </div>
+        <div class="meta">
+          <div class="title-row">
+            <h2 class="story-title">The Orchard of Small Things</h2>
+            <span class="cta">Read <span aria-hidden="true">→</span></span>
+          </div>
+          <p class="desc">A restless boy learns how patience, repair, and repetition become a kind of strength.</p>
+          <div class="chips" aria-label="Story tags">
+            <span class="chip">Mediterranean</span>
+            <span class="chip">12th c.</span>
+            <span class="chip">Patience</span>
+          </div>
+        </div>
+      </a>
+    </main>
+
+    <footer>
+      Tip: open this folder with a local web server if your browser blocks file navigation.
+      Stories live in <code>marcus/</code> and <code>orchard/</code>.
+    </footer>
+  </div>
+</body>
+</html>
+
