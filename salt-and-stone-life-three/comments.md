@@ -1,0 +1,2 @@
+page 3: some issues with text speech bubble (bottom frame). fix it. edit or check prompt and regenerate. your call.
+page 10: the text box: "their chief studied him like..." is appearing twice. edit or check prompt and regenerate. your call.
