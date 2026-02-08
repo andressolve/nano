@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Boy Who Mapped the Wind</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', 'Garamond', 'Times New Roman', serif;
+            background: #e8ecf0;
+            color: #1a1e24;
+            overflow-x: hidden;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e6091, #14455e);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 60px 40px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .page.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .page-content {
+            max-width: 760px;
+            width: 100%;
+        }
+
+        .cover-page {
+            background: linear-gradient(135deg, #0a1628 0%, #112240 50%, #0d1a30 100%);
+            color: #d4dbe4;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .cover-page .series-badge {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.75;
+            margin-bottom: 30px;
+            padding: 8px 20px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 20px;
+        }
+
+        .cover-page h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .cover-page .subtitle {
+            font-size: 18px;
+            margin-bottom: 8px;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        .cover-page .setting {
+            font-size: 14px;
+            opacity: 0.65;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .cover-page .image-container {
+            margin: 30px auto;
+            max-width: 640px;
+        }
+
+        .cover-page .image-container img {
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+        }
+
+        .begin-button {
+            margin-top: 30px;
+            padding: 14px 50px;
+            font-size: 16px;
+            font-family: inherit;
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.45);
+            color: #d4dbe4;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .begin-button:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.7);
+            transform: translateY(-2px);
+        }
+
+        .content-page {
+            background: #e8ecf0;
+        }
+
+        .chapter-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #c8d0da;
+        }
+
+        .chapter-number {
+            font-size: 12px;
+            color: #1e6091;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .content-page h2 {
+            font-size: 26px;
+            color: #1a1e24;
+            font-weight: normal;
+        }
+
+        .content-page p {
+            font-size: 18px;
+            line-height: 1.85;
+            margin-bottom: 22px;
+            text-align: justify;
+            color: #252a32;
+        }
+
+        .content-page em {
+            color: #1e6091;
+        }
+
+        .dialogue {
+            margin: 28px 0;
+            padding: 20px 25px;
+            background: linear-gradient(135deg, #f4f6f8 0%, #e8ecf0 100%);
+            border-left: 4px solid #1e6091;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .dialogue p {
+            margin-bottom: 12px;
+        }
+
+        .dialogue p:last-child {
+            margin-bottom: 0;
+        }
+
+        .speaker {
+            color: #14455e;
+        }
+
+        .image-container {
+            margin: 35px 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 55vh;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.14);
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid #c8d0da;
+        }
+
+        .nav-button {
+            padding: 12px 28px;
+            font-size: 15px;
+            font-family: inherit;
+            background: #14455e;
+            border: none;
+            color: #d4dbe4;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: #0d3348;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-button.secondary {
+            background: transparent;
+            color: #14455e;
+            border: 2px solid #adb8c4;
+        }
+
+        .nav-button.secondary:hover {
+            background: #d4dbe4;
+            border-color: #1e6091;
+        }
+
+        .nav-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .page-indicator {
+            font-size: 13px;
+            color: #8090a0;
+            letter-spacing: 1px;
+        }
+
+        .end-page {
+            background: linear-gradient(135deg, #0a1628 0%, #112240 50%, #0d1a30 100%);
+            color: #d4dbe4;
+            text-align: center;
+        }
+
+        .end-page h1 {
+            font-size: 32px;
+            margin-bottom: 35px;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        .ornament {
+            font-size: 20px;
+            margin: 25px 0;
+            opacity: 0.5;
+            letter-spacing: 8px;
+        }
+
+        .end-quote {
+            max-width: 520px;
+            margin: 0 auto 40px;
+        }
+
+        .end-quote blockquote {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .end-quote cite {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .next-story {
+            font-size: 13px;
+            opacity: 0.6;
+            margin-top: 50px;
+            line-height: 1.8;
+        }
+
+        .quiz-page {
+            background: #e8ecf0;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .quiz-header h2 {
+            font-size: 28px;
+            color: #1a1e24;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .quiz-header p {
+            font-size: 16px;
+            color: #1e6091;
+        }
+
+        .question-block {
+            background: #fff;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid #d0d6de;
+        }
+
+        .question-block h3 {
+            font-size: 17px;
+            font-weight: normal;
+            color: #1a1e24;
+            margin-bottom: 22px;
+            line-height: 1.6;
+        }
+
+        .question-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #14455e;
+            color: #d4dbe4;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            font-size: 13px;
+            margin-right: 12px;
+        }
+
+        .options {
+            margin: 20px 0;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 14px 18px;
+            margin: 10px 0;
+            background: #f4f6f8;
+            border: 2px solid #d0d6de;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option:hover {
+            background: #e8ecf0;
+            border-color: #adb8c4;
+        }
+
+        .option input {
+            margin-right: 14px;
+            transform: scale(1.15);
+            accent-color: #1e6091;
+        }
+
+        .option.selected {
+            border-color: #1e6091;
+            background: #e8ecf0;
+        }
+
+        .option.correct {
+            border-color: #4a7c4e;
+            background: #e8f5e9;
+        }
+
+        .option.incorrect {
+            border-color: #b55454;
+            background: #ffebee;
+        }
+
+        .check-button {
+            padding: 11px 28px;
+            font-size: 15px;
+            font-family: inherit;
+            background: #14455e;
+            border: none;
+            color: #d4dbe4;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .check-button:hover {
+            background: #0d3348;
+        }
+
+        .check-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .feedback {
+            margin-top: 18px;
+            padding: 16px 20px;
+            border-radius: 8px;
+            display: none;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .feedback.correct {
+            background: #e8f5e9;
+            color: #2e5a32;
+            border-left: 4px solid #4a7c4e;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background: #ffebee;
+            color: #8b3a3a;
+            border-left: 4px solid #b55454;
+            display: block;
+        }
+
+        .score-display {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #14455e 0%, #0d3348 100%);
+            border-radius: 12px;
+            margin-top: 30px;
+            color: #d4dbe4;
+        }
+
+        .score-display h3 {
+            font-size: 22px;
+            font-weight: normal;
+        }
+
+        .score-display .score-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .page {
+                padding: 30px 20px;
+            }
+
+            .cover-page h1 {
+                font-size: 32px;
+            }
+
+            .content-page p {
+                font-size: 16px;
+                text-align: left;
+            }
+
+            .dialogue {
+                padding: 15px 18px;
+            }
+
+            .nav-buttons {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav-button {
+                flex: 1;
+                min-width: 120px;
+                text-align: center;
+            }
+
+            .page-indicator {
+                width: 100%;
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            .question-block {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <section class="page cover-page active" id="page-0">
+        <div class="page-content">
+            <span class="series-badge">Illustrated Stories</span>
+            <h1>The Boy Who Mapped the Wind</h1>
+            <p class="subtitle">A Tale of Attention and Listening</p>
+            <p class="setting">Polynesian Pacific &#183; 1100 AD</p>
+            <div class="image-container">
+                <img src="cover.png" alt="A double-hulled canoe on a vast Pacific ocean under a star-filled sky">
+            </div>
+            <button class="begin-button" onclick="nextPage()">Begin Reading</button>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-1">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 1</span>
+                <h2>The Star Reader</h2>
+            </div>
+            <div class="image-container">
+                <img src="image1.png" alt="A boy sits on a beach at night studying the stars above the ocean">
+            </div>
+            <p>Koa could name every star that mattered. At twelve, he could trace the path from their island to the fishing grounds by the arc of Hokulea alone. He was the youngest in his family to learn the star compass, and he wore that knowledge like a sail full of wind.</p>
+            <p>His grandfather Tau, the last great navigator of their island, had taught him since he could walk. But lately Koa thought the lessons were too slow. He already knew the stars. What else was there?</p>
+            <div class="dialogue">
+                <p><span class="speaker">"I am ready,"</span> Koa told his grandfather one evening. <span class="speaker">"I can navigate to Raiatea and back with my eyes closed."</span></p>
+                <p><span class="speaker">"With your eyes closed,"</span> Tau repeated. He did not smile. <span class="speaker">"Then you have learned nothing at all."</span></p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">&#8592; Back</button>
+                <span class="page-indicator">1 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue &#8594;</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-2">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 2</span>
+                <h2>The Crossing</h2>
+            </div>
+            <div class="image-container">
+                <img src="image2.png" alt="A double-hulled canoe sets out from a tropical island at dawn">
+            </div>
+            <p>The next morning Tau woke Koa before dawn. The double-hulled canoe was already loaded: water gourds, dried fish, pandanus mats. No one else was aboard.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Today you navigate,"</span> Tau said. <span class="speaker">"I will only watch."</span></p>
+            </div>
+            <p>Koa grinned. He pushed them out through the reef passage, read the angle of the morning star, and set the sail. The canoe caught the trade wind and surged forward. The island shrank behind them until it was just a green smudge, then nothing.</p>
+            <p>Open ocean in every direction. Koa felt the size of it settle against his chest like a hand.</p>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">&#8592; Back</button>
+                <span class="page-indicator">2 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue &#8594;</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-3">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 3</span>
+                <h2>The Swells</h2>
+            </div>
+            <div class="image-container">
+                <img src="image3.png" alt="Tau lies in the hull of the canoe with his eyes closed, feeling the ocean swells">
+            </div>
+            <p>By midday Koa noticed something strange. Tau was lying in the hull with his eyes closed, one hand resting on the outrigger beam. He had been like that for an hour.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Grandfather, are you sleeping?"</span></p>
+                <p><span class="speaker">"I am listening,"</span> Tau said. <span class="speaker">"There are three swells passing under us right now. One from the northeast, one reflected from an island we cannot see, and one old swell from a storm two days gone. Can you feel them?"</span></p>
+            </div>
+            <p>Koa put his hand on the hull. He felt the ocean moving. But three swells? He felt one: up, down. That was all.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"The stars tell you where to aim,"</span> Tau said. <span class="speaker">"But the ocean tells you where you are. You must learn to listen with more than your eyes."</span></p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">&#8592; Back</button>
+                <span class="page-indicator">3 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue &#8594;</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-4">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 4</span>
+                <h2>The Cloud and the Bird</h2>
+            </div>
+            <div class="image-container">
+                <img src="image4.png" alt="Koa watches a tern fly low across the water toward the horizon">
+            </div>
+            <p>That afternoon Tau pointed at a faint greenish tint on the underside of a cloud far to the west.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"What do you see?"</span></p>
+                <p><span class="speaker">"A cloud,"</span> Koa said.</p>
+                <p><span class="speaker">"Look at the color beneath it. That green is the lagoon reflecting upward. There is an island under that cloud, even though we cannot see it."</span></p>
+            </div>
+            <p>Koa stared. He would have sailed past it without a second glance.</p>
+            <p>Then a white tern crossed their bow, flying low and steady toward the southwest. Tau watched it without turning his head.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Terns fly out to fish in the morning and return to land at dusk. It is afternoon. She is going home. Follow her line and you will find shore."</span></p>
+            </div>
+            <p>The ocean was full of messages Koa had never thought to read.</p>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">&#8592; Back</button>
+                <span class="page-indicator">4 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue &#8594;</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-5">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 5</span>
+                <h2>The Storm</h2>
+            </div>
+            <div class="image-container">
+                <img src="image5.png" alt="Dark storm clouds roll in over the open ocean as the canoe rises on a wave">
+            </div>
+            <p>The sky changed without warning. A wall of cloud rose from the south, swallowing the sun. The wind shifted, then dropped, then came back from the wrong direction. Rain fell so hard Koa could not see past the bow.</p>
+            <p>The stars vanished. The horizon vanished. Every landmark Koa relied on was gone.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"Grandfather!"</span> Koa shouted over the wind. <span class="speaker">"I cannot see anything!"</span></p>
+                <p><span class="speaker">"Then stop looking,"</span> Tau said calmly. <span class="speaker">"Lie down. Close your eyes. Feel."</span></p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">&#8592; Back</button>
+                <span class="page-indicator">5 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue &#8594;</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-6">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 6</span>
+                <h2>Listening</h2>
+            </div>
+            <div class="image-container">
+                <img src="image6.png" alt="Koa lies in the hull of the canoe in the rain, eyes closed, hands on the wood">
+            </div>
+            <p>Koa pressed himself flat against the hull. Rain hammered his back. The canoe pitched and rolled. He wanted to open his eyes, to grab the steering oar, to <em>do something</em>.</p>
+            <p>Instead he listened.</p>
+            <p>At first there was only noise: wind, water, the creak of lashings. But slowly, beneath the chaos, he felt it. A long, deep rhythm pushing against the hull from the northeast. And a shorter, sharper pulse crossing it at an angle.</p>
+            <p>Two swells. He could feel them separately now, like two voices speaking at once.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"The northeast swell has not changed,"</span> he said, his voice shaking. <span class="speaker">"If I keep it on my left, we are still heading west."</span></p>
+            </div>
+            <p>In the dark, he felt Tau's hand rest briefly on his shoulder.</p>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">&#8592; Back</button>
+                <span class="page-indicator">6 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue &#8594;</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-7">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 7</span>
+                <h2>Land</h2>
+            </div>
+            <div class="image-container">
+                <img src="image7.png" alt="Dawn breaks as Koa and Tau see a green island emerging from the mist ahead">
+            </div>
+            <p>The storm passed in the night. Koa did not sleep. He kept his hand on the hull and held the course by feel alone, adjusting the sail each time the swell shifted beneath him.</p>
+            <p>When the first gray light touched the sky, he opened his eyes. And there, on the western horizon, a dark green line rose from the sea. An island. The right island.</p>
+            <p>Koa let out a breath he did not know he had been holding.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"You found it,"</span> Tau said quietly.</p>
+                <p><span class="speaker">"The ocean found it,"</span> Koa said. <span class="speaker">"I just listened."</span></p>
+            </div>
+            <p>Tau smiled for the first time in two days.</p>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">&#8592; Back</button>
+                <span class="page-indicator">7 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Continue &#8594;</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page content-page" id="page-8">
+        <div class="page-content">
+            <div class="chapter-title">
+                <span class="chapter-number">Chapter 8</span>
+                <h2>The Map That Cannot Be Drawn</h2>
+            </div>
+            <div class="image-container">
+                <img src="image8.png" alt="Koa stands at the bow of the canoe at sunrise, watching the ocean with quiet attention">
+            </div>
+            <p>They beached the canoe in a shallow lagoon and rested under the palms. That evening, as the stars returned, Koa sat beside his grandfather on the shore.</p>
+            <div class="dialogue">
+                <p><span class="speaker">"I thought I knew the ocean because I knew the stars,"</span> Koa said. <span class="speaker">"But I was only reading half the map."</span></p>
+                <p><span class="speaker">"The other half cannot be drawn,"</span> Tau said. <span class="speaker">"It must be felt. The swells, the wind, the birds, the color of the water. They are always speaking. A navigator's gift is not knowing the answers. It is knowing how to pay attention."</span></p>
+            </div>
+            <p>Koa looked out at the dark water. For the first time he did not see emptiness. He saw a world full of signals, patient and constant, waiting for someone willing to listen.</p>
+            <p>He closed his eyes and felt the swell move beneath the sand.</p>
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">&#8592; Back</button>
+                <span class="page-indicator">8 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Take the Quiz &#8594;</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page quiz-page" id="page-9">
+        <div class="page-content">
+            <div class="quiz-header">
+                <h2>Check Your Understanding</h2>
+                <p>Answer the questions below to test what you learned from the story.</p>
+            </div>
+
+            <div class="question-block" id="q1">
+                <h3><span class="question-number">1</span> Why does Tau say Koa has "learned nothing at all"?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q1" value="a"> Because Koa cannot name the stars
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="b"> Because Koa thinks knowing the stars is enough and ignores everything else the ocean tells him
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="c"> Because Koa is too young to navigate
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="d"> Because Tau does not want Koa to become a navigator
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(1, 'b')">Check Answer</button>
+                <div class="feedback" id="feedback1"></div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <h3><span class="question-number">2</span> What does the green tint under a cloud mean?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q2" value="a"> A storm is coming
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="b"> The cloud is low and dangerous
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="c"> A lagoon is reflecting its color upward, revealing a hidden island
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="d"> The water is shallow and unsafe
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(2, 'c')">Check Answer</button>
+                <div class="feedback" id="feedback2"></div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <h3><span class="question-number">3</span> Why does Tau tell Koa to close his eyes during the storm?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q3" value="a"> So Koa can sleep through the storm
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="b"> So Koa can feel the swells and navigate without sight
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="c"> So Koa will not be frightened
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="d"> So the rain does not hurt his eyes
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(3, 'b')">Check Answer</button>
+                <div class="feedback" id="feedback3"></div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <h3><span class="question-number">4</span> How does Koa find the island during the storm?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q4" value="a"> He waits for the stars to return
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="b"> He keeps the northeast swell on his left to hold a westward course
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="c"> He follows a bird
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="d"> Tau steers the canoe for him
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(4, 'b')">Check Answer</button>
+                <div class="feedback" id="feedback4"></div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <h3><span class="question-number">5</span> What does Koa mean by "the ocean found it, I just listened"?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q5" value="a"> The ocean carried the canoe by luck
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="b"> The signs were always there; his job was to pay attention to them
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="c"> He did not do any real work
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="d"> The ocean is alive and can speak
+                    </label>
+                </div>
+                <button class="check-button" onclick="checkAnswer(5, 'b')">Check Answer</button>
+                <div class="feedback" id="feedback5"></div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay" style="display: none;">
+                <h3>Your Score</h3>
+                <div class="score-number"><span id="scoreValue">0</span>/5</div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-button secondary" onclick="prevPage()">&#8592; Back to Story</button>
+                <span class="page-indicator">9 of 10</span>
+                <button class="nav-button" onclick="nextPage()">Finish &#8594;</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="page end-page" id="page-10">
+        <div class="page-content">
+            <div class="ornament">&#10038; &#10038; &#10038;</div>
+            <h1>The End</h1>
+            <div class="end-quote">
+                <blockquote><em>The ocean is always speaking. A navigator's gift is knowing how to listen.</em></blockquote>
+                <cite>&#8212; Tau</cite>
+            </div>
+            <div class="ornament">&#10038;</div>
+            <p class="next-story">Thank you for reading.<br>More stories coming soon.</p>
+            <div class="nav-buttons" style="justify-content: center; border: none; margin-top: 40px;">
+                <button class="nav-button" onclick="showPage(0)">Read Again</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentPage = 0;
+        const totalPages = 11;
+        let score = 0;
+        let answeredQuestions = new Set();
+
+        const feedback = {
+            1: {
+                correct: "Yes. Koa is overconfident in his star knowledge and ignores the ocean's other signals.",
+                incorrect: "Not quite. Tau says this because Koa thinks the stars are everything, but a navigator must read the whole ocean."
+            },
+            2: {
+                correct: "Exactly. The green tint is a lagoon reflecting its color onto the cloud above, revealing a hidden island.",
+                incorrect: "The answer is C. A green-tinted cloud base shows a lagoon reflecting upward, indicating land below."
+            },
+            3: {
+                correct: "Right. Without stars or horizon, Koa must feel the swells through the hull to hold his course.",
+                incorrect: "The answer is B. Tau wants Koa to navigate by feeling the ocean swells, not by sight."
+            },
+            4: {
+                correct: "Yes. Koa feels the steady northeast swell and keeps it on his left to maintain a westward heading.",
+                incorrect: "The answer is B. He uses the constant northeast swell as a reference to hold his course through the storm."
+            },
+            5: {
+                correct: "Exactly. The ocean's signals were always there; Koa's real skill was finally paying attention to them.",
+                incorrect: "The answer is B. Koa means the information was always in the swells and wind; he just had to learn to listen."
+            }
+        };
+
+        function showPage(pageIndex) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            pages[pageIndex].classList.add('active');
+            currentPage = pageIndex;
+            updateProgress();
+            window.scrollTo(0, 0);
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages - 1) {
+                showPage(currentPage + 1);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                showPage(currentPage - 1);
+            }
+        }
+
+        function updateProgress() {
+            const progress = (currentPage / (totalPages - 1)) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function checkAnswer(questionNumber, correctAnswer) {
+            if (answeredQuestions.has(questionNumber)) {
+                return;
+            }
+
+            const options = document.querySelectorAll(`input[name="q${questionNumber}"]`);
+            let selectedValue = null;
+
+            options.forEach(option => {
+                if (option.checked) {
+                    selectedValue = option.value;
+                }
+            });
+
+            if (!selectedValue) {
+                return;
+            }
+
+            const feedbackElement = document.getElementById(`feedback${questionNumber}`);
+            const optionLabels = document.querySelectorAll(`#q${questionNumber} .option`);
+
+            optionLabels.forEach(label => {
+                const input = label.querySelector('input');
+                label.classList.remove('selected');
+                if (input.checked) {
+                    label.classList.add('selected');
+                }
+            });
+
+            if (selectedValue === correctAnswer) {
+                feedbackElement.textContent = feedback[questionNumber].correct;
+                feedbackElement.className = 'feedback correct';
+                score++;
+            } else {
+                feedbackElement.textContent = feedback[questionNumber].incorrect;
+                feedbackElement.className = 'feedback incorrect';
+                optionLabels.forEach(label => {
+                    const input = label.querySelector('input');
+                    if (input.value === correctAnswer) {
+                        label.classList.add('correct');
+                    }
+                    if (input.checked) {
+                        label.classList.add('incorrect');
+                    }
+                });
+            }
+
+            answeredQuestions.add(questionNumber);
+            document.getElementById('scoreValue').textContent = score;
+            if (answeredQuestions.size === 5) {
+                document.getElementById('scoreDisplay').style.display = 'block';
+            }
+        }
+
+        document.querySelectorAll('.option input').forEach(input => {
+            input.addEventListener('change', () => {
+                const options = input.closest('.options').querySelectorAll('.option');
+                options.forEach(option => option.classList.remove('selected'));
+                input.closest('.option').classList.add('selected');
+            });
+        });
+
+        updateProgress();
+    </script>
+</body>
+</html>
