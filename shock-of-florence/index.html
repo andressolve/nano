@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Shock of Florence</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --medieval: #3a3632;
+            --florence: #c47a2a;
+            --parchment: #f5f0e6;
+            --ink: #1e1c1a;
+            --stone: #8a8279;
+            --accent: #6b4226;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', 'Garamond', serif;
+            background: var(--parchment);
+            color: var(--ink);
+            overflow-x: hidden;
+        }
+
+        /* Progress */
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--medieval), var(--florence));
+            width: 0%;
+            transition: width 0.4s ease;
+            z-index: 1000;
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .page.active {
+            opacity: 1;
+        }
+
+        /* Cover */
+        .cover {
+            background: #111;
+            color: #e8e0d0;
+            text-align: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .cover.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .cover .badge {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-bottom: 30px;
+            padding: 6px 18px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+        }
+        .cover h1 {
+            font-size: 48px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            line-height: 1.15;
+            margin-bottom: 14px;
+        }
+        .cover .subtitle {
+            font-size: 20px;
+            font-style: italic;
+            opacity: 0.8;
+            margin-bottom: 6px;
+        }
+        .cover .setting {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            opacity: 0.5;
+            letter-spacing: 1.5px;
+            margin-bottom: 35px;
+        }
+        .cover img {
+            max-width: 600px;
+            width: 90%;
+            border-radius: 10px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+            margin-bottom: 35px;
+        }
+        .cover .begin {
+            padding: 14px 48px;
+            font-size: 16px;
+            font-family: 'Cormorant Garamond', serif;
+            background: transparent;
+            border: 1.5px solid rgba(255,255,255,0.35);
+            color: #e8e0d0;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+        .cover .begin:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.6);
+        }
+
+        /* Essay pages */
+        .essay-page.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 24px 40px;
+        }
+        .essay-content {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* Section headers */
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--stone);
+            margin-bottom: 8px;
+        }
+        .section-label.medieval { color: #5a5550; }
+        .section-label.florence { color: var(--florence); }
+        .section-label.ideas { color: var(--accent); }
+
+        .essay-content h2 {
+            font-size: 30px;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: 28px;
+            line-height: 1.2;
+        }
+
+        .essay-content p {
+            font-size: 19px;
+            line-height: 1.85;
+            margin-bottom: 20px;
+            color: #2a2724;
+        }
+
+        .essay-content .lead {
+            font-size: 21px;
+            color: var(--ink);
+        }
+
+        .essay-content em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .essay-content strong {
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        /* Pull quotes */
+        .pull-quote {
+            margin: 32px 0;
+            padding: 24px 28px;
+            border-left: 4px solid var(--florence);
+            background: rgba(196, 122, 42, 0.06);
+            border-radius: 0 8px 8px 0;
+        }
+        .pull-quote p {
+            font-size: 21px;
+            font-style: italic;
+            color: var(--accent);
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        /* Fact boxes */
+        .fact-box {
+            margin: 28px 0;
+            padding: 22px 26px;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid #e0dbd2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .fact-box .fact-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--florence);
+            margin-bottom: 10px;
+        }
+        .fact-box p {
+            font-size: 17px;
+            margin-bottom: 0;
+        }
+
+        /* Images */
+        .essay-image {
+            margin: 32px 0;
+            text-align: center;
+        }
+        .essay-image img {
+            max-width: 100%;
+            max-height: 50vh;
+            border-radius: 8px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+        }
+        .essay-image .caption {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: var(--stone);
+            margin-top: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Nav */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd6ca;
+        }
+        .nav-btn {
+            padding: 11px 26px;
+            font-size: 15px;
+            font-family: 'Cormorant Garamond', serif;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .nav-btn.primary {
+            background: var(--ink);
+            color: #e8e0d0;
+        }
+        .nav-btn.primary:hover {
+            background: #111;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .nav-btn.secondary {
+            background: transparent;
+            color: var(--ink);
+            border: 1.5px solid #c4b9a8;
+        }
+        .nav-btn.secondary:hover {
+            border-color: var(--florence);
+            background: rgba(196,122,42,0.05);
+        }
+        .page-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: var(--stone);
+            letter-spacing: 1px;
+        }
+
+        /* Palette shifts for medieval vs florence pages */
+        .page.dark-theme {
+            background: #eae5db;
+        }
+        .page.light-theme {
+            background: var(--parchment);
+        }
+
+        /* Quiz */
+        .quiz-header { text-align: center; margin-bottom: 36px; }
+        .quiz-header h2 { font-size: 28px; font-weight: 500; margin-bottom: 8px; }
+        .quiz-header p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--stone); }
+
+        .question-block {
+            background: #fff;
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 22px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e0dbd2;
+        }
+        .question-block h3 {
+            font-size: 17px;
+            font-weight: 500;
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+        .q-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--ink);
+            color: #e8e0d0;
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            margin: 8px 0;
+            background: #faf8f4;
+            border: 2px solid #e0dbd2;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 16px;
+        }
+        .option:hover { background: #f0ede5; border-color: #c4b9a8; }
+        .option input { margin-right: 12px; accent-color: var(--florence); transform: scale(1.1); }
+        .option.selected { border-color: var(--florence); background: #f0ede5; }
+        .option.correct { border-color: #4a7c4e; background: #e8f5e9; }
+        .option.incorrect { border-color: #b55454; background: #ffebee; }
+
+        .check-btn {
+            padding: 10px 24px;
+            font-size: 14px;
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--ink);
+            border: none;
+            color: #e8e0d0;
+            cursor: pointer;
+            border-radius: 20px;
+            margin-top: 6px;
+        }
+        .check-btn:hover { background: #111; }
+        .feedback {
+            margin-top: 14px;
+            padding: 14px 18px;
+            border-radius: 8px;
+            display: none;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .feedback.correct { background: #e8f5e9; color: #2e5a32; border-left: 4px solid #4a7c4e; display: block; }
+        .feedback.incorrect { background: #ffebee; color: #8b3a3a; border-left: 4px solid #b55454; display: block; }
+
+        .score-box {
+            text-align: center;
+            padding: 22px;
+            background: var(--ink);
+            border-radius: 10px;
+            margin-top: 28px;
+            color: #e8e0d0;
+        }
+        .score-box .score-number { font-size: 44px; font-weight: 600; margin: 8px 0; }
+
+        /* End page */
+        .end-page {
+            background: #111;
+            color: #e8e0d0;
+            text-align: center;
+            padding: 60px 24px;
+            min-height: 100vh;
+        }
+        .end-page.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .end-page h1 { font-size: 32px; font-weight: 400; margin-bottom: 30px; letter-spacing: 2px; }
+        .end-page .ornament { font-size: 18px; opacity: 0.4; letter-spacing: 8px; margin: 20px 0; }
+        .end-page blockquote { font-size: 20px; font-style: italic; opacity: 0.85; max-width: 500px; line-height: 1.6; margin-bottom: 12px; }
+        .end-page cite { font-size: 14px; opacity: 0.5; }
+        .end-page .source { font-family: 'Inter', sans-serif; font-size: 12px; opacity: 0.4; margin-top: 40px; line-height: 1.8; }
+
+        @media (max-width: 768px) {
+            .cover h1 { font-size: 34px; }
+            .essay-page { padding: 40px 18px 30px; }
+            .essay-content h2 { font-size: 24px; }
+            .essay-content p { font-size: 17px; text-align: left; }
+            .pull-quote p { font-size: 18px; }
+            .nav { flex-wrap: wrap; gap: 12px; }
+            .nav-btn { flex: 1; min-width: 110px; text-align: center; }
+            .page-num { width: 100%; text-align: center; margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- COVER -->
+<section class="page cover active" id="page-0">
+    <span class="badge">Illustrated Essay</span>
+    <h1>The Shock of Florence</h1>
+    <p class="subtitle">What the Renaissance Looked Like to the People Who Lived Through It</p>
+    <p class="setting">France &amp; Florence &middot; 1460</p>
+    <img src="cover.png" alt="A horseman rides from a dark medieval street into sunlit Renaissance Florence">
+    <button class="begin" onclick="go(1)">Begin Reading</button>
+</section>
+
+<!-- PAGE 1: The Ambassador's World -->
+<section class="page essay-page dark-theme" id="page-1">
+    <div class="essay-content">
+        <span class="section-label medieval">Part One &middot; The Old World</span>
+        <h2>The Ambassador's World</h2>
+        <div class="essay-image">
+            <img src="image1.png" alt="A narrow, muddy medieval Paris street with timber-frame buildings">
+            <div class="caption">Paris, circa 1460</div>
+        </div>
+        <p class="lead">This story takes place more than five hundred years ago, in a time before electricity, before cars, before anyone knew the Americas existed. Europe was a patchwork of kingdoms, and most people never traveled more than a few miles from the place they were born.</p>
+        <p>In the year 1460, a French nobleman named Jean de Reilhac mounted his horse and rode south. The King of France was sending him to <strong>Rome</strong> — a new pope had just been elected, and France needed an ambassador there. His route took him through Italy, the boot-shaped country across the Alps, with a brief stop along the way in a city called <strong>Florence</strong>.</p>
+        <p>Jean knew almost nothing about Florence, and what little he knew did not impress him. It had no king, no castle, no knights. It was run by bankers and wool merchants — no proper nobility, no royal blood. Just money. A pit stop on the way to Rome, nothing more.</p>
+        <p>He left behind the only world he knew: a world of mud and stone, cold drafts and smoky fires. The streets of Paris were so narrow that two carts could barely pass. Slaughterhouses threw blood into open gutters on market days. The stench of the city could be detected from miles away.</p>
+        <p>This was normal. This was how cities were — everywhere Jean had ever been.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(0)">&larr; Cover</button>
+            <span class="page-num">1 of 12</span>
+            <button class="nav-btn primary" onclick="go(2)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 2: The Castle and the Books -->
+<section class="page essay-page dark-theme" id="page-2">
+    <div class="essay-content">
+        <span class="section-label medieval">Part One &middot; The Old World</span>
+        <h2>The Castle and the Books</h2>
+        <div class="essay-image">
+            <img src="image2.png" alt="A French nobleman reads by firelight in a dark stone castle">
+            <div class="caption">A nobleman's château — stone, smoke, and shadow</div>
+        </div>
+        <p>Jean grew up in a château with walls ten feet thick. Not for beauty — for survival. Enemies, weather, plague. The windows had no glass, only wooden shutters. You could have light or warmth, but not both.</p>
+        <p>The great hall smelled of woodsmoke and wet stone. Tapestries hung on every wall — not for decoration, but to block the drafts that cut through the gaps in the stonework. The floor was bare stone covered with straw.</p>
+        <p>Jean owned <strong>seven books</strong>. This made him one of the most literate noblemen in France. He had a Book of Hours for his prayers, two chivalric romances, and a chronicle of the kings. He could read French and enough Latin to follow Mass.</p>
+        <p>He had heard the word "Greek." He had never seen a word of it written down.</p>
+        <div class="fact-box">
+            <div class="fact-label">Did You Know?</div>
+            <p>The largest library in France — the King's own collection in the Louvre — held about 900 manuscripts. A typical nobleman might own fewer than ten books in his lifetime.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(1)">&larr; Back</button>
+            <span class="page-num">2 of 12</span>
+            <button class="nav-btn primary" onclick="go(3)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 3: The Ruins -->
+<section class="page essay-page dark-theme" id="page-3">
+    <div class="essay-content">
+        <span class="section-label medieval">Part One &middot; The Old World</span>
+        <h2>The Ruins He Cannot Read</h2>
+        <div class="essay-image">
+            <img src="image3.png" alt="A medieval horseman gazes up at the Roman aqueduct Pont du Gard">
+            <div class="caption">The Pont du Gard, southern France — built by Rome, understood by no one</div>
+        </div>
+        <p>On the road south, Jean passed through Provence, where enormous Roman ruins still stood: a vast amphitheater at Arles, an aqueduct at the Pont du Gard that soared across a river valley on three tiers of perfect arches.</p>
+        <p>Nobody knew how they had been built. Local legend said the devil made the aqueduct — no human hand could have laid stones so precisely, so high. The amphitheater at Arles had been turned into a small fortified town: two hundred houses built inside its arches, defensive towers on the rim, two chapels in the arena.</p>
+        <p>To Jean, these ruins were like Stonehenge is to us — astonishing, incomprehensible remnants of a lost civilization. The people who built them were gone. Their knowledge was gone.</p>
+        <p>The world had moved on to smaller things. Or so he thought.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(2)">&larr; Back</button>
+            <span class="page-num">3 of 12</span>
+            <button class="nav-btn primary" onclick="go(4)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 4: First Sight -->
+<section class="page essay-page light-theme" id="page-4">
+    <div class="essay-content">
+        <span class="section-label florence">Part Two &middot; Florence</span>
+        <h2>First Sight</h2>
+        <div class="essay-image">
+            <img src="image4.png" alt="A horseman stops on a Tuscan hill, staring at the dome of Florence">
+            <div class="caption">The dome of Santa Maria del Fiore — nothing like it had been built in a thousand years</div>
+        </div>
+        <p>After weeks on the road, Jean crossed the Alps into Italy. The air grew warmer. Olive trees and grapevines replaced the gray forests of France. Florence was just the next stop on a long ride to Rome — a place to rest, change horses, and move on.</p>
+        <p>Then he saw a shape on the skyline that made no sense.</p>
+        <p><strong>Brunelleschi's dome.</strong> A man named Filippo Brunelleschi had designed and built an enormous dome on top of Florence's cathedral. One hundred and fifty feet across. Three hundred and eighty feet high. Larger than any building in Europe — larger than anything built since the fall of Rome, a thousand years earlier.</p>
+        <p>Jean knew Gothic cathedrals. He had prayed in Notre-Dame, where pointed arches and flying buttresses reached heavenward like fingers. But those buildings were tall and <em>narrow</em>. This was something else: a vast curve, like the sky itself made solid. No buttresses. No visible means of support.</p>
+        <p>And it was not a ruin. Someone had built it <em>twenty years ago</em>.</p>
+        <div class="fact-box">
+            <div class="fact-label">Did You Know?</div>
+            <p>Brunelleschi built the dome without scaffolding — inventing a herringbone brick pattern that made each ring of bricks hold up the next. It remains the largest masonry dome ever constructed.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(3)">&larr; Back</button>
+            <span class="page-num">4 of 12</span>
+            <button class="nav-btn primary" onclick="go(5)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 5: The Courtyard -->
+<section class="page essay-page light-theme" id="page-5">
+    <div class="essay-content">
+        <span class="section-label florence">Part Two &middot; Florence</span>
+        <h2>The Courtyard of Light</h2>
+        <div class="essay-image">
+            <img src="image5.png" alt="The French ambassador gazes up in the Medici palazzo courtyard">
+            <div class="caption">The Palazzo Medici courtyard — "like the Roman ruins back home, except new"</div>
+        </div>
+        <p>Jean was received at the Palazzo Medici. The instant he stepped through the entrance, everything changed.</p>
+        <p>White light poured through an open courtyard ringed with columns — Corinthian columns, like the ones in Roman ruins. But these were new, clean, perfectly proportioned. The space felt more like outdoors than the outdoors did.</p>
+        <p>Then it hit him. He <em>had</em> seen this before. It looked like the Roman ruins in Provence — except someone had figured out how to build them again.</p>
+        <p>In the courtyard stood a bronze statue of a young man — life-sized, freestanding, nude. Jean had never seen anything like it. In France, statues were saints carved into cathedral walls. This figure looked like it might step off its pedestal and speak.</p>
+        <div class="fact-box">
+            <div class="fact-label">Did You Know?</div>
+            <p>Donatello's bronze David (1440s) was the first freestanding nude statue made since ancient times. In northern Europe, freestanding sculpture simply did not exist.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(4)">&larr; Back</button>
+            <span class="page-num">5 of 12</span>
+            <button class="nav-btn primary" onclick="go(6)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 6: The Boy Who Speaks Greek -->
+<section class="page essay-page light-theme" id="page-6">
+    <div class="essay-content">
+        <span class="section-label florence">Part Two &middot; Florence</span>
+        <h2>The Boy Who Speaks Greek</h2>
+        <div class="essay-image">
+            <img src="image6.png" alt="Young Lorenzo recites Greek poetry while the French ambassador watches in disbelief">
+            <div class="caption">Lorenzo de' Medici, age ten, reciting ancient Greek</div>
+        </div>
+        <p>Inside, men wore robes that looked like ancient Roman dress. Two scholars were deep in conversation — but in a language Jean had never heard before. It wasn't Latin. It wasn't Italian. It was something older, stranger.</p>
+        <p>"What language is that?" Jean asked.</p>
+        <p>"Greek," his host replied. "Ancient Greek."</p>
+        <p>Jean stared. Back in France, ancient Greek was considered a dead language — lost with the fall of Rome, like so much else. No one he knew could read it, let alone speak it.</p>
+        <p>"We have lots of ancient Greek here," his host said, as if it were nothing unusual.</p>
+        <p>Then Cosimo de' Medici — the head of the Medici family, the richest bankers in all of Europe — said: "Here is my grandson, <strong>Lorenzo</strong>. He is ten years old. He has just written a poem in ancient Greek about the three parts of the soul. Would you like to hear him recite it?"</p>
+        <p>Jean stood in a room full of light, listening to a child speak a language that had been dead for a thousand years, in a building that looked like ancient Rome brought back to life.</p>
+        <div class="pull-quote">
+            <p>"Where am I? None of this is possible. None of this has existed for a thousand years."</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(5)">&larr; Back</button>
+            <span class="page-num">6 of 12</span>
+            <button class="nav-btn primary" onclick="go(7)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 7: The Library -->
+<section class="page essay-page light-theme" id="page-7">
+    <div class="essay-content">
+        <span class="section-label florence">Part Two &middot; Florence</span>
+        <h2>The Library</h2>
+        <div class="essay-image">
+            <img src="image7.png" alt="The French ambassador stares in awe at the Medici library">
+            <div class="caption">The Medici library — hundreds of books, freely discussed</div>
+        </div>
+        <p>Cosimo led Jean to his private library. Jean owned seven books. This room held <strong>hundreds</strong>.</p>
+        <p>But it was not just the number. It was what they were. Plato. Aristotle. Virgil. Cicero. Histories, poetry, natural philosophy, mathematics — many in original Greek, a language Jean could not read and had assumed was extinct.</p>
+        <p>These books were not chained to desks, as they were in the University of Paris. They were passed from hand to hand, argued over at dinner, copied and shared.</p>
+        <p>Jean began to understand. Florence had no army. No noble bloodline. No ancient claim to power. But it had something no kingdom in Europe could match: <em>knowledge recovered from the ancient world, and people who knew what to do with it.</em></p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(6)">&larr; Back</button>
+            <span class="page-num">7 of 12</span>
+            <button class="nav-btn primary" onclick="go(8)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 8: Culture as a Weapon -->
+<section class="page essay-page light-theme" id="page-8">
+    <div class="essay-content">
+        <span class="section-label ideas">Part Three &middot; How It Worked</span>
+        <h2>Culture as a Weapon</h2>
+        <div class="essay-image">
+            <img src="image8.png" alt="Aerial view of Renaissance Florence at golden hour">
+            <div class="caption">Florence — a city that protected itself with beauty, not soldiers</div>
+        </div>
+        <p>Florence had discovered something extraordinary: you could use culture the way other cities used soldiers.</p>
+        <p>The art, the architecture, the scholarship — it was not decoration. It was <strong>strategy</strong>. Attacking Florence would be like burning the Library of Alexandria. No ruler wanted to be known as the barbarian who destroyed the most beautiful city in the world.</p>
+        <p>During World War II, five hundred years later, Allied bombers were still ordered to avoid Florence's treasures. The strategy still worked.</p>
+        <p>And inside the city, the government was unlike anything in Europe. Florence had no king. Nine citizens were randomly selected from the merchant guilds and <strong>locked in a tower together</strong> for two-to-three-month terms. They had to reach unanimous agreement on every decision. The system was designed to be tyrant-proof — and it worked so well that even the Medici, the richest family in Europe, could never fully take over.</p>
+        <div class="fact-box">
+            <div class="fact-label">Did You Know?</div>
+            <p>When Renaissance Florence celebrated government by the <em>popolo</em> ("the people"), it didn't mean everyone. It meant the top 5% — wealthy merchant elites. Later generations projected modern democratic ideals onto a system that was nothing of the sort.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(7)">&larr; Back</button>
+            <span class="page-num">8 of 12</span>
+            <button class="nav-btn primary" onclick="go(9)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 9: The Spark That Almost Died -->
+<section class="page essay-page" id="page-9">
+    <div class="essay-content">
+        <span class="section-label ideas">Part Three &middot; How It Worked</span>
+        <h2>The Spark That Almost Died</h2>
+        <div class="essay-image">
+            <img src="image9.png" alt="Split image: Gutenberg in dark workshop vs books loaded onto ships in Venice">
+            <div class="caption">Left: Gutenberg in Mainz, circa 1455. Right: Books reaching the world via Venice, circa 1480.</div>
+        </div>
+        <p>The Renaissance almost didn't spread.</p>
+        <p>In 1450, a German goldsmith named Johannes Gutenberg built a printing press and produced three hundred Bibles. But he was stuck in a small, landlocked town where almost nobody could read. He sold about <strong>seven copies</strong>. He went bankrupt. The bank that seized his press tried to run the business themselves — and also went bankrupt.</p>
+        <p>The printing press only changed the world when it reached <strong>Venice</strong>, where ship captains could carry books to every port in the Mediterranean. The lesson: a great invention means nothing without a way to spread it.</p>
+        <p>And paper mattered just as much as the press. Before affordable paper, people reread the same few books their entire lives. The gradual cheapening of paper was as transformative as printing itself — because for the first time, there were enough writing surfaces to support an explosion of knowledge.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(8)">&larr; Back</button>
+            <span class="page-num">9 of 12</span>
+            <button class="nav-btn primary" onclick="go(10)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 10: The Long Ripple -->
+<section class="page essay-page" id="page-10">
+    <div class="essay-content">
+        <span class="section-label ideas">Part Three &middot; How It Worked</span>
+        <h2>The Long Ripple</h2>
+        <div class="essay-image">
+            <img src="image10.png" alt="Petrarch writing by candlelight, golden threads connecting to future discoveries">
+            <div class="caption">Petrarch's work rippled through centuries in ways he never imagined</div>
+        </div>
+        <p>The strangest thing about the Renaissance is how sideways its effects were.</p>
+        <p>Over a hundred years before Jean's visit, an Italian poet named <strong>Petrarch</strong> survived the Black Death in 1348 — a terrible plague that killed one in every three people in Europe. He looked at the devastation around him and made a plan: if he could get powerful leaders to read the books of ancient Rome, he believed they would become wise and virtuous rulers — like the great Romans he admired.</p>
+        <p>Two hundred years later, his project had succeeded — but not how he imagined. Instead of philosopher-kings, it produced figures like Cesare Borgia, who used their classical education for conquest and manipulation.</p>
+        <p>But here is the twist. Among the ancient books that Petrarch and his followers recovered was a text by <strong>Lucretius</strong>, a Roman writer who believed that everything in the universe was made of tiny invisible particles called <em>atoms</em>. Medical students in the 1500s read Lucretius and began asking: <em>what if diseases are caused by tiny particles too?</em> That question, centuries later, led to germ theory and modern medicine.</p>
+        <p>Petrarch tried to create virtuous rulers. He accidentally helped cure the plague that destroyed his world.</p>
+        <div class="pull-quote">
+            <p>The Renaissance was not a golden age. It was messy, fragile, and often cruel. But it was the moment when people began to believe that human intelligence could shape the world — not just endure it.</p>
+        </div>
+        <p>And it all started with a dome on a skyline, a boy reciting Greek, and an ambassador who couldn't believe his eyes.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(9)">&larr; Back</button>
+            <span class="page-num">10 of 12</span>
+            <button class="nav-btn primary" onclick="go(11)">Take the Quiz &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- QUIZ -->
+<section class="page essay-page" id="page-11">
+    <div class="essay-content">
+        <div class="quiz-header">
+            <h2>Check Your Understanding</h2>
+            <p>Five questions about what you just read.</p>
+        </div>
+
+        <div class="question-block" id="q1">
+            <h3><span class="q-num">1</span> Why wasn't the French ambassador impressed by Florence before he arrived?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q1" value="a"> He had heard it was at war</label>
+                <label class="option"><input type="radio" name="q1" value="b"> It was a city of merchants with no proper nobility</label>
+                <label class="option"><input type="radio" name="q1" value="c"> He didn't like Italian food</label>
+                <label class="option"><input type="radio" name="q1" value="d"> He had already visited and was bored</label>
+            </div>
+            <button class="check-btn" onclick="check(1,'b')">Check Answer</button>
+            <div class="feedback" id="fb1"></div>
+        </div>
+
+        <div class="question-block" id="q2">
+            <h3><span class="q-num">2</span> What made Brunelleschi's dome so extraordinary to the ambassador?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q2" value="a"> It was painted gold</label>
+                <label class="option"><input type="radio" name="q2" value="b"> It was larger than anything built since ancient Rome, with no visible supports</label>
+                <label class="option"><input type="radio" name="q2" value="c"> It was made entirely of glass</label>
+                <label class="option"><input type="radio" name="q2" value="d"> It had taken 200 years to build</label>
+            </div>
+            <button class="check-btn" onclick="check(2,'b')">Check Answer</button>
+            <div class="feedback" id="fb2"></div>
+        </div>
+
+        <div class="question-block" id="q3">
+            <h3><span class="q-num">3</span> How did Florence protect itself without a large army?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q3" value="a"> It built enormous walls</label>
+                <label class="option"><input type="radio" name="q3" value="b"> It used its art and learning to make attacking it unthinkable</label>
+                <label class="option"><input type="radio" name="q3" value="c"> It hired mercenaries from Germany</label>
+                <label class="option"><input type="radio" name="q3" value="d"> It made an alliance with Rome</label>
+            </div>
+            <button class="check-btn" onclick="check(3,'b')">Check Answer</button>
+            <div class="feedback" id="fb3"></div>
+        </div>
+
+        <div class="question-block" id="q4">
+            <h3><span class="q-num">4</span> Why did Gutenberg's printing press initially fail?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q4" value="a"> The ink was too expensive</label>
+                <label class="option"><input type="radio" name="q4" value="b"> The Pope banned printing</label>
+                <label class="option"><input type="radio" name="q4" value="c"> He was in a small town with no way to distribute the books</label>
+                <label class="option"><input type="radio" name="q4" value="d"> He couldn't find anyone to operate the press</label>
+            </div>
+            <button class="check-btn" onclick="check(4,'c')">Check Answer</button>
+            <div class="feedback" id="fb4"></div>
+        </div>
+
+        <div class="question-block" id="q5">
+            <h3><span class="q-num">5</span> What happened when Petrarch's plan to create philosopher-kings finally succeeded?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q5" value="a"> It worked exactly as he intended</label>
+                <label class="option"><input type="radio" name="q5" value="b"> It produced conquerors instead — but the recovered texts also eventually led to germ theory</label>
+                <label class="option"><input type="radio" name="q5" value="c"> Nobody read the books he recovered</label>
+                <label class="option"><input type="radio" name="q5" value="d"> The philosopher-kings banned all wars</label>
+            </div>
+            <button class="check-btn" onclick="check(5,'b')">Check Answer</button>
+            <div class="feedback" id="fb5"></div>
+        </div>
+
+        <div class="score-box" id="scoreBox" style="display:none;">
+            <h3>Your Score</h3>
+            <div class="score-number"><span id="scoreVal">0</span>/5</div>
+        </div>
+
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(10)">&larr; Back</button>
+            <span class="page-num">11 of 12</span>
+            <button class="nav-btn primary" onclick="go(12)">Finish &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- END -->
+<section class="page end-page" id="page-12">
+    <div class="ornament">&#10038; &#10038; &#10038;</div>
+    <h1>The End</h1>
+    <blockquote><em>The Renaissance was not a golden age. It was messy, fragile, and often cruel. But it was the moment when people began to believe that human intelligence could shape the world — not just endure it.</em></blockquote>
+    <cite>&mdash; Ada Palmer, <em>Inventing the Renaissance</em></cite>
+    <div class="ornament">&#10038;</div>
+    <p class="source">Based on insights from the Dwarkesh Podcast interview with<br>Ada Palmer, University of Chicago &middot; March 2026</p>
+    <div style="margin-top: 40px;">
+        <button class="nav-btn primary" onclick="go(0)">Read Again</button>
+    </div>
+</section>
+
+<script>
+let cur = 0;
+const total = 13;
+let score = 0;
+const answered = new Set();
+
+const answers = {
+    1: { correct: "Right. Jean expected a city of common merchants — no noble blood, no royal court.", incorrect: "Not quite. Jean looked down on Florence because it had no proper nobility — just bankers and wool merchants." },
+    2: { correct: "Exactly. The dome was a vast unsupported curve, bigger than anything since ancient Rome — and it was only twenty years old.", incorrect: "The answer is B. The dome's size and lack of visible supports made it unlike anything the ambassador had ever seen." },
+    3: { correct: "Yes. Florence weaponized its culture — attacking it would be like destroying the most beautiful city in the world.", incorrect: "The answer is B. Florence used art, architecture, and scholarship as a form of deterrence — no one wanted to be the barbarian who destroyed it." },
+    4: { correct: "Right. Gutenberg was stuck in a small landlocked town with no distribution network. The press only changed the world when it reached Venice.", incorrect: "The answer is C. Gutenberg sold only about seven Bibles — the press needed Venice's shipping network to spread books across the Mediterranean." },
+    5: { correct: "Exactly. The plan produced conquerors, not philosophers — but the recovered ancient texts eventually led to germ theory and modern medicine.", incorrect: "The answer is B. Petrarch accidentally helped cure the plague that destroyed his world, through a chain of consequences he never imagined." }
+};
+
+function go(p) {
+    document.querySelectorAll('.page').forEach(pg => pg.classList.remove('active'));
+    document.getElementById('page-' + p).classList.add('active');
+    cur = p;
+    document.getElementById('progressBar').style.width = (cur / (total - 1) * 100) + '%';
+    window.scrollTo(0, 0);
+}
+
+function check(q, correct) {
+    if (answered.has(q)) return;
+    const sel = document.querySelector(`input[name="q${q}"]:checked`);
+    if (!sel) return;
+    const fb = document.getElementById('fb' + q);
+    const opts = document.querySelectorAll(`#q${q} .option`);
+    opts.forEach(o => {
+        const inp = o.querySelector('input');
+        if (inp.checked) o.classList.add('selected');
+    });
+    if (sel.value === correct) {
+        fb.textContent = answers[q].correct;
+        fb.className = 'feedback correct';
+        score++;
+    } else {
+        fb.textContent = answers[q].incorrect;
+        fb.className = 'feedback incorrect';
+        opts.forEach(o => {
+            const inp = o.querySelector('input');
+            if (inp.value === correct) o.classList.add('correct');
+            if (inp.checked) o.classList.add('incorrect');
+        });
+    }
+    answered.add(q);
+    document.getElementById('scoreVal').textContent = score;
+    if (answered.size === 5) document.getElementById('scoreBox').style.display = 'block';
+}
+
+document.querySelectorAll('.option input').forEach(inp => {
+    inp.addEventListener('change', () => {
+        inp.closest('.options').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+        inp.closest('.option').classList.add('selected');
+    });
+});
+
+// Keyboard nav
+document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' && cur < total - 1) go(cur + 1);
+    if (e.key === 'ArrowLeft' && cur > 0) go(cur - 1);
+});
+</script>
+
+</body>
+</html>
