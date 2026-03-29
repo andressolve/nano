@@ -253,6 +253,47 @@
             box-shadow: 0 4px 16px rgba(0,0,0,0.3);
         }
 
+        .story-section .image-container img[src*="diagram"] {
+            max-height: 55vh;
+            cursor: zoom-in;
+        }
+
+        /* Lightbox overlay */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.92);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+            padding: 24px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 95vw;
+            max-height: 92vh;
+            border-radius: 10px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+
+        .lightbox-hint {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 1px;
+            pointer-events: none;
+        }
+
         /* Water divider */
         .water-divider {
             height: 1px;
@@ -538,6 +579,12 @@
 
     <div class="progress-bar" id="progressBar"></div>
     <a class="home-link" href="../index.html">&larr; Stories</a>
+
+    <!-- Lightbox for diagrams -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img id="lightboxImg" src="" alt="" />
+        <div class="lightbox-hint">Click anywhere to close</div>
+    </div>
 
     <!-- PAGE 0: COVER -->
     <div class="page cover-page active" data-page="0">
@@ -1131,6 +1178,31 @@
                 display.style.display = 'block';
             }
         }
+
+        // Lightbox for diagram images
+        function openLightbox(src, alt) {
+            const lb = document.getElementById('lightbox');
+            const img = document.getElementById('lightboxImg');
+            img.src = src;
+            img.alt = alt;
+            lb.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Attach click handlers to all diagram images
+        document.querySelectorAll('img[src*="diagram"]').forEach(function(img) {
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+                openLightbox(this.src, this.alt);
+            });
+        });
     </script>
 
 </body>
