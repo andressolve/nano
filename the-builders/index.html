@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Builders</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', 'Garamond', 'Times New Roman', serif;
+            background: #2a2520;
+            color: #e8e0d4;
+            overflow-x: hidden;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #5a9ec4, #c4855a);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 60px 40px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .page.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .page-content {
+            max-width: 820px;
+            width: 100%;
+        }
+
+        /* Cover Page */
+        .cover-page {
+            background: linear-gradient(135deg, #1a1510 0%, #2a2015 50%, #1a1510 100%);
+            color: #e8e0d4;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .cover-page .format-badge {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 30px;
+            padding: 8px 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+        }
+
+        .cover-page h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .cover-page .subtitle {
+            font-size: 18px;
+            margin-bottom: 8px;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        .cover-page .setting {
+            font-size: 14px;
+            opacity: 0.55;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .cover-page .image-container {
+            margin: 30px auto;
+            max-width: 640px;
+        }
+
+        .cover-page .image-container img {
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+        }
+
+        .begin-button {
+            margin-top: 30px;
+            padding: 14px 50px;
+            font-size: 16px;
+            font-family: inherit;
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.35);
+            color: #e8e0d4;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .begin-button:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Dual Story Pages */
+        .dual-page {
+            background: #2a2520;
+        }
+
+        .beat-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .beat-number {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+
+        .beat-title h2 {
+            font-size: 28px;
+            font-weight: normal;
+            color: #e8e0d4;
+            margin-top: 6px;
+        }
+
+        /* Story sections */
+        .story-section {
+            padding: 30px 35px;
+            border-radius: 10px;
+            margin-bottom: 24px;
+        }
+
+        .story-section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .story-rome {
+            background: linear-gradient(135deg, rgba(180, 130, 80, 0.12) 0%, rgba(160, 100, 50, 0.08) 100%);
+            border-left: 4px solid #b48250;
+        }
+
+        .story-persia {
+            background: linear-gradient(135deg, rgba(90, 140, 170, 0.12) 0%, rgba(70, 120, 150, 0.08) 100%);
+            border-left: 4px solid #5a8caa;
+        }
+
+        .story-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            padding: 5px 14px;
+            border-radius: 12px;
+        }
+
+        .story-rome .story-label {
+            background: rgba(180, 130, 80, 0.2);
+            color: #d4a872;
+        }
+
+        .story-persia .story-label {
+            background: rgba(90, 140, 170, 0.2);
+            color: #7ab8d4;
+        }
+
+        .story-section h3 {
+            font-size: 20px;
+            font-weight: normal;
+            margin-bottom: 14px;
+            color: #e8e0d4;
+        }
+
+        .story-section p {
+            font-size: 17px;
+            line-height: 1.85;
+            margin-bottom: 18px;
+            text-align: justify;
+            color: #d4ccc0;
+        }
+
+        .story-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .dialogue {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .story-rome .dialogue {
+            background: rgba(180, 130, 80, 0.1);
+            border-left: 3px solid rgba(180, 130, 80, 0.4);
+        }
+
+        .story-persia .dialogue {
+            background: rgba(90, 140, 170, 0.1);
+            border-left: 3px solid rgba(90, 140, 170, 0.4);
+        }
+
+        .dialogue p {
+            margin-bottom: 10px;
+        }
+
+        .dialogue p:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-rome .speaker {
+            color: #d4a872;
+        }
+
+        .story-persia .speaker {
+            color: #7ab8d4;
+        }
+
+        .story-section .image-container {
+            margin: 24px 0;
+            text-align: center;
+        }
+
+        .story-section .image-container img {
+            max-width: 100%;
+            max-height: 40vh;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+
+        /* Water divider */
+        .water-divider {
+            height: 1px;
+            margin: 8px 0;
+            background: linear-gradient(90deg, transparent, rgba(90, 160, 200, 0.3), rgba(180, 130, 80, 0.3), transparent);
+        }
+
+        /* Ending page */
+        .ending-page {
+            background: linear-gradient(180deg, #2a2520 0%, #1a1510 100%);
+        }
+
+        .ending-page .page-content {
+            max-width: 700px;
+        }
+
+        .ending-page h2 {
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #e8e0d4;
+        }
+
+        .ending-page p {
+            font-size: 18px;
+            line-height: 1.9;
+            margin-bottom: 22px;
+            text-align: justify;
+            color: #d4ccc0;
+        }
+
+        .ending-page .final-line {
+            text-align: center;
+            font-style: italic;
+            font-size: 19px;
+            color: #e8e0d4;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .ending-page .image-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .ending-page .image-container img {
+            max-width: 100%;
+            max-height: 45vh;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Quiz Page */
+        .quiz-page {
+            background: #2a2520;
+        }
+
+        .quiz-page h2 {
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #e8e0d4;
+        }
+
+        .question-block {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .question-text {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #e8e0d4;
+            line-height: 1.6;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #d4ccc0;
+            line-height: 1.5;
+        }
+
+        .options label:hover {
+            background: rgba(255,255,255,0.06);
+        }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #c4a35a;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-family: inherit;
+            background: rgba(196, 163, 90, 0.15);
+            border: 1px solid rgba(196, 163, 90, 0.3);
+            color: #c4a35a;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .check-btn:hover {
+            background: rgba(196, 163, 90, 0.25);
+        }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            background: rgba(90, 180, 90, 0.1);
+            border: 1px solid rgba(90, 180, 90, 0.2);
+            color: #8cd48c;
+        }
+
+        .feedback.incorrect {
+            background: rgba(200, 90, 90, 0.1);
+            border: 1px solid rgba(200, 90, 90, 0.2);
+            color: #d4a0a0;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            display: none;
+            color: #c4a35a;
+        }
+
+        /* End Page */
+        .end-page {
+            background: linear-gradient(135deg, #1a1510 0%, #2a2015 50%, #1a1510 100%);
+            text-align: center;
+        }
+
+        .end-page .ornament {
+            font-size: 24px;
+            opacity: 0.3;
+            margin-bottom: 30px;
+            letter-spacing: 8px;
+        }
+
+        .end-page .quote {
+            font-size: 20px;
+            font-style: italic;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .restart-button {
+            padding: 14px 50px;
+            font-size: 16px;
+            font-family: inherit;
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: #e8e0d4;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .restart-button:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .nav-btn {
+            padding: 10px 28px;
+            font-size: 15px;
+            font-family: inherit;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: #e8e0d4;
+            cursor: pointer;
+            border-radius: 24px;
+            transition: all 0.25s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.25);
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.secondary {
+            opacity: 0.6;
+        }
+
+        .nav-btn.secondary:hover {
+            opacity: 1;
+        }
+
+        .page-indicator {
+            font-size: 13px;
+            opacity: 0.4;
+            letter-spacing: 1px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Home link */
+        .home-link {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            font-size: 13px;
+            color: rgba(232, 224, 212, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            z-index: 100;
+        }
+
+        .home-link:hover {
+            color: rgba(232, 224, 212, 0.7);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .page {
+                padding: 40px 16px;
+            }
+
+            .story-section {
+                padding: 22px 20px;
+            }
+
+            .cover-page h1 {
+                font-size: 34px;
+            }
+
+            .nav-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page, .progress-bar { transition: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <a class="home-link" href="../index.html">&larr; Stories</a>
+
+    <!-- PAGE 0: COVER -->
+    <div class="page cover-page active" data-page="0">
+        <div class="page-content">
+            <div class="format-badge">A Dual Story</div>
+            <h1>The Builders</h1>
+            <p class="subtitle">Two cities. Two children. One problem.</p>
+            <p class="setting">Segovia, Roman Hispania, ~90 AD &nbsp;&bull;&nbsp; Persian Empire, ~500 BC</p>
+            <div class="image-container">
+                <img src="cover.png" alt="The Builders — Cover" />
+            </div>
+            <button class="begin-button" onclick="goTo(1)">Begin Reading</button>
+        </div>
+    </div>
+
+    <!-- PAGE 1: THE PROBLEM -->
+    <div class="page dual-page" data-page="1">
+        <div class="page-content">
+            <div class="beat-title">
+                <div class="beat-number">Chapter One</div>
+                <h2>The Problem</h2>
+            </div>
+
+            <div class="story-section story-rome">
+                <div class="story-label">Rome &bull; Segovia, Hispania</div>
+                <h3>The Plateau</h3>
+                <div class="image-container">
+                    <img src="rome-01.png" alt="Water carriers climbing the plateau to Segovia" />
+                </div>
+                <p>The Roman garrison town of Segovia sat on a high plateau in Hispania. The nearest river &mdash; the Fr&iacute;a &mdash; ran through a valley sixteen kilometers away. Every morning, women and slaves carried water up the hill in clay jugs. Two hours up. Two hours down. By noon, arms shaking, they had enough for one day.</p>
+                <p>The town was growing under Emperor Trajan. More soldiers meant more mouths, more baths, more fountains. The water carriers couldn't keep up.</p>
+                <p>Marcus watched them from the wall most mornings. He was twelve, the son of the chief engineer, and he never thought much about it. Water appeared. You drank it. That was how the world worked.</p>
+                <p>His father thought about nothing else.</p>
+            </div>
+
+            <div class="water-divider"></div>
+
+            <div class="story-section story-persia">
+                <div class="story-label">Persia &bull; Near Kerman</div>
+                <h3>The Desert</h3>
+                <div class="image-container">
+                    <img src="persia-01.png" alt="Donkeys carrying water skins across the arid plain" />
+                </div>
+                <p>The settlement of Mehriz sat on the edge of a vast desert plain, south of the mountains. Rain fell in the mountains, not on the plain. Somewhere deep in the mountain rock, an aquifer held thousands of years of rainwater &mdash; an underground lake, invisible, unreachable. The water was there. The people were here.</p>
+                <p>Every morning, donkeys carried water skins from a distant spring. Some days the spring ran low. In summer, people rationed.</p>
+                <p>Sana hauled water skins with the other children and hated every step. She was eleven, and her father Kaveh &mdash; the muqanni, the master of underground water &mdash; had been hired by the settlement's elders to fix the problem. He'd been studying the ground for weeks. Tasting soil. Reading the land. Sana didn't understand what he was looking for.</p>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn secondary" onclick="goTo(0)">&larr; Cover</button>
+                <span class="page-indicator">1 of 8</span>
+                <button class="nav-btn" onclick="goTo(2)">Continue &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: THE EXPERT -->
+    <div class="page dual-page" data-page="2">
+        <div class="page-content">
+            <div class="beat-title">
+                <div class="beat-number">Chapter Two</div>
+                <h2>The Expert</h2>
+            </div>
+
+            <div class="story-section story-rome">
+                <div class="story-label">Rome &bull; Segovia, Hispania</div>
+                <h3>The Surveyor</h3>
+                <div class="image-container">
+                    <img src="rome-02.png" alt="Gaius surveying the valley with a groma" />
+                </div>
+                <p>Marcus wanted to be a soldier. He watched the garrison troops drill on the parade ground &mdash; the sharp commands, the flash of iron, the precision of the formation. His father's work seemed dull by comparison: crouching over instruments, squinting at distant markers, scratching numbers in wax.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Marcus:</span> You could command a legion.</p>
+                    <p><span class="speaker">Gaius:</span> A legion conquers a city. An aqueduct keeps it alive. Which matters more in fifty years?</p>
+                </div>
+                <p>Gaius used a <em>groma</em> &mdash; two wooden arms in a cross, each end dangling a weighted plumb line &mdash; to survey the route. He was finding the exact path that dropped one percent over sixteen kilometers. One percent. For every hundred meters forward, the channel dropped one meter downward. Enough slope for gravity to pull the water, but gentle enough that the water wouldn't erode the stone.</p>
+                <p>Too steep and the channel tears itself apart. Too flat and the water stops.</p>
+            </div>
+
+            <div class="water-divider"></div>
+
+            <div class="story-section story-persia">
+                <div class="story-label">Persia &bull; Near Kerman</div>
+                <h3>The Listener</h3>
+                <div class="image-container">
+                    <img src="persia-02.png" alt="Kaveh studying the ground, driving an iron rod into soil" />
+                </div>
+                <p>Sana watched her father prepare for the dig. He walked the surface slowly, studying patches of green vegetation, tasting soil for moisture, watching where morning dew collected. He drove an iron rod into the ground and listened to the sound it made &mdash; a dull thud meant dry rock, a faint ring meant hollow space, a soft resistance meant wet earth.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Sana:</span> How do you know where the water is?</p>
+                    <p><span class="speaker">Kaveh:</span> The ground tells me. Water is heavy. It pools at the lowest point of the rock. You can't see it from above. But the plants know. The dew knows. The earth's voice changes above water.</p>
+                </div>
+                <p>Kaveh explained the qanat: they would dig a vertical shaft straight down to the aquifer &mdash; the underground lake. Then they would dig a tunnel from the shaft to the settlement, sloping gently downhill so water flowed by gravity alone. No pumps. No towering arches. The tunnel did all the work, hidden underground.</p>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn secondary" onclick="goTo(1)">&larr; Back</button>
+                <span class="page-indicator">2 of 8</span>
+                <button class="nav-btn" onclick="goTo(3)">Continue &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: THE PRINCIPLE -->
+    <div class="page dual-page" data-page="3">
+        <div class="page-content">
+            <div class="beat-title">
+                <div class="beat-number">Chapter Three</div>
+                <h2>The Principle</h2>
+            </div>
+
+            <div class="story-section story-rome">
+                <div class="story-label">Rome &bull; Segovia, Hispania</div>
+                <h3>Gravity's Path</h3>
+                <p>On a flat stretch of rock outside the camp, Gaius showed Marcus how the aqueduct would work. He tilted a stone slab and poured water along its surface. It flowed &mdash; slowly, steadily, following the slope.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Gaius:</span> That's all an aqueduct is. A stone channel on a precise slope. The arches aren't the point &mdash; they're just legs. They hold the channel up at the right height where the valley drops below the slope line.</p>
+                </div>
+                <p>He drew in the dust: the mountain, the valley, the city on its plateau. The water channel ran in a straight line with a gentle slope. Where the ground was high enough, the channel ran along the surface or just below it. Where the ground dropped away &mdash; in the deep valley before Segovia &mdash; the arches held the channel up at the right height. The tallest arches, twenty-eight meters high, would stand in the city center.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Marcus:</span> No pumps?</p>
+                    <p><span class="speaker">Gaius:</span> No pumps. Gravity does the work. We just have to give it the right path.</p>
+                </div>
+            </div>
+
+            <div class="water-divider"></div>
+
+            <div class="story-section story-persia">
+                <div class="story-label">Persia &bull; Near Kerman</div>
+                <h3>The Flame and the Line</h3>
+                <p>In the shade of a plane tree, Kaveh drew the qanat in the dust for Sana.</p>
+                <p>The mountain, where rain soaked into rock. The aquifer, the underground lake trapped in porous stone. The <em>mother well</em> &mdash; the first vertical shaft they would dig straight down to reach the water. Then the tunnel, sloping gently downhill from the mother well to the settlement, carrying water the whole way. Vertical shafts every thirty meters along the tunnel, punched up to the surface, for air and for hauling debris out.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Sana:</span> But the tunnel is underground. How do you keep it straight? How do you keep the slope right?</p>
+                </div>
+                <p>Kaveh held up an oil lamp. "I watch the flame. Underground, air moves through the tunnel. The flame tells me which way is open and which way is blocked." He held up a plumb line. "And for the slope, I hang the line. I measure from the line to the tunnel floor. Every thirty meters, I check. If the floor rises even a finger's width, I correct it."</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Sana:</span> You do all that in the dark?</p>
+                    <p><span class="speaker">Kaveh:</span> The dark is where the water is.</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn secondary" onclick="goTo(2)">&larr; Back</button>
+                <span class="page-indicator">3 of 8</span>
+                <button class="nav-btn" onclick="goTo(4)">Continue &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 4: THE FIRST ATTEMPT -->
+    <div class="page dual-page" data-page="4">
+        <div class="page-content">
+            <div class="beat-title">
+                <div class="beat-number">Chapter Four</div>
+                <h2>The First Attempt</h2>
+            </div>
+
+            <div class="story-section story-rome">
+                <div class="story-label">Rome &bull; Segovia, Hispania</div>
+                <h3>The Chipped Stone</h3>
+                <div class="image-container">
+                    <img src="rome-04.png" alt="Marcus at the quarry, chisel in hand, standing over a chipped granite block" />
+                </div>
+                <p>Gaius let Marcus help at the quarry. The granite blocks had to be cut perfectly &mdash; flat faces, square edges &mdash; because there would be no mortar. The stones would hold by gravity and friction alone: the weight of the stones above pressing down on the stones below, their flat surfaces locked together by their own mass.</p>
+                <p>Marcus was given a chisel and told to square a block's face. He struck too hard. The chisel skipped and chipped a corner off. The block was ruined for structural use &mdash; a chipped face couldn't bear weight evenly.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Marcus:</span> A wasted stone.</p>
+                    <p><span class="speaker">Gaius:</span> A lesson. In this work, force is the enemy. Precision is the tool. The stone doesn't care how strong you are. It cares how exact you are.</p>
+                </div>
+            </div>
+
+            <div class="water-divider"></div>
+
+            <div class="story-section story-persia">
+                <div class="story-label">Persia &bull; Near Kerman</div>
+                <h3>The Tangled Line</h3>
+                <div class="image-container">
+                    <img src="persia-04.png" alt="Sana at the rim of a vertical shaft, the plumb line tangled below" />
+                </div>
+                <p>Kaveh let Sana lower a plumb line into the first shaft. The shaft was ten meters deep &mdash; a dark vertical hole just wide enough for one man to descend on a rope ladder. She held the line at the rim, waiting for the lead weight to steady so she could mark the exact center point on the surface.</p>
+                <p>A gust of wind caught the line. Her hand slipped. The line swung and tangled on a rock outcropping partway down. Now they had to send someone below to untangle it before they could continue. Half a day was lost.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Sana:</span> I'm sorry.</p>
+                    <p><span class="speaker">Kaveh:</span> The work beneath the ground is patient work. It doesn't forgive hurry.</p>
+                </div>
+                <p>He looked at her steadily. "Neither does the surface work. What you do up here &mdash; the shaft openings, the debris, the plumb lines &mdash; it's not less important because it's above ground. It's the eyes of the whole qanat."</p>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn secondary" onclick="goTo(3)">&larr; Back</button>
+                <span class="page-indicator">4 of 8</span>
+                <button class="nav-btn" onclick="goTo(5)">Continue &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 5: THE INVISIBLE WORK -->
+    <div class="page dual-page" data-page="5">
+        <div class="page-content">
+            <div class="beat-title">
+                <div class="beat-number">Chapter Five</div>
+                <h2>The Invisible Work</h2>
+            </div>
+
+            <div class="story-section story-rome">
+                <div class="story-label">Rome &bull; Segovia, Hispania</div>
+                <h3>Fifteen and a Half Kilometers</h3>
+                <p>The aqueduct was being built in sections. Marcus walked the route with his father &mdash; sixteen kilometers of channel, most of it a shallow trench lined with stone, covered with flat slabs to keep out debris and sunlight. Invisible. Underground. The miles nobody would ever see.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Gaius:</span> People will see the arches. They'll say, "Look at the arches." But the arches are five hundred meters of the route. The other fifteen and a half kilometers? Underground and invisible. That's where the real work is.</p>
+                </div>
+                <p>Marcus watched the laborers dig the channel, line it with precisely fitted stone, test each section by pouring water and watching for leaks. One leaking joint could undermine the whole structure. They sealed joints with <em>opus signinum</em> &mdash; a special waterproof plaster made from crushed pottery mixed with lime.</p>
+                <p>Marcus's hands weren't strong enough for the mixing, so he carried the crushed pottery in buckets. Back and forth, back and forth. The invisible work that made the invisible work possible.</p>
+            </div>
+
+            <div class="water-divider"></div>
+
+            <div class="story-section story-persia">
+                <div class="story-label">Persia &bull; Near Kerman</div>
+                <h3>Above and Below</h3>
+                <p>Kaveh descended into the qanat tunnel at dawn. Sana stood at the shaft opening, watching her father's lamp shrink to a point of light, then disappear as the tunnel bent. She couldn't follow. No one under fifteen went below.</p>
+                <p>She imagined what he saw: a tunnel barely wide enough for a man to crouch, carved from the rock by hand. The drip of water ahead &mdash; the aquifer was close. The flame of his lamp bending as air moved through the tunnel, showing him the way. His hands on the rock face, feeling for the grain of the stone, knowing where to cut and where to stop.</p>
+                <p>Above ground, Sana did what she could. She maintained the shaft openings &mdash; clearing pebbles and sand that fell in, shoring up the rims with mud brick, marking the positions with cairns of stone so the tunnel's path was visible from the surface. Without the markers, no one would know anything was there.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Kaveh</span> (surfacing at dusk, covered in rock dust): The best engineering is the engineering that disappears.</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn secondary" onclick="goTo(4)">&larr; Back</button>
+                <span class="page-indicator">5 of 8</span>
+                <button class="nav-btn" onclick="goTo(6)">Continue &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 6: THE SETBACK -->
+    <div class="page dual-page" data-page="6">
+        <div class="page-content">
+            <div class="beat-title">
+                <div class="beat-number">Chapter Six</div>
+                <h2>The Setback</h2>
+            </div>
+
+            <div class="story-section story-rome">
+                <div class="story-label">Rome &bull; Segovia, Hispania</div>
+                <h3>The Cracked Arch</h3>
+                <div class="image-container">
+                    <img src="rome-06.png" alt="The double-tiered arches under construction, one with a visible crack" />
+                </div>
+                <p>The arches were rising in the valley before Segovia. Double-tiered &mdash; a lower row of thick, heavy arches supporting an upper row of thinner, taller ones. The blocks were cut without mortar, stacked with precision, held by gravity alone.</p>
+                <p>On the sixth arch of the upper tier, a crack appeared. Not in the stone &mdash; in the alignment. The arch was settling unevenly, one side dropping lower than the other. If it continued, the arch would fail, and the arches on either side might go with it.</p>
+                <p>The masons blamed the stone &mdash; too soft, wrong grain. Gaius was not sure. He walked around the cracked arch for a full day, saying nothing, crouching at its base, looking at the ground rather than the stone.</p>
+            </div>
+
+            <div class="water-divider"></div>
+
+            <div class="story-section story-persia">
+                <div class="story-label">Persia &bull; Near Kerman</div>
+                <h3>The Flood</h3>
+                <div class="image-container">
+                    <img src="persia-06.png" alt="Workers scrambling out of a qanat shaft as water rises below" />
+                </div>
+                <p>The tunnel had reached two hundred meters from the mother well. Kaveh and his team were digging through soft sandstone, making good progress. Then the tunnel wall broke open and water rushed in &mdash; not the steady seep of the aquifer they were heading toward, but a sudden flood. They'd hit an underground stream they didn't know was there.</p>
+                <p>The team scrambled back toward the nearest shaft. Kaveh was the last out, rope ladder swinging, water lapping at his heels. The flood filled twenty meters of tunnel behind them. Days of work drowned.</p>
+                <p>The crew argued at the surface. Some wanted to abandon the section and start a new tunnel on a different line &mdash; weeks of work lost. Kaveh said nothing. He lowered a lamp on a rope into the flooded shaft and watched the water level. It wasn't rising. The stream had found its balance. But the tunnel was still underwater.</p>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn secondary" onclick="goTo(5)">&larr; Back</button>
+                <span class="page-indicator">6 of 8</span>
+                <button class="nav-btn" onclick="goTo(7)">Continue &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 7: THE SOLUTION -->
+    <div class="page dual-page" data-page="7">
+        <div class="page-content">
+            <div class="beat-title">
+                <div class="beat-number">Chapter Seven</div>
+                <h2>The Solution</h2>
+            </div>
+
+            <div class="story-section story-rome">
+                <div class="story-label">Rome &bull; Segovia, Hispania</div>
+                <h3>What Rain Reveals</h3>
+                <p>Marcus had been watching the cracked arch for days while the engineers argued. He wasn't an engineer. He was a boy who had spent months walking the route, bored, with nothing to do but watch the land.</p>
+                <p>He noticed something: after yesterday's rain, water pooled around the base of the cracked arch differently than around the others. It sat longer. The ground didn't absorb it.</p>
+                <p>He dug with his hands. The soil was soft, sticky, blue-gray. Clay.</p>
+                <p>The other arches sat on bedrock. This one sat on a pocket of clay. Clay compresses under weight. As the stones piled higher, the clay beneath squeezed sideways, and the arch settled unevenly.</p>
+                <p>Marcus brought his father. Gaius dug his own test hole. Clay, three meters deep, then bedrock. He straightened up.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Gaius</span> (to the foreman): Dig the foundations deeper. Through the clay, down to the rock.</p>
+                </div>
+                <p>He looked at Marcus.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Gaius:</span> How did you see that?</p>
+                    <p><span class="speaker">Marcus:</span> I've been watching rain for months. There was nothing else to do.</p>
+                    <p><span class="speaker">Gaius:</span> There's always something else to do. You chose to watch.</p>
+                </div>
+            </div>
+
+            <div class="water-divider"></div>
+
+            <div class="story-section story-persia">
+                <div class="story-label">Persia &bull; Near Kerman</div>
+                <h3>What the Plants Know</h3>
+                <p>Sana had been mapping the surface above the qanat for months. She knew every shaft opening, every cairn, every slight depression in the ground. She had walked the line dozens of times, maintaining what was hers to maintain.</p>
+                <p>Standing above the flooded section, she noticed something she'd seen before but never thought important: a line of tough, deep-rooted tamarisk bushes running across the surface at an angle to the tunnel. Tamarisk only grew where underground water was close to the surface.</p>
+                <p>The line of tamarisk told her exactly where the underground stream ran. It crossed the tunnel diagonally &mdash; from a rocky outcrop to the east, across their tunnel line, and off toward a dry wash to the west.</p>
+                <p>She brought Kaveh. He studied the tamarisk line, then looked at his tunnel map.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Kaveh:</span> If we shift the tunnel eight meters north at this point &mdash; bend it around the stream instead of cutting through it &mdash; we avoid the water entirely.</p>
+                </div>
+                <p>He looked at his daughter.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Kaveh:</span> The muqanni reads the earth. Above and below. I've been teaching you the below. You taught yourself the above.</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn secondary" onclick="goTo(6)">&larr; Back</button>
+                <span class="page-indicator">7 of 8</span>
+                <button class="nav-btn" onclick="goTo(8)">Continue &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 8: THE WATER FLOWS -->
+    <div class="page dual-page" data-page="8">
+        <div class="page-content">
+            <div class="beat-title">
+                <div class="beat-number">Chapter Eight</div>
+                <h2>The Water Flows</h2>
+            </div>
+
+            <div class="story-section story-rome">
+                <div class="story-label">Rome &bull; Segovia, Hispania</div>
+                <h3>The Aqueduct</h3>
+                <div class="image-container">
+                    <img src="rome-08.png" alt="Water flowing from the completed aqueduct into a stone basin as the town gathers" />
+                </div>
+                <p>Months later. The channel was complete. The arches stood in the valley &mdash; one hundred and sixty-seven of them, the tallest twenty-eight meters high, rough granite blocks stacked without mortar, precise in their alignment. The channel ran along the top, narrow as a man's arm span, smooth and sealed.</p>
+                <p>At dawn, workers upstream pulled the wooden dam from the intake. The water from the Fr&iacute;a River entered the channel and began its journey &mdash; sixteen kilometers, dropping gently, pulled by nothing but gravity.</p>
+                <p>Marcus stood at the city end, in the plaza where the water would emerge. His father stood beside him. The town had gathered. An hour passed. Then the sound &mdash; a trickle, growing to a rush. Water poured from the outlet into the stone basin. Clear, cold, mountain water.</p>
+                <p>A woman filled a jug. A child cupped his hands and drank. Marcus looked at his father. Gaius watched the water, not the crowd.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Marcus:</span> Will it last?</p>
+                    <p><span class="speaker">Gaius:</span> If we built it right &mdash; longer than any of us.</p>
+                </div>
+            </div>
+
+            <div class="water-divider"></div>
+
+            <div class="story-section story-persia">
+                <div class="story-label">Persia &bull; Near Kerman</div>
+                <h3>The Qanat</h3>
+                <div class="image-container">
+                    <img src="persia-08.png" alt="Water emerging from the qanat outlet into a village reservoir" />
+                </div>
+                <p>The qanat was finished. The tunnel stretched three kilometers from the mother well to the settlement, a gentle slope dropping one meter every five hundred. The vertical shafts dotted the surface like forgotten wells &mdash; unassuming, easy to miss.</p>
+                <p>At the settlement end, the tunnel opened at the base of a low hill. A stone-lined channel carried the water the last hundred meters to a reservoir in the village center.</p>
+                <p>Kaveh and Sana stood at the outlet as the last plug of earth was removed from the tunnel mouth. Nothing happened. Then &mdash; a drip. A trickle. A steady stream of water, cold and clear, flowing from the mountain aquifer through three kilometers of hand-carved tunnel, pulled by nothing but the faintest slope.</p>
+                <p>The village children rushed to the reservoir. An old woman knelt at the edge and cupped water to her face. Sana looked at her father. Kaveh watched the water.</p>
+                <div class="dialogue">
+                    <p><span class="speaker">Sana:</span> Will it last?</p>
+                    <p><span class="speaker">Kaveh:</span> If we built it right &mdash; longer than any of us.</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn secondary" onclick="goTo(7)">&larr; Back</button>
+                <span class="page-indicator">8 of 8</span>
+                <button class="nav-btn" onclick="goTo(9)">Continue &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 9: ENDING -->
+    <div class="page ending-page" data-page="9">
+        <div class="page-content">
+            <div class="image-container">
+                <img src="ending.png" alt="Split image: the aqueduct of Segovia standing today beside a qanat shaft in the Iranian desert" />
+            </div>
+
+            <h2>Still Standing</h2>
+
+            <p>Two thousand years later, the aqueduct of Segovia still stands. Tourists photograph it. Pigeons nest in its arches. The granite blocks have never shifted. It carried water to the city for over a thousand years, and it could carry water again tomorrow if anyone asked.</p>
+
+            <p>Three thousand years after the first qanats were dug, they still carry water beneath the Iranian desert. You can't see them. You'd walk right over them without knowing. The only sign is the line of unassuming vertical shafts &mdash; and the village that shouldn't exist in a desert, but does, because someone carved a path for water in the dark.</p>
+
+            <p>One monument stands in the open, impossible to miss. The other is buried, impossible to find.</p>
+
+            <p>Both solved the same problem: how do you bring water to people who need it?</p>
+
+            <p>The answer, both times, was the same. You study the ground. You respect the slope. You trust gravity to do what gravity does.</p>
+
+            <p class="final-line">And you do the work &mdash; the precise, invisible, patient work &mdash; that no one will remember you for.</p>
+
+            <div class="nav-buttons">
+                <button class="nav-btn secondary" onclick="goTo(8)">&larr; Back</button>
+                <span class="page-indicator"></span>
+                <button class="nav-btn" onclick="goTo(10)">Take the Quiz &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 10: QUIZ -->
+    <div class="page quiz-page" data-page="10">
+        <div class="page-content">
+            <h2>Test Your Understanding</h2>
+
+            <div class="question-block" id="q1">
+                <div class="question-text">1. Both the Roman aqueduct and the Persian qanat move water without pumps. What single force makes them work?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> Water pressure from the river or aquifer</label>
+                    <label><input type="radio" name="q1" value="b"> Gravity, pulling water along a precisely measured slope</label>
+                    <label><input type="radio" name="q1" value="c"> Wind pushing the water through the channels</label>
+                    <label><input type="radio" name="q1" value="d"> The heat of the sun evaporating water uphill</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q1', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q1-correct">Correct! Both systems rely on gravity. The builders' job is to create a path with exactly the right slope &mdash; steep enough for water to flow, gentle enough that it doesn't erode the channel.</div>
+                <div class="feedback incorrect" id="q1-incorrect">Not quite. Both the aqueduct and the qanat work because their builders measured a precise slope, letting gravity pull the water downhill over long distances. No pumps, no pressure &mdash; just gravity and careful measurement.</div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <div class="question-text">2. Marcus discovers the reason for the cracked arch. What does he notice that the experienced engineers missed?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> The stones were cut from weaker granite</label>
+                    <label><input type="radio" name="q2" value="b"> The arch was built too tall</label>
+                    <label><input type="radio" name="q2" value="c"> Rainwater pools differently at the base &mdash; the arch sits on soft clay instead of bedrock</label>
+                    <label><input type="radio" name="q2" value="d"> The workers used mortar on that arch by mistake</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q2', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q2-correct">Correct! Marcus spent months watching rain run off the landscape, so he noticed that water pooled differently around the cracked arch. The clay beneath it compressed under weight, causing uneven settling.</div>
+                <div class="feedback incorrect" id="q2-incorrect">Not quite. Marcus noticed that rainwater pooled around the cracked arch's base longer than around the others &mdash; the ground was soft clay, not bedrock. The clay was compressing under the weight of the stones, causing the arch to settle unevenly.</div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <div class="question-text">3. How does Sana figure out where the underground stream runs, even though she's never been inside the tunnel?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> She listens to the sound of water through the shaft</label>
+                    <label><input type="radio" name="q3" value="b"> She follows a line of tamarisk bushes on the surface &mdash; plants that grow above underground water</label>
+                    <label><input type="radio" name="q3" value="c"> She measures the temperature of the soil at different points</label>
+                    <label><input type="radio" name="q3" value="d"> She asks the village elders where streams used to flow</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q3', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q3-correct">Correct! Sana had been mapping the surface for months. She noticed that tamarisk bushes &mdash; deep-rooted plants that seek underground water &mdash; grew in a line that crossed the tunnel's path. The plants revealed what was hidden below.</div>
+                <div class="feedback incorrect" id="q3-incorrect">Not quite. Sana noticed a line of tamarisk bushes growing across the surface above the tunnel. Tamarisk only grows where underground water is close to the surface, so the line of bushes showed her exactly where the underground stream ran.</div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <div class="question-text">4. Gaius says "People will see the arches" but the arches are only 500 meters of a 16-kilometer route. What point is he making?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> The arches are the most expensive part to build</label>
+                    <label><input type="radio" name="q4" value="b"> Most of the real work is invisible &mdash; underground channels that no one will ever see or admire</label>
+                    <label><input type="radio" name="q4" value="c"> The arches are the weakest section and need the most attention</label>
+                    <label><input type="radio" name="q4" value="d"> People don't understand how aqueducts work</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q4', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q4-correct">Correct! The dramatic, visible arches represent only a tiny fraction of the work. The vast majority &mdash; fifteen and a half kilometers of underground channel &mdash; is invisible. The same is true of the qanat, which is entirely underground. Both stories are about the value of unseen work.</div>
+                <div class="feedback incorrect" id="q4-incorrect">Think about it differently. Gaius is pointing out that people will admire the arches because they're visible and dramatic, but the real work &mdash; fifteen and a half kilometers of underground channel &mdash; is hidden. The visible part is the smallest part. Most important work is the work no one sees.</div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <div class="question-text">5. Both Marcus and Sana solve their problems by observing the surface of the ground. What does this tell us about knowledge?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> Book learning is more valuable than observation</label>
+                    <label><input type="radio" name="q5" value="b"> Children are always better observers than adults</label>
+                    <label><input type="radio" name="q5" value="c"> Paying close attention to ordinary things can reveal what experts miss &mdash; the surface shows what's hidden</label>
+                    <label><input type="radio" name="q5" value="d"> Engineering problems always have simple solutions</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q5', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q5-correct">Correct! Marcus watched rain. Sana watched plants. Both discovered that the surface of the ground reveals what's hidden beneath it &mdash; if you're paying attention. Expertise matters, but so does patient observation of ordinary things.</div>
+                <div class="feedback incorrect" id="q5-incorrect">Not quite. The key insight is that Marcus noticed how rain behaved, and Sana noticed where plants grew. Both were paying close attention to ordinary, surface-level things &mdash; and those observations revealed critical underground truths that even the experts had missed.</div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay"></div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn secondary" onclick="goTo(9)">&larr; Back</button>
+                <span class="page-indicator"></span>
+                <button class="nav-btn" onclick="goTo(11)">Finish &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 11: END -->
+    <div class="page end-page" data-page="11">
+        <div class="page-content" style="max-width: 600px;">
+            <div class="ornament">&mdash; &bull; &mdash;</div>
+            <p class="quote">"The best engineering is the engineering that disappears."</p>
+            <p style="opacity: 0.5; font-size: 14px; margin-bottom: 30px;">The aqueduct of Segovia and the qanats of Iran are both UNESCO World Heritage sites, still standing after millennia &mdash; monuments to patient, invisible work.</p>
+            <button class="restart-button" onclick="goTo(0)">Read Again</button>
+        </div>
+    </div>
+
+    <script>
+        const totalPages = 12;
+        let currentPage = 0;
+
+        function goTo(n) {
+            const current = document.querySelector('.page.active');
+            if (current) {
+                current.style.opacity = '0';
+                setTimeout(() => {
+                    current.classList.remove('active');
+                    showPage(n);
+                }, 300);
+            } else {
+                showPage(n);
+            }
+        }
+
+        function showPage(n) {
+            currentPage = n;
+            const page = document.querySelector(`[data-page="${n}"]`);
+            if (page) {
+                page.classList.add('active');
+                setTimeout(() => { page.style.opacity = '1'; }, 20);
+                window.scrollTo(0, 0);
+                const progress = n / (totalPages - 1) * 100;
+                document.getElementById('progressBar').style.width = progress + '%';
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                if (currentPage < totalPages - 1) goTo(currentPage + 1);
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                if (currentPage > 0) goTo(currentPage - 1);
+            }
+        });
+
+        // Touch swipe
+        let touchStartX = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0 && currentPage < totalPages - 1) goTo(currentPage + 1);
+                else if (diff < 0 && currentPage > 0) goTo(currentPage - 1);
+            }
+        }, { passive: true });
+
+        // Quiz
+        let answered = 0;
+        let correct = 0;
+
+        function checkAnswer(qId, correctAnswer) {
+            const selected = document.querySelector(`input[name="${qId}"]:checked`);
+            if (!selected) return;
+
+            const block = document.getElementById(qId);
+            const isCorrect = selected.value === correctAnswer;
+
+            block.querySelectorAll('input').forEach(i => i.disabled = true);
+            block.querySelector('.check-btn').style.display = 'none';
+
+            if (isCorrect) {
+                document.getElementById(qId + '-correct').style.display = 'block';
+                correct++;
+            } else {
+                document.getElementById(qId + '-incorrect').style.display = 'block';
+            }
+
+            answered++;
+            if (answered === 5) {
+                const display = document.getElementById('scoreDisplay');
+                display.textContent = `You got ${correct} out of 5 correct!`;
+                display.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
