@@ -156,6 +156,110 @@
         @media (prefers-reduced-motion: reduce) {
             .page-frame, .progress-bar { transition: none; }
         }
+
+        /* Quiz */
+        .quiz-container {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .quiz-container.fading {
+            opacity: 0;
+        }
+
+        .quiz-container h2 {
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #e8e0d4;
+        }
+
+        .question-block {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .question-text {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #e8e0d4;
+            line-height: 1.6;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #d4ccc0;
+            line-height: 1.5;
+        }
+
+        .options label:hover {
+            background: rgba(255,255,255,0.06);
+        }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #c4a35a;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-family: inherit;
+            background: rgba(196, 163, 90, 0.15);
+            border: 1px solid rgba(196, 163, 90, 0.3);
+            color: #c4a35a;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .check-btn:hover {
+            background: rgba(196, 163, 90, 0.25);
+        }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            background: rgba(90, 180, 90, 0.1);
+            border: 1px solid rgba(90, 180, 90, 0.2);
+            color: #8cd48c;
+        }
+
+        .feedback.incorrect {
+            background: rgba(200, 90, 90, 0.1);
+            border: 1px solid rgba(200, 90, 90, 0.2);
+            color: #d4a0a0;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            display: none;
+            color: #c4a35a;
+        }
     </style>
 </head>
 <body>
@@ -167,6 +271,76 @@
         <div class="page-title" id="pageTitle">Cover</div>
         <div class="page-frame cover" id="pageFrame">
             <img id="pageImg" src="pages/page-01-cover.png" alt="Cogito &mdash; Cover" />
+        </div>
+        <div class="quiz-container" id="quizContainer">
+            <h2>Test Your Understanding</h2>
+
+            <div class="question-block" id="q1">
+                <div class="question-text">1. Why was young Ren&eacute; allowed to stay in bed every morning while other students went to class?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> He was lazy and refused to get up</label>
+                    <label><input type="radio" name="q1" value="b"> He was sickly and fragile as a child</label>
+                    <label><input type="radio" name="q1" value="c"> His teachers thought he was too smart for class</label>
+                    <label><input type="radio" name="q1" value="d"> He was being punished for bad behavior</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q1', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q1-correct">That's right. Ren&eacute; was born small and sickly, and was not expected to survive childhood. His teachers at La Fl&egrave;che gave him special permission to stay in bed each morning &mdash; and those quiet hours became the foundation of his thinking life.</div>
+                <div class="feedback incorrect" id="q1-incorrect">Not quite. Ren&eacute; was born small and sickly &mdash; so fragile his doctors feared he wouldn't survive. His teachers let him stay in bed each morning as a medical privilege, and he used those hours to think.</div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <div class="question-text">2. What did Ren&eacute; discover at school that excited him more than anything else &mdash; because it offered something no other subject could?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> Philosophy &mdash; it explained the meaning of life</label>
+                    <label><input type="radio" name="q2" value="b"> Astronomy &mdash; it revealed the size of the universe</label>
+                    <label><input type="radio" name="q2" value="c"> Mathematics &mdash; it offered absolute certainty</label>
+                    <label><input type="radio" name="q2" value="d"> Latin &mdash; it let him read ancient texts</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q2', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q2-correct">Exactly. When Ren&eacute; opened Euclid's <em>Elements</em>, he found proofs that were true beyond any doubt. In a world full of opinions and arguments, mathematics was the one thing no one could dispute.</div>
+                <div class="feedback incorrect" id="q2-incorrect">Not quite. It was mathematics &mdash; specifically Euclid's geometry. Ren&eacute; was captivated because mathematical proofs offered absolute certainty, unlike philosophy or theology where people endlessly disagreed.</div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <div class="question-text">3. What happened to Ren&eacute; on the night of November 10, 1619, alone in a stove-heated room in Germany?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> He wrote the <em>Discourse on the Method</em></label>
+                    <label><input type="radio" name="q3" value="b"> He met Isaac Beeckman for the first time</label>
+                    <label><input type="radio" name="q3" value="c"> He discovered the coordinate plane</label>
+                    <label><input type="radio" name="q3" value="d"> He had three vivid dreams that changed his life</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q3', 'd')">Check Answer</button>
+                <div class="feedback correct" id="q3-correct">Yes! Three extraordinary dreams in one night: a whirlwind and phantoms, a room full of sparks, and a book of poetry open to the question <em>"What path shall I follow in life?"</em> He woke shaking but certain &mdash; the answer was mathematics.</div>
+                <div class="feedback incorrect" id="q3-incorrect">Not quite. That night, Ren&eacute; had three vivid dreams &mdash; including one where a book of poetry opened to the question <em>"What path shall I follow in life?"</em> He woke before dawn, shaking but certain that mathematics could unify all knowledge.</div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <div class="question-text">4. Why did Ren&eacute; choose to write his book <em>Discourse on the Method</em> in French instead of Latin?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> Latin books were banned in Holland</label>
+                    <label><input type="radio" name="q4" value="b"> He didn't know Latin well enough</label>
+                    <label><input type="radio" name="q4" value="c"> So that everyone &mdash; not just scholars &mdash; could read it</label>
+                    <label><input type="radio" name="q4" value="d"> The Queen of France ordered him to</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q4', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q4-correct">Right. Latin was for scholars. French was for everyone &mdash; farmers, merchants, women, anyone with a curious mind. Ren&eacute; believed that clear thinking should not be locked behind a language only the educated could read.</div>
+                <div class="feedback incorrect" id="q4-incorrect">Not quite. Ren&eacute; wrote in French so that anyone could read it &mdash; not just university scholars who knew Latin. He wanted his ideas about clear thinking to reach farmers, merchants, women, and anyone with a curious mind.</div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <div class="question-text">5. What does &ldquo;Cogito, ergo sum&rdquo; mean, and why did Ren&eacute; consider it the most important idea he ever had?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> &ldquo;I doubt, therefore I learn&rdquo; &mdash; it helped him become a better student</label>
+                    <label><input type="radio" name="q5" value="b"> &ldquo;I think, therefore I am&rdquo; &mdash; it was the one truth that survived when he doubted everything</label>
+                    <label><input type="radio" name="q5" value="c"> &ldquo;I see, therefore I know&rdquo; &mdash; it proved that sight is our most reliable sense</label>
+                    <label><input type="radio" name="q5" value="d"> &ldquo;I write, therefore I exist&rdquo; &mdash; it justified his career as an author</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q5', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q5-correct">Exactly. Ren&eacute; imagined an evil demon deceiving him about everything &mdash; the world, his body, even mathematics. But one thing survived: if he was being deceived, there had to be an &ldquo;I&rdquo; being deceived. Three words that no demon, no dream, and no grief could destroy.</div>
+                <div class="feedback incorrect" id="q5-incorrect">Not quite. &ldquo;Cogito, ergo sum&rdquo; means &ldquo;I think, therefore I am.&rdquo; Ren&eacute; stripped away every certainty &mdash; even doubting whether the world was real &mdash; and found one thing that could not be taken: the fact that he was thinking proved he existed.</div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay"></div>
         </div>
         <div class="nav">
             <button class="nav-btn" id="prevBtn" onclick="prev()" disabled>&larr; Back</button>
@@ -197,11 +371,13 @@
             { file: 'pages/page-18-cogito.png', title: 'Cogito, Ergo Sum', label: 'Page 17 of 19' },
             { file: 'pages/page-19-stockholm.png', title: 'Stockholm', label: 'Page 18 of 19' },
             { file: 'pages/page-20-legacy.png', title: 'Legacy', label: 'Page 19 of 19' },
+            { file: null, title: 'Quiz', label: 'Quiz', quiz: true },
         ];
 
         let current = 0;
         const img = document.getElementById('pageImg');
         const frame = document.getElementById('pageFrame');
+        const quiz = document.getElementById('quizContainer');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const pageInfo = document.getElementById('pageInfo');
@@ -210,11 +386,19 @@
 
         function show(index) {
             frame.classList.add('fading');
+            quiz.classList.add('fading');
             setTimeout(() => {
                 current = index;
                 const p = pages[current];
-                img.src = p.file;
-                img.alt = 'Cogito \u2014 ' + p.title;
+                if (p.quiz) {
+                    frame.style.display = 'none';
+                    quiz.style.display = 'block';
+                } else {
+                    quiz.style.display = 'none';
+                    frame.style.display = 'block';
+                    img.src = p.file;
+                    img.alt = 'Cogito \u2014 ' + p.title;
+                }
                 pageTitle.textContent = p.title;
                 pageInfo.textContent = p.label;
                 prevBtn.disabled = current === 0;
@@ -222,8 +406,34 @@
                 progressBar.style.width = (current / (pages.length - 1)) * 100 + '%';
                 frame.classList.toggle('cover', current === 0);
                 frame.classList.remove('fading');
+                quiz.classList.remove('fading');
                 window.scrollTo(0, 0);
             }, 250);
+        }
+
+        // Quiz
+        let answered = 0;
+        let correctCount = 0;
+
+        function checkAnswer(qId, correctAnswer) {
+            const selected = document.querySelector('input[name="' + qId + '"]:checked');
+            if (!selected) return;
+            const block = document.getElementById(qId);
+            const isCorrect = selected.value === correctAnswer;
+            block.querySelectorAll('input').forEach(function(i) { i.disabled = true; });
+            block.querySelector('.check-btn').style.display = 'none';
+            if (isCorrect) {
+                document.getElementById(qId + '-correct').style.display = 'block';
+                correctCount++;
+            } else {
+                document.getElementById(qId + '-incorrect').style.display = 'block';
+            }
+            answered++;
+            if (answered === 5) {
+                var display = document.getElementById('scoreDisplay');
+                display.textContent = 'You got ' + correctCount + ' out of 5 correct!';
+                display.style.display = 'block';
+            }
         }
 
         function next() {
