@@ -403,6 +403,7 @@
                 pageInfo.textContent = p.label;
                 prevBtn.disabled = current === 0;
                 nextBtn.disabled = current === pages.length - 1;
+                nextBtn.innerHTML = (current === pages.length - 2) ? 'Quiz &rarr;' : 'Next &rarr;';
                 progressBar.style.width = (current / (pages.length - 1)) * 100 + '%';
                 frame.classList.toggle('cover', current === 0);
                 frame.classList.remove('fading');
