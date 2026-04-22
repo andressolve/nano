@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Invisible Forces: Isaac Newton, Book One</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            background: #15171c;
+            color: #f0ece2;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #c9a86a, #6b7ba8);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .reader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px 16px;
+        }
+
+        .page-frame {
+            max-width: 680px;
+            width: 100%;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .page-frame.fading {
+            opacity: 0;
+        }
+
+        .page-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .page-frame.cover img {
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav {
+            max-width: 680px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 0 4px;
+        }
+
+        .nav-btn {
+            padding: 10px 24px;
+            font-size: 15px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #f0ece2;
+            cursor: pointer;
+            border-radius: 24px;
+            transition: all 0.25s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.25;
+            cursor: default;
+            transform: none;
+        }
+
+        .page-info {
+            font-size: 13px;
+            color: rgba(240, 236, 226, 0.45);
+            letter-spacing: 1px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(240, 236, 226, 0.4);
+        }
+
+        .home-link {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            font-size: 13px;
+            color: rgba(240, 236, 226, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            z-index: 100;
+        }
+
+        .home-link:hover {
+            color: rgba(240, 236, 226, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .reader {
+                padding: 16px 10px;
+            }
+
+            .nav-btn {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+
+            .home-link {
+                top: 10px;
+                left: 10px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-frame, .progress-bar { transition: none; }
+        }
+
+        .quiz-container {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .quiz-container.fading {
+            opacity: 0;
+        }
+
+        .quiz-container h2 {
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #e8e2d2;
+        }
+
+        .question-block {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .question-text {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #e8e2d2;
+            line-height: 1.6;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #d4ccc0;
+            line-height: 1.5;
+        }
+
+        .options label:hover {
+            background: rgba(255,255,255,0.06);
+        }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #c9a86a;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-family: inherit;
+            background: rgba(201, 168, 106, 0.15);
+            border: 1px solid rgba(201, 168, 106, 0.3);
+            color: #c9a86a;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .check-btn:hover {
+            background: rgba(201, 168, 106, 0.25);
+        }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            background: rgba(90, 180, 90, 0.1);
+            border: 1px solid rgba(90, 180, 90, 0.2);
+            color: #8cd48c;
+        }
+
+        .feedback.incorrect {
+            background: rgba(200, 90, 90, 0.1);
+            border: 1px solid rgba(200, 90, 90, 0.2);
+            color: #d4a0a0;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            display: none;
+            color: #c9a86a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <a class="home-link" href="../index.html">&larr; Stories</a>
+
+    <div class="reader">
+        <div class="page-title" id="pageTitle">Cover</div>
+        <div class="page-frame cover" id="pageFrame">
+            <img id="pageImg" src="pages/page-01.png" alt="The Invisible Forces &mdash; Cover" />
+        </div>
+        <div class="quiz-container" id="quizContainer">
+            <h2>Test Your Understanding</h2>
+
+            <div class="question-block" id="q1">
+                <div class="question-text">1. When Isaac Newton was born at Woolsthorpe in the winter of 1642, what was true of him?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> His father was a wealthy scholar who taught him to read early</label>
+                    <label><input type="radio" name="q1" value="b"> His father was already dead, and he was so small no one expected him to live</label>
+                    <label><input type="radio" name="q1" value="c"> He was born into a noble family of mathematicians</label>
+                    <label><input type="radio" name="q1" value="d"> He was a twin, and the stronger of the two</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q1', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q1-correct">Exactly. His father was dead before he was born, and the newborn was so small the household women did not expect him to survive the winter. The man who would later explain the motion of planets began as a fragile baby nobody thought would live a week.</div>
+                <div class="feedback incorrect" id="q1-incorrect">Not quite. His father had already died, and Isaac was born so small that no one thought he would live. That fragile beginning is where the story starts &mdash; not in greatness, but in survival.</div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <div class="question-text">2. In 1665, plague closed Cambridge and sent Newton home to Woolsthorpe. What did he do during those quiet plague years?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> He wrote poetry and waited for the university to reopen</label>
+                    <label><input type="radio" name="q2" value="b"> He taught local children in the village school</label>
+                    <label><input type="radio" name="q2" value="c"> He invented calculus, split white light with a prism, and first asked why the moon falls</label>
+                    <label><input type="radio" name="q2" value="d"> He studied the Bible and gave up mathematics for several years</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q2', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q2-correct">Yes. Alone in his mother's farmhouse for two years, Newton invented a new kind of mathematics (fluxions &mdash; what we now call calculus), let a beam through a shutter and discovered that white light is made of all the colors, and began to wonder whether the same force that pulls an apple also pulls the moon. He later said he was &ldquo;in the prime of my age for invention.&rdquo;</div>
+                <div class="feedback incorrect" id="q2-incorrect">Not quite. Shut up at Woolsthorpe during the plague, Newton did the most extraordinary scientific work any young person has ever done: he invented calculus, proved white light is made of colors, and first asked whether the same force pulls both the apple and the moon. These quiet years were the engine of the rest of his life.</div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <div class="question-text">3. Newton let a narrow beam of sunlight pass through a glass prism and threw a rainbow onto the wall. Then he did something that proved the colors were not being <em>made</em> by the prism. What was it?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> He heated the prism to see if the colors changed</label>
+                    <label><input type="radio" name="q3" value="b"> He took a single color from the first rainbow, sent it through a second prism, and showed it stayed that one color</label>
+                    <label><input type="radio" name="q3" value="c"> He compared the prism rainbow to a painter's colors side by side</label>
+                    <label><input type="radio" name="q3" value="d"> He asked other scholars to try the same experiment and report back</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q3', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q3-correct">Right. That is the second-prism experiment. If the prism were truly creating colors, a pure red beam put through a second prism would have split again. It didn't &mdash; red stayed red, blue stayed blue. That proved the colors were <em>already inside</em> white light. The prism only pulls them apart.</div>
+                <div class="feedback incorrect" id="q3-incorrect">Not quite. He took one color from the first rainbow and put it through a second prism. It did <em>not</em> split again. That proved the prism wasn't making the colors &mdash; they were already hidden inside white light. This was called the <em>experimentum crucis</em>, the crucial experiment.</div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <div class="question-text">4. Newton's great insight about the moon was not that it is pulled toward Earth, but something stranger. What was it?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> The moon is already falling &mdash; its orbit <em>is</em> a fall, curved around the Earth</label>
+                    <label><input type="radio" name="q4" value="b"> The moon is too heavy to ever fall to Earth</label>
+                    <label><input type="radio" name="q4" value="c"> The moon is held up by an invisible crystal sphere</label>
+                    <label><input type="radio" name="q4" value="d"> The moon is slowly drifting away and will one day escape</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q4', 'a')">Check Answer</button>
+                <div class="feedback correct" id="q4-correct">Exactly. The moon <em>is</em> falling &mdash; all the time. But it is also moving sideways so fast that by the time it has fallen a little, the Earth has curved away beneath it. That is what an orbit <em>is</em>: a perpetual, sideways fall. The same law that drops an apple holds the moon in the sky.</div>
+                <div class="feedback incorrect" id="q4-incorrect">Not quite. The moon <em>is</em> falling, constantly, toward the Earth. But it is also flying sideways fast enough that the Earth's curve falls away beneath it just as fast. An orbit is a fall that never lands. One law, two cases: the apple and the moon.</div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <div class="question-text">5. For nearly twenty years Newton kept his deepest work to himself. What finally made him write the <em>Principia</em>, the book that gave the world one law of motion for all matter?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> The King of England ordered him to publish</label>
+                    <label><input type="radio" name="q5" value="b"> His mother asked him to write something for her before she died</label>
+                    <label><input type="radio" name="q5" value="c"> A young astronomer named Edmond Halley visited him and asked one question he had already answered &mdash; and then paid to print the book himself</label>
+                    <label><input type="radio" name="q5" value="d"> He won a Royal Society prize that required him to publish his findings</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q5', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q5-correct">Yes! Edmond Halley came to Cambridge in 1684 and asked what curve a planet would trace around the sun. Newton answered, calmly, &ldquo;An ellipse. I have calculated it.&rdquo; Halley saw at once that Newton had done, privately, the single greatest piece of science in Europe. Halley pushed him to write it down and then paid out of his own pocket to publish the <em>Principia</em>. Without Halley, there might have been no book.</div>
+                <div class="feedback incorrect" id="q5-incorrect">Not quite. It was Edmond Halley &mdash; the young astronomer later famous for the comet &mdash; who came to Cambridge in 1684, asked what curve planets trace, and discovered Newton had already answered it years earlier. Halley coaxed the book out of him and paid to print it himself. The <em>Principia</em> exists because of that one visit.</div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay"></div>
+        </div>
+        <div class="nav">
+            <button class="nav-btn" id="prevBtn" onclick="prev()" disabled>&larr; Back</button>
+            <span class="page-info" id="pageInfo">Cover</span>
+            <button class="nav-btn" id="nextBtn" onclick="next()">Next &rarr;</button>
+        </div>
+    </div>
+
+    <script>
+        const pages = [
+            { file: 'pages/page-01.png', title: 'Cover', label: 'Cover' },
+            { file: 'pages/page-02.png', title: 'Born Into Winter', label: 'Page 1 of 24' },
+            { file: 'pages/page-03.png', title: 'His Mother Leaves', label: 'Page 2 of 24' },
+            { file: 'pages/page-04.png', title: 'Walls Full Of Drawings', label: 'Page 3 of 24' },
+            { file: 'pages/page-05.png', title: 'Grantham', label: 'Page 4 of 24' },
+            { file: 'pages/page-06.png', title: 'The Farm He Refused', label: 'Page 5 of 24' },
+            { file: 'pages/page-07.png', title: 'Trinity', label: 'Page 6 of 24' },
+            { file: 'pages/page-08.png', title: 'The Secret Notebook', label: 'Page 7 of 24' },
+            { file: 'pages/page-09.png', title: 'Plague And Silence', label: 'Page 8 of 24' },
+            { file: 'pages/page-10.png', title: 'The Beam Through The Shutter', label: 'Page 9 of 24' },
+            { file: 'pages/page-11.png', title: 'The Second Prism', label: 'Page 10 of 24' },
+            { file: 'pages/page-12.png', title: 'A Mathematics Of Change', label: 'Page 11 of 24' },
+            { file: 'pages/page-13.png', title: 'The Orchard Question', label: 'Page 12 of 24' },
+            { file: 'pages/page-14.png', title: 'The Moon Falls Around The Earth', label: 'Page 13 of 24' },
+            { file: 'pages/page-15.png', title: 'How Force Weakens With Distance', label: 'Page 14 of 24' },
+            { file: 'pages/page-16.png', title: 'Years Kept Private', label: 'Page 15 of 24' },
+            { file: 'pages/page-17.png', title: 'The Reflecting Telescope', label: 'Page 16 of 24' },
+            { file: 'pages/page-18.png', title: 'Light And Wariness', label: 'Page 17 of 24' },
+            { file: 'pages/page-19.png', title: 'A Problem Returns', label: 'Page 18 of 24' },
+            { file: 'pages/page-20.png', title: 'Halley Comes To Cambridge', label: 'Page 19 of 24' },
+            { file: 'pages/page-21.png', title: 'De Motu', label: 'Page 20 of 24' },
+            { file: 'pages/page-22.png', title: 'Writing The Principia', label: 'Page 21 of 24' },
+            { file: 'pages/page-23.png', title: 'One Law For Apple And Moon', label: 'Page 22 of 24' },
+            { file: 'pages/page-24.png', title: 'Coda: Private Man, Public Universe', label: 'Page 23 of 24' },
+            { file: null, title: 'Quiz', label: 'Quiz', quiz: true },
+        ];
+
+        let current = 0;
+        const img = document.getElementById('pageImg');
+        const frame = document.getElementById('pageFrame');
+        const quiz = document.getElementById('quizContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageInfo = document.getElementById('pageInfo');
+        const pageTitle = document.getElementById('pageTitle');
+        const progressBar = document.getElementById('progressBar');
+
+        function show(index) {
+            frame.classList.add('fading');
+            quiz.classList.add('fading');
+            setTimeout(() => {
+                current = index;
+                const p = pages[current];
+                if (p.quiz) {
+                    frame.style.display = 'none';
+                    quiz.style.display = 'block';
+                } else {
+                    quiz.style.display = 'none';
+                    frame.style.display = 'block';
+                    img.src = p.file;
+                    img.alt = 'The Invisible Forces \u2014 ' + p.title;
+                }
+                pageTitle.textContent = p.title;
+                pageInfo.textContent = p.label;
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === pages.length - 1;
+                nextBtn.innerHTML = (current === pages.length - 2) ? 'Quiz &rarr;' : 'Next &rarr;';
+                progressBar.style.width = (current / (pages.length - 1)) * 100 + '%';
+                frame.classList.toggle('cover', current === 0);
+                frame.classList.remove('fading');
+                quiz.classList.remove('fading');
+                window.scrollTo(0, 0);
+            }, 250);
+        }
+
+        let answered = 0;
+        let correctCount = 0;
+
+        function checkAnswer(qId, correctAnswer) {
+            const selected = document.querySelector('input[name="' + qId + '"]:checked');
+            if (!selected) return;
+            const block = document.getElementById(qId);
+            const isCorrect = selected.value === correctAnswer;
+            block.querySelectorAll('input').forEach(function(i) { i.disabled = true; });
+            block.querySelector('.check-btn').style.display = 'none';
+            if (isCorrect) {
+                document.getElementById(qId + '-correct').style.display = 'block';
+                correctCount++;
+            } else {
+                document.getElementById(qId + '-incorrect').style.display = 'block';
+            }
+            answered++;
+            if (answered === 5) {
+                var display = document.getElementById('scoreDisplay');
+                display.textContent = 'You got ' + correctCount + ' out of 5 correct!';
+                display.style.display = 'block';
+            }
+        }
+
+        function next() {
+            if (current < pages.length - 1) show(current + 1);
+        }
+
+        function prev() {
+            if (current > 0) show(current - 1);
+        }
+
+        img.addEventListener('click', function(e) {
+            const rect = img.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x < rect.width * 0.35) {
+                prev();
+            } else {
+                next();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) next();
+                else prev();
+            }
+        }, { passive: true });
+
+        function preload() {
+            if (current < pages.length - 1) {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = pages[current + 1].file;
+                document.head.appendChild(link);
+            }
+        }
+        img.addEventListener('load', preload);
+    </script>
+
+</body>
+</html>

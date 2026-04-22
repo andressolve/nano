@@ -1,6 +1,8 @@
 # Image Generation Guide: Character Consistency
 
-This guide documents the workflow for generating illustrated stories with consistent characters using the Gemini image generation MCP tools.
+This guide documents the reference-first workflow for generating illustrated stories with consistent characters.
+
+It was originally written around Gemini MCP tools, but the same workflow still applies when using newer OpenAI image models such as `gpt-image-2`: lock the characters first, keep page text sparse, prototype the hardest pages early, and use targeted revisions instead of hoping the model will maintain continuity by itself.
 
 ## The Problem
 
@@ -36,7 +38,7 @@ modest appearance (middle-class Roman), slender athletic build
 
 ### Step 2: Generate Reference Images
 
-Generate a portrait/reference image for each main character using `generate_image`:
+Generate a portrait/reference image for each main character using your image-generation tool of choice (`generate`, `create`, etc.):
 
 ```
 Character reference sheet for [NAME]: [Full character description]
@@ -52,9 +54,9 @@ Save these as `ref_[character].png`.
 
 For scenes with characters, use the reference images as inputs:
 
-#### Single Character Scenes → `edit_image`
+#### Single Character Scenes → Edit / Transform
 
-Use `edit_image` with the character reference as the base image:
+Use an edit/transform flow with the character reference as the base image:
 
 ```
 Transform this character reference into a full scene: [Scene description].
@@ -62,9 +64,9 @@ Keep the character's appearance exactly as shown - same clothing, same hair,
 same facial features. [Lighting/atmosphere]. [Style notes]. No text, no labels.
 ```
 
-#### Multiple Character Scenes → `compose_images`
+#### Multiple Character Scenes → Multi-Reference Compose
 
-Use `compose_images` with all relevant character references (requires 2+ images):
+Use a multi-reference compose flow with all relevant character references (requires 2+ images):
 
 ```
 Scene from illustrated story. [Scene description].
@@ -75,28 +77,36 @@ Both characters must match their reference images exactly.
 
 ---
 
-## Tool Reference
+## Mode Reference
 
-### `generate_image`
+### Generate
 - Use for: Landscapes, establishing shots, character references
 - Input: Text prompt only
 - Best for: Images without specific characters that need consistency
 
-### `edit_image`
+### Edit / Transform
 - Use for: Single character scenes
 - Input: One reference image + prompt
 - The prompt should describe how to transform/place the character into a scene
 
-### `compose_images`
+### Multi-Reference Compose
 - Use for: Multi-character scenes
 - Input: 2+ reference images + prompt
 - Requires minimum 2 images
 - Good for dialogue scenes, group shots
 
-### `style_transfer`
+### Style Transfer
 - Use for: Applying consistent artistic style
 - Input: Base image + style reference image
 - Useful if you want all images to match a specific artistic style
+
+## GPT Image 2 Calibration (April 2026)
+
+- `gpt-image-2` is good enough to make graphic-novel planning more ambitious: readable caption boxes, cleaner comic lettering, reference-sheet style outputs, and targeted iterative repairs are all materially better than older image models.
+- Those gains do **not** eliminate the core risks of sequential storytelling. Recurring-character drift, panel-layout drift, and over-dense science/exposition pages still need human discipline.
+- Keep each science page to one main visual argument. If a page needs too many labels or too much narration, split it.
+- Prototype the hardest pages first: scientific diagrams, multi-character argument scenes, and any page where text and composition must both be exact.
+- Prefer targeted local edits once the page is mostly right. Full rerolls tend to lose solved continuity.
 
 ---
 
@@ -106,11 +116,11 @@ Both characters must match their reference images exactly.
 
 2. **Repeat key details**: Even when using references, mention the most important details (e.g., "cream tunic with decorative border", "graying beard").
 
-3. **Consistent style language**: Use the same style description across all prompts (e.g., "painterly, slightly stylized illustration suitable for a children's book").
+3. **Consistent style language**: Use the same style description across all prompts (for example, "serious painterly historical graphic novel, realistic proportions"). Do not let the model drift into a children's-book register unless that is actually the goal.
 
 4. **Consistent lighting**: Define your lighting once (e.g., "warm dusk lighting") and use it throughout.
 
-5. **Always say "no text, no labels"**: Prevents unwanted text appearing in images.
+5. **Be explicit about text policy**: If a page should contain no text, say "no text, no labels." If it should contain text, keep the amount small and specify that the wording must be exact.
 
 6. **Save your prompts**: Keep a `prompts.md` file documenting all prompts used for reproducibility.
 
@@ -134,6 +144,7 @@ story-name/
 
 ## Limitations
 
-- `compose_images` requires minimum 2 images - can't use it for single character with just one reference
+- Multi-reference compose requires minimum 2 images in workflows that distinguish it from single-image editing
 - Characters may still vary slightly between images - the references help but aren't perfect
 - Complex poses or unusual angles may not preserve character features as well
+- Better text rendering does not mean unlimited text density - overloaded pages still fail

@@ -69,18 +69,23 @@ This repo contains illustrated stories for kids (Francisco, 9, and Sebastian, 7)
 
 **Tone:** Serious and contemplative throughout. **Missing:** Comedy, adventure-for-adventure's-sake, mystery.
 
-## Image Generation — Gemini Nano Banana MCP
+## Image Generation — Current Workflow Calibration
+
+This repo's graphic-novel workflow was originally written around Gemini MCP tools. The core discipline still holds for current OpenAI image work: **reference sheets first, sparse text, sequential review, and immediate drift correction**.
 
 ### Tool Selection
 
-- `compose_images`: Use when a page features 2+ characters and you have reference images for each. Requires minimum 2 images.
-- `edit_image`: Use when a page features a single character. Pass one reference image.
-- `generate_image`: Use when no reference image is needed (e.g., back cover, purely scenic).
+- `generate`: Use for covers, setting plates, character references, or pages without locked characters.
+- `edit / transform`: Use when a page features a single locked character and you want to preserve that reference closely.
+- `multi-reference compose`: Use when a page features 2+ locked characters and you have references for each.
+
+Exact tool names vary by provider. The workflow does not.
 
 ### Prompt Constraints
 
-- **2000 character limit** on prompts. Full script prompts from the markdown docs will exceed this — condense while keeping: panel layout, key visual details, all text/captions/speech bubbles verbatim, and character identifiers.
-- Don't paraphrase dialogue or caption text — copy it exactly so the model renders it correctly.
+- Full script prompts are usually too long and too diffuse to paste verbatim. Condense to the actual visual job of the page: panel layout, key scene details, exact dialogue/captions, and the relevant character locks.
+- Don't paraphrase dialogue or caption text when text must render in-image.
+- Even with stronger text handling in `gpt-image-2`, keep page lettering sparse. If a page requires too much text, redesign or split it.
 
 ### Character Consistency
 
@@ -89,15 +94,24 @@ This repo contains illustrated stories for kids (Francisco, 9, and Sebastian, 7)
 - Character consistency weakens when characters are distant, small in frame, or in unusual poses. Regenerate with stronger lock language if drift occurs.
 - For child characters: models drift toward children's book aesthetics. Include "NOT a children's book. Serious mature graphic novel, realistic proportions" in every prompt. Watch for oversized eyes, rounded features, bright saturated colors, soft focus.
 
+### GPT Image 2 Calibration (April 2026)
+
+- `gpt-image-2` is now strong enough for comic pages, reference-sheet style outputs, readable page text, and iterative multi-turn repair work.
+- That does **not** remove the need for page discipline. Recurring-character continuity, exact panel geometry, and dense explanatory pages still break easily.
+- Prototype the hardest science pages first before committing to a full run.
+- Prefer local repairs and targeted revisions over full page rerolls once a page is mostly right.
+
 ### File Handling
 
-- The MCP tool sometimes appends `_1` to output filenames instead of overwriting existing files. After regenerating, `mv` the new file to the correct name.
+- Do not overwrite an accepted page casually. Keep versioned siblings until the replacement is clearly better.
+- Move or copy selected finals into the project folder; do not leave project assets only in tool-default output locations.
 
 ### Text Rendering
 
-- Text in caption boxes and speech bubbles generally renders clean and legible.
-- Keep speech bubble dialogue under 15 words for best results.
-- Sound effects (KRAAASH, KRAAAKOOM) render well when marked as "large" or "bold" in the prompt.
+- Text rendering is better than older model generations, but still easiest when bubbles and caption boxes are short and visually clean.
+- Keep speech bubble dialogue under 15 words whenever possible.
+- Use large, high-contrast caption boxes. Avoid tiny labels and dense infographic callouts.
+- If scientific explanation starts depending on many small labels, redesign the page composition.
 
 ## Workflow for Generating a Graphic Novel
 
@@ -126,6 +140,7 @@ nano/
   trial-of-socrates/            # Graphic novel (single volume)
   shock-of-florence/            # Illustrated essay
   the-builders/                 # Dual story (new format)
+  newton-vol1/                  # Graphic novel design pass (Newton Book One)
 ```
 
 Each graphic novel folder contains: `00-PROJECT-BRIEF.md`, `01-STYLE-GUIDE.md`, `02-CHARACTERS.md`, `03-SETTINGS.md`, `04-SCRIPT.md`, `index.html`, `refs/`, `pages/`.
