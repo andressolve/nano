@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratio: The Seeker (Volume 1)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            background: #15171c;
+            color: #f0ece2;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #c9a86a, #6b7ba8);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .reader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px 16px;
+        }
+
+        .page-frame {
+            max-width: 680px;
+            width: 100%;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .page-frame.fading {
+            opacity: 0;
+        }
+
+        .page-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .page-frame.cover img {
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav {
+            max-width: 680px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding: 0 4px;
+        }
+
+        .nav-btn {
+            padding: 10px 24px;
+            font-size: 15px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #f0ece2;
+            cursor: pointer;
+            border-radius: 24px;
+            transition: all 0.25s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.25;
+            cursor: default;
+            transform: none;
+        }
+
+        .page-info {
+            font-size: 13px;
+            color: rgba(240, 236, 226, 0.45);
+            letter-spacing: 1px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(240, 236, 226, 0.4);
+        }
+
+        .home-link {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            font-size: 13px;
+            color: rgba(240, 236, 226, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            z-index: 100;
+        }
+
+        .home-link:hover {
+            color: rgba(240, 236, 226, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .reader {
+                padding: 16px 10px;
+            }
+
+            .nav-btn {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+
+            .home-link {
+                top: 10px;
+                left: 10px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-frame, .progress-bar { transition: none; }
+        }
+
+        /* End of Volume interstitial */
+        .end-interstitial {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .end-interstitial.fading {
+            opacity: 0;
+        }
+
+        .end-interstitial h2 {
+            font-size: 32px;
+            font-weight: normal;
+            color: #e8e2d2;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .end-interstitial .subtitle {
+            font-size: 18px;
+            color: rgba(240, 236, 226, 0.6);
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .end-interstitial .next-up {
+            font-size: 14px;
+            color: rgba(201, 168, 106, 0.7);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 30px;
+        }
+
+        .end-interstitial .vol-two {
+            font-size: 22px;
+            color: #c9a86a;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Quiz */
+        .quiz-container {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .quiz-container.fading {
+            opacity: 0;
+        }
+
+        .quiz-container h2 {
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #e8e2d2;
+        }
+
+        .question-block {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .question-text {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #e8e2d2;
+            line-height: 1.6;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #d4ccc0;
+            line-height: 1.5;
+        }
+
+        .options label:hover {
+            background: rgba(255,255,255,0.06);
+        }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #c9a86a;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-family: inherit;
+            background: rgba(201, 168, 106, 0.15);
+            border: 1px solid rgba(201, 168, 106, 0.3);
+            color: #c9a86a;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .check-btn:hover {
+            background: rgba(201, 168, 106, 0.25);
+        }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            background: rgba(90, 180, 90, 0.1);
+            border: 1px solid rgba(90, 180, 90, 0.2);
+            color: #8cd48c;
+        }
+
+        .feedback.incorrect {
+            background: rgba(200, 90, 90, 0.1);
+            border: 1px solid rgba(200, 90, 90, 0.2);
+            color: #d4a0a0;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            display: none;
+            color: #c9a86a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <a class="home-link" href="../index.html">&larr; Stories</a>
+
+    <div class="reader">
+        <div class="page-title" id="pageTitle">Cover</div>
+        <div class="page-frame cover" id="pageFrame">
+            <img id="pageImg" src="pages/cover.png" alt="Ratio &mdash; Cover" />
+        </div>
+
+        <div class="end-interstitial" id="endInterstitial">
+            <h2>End of Volume 1</h2>
+            <div class="subtitle">The Seeker</div>
+            <p style="color: rgba(240, 236, 226, 0.75); font-size: 17px; line-height: 1.7; max-width: 520px; margin: 0 auto;">
+                Pythagoras crossed three lands &mdash; Samos, Egypt, Babylon &mdash; to find his question. In Croton, he will finally build a place to answer it.
+            </p>
+            <div class="next-up">Next</div>
+            <div class="vol-two">Volume 2: The Brotherhood</div>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <h2>Test Your Understanding</h2>
+
+            <div class="question-block" id="q1">
+                <div class="question-text">1. What did the young Pythagoras notice at the blacksmith's forge?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> That bigger hammers are heavier</label>
+                    <label><input type="radio" name="q1" value="b"> That hammers of certain weights sounded harmonious together, in simple ratios</label>
+                    <label><input type="radio" name="q1" value="c"> That iron is stronger than wood</label>
+                    <label><input type="radio" name="q1" value="d"> That his teacher was waiting for him</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q1', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q1-correct">Exactly. He weighed the hammers and found the ones that sounded well together had weights in simple ratios &mdash; 12, 9, 8, 6. The octave, fifth, and fourth in music are all hiding in those numbers. His first great idea: harmony is <em>number</em>.</div>
+                <div class="feedback incorrect" id="q1-incorrect">Not quite. Pythagoras noticed the hammers that sounded harmonious together had weights in simple ratios &mdash; 12, 9, 8, 6. That was the seed of his whole life's idea: the world is made of number.</div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <div class="question-text">2. Why did Pythagoras leave Samos the first time?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> He was running from a storm</label>
+                    <label><input type="radio" name="q2" value="b"> He wanted to become a soldier</label>
+                    <label><input type="radio" name="q2" value="c"> The tyrant Polycrates ruled harshly, and Pythagoras wanted to study in Egypt</label>
+                    <label><input type="radio" name="q2" value="d"> His family was exiled</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q2', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q2-correct">Right. His teacher Pherecydes told him Samos had grown small under Polycrates &mdash; that Egypt knew shapes before the Greeks did. At twenty, Pythagoras packed a bundle and sailed for Memphis.</div>
+                <div class="feedback incorrect" id="q2-incorrect">Not quite. The tyrant Polycrates watched every free man on Samos, and Pherecydes told Pythagoras the Egyptians had known geometry for thousands of years. So he left for Egypt to learn.</div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <div class="question-text">3. What did the Egyptian rope-stretchers show him?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> That a rope with knots arranged 3-4-5 always makes a perfect right angle</label>
+                    <label><input type="radio" name="q3" value="b"> How to tie ropes to build a ship</label>
+                    <label><input type="radio" name="q3" value="c"> The length of the Nile</label>
+                    <label><input type="radio" name="q3" value="d"> A map of the stars</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q3', 'a')">Check Answer</button>
+                <div class="feedback correct" id="q3-correct">Yes! The <em>harpedonaptai</em> laid a rope with twelve knots into a 3-4-5 triangle in the sand &mdash; and the corner was always square. When Pythagoras asked <em>why</em>, the priest answered: &ldquo;We are builders. You are the question-asker.&rdquo; That triangle traveled with him for twenty years.</div>
+                <div class="feedback incorrect" id="q3-incorrect">Not quite. The Egyptian rope-stretchers showed him that twelve knots arranged 3-4-5 make a perfect right angle &mdash; every time. But they never explained <em>why</em> it worked. That question became the work of his life.</div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <div class="question-text">4. Where did Pythagoras go after Egypt?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> Athens</label>
+                    <label><input type="radio" name="q4" value="b"> Rome</label>
+                    <label><input type="radio" name="q4" value="c"> He went straight back to Samos</label>
+                    <label><input type="radio" name="q4" value="d"> Babylon &mdash; taken there after the Persian king Cambyses conquered Egypt</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q4', 'd')">Check Answer</button>
+                <div class="feedback correct" id="q4-correct">Right. When Cambyses of Persia invaded, the Egyptian temples fell and the foreign scholars were taken east. In Babylon, the Magi taught Pythagoras astronomy &mdash; they had been recording the sky in numbers for a thousand years.</div>
+                <div class="feedback incorrect" id="q4-incorrect">Not quite. He was taken to Babylon after the Persian king Cambyses conquered Egypt. There the Magi taught him astronomy &mdash; how to read the sky in numbers. He stayed for years.</div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <div class="question-text">5. Why did Pythagoras leave Samos the SECOND time?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> He wanted to see new temples</label>
+                    <label><input type="radio" name="q5" value="b"> The cave-school he started was too small, and Samos would not support the school he wanted to build</label>
+                    <label><input type="radio" name="q5" value="c"> He was chased out by Polycrates</label>
+                    <label><input type="radio" name="q5" value="d"> To follow his mentor Pherecydes</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q5', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q5-correct">Yes! A cave could not hold what he had come home to build. He had been home six months. The Greek cities in southern Italy &mdash; Magna Graecia &mdash; were rich, new, and open to ideas. So he crossed the sea again, at forty, to build his school in Croton.</div>
+                <div class="feedback incorrect" id="q5-incorrect">Not quite. After returning home, he taught a few students in a small cave &mdash; but it was plainly too small. Samos could not hold the school he imagined. So he sailed west to Croton in Magna Graecia, where he would finally build it. Volume 2 picks up the morning he arrives.</div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay"></div>
+        </div>
+
+        <div class="nav">
+            <button class="nav-btn" id="prevBtn" onclick="prev()" disabled>&larr; Back</button>
+            <span class="page-info" id="pageInfo">Cover</span>
+            <button class="nav-btn" id="nextBtn" onclick="next()">Next &rarr;</button>
+        </div>
+    </div>
+
+    <script>
+        const pages = [
+            { file: 'pages/cover.png', title: 'Cover', label: 'Cover' },
+            { file: 'pages/page-01.png', title: 'The World Is Speaking', label: 'Page 1 of 17' },
+            { file: 'pages/page-02.png', title: 'The Hammers', label: 'Page 2 of 17' },
+            { file: 'pages/page-03.png', title: 'Pherecydes and the Tyrant', label: 'Page 3 of 17' },
+            { file: 'pages/page-04.png', title: 'Departure', label: 'Page 4 of 17' },
+            { file: 'pages/page-05.png', title: 'Egypt', label: 'Page 5 of 17' },
+            { file: 'pages/page-06.png', title: 'The Rope-Stretchers', label: 'Page 6 of 17' },
+            { file: 'pages/page-07.png', title: 'Egypt Falls', label: 'Page 7 of 17' },
+            { file: 'pages/page-08.png', title: 'Babylon', label: 'Page 8 of 17' },
+            { file: 'pages/page-09.png', title: 'The Numbers of the Sky', label: 'Page 9 of 17' },
+            { file: 'pages/page-10.png', title: 'Years Pass', label: 'Page 10 of 17' },
+            { file: 'pages/page-11.png', title: 'Homecoming', label: 'Page 11 of 17' },
+            { file: 'pages/page-12.png', title: 'The Cave', label: 'Page 12 of 17' },
+            { file: 'pages/page-13.png', title: 'Deciding', label: 'Page 13 of 17' },
+            { file: 'pages/page-14.png', title: 'The Crossing', label: 'Page 14 of 17' },
+            { file: 'pages/page-15.png', title: 'Italy', label: 'Page 15 of 17' },
+            { file: 'pages/page-16.png', title: 'Croton', label: 'Page 16 of 17' },
+            { file: 'pages/page-17.png', title: 'The First Word', label: 'Page 17 of 17' },
+            { file: null, title: 'End of Volume 1', label: 'End of Volume 1', end: true },
+            { file: null, title: 'Quiz', label: 'Quiz', quiz: true },
+        ];
+
+        let current = 0;
+        const img = document.getElementById('pageImg');
+        const frame = document.getElementById('pageFrame');
+        const quiz = document.getElementById('quizContainer');
+        const endInt = document.getElementById('endInterstitial');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageInfo = document.getElementById('pageInfo');
+        const pageTitle = document.getElementById('pageTitle');
+        const progressBar = document.getElementById('progressBar');
+
+        function show(index) {
+            frame.classList.add('fading');
+            quiz.classList.add('fading');
+            endInt.classList.add('fading');
+            setTimeout(() => {
+                current = index;
+                const p = pages[current];
+                if (p.quiz) {
+                    frame.style.display = 'none';
+                    endInt.style.display = 'none';
+                    quiz.style.display = 'block';
+                } else if (p.end) {
+                    frame.style.display = 'none';
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'block';
+                } else {
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'none';
+                    frame.style.display = 'block';
+                    img.src = p.file;
+                    img.alt = 'Ratio \u2014 ' + p.title;
+                }
+                pageTitle.textContent = p.title;
+                pageInfo.textContent = p.label;
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === pages.length - 1;
+                let nextLabel = 'Next &rarr;';
+                if (pages[current + 1] && pages[current + 1].end) nextLabel = 'End &rarr;';
+                else if (pages[current + 1] && pages[current + 1].quiz) nextLabel = 'Quiz &rarr;';
+                nextBtn.innerHTML = nextLabel;
+                progressBar.style.width = (current / (pages.length - 1)) * 100 + '%';
+                frame.classList.toggle('cover', current === 0);
+                frame.classList.remove('fading');
+                quiz.classList.remove('fading');
+                endInt.classList.remove('fading');
+                window.scrollTo(0, 0);
+            }, 250);
+        }
+
+        let answered = 0;
+        let correctCount = 0;
+
+        function checkAnswer(qId, correctAnswer) {
+            const selected = document.querySelector('input[name="' + qId + '"]:checked');
+            if (!selected) return;
+            const block = document.getElementById(qId);
+            const isCorrect = selected.value === correctAnswer;
+            block.querySelectorAll('input').forEach(function(i) { i.disabled = true; });
+            block.querySelector('.check-btn').style.display = 'none';
+            if (isCorrect) {
+                document.getElementById(qId + '-correct').style.display = 'block';
+                correctCount++;
+            } else {
+                document.getElementById(qId + '-incorrect').style.display = 'block';
+            }
+            answered++;
+            if (answered === 5) {
+                var display = document.getElementById('scoreDisplay');
+                display.textContent = 'You got ' + correctCount + ' out of 5 correct!';
+                display.style.display = 'block';
+            }
+        }
+
+        function next() {
+            if (current < pages.length - 1) show(current + 1);
+        }
+
+        function prev() {
+            if (current > 0) show(current - 1);
+        }
+
+        img.addEventListener('click', function(e) {
+            const rect = img.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x < rect.width * 0.35) {
+                prev();
+            } else {
+                next();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) next();
+                else prev();
+            }
+        }, { passive: true });
+
+        function preload() {
+            if (current < pages.length - 1 && pages[current + 1].file) {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = pages[current + 1].file;
+                document.head.appendChild(link);
+            }
+        }
+        img.addEventListener('load', preload);
+    </script>
+
+</body>
+</html>
