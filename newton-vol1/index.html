@@ -346,29 +346,29 @@
     <script>
         const pages = [
             { file: 'pages/page-01.png', title: 'Cover', label: 'Cover' },
-            { file: 'pages/page-02.png', title: 'Born Into Winter', label: 'Page 1 of 24' },
-            { file: 'pages/page-03.png', title: 'His Mother Leaves', label: 'Page 2 of 24' },
-            { file: 'pages/page-04.png', title: 'Walls Full Of Drawings', label: 'Page 3 of 24' },
-            { file: 'pages/page-05.png', title: 'Grantham', label: 'Page 4 of 24' },
-            { file: 'pages/page-06.png', title: 'The Farm He Refused', label: 'Page 5 of 24' },
-            { file: 'pages/page-07.png', title: 'Trinity', label: 'Page 6 of 24' },
-            { file: 'pages/page-08.png', title: 'The Secret Notebook', label: 'Page 7 of 24' },
-            { file: 'pages/page-09.png', title: 'Plague And Silence', label: 'Page 8 of 24' },
-            { file: 'pages/page-10.png', title: 'The Beam Through The Shutter', label: 'Page 9 of 24' },
-            { file: 'pages/page-11.png', title: 'The Second Prism', label: 'Page 10 of 24' },
-            { file: 'pages/page-12.png', title: 'A Mathematics Of Change', label: 'Page 11 of 24' },
-            { file: 'pages/page-13.png', title: 'The Orchard Question', label: 'Page 12 of 24' },
-            { file: 'pages/page-14.png', title: 'The Moon Falls Around The Earth', label: 'Page 13 of 24' },
-            { file: 'pages/page-15.png', title: 'How Force Weakens With Distance', label: 'Page 14 of 24' },
-            { file: 'pages/page-16.png', title: 'Years Kept Private', label: 'Page 15 of 24' },
-            { file: 'pages/page-17.png', title: 'The Reflecting Telescope', label: 'Page 16 of 24' },
-            { file: 'pages/page-18.png', title: 'Light And Wariness', label: 'Page 17 of 24' },
-            { file: 'pages/page-19.png', title: 'A Problem Returns', label: 'Page 18 of 24' },
-            { file: 'pages/page-20.png', title: 'Halley Comes To Cambridge', label: 'Page 19 of 24' },
-            { file: 'pages/page-21.png', title: 'De Motu', label: 'Page 20 of 24' },
-            { file: 'pages/page-22.png', title: 'Writing The Principia', label: 'Page 21 of 24' },
-            { file: 'pages/page-23.png', title: 'One Law For Apple And Moon', label: 'Page 22 of 24' },
-            { file: 'pages/page-24.png', title: 'Coda: Private Man, Public Universe', label: 'Page 23 of 24' },
+            { file: 'pages/page-02.png', title: 'Born Into Winter', label: 'Page 1 of 23' },
+            { file: 'pages/page-03.png', title: 'His Mother Leaves', label: 'Page 2 of 23' },
+            { file: 'pages/page-04.png', title: 'Walls Full Of Drawings', label: 'Page 3 of 23' },
+            { file: 'pages/page-05.png', title: 'Grantham', label: 'Page 4 of 23' },
+            { file: 'pages/page-06.png', title: 'The Farm He Refused', label: 'Page 5 of 23' },
+            { file: 'pages/page-07.png', title: 'Trinity', label: 'Page 6 of 23' },
+            { file: 'pages/page-08.png', title: 'The Secret Notebook', label: 'Page 7 of 23' },
+            { file: 'pages/page-09.png', title: 'Plague And Silence', label: 'Page 8 of 23' },
+            { file: 'pages/page-10.png', title: 'The Beam Through The Shutter', label: 'Page 9 of 23' },
+            { file: 'pages/page-11.png', title: 'The Second Prism', label: 'Page 10 of 23' },
+            { file: 'pages/page-12.png', title: 'A Mathematics Of Change', label: 'Page 11 of 23' },
+            { file: 'pages/page-13.png', title: 'The Orchard Question', label: 'Page 12 of 23' },
+            { file: 'pages/page-14.png', title: 'The Moon Falls Around The Earth', label: 'Page 13 of 23' },
+            { file: 'pages/page-15.png', title: 'How Force Weakens With Distance', label: 'Page 14 of 23' },
+            { file: 'pages/page-16.png', title: 'Years Kept Private', label: 'Page 15 of 23' },
+            { file: 'pages/page-17.png', title: 'The Reflecting Telescope', label: 'Page 16 of 23' },
+            { file: 'pages/page-18.png', title: 'Light And Wariness', label: 'Page 17 of 23' },
+            { file: 'pages/page-19.png', title: 'A Problem Returns', label: 'Page 18 of 23' },
+            { file: 'pages/page-20.png', title: 'Halley Comes To Cambridge', label: 'Page 19 of 23' },
+            { file: 'pages/page-21.png', title: 'De Motu', label: 'Page 20 of 23' },
+            { file: 'pages/page-22.png', title: 'Writing The Principia', label: 'Page 21 of 23' },
+            { file: 'pages/page-23.png', title: 'One Law For Apple And Moon', label: 'Page 22 of 23' },
+            { file: 'pages/page-24.png', title: 'Coda: Private Man, Public Universe', label: 'Page 23 of 23' },
             { file: null, title: 'Quiz', label: 'Quiz', quiz: true },
         ];
 
@@ -471,7 +471,7 @@
         }, { passive: true });
 
         function preload() {
-            if (current < pages.length - 1) {
+            if (current < pages.length - 1 && pages[current + 1].file) {
                 const link = document.createElement('link');
                 link.rel = 'prefetch';
                 link.href = pages[current + 1].file;
