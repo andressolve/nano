@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Invisible Forces &mdash; Isaac Newton, Book Two</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            background: #15171c;
+            color: #f0ece2;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #c9a86a, #b04a3a);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .reader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px 16px;
+        }
+
+        .page-frame {
+            max-width: min(1400px, 96vw);
+            width: 100%;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .page-frame.fading { opacity: 0; }
+
+        .page-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .page-frame.cover img {
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #f0ece2;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            z-index: 50;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            user-select: none;
+        }
+
+        .nav-arrow.prev { left: 18px; }
+        .nav-arrow.next { right: 18px; }
+
+        .nav-arrow:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .nav-arrow:disabled {
+            opacity: 0.18;
+            cursor: default;
+        }
+
+        .page-info {
+            position: fixed;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: rgba(240, 236, 226, 0.45);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(240, 236, 226, 0.4);
+        }
+
+        .home-link {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            font-size: 13px;
+            color: rgba(240, 236, 226, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            z-index: 100;
+        }
+
+        .home-link:hover { color: rgba(240, 236, 226, 0.7); }
+
+        @media (max-width: 768px) {
+            .reader { padding: 16px 10px; }
+            .nav-arrow { width: 44px; height: 44px; font-size: 22px; }
+            .nav-arrow.prev { left: 8px; }
+            .nav-arrow.next { right: 8px; }
+            .home-link { top: 10px; left: 10px; }
+            .page-info { bottom: 8px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-frame, .progress-bar { transition: none; }
+        }
+
+        .end-interstitial {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .end-interstitial.fading { opacity: 0; }
+
+        .end-interstitial h2 {
+            font-size: 32px;
+            font-weight: normal;
+            color: #e8e2d2;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .end-interstitial .subtitle {
+            font-size: 18px;
+            color: rgba(240, 236, 226, 0.6);
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .end-interstitial .next-up {
+            font-size: 14px;
+            color: rgba(201, 168, 106, 0.7);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 30px;
+        }
+
+        .quiz-container {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .quiz-container.fading { opacity: 0; }
+
+        .quiz-container h2 {
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #e8e2d2;
+        }
+
+        .question-block {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .question-text {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #e8e2d2;
+            line-height: 1.6;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #d4ccc0;
+            line-height: 1.5;
+        }
+
+        .options label:hover { background: rgba(255,255,255,0.06); }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #c9a86a;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-family: inherit;
+            background: rgba(201, 168, 106, 0.15);
+            border: 1px solid rgba(201, 168, 106, 0.3);
+            color: #c9a86a;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .check-btn:hover { background: rgba(201, 168, 106, 0.25); }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            background: rgba(90, 180, 90, 0.1);
+            border: 1px solid rgba(90, 180, 90, 0.2);
+            color: #8cd48c;
+        }
+
+        .feedback.incorrect {
+            background: rgba(200, 90, 90, 0.1);
+            border: 1px solid rgba(200, 90, 90, 0.2);
+            color: #d4a0a0;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            display: none;
+            color: #c9a86a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <a class="home-link" href="../index.html">&larr; Stories</a>
+
+    <div class="reader">
+        <div class="page-title" id="pageTitle">Cover</div>
+        <div class="page-frame cover" id="pageFrame">
+            <img id="pageImg" src="pages/page-00-cover.png" alt="The Invisible Forces &mdash; Cover" />
+        </div>
+
+        <div class="end-interstitial" id="endInterstitial">
+            <h2>End of Book Two</h2>
+            <div class="subtitle">The Invisible Forces &mdash; Isaac Newton</div>
+            <p style="color: rgba(240, 236, 226, 0.75); font-size: 17px; line-height: 1.7; max-width: 560px; margin: 0 auto;">
+                Isaac Newton (1642&ndash;1727) was buried in Westminster Abbey on 28 March 1727. In his private papers, kept by Catherine Barton&#39;s husband John Conduitt and passed down to the Portsmouth family, were a million words on alchemy and another million on the prophecies of Daniel. They were sold at Sotheby&#39;s in 1936. The economist John Maynard Keynes bought them and called the man who wrote them &ldquo;the last of the magicians.&rdquo;
+            </p>
+            <div class="next-up">Five questions on what you have just read &rarr;</div>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <h2>Test Your Understanding</h2>
+
+            <div class="question-block" id="q1">
+                <div class="question-text">1. Why did Newton write to Pepys in September 1693 apologising for being &ldquo;embroiled&rdquo; and unable to sleep?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> Because the publication of the <em>Opticks</em> had been delayed by Robert Hooke and he held Pepys responsible for the delay</label>
+                    <label><input type="radio" name="q1" value="b"> Because after years of intense work on the <em>Principia</em> and on alchemical experiments, his mind broke down and he was sleepless for five nights together</label>
+                    <label><input type="radio" name="q1" value="c"> Because Halifax had withdrawn the offer of the Mint and Newton blamed himself for having insulted him in a careless letter</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q1', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q1-correct">Yes. In September 1693 Newton wrote to Pepys saying he was &ldquo;extremely troubled by the embroilment&rdquo; he was in, had neither eaten nor slept well in twelve months, and had lost his former consistency of mind. He was 50 years old and had spent the previous six years on the <em>Principia</em> and on intense alchemical experiments. Something inside him gave way. He recovered, but the man who stood up from the desk was not the same.</div>
+                <div class="feedback incorrect" id="q1-incorrect">Not quite. The <em>Opticks</em> was published in 1704, after Hooke&#39;s death &mdash; nothing to do with 1693. And Halifax&#39;s Mint offer came two years <em>after</em> the breakdown, in 1695, and Newton accepted it. The real reason was simpler and more frightening: years of overwork on the <em>Principia</em> and on his secret alchemical experiments cracked his mind, and for several months he could not sleep or trust his own letters.</div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <div class="question-text">2. Why did Newton, as Warden of the Mint, personally prosecute William Chaloner in 1699?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> Because Chaloner had publicly accused Newton of incompetence in pamphlets, and Newton wanted a personal revenge through the criminal courts</label>
+                    <label><input type="radio" name="q2" value="b"> Because the Great Recoinage had failed to stop counterfeiting and Newton needed a public hanging to prove the new coinage was secure</label>
+                    <label><input type="radio" name="q2" value="c"> Because Chaloner was the most prolific counterfeiter in England and Newton had spent two years assembling depositions against him through informants in London coffee-houses</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q2', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q2-correct">Right. Chaloner cast shillings that passed at every market, printed his own bank-notes, and was even talking himself into selling the Mint advice on how to catch the counterfeiters &mdash; meaning him. No previous Warden had ever really tried to prosecute counterfeiters. Newton tried. He walked into London taverns in a plain coat, paid informants, took depositions in coffee-houses, and in two years built more than a hundred cases. Chaloner was the largest of them.</div>
+                <div class="feedback incorrect" id="q2-incorrect">Not quite. Chaloner did write pamphlets attacking the Mint, but Newton prosecuted him for counterfeiting, not for the pamphlets. And the Recoinage actually succeeded &mdash; Chaloner was caught precisely because the new milled coin made his trade harder. The real reason for the prosecution was that Chaloner was the most prolific counterfeiter in England, and Newton had quietly built the case against him over two years of coffee-house depositions.</div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <div class="question-text">3. Newton finished the <em>Opticks</em> manuscript in the 1670s. Why did he not publish it until 1704?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> Because he had sworn not to publish it while his rival Robert Hooke was alive, and Hooke did not die until 1703</label>
+                    <label><input type="radio" name="q3" value="b"> Because the experiments in the <em>Opticks</em> required precise prisms that English glass-blowers could not manufacture until the turn of the century</label>
+                    <label><input type="radio" name="q3" value="c"> Because the Royal Society had refused to print it on the grounds that its claims about white light contradicted the Aristotelian curriculum then taught at Oxford and Cambridge</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q3', 'a')">Check Answer</button>
+                <div class="feedback correct" id="q3-correct">Yes. Newton and Robert Hooke had quarreled over light and color since the 1670s. Newton had sworn he would not publish the <em>Opticks</em> while Hooke lived. He kept it in a drawer for thirty years. Hooke died on 3 March 1703. Within weeks Newton went to his desk, opened the drawer, took out the manuscript, and prepared it for the press. It came out in 1704, his first major book since the <em>Principia</em> seventeen years earlier.</div>
+                <div class="feedback incorrect" id="q3-incorrect">Not quite. The prism was never the holdup &mdash; Newton had been doing the experiments with English-made prisms since the 1660s. And the Royal Society never refused the book; in fact Newton became its President shortly before the <em>Opticks</em> appeared. The real reason was personal: he had sworn he would not publish the book while Robert Hooke lived. Hooke died in 1703, and the <em>Opticks</em> came out the next year.</div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <div class="question-text">4. The Royal Society&#39;s <em>Commercium Epistolicum</em> of 1712 was supposed to be an impartial committee report deciding who had invented calculus first. Why was it not actually impartial?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> Because Leibniz refused to send the committee any of his own letters, and the committee was forced to rule on incomplete evidence weighted toward Newton&#39;s English papers</label>
+                    <label><input type="radio" name="q4" value="b"> Because Newton had chosen the committee members himself, none of them Continental mathematicians, and had secretly drafted the verdict in his own hand before publication</label>
+                    <label><input type="radio" name="q4" value="c"> Because the Royal Society had only English Fellows in 1712 and the rules of the Society did not allow a foreign mathematician&#39;s claim to be heard in any official committee</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q4', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q4-correct">Exactly. As President of the Royal Society, Newton chose the committee. He chose its members. He wrote its report. He printed it in Latin so all Europe could read it, then again in English. The <em>Commercium Epistolicum</em>&rsquo;s verdict, predictably, was that he had invented calculus first. He never put his name on the report. Everyone in Europe knew he had written every word.</div>
+                <div class="feedback incorrect" id="q4-incorrect">Not quite. Leibniz was never even asked &mdash; the committee did not invite him to submit anything. And the Royal Society did have foreign Fellows and had heard foreign claims before. The real reason the report was not impartial was that Newton, as President of the Society, hand-picked every member of the committee and secretly drafted the verdict in his own hand before it was printed.</div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <div class="question-text">5. After losing twenty thousand pounds in the South Sea Bubble of 1720, Newton said he could &ldquo;calculate the motion of the heavenly bodies but not the madness of people.&rdquo; Why did the line stick?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> Because it was the first thing Newton ever published in the <em>Philosophical Transactions</em> of the Royal Society, and the Society reprinted it for years afterward</label>
+                    <label><input type="radio" name="q5" value="b"> Because Newton said it on the floor of Parliament during the inquiry into the South Sea collapse, and it was entered into the official record of the investigation</label>
+                    <label><input type="radio" name="q5" value="c"> Because it admitted, from the man who had calculated the motion of the heavens, that there were forces in human behavior he could not predict &mdash; and it was recorded by William Stukeley, who wrote the first memoir of Newton&#39;s life</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q5', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q5-correct">Yes. Newton sold his South Sea shares once at a profit, then watched the price keep climbing and bought back in at the peak. The bubble burst that summer. He lost twenty thousand pounds, which was a fortune. The line stuck because the man who had calculated the motion of the planets was admitting he could not calculate the behavior of a crowd. It was preserved because William Stukeley, his friend and biographer, wrote it down in conversation. Newton would not allow the South Sea Company to be spoken of in his house.</div>
+                <div class="feedback incorrect" id="q5-incorrect">Not quite. Newton never published the line; it survives because William Stukeley, his friend who wrote the first memoir of Newton&#39;s life, recorded it in conversation. There was a parliamentary inquiry into the South Sea collapse, but Newton did not testify with this line. The line stuck because of what it admitted: that the man who had calculated the motion of the heavens could not calculate the behavior of a crowd.</div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay"></div>
+        </div>
+
+    </div>
+
+    <button class="nav-arrow prev" id="prevBtn" onclick="prev()" disabled aria-label="Previous page">&larr;</button>
+    <button class="nav-arrow next" id="nextBtn" onclick="next()" aria-label="Next page">&rarr;</button>
+    <span class="page-info" id="pageInfo">Cover</span>
+
+    <script>
+        const pages = [
+            { file: 'pages/page-00-cover.png', title: 'Cover', label: 'Cover' },
+            { file: 'pages/page-01-after-principia.png', title: 'After the Principia', label: 'Page 1 of 23' },
+            { file: 'pages/page-02-black-year.png', title: 'The Black Year', label: 'Page 2 of 23' },
+            { file: 'pages/page-03-offer.png', title: 'The Offer', label: 'Page 3 of 23' },
+            { file: 'pages/page-04-leaving-cambridge.png', title: 'Leaving Cambridge', label: 'Page 4 of 23' },
+            { file: 'pages/page-05-recoinage.png', title: 'The Great Recoinage', label: 'Page 5 of 23' },
+            { file: 'pages/page-06-investigator.png', title: 'The Investigator', label: 'Page 6 of 23' },
+            { file: 'pages/page-07-chaloner-press.png', title: 'Chaloner at the Press', label: 'Page 7 of 23' },
+            { file: 'pages/page-08-mint-interrogation.png', title: 'The Mint Interrogation', label: 'Page 8 of 23' },
+            { file: 'pages/page-09-warrant.png', title: 'The Warrant', label: 'Page 9 of 23' },
+            { file: 'pages/page-10-opticks-drawer.png', title: 'The Drawer Opens', label: 'Page 10 of 23' },
+            { file: 'pages/page-11-royal-society.png', title: 'Royal Society President', label: 'Page 11 of 23' },
+            { file: 'pages/page-12-opticks-prism.png', title: 'Opticks \u00b7 1704', label: 'Page 12 of 23' },
+            { file: 'pages/page-13-knighthood.png', title: 'Knighthood', label: 'Page 13 of 23' },
+            { file: 'pages/page-14-catherine.png', title: 'Catherine Barton', label: 'Page 14 of 23' },
+            { file: 'pages/page-15-flamsteed-seizure.png', title: 'The Flamsteed Seizure', label: 'Page 15 of 23' },
+            { file: 'pages/page-16-bonfire.png', title: 'The Bonfire', label: 'Page 16 of 23' },
+            { file: 'pages/page-17-leibniz-split.png', title: 'Leibniz Across the Sea', label: 'Page 17 of 23' },
+            { file: 'pages/page-18-commercium.png', title: 'The Commercium Epistolicum', label: 'Page 18 of 23' },
+            { file: 'pages/page-19-leibniz-death.png', title: 'Leibniz Dies', label: 'Page 19 of 23' },
+            { file: 'pages/page-20-kensington-alchemy.png', title: 'The Private Newton', label: 'Page 20 of 23' },
+            { file: 'pages/page-21-south-sea.png', title: 'The South Sea Bubble', label: 'Page 21 of 23' },
+            { file: 'pages/page-22-deathbed.png', title: 'Kensington, 20 March 1727', label: 'Page 22 of 23' },
+            { file: 'pages/page-23-abbey-finale.png', title: 'Westminster Abbey', label: 'Page 23 of 23' },
+            { file: null, title: 'End of Book Two', label: 'End of Book Two', end: true },
+            { file: null, title: 'Quiz', label: 'Quiz', quiz: true },
+        ];
+
+        let current = 0;
+        const img = document.getElementById('pageImg');
+        const frame = document.getElementById('pageFrame');
+        const quiz = document.getElementById('quizContainer');
+        const endInt = document.getElementById('endInterstitial');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageInfo = document.getElementById('pageInfo');
+        const pageTitle = document.getElementById('pageTitle');
+        const progressBar = document.getElementById('progressBar');
+
+        function show(index) {
+            frame.classList.add('fading');
+            quiz.classList.add('fading');
+            endInt.classList.add('fading');
+            setTimeout(() => {
+                current = index;
+                const p = pages[current];
+                if (p.quiz) {
+                    frame.style.display = 'none';
+                    endInt.style.display = 'none';
+                    quiz.style.display = 'block';
+                } else if (p.end) {
+                    frame.style.display = 'none';
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'block';
+                } else {
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'none';
+                    frame.style.display = 'block';
+                    img.src = p.file;
+                    img.alt = 'The Invisible Forces \u2014 ' + p.title;
+                }
+                pageTitle.textContent = p.title;
+                pageInfo.textContent = p.label;
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === pages.length - 1;
+                progressBar.style.width = (current / (pages.length - 1)) * 100 + '%';
+                frame.classList.toggle('cover', current === 0);
+                frame.classList.remove('fading');
+                quiz.classList.remove('fading');
+                endInt.classList.remove('fading');
+                window.scrollTo(0, 0);
+            }, 250);
+        }
+
+        let answered = 0;
+        let correctCount = 0;
+
+        function checkAnswer(qId, correctAnswer) {
+            const selected = document.querySelector('input[name="' + qId + '"]:checked');
+            if (!selected) return;
+            const block = document.getElementById(qId);
+            const isCorrect = selected.value === correctAnswer;
+            block.querySelectorAll('input').forEach(function(i) { i.disabled = true; });
+            block.querySelector('.check-btn').style.display = 'none';
+            if (isCorrect) {
+                document.getElementById(qId + '-correct').style.display = 'block';
+                correctCount++;
+            } else {
+                document.getElementById(qId + '-incorrect').style.display = 'block';
+            }
+            answered++;
+            if (answered === 5) {
+                var display = document.getElementById('scoreDisplay');
+                display.textContent = 'You got ' + correctCount + ' out of 5 correct!';
+                display.style.display = 'block';
+            }
+        }
+
+        function next() { if (current < pages.length - 1) show(current + 1); }
+        function prev() { if (current > 0) show(current - 1); }
+
+        img.addEventListener('click', function(e) {
+            const rect = img.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x < rect.width * 0.35) prev();
+            else next();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) next();
+                else prev();
+            }
+        }, { passive: true });
+
+        function preload() {
+            if (current < pages.length - 1 && pages[current + 1].file) {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = pages[current + 1].file;
+                document.head.appendChild(link);
+            }
+        }
+        img.addEventListener('load', preload);
+    </script>
+
+</body>
+</html>

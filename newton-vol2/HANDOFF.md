@@ -1,5 +1,13 @@
 # Isaac Newton — Book Two · Session Handoff
 
+## ✅ SHIPPED 2026-05-15
+
+The volume is complete. 24 images (cover + 23 story pages), reader at `newton-vol2/index.html`, landing card on `~/Documents/nano/index.html`, retrospective at `~/.claude/projects/-Users-andresrodriguez-Documents-nano/memory/project_newton_vol2_retrospective.md`. Total image cost ≈ $7.35 (11 refs + 24 pages, zero retries). All three prototypes (P8 Mint interrogation T4, P12 Opticks annotated T5, P23 Abbey montage finale T5) passed single-shot; bulk batched the remaining 21 pages in two parallel waves with zero regenerations. Pipeline locked: gpt-image-2 standard, 1536×1024, oil-painting realism, same register as Newton Vol 1 / Honda / da Vinci Vol 1.
+
+The notes below describe the **pre-production spec** that guided the build. Preserved for posterity.
+
+---
+
 **Source of truth for starting Book Two.** Read this top-to-bottom before doing anything else. Then read `~/Documents/nano/bio.md` and the graphic-novel skill at `~/.claude/skills/graphic-novel/SKILL.md`. Then read Book One's `HANDOFF.md` at `~/Documents/nano/newton-vol1/HANDOFF.md` and its retrospective at `~/.claude/projects/-Users-andresrodriguez-Documents-nano/memory/project_newton_retrospective.md`.
 
 This doc was written 2026-05-15 by the Claude instance that shipped da Vinci Vol 1, applying the da Vinci pattern to the next biography. Status: **planning only — no script, no refs, no pages yet.**

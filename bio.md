@@ -375,7 +375,8 @@ When the volume ships:
 | `pythagoras-vol1/` | Pythagoras | 18 | NB2 | — | Curricular hook (kids' triangle lesson). |
 | `honda-soichiro/` | Soichiro Honda | 25 | gpt-image-2 standard | ~$7.50 | T5 single-shot confirmed at scale. Narration formula, side-arrow reader, parallel batching after prototypes. |
 | `da-vinci-vol1/` | Leonardo da Vinci | 23 | gpt-image-2 standard | ~$7.75 | 4 age-phase refs for a 47-year arc. Closing-as-invention notebook page as highest-leverage beat. Anatomy safety-filter fix (P17). Quiz rewritten after kid noticed length-tell. See `project_da_vinci_retrospective.md`. |
+| `newton-vol2/` | Isaac Newton (late life) | 24 | gpt-image-2 standard | ~$7.35 | 4 age-phase refs for a 40-year arc (Newton 44→84). Confirmed annotated-breakthrough (P12 Opticks) and montage-finale (P23 Westminster Abbey) templates single-shot on a second biography. Three-way multi-character page (P15 Newton+Halley+Flamsteed) held with single-ref harder-face lock. Three prototypes → bulk batch in two parallel waves with zero retries. See `project_newton_vol2_retrospective.md`. |
 
 ---
 
-*Last updated 2026-05-15 after da Vinci Vol 1 ship. Update this file alongside `~/.claude/skills/graphic-novel/SKILL.md` whenever a new biography ships.*
+*Last updated 2026-05-15 after Newton Vol 2 ship. Update this file alongside `~/.claude/skills/graphic-novel/SKILL.md` whenever a new biography ships.*
