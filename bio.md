@@ -262,6 +262,11 @@ The pattern: take the central object/idea of the volume and let it *be* the page
 ### Quiz tests WHY, not WHAT
 The 5-question quiz is not trivia. Each question tests *why* something happened, not *what* happened. "Why did Honda's first piston rings fail Toyota's quality test?" is right; "What year did Honda found Honda Motor?" is not. Right-answer feedback should reinforce the *why* with one or two sentences of substance.
 
+**Length and position must not give the answer away** (kid feedback, da Vinci ship 2026-05-10). The kids noticed that the correct answer was always the longest option and started picking by length. Rules:
+- Distractors must be substantive — plausible-sounding wrong answers with period detail, similar in length to the correct answer.
+- Shuffle correct-answer positions across the five questions. Do NOT default to "c" or always to the last option.
+- A reader who hasn't read the book should NOT be able to spot the right answer by length, position, or specificity alone. They have to actually know the answer.
+
 ### Iconic-source-as-typographic-artifact
 At least one hero page per biography should treat a famous quote, manuscript page, or document as the visual artwork — period typography on chalkboard, parchment, or book title page — rather than as dialogue or caption text. Highest-payoff beat in the new format vocabulary.
 
@@ -356,10 +361,11 @@ When the volume ships:
 - Do **not** use `edit_image` against a non-existent or wrong-age reference — the call will silently substitute and you will get age drift.
 - Do **not** silently change image models. A model swap is a different class of decision than a style swap; flag it explicitly with cost and behavioral implications.
 - Do **not** use the "lock list" prompt format (numbered strings up front) — bracket markers render literally into the page.
+- Do **not** describe explicit dissection or anatomical opening on anatomy pages — gpt-image-2's safety filter will reject. Anchor on the artifact (the notebook page, the diagram, the protagonist's drawing hand) and keep the body fully draped under a heavy linen sheet, abstractly suggested at the side of frame. Lesson: Leonardo P17 needed one retry; the sheet stays on.
 
 ---
 
-## 18. Shipped biographies (reference inventory as of 2026-05-03)
+## 18. Shipped biographies (reference inventory as of 2026-05-15)
 
 | Folder | Subject | Pages | Model | Cost | Notes |
 |--------|---------|-------|-------|------|-------|
@@ -368,7 +374,8 @@ When the volume ships:
 | `newton-vol1/` | Isaac Newton | 24 | gpt-image-2 standard | ~$7.35 | First fully-unified gpt-image-2 run. Oil-painting realism baseline. |
 | `pythagoras-vol1/` | Pythagoras | 18 | NB2 | — | Curricular hook (kids' triangle lesson). |
 | `honda-soichiro/` | Soichiro Honda | 25 | gpt-image-2 standard | ~$7.50 | T5 single-shot confirmed at scale. Narration formula, side-arrow reader, parallel batching after prototypes. |
+| `da-vinci-vol1/` | Leonardo da Vinci | 23 | gpt-image-2 standard | ~$7.75 | 4 age-phase refs for a 47-year arc. Closing-as-invention notebook page as highest-leverage beat. Anatomy safety-filter fix (P17). Quiz rewritten after kid noticed length-tell. See `project_da_vinci_retrospective.md`. |
 
 ---
 
-*Last updated 2026-05-03 after Honda Vol 1 ship. Update this file alongside `~/.claude/skills/graphic-novel/SKILL.md` whenever a new biography ships.*
+*Last updated 2026-05-15 after da Vinci Vol 1 ship. Update this file alongside `~/.claude/skills/graphic-novel/SKILL.md` whenever a new biography ships.*
