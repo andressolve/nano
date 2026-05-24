@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Name of the Rose &mdash; Book One</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            background: #15171c;
+            color: #f0ece2;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #c9a86a, #b04a3a);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .reader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px 16px 70px;
+        }
+
+        .page-frame {
+            max-width: min(1400px, 96vw);
+            width: 100%;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .page-frame.fading { opacity: 0; }
+
+        .page-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .page-frame.cover img {
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #f0ece2;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            z-index: 50;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            user-select: none;
+        }
+
+        .nav-arrow.prev { left: 18px; }
+        .nav-arrow.next { right: 18px; }
+
+        .nav-arrow:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .nav-arrow:disabled {
+            opacity: 0.18;
+            cursor: default;
+        }
+
+        .page-info {
+            position: fixed;
+            bottom: 58px;
+            right: 18px;
+            font-size: 11px;
+            color: rgba(240, 236, 226, 0.55);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(240, 236, 226, 0.4);
+        }
+
+        .home-link {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            font-size: 13px;
+            color: rgba(240, 236, 226, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            z-index: 100;
+        }
+
+        .home-link:hover { color: rgba(240, 236, 226, 0.7); }
+
+        .bells-strip {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(21, 23, 28, 0.96);
+            border-top: 1px solid rgba(201, 168, 106, 0.32);
+            color: rgba(240, 236, 226, 0.78);
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            text-align: center;
+            padding: 8px 14px;
+            z-index: 40;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            pointer-events: none;
+            line-height: 1.4;
+        }
+
+        .bells-strip .strip-label {
+            display: block;
+            color: rgba(240, 236, 226, 0.5);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .bells-strip .bell { color: #c9a86a; letter-spacing: 1px; font-weight: 600; }
+        .bells-strip .sep { opacity: 0.35; padding: 0 4px; }
+
+        .bells-strip .hour-group {
+            display: inline-block;
+            padding: 1px 4px;
+            border-radius: 4px;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        .bells-strip .hour-group.active {
+            background: rgba(201, 168, 106, 0.22);
+            color: #f5e9c8;
+            box-shadow: 0 0 0 1px rgba(201, 168, 106, 0.45) inset;
+        }
+
+        .bells-strip .hour-group.active .bell {
+            color: #ffd98a;
+        }
+
+        @media (max-width: 768px) {
+            .reader { padding: 16px 10px 80px; }
+            .nav-arrow { width: 44px; height: 44px; font-size: 22px; }
+            .nav-arrow.prev { left: 8px; }
+            .nav-arrow.next { right: 8px; }
+            .home-link { top: 10px; left: 10px; }
+            .page-info { bottom: 66px; right: 10px; font-size: 10px; }
+            .bells-strip { font-size: 9.5px; padding: 5px 8px; }
+            .bells-strip .sep { padding: 0 2px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-frame, .progress-bar { transition: none; }
+        }
+
+        .end-interstitial {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .end-interstitial.fading { opacity: 0; }
+
+        .end-interstitial h2 {
+            font-size: 32px;
+            font-weight: normal;
+            color: #e8e2d2;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .end-interstitial .subtitle {
+            font-size: 18px;
+            color: rgba(240, 236, 226, 0.6);
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .end-interstitial .next-up {
+            font-size: 14px;
+            color: rgba(201, 168, 106, 0.7);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 30px;
+        }
+
+        .quiz-container {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .quiz-container.fading { opacity: 0; }
+
+        .quiz-container h2 {
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #e8e2d2;
+        }
+
+        .question-block {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .question-text {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #e8e2d2;
+            line-height: 1.6;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #d4ccc0;
+            line-height: 1.5;
+        }
+
+        .options label:hover { background: rgba(255,255,255,0.06); }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #c9a86a;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-family: inherit;
+            background: rgba(201, 168, 106, 0.15);
+            border: 1px solid rgba(201, 168, 106, 0.3);
+            color: #c9a86a;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .check-btn:hover { background: rgba(201, 168, 106, 0.25); }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            background: rgba(90, 180, 90, 0.1);
+            border: 1px solid rgba(90, 180, 90, 0.2);
+            color: #8cd48c;
+        }
+
+        .feedback.incorrect {
+            background: rgba(200, 90, 90, 0.1);
+            border: 1px solid rgba(200, 90, 90, 0.2);
+            color: #d4a0a0;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            display: none;
+            color: #c9a86a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <a class="home-link" href="../index.html">&larr; Stories</a>
+
+    <div class="reader">
+        <div class="page-title" id="pageTitle">Cover</div>
+        <div class="page-frame cover" id="pageFrame">
+            <img id="pageImg" src="pages/page-00-cover.png" alt="The Name of the Rose &mdash; Cover" />
+        </div>
+
+        <div class="end-interstitial" id="endInterstitial">
+            <h2>End of Book One</h2>
+            <div class="subtitle">The Name of the Rose</div>
+            <p style="color: rgba(240, 236, 226, 0.75); font-size: 17px; line-height: 1.7; max-width: 560px; margin: 0 auto;">
+                It is the evening of the fourth day. Bernard Gui has opened his court in the chapter house. The village girl and Salvatore are in chains. Adelmo, Venantius, and Berengar are dead &mdash; all touched, on their fingers or tongue, by the same black stain. William of Baskerville has not yet named the book or the killer, but he has named the shape: every dead monk read one common volume, and the library that holds it is forbidden.
+                <br><br>
+                Three more days remain. The fire that ends them is not yet lit.
+            </p>
+            <div class="next-up">Five questions on what you have read &rarr;</div>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <h2>Test Your Understanding</h2>
+
+            <div class="question-block" id="q1">
+                <div class="question-text">1. Why does William of Baskerville say, on the third night, that he does <em>not</em> seek the murderer &mdash; he seeks the book?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> Because the Abbot of the monastery has forbidden him, as a former inquisitor, from passing judgement on any monk inside the abbey walls until the papal delegation arrives</label>
+                    <label><input type="radio" name="q1" value="b"> Because three monks have died, and what is true of all three is that each one read or copied a certain book in the forbidden library before they died &mdash; find the book and you find the poisoner</label>
+                    <label><input type="radio" name="q1" value="c"> Because William believes that Salvatore the cellarer, a former heretic, is the killer, and he wants the missing book only to use as evidence at the trial Bernard Gui will hold</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q1', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q1-correct">Yes. On the third midday, walking with Adso in the cloister, William says: &ldquo;Three men have died, and one thing is true of all three: each of them touched a certain book in the forbidden library before they died. Find what they read, and we find why they died.&rdquo; This is his master&#39;s method &mdash; the rule he learned from Roger Bacon and from his friend William of Ockham: do not invent angels and demons to explain what a poisoned book can explain. Six hundred years later, men would teach it in universities and call it science.</div>
+                <div class="feedback incorrect" id="q1-incorrect">Not quite. The Abbot has not forbidden William&#39;s inquiry &mdash; he has actually requested it. And William does not think Salvatore is the killer at this point in the story: Salvatore is a former Dolcinian heretic, but heresy is not poisoning. The real answer is the one William gives Adso in the cloister: every dead monk touched the same book in the forbidden library. Find the book, find why they died.</div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <div class="question-text">2. When Bernard Gui&#39;s delegation arrives at the abbey on the fourth day, why does he seize the village girl &mdash; not Salvatore alone, and not any monk of the abbey?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> Because she is a peasant and outside the abbey&#39;s jurisdiction, so Gui can arrest her without the Abbot&#39;s permission and use her as a witness against the monks he truly suspects of heresy</label>
+                    <label><input type="radio" name="q2" value="b"> Because she was caught carrying food from the kitchen on the night Adelmo died, and Gui needs to prove that one of the monks has been smuggling supplies out to the heretics living in the mountains above the abbey</label>
+                    <label><input type="radio" name="q2" value="c"> Because Gui needs a heretic to convict, not a thief: a young woman accused of consorting with Salvatore the former Dolcinian gives him a witch &mdash; and a witch lets him try the abbey itself by association, which is the political prize he came for</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q2', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q2-correct">Right. Bernard Gui did not ride up the mountain to solve a poisoning. He came for the papal delegation, which is debating whether Christ owned his own clothes &mdash; the Franciscan poverty question. A peasant girl in the kitchen at night, with a former Dolcinian by her side, is not a thief in his hands. She is a witch. And a witch tried inside the abbey lets him put the whole abbey on trial by association. The murders are William&#39;s problem. The heresy charge is Gui&#39;s prize.</div>
+                <div class="feedback incorrect" id="q2-incorrect">Not quite. Gui does not need the Abbot&#39;s permission to arrest anyone &mdash; he is the Inquisitor of Toulouse and his warrant runs above the abbey&#39;s. And no one in the story claims monks were smuggling food to mountain heretics. What Gui actually wants is a heretic to convict. A peasant girl paired with a former Dolcinian gives him exactly that, and lets him put the whole abbey on trial by association.</div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <div class="question-text">3. On the second morning, Severinus the herbalist examines the dead Venantius in the pig&#39;s-blood vat and finds black staining on his tongue and on the fingertips of one hand. What does this tell William?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> That Venantius was strangled before being dumped in the vat and the black is bruising from the killer&#39;s thumbs forced against the throat</label>
+                    <label><input type="radio" name="q3" value="b"> That Venantius died of a poison absorbed through skin and tongue, the way a man absorbs ink from a page when he wets his finger to turn it &mdash; pointing to a poisoned book in the forbidden library</label>
+                    <label><input type="radio" name="q3" value="c"> That Venantius drank from a poisoned chalice during the night office of Matins, and the black is the residue of the wine he was given in place of the consecrated host</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q3', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q3-correct">Yes. Severinus shows William the old herbal: a poison from the East, colorless, tasteless, that stains the skin and the tongue dark wherever it touches. A small drop on a finger is enough to kill. A man wetting his finger to turn a page would die before dawn. The black on one hand and the tongue is the signature of a poisoned book &mdash; and the same stain will appear on Berengar that same night.</div>
+                <div class="feedback incorrect" id="q3-incorrect">Not quite. Venantius was not strangled &mdash; there are no thumb marks on his throat, only the black stain. And the Matins-chalice idea is invented; nothing in the story points there. What Severinus actually finds, with his old herbal in front of him, is the trace of a poison that stains the skin black wherever it touches &mdash; absorbed through a finger wetted to turn a page. A poisoned book.</div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <div class="question-text">4. William of Baskerville and his student Adso of Melk are Franciscans &mdash; brown wool habit, knotted rope belt at the waist. Why does it matter, in 1327, that they are Franciscans and not Benedictines or Dominicans?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> Because the Franciscan order alone was permitted by Pope John XXII to carry the silver inquisitorial seal that allowed William to question monks of other orders without the Abbot&#39;s consent</label>
+                    <label><input type="radio" name="q4" value="b"> Because the abbey is Benedictine and Franciscans are forbidden by their rule from entering Benedictine houses except as guests under truce &mdash; William and Adso are sleeping there only because the Abbot has granted them shelter for the week</label>
+                    <label><input type="radio" name="q4" value="c"> Because the meeting at the abbey is between Pope John XXII&#39;s delegation and the Franciscan order itself, over whether Christ and his apostles owned property &mdash; William has come not as a detective but as one of the delegates, and the Pope&#39;s side intends to convict the Franciscans of heresy</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q4', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q4-correct">Exactly. The meeting at the abbey is between two delegations: the Pope&#39;s, riding up with Bernard Gui, and the Franciscans&#39;, riding up with William. The question on the table is whether Christ owned the clothes he wore. The Franciscans say no &mdash; that absolute poverty is the rule of Christ. Pope John XXII has declared the doctrine of apostolic poverty itself a heresy. William is not at the abbey by accident. He is one of the delegates &mdash; and the murders begin under him.</div>
+                <div class="feedback incorrect" id="q4-incorrect">Not quite. There was no &ldquo;silver inquisitorial seal&rdquo; reserved to Franciscans &mdash; that is invented. And Franciscans were not forbidden from Benedictine houses; orders crossed each other&#39;s thresholds regularly under guest-right. The real answer is political: the whole meeting at the abbey is between the Pope&#39;s delegation and the Franciscan order, over whether Christ owned property. William is a Franciscan delegate &mdash; and the Pope&#39;s side has come to convict his order of heresy.</div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <div class="question-text">5. William wears riveted leather-and-glass spectacles &mdash; a brand-new technology in 1327, only forty years old, invented in Pisa around 1284. On the third night Adso finds them placed beneath the dead Berengar&#39;s body in the bathtub. Why is this the moment William says, &ldquo;Three dead. One book they had all read. And my master could now see again&rdquo;?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> Because the spectacles being under the body proves Berengar was murdered with his own glasses pressed against his throat &mdash; the killer used them as a weapon, which is why William reclaims them as evidence and why he can finally &ldquo;see&rdquo; that the same killer murdered all three monks</label>
+                    <label><input type="radio" name="q5" value="b"> Because William had lost his spectacles two days earlier &mdash; Berengar stole them from him in the forbidden library on the night Venantius died &mdash; so finding them on Berengar&#39;s body proves Berengar was in the library that night, ties him to the book, and gives William back the eyes he needs to actually read it</label>
+                    <label><input type="radio" name="q5" value="c"> Because the spectacles are the first object Adso recognizes as belonging to William &mdash; until that moment Adso had believed his master was already blind by candlelight, and the boy realises only now that William&#39;s vision and his understanding of the case have moved in step</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q5', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q5-correct">Yes. William&#39;s spectacles &mdash; the riveted leather-and-glass kind, the new technology of his lifetime &mdash; had been stolen from him in the dark of the forbidden library on the night Venantius died. He had been reading half-blind ever since. When they turn up under Berengar&#39;s body, three things land at once: Berengar was the thief, so Berengar was in the library that night; Berengar therefore touched the same book the others touched; and William, with his glasses back, can finally read it. &ldquo;Three dead. One book they had all read. And my master could now see again.&rdquo;</div>
+                <div class="feedback incorrect" id="q5-incorrect">Not quite. Berengar was not strangled with the spectacles &mdash; the black stain on his finger says he was poisoned the same way as Venantius. And Adso never thought William was blind. The real answer is that William had lost his spectacles two days earlier in the dark of the forbidden library, on the night Venantius died. Finding them on Berengar proves Berengar was in the library that night &mdash; ties him to the book &mdash; and gives William back the eyes he needs to read it.</div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay"></div>
+        </div>
+
+    </div>
+
+    <button class="nav-arrow prev" id="prevBtn" onclick="prev()" disabled aria-label="Previous page">&larr;</button>
+    <button class="nav-arrow next" id="nextBtn" onclick="next()" aria-label="Next page">&rarr;</button>
+    <span class="page-info" id="pageInfo">Cover</span>
+
+    <div class="bells-strip" id="bellsStrip">
+        <span class="strip-label">Prayer hours of the Benedictine day</span>
+        <span class="hour-group" data-hour="matins"><span class="bell">MATINS</span> before dawn</span> <span class="sep">&middot;</span>
+        <span class="hour-group" data-hour="lauds"><span class="bell">LAUDS</span> sunrise</span> <span class="sep">&middot;</span>
+        <span class="hour-group" data-hour="prime"><span class="bell">PRIME</span> 6am</span> <span class="sep">&middot;</span>
+        <span class="hour-group" data-hour="terce"><span class="bell">TERCE</span> 9am</span> <span class="sep">&middot;</span>
+        <span class="hour-group" data-hour="sext"><span class="bell">SEXT</span> noon</span> <span class="sep">&middot;</span>
+        <span class="hour-group" data-hour="none"><span class="bell">NONE</span> 3pm</span> <span class="sep">&middot;</span>
+        <span class="hour-group" data-hour="vespers"><span class="bell">VESPERS</span> sunset</span> <span class="sep">&middot;</span>
+        <span class="hour-group" data-hour="compline"><span class="bell">COMPLINE</span> before sleep</span>
+    </div>
+
+    <script>
+        const pages = [
+            { file: 'pages/page-00-cover.png', title: 'Cover', label: 'Cover' },
+            { file: 'pages/page-01.png', title: 'Frame Opener', label: 'Page 1 of 24' },
+            { file: 'pages/page-02.png', title: 'Day 1 \u00b7 Terce \u00b7 The Runaway Horse', label: 'Page 2 of 24', hour: 'terce' },
+            { file: 'pages/page-03.png', title: 'Day 1 \u00b7 Sext \u00b7 The Aedificium', label: 'Page 3 of 24', hour: 'sext' },
+            { file: 'pages/page-04.png', title: 'Day 1 \u00b7 The Abbot, Adelmo\u2019s Death', label: 'Page 4 of 24' },
+            { file: 'pages/page-05.png', title: 'Day 1 \u00b7 The Scriptorium', label: 'Page 5 of 24' },
+            { file: 'pages/page-06.png', title: 'Day 1 \u00b7 None \u00b7 The Brothers', label: 'Page 6 of 24', hour: 'none' },
+            { file: 'pages/page-07.png', title: 'Day 1 \u00b7 The Library Is Forbidden', label: 'Page 7 of 24' },
+            { file: 'pages/page-08.png', title: 'Day 1 \u00b7 Vespers \u00b7 Jorge and Laughter', label: 'Page 8 of 24', hour: 'vespers' },
+            { file: 'pages/page-09.png', title: 'Day Two', label: 'Page 9 of 24' },
+            { file: 'pages/page-10.png', title: 'Day 2 \u00b7 Lauds \u00b7 Venantius in the Vat', label: 'Page 10 of 24', hour: 'lauds' },
+            { file: 'pages/page-11.png', title: 'Day 2 \u00b7 Terce \u00b7 The Coded Manuscript', label: 'Page 11 of 24', hour: 'terce' },
+            { file: 'pages/page-12.png', title: 'Day 2 \u00b7 Compline \u00b7 First Labyrinth', label: 'Page 12 of 24', hour: 'compline' },
+            { file: 'pages/page-13.png', title: 'Interlude \u00b7 Heresy and the Pope', label: 'Page 13 of 24' },
+            { file: 'pages/page-14.png', title: 'Day Three', label: 'Page 14 of 24' },
+            { file: 'pages/page-15.png', title: 'Day 3 \u00b7 Salvatore and Fra Dolcino', label: 'Page 15 of 24' },
+            { file: 'pages/page-16.png', title: 'Day 3 \u00b7 Compline \u00b7 Adso and the Girl', label: 'Page 16 of 24', hour: 'compline' },
+            { file: 'pages/page-17.png', title: 'Day 3 \u00b7 Berengar in the Bathtub', label: 'Page 17 of 24' },
+            { file: 'pages/page-18.png', title: 'Day 3 \u00b7 Sext \u00b7 William\u2019s Method', label: 'Page 18 of 24', hour: 'sext' },
+            { file: 'pages/page-19.png', title: 'Day Four', label: 'Page 19 of 24' },
+            { file: 'pages/page-20.png', title: 'Day 4 \u00b7 Prime \u00b7 The Poison Named', label: 'Page 20 of 24', hour: 'prime' },
+            { file: 'pages/page-21.png', title: 'Day 4 \u00b7 The Delegation, the Arrest', label: 'Page 21 of 24' },
+            { file: 'pages/page-22.png', title: 'Day 4 \u00b7 The Three Orders', label: 'Page 22 of 24' },
+            { file: 'pages/page-23.png', title: 'Day 4 \u00b7 Compline \u00b7 Who Bernard Gui Is', label: 'Page 23 of 24', hour: 'compline' },
+            { file: 'pages/page-24.png', title: 'Day 4 \u00b7 Vespers \u00b7 The Questioning Begins', label: 'Page 24 of 24', hour: 'vespers' },
+            { file: null, title: 'End of Book One', label: 'End of Book One', end: true },
+            { file: null, title: 'Quiz', label: 'Quiz', quiz: true },
+        ];
+
+        let current = 0;
+        const img = document.getElementById('pageImg');
+        const frame = document.getElementById('pageFrame');
+        const quiz = document.getElementById('quizContainer');
+        const endInt = document.getElementById('endInterstitial');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageInfo = document.getElementById('pageInfo');
+        const pageTitle = document.getElementById('pageTitle');
+        const progressBar = document.getElementById('progressBar');
+        const bellsStrip = document.getElementById('bellsStrip');
+
+        function show(index) {
+            frame.classList.add('fading');
+            quiz.classList.add('fading');
+            endInt.classList.add('fading');
+            setTimeout(() => {
+                current = index;
+                const p = pages[current];
+                if (p.quiz) {
+                    frame.style.display = 'none';
+                    endInt.style.display = 'none';
+                    quiz.style.display = 'block';
+                    bellsStrip.style.display = 'none';
+                } else if (p.end) {
+                    frame.style.display = 'none';
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'block';
+                    bellsStrip.style.display = 'none';
+                } else {
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'none';
+                    frame.style.display = 'block';
+                    bellsStrip.style.display = 'block';
+                    img.src = p.file;
+                    img.alt = 'The Name of the Rose \u2014 ' + p.title;
+                    bellsStrip.querySelectorAll('.hour-group').forEach(function(g) {
+                        g.classList.toggle('active', !!p.hour && g.dataset.hour === p.hour);
+                    });
+                }
+                pageTitle.textContent = p.title;
+                pageInfo.textContent = p.label;
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === pages.length - 1;
+                progressBar.style.width = (current / (pages.length - 1)) * 100 + '%';
+                frame.classList.toggle('cover', current === 0);
+                frame.classList.remove('fading');
+                quiz.classList.remove('fading');
+                endInt.classList.remove('fading');
+                window.scrollTo(0, 0);
+            }, 250);
+        }
+
+        let answered = 0;
+        let correctCount = 0;
+
+        function checkAnswer(qId, correctAnswer) {
+            const selected = document.querySelector('input[name="' + qId + '"]:checked');
+            if (!selected) return;
+            const block = document.getElementById(qId);
+            const isCorrect = selected.value === correctAnswer;
+            block.querySelectorAll('input').forEach(function(i) { i.disabled = true; });
+            block.querySelector('.check-btn').style.display = 'none';
+            if (isCorrect) {
+                document.getElementById(qId + '-correct').style.display = 'block';
+                correctCount++;
+            } else {
+                document.getElementById(qId + '-incorrect').style.display = 'block';
+            }
+            answered++;
+            if (answered === 5) {
+                var display = document.getElementById('scoreDisplay');
+                display.textContent = 'You got ' + correctCount + ' out of 5 correct!';
+                display.style.display = 'block';
+            }
+        }
+
+        function next() { if (current < pages.length - 1) show(current + 1); }
+        function prev() { if (current > 0) show(current - 1); }
+
+        img.addEventListener('click', function(e) {
+            const rect = img.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x < rect.width * 0.35) prev();
+            else next();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) next();
+                else prev();
+            }
+        }, { passive: true });
+
+        function preload() {
+            if (current < pages.length - 1 && pages[current + 1].file) {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = pages[current + 1].file;
+                document.head.appendChild(link);
+            }
+        }
+        img.addEventListener('load', preload);
+    </script>
+
+</body>
+</html>
