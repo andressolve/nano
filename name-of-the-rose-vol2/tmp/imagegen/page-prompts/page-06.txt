@@ -1,0 +1,30 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P6 — Day 5, Vespers: the condemnation
+
+**Format:** Standard biographical page (multi-character, courtyard exterior). T4.
+**Refs:** `composite_condemnation.png` (same composite as P5, repurposed for this scene).
+
+**Composition:**
+> The abbey courtyard (Book One setting B) at Vespers — late winter afternoon, the light a low slate-grey, the snow piled against the walls catching the last colour of the dying day. The three condemned — **Remigio**, **Salvatore**, the **village girl** — are being led across the courtyard from the chapter house toward the cellar where they will be held until first light. Their hands are bound behind them. Two Dominican guards in black mantles flank them. **Bernard Gui** walks at the head of the small procession with the calm of an administrator, his *Practica* book against his hip. A handful of black-habited Benedictine monks stand at the cloister arcade watching in silence. **ADSO** stands under one of the round-arched columns of the arcade, half in shadow, his young face stricken. The **village girl** is the only one of the three to look up as they pass — her dark eyes meet Adso's directly for one moment across the courtyard. Then she is past, and gone. Snow on the limestone slabs has been trampled by the small procession. Breath visible.
+
+**Lettering — verbatim, render exactly:**
+- Top caption box (upper-left, ivory parchment, dark serif): `By Vespers the three had been condemned. Remigio for heresy and for murders he had not done. Salvatore for the same heresy, twenty years on, in a body that no one was now afraid of. The girl for witchcraft.`
+- Speech bubble, tail pointing to Adso (lower-left, half in shadow): `She had stolen bread, master. That is all. Why is she to burn?`
+- Small caption box beside Adso (lower-right, ivory parchment, dark serif; William speaking quietly from beside him, no bubble tail): `My master answered quietly: Bernard Gui's office requires that someone burn, Adso. And the daughter of a peasant is easier to burn than the cellarer of a great abbey.`
+- Bottom caption box (full-width band, ivory parchment, dark serif): `She looked at me once as she passed. I never learned her name. I never saw her face again.`
+
+---

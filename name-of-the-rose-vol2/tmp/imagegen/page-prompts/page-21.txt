@@ -1,0 +1,36 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P21 — EPILOGUE CHAPTER BREAK (illuminated) — *Epilogus*
+
+**Day:** Epilogue.
+**Format:** Illuminated chapter-break page — new variant per Style Guide DELTA 1. T4.
+**Refs:** None — inset miniature generated from prose.
+
+**Composition:**
+> Same illuminated treatment, gold-leaf border, intertwined vines. Drolleries: the FOX-IN-MONK'S-HABIT lower-right (carried one last time before the closing page); a small bird flying with a fragment of vellum in its beak at the upper-left; a single white rose at the upper-right (foreshadowing the closing tag).
+>
+> Large historiated initial **"E"** at the upper-left, gilt and lapis-blue, with a small painted scene inside the bowl: a single old monk seated at a writing desk, white-bearded, gnarled hand on a quill — Old Adso, closing the frame.
+>
+> Central painted miniature, framed by a thin gilt border, occupying the upper two-thirds of the page — the visual inverse of Book One's cover: **two riders descending the snowy mountain road**, the abbey behind them and above them in the upper-right of the miniature, still smoking faintly against a pale dawn sky, the Aedificium half-collapsed. The riders' backs to the viewer. Cold pale dawn light. Snow on every roof, snow on the road, fresh snow on the riders' cloaks. **The riders are leaving.**
+>
+> Below the miniature: the Latin tag, the English helper, the old-Adso setup caption.
+
+**Lettering — verbatim, render exactly:**
+- Latin block (Gothic blackletter, centered): `Epilogus`
+- English translation directly below (ivory parchment caption box, dark serif): `Epilogue — Decades Later.`
+- Bottom caption box (ivory parchment, dark serif, ~115 words): `My master and I rode away from the abbey at the first light of the morning after the fire. He died many years later of the plague that took half of Europe. I returned home to Melk, took my full vows, and lived a long quiet life as a Benedictine monk. I am writing these pages now in my eightieth year, sixty years after the seven days I have just described. I am near the end. Before I closed the manuscript, I made one last journey — back to the mountain where the abbey had stood. I had not seen it since the dawn we rode away. What I found there is the rest of this account.`
+
+---

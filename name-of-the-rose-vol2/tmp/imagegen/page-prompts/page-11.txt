@@ -1,0 +1,18 @@
+STYLE: Oil-painting realism. Cinematic single-image composition, 3:2 landscape. Muted period palette of cold stone grey, deep burgundy, candle-amber, snow white, ink black, vellum cream. Natural light sources only — candlelight, hearth, snow-light, oil lamp, the slate-grey daylight of a north-Italian winter. Painterly brushwork. Heavy chiaroscuro. The world is the Italian Apennines in late November 1327: cold, snowy, mountainous, austere.
+
+NOT a children's book. Serious mature graphic novel, realistic proportions, natural lighting, cinematic composition.
+
+NOT a comic. NO halftones, NO cel shading, NO ink linework. Painted brushwork, cinematic lighting, muted period palette.
+
+HYBRID LAYOUT: 3:2 landscape page divided vertically by a clean painted edge, no comic gutter, no border. LEFT half is a diagrammatic painted map. RIGHT half is a parchment-textured teaching panel with dark serif ink and a small gilt-and-lapis decorated initial T at the start. The map must feel like a painted artifact on parchment, not a modern flat infographic.
+
+LEFT HALF COMPOSITION: A painted floor-plan of the labyrinth library, the top floor of the Aedificium, viewed from above. Octagonal outline with four square corner-towers. Fifty-six small stone rooms arranged in a labyrinthine grid; rooms color-coded in muted painterly tones, clustered by region. Carved Latin inscriptions or painted labels mark key rooms: ANGLIA, GALLIA, HIBERNIA, GERMANIA, ROMA, IUDAEA, AEGYPTUS, LEONES, AFRICA, FINIS AFRICAE. At the far south of the plan, behind the last room labelled AFRICA, is a sealed alcove labelled FINIS AFRICAE. A small painted mirror-icon marks the door. Tiny painted dotted lines trace the correct route through the labyrinth from a northern staircase to the mirror-door in the south.
+
+RIGHT HALF COMPOSITION: A torn-out manuscript page glued into the picture, parchment texture, dark serif ink, small decorated initial T at the start, readable text panel. Keep line spacing generous enough to read. Do not make the type tiny.
+
+LETTERING — verbatim, render exactly:
+- Diagrammatic map labels on the LEFT half, small painted serif, dark ink, all-caps: `ANGLIA`, `GALLIA`, `HIBERNIA`, `GERMANIA`, `ROMA`, `IUDAEA`, `AEGYPTUS`, `LEONES`, `AFRICA`, `FINIS AFRICAE`
+- Small painted note at the bottom of the map: `the labyrinth library of the Aedificium — fifty-six rooms`
+- The right-half text panel, parchment, dark serif ink, decorated initial T: `The library was a labyrinth on purpose. The fifty-six rooms of its top floor were arranged in a plan that secretly mapped the known world: books from England were shelved in the room marked ANGLIA, books from Egypt in AEGYPTUS, books from Africa in LEONES — the room of the lions. The doorways between rooms were narrow, the layout was confusing, and mirrors were set into some walls so that candlelight returned a wrong reflection and a visitor lost track of north. Only the librarian and his assistant knew the way through. The dangerous books — Arabic, Greek, Hebrew, the works the Church distrusted — were shelved in the rooms at the southern end. The most dangerous of all were behind a sealed mirror-door at the very end of the southern wing, in a small hidden room the monks called the *finis Africae*: the end of Africa.`
+
+All words spelled correctly. Latin spelled verbatim as supplied above. Do not duplicate text. Do not invent extra captions or signage. NO modern logos, NO watermarks, NO modern wire-frame eyeglasses, NO printed books, NO Gothic architecture, NO Renaissance clothing, NO modern faces. Hybrid single-page composition.

@@ -1,0 +1,30 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P19 — Day 7, after Matins: the fire begins
+
+**Format:** Standard biographical page — FIRE PALETTE variant. T5.
+**Refs:** `composite_finis_africae.png`. **Style add-ons:** FIRE PALETTE block prepended.
+
+**Composition:**
+> Inside the *finis Africae* (setting M) at the moment everything goes wrong. **JORGE** has just lifted the open Aristotle codex from the lectern and is in the act of tearing pages from it with his teeth — eating the poisoned corners, deliberately, his white-bearded mouth dark with the gum, the milky blind eyes blank in the candle-flame. **ADSO** is in the centre-foreground, candle held forward, mouth open in a cry, lantern in his free hand. The lantern's iron handle has just left his grip — Jorge has knocked it from his hand with the staff. The lantern is in mid-fall toward the lower-left, the candle inside it spilling — the flame already touching the lower shelf of vellum codices. **WILLIAM** is in the right-foreground, lunging forward — his face is full of horror, hand outstretched toward the falling lantern, too late. The shelves at lower-left are catching: small tongues of orange flame just beginning to climb the vellum spines, smoke beginning to thread upward. The whole frame is in the cold blue-grey shadow of the candlelight EXCEPT for the new orange of the catching fire at the lower-left, which throws warm light across the lower edge of Jorge's robe, the bottom of Adso's habit, William's outstretched hand. **The orange of the fire is the only warm light in the frame; the rest is in cold blue-grey shadow.** The lectern is half-overturned. One of the iron candle-stands is falling sideways.
+
+**Lettering — verbatim, render exactly:**
+- Top caption box (full-width band, ivory parchment, dark serif): `Jorge tore the corner of a page with his teeth. He chewed it. He swallowed. He tore another. He was killing himself with the same poison that had killed four other men, deliberately, so that the book would die with him.`
+- Speech bubble, tail pointing to William (right-foreground, lunging): `Jorge — STOP. Adso, the lantern — !`
+- Speech bubble, tail pointing to Jorge (centre, eating the pages): `If I die, the book dies with me. If you take the book, you take only the poison. The library will close behind me. The laughter will not begin.`
+- Bottom caption box (full-width band, ivory parchment, dark serif): `Jorge struck the lantern from my hand with his staff. The candle fell against the lowest shelf. The vellum caught at once. In ten seconds the lower shelf was burning. In thirty seconds the room was full of smoke. My master tried to pull me toward the door. I tried to pull him toward the books. Neither of us could save anything but ourselves.`
+
+---

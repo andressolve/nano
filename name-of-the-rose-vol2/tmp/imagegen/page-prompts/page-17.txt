@@ -1,0 +1,31 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P17 — Day 7, Matins: Jorge in the dark
+
+**Format:** Standard biographical page (multi-character, candlelit interior). T5.
+**Refs:** `composite_finis_africae.png` (built upfront — William + Adso + Jorge).
+
+**Composition:**
+> Inside the *finis Africae* (new setting M). Small stone room, twelve feet square, low barrel-vaulted ceiling. Three walls of floor-to-ceiling oak shelves crammed with leather-bound codices and rolled scrolls. The dark oak lectern in the centre holds the open Aristotle codex. Two tall iron candle-stands flank the lectern with three thick beeswax candles each — the only light, throwing everything else into deep blue-grey shadow. **JORGE** is seated calmly on a small wooden stool to one side of the lectern, very tall and slightly bent at the shoulders, white beard down to his chest, milky blind eyes catching the candle-flame, the long pale ashwood staff laid across his knees. His face is severe, ascetic, dignified — NOT a cartoon villain, NOT triumphant, NOT cruel. The face of a man who believes himself completely right. **WILLIAM** has just stepped into the candlelight, his brown Franciscan habit in shadow, spectacles in one hand, expression intent. **ADSO** is half a pace behind, eyes wide, candle held in his free hand. The mirror-door open behind them.
+
+**Lettering — verbatim, render exactly:**
+- Top caption box (full-width band, ivory parchment, dark serif): `He had heard us coming, of course. He had heard us coming for thirty years.`
+- Speech bubble, tail pointing to Jorge (seated, centre-left): `You found me, brother William. You were going to find me. The room was the only thing I could keep hidden. The book on the lectern is the thing the room was built to keep hidden. You have looked for it for six days. Now you may look at it.`
+- Speech bubble, tail pointing to William (standing, centre-right): `You are the secret librarian, Jorge. You have guided every official librarian for thirty years. You have killed four men this week to keep this book from being read. What is it?`
+- Speech bubble, tail pointing to Jorge: `It is the second book of Aristotle's *Poetics.* The book the world believes is lost. The book on comedy and on laughter. The only copy that survived. I have kept it in this room for fifty years. It will not leave this room.`
+- Bottom caption box (full-width band, ivory parchment, dark serif): `Aristotle had been the most respected pagan philosopher of the Christian Middle Ages. His first book of the *Poetics*, on tragedy, was studied in every university. His second book, on comedy, had vanished. Jorge had not let it vanish. He had hidden it. And he had been killing the monks who had begun to find it.`
+
+---

@@ -1,0 +1,36 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P1 — FRAME OPENER (illuminated) — *Continuatio Manuscripti*
+
+**Day:** N/A — frame.
+**Format:** Illuminated chapter-break page (see Book One Style Guide). T5 (heavy old-Adso recap caption).
+**Refs:** `ref_old_adso.png` (built fresh for Book Two; continuity-checked against Book One P1's historiated initial).
+
+**Composition:**
+> A page styled as a 14th-century illuminated manuscript folio — same scribe's hand as Book One's four chapter breaks. Gold-leaf border running all four sides with intertwined vines and oak leaves. Two small drolleries at the lower corners: a FOX-IN-MONK'S-HABIT (a sly red fox in a brown Franciscan cowl, preaching from a tiny vellum book to a small audience of hens) — the same recurring marginalia that ran across all four Book One chapter breaks. A second drollery upper-right: a small hare with a lute. Upper-left: a snail in armor.
+>
+> Large historiated initial **"C"** at the upper-left, gilt and lapis-blue, with a small painted scene inside the bowl of the letter: the Aedificium on its mountain, smoke rising from the broken tower — a glimpse of what is to come.
+>
+> Central painted miniature, framed by a thin gilt border, occupying the upper two-thirds of the page: **OLD ADSO** seated at his oak writing-desk in the small stone cell at the abbey of Melk. White beard down to his chest, gnarled hands, quill in hand, a stack of vellum sheets before him, single beeswax candle, a small round-arched window high in the wall showing pale Austrian dawn. He is leaning slightly closer to the page than in Book One — the task in this volume is harder. His face concentrated, sad, alive. Painted in oil-painting realism (NOT flat illumination — the inner scene matches the rest of the book's painted register).
+>
+> Below the miniature: a block of Latin in Gothic blackletter (verbatim), followed by an English translation caption in ivory parchment style.
+
+**Lettering — verbatim, render exactly:**
+- Latin block (Gothic blackletter, centered, large): `Continuatio Manuscripti`
+- English translation directly below (ivory parchment caption box, dark serif ink): `The Manuscript Continues — Days Five through Seven, and after.`
+- Bottom caption box (ivory parchment, dark serif, ~175 words): `When I last set down the pen, four days of our visit had passed and three brothers were dead. A young illuminator named Adelmo had fallen from a tower window. A Greek translator named Venantius had been found dead in a barrel of pig's blood with his fingertips and tongue blackened. An English assistant librarian named Berengar had been found drowned in the kitchen tub with the same black stain on his hand. My master William believed the deaths were the work of poison left in the corners of a forbidden book that lay hidden somewhere in the abbey's great library. The abbey's library was the largest in Christendom — a labyrinth of small stone rooms on the top floor of the tower the monks called the Aedificium, the Building. On the fourth night a Dominican friar named Bernard Gui had arrived from Avignon with the Pope's delegation. Gui was an inquisitor — the Church's hunter of heretics. He carried a book he had written himself, a manual for questioning the accused. He arrested a young peasant girl Adso had met in the kitchen, on the charge of witchcraft. This is the account of what came next.`
+
+---

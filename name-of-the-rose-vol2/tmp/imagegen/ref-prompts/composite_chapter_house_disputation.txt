@@ -1,0 +1,15 @@
+Create a reusable character reference composite plate for a serious mature historical graphic novel, 3:2 landscape, 1536x1024, oil-painting realism, muted palette, plain warm-grey background, same painterly register as the input reference sheets.
+
+Input images:
+Image 1 = William reference: preserve the tall gaunt Franciscan face, reddish-grey near-bald tonsure, short beard, brown habit, rope belt with three knots, satchel, sandals, and riveted leather spectacles.
+Image 2 = Abbot reference: preserve the round well-fed Benedictine face, smooth grey tonsure, fine black habit, heavy gold chain, large garnet-studded pectoral cross, and ringed hand.
+Image 3 = Bernard Gui reference: preserve the tall lean Dominican face, hooked aquiline nose, pale eyes, iron-grey tonsure, white tunic and scapular under black mantle, silver cross, black belt, and book.
+
+Composition: horizontal triptych, three full-body figures on one canvas, same scale, same lighting, same ground plane, plain warm-grey background. Left: William. Center: Abbot Abo. Right: Bernard Gui. Faces in three-quarter view, forward enough to preserve identity. No interaction, no scene, no furniture.
+
+Thin painted serif name labels below each figure:
+Fra Guglielmo
+Abate Abone
+Frate Bernardo
+
+NOT a children's book. Serious mature graphic novel, realistic proportions, natural lighting. NO halftones, NO cel shading, NO ink linework. Painted brushwork. No extra characters, no props beyond signature accessories, no border.

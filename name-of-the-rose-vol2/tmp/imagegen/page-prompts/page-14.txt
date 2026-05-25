@@ -1,0 +1,30 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P14 — Day 6, Vespers: the Abbot defies, the door is found
+
+**Format:** Standard biographical page. T4.
+**Refs:** `ref_william.png`, `ref_abbot.png` (Book One). Lock to William via `edit_image` anchored on `ref_abbot.png` — the Abbot's garnet pectoral cross is the must-render-correct visual.
+
+**Composition:**
+> Inside the Abbot's private chamber (new setting K) at dusk. The single tall candle on the writing-desk is the only direct light; the small fire in the corner gives a soft red underlight to the floor. The **ABBOT** stands behind his oak desk, both hands flat on the desk surface, face pale and frightened in the candlelight, garnet pectoral cross catching the flame. **WILLIAM** stands in front of the desk, brown Franciscan habit, spectacles in one hand, his face calm and immovable. **ADSO** is at the door, half in shadow, watching. The Abbot's mouth is open mid-word; William has just refused.
+
+**Lettering — verbatim, render exactly:**
+- Top caption box (upper-left, ivory parchment, dark serif): `My master had asked the Abbot for one last thing — permission to enter the library after Compline. The Abbot was now afraid of what would be found there.`
+- Speech bubble, tail pointing to the Abbot (centre-right, behind desk): `I order you to leave the abbey at first light, brother William. The Pope's delegation has been satisfied. Three souls will burn in the village at dawn. There is nothing further you need to investigate here.`
+- Speech bubble, tail pointing to William (centre-left, facing the desk): `Father Abbot — I will not leave at first light. I will enter the library tonight. And I think you know what is in the room I will find.`
+- Bottom caption box (full-width band, ivory parchment, dark serif): `That night, after Compline, my master found a hidden lever behind the scriptorium's altar. A panel of the wall slid aside. A narrow stone stair led upward into the dark. We climbed it with one candle. The seventh day had begun.`
+
+---

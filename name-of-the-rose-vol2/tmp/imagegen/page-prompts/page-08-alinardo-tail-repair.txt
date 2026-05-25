@@ -1,0 +1,14 @@
+Targeted edit of the existing finished page.
+
+Use the first input image as the page to repair. Preserve the same composition, characters, setting, colors, lighting, captions, speech bubbles, bubble text, and readable lettering exactly as already shown.
+
+Only fix the attribution of Alinardo's speech bubble:
+- The upper-center speech bubble containing this text must clearly come from ALINARDO, the very old monk in the center with white beard and raised finger:
+  `Four are dead. Three more will follow. The first trumpet of the angel, hail and fire. The second, the sea turned to blood. The third, the bitter star Wormwood that poisoned the rivers. It is the Book of Revelation, brother William. The book is opening on us.`
+- Add or restore a clean speech-bubble tail from the bottom of that upper-center bubble pointing to Alinardo's mouth or raised hand.
+- Do not make the upper-center bubble point to William.
+- Do not change the lower-left speech bubble. Its long tail must continue to point to William, the tall brown-habited Franciscan on the right.
+- Do not change the top caption or bottom caption.
+- Do not alter the text wording, spelling, line breaks, or page style.
+
+Keep oil-painting realism, mature historical graphic novel tone, Romanesque cloister, cold dusk palette, and the same 3:2 landscape page.

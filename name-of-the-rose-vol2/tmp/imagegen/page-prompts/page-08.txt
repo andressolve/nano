@@ -1,0 +1,30 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P8 — Day 5, after Vespers: Alinardo and the trumpets
+
+**Format:** Standard biographical page. T4.
+**Refs:** `ref_william.png`, `ref_adso.png` (Book One). Two-character page — lock to William via `edit_image` anchored on `ref_william.png`; Adso described in prose.
+
+**Composition:**
+> The cloister at last light (Book One setting G — append the time of day in composition). Cold thin winter sun gone; the central garden in deep blue-grey shadow, the arcade darker still. **William** and **Adso** walking slowly along the south side of the arcade, the slim Romanesque columns and round arches above them. William's face concentrated, frustrated — for the first time in either volume, the slight habitual amusement is absent. Adso half a pace behind, hands clasped, listening. **An old half-blind monk** (ALINARDO, very old, leaning on a younger monk's arm — the only old monk in the abbey older than Jorge) approaches from the opposite end of the arcade. White wispy beard, frail, head trembling slightly. He stops William as they pass. He raises one long thin finger and speaks one line, then is led away by his companion. William stops. His face changes — he has heard something he was not expecting.
+
+**Lettering — verbatim, render exactly:**
+- Top caption box (upper-left, ivory parchment, dark serif): `By Vespers my master was no closer to the killer than he had been on the first day. He believed the deaths were the work of a single mind, but he could not see the pattern. Then an old monk we had hardly spoken to — Alinardo, half-senile, more than ninety years old — stopped us in the cloister.`
+- Speech bubble, tail pointing to Alinardo (centre, leaning on his companion's arm): `Four are dead. Three more will follow. The first trumpet of the angel, hail and fire. The second, the sea turned to blood. The third, the bitter star Wormwood that poisoned the rivers. It is the Book of Revelation, brother William. The book is opening on us.`
+- Speech bubble, tail pointing to William (lower-left, stopped mid-step): `Hail. Blood. The poisoned waters. Adso — Adelmo fell with hail on his hood. Venantius in the blood-barrel. Berengar in the kitchen tub. The pattern was there. I missed it.`
+- Bottom caption box (full-width band, ivory parchment, dark serif): `My master was wrong. The pattern was real but the source was not the Book of Revelation. The killer was reading the same omens we were — and bending the deaths to match them, so we would chase a prophecy and not a man. My master would not see this for two more days.`
+
+---

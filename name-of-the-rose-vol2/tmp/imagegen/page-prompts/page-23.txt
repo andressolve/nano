@@ -1,0 +1,30 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P23 — Epilogue: Old Adso at the ruins
+
+**Format:** Standard biographical page (single-character, exterior ruins). T4.
+**Refs:** `ref_old_adso.png` (new), `ref_aedificium.png` (Book One — for the ruined version).
+
+**Composition:**
+> Mountain shoulder where the Aedificium stood (new setting R — the abbey ruins). Decades after the fire — broken stone walls rising perhaps one storey from a tangled foundation of charred timbers half-buried in snow, the four square corner-towers reduced to stumps, the roof and upper storeys long gone, the labyrinth library open to the sky and snow. Snow drifts piled inside the broken walls. **OLD ADSO** stands among the broken walls in his black Benedictine habit and a heavy dark travel cloak, an old worn leather satchel at his hip, a single **charred fragment of vellum** held loosely in his gnarled right hand — perhaps the size of a hand, edges blackened, a few faint marks of script visible on its surface. The wind moves his white beard slightly. His face is composed, sad, alive — the same Old Adso from P1, only further into the work. Dark pines silhouetted against the pale slate-grey sky. Cold low grey clouds.
+
+**Lettering — verbatim, render exactly:**
+- Top caption box (upper-left, ivory parchment, dark serif): `It was an old monk's vanity, perhaps, to go back. I went back. The road was the same. The pines were the same. The mountain was the same. The abbey was a ruin in the snow.`
+- Speech bubble removed for this page — Old Adso narrates only in caption boxes.
+- Centre caption box (ivory parchment, dark serif, smaller than the top/bottom bands): `I walked through the broken walls where the scriptorium had been. I picked up a few charred scraps of vellum the wind had not yet taken. I could no longer tell what they had been. Perhaps a margin of a Greek translator's chronicle. Perhaps a corner of a forbidden book. I could not read what was on them, and I did not try.`
+- Bottom caption box (full-width band, ivory parchment, dark serif): `I put a few of the scraps in my satchel and walked back down the mountain. I went home to Melk. I took out a fresh sheet of vellum, dipped a quill, and began to write down everything I remembered, before I forgot any more of it. The manuscript you have just read is what I wrote.`
+
+---

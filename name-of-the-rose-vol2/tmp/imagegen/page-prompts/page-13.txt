@@ -1,0 +1,31 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P13 — Day 6, None: William's breakthrough
+
+**Format:** Standard biographical page (William + Adso at the catalogue table). T5.
+**Refs:** `ref_william.png`, `ref_adso.png` (Book One). Lock to Adso via `edit_image` anchored on `ref_william.png` — William's spectacles + posture leaning over the codex are the focal action.
+
+**Composition:**
+> Inside the scriptorium at dusk (Book One setting C — but use the new setting J "the library catalogue table" specifically for this page's framing). **WILLIAM** standing leaning forward over the great open abbey catalogue codex on the long oak table, riveted-leather spectacles perched on his nose, his sharp light-blue eyes intent on the page. His finger traces a column of entries. **ADSO** standing beside him, half a pace back, eyes wide. Two beeswax candles in iron sticks at the corners of the open codex provide the only light; the scriptorium beyond the table is in deep blue-grey dusk shadow. William straightens suddenly. He turns to Adso.
+
+**Lettering — verbatim, render exactly:**
+- Top caption box (upper-left, ivory parchment, dark serif): `My master had been turning the pages of the great abbey catalogue — every book in the library, listed by region and year of acquisition — for two hours. He had been looking for a name. He had found a hand.`
+- Speech bubble, tail pointing to William (centre, leaning over the codex): `The handwriting changes here, Adso. The middle of the year 1325. A second scribe begins to enter the new books. He never signs. He never appears in the records. And yet for thirty years every official librarian has been guided by his decisions. There has been a SECOND librarian in this abbey. A secret one.`
+- Speech bubble, tail pointing to Adso (right of William): `Master — the *Coena Cypriani.* My dream. The parody-feast. The laughter.`
+- Speech bubble, tail pointing to William: `Laughter, Adso. The book everyone has died for. The book Severinus found and could not show. A book about laughter — and a man old enough and frightened enough of laughter to kill for it. Adso — there is only one monk in this abbey old enough.`
+- Bottom caption box (full-width band, ivory parchment, dark serif): `Jorge of Burgos was eighty-five years old. He had been blind for thirty. And for thirty years he had walked the corridors of the labyrinth library as if he could see — because he had memorized them before his sight failed. He was the secret librarian. He had been the secret librarian all along.`
+
+---

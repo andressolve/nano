@@ -1,0 +1,14 @@
+Targeted edit of the existing finished page.
+
+Use the first input image as the page to repair. Preserve the same composition, characters, setting, colors, lighting, caption boxes, speech bubbles, and all readable text exactly as already shown.
+
+Only fix the attribution of William's speech bubble:
+- The lower-left speech bubble containing this text must clearly come from WILLIAM, the tall brown-habited Franciscan standing on the right side of the scene:
+  `Hail. Blood. The poisoned waters. Adso — Adelmo fell with hail on his hood. Venantius in the blood-barrel. Berengar in the kitchen tub. The pattern was there. I missed it.`
+- Its bubble tail must point clearly toward William's mouth/chest, not toward Alinardo.
+- Remove or reshape any tail that makes that bubble seem to come from Alinardo.
+- Do not change Alinardo's top speech bubble.
+- Do not change the top caption or bottom caption.
+- Do not alter the text wording, spelling, line breaks, or page style.
+
+Keep oil-painting realism, mature historical graphic novel tone, Romanesque cloister, cold dusk palette, and the same 3:2 landscape page.

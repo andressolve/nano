@@ -1,0 +1,29 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P16 — Day 7, before Matins: the mirror door
+
+**Format:** Standard biographical page (two-character, labyrinth interior). T4.
+**Refs:** `ref_william.png`, `ref_adso.png` (Book One). Lock to William via `edit_image` anchored on `ref_william.png` — William solving the door is the focal action.
+
+**Composition:**
+> Inside the antechamber to the *finis Africae* (new setting L) — the mirror door. Pitch dark beyond the small circle of candlelight from William's single beeswax candle. **WILLIAM** is leaning close to the carved Latin inscription on the lintel above the disguised mirror — `Super Thronos Viginti Quatuor` ("Over the Thrones Twenty-Four"). His face is half-lit by the candle, sharp light-blue eyes intent. The spectacles are perched on his nose. **ADSO** stands a half-pace behind him, holding the satchel, watching wide-eyed. The mirror itself returns a fogged, distorted candle-reflection of the two of them. William's free hand has just found something low and to the right of the mirror — a small almost-invisible iron lever in the stone. He is about to pull it.
+
+**Lettering — verbatim, render exactly:**
+- Top caption box (upper-left, ivory parchment, dark serif): `The Latin above the mirror was a clue, not an inscription. *Over the Thrones Twenty-Four* — a line from the Book of Revelation. The twenty-four was a key. My master worked it out as I watched.`
+- Speech bubble, tail pointing to William (centre, hand at the lever): `Twenty-four is the number of the elders. The Greek alphabet has twenty-four letters. The first and the last letters — alpha and omega — open the lock. There is a lever. Here.`
+- Bottom caption box (full-width band, ivory parchment, dark serif): `My master pulled the small iron lever in the stone. The mirror — the heavy silvered glass that had hung in this alcove for two hundred years — swung silently outward on hidden hinges. Behind it was a small room, candlelit. And a man we both knew was sitting in the candlelight, waiting for us.`
+
+---

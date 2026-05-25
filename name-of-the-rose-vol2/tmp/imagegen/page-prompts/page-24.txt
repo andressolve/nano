@@ -1,0 +1,20 @@
+STYLE: Oil-painting realism. Cinematic single-image composition, 3:2 landscape. Muted period palette of cold stone grey, deep burgundy, candle-amber, snow white, ink black, vellum cream. Natural light sources only — candlelight, hearth, snow-light, oil lamp, the slate-grey daylight of a north-Italian winter. Painterly brushwork. Heavy chiaroscuro. The world is the Italian Apennines in late November 1327 and the old monk's memory decades later: cold, snowy, mountainous, austere.
+
+NOT a children's book. Serious mature graphic novel, realistic proportions, natural lighting, cinematic composition.
+
+NOT a comic. NO halftones, NO cel shading, NO ink linework. Painted brushwork, cinematic lighting, muted period palette.
+
+ILLUMINATED CLOSING PAGE: A page styled as the final folio of Adso's manuscript. Full illuminated-page treatment, slightly more lavish than the other chapter breaks: heavier gilt, deeper lapis-blue, richer marginalia. Gold-leaf border running all four sides with intertwined vines and oak leaves. The whole page reads as one 14th-century illuminated manuscript folio, but rendered in oil-painting realism rather than flat illumination.
+
+COMPOSITION: Drolleries in the margins: the fox-in-monk's-habit one last time at the lower-right; a small painted white rose at the upper-left; a small painted quill resting on a closed codex at the upper-right. Large historiated initial S at the upper-left, gilt and lapis-blue, with a small painted scene inside the bowl: Old Adso at his writing-desk in the cell at Melk, bald crown, long white beard, black Benedictine habit, laying down the quill. The manuscript is finished.
+
+Central painted miniature, framed by a thin gilt border, occupying the upper two-thirds of the page: the burned abbey from a distance, on its mountain in the snow, decades after the fire. Broken walls, snow-covered foundations, dark pines, low grey sky. No human figures. Cold pale light. The mountain is the only thing that has not changed.
+
+Below the miniature: the Latin tag, set in larger Gothic blackletter than the other tags — the prominent text on the page. Below it, the English helper caption, slightly larger than the daily-tag helpers. Below that, the closing old-Adso caption.
+
+LETTERING — verbatim, render exactly:
+- Latin block, Gothic blackletter, centered, large, the largest single text element on the page: `Stat rosa pristina nomine, nomina nuda tenemus.`
+- English translation directly below, ivory parchment caption box, dark serif, slightly larger than daily-tag helpers: `The rose of old remains only in its name; we hold only naked names. — the final line of Adso's manuscript.`
+- Bottom caption box, ivory parchment with serif ink, slightly worn at edges: `I have written down what I saw, and what my master said, and what he did, in the seven days at the abbey on the mountain. The abbey is gone. The library is gone. My master is gone. The girl I saw once across a courtyard — whose name I never learned — is gone. What remains is the name. *Rose.* It was the name of nothing in particular — a flower at the edge of a manuscript I once read; perhaps the rose-window of a chapel; perhaps the girl, whom I had no other name for. I do not know. The thing the name once named is gone. The name is what I have. The names are what we have, after the things are gone. I am eighty years old. I am near the end. I lay down the quill. This is the manuscript. — Adso of Melk.`
+
+All words spelled correctly. Latin spelled verbatim as supplied above. Do not duplicate text. Do not invent extra captions or signage. NO modern logos, NO watermarks, NO modern wire-frame eyeglasses, NO printed books (vellum codices and scrolls only), NO Gothic architecture (Romanesque only — round arches), NO Renaissance clothing, NO modern faces. Illuminated single-page composition.

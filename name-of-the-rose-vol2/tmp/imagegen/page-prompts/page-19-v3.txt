@@ -1,0 +1,17 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism, heavy chiaroscuro, cold blue-grey candlelit stone, restrained orange firelight. This is a dramatic medieval library fire scene with no injury detail.
+
+NOT a children's book. Serious mature graphic novel, realistic proportions, natural lighting, muted period palette. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+INPUT REFERENCE IMAGE: composite_finis_africae.png contains the locked visual identities for William, Adso, and Jorge. Preserve their faces, ages, habits, body types, and signature accessories. Do not copy the reference labels, neutral background, or lineup pose.
+
+SETTING: Inside the finis Africae, a small stone library room with floor-to-ceiling oak shelves packed with vellum codices and scrolls, a central lectern, an open Aristotle codex, iron candle-stands, and a mirror-door open behind William and Adso.
+
+COMPOSITION: Jorge, very old blind Benedictine with long white beard and milky eyes, stands or leans beside the lectern with the Aristotle codex in his hands, tearing pages free with fierce resolve. Adso is in the center foreground, mouth open in alarm, one hand outstretched as an iron lantern slips from his grip. William is at right foreground lunging toward the lantern, hand outstretched too late. The lantern is mid-fall toward the lower-left shelf; a candle flame has just touched vellum bindings, and small orange tongues of fire are beginning to climb the bottom shelf. Smoke threads upward. The fire orange is the only warm light; the rest is cold blue-grey shadow and candlelight. The lectern is half-overturned; one iron candle-stand is beginning to fall.
+
+LETTERING — render as readable page text:
+- Top caption box, full-width parchment band, dark serif ink: `Jorge tore page after page from the Aristotle codex. He would not let the book leave the room. If William could not save it, then the book would vanish with the library.`
+- Speech bubble, tail pointing to William: `Jorge — STOP. Adso, the lantern — !`
+- Speech bubble, tail pointing to Jorge: `You may take ashes, brother William. The library will close behind me. The laughter will not begin.`
+- Bottom caption box, full-width parchment band, dark serif ink: `Jorge struck the lantern from my hand with his staff. The candle fell against the lowest shelf. The vellum caught at once. In ten seconds the lower shelf was burning. In thirty seconds the room was full of smoke. My master tried to pull me toward the door. I tried to pull him toward the books. Neither of us could save anything but ourselves.`
+
+All words spelled correctly. Do not draw backticks. Do not duplicate text. No modern objects, no watermarks, no labels, no gore, no visible wounds, no collapse.

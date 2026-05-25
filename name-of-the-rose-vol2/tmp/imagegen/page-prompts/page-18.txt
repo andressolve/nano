@@ -1,0 +1,21 @@
+STYLE: Oil-painting realism. Cinematic single-image composition, 3:2 landscape. Muted period palette of cold stone grey, deep burgundy, candle-amber, snow white, ink black, vellum cream. Natural light sources only — candlelight, hearth, snow-light, oil lamp, the slate-grey daylight of a north-Italian winter. Painterly brushwork. Heavy chiaroscuro. The world is the Italian Apennines in late November 1327: cold, snowy, mountainous, austere.
+
+NOT a children's book. Serious mature graphic novel, realistic proportions, natural lighting, cinematic composition.
+
+NOT a comic. NO halftones, NO cel shading, NO ink linework. Painted brushwork, cinematic lighting, muted period palette.
+
+INPUT REFERENCE IMAGE: ref_aristotle_codex.png. Preserve the dark-brown leather vellum codex, brass clasps, dark oak reading stand, candlelit stone surface, open vellum pages, and subtle dark stains on page corners. For this page, the Greek and English text must be legible and rendered as specified below.
+
+COMPOSITION: The frame is dominated by the open vellum codex of Aristotle's Poetics Book II, set on the dark oak lectern in the candlelit finis Africae. The codex fills the upper four-fifths of the composition: two facing vellum leaves, each ruled into two columns of 14th-century Greek minuscule script, rendered legibly. Adjacent to the Greek columns — running down the inner margin between the two pages and continuing as a smaller ribbon along the outside of each leaf — is a parallel English helper ribbon, ivory parchment, dark serif, line-for-line gloss of the Greek. The corners of both pages are faintly dark-stained at the fore-edge: the contact poison, subtle but visible to a careful reader. Candlelight catches the vellum and the gold-tooled edge of the binding.
+
+In the lower-right corner, a small inset frame the size of a hand: Jorge's gloved right hand, heavy black leather glove, turning a page corner. The other corner has already begun to lift, revealing the dark gum on the fore-edge underside. The inset frame is bordered with a thin gilt line to mark it as inset, not continuous composition.
+
+LETTERING — verbatim, render exactly:
+- Greek text on the left page, 14th-century minuscule script: `Περὶ ποιητικῆς αὐτῆς τε καὶ τῶν εἰδῶν αὐτῆς, ἥν τινα δύναμιν ἕκαστον ἔχει, καὶ πῶς δεῖ συνίστασθαι τοὺς μύθους εἰ μέλλει καλῶς ἕξειν ἡ ποίησις...`
+- English helper ribbon running parallel to the Greek, ivory parchment, dark serif: `On poetry itself and its forms — what particular power each has, and how the plots must be put together if the poetry is to be good...`
+- Small heading at the top of the codex's left page, Greek minuscule, slightly larger: `ΠΕΡΙ ΠΟΙΗΤΙΚΗΣ Β`
+- English helper directly under that heading, ivory parchment, dark serif: `Poetics, Book II — On Comedy.`
+- Bottom caption box, full-width band, ivory parchment with serif ink, slightly worn at edges: `This was the book everyone had died for. The pages were ordinary vellum. The Greek script was small and even. The poison was in the corners — a dark gum painted along the fore-edge, so that anyone wetting a fingertip to turn a page would taste it. Venantius. Berengar. Malachi. Severinus had found it and would not give it up. The book argued that laughter was a fit subject for philosophy. Jorge believed that if monks learned to laugh at sacred things, they would stop being afraid of them — and that without the fear of God, the world he had given his life to would end.`
+- Small inset frame caption directly under the inset, smaller serif: `Jorge wore the gloves so that he could handle the poisoned pages without dying himself. He did not need to read them; he had memorized them sixty years before, when his eyes still worked.`
+
+All words spelled correctly. Greek spelled verbatim as supplied above. Do not duplicate text. Do not invent extra captions or signage. NO modern logos, NO watermarks, NO modern wire-frame eyeglasses, NO printed books beyond vellum codices, NO Gothic architecture, NO Renaissance clothing, NO modern faces. Single image composition unless inset frame is specified.

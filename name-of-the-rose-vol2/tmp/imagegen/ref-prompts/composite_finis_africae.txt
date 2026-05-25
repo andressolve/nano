@@ -1,0 +1,15 @@
+Create a reusable character reference composite plate for a serious mature historical graphic novel, 3:2 landscape, 1536x1024, oil-painting realism, muted palette, dim candlelight from one side, plain dark warm-grey background, same painterly register as the input reference sheets.
+
+Input images:
+Image 1 = William reference: preserve the tall gaunt Franciscan face, reddish-grey near-bald tonsure, short beard, brown habit, rope belt with three knots, leather satchel, sandals, and riveted leather spectacles.
+Image 2 = Adso reference: preserve the slight 18-year-old Benedictine novice face, blond tonsure with shaved crown and short side fringe/bangs, smooth beardless face, pale light eyes, black habit, wooden cross, and book/wax-tablet bearing posture.
+Image 3 = Jorge reference: preserve the very old blind Benedictine face, bald crown with wispy white side hair, long white beard to chest, milky blind eyes, bent shoulders, black habit, long pale ashwood staff, and rosary/cross at belt. Severe, ascetic, dignified; not evil-looking.
+
+Composition: horizontal triptych, three full-body figures on one canvas, same scale, same dim candlelit lighting, same ground plane, plain dark warm-grey background. Left: William holding spectacles. Center: Adso holding a wax tablet or small book. Right: Jorge leaning on the long pale ashwood staff. Faces in three-quarter view, forward enough to preserve identity. No library scene, no flame, no extra furniture.
+
+Thin painted serif name labels below each figure:
+Fra Guglielmo
+Adso
+Frate Jorge
+
+NOT a children's book. Serious mature graphic novel, realistic proportions, natural lighting. NO halftones, NO cel shading, NO ink linework. Painted brushwork. No extra characters, no border.

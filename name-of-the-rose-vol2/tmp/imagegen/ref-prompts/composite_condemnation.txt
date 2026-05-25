@@ -1,0 +1,17 @@
+Create a reusable character reference composite plate for a serious mature historical graphic novel, 3:2 landscape, 1536x1024, oil-painting realism, muted palette, plain cool-grey background, same painterly register as the input reference sheets.
+
+Input images:
+Image 1 = Bernard Gui reference: preserve the tall lean Dominican face, hooked aquiline nose, pale eyes, iron-grey tonsure, white tunic and scapular under black mantle, silver cross, black belt, and book.
+Image 2 = Remigio reference: preserve the heavy-set ruddy Benedictine face, visible tonsure, double chin, small dark watchful eyes, black habit, wooden cross, and prominent key-ring at the hip.
+Image 3 = Salvatore reference: preserve the short hunched lay-brother body, dirty short dark habit, bare feet, sparse reddish beard, scarred cheek, missing teeth, one milky blue eye and one dark eye.
+Image 4 = village girl reference: preserve the weathered Italian peasant face, dark hair under brown headscarf, patched coarse brown wool dress, frayed shawl, scratch on cheek, rag-wrapped feet, and unglamorized exhausted dignity.
+
+Composition: horizontal quadtych, four full-body figures on one canvas, same scale, same lighting, same ground plane, plain cool-grey background. Left to right: Bernard Gui, Remigio, Salvatore, the village girl. Faces in three-quarter view, forward enough to preserve identity. No interrogation scene, no guards, no ropes, no violence.
+
+Thin painted serif name labels below each figure:
+Frate Bernardo
+Frate Remigio
+Salvatore
+la giovane
+
+NOT a children's book. Serious mature graphic novel, realistic proportions, natural lighting. NO halftones, NO cel shading, NO ink linework. Painted brushwork. No extra characters, no border.

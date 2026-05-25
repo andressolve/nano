@@ -1,0 +1,28 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P20 — Day 7, before dawn: the abbey burns
+
+**Format:** Atmospheric exterior — FIRE PALETTE variant. T3.
+**Refs:** `ref_aedificium.png` (Book One). **Style add-ons:** FIRE PALETTE block prepended.
+
+**Composition:**
+> Wide cinematic exterior shot of the abbey at full night, perhaps four hours after the fire began (setting O verbatim). The entire **Aedificium engulfed** — every narrow slit window in the great tower glowing fierce orange-red from within, the slate roof now half-collapsed, a column of red sparks and acrid grey smoke pouring upward into the cold black sky. The four square corner-towers silhouetted against the inferno. The lower abbey buildings — chapel, cloister, refectory — also burning, lower flames climbing the round-arched windows of the chapel. **The snow around the tower has melted into black mud** in a wide ring; beyond that, the snow is still clean and white, reflecting the orange of the fire pinkish-red. Small dark figures of lay-brothers and monks running with empty buckets between the buildings, throwing snow uselessly at the flames. The dark pines on the surrounding mountainside silhouetted against the firelight. The mountain shoulder visible from a low foreground angle. **Cold cold winter night; furious furious fire.** Empty foreground.
+
+**Lettering — verbatim, render exactly:**
+- Top caption box (full-width band, ivory parchment, dark serif): `The fire took the Aedificium in three hours. The library — the largest in Christendom — burned through the night. The lay-brothers ran with buckets of snow against a fire no one was going to stop. The bell rang for a while, and then it stopped. We never learned who the last man to ring it was.`
+- Bottom caption box (full-width band, ivory parchment, dark serif): `Aristotle's second book of the *Poetics* — the only copy in the world — was somewhere in the smoke above the tower. So were the works of Arab philosophers, Greek mathematicians, Hebrew commentators, and three hundred years of letters and chronicles. By dawn the abbey was a ruin. The Abbot was dead; Jorge had sealed him in a hidden passage of the library two days before. We did not know that until we were on the road.`
+
+---

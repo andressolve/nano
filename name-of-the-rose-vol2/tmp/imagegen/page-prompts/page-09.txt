@@ -1,0 +1,36 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P9 — DAY 6 CHAPTER BREAK (illuminated) — *Dies Sextus*
+
+**Day:** Day 6 (Malachi dies, Adso's dream, William's breakthrough).
+**Format:** Illuminated chapter-break page. T4.
+**Refs:** None — inset miniature generated from prose.
+
+**Composition:**
+> Same illuminated-manuscript treatment as P2 and Book One's chapter breaks. Gold-leaf border, intertwined vines. Drolleries: the FOX-IN-MONK'S-HABIT lower-right (consistent across all six Vol 2 illuminated pages); a small dog playing a bagpipe at the upper-left; a snail in armor at the upper-right.
+>
+> Large historiated initial **"D"** at the upper-left, gilt and lapis-blue, with a small painted scene inside the bowl: a tall iron candle-stand with three thick beeswax candles and, lying fallen at its base, a single black-habited figure with one outstretched arm — Malachi, the discovery to come.
+>
+> Central painted miniature, framed by a thin gilt border, occupying the upper two-thirds of the page: the chapel during Matins, dark blue-black pre-dawn shadow, two long rows of black-habited monks standing in carved oak choir-stalls facing each other across the narrow aisle, tall iron candle-stands flanking the altar. One figure in the rank on the right is half-collapsed against the stall, head turned away — but the other monks have not yet noticed.
+>
+> Below the miniature: the Latin tag, the English helper, the old-Adso setup caption.
+
+**Lettering — verbatim, render exactly:**
+- Latin block (Gothic blackletter, centered): `Dies Sextus`
+- English translation directly below (ivory parchment caption box, dark serif): `Day Six.`
+- Bottom caption box (ivory parchment, dark serif, ~100 words): `The sixth day began before dawn. The monks gathered in the chapel for Matins — the first of the eight daily prayers, sung at perhaps half past two in the morning, by candlelight. They stood in two long rows of carved wooden choir-stalls facing each other. They began to sing. One of them did not sing. He had been standing in his place a moment before; now he was falling. His fingertips were black. The fourth death of the abbey was the librarian himself — and now Brother Remigio, kneeling in his cell awaiting the morning fire, could not have done it.`
+
+---

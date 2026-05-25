@@ -1,0 +1,36 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P2 — DAY 5 CHAPTER BREAK (illuminated) — *Dies Quintus*
+
+**Day:** Day 5 (the disputation, Severinus, the interrogation, the condemnation).
+**Format:** Illuminated chapter-break page. T4.
+**Refs:** None — the inset miniature is generated from prose.
+
+**Composition:**
+> A page styled as a 14th-century illuminated manuscript folio. Same gold-leaf border, same fox-in-monk's-habit drollery at the lower-right corner (consistent with Book One P1, P9, P14, P19 and Vol 2 P1). Second drollery upper-left: a peacock with a Latin scroll in its beak.
+>
+> Large historiated initial **"D"** at the upper-left, gilt and lapis-blue, with a small painted scene inside the bowl of the letter: two robed figures facing each other across a lectern in a stone chapter house — the disputation about to begin.
+>
+> Central painted miniature, framed by a thin gilt border, occupying the upper two-thirds of the page: the chapter house at noon. Two opposing rows of robed figures along the stone benches at left and right — **brown Franciscan habits on one side, white-and-black Dominican on the other.** A standing figure in the middle aisle (William, tall, brown habit, spectacles in hand) addressing the room. A second standing figure on the far side (Bernard Gui, white tunic and long white scapular and black mantle and hood, *Practica* book at his hip) listening without expression. The single shaft of grey winter light from the high round-arched window falls across the centre. Painted in oil-painting realism.
+>
+> Below the miniature: the Latin tag in Gothic blackletter, the English helper caption, the old-Adso setup caption.
+
+**Lettering — verbatim, render exactly:**
+- Latin block (Gothic blackletter, centered): `Dies Quintus`
+- English translation directly below (ivory parchment caption box, dark serif): `Day Five.`
+- Bottom caption box (ivory parchment, dark serif, ~110 words): `On the morning of the fifth day, in the chapter house — the great vaulted room where an abbey held its trials and councils — my master rose to argue, before the papal delegation, the most dangerous question in the Church of our time: did Christ and his apostles, in their lives on earth, own anything at all? The Franciscan order said no; the Pope in Avignon said yes; and the wrong answer was now a heresy that could end a man. While they argued in the chapter house, a brother named Severinus, the abbey's herbalist, was already lying dead in his herbarium on the other side of the cloister. And before the day was out, Bernard Gui would have a confession.`
+
+---

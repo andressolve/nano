@@ -1,0 +1,29 @@
+STYLE: Finished page art for a serious mature historical graphic novel, 3:2 landscape, 1536x1024. Oil-painting realism for all painted scenes: muted cold stone grey, deep burgundy, candle amber, snow white, ink black, vellum cream; natural light only; heavy chiaroscuro; painterly brushwork; late-November 1327 in a cold Italian Apennine abbey.
+
+NOT a children's book. Serious mature graphic novel, realistic human proportions, period-realistic faces. NOT a modern comic: no halftones, no cel shading, no ink-line cartooning.
+
+If the page is an illuminated manuscript page, follow the script's illuminated-folio layout: gold leaf, lapis, border ornament, Gothic blackletter tags, and a realistic painted miniature inside the page. If the page is a hybrid teaching page, preserve the requested split layout and readable teaching text. If the page uses the dream register, preserve the slightly skewed, uneasy medieval dream look while keeping oil-painting realism. If the page uses the fire palette, keep the warm orange fire restrained and meaningful against the cold blue-grey world unless the script explicitly says the whole building is burning.
+
+REFERENCE IMAGES: any input images supplied to this generation are visual locks for faces, clothing, architecture, artifacts, body type, and signature accessories only. Preserve those identities and objects, but do not copy reference labels, reference-sheet borders, neutral reference backgrounds, or lineup poses into the final page.
+
+LETTERING RULES: The PROJECT SCRIPT below is authoritative. Render every caption, speech bubble, Latin tag, English helper, map label, and page note exactly as supplied in the script. Text inside markdown backticks is the text to draw; do not draw the backtick characters. Asterisks around a title or word indicate italic styling; do not draw the asterisks themselves unless the script explicitly asks for visible asterisks. Do not draw markdown bullets, blockquote marks, headings, or explanatory parentheticals as page lettering. No quotation marks inside speech bubbles unless the script explicitly includes them. Use large high-contrast parchment caption boxes and readable dark serif ink. Do not duplicate text. Do not invent extra captions, labels, signatures, watermarks, or signage.
+
+PERIOD RULES: Romanesque round arches only, no Gothic pointed arches. Vellum codices and scrolls only, no printed books. No modern eyeglasses; William's spectacles are riveted leather-and-glass medieval spectacles. No modern clothing, no Renaissance clothing, no modern logos.
+
+PROJECT SCRIPT FOR THIS PAGE:
+
+
+## P10 — Day 6, Matins: Malachi collapses
+
+**Format:** Standard biographical page (death discovery, restrained). T4.
+**Refs:** `ref_malachi.png` (new), `ref_adso.png` (Book One). Locked to Adso via `edit_image` anchored on `ref_malachi.png` — Malachi's gauntness + key-ring + collapsed pose are the harder things to lock; Adso watches from his stall and is described in prose.
+
+**Composition:**
+> Inside the chapel during Matins (new setting I). Cold pre-dawn, deep blue-black shadow, candlelight only. The two long ranks of black-habited Benedictine monks stand at their choir-stalls facing each other across the narrow aisle. In the foreground left: **MALACHI**, very tall and gaunt, has just collapsed half-forward against his stall. His face is **turned away from the camera into shadow** — the viewer never sees it directly. One long-fingered hand is open on the stone floor below the stall; the **fingertips are blackened**. The **heavy iron ring of keys** has slipped from his belt and lies on the stone beside his hand. Other monks in the ranks on either side have just begun to turn — frozen mid-motion, expressions of shock, the song still on a few of their lips. **ADSO** is visible in the foreground right at his own choir-stall, candle held in one hand, mouth open in horror. The tall iron candle-stands by the altar still burning steady. The painted wooden crucifix above the altar dark against the candle glow.
+
+**Lettering — verbatim, render exactly:**
+- Top caption box (upper-left, ivory parchment, dark serif): `Malachi — the librarian — fell during the singing of the second psalm. By the time the brother nearest him reached down, the fingertips of his right hand were already dark. The same poison. The same hand. The same killer, still in the abbey.`
+- Speech bubble, tail pointing to Adso (right-foreground, candle in hand): `Master — the same as Venantius. The same as Berengar. But Remigio confessed; Remigio is in the cellar; Remigio cannot have done this.`
+- Bottom caption box (full-width band, ivory parchment, dark serif): `My master was three stalls away. He did not speak. He was looking at the iron ring of keys on the stone — the keys to the library, the keys to the catalogue cabinet, the keys to a hidden stair. Whoever now picked them up would inherit the secret the librarian had carried for thirty years.`
+
+---
