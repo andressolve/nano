@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Machine That Learned to Breathe - Soichiro Honda, Part Two</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            background: #15171c;
+            color: #f0ece2;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #9fb7d9, #c9a86a, #b04a3a);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .reader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px 16px;
+        }
+
+        .page-frame {
+            max-width: min(1400px, 96vw);
+            width: 100%;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .page-frame.fading { opacity: 0; }
+
+        .page-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .page-frame.cover img {
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #f0ece2;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            z-index: 50;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            user-select: none;
+        }
+
+        .nav-arrow.prev { left: 18px; }
+        .nav-arrow.next { right: 18px; }
+
+        .nav-arrow:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .nav-arrow:disabled {
+            opacity: 0.18;
+            cursor: default;
+        }
+
+        .page-info {
+            position: fixed;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: rgba(240, 236, 226, 0.45);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(240, 236, 226, 0.4);
+        }
+
+        .home-link {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            font-size: 13px;
+            color: rgba(240, 236, 226, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            z-index: 100;
+        }
+
+        .home-link:hover { color: rgba(240, 236, 226, 0.7); }
+
+        .end-interstitial,
+        .quiz-container {
+            max-width: 720px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .end-interstitial {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .end-interstitial.fading,
+        .quiz-container.fading { opacity: 0; }
+
+        .end-interstitial h2,
+        .quiz-container h2 {
+            font-size: 30px;
+            font-weight: normal;
+            color: #e8e2d2;
+            margin-bottom: 22px;
+            letter-spacing: 1px;
+        }
+
+        .end-interstitial p {
+            color: rgba(240, 236, 226, 0.75);
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .quiz-container h2 {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .question-block {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .question-text {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #e8e2d2;
+            line-height: 1.6;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #d4ccc0;
+            line-height: 1.5;
+        }
+
+        .options label:hover { background: rgba(255,255,255,0.06); }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #c9a86a;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-family: inherit;
+            background: rgba(201, 168, 106, 0.15);
+            border: 1px solid rgba(201, 168, 106, 0.3);
+            color: #c9a86a;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .check-btn:hover { background: rgba(201, 168, 106, 0.25); }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            background: rgba(90, 180, 90, 0.1);
+            border: 1px solid rgba(90, 180, 90, 0.2);
+            color: #8cd48c;
+        }
+
+        .feedback.incorrect {
+            background: rgba(200, 90, 90, 0.1);
+            border: 1px solid rgba(200, 90, 90, 0.2);
+            color: #d4a0a0;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            display: none;
+            color: #c9a86a;
+        }
+
+        @media (max-width: 768px) {
+            .reader { padding: 16px 10px; }
+            .nav-arrow { width: 44px; height: 44px; font-size: 22px; }
+            .nav-arrow.prev { left: 8px; }
+            .nav-arrow.next { right: 8px; }
+            .home-link { top: 10px; left: 10px; }
+            .page-info { bottom: 8px; }
+            .question-block { padding: 20px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-frame, .progress-bar, .quiz-container, .end-interstitial { transition: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <a class="home-link" href="../index.html">&larr; Stories</a>
+
+    <div class="reader">
+        <div class="page-title" id="pageTitle">Cover</div>
+        <div class="page-frame cover" id="pageFrame">
+            <img id="pageImg" src="pages/cover.png" alt="The Machine That Learned to Breathe - Cover">
+        </div>
+
+        <div class="end-interstitial" id="endInterstitial">
+            <h2>End of Part Two</h2>
+            <p>
+                Honda began by chasing a machine down a village road. The second half of the story ends with a harder lesson: a company survives when it can argue with its founder, answer reality, and let the next generation carry the work farther.
+            </p>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <h2>Test Your Understanding</h2>
+
+            <div class="question-block" id="q1">
+                <div class="question-text">1. Why did Honda rush into automobile production in the early 1960s?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> Because proposed government rules might have limited new companies from entering the car industry, so Honda needed proof it belonged before the door closed</label>
+                    <label><input type="radio" name="q1" value="b"> Because motorcycles had already stopped selling</label>
+                    <label><input type="radio" name="q1" value="c"> Because race-car parts were cheaper than motorcycle parts</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q1', 'a')">Check Answer</button>
+                <div class="feedback correct" id="q1-correct">Right. Honda was still mainly a motorcycle company, and proposed industry rules threatened to shut new makers out. The first cars were partly an engineering challenge and partly a race to prove Honda belonged.</div>
+                <div class="feedback incorrect" id="q1-incorrect">Not quite. The pressure came from proposed government rules that might limit new companies entering the car industry. Honda needed automobile proof before the door closed.</div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <div class="question-text">2. Why was building cars harder than building motorcycles?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> Cars only needed more horsepower</label>
+                    <label><input type="radio" name="q2" value="b"> Cars had far more parts and needed service systems, dealers, credit, training, and customer trust around the vehicle</label>
+                    <label><input type="radio" name="q2" value="c"> Cars were mostly hand-painted</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q2', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q2-correct">Exactly. A car was not a motorcycle with more wheels. It needed more parts, a wider supplier base, more service, financing, dealer trust, and customers who expected support after purchase.</div>
+                <div class="feedback incorrect" id="q2-incorrect">Not quite. The hardest part was the system around the machine: parts, suppliers, repair bays, dealers, credit, training, and long-term customer trust.</div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <div class="question-text">3. What did the Honda 1300 teach the company?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> That the founder's favorite idea could still be wrong for a new problem</label>
+                    <label><input type="radio" name="q3" value="b"> That cars did not need engines</label>
+                    <label><input type="radio" name="q3" value="c"> That racing was useless</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q3', 'a')">Check Answer</button>
+                <div class="feedback correct" id="q3-correct">Yes. Air cooling had worked beautifully for motorcycles, but the 1300 showed limits in balance, cooling, noise, and future emissions. The machine was telling Honda the old answer no longer fit.</div>
+                <div class="feedback incorrect" id="q3-incorrect">Not quite. The 1300 taught that a powerful favorite idea can stop fitting a new problem. Air cooling had carried Honda far, but cars and emissions demanded a different answer.</div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <div class="question-text">4. What made CVCC important?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> It made the car larger</label>
+                    <label><input type="radio" name="q4" value="b"> It made combustion cleaner inside the engine, using a small rich prechamber to ignite a leaner main mixture</label>
+                    <label><input type="radio" name="q4" value="c"> It removed the steering wheel</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q4', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q4-correct">Right. CVCC used a small rich mixture that was easy to ignite, then carried flame into a leaner main chamber. Cleaner combustion happened inside the engine before the exhaust pipe.</div>
+                <div class="feedback incorrect" id="q4-incorrect">Not quite. CVCC mattered because it changed how the fuel-air mixture burned. A small rich prechamber helped ignite a leaner main chamber, reducing emissions at the source.</div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <div class="question-text">5. Why is the founders' retirement part of the engineering story?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> Because the company had stopped needing engineers</label>
+                    <label><input type="radio" name="q5" value="b"> Because a company that can only move through its founders is fragile; Honda survived by letting younger engineers, new systems, and new leaders answer reality</label>
+                    <label><input type="radio" name="q5" value="c"> Because retirement made the Civic faster</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q5', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q5-correct">Exactly. Honda and Fujisawa built something larger than themselves. Stepping back proved the company could keep learning when the founders' hands were no longer pushing every turn.</div>
+                <div class="feedback incorrect" id="q5-incorrect">Not quite. The retirement matters because the company had to survive as a system. Younger engineers, new leaders, and new structures had to answer reality without waiting for the founders.</div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay"></div>
+        </div>
+    </div>
+
+    <button class="nav-arrow prev" id="prevBtn" onclick="prev()" disabled aria-label="Previous page">&larr;</button>
+    <button class="nav-arrow next" id="nextBtn" onclick="next()" aria-label="Next page">&rarr;</button>
+    <span class="page-info" id="pageInfo">Cover</span>
+
+    <script>
+        const pages = [
+            { file: 'pages/cover.png', title: 'Cover', label: 'Cover' },
+            { file: 'pages/page-01.png', title: 'The Question After Victory', label: 'Page 1 of 20' },
+            { file: 'pages/page-02.png', title: 'The Door Almost Closes', label: 'Page 2 of 20' },
+            { file: 'pages/page-03.png', title: 'Red Car, Small Truck', label: 'Page 3 of 20' },
+            { file: 'pages/page-04.png', title: 'Service Is Part of the Car', label: 'Page 4 of 20' },
+            { file: 'pages/page-05.png', title: 'Formula One', label: 'Page 5 of 20' },
+            { file: 'pages/page-06.png', title: 'Mexico 1965', label: 'Page 6 of 20' },
+            { file: 'pages/page-07.png', title: 'The Little Car That Opened the Door', label: 'Page 7 of 20' },
+            { file: 'pages/page-08.png', title: 'The Triumph That Became a Trap', label: 'Page 8 of 20' },
+            { file: 'pages/page-09.png', title: 'Honda 1300', label: 'Page 9 of 20' },
+            { file: 'pages/page-10.png', title: 'The Argument About Water', label: 'Page 10 of 20' },
+            { file: 'pages/page-11.png', title: 'The Air Itself Objects', label: 'Page 11 of 20' },
+            { file: 'pages/page-12.png', title: 'Starting From Ground Zero', label: 'Page 12 of 20' },
+            { file: 'pages/page-13.png', title: 'The Small Flame', label: 'Page 13 of 20' },
+            { file: 'pages/page-14.png', title: 'The Public Promise', label: 'Page 14 of 20' },
+            { file: 'pages/page-15.png', title: 'A Civic, Not a Monument', label: 'Page 15 of 20' },
+            { file: 'pages/page-16.png', title: 'Blue Sky in a Hotel Ballroom', label: 'Page 16 of 20' },
+            { file: 'pages/page-17.png', title: 'Ann Arbor', label: 'Page 17 of 20' },
+            { file: 'pages/page-18.png', title: 'Stepping Back Together', label: 'Page 18 of 20' },
+            { file: 'pages/page-19.png', title: 'The Civic CVCC Goes Out', label: 'Page 19 of 20' },
+            { file: 'pages/page-20.png', title: 'The Company That Could Answer', label: 'Page 20 of 20' },
+            { file: null, title: 'End of Part Two', label: 'End of Part Two', end: true },
+            { file: null, title: 'Quiz', label: 'Quiz', quiz: true },
+        ];
+
+        let current = 0;
+        const img = document.getElementById('pageImg');
+        const frame = document.getElementById('pageFrame');
+        const quiz = document.getElementById('quizContainer');
+        const endInt = document.getElementById('endInterstitial');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageInfo = document.getElementById('pageInfo');
+        const pageTitle = document.getElementById('pageTitle');
+        const progressBar = document.getElementById('progressBar');
+
+        function show(index) {
+            frame.classList.add('fading');
+            quiz.classList.add('fading');
+            endInt.classList.add('fading');
+            setTimeout(() => {
+                current = index;
+                const p = pages[current];
+                if (p.quiz) {
+                    frame.style.display = 'none';
+                    endInt.style.display = 'none';
+                    quiz.style.display = 'block';
+                } else if (p.end) {
+                    frame.style.display = 'none';
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'block';
+                } else {
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'none';
+                    frame.style.display = 'block';
+                    img.src = p.file;
+                    img.alt = 'The Machine That Learned to Breathe - ' + p.title;
+                }
+                pageTitle.textContent = p.title;
+                pageInfo.textContent = p.label;
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === pages.length - 1;
+                progressBar.style.width = (current / (pages.length - 1)) * 100 + '%';
+                frame.classList.toggle('cover', current === 0);
+                frame.classList.remove('fading');
+                quiz.classList.remove('fading');
+                endInt.classList.remove('fading');
+                window.scrollTo(0, 0);
+            }, 250);
+        }
+
+        let answered = 0;
+        let correctCount = 0;
+
+        function checkAnswer(qId, correctAnswer) {
+            const selected = document.querySelector('input[name="' + qId + '"]:checked');
+            if (!selected) return;
+            const block = document.getElementById(qId);
+            const isCorrect = selected.value === correctAnswer;
+            block.querySelectorAll('input').forEach(function(i) { i.disabled = true; });
+            block.querySelector('.check-btn').style.display = 'none';
+            if (isCorrect) {
+                document.getElementById(qId + '-correct').style.display = 'block';
+                correctCount++;
+            } else {
+                document.getElementById(qId + '-incorrect').style.display = 'block';
+            }
+            answered++;
+            if (answered === 5) {
+                const display = document.getElementById('scoreDisplay');
+                display.textContent = 'You got ' + correctCount + ' out of 5 correct!';
+                display.style.display = 'block';
+            }
+        }
+
+        function next() { if (current < pages.length - 1) show(current + 1); }
+        function prev() { if (current > 0) show(current - 1); }
+
+        img.addEventListener('click', function(e) {
+            const rect = img.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x < rect.width * 0.35) prev();
+            else next();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) next();
+                else prev();
+            }
+        }, { passive: true });
+
+        function preload() {
+            if (current < pages.length - 1 && pages[current + 1].file) {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = pages[current + 1].file;
+                document.head.appendChild(link);
+            }
+        }
+        img.addEventListener('load', preload);
+    </script>
+</body>
+</html>
