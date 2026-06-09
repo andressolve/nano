@@ -1,0 +1,14 @@
+STYLE: Premium modern aerospace illustration — crisp, highly detailed digital painting in the style of a high-end aviation book cover. Vivid but controlled palette: deep high-altitude blues, steel grays, desert tans, blazing flare oranges and afterburner glow used for drama. Dramatic cinematic lighting, volumetric clouds, sharp surface detail on aircraft and missiles with correct proportions.
+REGISTER: Realistic illustration. NOT a comic. NO halftones, NO cel shading, NO cartoon outlines. Painterly-crisp rendering, cinematic lighting.
+NOT a children's book. Serious mature illustrated technical book, realistic proportions, natural lighting, cinematic composition.
+
+This input is a REFERENCE SHEET, not a layout to keep — paint ONE NEW unified single-scene painting using the references; do not reproduce the sheet's split layout; ignore any printed labels.
+Use REFERENCE B (the dark enemy fighter jet) and REFERENCE C (the heat-seeking missile). The gray jet does not appear.
+
+COMPOSITION: High-altitude scene, huge clouds. The dark enemy jet breaks hard right in the upper left of frame, ejecting a wide fan of blinding white-orange magnesium flares that fall in bright smoky arcs below and behind it. The white missile, mid-frame, rides a smoke trail that visibly BENDS AWAY from the enemy jet and toward the brightest falling flare — the missile is taking the bait. Dramatic late light, deep blue sky.
+
+LETTERING — verbatim, render exactly:
+- Top caption band, full width (off-white box, dark serif text, readable): Every weapon teaches the enemy how to fight it. Pilots learned the early Sidewinder's weakness: it chases the BRIGHTEST heat it can see. So jets began carrying FLARES — cartridges of burning magnesium, hotter than the engine itself, tossed out by the dozen.
+- Bottom caption band, full width (off-white box, dark serif text, readable): To a simple seeker, a flare looks like a jet on fire with glory — and the missile takes the bait, swerving after a falling spark while the real jet escapes. In the Vietnam War, fooled by flares, sun, clouds, and hot ground, early Sidewinders hit fewer than one target in five. The missile had to get smarter. The duel was on.
+
+RESTRICTIONS: All words spelled correctly. Do not duplicate text. Do not invent extra captions or labels. NO watermarks, NO modern logos, NO spurious signage or stenciling.

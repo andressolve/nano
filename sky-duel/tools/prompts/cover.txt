@@ -1,0 +1,14 @@
+STYLE: Premium modern aerospace illustration — crisp, highly detailed digital painting in the style of a high-end aviation book cover. Vivid but controlled palette: deep high-altitude blues, steel grays, desert tans, blazing flare oranges and afterburner glow used for drama. Dramatic cinematic lighting, volumetric clouds, sharp surface detail on aircraft and missiles with correct proportions.
+REGISTER: Realistic illustration. NOT a comic. NO halftones, NO cel shading, NO cartoon outlines. Painterly-crisp rendering, cinematic lighting.
+NOT a children's book. Serious mature illustrated technical book, realistic proportions, natural lighting, cinematic composition.
+
+This input is a REFERENCE SHEET, not a layout to keep — paint ONE NEW unified single-scene painting using the references; do not reproduce the sheet's split layout; ignore any printed labels.
+Use REFERENCE A (the gray fighter jet) and REFERENCE C (the heat-seeking missile). The dark jet does not appear.
+
+COMPOSITION: Book cover. The gray fighter jet banking hard toward the viewer, afterburner lit, huge and heroic in frame, while the white missile streaks off its wingtip rail trailing bright white smoke. Far above in the distance, a scatter of decoy flares burns from an unseen aircraft. Towering volumetric clouds, deep blue sky, late dramatic sun.
+
+LETTERING — verbatim, render exactly:
+- Large title across the top sky, bold serif capitals: SKY DUEL
+- Smaller subtitle beneath it: How Fighter Jet Weapons Actually Work
+
+RESTRICTIONS: All words spelled correctly. Do not duplicate text. Do not invent extra captions or labels. NO watermarks, NO modern logos, NO spurious signage or stenciling.

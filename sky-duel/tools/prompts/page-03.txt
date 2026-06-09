@@ -1,0 +1,13 @@
+STYLE: Premium modern aerospace illustration — crisp, highly detailed digital painting in the style of a high-end aviation book cover. Vivid but controlled palette: deep high-altitude blues, steel grays, desert tans, blazing flare oranges and afterburner glow used for drama. Dramatic cinematic lighting, volumetric clouds, sharp surface detail on aircraft and missiles with correct proportions.
+REGISTER: Realistic illustration. NOT a comic. NO halftones, NO cel shading, NO cartoon outlines. Painterly-crisp rendering, cinematic lighting.
+NOT a children's book. Serious mature illustrated technical book, realistic proportions, natural lighting, cinematic composition.
+
+The input image is the gray fighter jet to copy exactly; in this scene it appears HIGH AND DISTANT in the sky.
+
+COMPOSITION: Mojave desert at dusk, low camera close to the sand. Foreground, sharp and large: a sidewinder rattlesnake coiled on pale sand among creosote scrub, head lifted alertly, forked tongue out, its scales catching the last warm light. High above in the deep dusk sky, the gray fighter jet crosses small and distant, its engine exhaust glowing bright orange-hot, a faint contrail behind it. Sawtooth dry mountains on the horizon. The visual rhyme between the hunting snake below and the hot jet above is the point of the page.
+
+LETTERING — verbatim, render exactly:
+- Top caption band, full width (off-white box, dark serif text, readable): Everything warm glows. Not with light your eyes can see — with INFRARED, an invisible kind of light that pours off anything hot. A campfire blazes with it. Your own face shines with it. And a jet engine, burning fuel at hundreds of degrees, is an infrared bonfire in the sky.
+- Bottom caption band, full width (off-white box, dark serif text, readable): In the Mojave Desert lives a rattlesnake called the sidewinder. It hunts in total darkness using two small pits on its face that FEEL the infrared glow of warm animals. In 1950, a team of engineers working in this same desert named their new invention after it. They were building a missile that hunts the way the snake hunts: by following heat.
+
+RESTRICTIONS: All words spelled correctly. Do not duplicate text. Do not invent extra captions or labels. NO watermarks, NO modern logos, NO spurious signage or stenciling.

@@ -1,0 +1,18 @@
+STYLE: Premium modern aerospace illustration — crisp, highly detailed digital painting in the style of a high-end aviation book cover. Vivid but controlled palette: deep high-altitude blues, steel grays, desert tans, blazing flare oranges and afterburner glow used for drama. Dramatic cinematic lighting, volumetric clouds, sharp surface detail on aircraft and missiles with correct proportions.
+REGISTER: Realistic illustration. NOT a comic. NO halftones, NO cel shading, NO cartoon outlines. Painterly-crisp rendering, cinematic lighting.
+NOT a children's book. Serious mature illustrated technical book, realistic proportions, natural lighting, cinematic composition.
+
+This input is a REFERENCE SHEET, not a layout to keep — paint ONE NEW unified single-scene painting using the references; do not reproduce the sheet's split layout; ignore any printed labels.
+REFERENCE A is the gray fighter jet. REFERENCE B is the dark enemy fighter jet. REFERENCE C is the heat-seeking missile.
+
+COMPOSITION: A wide high-altitude duel scene composed like an annotated field painting from a naturalist's notebook. The dark enemy jet (REFERENCE B) flees toward the left edge, pumping bright flares that fall in smoky arcs. The gray fighter jet (REFERENCE A) pursues from the far right distance. Between them the white missile (REFERENCE C) rides a long smoke trail that curves gently toward the enemy jet. Four small elegant ivory tags with dark serif text are PINNED onto the painting, each connected by a thin dark leader line to its element: one to the missile, one to the falling flares, one to the gray jet, one to the curved smoke trail. Caption bands top and bottom.
+
+LETTERING — verbatim, render exactly:
+- Top caption band (off-white box, dark serif text, readable): Look at the duel again. You can read it now.
+- Tag with leader line to the missile: The seeker behind the glass dome is comparing shapes: falling sparks... and one jet-shaped glow.
+- Tag with leader line to the flares: The flares burn hotter than the engine — but they are the wrong shape, and they are falling.
+- Tag with leader line to the gray jet: The pilot locked on with a glance of his helmet, fired off-angle, and is already planning his exit.
+- Tag with leader line to the curved smoke trail: The trail curves because the missile holds the target at a constant angle — a collision course, on purpose.
+- Bottom caption band (off-white box, dark serif text, readable): Every piece of this picture is an answer to an older piece. That is the real secret of how fighter jet weapons work.
+
+RESTRICTIONS: All words spelled correctly. Do not duplicate text. Do not invent extra captions or labels. NO watermarks, NO modern logos, NO spurious signage or stenciling.

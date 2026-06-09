@@ -1,0 +1,16 @@
+STYLE: Premium modern aerospace illustration — crisp, highly detailed digital painting in the style of a high-end aviation book cover. Vivid but controlled palette: deep high-altitude blues, steel grays, desert tans, blazing flare oranges and afterburner glow used for drama. Dramatic cinematic lighting, volumetric clouds, sharp surface detail on aircraft and missiles with correct proportions.
+REGISTER: Realistic illustration. NOT a comic. NO halftones, NO cel shading, NO cartoon outlines. Painterly-crisp rendering, cinematic lighting.
+NOT a children's book. Serious mature illustrated technical book, realistic proportions, natural lighting, cinematic composition.
+
+This input is a REFERENCE SHEET, not a layout to keep — paint ONE NEW unified single-scene painting using the references; do not reproduce the sheet's split layout; ignore any printed labels.
+Use REFERENCE A (the gray fighter jet) and REFERENCE C (the heat-seeking missile). The dark jet does not appear except as a tiny distant speck.
+
+COMPOSITION: Split composition. LEFT TWO-THIRDS: the gray fighter jet seen from behind and above, the pilot's helmeted head clearly turned hard to the left, while the white missile leaps off the wingtip rail and curves sharply LEFT toward a tiny distant speck far off the jet's nose, its smoke trail bending impossibly tight. RIGHT THIRD: a tall rectangular inset panel styled as a black-and-white THERMAL CAMERA view — a glowing white jet shape on dark gray, crisp targeting brackets locked onto it, and three small bright dots falling away from it, each crossed out with a thin X. Deep blue high-altitude sky behind everything.
+
+LETTERING — verbatim, render exactly:
+- Top caption band, full width (off-white box, dark serif text, readable): The engineers answered. First came seekers chilled with icy gas, sharp-eyed enough to attack from ANY angle — head-on, sideways, from above. In the Falklands War of 1982, almost 9 of every 10 of these new Sidewinders fired found their mark.
+- Small label above the thermal inset panel: WHAT THE MODERN SEEKER SEES
+- Caption below the thermal inset panel (ivory box, dark serif): Today's Sidewinder carries a tiny thermal CAMERA. It does not chase a bright dot — it sees the jet's SHAPE, like a picture. A flare is just a falling spark with the wrong shape. The missile checks, ignores it, and stays on the jet.
+- Bottom caption band, full width (off-white box, dark serif text, readable): And the pilot? He locks the missile onto a target just by LOOKING at it — sensors in his helmet aim the seeker wherever his eyes go. The missile can even steer its own rocket flame to turn impossibly hard. In 2023, one of these shot down a spy balloon 18 kilometers above the ocean.
+
+RESTRICTIONS: All words spelled correctly. Do not duplicate text. Do not invent extra captions or labels. NO watermarks, NO modern logos, NO spurious signage or stenciling.

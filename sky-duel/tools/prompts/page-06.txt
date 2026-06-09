@@ -1,0 +1,19 @@
+STYLE: Premium modern aerospace illustration — crisp, highly detailed digital painting in the style of a high-end aviation book cover. Vivid but controlled palette: deep high-altitude blues, steel grays, desert tans, blazing flare oranges and afterburner glow used for drama. Dramatic cinematic lighting, volumetric clouds, sharp surface detail on aircraft and missiles with correct proportions.
+REGISTER: Realistic illustration. NOT a comic. NO halftones, NO cel shading, NO cartoon outlines. Painterly-crisp rendering, cinematic lighting.
+NOT a children's book. Serious mature illustrated technical book, realistic proportions, natural lighting, cinematic composition.
+
+POSTER MODE: this page is a vintage-engineering-poster spread — warm ivory paper background, faint age tone, clean even studio light, painted not vector. Same painter's hand as the rest of the book.
+The input image is the missile to copy exactly: glossy black glass seeker dome at the tip, four small triangular canards just behind the nose, smooth white-gray tubular body, four swept tail fins with a small rolleron wheel at each tip, slim rocket nozzle.
+
+COMPOSITION: The missile in full side profile stretched across the page width, nose pointing left, centered on the ivory sheet, painted with museum quality. Six ivory callout boxes with dark serif text arrayed above and below it, each connected to its part by a thin dark leader line: dome (above left), canards (below the front fins), mid-body (above center), rear body (below rear), tail-fin wheel (above right), and in the lower-left corner a small painted vignette of a gray fighter jet's wingtip rail carrying this missile, with the sixth callout pointing to it. Title strip across the top.
+
+LETTERING — verbatim, render exactly:
+- Title strip, top center, bold serif capitals: AIM-9 SIDEWINDER — THE HEAT-SEEKING MISSILE
+- Callout to the black nose dome: SEEKER. The eye. Behind this glass dome, a heat sensor finds the target and tells the fins which way to steer.
+- Callout to the small front fins: CANARDS. Small steering fins. They tilt to turn the missile, hundreds of times per second.
+- Callout to the mid-body: WARHEAD. It does not need to touch the jet — a sensor detonates it as it passes close by.
+- Callout to the rear body: ROCKET MOTOR. Solid fuel. Burns for only a few seconds, then the missile glides at over twice the speed of sound.
+- Callout to the tail fin wheel: ROLLERONS. Tiny metal wheels spun by the wind. Spinning wheels resist tipping — like a gyroscope, they keep the missile from rolling. Genius with zero electronics.
+- Callout to the wingtip vignette: It rides on a rail at the jet's wingtip — about 3 meters long, 85 kilograms.
+
+RESTRICTIONS: All words spelled correctly. Do not duplicate text. Do not invent extra captions or labels. NO watermarks, NO modern logos, NO spurious signage or stenciling.

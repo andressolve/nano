@@ -1,0 +1,13 @@
+STYLE: Premium modern aerospace illustration — crisp, highly detailed digital painting in the style of a high-end aviation book cover. Vivid but controlled palette: deep high-altitude blues, steel grays, desert tans, blazing flare oranges and afterburner glow used for drama. Dramatic cinematic lighting, volumetric clouds, sharp surface detail on aircraft and missiles with correct proportions.
+REGISTER: Realistic illustration. NOT a comic. NO halftones, NO cel shading, NO cartoon outlines. Painterly-crisp rendering, cinematic lighting.
+NOT a children's book. Serious mature illustrated technical book, realistic proportions, natural lighting, cinematic composition.
+
+The input image is the heat-seeking missile to copy exactly (glossy black seeker dome, four small canards behind the nose, smooth white-gray body, four swept tail fins); in this scene it flies high in the sky trailing smoke.
+
+COMPOSITION: A 1950s desert test range seen from the ground beside a wooden observation tower; three observers in period khakis on the tower platform shade their eyes, backs mostly to the viewer, small in the lower right. High in the huge blue sky: a bright orange pilotless target drone banks steeply, and the white missile, riding a long smoke trail that curves with the drone's turn, closes the final meters toward it. The instant BEFORE impact. Pale desert and sawtooth mountains below.
+
+LETTERING — verbatim, render exactly:
+- Top caption band, full width (off-white box, dark serif text, readable): September 11, 1953. High over the desert, a Sidewinder chased a pilotless target drone — a robot plane used for practice — curved with it as it turned, and struck it out of the sky. It was the first time in history a missile had hunted down an aircraft by itself.
+- Bottom caption band, full width (off-white box, dark serif text, readable): Two years later the Navy ordered thousands. In 1958, in a battle over the Taiwan Strait, Sidewinders fired from fighter jets brought down enemy MiG fighters — the first air-to-air missile victories in history. The weapon built by a handful of stubborn engineers, with parts cheap enough for a hardware store, had changed air combat forever. Here is what they actually built.
+
+RESTRICTIONS: All words spelled correctly. Do not duplicate text. Do not invent extra captions or labels. NO watermarks, NO modern logos, NO spurious signage or stenciling.

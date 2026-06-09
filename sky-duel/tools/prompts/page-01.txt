@@ -1,0 +1,14 @@
+STYLE: Premium modern aerospace illustration — crisp, highly detailed digital painting in the style of a high-end aviation book cover. Vivid but controlled palette: deep high-altitude blues, steel grays, desert tans, blazing flare oranges and afterburner glow used for drama. Dramatic cinematic lighting, volumetric clouds, sharp surface detail on aircraft and missiles with correct proportions.
+REGISTER: Realistic illustration. NOT a comic. NO halftones, NO cel shading, NO cartoon outlines. Painterly-crisp rendering, cinematic lighting.
+NOT a children's book. Serious mature illustrated technical book, realistic proportions, natural lighting, cinematic composition.
+
+This input is a REFERENCE SHEET, not a layout to keep — paint ONE NEW unified single-scene painting using the references; do not reproduce the sheet's split layout; ignore any printed labels.
+REFERENCE A is the gray fighter jet (light-gray single-tail fighter, bubble canopy, intake under the nose, low-visibility star roundel, slender white missile on its wingtip rail). REFERENCE B is the dark enemy fighter jet (dark blue-gray camouflage twin-tail twin-engine fighter, red stars). REFERENCE C is the heat-seeking missile (glossy black seeker dome at the tip, four small canards behind the nose, smooth white-gray body, four swept tail fins).
+
+COMPOSITION: Wide high-altitude duel scene, ten kilometers up. Deep blue sky above, hazy horizon low in frame, towering cumulus clouds. The dark enemy fighter (REFERENCE B) flees toward the left edge, banking hard, ejecting a fan of blinding white-orange decoy flares that fall behind it in smoky arcs. The gray fighter jet (REFERENCE A) is small in the far right distance, in pursuit. Between them, closer to the viewer, the white missile (REFERENCE C) flies left toward the enemy jet, riding a long white smoke trail that stretches back to the gray jet. Late-afternoon sun, dramatic light.
+
+LETTERING — verbatim, render exactly:
+- Top caption band, full width (off-white box, dark serif text, readable): Ten kilometers above the desert, two fighter jets are locked in a duel. The gray jet has just fired a missile — the thin white arrow riding a trail of smoke. The dark jet is fighting back, throwing burning decoy flares behind it like fistfuls of tiny suns.
+- Bottom caption band, full width (off-white box, dark serif text, readable): That missile is one of the smartest machines ever built for its size. It is about to make a decision all by itself — no pilot, no remote control. This book is about how it works, and about the fifty-year battle of wits that built it. To understand it, we have to start with the problem it was invented to solve.
+
+RESTRICTIONS: All words spelled correctly. Do not duplicate text. Do not invent extra captions or labels. NO watermarks, NO modern logos, NO spurious signage or stenciling.

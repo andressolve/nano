@@ -1,0 +1,17 @@
+STYLE: Premium modern aerospace illustration — crisp, highly detailed digital painting in the style of a high-end aviation book cover. Vivid but controlled palette: deep high-altitude blues, steel grays, desert tans, blazing flare oranges and afterburner glow used for drama. Dramatic cinematic lighting, volumetric clouds, sharp surface detail on aircraft and missiles with correct proportions.
+REGISTER: Realistic illustration. NOT a comic. NO halftones, NO cel shading, NO cartoon outlines. Painterly-crisp rendering, cinematic lighting.
+NOT a children's book. Serious mature illustrated technical book, realistic proportions, natural lighting, cinematic composition.
+
+POSTER MODE: vintage-engineering-poster spread — warm ivory paper background, faint age tone, clean even studio light, painted not vector.
+
+COMPOSITION: Center of the ivory sheet: a six-barreled rotary aircraft cannon (Gatling-style cluster of six long barrels, rotary breech housing, curved ammunition feed chutes), painted at a three-quarter angle with part of the housing cut away. Upper left: a small inset framed like a grainy World War Two gun-camera photograph, tracer rounds streaking past a turning enemy fighter and missing it. Five ivory callout boxes with dark serif text and thin dark leader lines. Title strip across the top, caption band across the bottom.
+
+LETTERING — verbatim, render exactly:
+- Title strip, top center, bold serif capitals: THE GUN — AND WHY IT IS NOT ENOUGH
+- Callout to the barrel cluster: Six barrels spin together as a cluster. Each barrel fires once per turn — together they fire 100 cannon shells every second.
+- Callout to the barrels: Why six barrels? Heat. One barrel firing that fast would glow and wear out. Six barrels share the work.
+- Callout to the gun-camera inset: But here is the problem: shells are not smart. Once fired, they fly straight while the enemy jet turns away. Pilots in World War Two hit almost nothing beyond a few hundred meters.
+- Callout to the gun body: Jet fighters still carry this gun today, for fights at very close range.
+- Bottom caption band, full width: By the late 1940s, engineers understood the truth — at jet speeds, the bullet itself would have to learn to steer. A weapon that could chase. The question was: chase WHAT?
+
+RESTRICTIONS: All words spelled correctly. Do not duplicate text. Do not invent extra captions or labels. NO watermarks, NO modern logos, NO spurious signage or stenciling.

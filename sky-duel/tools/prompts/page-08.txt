@@ -1,0 +1,15 @@
+STYLE: Premium modern aerospace illustration — crisp, highly detailed digital painting in the style of a high-end aviation book cover. Vivid but controlled palette: deep high-altitude blues, steel grays, desert tans, blazing flare oranges and afterburner glow used for drama. Dramatic cinematic lighting, volumetric clouds, sharp surface detail on aircraft and missiles with correct proportions.
+REGISTER: Realistic illustration. NOT a comic. NO halftones, NO cel shading, NO cartoon outlines. Painterly-crisp rendering, cinematic lighting.
+NOT a children's book. Serious mature illustrated technical book, realistic proportions, natural lighting, cinematic composition.
+
+POSTER MODE: vintage-engineering-poster spread — warm ivory paper background, faint age tone, clean even light, painted not vector, hand-drawn-poster feel.
+
+COMPOSITION: An aerial-view chase diagram on the ivory sheet, split into two halves by a thin vertical rule. LEFT HALF: a small painted enemy jet flying an arc, and behind it a chasing missile whose dotted pursuit path is a long inefficient curve that keeps bending toward where the jet used to be, visibly falling behind. RIGHT HALF: the same enemy jet, but the missile's dotted path is a clean straight line aimed ahead of the jet, the two paths meeting at a bold X marked at the intercept point. Bottom corner: a small painted vignette of two old sailing ships on a collision course, dashed sight-line between them. Title strip top center, two half-labels, one full-width caption band at the bottom.
+
+LETTERING — verbatim, render exactly:
+- Title strip, top center, bold serif capitals: THE CHASE MATH — PROPORTIONAL NAVIGATION
+- Label over the left half: THE DOG'S WAY: aim at where the target IS. You trace a long curve behind it and run out of rocket.
+- Label over the right half: THE HUNTER'S WAY: aim at where the target WILL BE — like a quarterback throwing ahead of a running receiver.
+- Bottom caption band, full width: Sailors have known the secret for centuries: if another ship stays at the SAME angle from your bow while getting closer, you will collide. The Sidewinder uses that rule in reverse — it steers to keep the target's angle constant, and that locks both machines onto a collision course on purpose. Engineers call it PROPORTIONAL NAVIGATION. The missile never calculates where the jet is going. It doesn't have to.
+
+RESTRICTIONS: All words spelled correctly. Do not duplicate text. Do not invent extra captions or labels. NO watermarks, NO modern logos, NO spurious signage or stenciling.
