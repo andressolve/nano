@@ -37,8 +37,8 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
 | Topic | Status | Notes |
 |-------|--------|-------|
 | Autonomous turrets / counter-drone guns | shipped | OPENER. "The Gun That Aims Itself." Engineering-only (no ethics thread, per user). New gritty military-tech register, distinct from Sky Duel. 14 pages + cover. Shipped 2026-06-22 (commit 259ac5a). |
-| Tanks | idea | How a tank actually works: armor, gun, mobility, crew. |
-| Missiles | idea | Guidance, propulsion, seekers — pairs with Sky Duel's heat-seeker/radar content. |
+| Tanks | greenlit | How a tank actually works: armor, gun, mobility, crew. Mil-tech #2 candidate — kid-QA on #1 passed, no STOP gate. |
+| Missiles | greenlit | Guidance, propulsion, seekers — pairs with Sky Duel's heat-seeker/radar content. Mil-tech #2 candidate. |
 | Rocket launchers | idea | MLRS/HIMARS-style — area fire vs. precision. |
 
 ### Biographical graphic novels
@@ -82,5 +82,11 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
 - **Reader built** (`aim-itself/index.html`): dark flipper cloned from Scattergun, **phosphor-green `#5fb86a`** accent, sans-serif (not Palatino), plus a persistent **KILL-CHAIN footer strip** (Detect · Identify · Track · Aim · Fire) that lights the active step per page. 5-question WHY-quiz per the CRITICAL QUIZ RULE (length-matched distractors, shuffled answers b/d/a/c/b): cost asymmetry, machine-beats-guard, sensor fusion, predict-the-path, why the gun came back. End interstitial "THE RACE HAS ONLY BEGUN."
 - Landing card + footer folder-list entry added to root `index.html`.
 - **Cost ≈ $4.40** (21 calls incl. 2 failed P7 attempts) — a touch over the $3.5–4 envelope, the P7 retries drove it.
-- **Status:** QA-ready. Pending: Andres QA pass → any audit regens → commit `aim-itself/` + `index.html` only when asked. Kid-QA after that decides whether a mil-tech #2 (tanks/missiles) follows.
-- Backlog: flip autonomous-turrets row to `shipped` on commit.
+- **Status:** ✅ Shipped 2026-06-22 (commit 259ac5a, pushed). Backlog row flipped to `shipped`.
+
+### 2026-06-22 — Kid-QA PASSED
+- **"kids LOVED it. great job!"** — Francisco + Sebastian read the finished book; clear win.
+- This is the 3rd tech explainer to pass with the kids (Sky Duel → Scattergun → this), so the tech-explainer
+  format is firmly validated as a recurring medium. **Mil-tech #2 (tanks or missiles) is greenlit** whenever
+  Andres wants to pick it up — no STOP gate needed, just choose the topic.
+- The new gritty military-tech register is now a proven second tech-explainer look (alongside Sky Duel's glossy one).
