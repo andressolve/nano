@@ -37,7 +37,7 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
 | Topic | Status | Notes |
 |-------|--------|-------|
 | Autonomous turrets / counter-drone guns | shipped | OPENER. "The Gun That Aims Itself." Engineering-only (no ethics thread, per user). New gritty military-tech register, distinct from Sky Duel. 14 pages + cover. Shipped 2026-06-22 (commit 259ac5a). |
-| Tanks | in-progress | "The Iron Triangle — How a Tank Does Three Impossible Things at Once." Mil-tech #2. Folder `iron-triangle/`. 14 pages + cover built, reader + quiz + landing card done. QA-ready, not yet committed (2026-06-22). |
+| Tanks | shipped | "The Iron Triangle — How a Tank Does Three Impossible Things at Once." Mil-tech #2. Folder `iron-triangle/`. 14 pages + cover. Shipped 2026-06-22 (commit 137fb0d, pushed). User QA passed; kid-QA pending. |
 | Missiles | greenlit | Guidance, propulsion, seekers — pairs with Sky Duel's heat-seeker/radar content. Mil-tech #2 candidate. |
 | Rocket launchers | idea | MLRS/HIMARS-style — area fire vs. precision. |
 
@@ -114,4 +114,4 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
   why a tank is always a compromise, why armor is sloped, why the gun needs a leading computer, why tracks
   over wheels, why a cheap drone threatens a tank. End interstitial "THE RACE GOES ON."
 - Landing card + footer folder-list entry added to root `index.html`.
-- **Status: QA-ready, NOT yet committed.** Awaiting user QA pass; commit `iron-triangle/` + `index.html` only when asked.
+- **Status: ✅ Shipped 2026-06-22 (commit 137fb0d, pushed).** User QA passed ("great stuff. well done."); committed+pushed on user request. Backlog row flipped to `shipped`. **Kid-QA (Francisco + Sebastian) still pending** before mil-tech #3 (missiles is the obvious greenlit candidate).
