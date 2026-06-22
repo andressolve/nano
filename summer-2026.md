@@ -37,7 +37,7 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
 | Topic | Status | Notes |
 |-------|--------|-------|
 | Autonomous turrets / counter-drone guns | shipped | OPENER. "The Gun That Aims Itself." Engineering-only (no ethics thread, per user). New gritty military-tech register, distinct from Sky Duel. 14 pages + cover. Shipped 2026-06-22 (commit 259ac5a). |
-| Tanks | greenlit | How a tank actually works: armor, gun, mobility, crew. Mil-tech #2 candidate — kid-QA on #1 passed, no STOP gate. |
+| Tanks | in-progress | "The Iron Triangle — How a Tank Does Three Impossible Things at Once." Mil-tech #2. Folder `iron-triangle/`. 14 pages + cover built, reader + quiz + landing card done. QA-ready, not yet committed (2026-06-22). |
 | Missiles | greenlit | Guidance, propulsion, seekers — pairs with Sky Duel's heat-seeker/radar content. Mil-tech #2 candidate. |
 | Rocket launchers | idea | MLRS/HIMARS-style — area fire vs. precision. |
 
@@ -90,3 +90,28 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
   format is firmly validated as a recurring medium. **Mil-tech #2 (tanks or missiles) is greenlit** whenever
   Andres wants to pick it up — no STOP gate needed, just choose the topic.
 - The new gritty military-tech register is now a proven second tech-explainer look (alongside Sky Duel's glossy one).
+
+### 2026-06-22 — Mil-tech #2 chosen, scoped & produced: "The Iron Triangle" (QA-ready)
+- **Topic: how a main battle tank works.** Title: "The Iron Triangle — How a Tank Does Three Impossible Things
+  at Once." Tech-explainer format, **reusing the gritty military-tech register** from the turret book (so the
+  two sit together on the shelf), with a new **amber `#d98a3d`** reader accent (turret was phosphor-green).
+- **Organizing idea: the iron triangle.** Firepower / Protection / Mobility, three demands that fight each
+  other — you can never max all three; every tank is a compromise. The whole book hangs the gun/armor/engine
+  chapters off the triangle, then shows the arms race that keeps redrawing it.
+- **Series tie-in:** P8 (active protection) and P14 (cheap FPV drones diving on the tank's thin roof) bring
+  back the cost-asymmetry + counter-drone shield from "The Gun That Aims Itself" — the two books snap together.
+- 14-page spine: hook → three impossible jobs → POSTER triangle → the gun → POSTER dart-vs-jet → fire control
+  → POSTER armor → arms race (ERA→APS) → mobility → crew of four → not-new (Somme 1916) → POSTER cutaway →
+  re-read → drones-vs-tanks. 4 POSTER + 10 cinematic, frame device P1↔P13.
+- **Cleanest run to date: ZERO regens, ZERO safety rejections** across cover + 14 pages + 3 refs + 1 PIL
+  composite. Research-sourced facts first (`research/RESEARCH-NOTES.md`), 5 planning docs, 3 refs (generic
+  MBT "Bastion", commander "Marko", WWI Mark-I), composite plate, 3 prototypes (P3/P1/P12), then 12 bulk
+  images in two parallel waves. Generic-hardware rule (no real models/flags/insignia) held throughout.
+  Est. cost ≈ **$3.80** (~18 image calls), at the low end of the envelope.
+- **Reader built** (`iron-triangle/index.html`): dark flipper cloned from the turret book, amber accent,
+  IRON-TRIANGLE footer strip (Firepower · Protection · Mobility) that lights the corner each page is about.
+  5-question WHY-quiz per the CRITICAL QUIZ RULE (length-matched distractors, answers shuffled c/a/d/b/c):
+  why a tank is always a compromise, why armor is sloped, why the gun needs a leading computer, why tracks
+  over wheels, why a cheap drone threatens a tank. End interstitial "THE RACE GOES ON."
+- Landing card + footer folder-list entry added to root `index.html`.
+- **Status: QA-ready, NOT yet committed.** Awaiting user QA pass; commit `iron-triangle/` + `index.html` only when asked.

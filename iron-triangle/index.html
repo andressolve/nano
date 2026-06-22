@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Iron Triangle &mdash; How a Tank Does Three Impossible Things at Once</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Helvetica Neue', 'Arial', sans-serif;
+            background: #0d0c0a;
+            color: #ece7df;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #8a5a22, #d98a3d);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .reader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px 16px 72px;
+        }
+
+        .page-frame {
+            max-width: min(1400px, 96vw);
+            width: 100%;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .page-frame.fading { opacity: 0; }
+
+        .page-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .page-frame.cover img {
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(217, 138, 61, 0.25);
+            color: #ece7df;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            z-index: 50;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            user-select: none;
+        }
+
+        .nav-arrow.prev { left: 18px; }
+        .nav-arrow.next { right: 18px; }
+
+        .nav-arrow:hover:not(:disabled) {
+            background: rgba(217, 138, 61, 0.15);
+            border-color: rgba(217, 138, 61, 0.5);
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .nav-arrow:disabled {
+            opacity: 0.18;
+            cursor: default;
+        }
+
+        .page-info {
+            position: fixed;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: rgba(236, 231, 223, 0.45);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(217, 138, 61, 0.7);
+        }
+
+        .home-link {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            font-size: 13px;
+            color: rgba(236, 231, 223, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            z-index: 100;
+        }
+
+        .home-link:hover { color: rgba(217, 138, 61, 0.85); }
+
+        /* IRON-TRIANGLE footer strip */
+        .triangle-strip {
+            position: fixed;
+            bottom: 34px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 50;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .triangle-strip .ts-step {
+            color: rgba(236, 231, 223, 0.22);
+            transition: color 0.25s ease, text-shadow 0.25s ease;
+        }
+
+        .triangle-strip .ts-step.active {
+            color: #d98a3d;
+            text-shadow: 0 0 10px rgba(217, 138, 61, 0.6);
+        }
+
+        .triangle-strip .ts-sep {
+            color: rgba(236, 231, 223, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .reader { padding: 16px 10px 72px; }
+            .nav-arrow { width: 44px; height: 44px; font-size: 22px; }
+            .nav-arrow.prev { left: 8px; }
+            .nav-arrow.next { right: 8px; }
+            .home-link { top: 10px; left: 10px; }
+            .page-info { bottom: 10px; }
+            .triangle-strip { bottom: 28px; font-size: 8px; letter-spacing: 1px; gap: 4px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-frame, .progress-bar { transition: none; }
+        }
+
+        .end-interstitial {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .end-interstitial.fading { opacity: 0; }
+
+        .end-interstitial h2 {
+            font-size: 30px;
+            font-weight: bold;
+            color: #d98a3d;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 18px rgba(217, 138, 61, 0.35);
+        }
+
+        .end-interstitial .subtitle {
+            font-size: 17px;
+            color: rgba(236, 231, 223, 0.6);
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .quiz-container {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .quiz-container.fading { opacity: 0; }
+
+        .quiz-container h2 {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #ece7df;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .question-block {
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(217, 138, 61, 0.12);
+        }
+
+        .question-text {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #ece7df;
+            line-height: 1.6;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #d2cabd;
+            line-height: 1.5;
+        }
+
+        .options label:hover { background: rgba(217, 138, 61, 0.07); }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #d98a3d;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            padding: 8px 24px;
+            font-size: 13px;
+            font-family: inherit;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: rgba(217, 138, 61, 0.12);
+            border: 1px solid rgba(217, 138, 61, 0.3);
+            color: #e6a55c;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .check-btn:hover { background: rgba(217, 138, 61, 0.22); }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            background: rgba(217, 138, 61, 0.1);
+            border: 1px solid rgba(217, 138, 61, 0.25);
+            color: #e6a55c;
+        }
+
+        .feedback.incorrect {
+            background: rgba(200, 90, 90, 0.1);
+            border: 1px solid rgba(200, 90, 90, 0.2);
+            color: #d4a0a0;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            display: none;
+            color: #d98a3d;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <a class="home-link" href="../index.html">&larr; Stories</a>
+
+    <div class="reader">
+        <div class="page-title" id="pageTitle">Cover</div>
+        <div class="page-frame cover" id="pageFrame">
+            <img id="pageImg" src="pages/page-00-cover.png" alt="The Iron Triangle &mdash; Cover" />
+        </div>
+
+        <div class="end-interstitial" id="endInterstitial">
+            <h2>The Race Goes On</h2>
+            <div class="subtitle">The Iron Triangle &mdash; How a Tank Does Three Impossible Things at Once</div>
+            <p style="color: rgba(236, 231, 223, 0.75); font-size: 17px; line-height: 1.7; max-width: 560px; margin: 0 auto;">
+                Hit hard, survive being hit, move fast &mdash; three jobs that pull against each other, held in balance inside one machine. You saw how the gun, the armor, and the tracks each pull at a different corner of the triangle, how every sharper shell breeds a cleverer shield, and how a hundred-year-old idea now faces a new hunter: the cheap drone diving on its roof. The tank is not finished &mdash; it is still learning to defend itself. One quiz stands between you and the end &mdash; it tests the WHY, not the what.
+            </p>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <h2>Test Your Understanding</h2>
+
+            <div class="question-block" id="q1">
+                <div class="question-text">1. Why is a tank always a compromise, never perfect at all three jobs at once?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> The crew inside has room to operate only two of the three systems well, so one job is always left weaker than the others</label>
+                    <label><input type="radio" name="q1" value="b"> No army can afford a tank that is excellent at everything, so designers simply pick the two jobs that matter most for the price</label>
+                    <label><input type="radio" name="q1" value="c"> More firepower and more armor both add weight, and more weight means less speed &mdash; so gaining at one corner of the triangle costs you another</label>
+                    <label><input type="radio" name="q1" value="d"> The single engine cannot run the gun, the armor, and the tracks at the same moment, so the driver must choose which one to power</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q1', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q1-correct">Right &mdash; this is the iron triangle. A bigger gun and thicker armor both add weight, and weight steals speed. Push one corner and the others give way. There is no perfect tank, only the balance that fits the job.</div>
+                <div class="feedback incorrect" id="q1-incorrect">Not quite. It is not about crew room, price, or the engine. Firepower and protection both add weight, and weight costs mobility &mdash; so improving one corner of the triangle pulls down another. Every tank is that balance.</div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <div class="question-text">2. Why do designers SLOPE a tank's armor instead of just bolting on a thicker plate?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> A tilted plate puts more steel in a shot's path and can bounce it away &mdash; so it protects better without the weight of a thicker plate</label>
+                    <label><input type="radio" name="q2" value="b"> A sloped surface lets rain and mud slide off, which keeps the armor plates from slowly rusting and growing brittle over the years</label>
+                    <label><input type="radio" name="q2" value="c"> Slanted armor gives the gunner inside a wider view of the field, so the tank can spot threats coming from more directions at once</label>
+                    <label><input type="radio" name="q2" value="d"> Angling the plates leaves a hollow space behind them where the crew can stow extra shells, fuel, and supplies for a longer mission</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q2', 'a')">Check Answer</button>
+                <div class="feedback correct" id="q2-correct">Exactly. A shot crossing a tilted plate has to travel through more steel to get out the other side, and a glancing hit can ricochet off. You get more protection for the same weight &mdash; a free gift to the mobility corner.</div>
+                <div class="feedback incorrect" id="q2-incorrect">Not quite. Sloping is not about rust, the view, or storage. A tilted plate forces a shot through more steel and can deflect it &mdash; more protection without adding the weight a thicker plate would cost.</div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <div class="question-text">3. Why does the gun rely on a computer that re-aims more than a hundred times a second?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> The computer keeps a running count of the shells left, so the loader always knows the exact moment to reach for the next round</label>
+                    <label><input type="radio" name="q3" value="b"> The barrel slowly bends from the heat of firing, and only constant computer correction can straighten the aim back out between shots</label>
+                    <label><input type="radio" name="q3" value="c"> Firing the heavy gun by hand would take so much strength that no single crew member could swing and aim it without a motor to help</label>
+                    <label><input type="radio" name="q3" value="d"> To hit a far target while both tank and target are moving, the computer measures the range and leads the shot, redoing the math constantly</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q3', 'd')">Check Answer</button>
+                <div class="feedback correct" id="q3-correct">Right. The shell takes time to fly, and everything keeps moving in that time. The computer measures the exact range, predicts where the target will be, and shifts the aim &mdash; over and over &mdash; so the tank can fire on the move and still hit.</div>
+                <div class="feedback incorrect" id="q3-incorrect">Not quite. It is about hitting a moving target while you yourself are moving. The computer measures range and leads the shot, redoing the math a hundred-plus times a second so the aim stays true even as the tank pitches.</div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <div class="question-text">4. Why does a 60-tonne tank ride on wide tracks instead of huge wheels?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> Tracks are far cheaper to build and replace than the enormous reinforced wheels a machine this heavy would otherwise need</label>
+                    <label><input type="radio" name="q4" value="b"> Tracks spread the huge weight over a long surface, so the ground pressure stays low and the tank crosses mud that would swallow a truck</label>
+                    <label><input type="radio" name="q4" value="c"> Wheels would spin too fast for the engine to control, while tracks naturally hold the tank to a steady, safe speed across open ground</label>
+                    <label><input type="radio" name="q4" value="d"> Tracks wrap all the way around the hull, adding a thick extra layer of armor that shields the tank's lower sides from incoming fire</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q4', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q4-correct">Exactly. Spreading sixty tonnes along two long tracks keeps the pressure on any patch of ground surprisingly gentle &mdash; gentler than you would guess. That is why the tank crosses mud, sand, and broken ground where a wheeled truck sinks.</div>
+                <div class="feedback incorrect" id="q4-incorrect">Not quite. It is about ground pressure. Tracks spread the enormous weight over a long contact surface, so the tank presses lightly on each patch of earth and can cross soft mud that would trap a wheeled vehicle.</div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <div class="question-text">5. Why can a drone costing a few hundred dollars threaten a tank worth millions?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> Drones fly higher than a tank's gun can ever be raised to aim, so the tank simply cannot shoot back at a threat coming from above</label>
+                    <label><input type="radio" name="q5" value="b"> A drone can carry far more explosive than any shell the tank fires, so a single hit from one is certain to wreck the whole machine</label>
+                    <label><input type="radio" name="q5" value="c"> The drone is absurdly cheap yet can dive onto the thin roof armor &mdash; the tank's weak spot &mdash; turning the cost of the fight upside down</label>
+                    <label><input type="radio" name="q5" value="d"> Tanks were built long before drones existed, so their old radios cannot pick up a drone's signal or warn the crew that one is near</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q5', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q5-correct">Right. A tank's heaviest armor faces forward; its roof is thin. A 400-dollar drone can dive straight onto that weak spot and destroy a machine worth millions &mdash; the same cost trap from our last book, now aimed at the giant. The answer is layers: radar, jammers, and guns that guard the roof.</div>
+                <div class="feedback incorrect" id="q5-incorrect">Not quite. The gun can elevate, the drone's warhead is small, and modern tanks do sense drones. The real reason is cost and the weak spot: a cheap drone dives onto the thin roof armor, flipping the economics of the whole fight.</div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay"></div>
+        </div>
+
+    </div>
+
+    <button class="nav-arrow prev" id="prevBtn" onclick="prev()" disabled aria-label="Previous page">&larr;</button>
+    <button class="nav-arrow next" id="nextBtn" onclick="next()" aria-label="Next page">&rarr;</button>
+
+    <div class="triangle-strip" id="triangleStrip">
+        <span class="ts-step" data-step="firepower">Firepower</span>
+        <span class="ts-sep">&middot;</span>
+        <span class="ts-step" data-step="protection">Protection</span>
+        <span class="ts-sep">&middot;</span>
+        <span class="ts-step" data-step="mobility">Mobility</span>
+    </div>
+
+    <span class="page-info" id="pageInfo">Cover</span>
+
+    <script>
+        const pages = [
+            { file: 'pages/page-00-cover.png', title: 'Cover', label: 'Cover', steps: [] },
+            { file: 'pages/page-01.png', title: 'Out of the Smoke', label: 'Page 1 of 14', steps: [] },
+            { file: 'pages/page-02.png', title: 'Three Jobs That Fight Each Other', label: 'Page 2 of 14', steps: ['firepower','protection','mobility'] },
+            { file: 'pages/page-03.png', title: 'The Iron Triangle', label: 'Page 3 of 14', steps: ['firepower','protection','mobility'] },
+            { file: 'pages/page-04.png', title: 'Firepower — The Gun', label: 'Page 4 of 14', steps: ['firepower'] },
+            { file: 'pages/page-05.png', title: 'Two Ways Through Steel', label: 'Page 5 of 14', steps: ['firepower'] },
+            { file: 'pages/page-06.png', title: 'Hitting While Moving', label: 'Page 6 of 14', steps: ['firepower'] },
+            { file: 'pages/page-07.png', title: 'Protection — Three Tricks of Armor', label: 'Page 7 of 14', steps: ['protection'] },
+            { file: 'pages/page-08.png', title: 'The Arms Race', label: 'Page 8 of 14', steps: ['protection'] },
+            { file: 'pages/page-09.png', title: 'Mobility — Engine and Tracks', label: 'Page 9 of 14', steps: ['mobility'] },
+            { file: 'pages/page-10.png', title: 'A Team of Four in a Steel Box', label: 'Page 10 of 14', steps: [] },
+            { file: 'pages/page-11.png', title: 'Not Brand New — the Somme, 1916', label: 'Page 11 of 14', steps: [] },
+            { file: 'pages/page-12.png', title: 'One Machine, Three Jobs Balanced', label: 'Page 12 of 14', steps: ['firepower','protection','mobility'] },
+            { file: 'pages/page-13.png', title: 'The Charge, Re-Read', label: 'Page 13 of 14', steps: ['firepower','protection','mobility'] },
+            { file: 'pages/page-14.png', title: 'The Cheap Drone Hunts the Giant', label: 'Page 14 of 14', steps: [] },
+            { file: null, title: 'The Race Goes On', label: 'The End', end: true, steps: [] },
+            { file: null, title: 'Quiz', label: 'Quiz', quiz: true, steps: [] },
+        ];
+
+        let current = 0;
+        const img = document.getElementById('pageImg');
+        const frame = document.getElementById('pageFrame');
+        const quiz = document.getElementById('quizContainer');
+        const endInt = document.getElementById('endInterstitial');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageInfo = document.getElementById('pageInfo');
+        const pageTitle = document.getElementById('pageTitle');
+        const progressBar = document.getElementById('progressBar');
+        const strip = document.getElementById('triangleStrip');
+        const tsSteps = strip.querySelectorAll('.ts-step');
+
+        function updateStrip(steps) {
+            tsSteps.forEach(function(el) {
+                el.classList.toggle('active', steps.indexOf(el.dataset.step) !== -1);
+            });
+            strip.style.display = (steps && steps.length) ? 'flex' : 'none';
+        }
+
+        function show(index) {
+            frame.classList.add('fading');
+            quiz.classList.add('fading');
+            endInt.classList.add('fading');
+            setTimeout(() => {
+                current = index;
+                const p = pages[current];
+                if (p.quiz) {
+                    frame.style.display = 'none';
+                    endInt.style.display = 'none';
+                    quiz.style.display = 'block';
+                } else if (p.end) {
+                    frame.style.display = 'none';
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'block';
+                } else {
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'none';
+                    frame.style.display = 'block';
+                    img.src = p.file;
+                    img.alt = 'The Iron Triangle — ' + p.title;
+                }
+                pageTitle.textContent = p.title;
+                pageInfo.textContent = p.label;
+                updateStrip(p.steps);
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === pages.length - 1;
+                progressBar.style.width = (current / (pages.length - 1)) * 100 + '%';
+                frame.classList.toggle('cover', current === 0);
+                frame.classList.remove('fading');
+                quiz.classList.remove('fading');
+                endInt.classList.remove('fading');
+                window.scrollTo(0, 0);
+            }, 250);
+        }
+
+        let answered = 0;
+        let correctCount = 0;
+
+        function checkAnswer(qId, correctAnswer) {
+            const selected = document.querySelector('input[name="' + qId + '"]:checked');
+            if (!selected) return;
+            const block = document.getElementById(qId);
+            const isCorrect = selected.value === correctAnswer;
+            block.querySelectorAll('input').forEach(function(i) { i.disabled = true; });
+            block.querySelector('.check-btn').style.display = 'none';
+            if (isCorrect) {
+                document.getElementById(qId + '-correct').style.display = 'block';
+                correctCount++;
+            } else {
+                document.getElementById(qId + '-incorrect').style.display = 'block';
+            }
+            answered++;
+            if (answered === 5) {
+                var display = document.getElementById('scoreDisplay');
+                display.textContent = 'You got ' + correctCount + ' out of 5 correct!';
+                display.style.display = 'block';
+            }
+        }
+
+        function next() { if (current < pages.length - 1) show(current + 1); }
+        function prev() { if (current > 0) show(current - 1); }
+
+        img.addEventListener('click', function(e) {
+            const rect = img.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x < rect.width * 0.35) prev();
+            else next();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) next();
+                else prev();
+            }
+        }, { passive: true });
+
+        function preload() {
+            if (current < pages.length - 1 && pages[current + 1].file) {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = pages[current + 1].file;
+                document.head.appendChild(link);
+            }
+        }
+        img.addEventListener('load', preload);
+
+        updateStrip(pages[0].steps);
+    </script>
+
+</body>
+</html>
