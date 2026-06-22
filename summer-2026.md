@@ -36,7 +36,7 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
 ### Mil-tech explainers (kid-requested interest)
 | Topic | Status | Notes |
 |-------|--------|-------|
-| Autonomous turrets / counter-drone guns | in-progress | OPENER. "The Gun That Aims Itself." Engineering-only (no ethics thread, per user). New gritty military-tech register, distinct from Sky Duel. 14 pages + cover. |
+| Autonomous turrets / counter-drone guns | shipped | OPENER. "The Gun That Aims Itself." Engineering-only (no ethics thread, per user). New gritty military-tech register, distinct from Sky Duel. 14 pages + cover. Shipped 2026-06-22 (commit 259ac5a). |
 | Tanks | idea | How a tank actually works: armor, gun, mobility, crew. |
 | Missiles | idea | Guidance, propulsion, seekers — pairs with Sky Duel's heat-seeker/radar content. |
 | Rocket launchers | idea | MLRS/HIMARS-style — area fire vs. precision. |
