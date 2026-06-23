@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla &mdash; The Man Who Gave the World Its Power</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            background: #15171c;
+            color: #ece7da;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #2a6f9e, #4db8ff);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .reader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px 16px;
+        }
+
+        .page-frame {
+            max-width: min(1400px, 96vw);
+            width: 100%;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .page-frame.fading { opacity: 0; }
+
+        .page-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .page-frame.cover img {
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #ece7da;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            z-index: 50;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            user-select: none;
+        }
+
+        .nav-arrow.prev { left: 18px; }
+        .nav-arrow.next { right: 18px; }
+
+        .nav-arrow:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .nav-arrow:disabled {
+            opacity: 0.18;
+            cursor: default;
+        }
+
+        .page-info {
+            position: fixed;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: rgba(236, 231, 218, 0.45);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(236, 231, 218, 0.4);
+        }
+
+        .home-link {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            font-size: 13px;
+            color: rgba(236, 231, 218, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            z-index: 100;
+        }
+
+        .home-link:hover { color: rgba(236, 231, 218, 0.7); }
+
+        @media (max-width: 768px) {
+            .reader { padding: 16px 10px; }
+            .nav-arrow { width: 44px; height: 44px; font-size: 22px; }
+            .nav-arrow.prev { left: 8px; }
+            .nav-arrow.next { right: 8px; }
+            .home-link { top: 10px; left: 10px; }
+            .page-info { bottom: 8px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-frame, .progress-bar { transition: none; }
+        }
+
+        .end-interstitial {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .end-interstitial.fading { opacity: 0; }
+
+        .end-interstitial h2 {
+            font-size: 32px;
+            font-weight: normal;
+            color: #e8e2d2;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .end-interstitial .subtitle {
+            font-size: 18px;
+            color: rgba(236, 231, 218, 0.6);
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .quiz-container {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .quiz-container.fading { opacity: 0; }
+
+        .quiz-container h2 {
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #e8e2d2;
+        }
+
+        .question-block {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .question-text {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #e8e2d2;
+            line-height: 1.6;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #d4ccc0;
+            line-height: 1.5;
+        }
+
+        .options label:hover { background: rgba(255,255,255,0.06); }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #4db8ff;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-family: inherit;
+            background: rgba(77, 184, 255, 0.13);
+            border: 1px solid rgba(77, 184, 255, 0.3);
+            color: #9bd4ff;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .check-btn:hover { background: rgba(77, 184, 255, 0.24); }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            background: rgba(90, 180, 90, 0.1);
+            border: 1px solid rgba(90, 180, 90, 0.2);
+            color: #8cd48c;
+        }
+
+        .feedback.incorrect {
+            background: rgba(200, 90, 90, 0.1);
+            border: 1px solid rgba(200, 90, 90, 0.2);
+            color: #d4a0a0;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            display: none;
+            color: #9bd4ff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <a class="home-link" href="../index.html">&larr; Stories</a>
+
+    <div class="reader">
+        <div class="page-title" id="pageTitle">Cover</div>
+        <div class="page-frame cover" id="pageFrame">
+            <img id="pageImg" src="pages/page-00-cover.png" alt="Tesla &mdash; Cover" />
+        </div>
+
+        <div class="end-interstitial" id="endInterstitial">
+            <h2>The Lights of the World Are His Monument</h2>
+            <div class="subtitle">Tesla &mdash; The Man Who Gave the World Its Power</div>
+            <p style="color: rgba(236, 231, 218, 0.75); font-size: 17px; line-height: 1.7; max-width: 560px; margin: 0 auto;">
+                A priest's son who nearly died of fever saw a whole machine in a flash of sunset light &mdash; a current that rushes back and forth and spins a motor with no sparks at all. It became the electricity that still runs every wall socket and every motor on earth. He could have been one of the richest men alive; instead he tore up the contract to save a friend, chased an even bigger dream, and lost everything. He died alone in a hotel room, feeding a white pigeon, certain the future would prove him right. It did. One quiz stands between you and the end &mdash; it tests the WHY, not the what.
+            </p>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <h2>Test Your Understanding</h2>
+
+            <div class="question-block" id="q1">
+                <div class="question-text">1. Why was Tesla sure the sparking brushes on the machine could be thrown away?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> A stronger magnet placed beside the spinning machine would draw the dangerous sparks safely away.</label>
+                    <label><input type="radio" name="q1" value="b"> If the current rushed back and forth, a spinning magnetic field could turn the motor with no brushes.</label>
+                    <label><input type="radio" name="q1" value="c"> Polishing the copper parts and oiling the bearings would let the machine run smoothly without sparking.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q1', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q1-correct">Right &mdash; that was his whole insight. Instead of one current flowing one way (which needs sparking brushes), several currents rushing back and forth out of step make a field that spins on its own and drags the motor around. No brushes, no sparks.</div>
+                <div class="feedback incorrect" id="q1-incorrect">Not quite. It wasn't magnets, polish, or oil. Tesla saw that if the current rushed back and forth &mdash; alternating &mdash; several such currents could make a magnetic field that spins by itself and turns the motor, so the sparking brushes were no longer needed at all.</div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <div class="question-text">2. Why did alternating current win the War of the Currents?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> It could travel for many miles on thin wire without fading, while direct current died after a mile or two.</label>
+                    <label><input type="radio" name="q2" value="b"> Edison publicly admitted that his own direct current had been the more dangerous of the two systems.</label>
+                    <label><input type="radio" name="q2" value="c"> The government passed a law that ordered every American city to switch over to the alternating system.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q2', 'a')">Check Answer</button>
+                <div class="feedback correct" id="q2-correct">Right &mdash; that one fact settled it. Direct current faded after a mile or two; alternating current could be carried across whole states on thin wires. The future needed power that could travel, so the future was alternating.</div>
+                <div class="feedback incorrect" id="q2-incorrect">Not quite. Edison never conceded, and no law decided it. It came down to distance: direct current faded after a mile or two, while alternating current could travel for miles on thin wire &mdash; so it won.</div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <div class="question-text">3. Why did Tesla tear up his contract with Westinghouse?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> He had found a richer backer and no longer needed the royalty that Westinghouse had promised him.</label>
+                    <label><input type="radio" name="q3" value="b"> He had grown angry with Westinghouse and wanted nothing more to do with the man or his company.</label>
+                    <label><input type="radio" name="q3" value="c"> Paying the royalty would have sunk the company of the one man who had believed in him.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q3', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q3-correct">Right &mdash; this is the heart of the book. The royalty would have made Tesla one of the richest men alive, but paying it would have destroyed Westinghouse's company. To protect the man who had trusted him, Tesla gave the fortune away.</div>
+                <div class="feedback incorrect" id="q3-incorrect">Not quite. There was no richer backer, and it wasn't anger. Westinghouse's company would fail if it paid Tesla what it owed &mdash; so to save the one man who had believed in him, Tesla tore up the contract and gave away the fortune.</div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <div class="question-text">4. Why did Tesla's backers stop paying for the great Wardenclyffe tower?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> They had discovered that the copper dome on top of the tower was far too heavy and unsafe to finish.</label>
+                    <label><input type="radio" name="q4" value="b"> They learned that Tesla had secretly spent the money on his Colorado Springs laboratory instead.</label>
+                    <label><input type="radio" name="q4" value="c"> If power flowed free through the air to everyone, no one could meter it and sell it.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q4', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q4-correct">Right &mdash; that was the trouble with free power. If electricity flowed through the air to everyone, there was nowhere to put a meter, so no one could ever sell it. The money stopped, and the tower was never finished.</div>
+                <div class="feedback incorrect" id="q4-incorrect">Not quite. It wasn't the dome's weight or a misspent fund. The backers saw that free wireless power could never be metered or sold &mdash; there was no way to make money from it &mdash; so they cut off the funds.</div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <div class="question-text">5. Why does the book say Tesla was right that the future belonged to him?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> His Wardenclyffe tower was finally rebuilt and at last sent free power around the whole world.</label>
+                    <label><input type="radio" name="q5" value="b"> He died poor, but the alternating-current world he imagined is the one we still live in today.</label>
+                    <label><input type="radio" name="q5" value="c"> The fortune he tore up was returned to his family by Westinghouse soon after he had died.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q5', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q5-correct">Right &mdash; he gave away the money and died owing for his room, but every wall socket and every electric motor still runs on his alternating current, and in 1960 a unit of magnetism was named the tesla. The future he worked for arrived.</div>
+                <div class="feedback incorrect" id="q5-incorrect">Not quite. The tower was never rebuilt, and the fortune was never returned. He was right in a deeper way: he died with nothing, yet the electric world he first imagined in a park at sunset is the one we live in now.</div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay"></div>
+        </div>
+
+    </div>
+
+    <button class="nav-arrow prev" id="prevBtn" onclick="prev()" disabled aria-label="Previous page">&larr;</button>
+    <button class="nav-arrow next" id="nextBtn" onclick="next()" aria-label="Next page">&rarr;</button>
+    <span class="page-info" id="pageInfo">Cover</span>
+
+    <script>
+        const pages = [
+            { file: 'pages/page-00-cover.png', title: 'Cover', label: 'Cover' },
+            { file: 'pages/page-01.png', title: 'A White Pigeon at the Window', label: 'Page 1 of 18' },
+            { file: 'pages/page-02.png', title: 'A Village in the Mountains', label: 'Page 2 of 18' },
+            { file: 'pages/page-03.png', title: 'The Bargain at the Bedside', label: 'Page 3 of 18' },
+            { file: 'pages/page-04.png', title: 'The Sparks That Were Wasted', label: 'Page 4 of 18' },
+            { file: 'pages/page-05.png', title: 'The Idea in the Park', label: 'Page 5 of 18' },
+            { file: 'pages/page-06.png', title: 'The Idea, in Plain Sight', label: 'Page 6 of 18' },
+            { file: 'pages/page-07.png', title: 'Four Cents and a Promise Broken', label: 'Page 7 of 18' },
+            { file: 'pages/page-08.png', title: 'One Man Believed Him', label: 'Page 8 of 18' },
+            { file: 'pages/page-09.png', title: 'The War of the Currents', label: 'Page 9 of 18' },
+            { file: 'pages/page-10.png', title: 'The Contract He Tore Up', label: 'Page 10 of 18' },
+            { file: 'pages/page-11.png', title: 'The Falls That Lit a City', label: 'Page 11 of 18' },
+            { file: 'pages/page-12.png', title: 'Man-Made Lightning', label: 'Page 12 of 18' },
+            { file: 'pages/page-13.png', title: 'The Tower of the Great Dream', label: 'Page 13 of 18' },
+            { file: 'pages/page-14.png', title: 'The Dream That Failed', label: 'Page 14 of 18' },
+            { file: 'pages/page-15.png', title: 'The Lonely Years', label: 'Page 15 of 18' },
+            { file: 'pages/page-16.png', title: 'The White Pigeon', label: 'Page 16 of 18' },
+            { file: 'pages/page-17.png', title: 'Room 3327', label: 'Page 17 of 18' },
+            { file: 'pages/page-18.png', title: 'The Future Was His', label: 'Page 18 of 18' },
+            { file: null, title: 'The Lights of the World Are His Monument', label: 'The End', end: true },
+            { file: null, title: 'Quiz', label: 'Quiz', quiz: true },
+        ];
+
+        let current = 0;
+        const img = document.getElementById('pageImg');
+        const frame = document.getElementById('pageFrame');
+        const quiz = document.getElementById('quizContainer');
+        const endInt = document.getElementById('endInterstitial');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageInfo = document.getElementById('pageInfo');
+        const pageTitle = document.getElementById('pageTitle');
+        const progressBar = document.getElementById('progressBar');
+
+        function show(index) {
+            frame.classList.add('fading');
+            quiz.classList.add('fading');
+            endInt.classList.add('fading');
+            setTimeout(() => {
+                current = index;
+                const p = pages[current];
+                if (p.quiz) {
+                    frame.style.display = 'none';
+                    endInt.style.display = 'none';
+                    quiz.style.display = 'block';
+                } else if (p.end) {
+                    frame.style.display = 'none';
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'block';
+                } else {
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'none';
+                    frame.style.display = 'block';
+                    img.src = p.file;
+                    img.alt = 'Tesla — ' + p.title;
+                }
+                pageTitle.innerHTML = p.title;
+                pageInfo.innerHTML = p.label;
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === pages.length - 1;
+                progressBar.style.width = (current / (pages.length - 1)) * 100 + '%';
+                frame.classList.toggle('cover', current === 0);
+                frame.classList.remove('fading');
+                quiz.classList.remove('fading');
+                endInt.classList.remove('fading');
+                window.scrollTo(0, 0);
+            }, 250);
+        }
+
+        let answered = 0;
+        let correctCount = 0;
+
+        function checkAnswer(qId, correctAnswer) {
+            const selected = document.querySelector('input[name="' + qId + '"]:checked');
+            if (!selected) return;
+            const block = document.getElementById(qId);
+            const isCorrect = selected.value === correctAnswer;
+            block.querySelectorAll('input').forEach(function(i) { i.disabled = true; });
+            block.querySelector('.check-btn').style.display = 'none';
+            if (isCorrect) {
+                document.getElementById(qId + '-correct').style.display = 'block';
+                correctCount++;
+            } else {
+                document.getElementById(qId + '-incorrect').style.display = 'block';
+            }
+            answered++;
+            if (answered === 5) {
+                var display = document.getElementById('scoreDisplay');
+                display.textContent = 'You got ' + correctCount + ' out of 5 correct!';
+                display.style.display = 'block';
+            }
+        }
+
+        function next() { if (current < pages.length - 1) show(current + 1); }
+        function prev() { if (current > 0) show(current - 1); }
+
+        img.addEventListener('click', function(e) {
+            const rect = img.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x < rect.width * 0.35) prev();
+            else next();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) next();
+                else prev();
+            }
+        }, { passive: true });
+
+        function preload() {
+            if (current < pages.length - 1 && pages[current + 1].file) {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = pages[current + 1].file;
+                document.head.appendChild(link);
+            }
+        }
+        img.addEventListener('load', preload);
+    </script>
+
+</body>
+</html>

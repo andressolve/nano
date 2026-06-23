@@ -44,7 +44,7 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
 ### Biographical graphic novels
 | Subject | Status | Notes |
 |---------|--------|-------|
-| Tesla | idea | Resilience/failure arc. Visual (lightning, Colorado Springs). Inventor lineage w/ da Vinci, Honda. |
+| Tesla | in-progress (QA-ready) | "Tesla — The Man Who Gave the World Its Power." Biographical graphic novel, resilience/generosity arc (gave away the royalty fortune, died broke, vision won). Folder `tesla/`. 18 pages + cover + reader + WHY-quiz + landing card. Production complete 2026-06-22, ZERO regens / ZERO safety rejections. Awaiting user QA before commit. |
 | Euler | idea | Math lineage (Gauss, Newton, Pythagoras, Descartes). Blind-but-prolific = resilience. |
 | Jensen Huang | idea | First living/modern subject. Frame around the near-bankruptcy years, not coronation. |
 
@@ -115,3 +115,21 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
   over wheels, why a cheap drone threatens a tank. End interstitial "THE RACE GOES ON."
 - Landing card + footer folder-list entry added to root `index.html`.
 - **Status: ✅ Shipped 2026-06-22 (commit 137fb0d, pushed).** User QA passed ("great stuff. well done."); committed+pushed on user request. Backlog row flipped to `shipped`. **Kid-QA (Francisco + Sebastian) still pending** before mil-tech #3 (missiles is the obvious greenlit candidate).
+
+### 2026-06-22 — First summer BIOGRAPHY chosen & scoped: "Tesla"
+- User asked for another graphic book, picked **Tesla** from 4 options (over Missiles / Jensen Huang / Rosalind Franklin). First biographical graphic novel of the summer; switches from tech-explainer format to the oil-painting bio register (Newton/Gauss/da Vinci lineage).
+- **Title: "Tesla — The Man Who Gave the World Its Power."** Double meaning: electrical power + the fortune/power he gave away.
+- **Spine = generosity/resilience/failure-then-vindication** (NOT a parade of inventions): gave the world AC, tore up the royalty contract that could have made him one of the richest men alive, over-reached on wireless power and lost everything, died broke feeding pigeons — but the future he worked for arrived. Moral hinge = P10 torn contract. Technical scaffolding (what AC is) concentrated in one P5–P6 block to avoid Einstein's intellectual-spine failure.
+- **Structure:** 1943 Hotel-New-Yorker frame (P1 open / P17 close); chronological body; montage finale (P18) carries the lasting vindication (the world AC built + the SI unit "tesla", 1960). 18 pages + cover.
+- **Research done first** (`tesla/research/RESEARCH-NOTES.md`, web-verified, skeptical). Key myths deliberately avoided: NO Topsy the elephant in the War of Currents; NOT "Supreme Court declared Tesla invented radio"; torn-contract framing kept conditional ("could have made him"); no internet fake quotes; staged Colorado photo labeled as a trick; lightning "over 100 feet"; height ~6'2".
+- 5 planning docs written. No composite ref needed (every multi-char page is 2 people → Strategy 1). 12 refs planned (3 Tesla age phases + childhood cast + 3 industrialists + pigeon/tower/coil objects). Next: refs → 3 prototypes (P5 epiphany, P6 AC explainer, P18 montage) → bulk batch.
+
+### 2026-06-22 — "Tesla" production complete (QA-ready, not yet committed)
+- Ran the full pipeline autonomously: 12 refs (all on-model, single-shot) → 3 prototypes (P5 Budapest epiphany / P6 AC annotated diagram / P18 montage finale, all single-shot) → cover + remaining 15 pages in two parallel waves.
+- **Cleanest possible run: ZERO regens, ZERO safety rejections across all 19 images + 12 refs.** Matches the Iron Triangle and Gauss-vol2 standard. The bio-mode template (oil-painting register + locked refs + six-block prompt + prototype-then-bulk) held perfectly on the Tesla material.
+- **Oil-painting register validated again:** Gilded-Age sepia/gunmetal pierced by cold electric blue-white as the single hot accent. The deliberate *absence* of blue in the late hotel pages (P1, P15–P17) landed as designed — grey city + warm lamp only, the arc-light of his life gone. The torn-"CONTRACT" moral hinge (P10) read clean and central; the P15 "DEATH RAY" newspaper headline rendered legibly and ties to its caption; all quote artifacts (Faust P5, pigeon P16, 1927 future-quote P17) rendered correctly in period serif.
+- **Editorial honesty held** per research flags: torn-contract kept conditional ("could have made him"), Colorado photo labeled a double-exposure trick, "by Tesla's account" on the Edison $50k story, lightning "over a hundred feet."
+- **Reader built** (`tesla/index.html`): dark Palatino flipper cloned from Gauss-vol2, **electric-blue `#4db8ff`** accent. 5-question WHY-quiz per the CRITICAL QUIZ RULE (length-matched distractors, answers shuffled b/a/c/c/b): the AC no-brushes insight, why AC won the current war, why he tore up the contract, why free wireless power couldn't be sold, why the future proved him right. End interstitial "THE LIGHTS OF THE WORLD ARE HIS MONUMENT."
+- Landing card + footer folder-list entry added to root `index.html`.
+- Est. cost ≈ **$6.50** (~31 image calls, all single-shot), in line with the bio envelope.
+- **Status: QA-ready, NOT committed.** Awaiting user QA pass before commit/push. Kid-QA pending after that.
