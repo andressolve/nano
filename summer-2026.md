@@ -8,9 +8,11 @@ and part **backlog** (the living idea list with status). Read top-to-bottom to c
 
 ## Direction this summer
 
-The kids are becoming more sophisticated, mature thinkers — the goal is to **keep that
-evolution going**, not pitch down. (See the CRITICAL FRAMING RULE in CLAUDE.md: write so any
-first-time reader can follow, never "for ages 7–10.")
+**Sole purpose: nurture and grow mature, sophisticated intellectuals.** That is the only goal.
+Every subject and every choice serves that — depth, seriousness, real ideas. We do NOT pick
+subjects to fill demographic or representation "gaps," and we do NOT pitch by age. Francisco and
+Sebastian are serious readers, not their ages. (See the CRITICAL FRAMING RULE in CLAUDE.md: write
+so any first-time reader can follow — a clarity standard, never an age standard.)
 
 Two proven formats carry most of the work:
 - **Tech explainer** (Sky Duel, Scattergun register) — machines/systems, premium engineering plate.
@@ -18,14 +20,12 @@ Two proven formats carry most of the work:
 
 **The loose spine** connecting this summer's interests:
 machines that move → machines that sense & decide → machines that think → life as information.
-(tanks/missiles → autonomous turrets → AI/Jensen Huang → cells & genetics as code)
+(tanks/missiles → autonomous turrets → AI → cells & genetics as code)
 
-**Themes the catalog is missing that we want to hit this summer:**
-- **Failure / resilience** — Tesla (died broke), Euler (went blind, kept working), Huang (near-bankruptcy years).
-- **Ethics** — autonomous weapons is the ideal first place to pose "should a machine decide to kill?"
-  to kids old enough to sit with a question that has no clean answer.
-- **Women scientists** — catalog is almost all boys/men; genetics-via-Rosalind Franklin would help.
-- **Living / modern subjects** — Jensen Huang would be the first; intellectual history is still being written.
+**What makes a subject worth doing:** a real human-scale story carrying real ideas, deep enough to
+reward a serious reader. Resilience, ethics, the texture of how discoveries actually happen — these
+are good *because they grow the mind*, not because they tick a box. Pick the subject that is most
+intellectually alive, full stop.
 
 ---
 
@@ -45,14 +45,15 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
 | Subject | Status | Notes |
 |---------|--------|-------|
 | Tesla | shipped | "Tesla — The Man Who Gave the World Its Power." Biographical graphic novel, resilience/generosity arc (gave away the royalty fortune, died broke, vision won). Folder `tesla/`. 18 pages + cover + reader + WHY-quiz + landing card. ZERO regens / ZERO safety rejections. **Shipped 2026-06-22 (commit b6f86c6, pushed). User QA passed ("great work"); kid-QA pending.** |
+| Darwin | shipped | "Darwin — The Man Who Let Nature Speak." 2nd summer biography; the great turn from imposing design on nature to induction from overwhelming evidence. Spine = Darwin's patience (get it right, not first); Galápagos told honestly (NO epiphany), Gould's reading of the specimens as the real turn. Folder `darwin/`. 18 pages + cover + reader + WHY-quiz + landing card. ZERO regens / ZERO safety rejections. Produced 2026-06-23; **awaiting user QA, not yet committed.** |
 | Euler | idea | Math lineage (Gauss, Newton, Pythagoras, Descartes). Blind-but-prolific = resilience. |
-| Jensen Huang | idea | First living/modern subject. Frame around the near-bankruptcy years, not coronation. |
+| Jensen Huang | idea | Frame around the near-bankruptcy years and the long bet on a then-unproven idea, not coronation. |
 
 ### Science explainers / hybrids
 | Topic | Status | Notes |
 |-------|--------|-------|
 | The cell | idea | Tech-explainer frame ("the cell is a factory/city" cutaway). |
-| Genetics | idea | Tell it through a person — Mendel (patience/method) or Rosalind Franklin (woman scientist + credit/injustice arc). |
+| Genetics | idea | Tell it through a person — Mendel (patience/method) or Rosalind Franklin (the data-vs-credit arc, how evidence gets read). |
 
 ---
 
@@ -133,3 +134,16 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
 - Landing card + footer folder-list entry added to root `index.html`.
 - Est. cost ≈ **$6.50** (~31 image calls, all single-shot), in line with the bio envelope.
 - **Status: ✅ Shipped 2026-06-22 (commit b6f86c6, pushed).** User QA passed ("approved. great work."); committed+pushed on user request. Backlog row flipped to `shipped`. **Kid-QA (Francisco + Sebastian) still pending.** First summer biography done; next could be Euler/Jensen Huang (bios) or missiles (greenlit mil-tech #3).
+
+### 2026-06-23 — 2nd summer biography chosen & produced autonomously: "Darwin"
+- User picked **Darwin** as the next bio (Darwin first, then Mendel later — pattern then mechanism), and asked for it to be run **autonomously, end-to-end.**
+- **CRITICAL editorial direction from the user (do not violate, logged as a durable feedback memory):** "let the facts speak for themselves. it's a big step in intellectual history — not forcing the worldview on nature, but letting nature speak. don't box it or contort. let it be. focus on the intellectual milestones/breakthroughs and the personalities that brought them." So the book is built **milestone-first, NOT around a manufactured emotional spine.** The honest human through-line is Darwin's own character as a thinker: the patience to get it right rather than the haste to get it first. That patience IS the method, and the method is the milestone.
+- **Title: "Darwin — The Man Who Let Nature Speak."** Window: beetle-collecting boy in Shrewsbury (1809) → On the Origin of Species (1859) → burial beside Newton. 18 pages + cover.
+- **Editorial honesty (research-first, `darwin/research/RESEARCH-NOTES.md`, web-verified, skeptical):** the central deliberate choice is that **Galápagos is told WITHOUT the lightning-bolt myth** — Darwin had NO epiphany on the islands; he collected carelessly, the famous finches told him nothing yet; the pattern only emerged from **Gould's expert analysis of the specimens back in London (1837)**. That myth-correction IS the book's "let the facts speak" milestone (P6 → P7), not a weakness to paper over. Finches demoted to their true role (mockingbirds + tortoises drove the early doubt). Wallace given real co-credit (the convergence proves the idea was in the facts). Myths explicitly avoided: "survival of the fittest" wasn't Darwin's phrase, Origin is barely about humans, the Lady Hope deathbed-conversion story is a fabrication.
+- **Visual signature:** oil-painting realism (Newton/Gauss/da Vinci/Tesla lineage); naturalist's specimen-cabinet sepia & mahogany pierced by the **green-gold of living nature** as the one warm accent (life breaking into the scholar's brown world); a quiet **branching-form motif** (coral, roots, rigging, river deltas) recurring across the volume and culminating in the **P18 Tree of Life** closing-as-invention finale.
+- **BEARD DISCIPLINE (load-bearing, Darwin grew the famous beard only ~1862):** four Darwin age-phases — boy ~9, young ~23 CLEAN-SHAVEN, mid ~48 balding/side-whiskers only, old ~70 the iconic white beard. Stated explicitly in every page prompt; held perfectly across all 19 images (no drift to the bearded-sage default on the pre-1862 pages).
+- **No composite ref needed** — every multi-character page is ≤2 named faces (Strategy 1: lock the harder/secondary face via `edit_image`, prose Darwin). Henslow, FitzRoy+Beagle, Gould, Emma, Wallace, Hooker+Lyell all handled this way single-shot.
+- **Cleanest-tier run: ZERO regens, ZERO safety rejections across all 19 images + 12 refs.** (The Edinburgh surgical-theatre page P2 — a known moderation risk — passed first time by draping the body entirely and anchoring on Darwin's recoil, NO gore.) 12 refs → 3 prototypes (P8 "I think" notebook / P9 Malthus annotated / P18 Tree of Life, all single-shot) → cover + 15 pages in two parallel waves. Est. cost ≈ **$6.50** (~31 single-shot image calls), in line with the bio envelope.
+- **Reader built** (`darwin/index.html`): dark Palatino flipper cloned from Tesla, **living leaf-green `#6fa86b`** accent. 5-question WHY-quiz per the CRITICAL QUIZ RULE (length-matched distractors, answers shuffled a/b/c/a/b): why Galápagos gave no instant answer, why Gould mattered, why Darwin waited 20 years, what Wallace's letter proved, why the Tree of Life is the right picture. End interstitial "He Let Nature Tell Its Own Story."
+- Landing card + footer folder-list entry added to root `index.html`.
+- **Status: produced 2026-06-23, awaiting user QA. NOT yet committed** (commit only on explicit user request). Next bio candidate per the user's own sequencing = **Mendel** (the mechanism after the pattern).
