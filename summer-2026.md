@@ -44,7 +44,7 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
 ### Biographical graphic novels
 | Subject | Status | Notes |
 |---------|--------|-------|
-| Tesla | in-progress (QA-ready) | "Tesla — The Man Who Gave the World Its Power." Biographical graphic novel, resilience/generosity arc (gave away the royalty fortune, died broke, vision won). Folder `tesla/`. 18 pages + cover + reader + WHY-quiz + landing card. Production complete 2026-06-22, ZERO regens / ZERO safety rejections. Awaiting user QA before commit. |
+| Tesla | shipped | "Tesla — The Man Who Gave the World Its Power." Biographical graphic novel, resilience/generosity arc (gave away the royalty fortune, died broke, vision won). Folder `tesla/`. 18 pages + cover + reader + WHY-quiz + landing card. ZERO regens / ZERO safety rejections. **Shipped 2026-06-22 (commit b6f86c6, pushed). User QA passed ("great work"); kid-QA pending.** |
 | Euler | idea | Math lineage (Gauss, Newton, Pythagoras, Descartes). Blind-but-prolific = resilience. |
 | Jensen Huang | idea | First living/modern subject. Frame around the near-bankruptcy years, not coronation. |
 
@@ -132,4 +132,4 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
 - **Reader built** (`tesla/index.html`): dark Palatino flipper cloned from Gauss-vol2, **electric-blue `#4db8ff`** accent. 5-question WHY-quiz per the CRITICAL QUIZ RULE (length-matched distractors, answers shuffled b/a/c/c/b): the AC no-brushes insight, why AC won the current war, why he tore up the contract, why free wireless power couldn't be sold, why the future proved him right. End interstitial "THE LIGHTS OF THE WORLD ARE HIS MONUMENT."
 - Landing card + footer folder-list entry added to root `index.html`.
 - Est. cost ≈ **$6.50** (~31 image calls, all single-shot), in line with the bio envelope.
-- **Status: QA-ready, NOT committed.** Awaiting user QA pass before commit/push. Kid-QA pending after that.
+- **Status: ✅ Shipped 2026-06-22 (commit b6f86c6, pushed).** User QA passed ("approved. great work."); committed+pushed on user request. Backlog row flipped to `shipped`. **Kid-QA (Francisco + Sebastian) still pending.** First summer biography done; next could be Euler/Jensen Huang (bios) or missiles (greenlit mil-tech #3).
