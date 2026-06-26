@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Rome Kept Winning</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --iron: #3a3632;
+            --rome: #9a2f2f;
+            --bronze: #9c6b2e;
+            --parchment: #f5efe3;
+            --ink: #1e1c1a;
+            --stone: #8a8279;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', 'Garamond', serif;
+            background: var(--parchment);
+            color: var(--ink);
+            overflow-x: hidden;
+        }
+
+        /* Progress */
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--iron), var(--rome));
+            width: 0%;
+            transition: width 0.4s ease;
+            z-index: 1000;
+        }
+
+        /* Pages */
+        .page { display: none; opacity: 0; transition: opacity 0.5s ease; }
+        .page.active { opacity: 1; }
+
+        /* Cover */
+        .cover {
+            background: #100d0b;
+            color: #e8e0d0;
+            text-align: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .cover.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .cover .badge {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+            opacity: 0.6; margin-bottom: 30px; padding: 6px 18px;
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 20px;
+        }
+        .cover h1 { font-size: 50px; font-weight: 500; letter-spacing: 1px; line-height: 1.12; margin-bottom: 16px; }
+        .cover .subtitle { font-size: 19px; font-style: italic; opacity: 0.82; margin-bottom: 6px; max-width: 620px; line-height: 1.4; }
+        .cover .setting {
+            font-family: 'Inter', sans-serif; font-size: 13px; opacity: 0.5;
+            letter-spacing: 1.5px; margin-bottom: 35px; margin-top: 8px;
+        }
+        .cover img { max-width: 640px; width: 92%; border-radius: 10px; box-shadow: 0 12px 40px rgba(0,0,0,0.55); margin-bottom: 35px; }
+        .cover .begin {
+            padding: 14px 48px; font-size: 16px; font-family: 'Cormorant Garamond', serif;
+            background: transparent; border: 1.5px solid rgba(255,255,255,0.35);
+            color: #e8e0d0; cursor: pointer; border-radius: 30px; transition: all 0.3s; letter-spacing: 1px;
+        }
+        .cover .begin:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.6); }
+
+        /* Essay pages */
+        .essay-page.active { display: flex; flex-direction: column; align-items: center; padding: 60px 24px 40px; }
+        .essay-content { max-width: 720px; width: 100%; }
+
+        /* Section headers */
+        .section-label {
+            font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 2.5px;
+            text-transform: uppercase; color: var(--stone); margin-bottom: 8px;
+        }
+        .section-label.part1 { color: #6b655d; }
+        .section-label.part2 { color: var(--rome); }
+        .section-label.part3 { color: var(--bronze); }
+
+        .essay-content h2 { font-size: 31px; font-weight: 500; color: var(--ink); margin-bottom: 26px; line-height: 1.18; }
+        .essay-content p { font-size: 19px; line-height: 1.85; margin-bottom: 20px; color: #2a2724; }
+        .essay-content .lead { font-size: 21px; color: var(--ink); }
+        .essay-content em { color: var(--rome); font-style: italic; }
+        .essay-content strong { font-weight: 600; color: var(--ink); }
+
+        /* Pull quotes */
+        .pull-quote {
+            margin: 32px 0; padding: 24px 28px; border-left: 4px solid var(--rome);
+            background: rgba(154, 47, 47, 0.06); border-radius: 0 8px 8px 0;
+        }
+        .pull-quote p { font-size: 21px; font-style: italic; color: var(--rome); margin-bottom: 0; line-height: 1.7; }
+
+        /* Fact boxes */
+        .fact-box {
+            margin: 28px 0; padding: 22px 26px; background: #fff; border-radius: 10px;
+            border: 1px solid #e2dccf; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .fact-box .fact-label {
+            font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--rome); margin-bottom: 10px;
+        }
+        .fact-box p { font-size: 17px; margin-bottom: 0; }
+
+        /* Images */
+        .essay-image { margin: 32px 0; text-align: center; }
+        .essay-image img { max-width: 100%; max-height: 52vh; border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,0.14); }
+        .essay-image .caption {
+            font-family: 'Inter', sans-serif; font-size: 12px; color: var(--stone);
+            margin-top: 10px; letter-spacing: 0.3px;
+        }
+
+        /* Four-pillar block (P8) */
+        .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 32px 0; }
+        .pillar {
+            background: #fff; border-radius: 10px; padding: 20px 22px;
+            border: 1px solid #e2dccf; border-top: 4px solid var(--rome);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .pillar:nth-child(2) { border-top-color: var(--bronze); }
+        .pillar:nth-child(3) { border-top-color: var(--iron); }
+        .pillar:nth-child(4) { border-top-color: var(--stone); }
+        .pillar h4 {
+            font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--ink); margin-bottom: 10px;
+        }
+        .pillar p { font-size: 16px; line-height: 1.6; margin-bottom: 0; color: #3a3632; }
+
+        /* Nav */
+        .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd6ca; }
+        .nav-btn { padding: 11px 26px; font-size: 15px; font-family: 'Cormorant Garamond', serif; border: none; cursor: pointer; border-radius: 25px; transition: all 0.3s; }
+        .nav-btn.primary { background: var(--ink); color: #e8e0d0; }
+        .nav-btn.primary:hover { background: #000; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .nav-btn.secondary { background: transparent; color: var(--ink); border: 1.5px solid #c4b9a8; }
+        .nav-btn.secondary:hover { border-color: var(--rome); background: rgba(154,47,47,0.05); }
+        .page-num { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--stone); letter-spacing: 1px; }
+
+        /* Quiz */
+        .quiz-header { text-align: center; margin-bottom: 36px; }
+        .quiz-header h2 { font-size: 28px; font-weight: 500; margin-bottom: 8px; }
+        .quiz-header p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--stone); }
+        .question-block { background: #fff; border-radius: 10px; padding: 24px; margin-bottom: 22px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #e2dccf; }
+        .question-block h3 { font-size: 17px; font-weight: 500; margin-bottom: 18px; line-height: 1.5; }
+        .q-num {
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--rome); color: #fff; width: 24px; height: 24px; border-radius: 50%;
+            font-family: 'Inter', sans-serif; font-size: 12px; margin-right: 10px;
+        }
+        .option { display: flex; align-items: center; padding: 12px 16px; margin: 8px 0; background: #faf8f4; border: 2px solid #e2dccf; border-radius: 8px; cursor: pointer; transition: all 0.2s; font-size: 16px; }
+        .option:hover { background: #f0ede5; border-color: #c4b9a8; }
+        .option input { margin-right: 12px; accent-color: var(--rome); transform: scale(1.1); }
+        .option.selected { border-color: var(--rome); background: #f0ede5; }
+        .option.correct { border-color: #4a7c4e; background: #e8f5e9; }
+        .option.incorrect { border-color: #b55454; background: #ffebee; }
+        .check-btn { padding: 10px 24px; font-size: 14px; font-family: 'Cormorant Garamond', serif; background: var(--ink); border: none; color: #e8e0d0; cursor: pointer; border-radius: 20px; margin-top: 6px; }
+        .check-btn:hover { background: #000; }
+        .feedback { margin-top: 14px; padding: 14px 18px; border-radius: 8px; display: none; font-size: 15px; line-height: 1.6; }
+        .feedback.correct { background: #e8f5e9; color: #2e5a32; border-left: 4px solid #4a7c4e; display: block; }
+        .feedback.incorrect { background: #ffebee; color: #8b3a3a; border-left: 4px solid #b55454; display: block; }
+        .score-box { text-align: center; padding: 22px; background: var(--ink); border-radius: 10px; margin-top: 28px; color: #e8e0d0; }
+        .score-box .score-number { font-size: 44px; font-weight: 600; margin: 8px 0; }
+
+        /* End page */
+        .end-page { background: #100d0b; color: #e8e0d0; text-align: center; padding: 60px 24px; min-height: 100vh; }
+        .end-page.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .end-page h1 { font-size: 32px; font-weight: 400; margin-bottom: 30px; letter-spacing: 2px; }
+        .end-page .ornament { font-size: 18px; opacity: 0.4; letter-spacing: 8px; margin: 20px 0; }
+        .end-page blockquote { font-size: 22px; font-style: italic; opacity: 0.88; max-width: 560px; line-height: 1.6; margin-bottom: 12px; }
+        .end-page .source { font-family: 'Inter', sans-serif; font-size: 12px; opacity: 0.4; margin-top: 40px; line-height: 1.8; }
+
+        @media (max-width: 768px) {
+            .cover h1 { font-size: 34px; }
+            .essay-page { padding: 40px 18px 30px; }
+            .essay-content h2 { font-size: 24px; }
+            .essay-content p { font-size: 17px; text-align: left; }
+            .pull-quote p { font-size: 18px; }
+            .pillars { grid-template-columns: 1fr; }
+            .nav { flex-wrap: wrap; gap: 12px; }
+            .nav-btn { flex: 1; min-width: 110px; text-align: center; }
+            .page-num { width: 100%; text-align: center; margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- COVER -->
+<section class="page cover active" id="page-0">
+    <span class="badge">Illustrated Essay</span>
+    <h1>Why Rome Kept Winning</h1>
+    <p class="subtitle">The Real Reason One City Conquered the Ancient World &mdash; and Why It Isn't What You'd Think</p>
+    <p class="setting">The Roman Republic &middot; 300&ndash;200 BC</p>
+    <img src="images/cover.png" alt="A gilded Roman eagle standard raised at dawn above a column of marching legionaries">
+    <button class="begin" onclick="go(1)">Begin Reading</button>
+</section>
+
+<!-- PAGE 1 -->
+<section class="page essay-page" id="page-1">
+    <div class="essay-content">
+        <span class="section-label part1">Part One &middot; The Answer Everyone Gives</span>
+        <h2>The Question</h2>
+        <div class="essay-image">
+            <img src="images/image-reach.png" alt="A long column of legionaries marching down a Roman road to the horizon">
+            <div class="caption">One city's reach &mdash; from the cold of Britain to the deserts of Egypt</div>
+        </div>
+        <p class="lead">For about seven hundred years, one city on a river in Italy beat almost everyone it fought. It began as a small town of farmers and ended up ruling a world that stretched from the cold of Britain to the deserts of Egypt &mdash; the largest empire the ancient West had ever seen.</p>
+        <p>How did Rome do it? Ask most people and you will get a quick, confident answer: the Romans won because they were so <strong>organized</strong>. So disciplined. So orderly &mdash; unlike the quarrelsome, disorganized peoples all around them.</p>
+        <p>That answer is not wrong. But it is only half right &mdash; and the missing half is the interesting part. Because when you look closely at how Rome actually won its wars, being organized turns out <em>not</em> to be the secret. Plenty of armies were organized. Rome had something deeper, and stranger, and far harder to copy.</p>
+        <p>This is the story of what that something was.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(0)">&larr; Cover</button>
+            <span class="page-num">1 of 10</span>
+            <button class="nav-btn primary" onclick="go(2)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page essay-page" id="page-2">
+    <div class="essay-content">
+        <span class="section-label part1">Part One &middot; The Answer Everyone Gives</span>
+        <h2>The Machine That Never Slept</h2>
+        <div class="essay-image">
+            <img src="images/image-camp.png" alt="An isometric view of a square Roman marching camp built at dusk">
+            <div class="caption">The same fort, every night &mdash; ditch, rampart, gridded streets, built in hours</div>
+        </div>
+        <p>The case for the usual answer really is strong, so let us give it its due.</p>
+        <p>A Roman army was unlike most armies of the ancient world. It was not a crowd of warriors who turned up for one summer and went home at harvest. In Rome's great age of conquest it was becoming a <strong>professional institution</strong>: men served for years, trained constantly, and obeyed a written code of discipline. Every soldier carried the same standardized equipment. There were ranks, and rules, and specialists &mdash; engineers, surveyors, doctors, men whose whole job was to build bridges and siege engines.</p>
+        <p>The clearest proof of Roman discipline is something they did every single night. At the end of a long day's march, deep in enemy land, a Roman army did not simply sleep where it stopped. It <strong>built a fort</strong> &mdash; the same fort, every time. A great square, ringed by a ditch and a wall of earth, with straight streets laid out on a grid and every unit's tents always in exactly the same place. A soldier dropped into any Roman camp anywhere in the world would know precisely where to go. They could throw the whole thing up in a few hours, tear it down at dawn, march all day, and build it again that night.</p>
+        <div class="fact-box">
+            <div class="fact-label">Did You Know?</div>
+            <p>A Roman marching camp followed the same plan everywhere &mdash; the historian Polybius said it looked "like a town." A 200-foot empty strip ran between the tents and the outer wall, so enemy arrows and fire shot over the rampart fell harmlessly short.</p>
+        </div>
+        <p>This was real, and it mattered. An army this organized could go anywhere, recover from a bad day, and was almost never caught unprepared. If you wanted to argue that Rome conquered the world through sheer order, the nightly camp is your best evidence.</p>
+        <p>But here is the problem.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(1)">&larr; Back</button>
+            <span class="page-num">2 of 10</span>
+            <button class="nav-btn primary" onclick="go(3)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page essay-page" id="page-3">
+    <div class="essay-content">
+        <span class="section-label part1">Part One &middot; The Answer Everyone Gives</span>
+        <h2>But They Weren't the Only Ones</h2>
+        <div class="essay-image">
+            <img src="images/image-others.png" alt="Three panels: Assyrian soldiers, a Macedonian pike phalanx, and ranked Qin Chinese infantry">
+            <div class="caption">Assyria, Macedon, Qin &mdash; three disciplined armies that were not Rome</div>
+        </div>
+        <p>If organization and discipline were enough to conquer the world, then Rome should not have been the only empire that managed it. But discipline was not a Roman invention, and it was not a Roman secret.</p>
+        <p>Centuries before Rome was anything more than a village, the kings of <strong>Assyria</strong> fielded a professional army whose soldiers trained all year round and were paid a wage &mdash; not farmers called up for the season, but full-time troops, organized into squads of ten under their officers, famous for the cold precision of their movements.</p>
+        <p>In Greece, King Philip of <strong>Macedon</strong> turned soldiering into a full-time profession and drilled his men into the phalanx &mdash; a bristling wall of long pikes that moved as one body. His son Alexander used that disciplined machine to conquer the whole Persian Empire, the largest the world had yet seen.</p>
+        <p>And far to the east, the armies of <strong>Qin</strong> China conscripted and drilled enormous, standardized forces that obeyed commands with the same trained precision &mdash; and used them to unite all of China under a single emperor.</p>
+        <p>So discipline was present wherever great conquerors were. It was <em>necessary</em> &mdash; you cannot build an empire without it &mdash; but it was not what made Rome special. Many well-drilled armies won wars. Which makes the question sharper than we thought: what did Rome have that the others did not?</p>
+        <div class="pull-quote">
+            <p>If discipline alone conquered the world, the Assyrians, the Macedonians, and the armies of Qin all had a claim to it. Order was necessary. It was not the answer.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(2)">&larr; Back</button>
+            <span class="page-num">3 of 10</span>
+            <button class="nav-btn primary" onclick="go(4)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page essay-page" id="page-4">
+    <div class="essay-content">
+        <span class="section-label part2">Part Two &middot; The Real Reason</span>
+        <h2>The Army That Could Not Run Out</h2>
+        <div class="essay-image">
+            <img src="images/image-socii-map.png" alt="An antique map of Italy with allied soldiers flowing toward Rome">
+            <div class="caption">The <em>socii</em> &mdash; allied peoples bound to send soldiers, not gold, to Rome</div>
+        </div>
+        <p>Here is the first thing Rome had that almost no one else did.</p>
+        <p>When Rome defeated an enemy in Italy, it usually did not wipe them out or simply tax them. It did something cleverer: it turned them into <strong>allies</strong> &mdash; the <em>socii</em>. And the deal was unusual. The allies did not mainly owe Rome money. They owed Rome <strong>soldiers</strong>. Each allied people was bound by treaty to send a set number of fully-equipped fighting men whenever Rome called.</p>
+        <p>Think about what that means. Every time Rome won a war, its supply of future soldiers grew <em>larger</em>. The more enemies Rome beat, the more men it could put in the field the next time. Most ancient states had a fixed pool of fighters &mdash; lose too many and you were finished. <strong>Rome's pool deepened with every victory.</strong> In a normal Roman army, about half the soldiers &mdash; and most of the cavalry &mdash; were allies, not Romans at all.</p>
+        <div class="fact-box">
+            <div class="fact-label">Did You Know?</div>
+            <p>An ancient count recorded by the historian Polybius put the fighting-age men of Rome and its Italian allies at over <strong>700,000</strong>. No army that size ever took the field &mdash; it was a well to draw from, not a force to gather &mdash; but it shows a depth of manpower no rival could match.</p>
+        </div>
+        <p>This is what made Rome so dangerous. To beat Rome for good, you could not just win a battle. You had to drain a well that kept refilling itself. One man would try &mdash; the greatest general of the age &mdash; and that is the next part of the story.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(3)">&larr; Back</button>
+            <span class="page-num">4 of 10</span>
+            <button class="nav-btn primary" onclick="go(5)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page essay-page" id="page-5">
+    <div class="essay-content">
+        <span class="section-label part2">Part Two &middot; The Real Reason</span>
+        <h2>The Worst Day in Roman History</h2>
+        <div class="essay-image">
+            <img src="images/image-cannae.png" alt="A tactical diagram of the double envelopment at Cannae, the Roman army surrounded">
+            <div class="caption">Cannae, 216 BC &mdash; Hannibal's crescent folds back and the wings swing shut</div>
+        </div>
+        <p>In 218 BC a Carthaginian general named <strong>Hannibal</strong> did the impossible: he marched an army &mdash; with war elephants &mdash; over the snow of the Alps and down into Italy itself. And he began to win. Battle after battle, he beat the Romans on their own ground.</p>
+        <p>Then, on the 2nd of August, 216 BC, near a village called <strong>Cannae</strong>, came the worst day in the history of Rome.</p>
+        <p>The Romans assembled the largest army they had ever raised &mdash; around <strong>eighty thousand men</strong> &mdash; to crush Hannibal once and for all. Hannibal had perhaps half that number. He should have been doomed.</p>
+        <p>Instead he set a trap that generals still study today. He let the center of his line bulge forward toward the Romans &mdash; then deliberately gave way, folding slowly backward as the huge Roman mass pushed in, packing itself tighter and tighter. His best troops waited on the wings; as the Romans crowded forward, the wings swung shut on both sides while his cavalry sealed the rear. The greatest army Rome had ever fielded was surrounded, crushed together so tightly that men could barely raise their swords, and destroyed from the outside in.</p>
+        <p>By nightfall, ancient writers tell us, <strong>somewhere between forty-eight and seventy thousand Romans</strong> lay dead &mdash; among them one of Rome's two ruling consuls and dozens of its senators. In a single afternoon, Rome lost close to a fifth of all its fighting-age men.</p>
+        <div class="fact-box">
+            <div class="fact-label">Did You Know?</div>
+            <p>Cannae is still taught in military academies as the perfect "battle of annihilation." Commanders have tried to repeat Hannibal's trap for more than two thousand years.</p>
+        </div>
+        <p>For any other state in the ancient world, this would have been the end.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(4)">&larr; Back</button>
+            <span class="page-num">5 of 10</span>
+            <button class="nav-btn primary" onclick="go(6)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page essay-page" id="page-6">
+    <div class="essay-content">
+        <span class="section-label part2">Part Two &middot; The Real Reason</span>
+        <h2>Why It Wasn't the End</h2>
+        <div class="essay-image">
+            <img src="images/image-resilience.png" alt="New young recruits form up in the Roman Forum after Cannae as the city mourns">
+            <div class="caption">A city in mourning that would not surrender &mdash; new legions forming under the standards</div>
+        </div>
+        <p>After Cannae, Hannibal waited for Rome to do what every beaten power did: surrender, or beg for terms.</p>
+        <p>Rome did neither.</p>
+        <p>The Senate refused even to ransom the prisoners Hannibal had taken. It refused to discuss peace. Instead Rome did the one thing that could defeat a genius like Hannibal: it <strong>kept going.</strong> Within weeks it was raising fresh legions &mdash; arming younger men, volunteers, and at the lowest point even freed slaves. It stopped offering Hannibal the big battles he kept winning, and instead shadowed him, wore him down, year after year.</p>
+        <p>And here is the deepest fact of all. After a defeat that should have shattered the alliance, <strong>more than four-fifths of Rome's allies stayed loyal.</strong> Some did go over to Hannibal &mdash; much of southern Italy turned against Rome, and the rich city of Capua opened its gates to him &mdash; but the great body of the alliance held. The well still had water in it.</p>
+        <p>So the war dragged on, and slowly the truth came clear: <em>Hannibal could win every battle and still lose the war.</em> He was deep in enemy country with an army he could not easily replace. Rome could lose army after army and simply build another. Fourteen years after Cannae, a Roman general named <strong>Scipio</strong> carried the war to Carthage's own homeland and beat Hannibal at last. Rome had lost the battles. It won the war.</p>
+        <div class="pull-quote">
+            <p>Hannibal won nearly every battle he fought in Italy. He lost the war anyway &mdash; because he could not win it fast enough to beat an enemy that refused to run out of soldiers, or to quit.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(5)">&larr; Back</button>
+            <span class="page-num">6 of 10</span>
+            <button class="nav-btn primary" onclick="go(7)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 7 -->
+<section class="page essay-page" id="page-7">
+    <div class="essay-content">
+        <span class="section-label part2">Part Two &middot; The Real Reason</span>
+        <h2>Rome Stole the Best Ideas</h2>
+        <div class="essay-image">
+            <img src="images/image-corvus.png" alt="Legionaries charging across the corvus boarding bridge onto a Carthaginian ship">
+            <div class="caption">The <em>corvus</em> &mdash; turning a sea war Rome should have lost into an infantry fight it knew how to win</div>
+        </div>
+        <p>There was one more thing Rome did better than almost anyone: it <strong>copied.</strong></p>
+        <p>The Romans were not too proud to admit when an enemy had something better. When they met Spanish warriors carrying a short, brutally effective stabbing sword, Rome adopted it outright &mdash; the famous <strong>gladius</strong>, the signature weapon of the legions, was a Spanish design.</p>
+        <p>When Rome fought Carthage the first time, it faced a bigger problem: Carthage ruled the sea, and Rome had almost no navy at all. So the Romans found a wrecked Carthaginian warship that had run aground, took it apart to learn how it was built, and used it as a <strong>blueprint</strong> to build a whole fleet of their own &mdash; more than a hundred warships, from scratch, in a matter of weeks. Their copies were clumsy and slow. So Rome changed the rules of the game. It bolted a long spiked bridge &mdash; the <strong>corvus</strong>, the "raven" &mdash; to the bow of each ship. When an enemy galley came close, the bridge dropped, its spike bit into the enemy deck, and Roman legionaries charged across to fight the kind of land battle they always won. Rome turned a sea war it should have lost into an infantry fight it knew how to win.</p>
+        <p>Even the famous flexible legion was a borrowed lesson. Generations earlier Rome had been badly beaten by the <strong>Samnites</strong> in the rough hill country of central Italy, where its rigid battle-line was useless. So Rome rebuilt its army into small, independent units that could move and fight on any ground &mdash; a design learned from the very enemy that had humiliated it.</p>
+        <div class="fact-box">
+            <div class="fact-label">Did You Know?</div>
+            <p>A later writer admired this Roman habit most of all &mdash; they were quick to take a good idea from anyone, friend or enemy, and make it their own. Rome's genius was being a student of its own mistakes.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(6)">&larr; Back</button>
+            <span class="page-num">7 of 10</span>
+            <button class="nav-btn primary" onclick="go(8)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 8 -->
+<section class="page essay-page" id="page-8">
+    <div class="essay-content">
+        <span class="section-label part3">Part Three &middot; What It Means</span>
+        <h2>Order Was Necessary &mdash; But Not Enough</h2>
+        <div class="essay-image">
+            <img src="images/image-victory.png" alt="A Roman eagle standard raised over a quiet won battlefield at dusk">
+            <div class="caption">Order was where Rome began &mdash; not where its strength ended</div>
+        </div>
+        <p>So why did Rome keep winning?</p>
+        <p>Not because it was organized. Many armies were organized. Discipline was the floor Rome stood on &mdash; not the thing that made it tall.</p>
+        <p>Rome won because it had built a <strong>system</strong>, and the system had four parts that only worked together:</p>
+        <div class="pillars">
+            <div class="pillar">
+                <h4>Discipline</h4>
+                <p>A professional army that could march anywhere and was almost never caught unready.</p>
+            </div>
+            <div class="pillar">
+                <h4>Manpower</h4>
+                <p>An alliance that turned every defeated enemy into a new source of soldiers &mdash; a well that refilled with each victory.</p>
+            </div>
+            <div class="pillar">
+                <h4>Resilience</h4>
+                <p>The refusal to quit after even the worst defeat, and the depth to raise a new army when the last one was gone.</p>
+            </div>
+            <div class="pillar">
+                <h4>Adaptation</h4>
+                <p>The humility to copy any good idea, from anyone, and make it Rome's own.</p>
+            </div>
+        </div>
+        <p>Take away any single one and Rome loses. A disciplined army with no reserves is destroyed at Cannae and the war is over. Huge reserves without discipline are just a mob. Both of those, without the will to keep going, surrender after one terrible day. And all three, without the willingness to learn, are beaten by the first enemy with a better sword or a better fleet.</p>
+        <p>This is the real lesson &mdash; and it is a better one than "be organized and you will win." Order matters. But order <em>alone</em> is not enough. What actually conquers the world is a system that can survive disaster, keep refilling its strength, and learn from everyone it meets. That is far harder to build than discipline. And it is far harder to beat.</p>
+        <div class="pull-quote">
+            <p>Hannibal beat the Roman army again and again. He could not beat the Roman system. That is the difference between winning a battle and winning a war.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(7)">&larr; Back</button>
+            <span class="page-num">8 of 10</span>
+            <button class="nav-btn primary" onclick="go(9)">Take the Quiz &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- QUIZ -->
+<section class="page essay-page" id="page-9">
+    <div class="essay-content">
+        <div class="quiz-header">
+            <h2>Check Your Understanding</h2>
+            <p>Five questions about what you just read.</p>
+        </div>
+
+        <div class="question-block" id="q1">
+            <h3><span class="q-num">1</span> Why isn't "Rome was organized and disciplined" the full reason Rome conquered the world?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q1" value="a"> Because the Roman army was actually quite disorganized and chaotic</label>
+                <label class="option"><input type="radio" name="q1" value="b"> Because other empires &mdash; Assyria, Macedon, Qin &mdash; were just as disciplined</label>
+                <label class="option"><input type="radio" name="q1" value="c"> Because discipline only ever mattered at sea, never on land</label>
+                <label class="option"><input type="radio" name="q1" value="d"> Because the Romans preferred to avoid fighting whenever they could</label>
+            </div>
+            <button class="check-btn" onclick="check(1,'b')">Check Answer</button>
+            <div class="feedback" id="fb1"></div>
+        </div>
+
+        <div class="question-block" id="q2">
+            <h3><span class="q-num">2</span> Why did Rome's army almost never run out of soldiers?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q2" value="a"> Because Roman soldiers were too skilled to ever be killed in battle</label>
+                <label class="option"><input type="radio" name="q2" value="b"> Because Rome paid huge wages that drew fighters from across the known world</label>
+                <label class="option"><input type="radio" name="q2" value="c"> Because Rome forbade any of its soldiers from leaving the army for life</label>
+                <label class="option"><input type="radio" name="q2" value="d"> Because defeated peoples became allies who owed troops, so each win deepened the pool</label>
+            </div>
+            <button class="check-btn" onclick="check(2,'d')">Check Answer</button>
+            <div class="feedback" id="fb2"></div>
+        </div>
+
+        <div class="question-block" id="q3">
+            <h3><span class="q-num">3</span> After the catastrophe at Cannae, why didn't Rome lose the war?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q3" value="a"> Because Rome refused to quit, raised new legions, and most of its allies stayed loyal</label>
+                <label class="option"><input type="radio" name="q3" value="b"> Because Hannibal's whole army was destroyed in that very same battle</label>
+                <label class="option"><input type="radio" name="q3" value="c"> Because a foreign country rushed to Rome's rescue with a fresh army</label>
+                <label class="option"><input type="radio" name="q3" value="d"> Because Hannibal chose to sail home to Carthage right after the battle</label>
+            </div>
+            <button class="check-btn" onclick="check(3,'a')">Check Answer</button>
+            <div class="feedback" id="fb3"></div>
+        </div>
+
+        <div class="question-block" id="q4">
+            <h3><span class="q-num">4</span> What do the Spanish sword and the copied Carthaginian fleet show about Rome?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q4" value="a"> That Rome was too poor to design its own weapons and ships</label>
+                <label class="option"><input type="radio" name="q4" value="b"> That Rome refused to fight any enemy that was stronger than itself</label>
+                <label class="option"><input type="radio" name="q4" value="c"> That Rome would copy any good idea from anyone and make it its own</label>
+                <label class="option"><input type="radio" name="q4" value="d"> That Roman soldiers preferred fighting at sea rather than on land</label>
+            </div>
+            <button class="check-btn" onclick="check(4,'c')">Check Answer</button>
+            <div class="feedback" id="fb4"></div>
+        </div>
+
+        <div class="question-block" id="q5">
+            <h3><span class="q-num">5</span> What is the real reason Rome kept winning?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q5" value="a"> Because it carried the single best weapon in the entire ancient world</label>
+                <label class="option"><input type="radio" name="q5" value="b"> Because it built a system &mdash; discipline, manpower, resilience, and adaptation together</label>
+                <label class="option"><input type="radio" name="q5" value="c"> Because it never lost even a single battle in seven hundred years</label>
+                <label class="option"><input type="radio" name="q5" value="d"> Because it was simply larger than every enemy it ever faced</label>
+            </div>
+            <button class="check-btn" onclick="check(5,'b')">Check Answer</button>
+            <div class="feedback" id="fb5"></div>
+        </div>
+
+        <div class="score-box" id="scoreBox" style="display:none;">
+            <h3>Your Score</h3>
+            <div class="score-number"><span id="scoreVal">0</span>/5</div>
+        </div>
+
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(8)">&larr; Back</button>
+            <span class="page-num">9 of 10</span>
+            <button class="nav-btn primary" onclick="go(10)">Finish &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- END -->
+<section class="page end-page" id="page-10">
+    <div class="ornament">&#10038; &#10038; &#10038;</div>
+    <h1>The End</h1>
+    <blockquote><em>Rome lost battles for seven hundred years. It kept winning wars &mdash; because order was only where it began.</em></blockquote>
+    <div class="ornament">&#10038;</div>
+    <p class="source">Based on the histories of Polybius and Livy,<br>and on Adrian Goldsworthy's <em>The Complete Roman Army</em></p>
+    <div style="margin-top: 40px;">
+        <button class="nav-btn primary" onclick="go(0)">Read Again</button>
+    </div>
+</section>
+
+<script>
+let cur = 0;
+const total = 11;
+let score = 0;
+const answered = new Set();
+
+const answers = {
+    1: { correct: "Right. Discipline was real but not unique &mdash; plenty of empires drilled professional armies. So organization can't be Rome's special advantage.", incorrect: "The answer is B. Assyria, Macedon, and Qin all fielded highly disciplined armies, so discipline alone can't explain why Rome was different." },
+    2: { correct: "Exactly. The socii owed Rome soldiers, not just money &mdash; so every victory made Rome's pool of future fighters larger.", incorrect: "The answer is D. Beaten peoples became allies bound to supply troops, so Rome's manpower grew with each conquest instead of shrinking." },
+    3: { correct: "Yes. Rome refused to surrender or ransom prisoners, built new armies within weeks, and over four-fifths of its allies held firm.", incorrect: "The answer is A. Rome simply refused to quit &mdash; it raised fresh legions and kept the loyalty of most of its allies, then won the war years later." },
+    4: { correct: "Right. Rome took the best sword (Spanish) and learned to build ships from a wrecked enemy galley &mdash; it adapted whatever worked.", incorrect: "The answer is C. Rome wasn't too proud to borrow &mdash; the gladius and its first navy were both copied from enemies, then improved." },
+    5: { correct: "Exactly. No single trait won &mdash; it was the four working together. Take one away and Rome loses.", incorrect: "The answer is B. Rome lost plenty of battles; what won was the whole system &mdash; discipline, manpower, resilience, and adaptation reinforcing each other." }
+};
+
+function go(p) {
+    document.querySelectorAll('.page').forEach(pg => pg.classList.remove('active'));
+    document.getElementById('page-' + p).classList.add('active');
+    cur = p;
+    document.getElementById('progressBar').style.width = (cur / (total - 1) * 100) + '%';
+    window.scrollTo(0, 0);
+}
+
+function check(q, correct) {
+    if (answered.has(q)) return;
+    const sel = document.querySelector(`input[name="q${q}"]:checked`);
+    if (!sel) return;
+    const fb = document.getElementById('fb' + q);
+    const opts = document.querySelectorAll(`#q${q} .option`);
+    opts.forEach(o => {
+        const inp = o.querySelector('input');
+        if (inp.checked) o.classList.add('selected');
+    });
+    if (sel.value === correct) {
+        fb.innerHTML = answers[q].correct;
+        fb.className = 'feedback correct';
+        score++;
+    } else {
+        fb.innerHTML = answers[q].incorrect;
+        fb.className = 'feedback incorrect';
+        opts.forEach(o => {
+            const inp = o.querySelector('input');
+            if (inp.value === correct) o.classList.add('correct');
+            if (inp.checked) o.classList.add('incorrect');
+        });
+    }
+    answered.add(q);
+    document.getElementById('scoreVal').textContent = score;
+    if (answered.size === 5) document.getElementById('scoreBox').style.display = 'block';
+}
+
+document.querySelectorAll('.option input').forEach(inp => {
+    inp.addEventListener('change', () => {
+        inp.closest('.options').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+        inp.closest('.option').classList.add('selected');
+    });
+});
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' && cur < total - 1) go(cur + 1);
+    if (e.key === 'ArrowLeft' && cur > 0) go(cur - 1);
+});
+</script>
+
+</body>
+</html>
