@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cicero &mdash; The Man Who Fought With Words</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            background: #15140f;
+            color: #ece7da;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #b8893a, #d4a84b);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .reader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px 16px;
+        }
+
+        .page-frame {
+            max-width: min(1400px, 96vw);
+            width: 100%;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .page-frame.fading { opacity: 0; }
+
+        .page-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .page-frame.cover img {
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #ece7da;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            z-index: 50;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            user-select: none;
+        }
+
+        .nav-arrow.prev { left: 18px; }
+        .nav-arrow.next { right: 18px; }
+
+        .nav-arrow:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .nav-arrow:disabled {
+            opacity: 0.18;
+            cursor: default;
+        }
+
+        .page-info {
+            position: fixed;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: rgba(236, 231, 218, 0.45);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(236, 231, 218, 0.4);
+        }
+
+        .home-link {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            font-size: 13px;
+            color: rgba(236, 231, 218, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            z-index: 100;
+        }
+
+        .home-link:hover { color: rgba(236, 231, 218, 0.7); }
+
+        @media (max-width: 768px) {
+            .reader { padding: 16px 10px; }
+            .nav-arrow { width: 44px; height: 44px; font-size: 22px; }
+            .nav-arrow.prev { left: 8px; }
+            .nav-arrow.next { right: 8px; }
+            .home-link { top: 10px; left: 10px; }
+            .page-info { bottom: 8px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-frame, .progress-bar { transition: none; }
+        }
+
+        .end-interstitial {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .end-interstitial.fading { opacity: 0; }
+
+        .end-interstitial h2 {
+            font-size: 32px;
+            font-weight: normal;
+            color: #e8e2d2;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .end-interstitial .subtitle {
+            font-size: 18px;
+            color: rgba(236, 231, 218, 0.6);
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .quiz-container {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .quiz-container.fading { opacity: 0; }
+
+        .quiz-container h2 {
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #e8e2d2;
+        }
+
+        .question-block {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .question-text {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #e8e2d2;
+            line-height: 1.6;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #d4ccc0;
+            line-height: 1.5;
+        }
+
+        .options label:hover { background: rgba(255,255,255,0.06); }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #d4a84b;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-family: inherit;
+            background: rgba(212, 168, 75, 0.14);
+            border: 1px solid rgba(212, 168, 75, 0.32);
+            color: #e2bf73;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .check-btn:hover { background: rgba(212, 168, 75, 0.26); }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            background: rgba(90, 180, 90, 0.1);
+            border: 1px solid rgba(90, 180, 90, 0.2);
+            color: #8cd48c;
+        }
+
+        .feedback.incorrect {
+            background: rgba(200, 90, 90, 0.1);
+            border: 1px solid rgba(200, 90, 90, 0.2);
+            color: #d4a0a0;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            display: none;
+            color: #e2bf73;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <a class="home-link" href="../index.html">&larr; Stories</a>
+
+    <div class="reader">
+        <div class="page-title" id="pageTitle">Cover</div>
+        <div class="page-frame cover" id="pageFrame">
+            <img id="pageImg" src="pages/page-00-cover.png" alt="Cicero &mdash; Cover" />
+        </div>
+
+        <div class="end-interstitial" id="endInterstitial">
+            <h2>The Voice Outlasted the Armies</h2>
+            <div class="subtitle">Cicero &mdash; The Man Who Fought With Words</div>
+            <p style="color: rgba(236, 231, 218, 0.75); font-size: 17px; line-height: 1.7; max-width: 560px; margin: 0 auto;">
+                A small-town nobody with no famous name and no army climbed to the very top of Rome on the power of his voice alone. He beat the king of the courts, became consul, and broke a conspiracy with a single speech &mdash; then learned that the same lawless act that saved Rome could destroy him. Shut out of politics, he turned his voice inward and gave Latin the words for Greek ideas: quality, humanity, moral, science. In the end the men with swords won, and nailed the hands that wrote against them to the platform he had spoken from. But they could not kill what he wrote. One quiz stands between you and the end &mdash; it tests the WHY, not the what.
+            </p>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <h2>Test Your Understanding</h2>
+
+            <div class="question-block" id="q1">
+                <div class="question-text">1. Why was Cicero's rise to the consulship so extraordinary?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> Because he commanded the largest army in Rome, and his victorious soldiers carried him straight into the highest office on their shields.</label>
+                    <label><input type="radio" name="q1" value="b"> Because he reached Rome's highest office on the power of his speaking alone, with no famous family name and no army behind him.</label>
+                    <label><input type="radio" name="q1" value="c"> Because he was born the richest man in the city, and in Rome enough money could quietly buy an ambitious man almost any office he wanted.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q1', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q1-correct">Right &mdash; that is what made him a "new man." Power in Rome came from blood, money, or soldiers. Cicero had none of those advantages. He argued his way to the top of the Republic on his voice alone &mdash; something no one had done before.</div>
+                <div class="feedback incorrect" id="q1-incorrect">Not quite. He had no army and no famous name, and the story is not about wealth. What made his rise extraordinary is that he reached Rome's highest office on the power of his speaking alone &mdash; the first "new man" to do it.</div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <div class="question-text">2. Why did crushing the Catiline conspiracy later destroy him?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> Because he had taken a great bribe to let the real ringleaders slip away, and years afterward his enemies finally uncovered the secret payment.</label>
+                    <label><input type="radio" name="q2" value="b"> Because he fled the city in fear the moment swords were drawn, and Rome never forgave a consul who had shown such open and public cowardice.</label>
+                    <label><input type="radio" name="q2" value="c"> Because he insulted the young Julius Caesar all through the debate, and Caesar then patiently waited for years to take revenge on the proud man.</label>
+                    <label><input type="radio" name="q2" value="d"> Because he had the conspirators put to death without a trial, which broke Roman law and gave his enemies the charge that drove him into exile.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q2', 'd')">Check Answer</button>
+                <div class="feedback correct" id="q2-correct">Right &mdash; this is the knot at the heart of the book. Executing the conspirators without a trial was his finest hour and a lawless act at the same time. Five years later a hostile law against exactly that crime could only mean Cicero, and it drove him into exile.</div>
+                <div class="feedback incorrect" id="q2-incorrect">Not quite. There was no bribe, no battlefield cowardice, and Caesar was not the cause. His ruin grew from the act itself: he had the conspirators put to death without a trial, which broke Roman law and later gave his enemies the charge that exiled him.</div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <div class="question-text">3. Why did Cicero refuse to join Caesar, Pompey, and Crassus?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> Because joining them meant trading the Republic's freedom for a share of their private power, and he would not make that bargain.</label>
+                    <label><input type="radio" name="q3" value="b"> Because he privately despised all three men, and could not bear to sit at the same table as people he found so personally distasteful.</label>
+                    <label><input type="radio" name="q3" value="c"> Because he was by then too old and too tired for high politics, and wanted only to retire quietly to his books and his country villas.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q3', 'a')">Check Answer</button>
+                <div class="feedback correct" id="q3-correct">Right &mdash; and it was a noble, costly choice. The three men had quietly carved Rome up among themselves and invited him in. To accept was to trade the Republic for a share of their power. He refused &mdash; and it left him alone against the men who now ran Rome.</div>
+                <div class="feedback incorrect" id="q3-incorrect">Not quite. It was not personal dislike or weariness. He refused because joining them meant trading the Republic's freedom for a share of their private power &mdash; a bargain he would not make, even though it left him dangerously alone.</div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <div class="question-text">4. Why does Cicero's philosophy still matter today?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> Because he discovered a new planet and a comet, and the careful records he kept of the night sky are still consulted by astronomers now.</label>
+                    <label><input type="radio" name="q4" value="b"> Because he wrote down the first set of written laws for Rome, and much of modern European law is still founded directly upon them today.</label>
+                    <label><input type="radio" name="q4" value="c"> Because he carried Greek thought into Latin and invented the words for it &mdash; "quality," "humanity," "moral," "science" &mdash; words we still use.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q4', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q4-correct">Right &mdash; the voice that lost the Forum was teaching the world how to think. Cut off from politics, Cicero carried Greek philosophy into Latin for the first time. He had no words for the new ideas, so he invented them &mdash; and we are still using them.</div>
+                <div class="feedback incorrect" id="q4-incorrect">Not quite. He was no astronomer, and this is not about a law code. His philosophy still matters because he carried Greek thought into Latin and invented the words for it &mdash; "quality," "humanity," "moral," "science" &mdash; words we use every day.</div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <div class="question-text">5. Why couldn't Cicero's words save him in the end?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> Because he had quietly run out of money, and without the funds to pay for guards and allies even his finest speeches counted for nothing.</label>
+                    <label><input type="radio" name="q5" value="b"> Because in a Rome ruled by armies no speech could stop the legions; Antony's soldiers ended the man even as his writing lived on.</label>
+                    <label><input type="radio" name="q5" value="c"> Because he had grown old and lost his voice, and the famous orator could no longer make himself heard above his enemies in the Forum.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q5', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q5-correct">Right &mdash; that is the whole argument of the book. The word that beat Catiline and Verres could not out-maneuver legions. When Rome came to be ruled by armies, no speech could stop them. Antony's soldiers ended the man &mdash; but not the words he left behind.</div>
+                <div class="feedback incorrect" id="q5-incorrect">Not quite. It was not about money or a failing voice. His words could not save him because in a Rome ruled by armies no speech could stop the legions &mdash; Antony's soldiers ended the man, even as his writing outlived them all.</div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay"></div>
+        </div>
+
+    </div>
+
+    <button class="nav-arrow prev" id="prevBtn" onclick="prev()" disabled aria-label="Previous page">&larr;</button>
+    <button class="nav-arrow next" id="nextBtn" onclick="next()" aria-label="Next page">&rarr;</button>
+    <span class="page-info" id="pageInfo">Cover</span>
+
+    <script>
+        const pages = [
+            { file: 'pages/page-00-cover.png', title: 'Cover', label: 'Cover' },
+            { file: 'pages/page-01.png', title: 'Arpinum, the New Man', label: 'Page 1 of 18' },
+            { file: 'pages/page-02.png', title: 'The First Stand', label: 'Page 2 of 18' },
+            { file: 'pages/page-03.png', title: 'The King of the Courts', label: 'Page 3 of 18' },
+            { file: 'pages/page-04.png', title: 'Consul', label: 'Page 4 of 18' },
+            { file: 'pages/page-05.png', title: 'How Long, Catiline?', label: 'Page 5 of 18' },
+            { file: 'pages/page-06.png', title: 'The Fatal Mercy', label: 'Page 6 of 18' },
+            { file: 'pages/page-07.png', title: 'The Man Behind the Voice', label: 'Page 7 of 18' },
+            { file: 'pages/page-08.png', title: 'The Ground Shifts', label: 'Page 8 of 18' },
+            { file: 'pages/page-09.png', title: 'Exile', label: 'Page 9 of 18' },
+            { file: 'pages/page-10.png', title: 'The Age of Legions', label: 'Page 10 of 18' },
+            { file: 'pages/page-11.png', title: 'The Toga Among the Armour', label: 'Page 11 of 18' },
+            { file: 'pages/page-12.png', title: 'Pardoned, and Shut Out', label: 'Page 12 of 18' },
+            { file: 'pages/page-13.png', title: 'Tullia', label: 'Page 13 of 18' },
+            { file: 'pages/page-14.png', title: 'The Word Turned Inward', label: 'Page 14 of 18' },
+            { file: 'pages/page-15.png', title: 'The Last Fight', label: 'Page 15 of 18' },
+            { file: 'pages/page-16.png', title: 'The Philippics', label: 'Page 16 of 18' },
+            { file: 'pages/page-17.png', title: 'The Hands on the Rostra', label: 'Page 17 of 18' },
+            { file: 'pages/page-18.png', title: 'The Word Outlives the Armies', label: 'Page 18 of 18' },
+            { file: null, title: 'The Voice Outlasted the Armies', label: 'The End', end: true },
+            { file: null, title: 'Quiz', label: 'Quiz', quiz: true },
+        ];
+
+        let current = 0;
+        const img = document.getElementById('pageImg');
+        const frame = document.getElementById('pageFrame');
+        const quiz = document.getElementById('quizContainer');
+        const endInt = document.getElementById('endInterstitial');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageInfo = document.getElementById('pageInfo');
+        const pageTitle = document.getElementById('pageTitle');
+        const progressBar = document.getElementById('progressBar');
+
+        function show(index) {
+            frame.classList.add('fading');
+            quiz.classList.add('fading');
+            endInt.classList.add('fading');
+            setTimeout(() => {
+                current = index;
+                const p = pages[current];
+                if (p.quiz) {
+                    frame.style.display = 'none';
+                    endInt.style.display = 'none';
+                    quiz.style.display = 'block';
+                } else if (p.end) {
+                    frame.style.display = 'none';
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'block';
+                } else {
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'none';
+                    frame.style.display = 'block';
+                    img.src = p.file;
+                    img.alt = 'Cicero — ' + p.title;
+                }
+                pageTitle.innerHTML = p.title;
+                pageInfo.innerHTML = p.label;
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === pages.length - 1;
+                progressBar.style.width = (current / (pages.length - 1)) * 100 + '%';
+                frame.classList.toggle('cover', current === 0);
+                frame.classList.remove('fading');
+                quiz.classList.remove('fading');
+                endInt.classList.remove('fading');
+                window.scrollTo(0, 0);
+            }, 250);
+        }
+
+        let answered = 0;
+        let correctCount = 0;
+
+        function checkAnswer(qId, correctAnswer) {
+            const selected = document.querySelector('input[name="' + qId + '"]:checked');
+            if (!selected) return;
+            const block = document.getElementById(qId);
+            const isCorrect = selected.value === correctAnswer;
+            block.querySelectorAll('input').forEach(function(i) { i.disabled = true; });
+            block.querySelector('.check-btn').style.display = 'none';
+            if (isCorrect) {
+                document.getElementById(qId + '-correct').style.display = 'block';
+                correctCount++;
+            } else {
+                document.getElementById(qId + '-incorrect').style.display = 'block';
+            }
+            answered++;
+            if (answered === 5) {
+                var display = document.getElementById('scoreDisplay');
+                display.textContent = 'You got ' + correctCount + ' out of 5 correct!';
+                display.style.display = 'block';
+            }
+        }
+
+        function next() { if (current < pages.length - 1) show(current + 1); }
+        function prev() { if (current > 0) show(current - 1); }
+
+        img.addEventListener('click', function(e) {
+            const rect = img.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x < rect.width * 0.35) prev();
+            else next();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) next();
+                else prev();
+            }
+        }, { passive: true });
+
+        function preload() {
+            if (current < pages.length - 1 && pages[current + 1].file) {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = pages[current + 1].file;
+                document.head.appendChild(link);
+            }
+        }
+        img.addEventListener('load', preload);
+    </script>
+
+</body>
+</html>
