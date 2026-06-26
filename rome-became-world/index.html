@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Rome Became the World</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --iron: #3a3632;
+            --purple: #702963;
+            --bronze: #9c6b2e;
+            --parchment: #f5efe3;
+            --ink: #1e1c1a;
+            --stone: #8a8279;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', 'Garamond', serif;
+            background: var(--parchment);
+            color: var(--ink);
+            overflow-x: hidden;
+        }
+
+        /* Progress */
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--iron), var(--purple));
+            width: 0%;
+            transition: width 0.4s ease;
+            z-index: 1000;
+        }
+
+        /* Pages */
+        .page { display: none; opacity: 0; transition: opacity 0.5s ease; }
+        .page.active { opacity: 1; }
+
+        /* Cover */
+        .cover {
+            background: #100d0b;
+            color: #e8e0d0;
+            text-align: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .cover.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .cover .badge {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+            opacity: 0.6; margin-bottom: 30px; padding: 6px 18px;
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 20px;
+        }
+        .cover h1 { font-size: 50px; font-weight: 500; letter-spacing: 1px; line-height: 1.12; margin-bottom: 16px; }
+        .cover .subtitle { font-size: 19px; font-style: italic; opacity: 0.82; margin-bottom: 6px; max-width: 640px; line-height: 1.4; }
+        .cover .setting {
+            font-family: 'Inter', sans-serif; font-size: 13px; opacity: 0.5;
+            letter-spacing: 1.5px; margin-bottom: 35px; margin-top: 8px;
+        }
+        .cover img { max-width: 640px; width: 92%; border-radius: 10px; box-shadow: 0 12px 40px rgba(0,0,0,0.55); margin-bottom: 35px; }
+        .cover .begin {
+            padding: 14px 48px; font-size: 16px; font-family: 'Cormorant Garamond', serif;
+            background: transparent; border: 1.5px solid rgba(255,255,255,0.35);
+            color: #e8e0d0; cursor: pointer; border-radius: 30px; transition: all 0.3s; letter-spacing: 1px;
+        }
+        .cover .begin:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.6); }
+
+        /* Essay pages */
+        .essay-page.active { display: flex; flex-direction: column; align-items: center; padding: 60px 24px 40px; }
+        .essay-content { max-width: 720px; width: 100%; }
+
+        /* Section headers */
+        .section-label {
+            font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 2.5px;
+            text-transform: uppercase; color: var(--stone); margin-bottom: 8px;
+        }
+        .section-label.part1 { color: #6b655d; }
+        .section-label.part2 { color: var(--purple); }
+        .section-label.part3 { color: var(--bronze); }
+
+        .essay-content h2 { font-size: 31px; font-weight: 500; color: var(--ink); margin-bottom: 26px; line-height: 1.18; }
+        .essay-content p { font-size: 19px; line-height: 1.85; margin-bottom: 20px; color: #2a2724; }
+        .essay-content .lead { font-size: 21px; color: var(--ink); }
+        .essay-content em { color: var(--purple); font-style: italic; }
+        .essay-content strong { font-weight: 600; color: var(--ink); }
+
+        /* Pull quotes */
+        .pull-quote {
+            margin: 32px 0; padding: 24px 28px; border-left: 4px solid var(--purple);
+            background: rgba(112, 41, 99, 0.06); border-radius: 0 8px 8px 0;
+        }
+        .pull-quote p { font-size: 21px; font-style: italic; color: var(--purple); margin-bottom: 0; line-height: 1.7; }
+
+        /* Fact boxes */
+        .fact-box {
+            margin: 28px 0; padding: 22px 26px; background: #fff; border-radius: 10px;
+            border: 1px solid #e2dccf; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .fact-box .fact-label {
+            font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--purple); margin-bottom: 10px;
+        }
+        .fact-box p { font-size: 17px; margin-bottom: 0; }
+
+        /* Images */
+        .essay-image { margin: 32px 0; text-align: center; }
+        .essay-image img { max-width: 100%; max-height: 52vh; border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,0.14); }
+        .essay-image .caption {
+            font-family: 'Inter', sans-serif; font-size: 12px; color: var(--stone);
+            margin-top: 10px; letter-spacing: 0.3px;
+        }
+
+        /* Four-pillar block (P9) */
+        .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 32px 0; }
+        .pillar {
+            background: #fff; border-radius: 10px; padding: 20px 22px;
+            border: 1px solid #e2dccf; border-top: 4px solid var(--purple);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .pillar:nth-child(2) { border-top-color: var(--bronze); }
+        .pillar:nth-child(3) { border-top-color: var(--iron); }
+        .pillar:nth-child(4) { border-top-color: var(--stone); }
+        .pillar h4 {
+            font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--ink); margin-bottom: 10px;
+        }
+        .pillar p { font-size: 16px; line-height: 1.6; margin-bottom: 0; color: #3a3632; }
+
+        /* Nav */
+        .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd6ca; }
+        .nav-btn { padding: 11px 26px; font-size: 15px; font-family: 'Cormorant Garamond', serif; border: none; cursor: pointer; border-radius: 25px; transition: all 0.3s; }
+        .nav-btn.primary { background: var(--ink); color: #e8e0d0; }
+        .nav-btn.primary:hover { background: #000; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .nav-btn.secondary { background: transparent; color: var(--ink); border: 1.5px solid #c4b9a8; }
+        .nav-btn.secondary:hover { border-color: var(--purple); background: rgba(112,41,99,0.05); }
+        .page-num { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--stone); letter-spacing: 1px; }
+
+        /* Quiz */
+        .quiz-header { text-align: center; margin-bottom: 36px; }
+        .quiz-header h2 { font-size: 28px; font-weight: 500; margin-bottom: 8px; }
+        .quiz-header p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--stone); }
+        .question-block { background: #fff; border-radius: 10px; padding: 24px; margin-bottom: 22px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #e2dccf; }
+        .question-block h3 { font-size: 17px; font-weight: 500; margin-bottom: 18px; line-height: 1.5; }
+        .q-num {
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--purple); color: #fff; width: 24px; height: 24px; border-radius: 50%;
+            font-family: 'Inter', sans-serif; font-size: 12px; margin-right: 10px;
+        }
+        .option { display: flex; align-items: center; padding: 12px 16px; margin: 8px 0; background: #faf8f4; border: 2px solid #e2dccf; border-radius: 8px; cursor: pointer; transition: all 0.2s; font-size: 16px; }
+        .option:hover { background: #f0ede5; border-color: #c4b9a8; }
+        .option input { margin-right: 12px; accent-color: var(--purple); transform: scale(1.1); }
+        .option.selected { border-color: var(--purple); background: #f0ede5; }
+        .option.correct { border-color: #4a7c4e; background: #e8f5e9; }
+        .option.incorrect { border-color: #b55454; background: #ffebee; }
+        .check-btn { padding: 10px 24px; font-size: 14px; font-family: 'Cormorant Garamond', serif; background: var(--ink); border: none; color: #e8e0d0; cursor: pointer; border-radius: 20px; margin-top: 6px; }
+        .check-btn:hover { background: #000; }
+        .feedback { margin-top: 14px; padding: 14px 18px; border-radius: 8px; display: none; font-size: 15px; line-height: 1.6; }
+        .feedback.correct { background: #e8f5e9; color: #2e5a32; border-left: 4px solid #4a7c4e; display: block; }
+        .feedback.incorrect { background: #ffebee; color: #8b3a3a; border-left: 4px solid #b55454; display: block; }
+        .score-box { text-align: center; padding: 22px; background: var(--ink); border-radius: 10px; margin-top: 28px; color: #e8e0d0; }
+        .score-box .score-number { font-size: 44px; font-weight: 600; margin: 8px 0; }
+
+        /* End page */
+        .end-page { background: #100d0b; color: #e8e0d0; text-align: center; padding: 60px 24px; min-height: 100vh; }
+        .end-page.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .end-page h1 { font-size: 32px; font-weight: 400; margin-bottom: 30px; letter-spacing: 2px; }
+        .end-page .ornament { font-size: 18px; opacity: 0.4; letter-spacing: 8px; margin: 20px 0; }
+        .end-page blockquote { font-size: 22px; font-style: italic; opacity: 0.88; max-width: 580px; line-height: 1.6; margin-bottom: 12px; }
+        .end-page .source { font-family: 'Inter', sans-serif; font-size: 12px; opacity: 0.4; margin-top: 40px; line-height: 1.8; }
+
+        @media (max-width: 768px) {
+            .cover h1 { font-size: 34px; }
+            .essay-page { padding: 40px 18px 30px; }
+            .essay-content h2 { font-size: 24px; }
+            .essay-content p { font-size: 17px; text-align: left; }
+            .pull-quote p { font-size: 18px; }
+            .pillars { grid-template-columns: 1fr; }
+            .nav { flex-wrap: wrap; gap: 12px; }
+            .nav-btn { flex: 1; min-width: 110px; text-align: center; }
+            .page-num { width: 100%; text-align: center; margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- COVER -->
+<section class="page cover active" id="page-0">
+    <span class="badge">Illustrated Essay &middot; Part Two</span>
+    <h1>How Rome Became the World</h1>
+    <p class="subtitle">What Happened After the Winning &mdash; the Long, Strange Story of How Rome Stopped, and Didn't</p>
+    <p class="setting">Rome &middot; 100 BC &ndash; AD 1453</p>
+    <img src="images/cover.png" alt="A gilded Roman eagle standard half in dusk shadow, a great domed city catching golden dawn light on the far horizon">
+    <button class="begin" onclick="go(1)">Begin Reading</button>
+</section>
+
+<!-- PAGE 1 -->
+<section class="page essay-page" id="page-1">
+    <div class="essay-content">
+        <span class="section-label part1">Part One &middot; The Machine That Could Not Be Beaten</span>
+        <h2>The Question</h2>
+        <div class="essay-image">
+            <img src="images/image-question.png" alt="A great Roman aqueduct and paved road striding across sun-baked Italian hills under a low late-afternoon sun">
+            <div class="caption">Built to last forever &mdash; and lit by the first long shadows of evening</div>
+        </div>
+        <p class="lead">In the first book we asked why Rome kept winning, and found that the usual answer &mdash; <em>they were so organized</em> &mdash; was only the floor it stood on. The real answer was a <strong>system</strong>: a professional army, a bottomless well of allied soldiers, a refusal to quit after even the worst defeat, and the humility to copy any good idea. Put together, it made a machine that could lose a battle &mdash; even a catastrophe like Cannae &mdash; and still win the war.</p>
+        <p>So here is the harder question. <strong>A machine like that doesn't lose. How does it ever stop?</strong></p>
+        <p>It is tempting to imagine a single terrible day &mdash; a wave of barbarians smashing through the gates, and Rome is gone. That is the story most people half-remember. It is also wrong, and the truth is far more interesting. Rome was not knocked down from the outside. It was changed from the inside, slowly, over <em>centuries</em> &mdash; and the thing that changed it was not its weakness. It was its strength. Each of the four pillars that made Rome unbeatable, followed far enough, became the very thing that turned it into something else.</p>
+        <p>This is the story of what Rome became.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(0)">&larr; Cover</button>
+            <span class="page-num">1 of 11</span>
+            <button class="nav-btn primary" onclick="go(2)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page essay-page" id="page-2">
+    <div class="essay-content">
+        <span class="section-label part1">Part One &middot; The Machine That Could Not Be Beaten</span>
+        <h2>The Allies Who Became Rome</h2>
+        <div class="essay-image">
+            <img src="images/image-italia-citizens.png" alt="An antique map of the Italian peninsula rendered as one unified Roman land, labelled ROMA and ITALIA">
+            <div class="caption">Book one's allies, answered &mdash; the whole peninsula now one Roman people</div>
+        </div>
+        <p>The first pillar to change was the one that had made Rome unbeatable in the first place: its <strong>allies</strong>.</p>
+        <p>Remember the deal. The peoples of Italy that Rome defeated were not crushed or simply taxed &mdash; they were turned into <em>socii</em>, allies bound by treaty to send soldiers whenever Rome called. About half of every Roman army was made of these allied Italians. They marched in Rome's wars, bled in Rome's battles, and died at Cannae beside Roman citizens. But they were not Romans. They could not vote, could not share in the spoils and the say that full citizens had. For generations they accepted this. And then they stopped.</p>
+        <p>The allies began to want the one thing their service had earned and Rome would not give: <strong>citizenship.</strong> To be Romans, not just to fight for Rome. When a Roman politician proposed to grant it and was murdered for the idea, Italy went to war with Rome &mdash; a brutal conflict we call the <strong>Social War</strong> (from <em>socii</em>, "allies"), in 91 BC. The allies even built their own rival state, with its own capital and its own coins, to replace the Rome that had refused them.</p>
+        <p>And here is the remarkable part. Rome <strong>won that war by giving in.</strong> In the middle of the fighting it passed a law granting citizenship to the allies &mdash; first to those who had stayed loyal, then to nearly any Italian who laid down arms and asked. The rebellion dissolved because its whole cause had been granted. Within a generation, the distinction at the heart of the old system was gone: the allies and the Romans were now one people. <strong>Italy had become Roman.</strong></p>
+        <div class="fact-box">
+            <div class="fact-label">Did You Know?</div>
+            <p>Before the Social War, "Roman" meant the citizens of one city and its neighbors. After it, "Roman" meant nearly everyone in Italy. The well of allied soldiers from book one did not run dry &mdash; it simply became Rome itself.</p>
+        </div>
+        <p>This was not a defeat. It was the manpower pillar completing itself. But it was also the first sign of a pattern that would repeat for five hundred years: the things that made Rome strong kept turning Rome into something new.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(1)">&larr; Back</button>
+            <span class="page-num">2 of 11</span>
+            <button class="nav-btn primary" onclick="go(3)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page essay-page" id="page-3">
+    <div class="essay-content">
+        <span class="section-label part1">Part One &middot; The Machine That Could Not Be Beaten</span>
+        <h2>The Armies That Belonged to Generals</h2>
+        <div class="essay-image">
+            <img src="images/image-rubicon.png" alt="A Roman general on horseback leads a column of mail-clad legionaries across a shallow river at misty dawn, an eagle standard raised">
+            <div class="caption">An army crossing a river at dawn &mdash; following the man, not the Republic</div>
+        </div>
+        <p>The second pillar to change was the <strong>army</strong> &mdash; and this change would end the Republic itself.</p>
+        <p>In Rome's early centuries, a soldier was a citizen-farmer. He owned a little land, fought the summer's war, and went home to his fields. His loyalty was to Rome, because Rome was <em>his</em> &mdash; his city, his land, his vote. But across the last century of the Republic, the army slowly became something else: a <strong>profession.</strong> Men with no farm to return to served for years on end, for pay, and looked to their commander to reward them and to give them land when they retired. (Historians no longer credit a single general with one grand reform here &mdash; the change came gradually, out of long wars and hard necessity.)</p>
+        <p>Follow that small shift to its end and you get an earthquake. If a soldier's land and pay and future came from his <strong>general</strong>, not from Rome, then his loyalty did too. A commander who won wars and looked after his men commanded something no Roman law had counted on: an army that would follow <em>him</em> &mdash; even against Rome.</p>
+        <p>And so they did. One general marched his legions on the city of Rome itself, something once unthinkable. Another, named <strong>Julius Caesar</strong>, led his army across a small river called the Rubicon &mdash; the border he was forbidden to cross under arms &mdash; and plunged the Republic into civil war. For the better part of a century, Roman armies fought <em>each other</em>, each loyal to its own general, until only one man was left standing: Caesar's heir, <strong>Augustus.</strong> He kept the comforting old words &mdash; <em>Senate</em>, <em>Republic</em>, <em>consul</em> &mdash; but the reality was new. One man now held the armies, and through them, everything. The Republic was over. The <strong>Empire</strong> had begun.</p>
+        <div class="pull-quote">
+            <p>A citizen fights for his city. A professional fights for whoever pays him. Rome did not notice the difference until its own armies were marching on Rome.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(2)">&larr; Back</button>
+            <span class="page-num">3 of 11</span>
+            <button class="nav-btn primary" onclick="go(4)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page essay-page" id="page-4">
+    <div class="essay-content">
+        <span class="section-label part2">Part Two &middot; The Long Turn Inward</span>
+        <h2>The Empire at Its Height</h2>
+        <div class="essay-image">
+            <img src="images/image-empire-height.png" alt="An antique map of the Roman Empire at its greatest extent, the Mediterranean labelled MARE NOSTRUM, ROMA in Italy">
+            <div class="caption">From Britain to the Euphrates &mdash; the whole sea a Roman lake, <em>Mare Nostrum</em></div>
+        </div>
+        <p>For a while &mdash; a long while &mdash; the change looked like pure triumph.</p>
+        <p>Under the emperors, Rome reached its greatest size and its deepest peace. At its height the Empire ran from the rain of northern <strong>Britain</strong> to the sands beyond the <strong>Euphrates</strong>, from the <strong>Rhine</strong> to the edge of the Sahara. The entire Mediterranean Sea was a Roman lake; Romans called it <em>Mare Nostrum</em> &mdash; "our sea." For roughly two hundred years, a traveler could go from one end of this world to the other on Roman roads, under Roman law, using Roman coins, in a peace so famous it has its own name: the <strong>Pax Romana</strong>, the Roman Peace. More people lived more safely under one government than ever before in that part of the world.</p>
+        <p>It was the machine at its grandest. But grandeur and danger, it turned out, were the same fact.</p>
+        <p>An empire that vast had an enormous <strong>frontier</strong> to guard &mdash; thousands of miles of river and desert and wall, every mile of it a place where trouble could come in. And an empire ruled by one all-powerful emperor had a new and terrible weak point that the old Republic never had: <strong>the throne itself.</strong> When everything flows from one man, then whoever controls that one man &mdash; or kills him and takes his place &mdash; controls everything. The greatest prize in the world was now a single chair. Sooner or later, men with armies were going to fight over it.</p>
+        <div class="fact-box">
+            <div class="fact-label">Did You Know?</div>
+            <p>At its peak the Roman Empire held perhaps a quarter of all the people alive on Earth, tied together by some 80,000 kilometers of paved roads &mdash; enough to wrap twice around the planet.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(3)">&larr; Back</button>
+            <span class="page-num">4 of 11</span>
+            <button class="nav-btn primary" onclick="go(5)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page essay-page" id="page-5">
+    <div class="essay-content">
+        <span class="section-label part2">Part Two &middot; The Long Turn Inward</span>
+        <h2>The Fifty Years Rome Almost Ended</h2>
+        <div class="essay-image">
+            <img src="images/image-crisis.png" alt="Two bodies of Roman soldiers facing each other in a ruined colonnaded street, the same eagle raised on both sides, a toppled imperial statue">
+            <div class="caption">Rome against Rome &mdash; the same eagle on both sides, the warmth draining from the world</div>
+        </div>
+        <p>The fight over the throne came, and it nearly destroyed everything.</p>
+        <p>For about <strong>fifty years</strong> in the third century, Rome tore itself apart. Emperor after emperor was raised up by his own soldiers and then murdered &mdash; often within months &mdash; by the next general who wanted the chair. In that half-century more than <strong>twenty men</strong> wore the purple, and almost none of them died in bed. This was the third pillar of book one &mdash; Rome's incredible <strong>resilience</strong>, its civic will to pull together and endure &mdash; turned inside out. The same fierce energy that once let Rome raise a new army after Cannae was now spent by Romans killing Romans for the crown.</p>
+        <p>And while Rome fought itself, everything else came apart at once. A terrible <strong>plague</strong> swept the empire, emptying farms and thinning the army. To pay the soldiers who made and unmade emperors, the government quietly cheated its own money &mdash; mixing less and less silver into each coin until the coins were nearly worthless and prices spun out of control. Under the strain the empire even <strong>split into three</strong> for a time, with a breakaway state in the west and another in the east, and the battered center struggling between them.</p>
+        <p>For any other power, this would have been the end &mdash; and it nearly was. But remember what kind of machine this was. Rome had one more great adaptation left in it.</p>
+        <div class="pull-quote">
+            <p>The Republic's deadliest enemy had been Hannibal. The Empire's deadliest enemy was itself &mdash; its own generals, fighting over its own throne.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(4)">&larr; Back</button>
+            <span class="page-num">5 of 11</span>
+            <button class="nav-btn primary" onclick="go(6)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page essay-page" id="page-6">
+    <div class="essay-content">
+        <span class="section-label part2">Part Two &middot; The Long Turn Inward</span>
+        <h2>The Last Great Rebuild</h2>
+        <div class="essay-image">
+            <img src="images/image-constantinople.png" alt="A magnificent new walled imperial city rising on the Bosphorus at golden dawn, domes and basilicas, a busy harbor of ships">
+            <div class="caption">Constantinople on the Bosphorus &mdash; the heart of the Roman world moving east</div>
+        </div>
+        <p>Rome saved itself the way it always had: by <strong>changing.</strong></p>
+        <p>A soldier-emperor named <strong>Diocletian</strong> dragged the empire back from the edge and rebuilt it from the ground up. His boldest idea faced the problem head-on: the empire was too big for one man to rule and defend, and one throne was too dangerous a prize. So he <strong>split the job.</strong> Instead of a single emperor, there would be several, ruling different regions at once &mdash; a senior emperor in the west and one in the east, each with a deputy. He remade the provinces, the army, and the taxes to match. It was the adaptation pillar working one last great time: faced with a deadly problem, Rome redesigned itself around it.</p>
+        <p>Then came <strong>Constantine</strong>, who added the change that mattered most for our story. He built a magnificent new capital in the <strong>east</strong>, on the Greek city of Byzantium where Europe meets Asia, and named it after himself: <strong>Constantinople.</strong> Rich, superbly defended behind massive walls, sitting astride the trade of two continents, it became the true center of the Roman world. The heart of the empire had moved &mdash; away from Italy, away from the old city of Rome, <strong>eastward.</strong></p>
+        <p>The empire survived. But it was now, in practice, <strong>two empires</strong> &mdash; a wealthier, stronger Greek-speaking East, and a poorer, more exposed Latin West &mdash; drifting slowly apart, and after a while never ruled as one again. When the storm came, it would not fall on both halves equally.</p>
+        <div class="fact-box">
+            <div class="fact-label">Did You Know?</div>
+            <p>The old city of Rome had not been the seat of government for a long time. The western emperors ruled from Milan, and then from <strong>Ravenna</strong>, a city ringed by marshes that was easy to defend. By the year 400, "Rome" the capital and Rome the city were two different things.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(5)">&larr; Back</button>
+            <span class="page-num">6 of 11</span>
+            <button class="nav-btn primary" onclick="go(7)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 7 -->
+<section class="page essay-page" id="page-7">
+    <div class="essay-content">
+        <span class="section-label part3">Part Three &middot; What It Became</span>
+        <h2>The Army of Newcomers</h2>
+        <div class="essay-image">
+            <img src="images/image-danube-crossing.png" alt="Long columns of Gothic families and warriors crossing a wide cold river with wagons and cattle, late-Roman soldiers watching from the near bank">
+            <div class="caption">376: whole peoples crossing the Danube into the empire &mdash; absorbed, not yet beaten</div>
+        </div>
+        <p>Now the fourth and last pillar &mdash; <strong>adaptation</strong>, Rome's genius for absorbing whatever worked &mdash; reaches its limit, and its limit is the turning point of the whole story.</p>
+        <p>Rome had always taken in outsiders: it copied their weapons, hired their soldiers, made citizens of whole nations. By the late empire it was doing this on the largest scale yet. The frontier peoples north of the borders &mdash; the Romans lumped them together as "barbarians," though they were many different nations, often Christian, many of them lifelong Roman soldiers &mdash; were increasingly invited <em>inside</em> the empire to live and to fight for it. Whole armed peoples were settled on Roman land as <strong>foederati</strong>, federated allies, keeping their own leaders and fighting under their own chiefs. The army defending Rome was, more and more, made of the very peoples it was defending against.</p>
+        <p>Usually it worked. Once, disastrously, it did not. In the year <strong>376</strong>, a great nation of <strong>Goths</strong>, fleeing a terrifying people called the <strong>Huns</strong> sweeping in from the east, begged to cross the <strong>Danube</strong> river and shelter inside the empire. Rome let them in &mdash; and then Roman officials cheated and starved them until, desperate, they revolted. Two years later the eastern emperor marched out to crush them near a town called <strong>Adrianople</strong>, and instead the Goths destroyed him: the emperor was killed and <strong>two-thirds of his army</strong> with him, in one of the worst defeats in Roman history. The peace that followed left an armed, independent Gothic nation living <em>inside</em> the empire &mdash; no longer quite absorbed, no longer quite enemy.</p>
+        <p>After that the dam did not hold. Whole peoples moved across the frontiers, sometimes as enemies, sometimes as allies, often as both in the same year. In <strong>410</strong>, a Gothic army did the unthinkable and <strong>sacked the city of Rome</strong> itself &mdash; the first enemy to take the city in nearly eight hundred years. The shock rang through the world. And yet, in cold fact, Rome was no longer even the capital: the real government sat safe behind its marshes in Ravenna. The newcomers were not battering down the gates of power. They were already <strong>inside.</strong></p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(6)">&larr; Back</button>
+            <span class="page-num">7 of 11</span>
+            <button class="nav-btn primary" onclick="go(8)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 8 -->
+<section class="page essay-page" id="page-8">
+    <div class="essay-content">
+        <span class="section-label part3">Part Three &middot; What It Became</span>
+        <h2>The Quiet End</h2>
+        <div class="essay-image">
+            <img src="images/image-quiet-end.png" alt="A late-Roman marble hall: a Germanic king watches as imperial diadem and purple robes are placed into a chest, a boy in an oversized cloak led out a side door, senators looking on">
+            <div class="caption">AD 476 &mdash; not a battle, but a crown quietly placed in a box and sent east</div>
+        </div>
+        <p>We come, at last, to the famous "fall of Rome." It is not the scene you are picturing.</p>
+        <p>There was no final battle for the city, no last emperor dying sword in hand on the walls. What actually happened, in the year <strong>476</strong>, was almost an anticlimax. By then the western emperors were boys and puppets, and the real power in Italy was a general of Germanic soldiers named <strong>Odoacer</strong> &mdash; himself an officer of the Roman army. Odoacer saw no more use for the pretense. He removed the last boy to hold the title in the west, a child with the grand name <strong>Romulus Augustulus</strong>, and simply <strong>did not appoint anyone in his place.</strong> He sent the imperial crown and robes east to the emperor in Constantinople, with a message: the west no longer needs an emperor of its own. He would rule Italy as a king &mdash; under Roman law, with the Roman Senate still meeting, in Latin, on Roman roads, in Roman cities.</p>
+        <p>And that was the "fall." Not a slaughter &mdash; a title quietly allowed to lapse. Most people alive that year would not have noticed a thing had changed. Across the old western empire, Gothic and Frankish <strong>kings</strong> now ruled in place of emperors, but they kept Roman law, Roman language, Roman officials, the Roman church. In a hundred everyday ways, the West stayed Roman.</p>
+        <p>But we should be honest, because this is the true story and not a comforting one. For ordinary people in the West, the slow unwinding was <strong>real and often hard.</strong> As the single great empire broke into smaller, poorer kingdoms, much was genuinely lost: long-distance trade shrank, once-busy towns emptied, fine goods and even simple skills like good pottery and widespread reading grew scarce. The light did not go out in a night &mdash; but over the western lands, for a century or two, it did dim. To say "Rome did not fall in a day" is not to say nothing was lost. A great deal was.</p>
+        <div class="pull-quote">
+            <p>The end of the Western Roman Empire was not a battle. It was a man deciding the title was not worth filling, and putting the crown in a box.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(7)">&larr; Back</button>
+            <span class="page-num">8 of 11</span>
+            <button class="nav-btn primary" onclick="go(9)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 9 -->
+<section class="page essay-page" id="page-9">
+    <div class="essay-content">
+        <span class="section-label part3">Part Three &middot; What It Became</span>
+        <h2>Rome Became the World</h2>
+        <div class="essay-image">
+            <img src="images/image-romaioi.png" alt="An Eastern Roman soldier in lamellar armor with a round shield and a labarum standard stands before the domed, gold-lit skyline of Constantinople at evening">
+            <div class="caption">A thousand years on, still calling itself Roman &mdash; <em>Rhomaioi</em></div>
+        </div>
+        <p>So did Rome fall? Look east, and the question gets strange.</p>
+        <p>While the western title quietly lapsed, the <strong>eastern</strong> empire &mdash; the richer, stronger half, ruled from Constantinople &mdash; did not fall at all. It went <strong>on.</strong> Not for a few more years: for nearly a <strong>thousand</strong> more, an unbroken Roman state with a Roman emperor, Roman law, and a Roman army, outlasting the western half by a span longer than the entire history of the Republic and western Empire combined. We have a habit of calling this eastern empire "<strong>Byzantine</strong>," as if it were something else &mdash; but that name was invented by scholars a thousand years later. The people who lived in it never used it. They called themselves what they were: <strong>Romans.</strong> <em>Rhomaioi.</em> Their state was the Roman Empire. To them, Rome had not fallen in 476 or in any other year. It had simply, long ago, moved its capital east &mdash; and it would keep calling itself Rome until <strong>1453</strong>, when Constantinople's great walls were finally overcome at last.</p>
+        <p>So here is the honest answer to how the unbeatable machine stopped. It was <strong>never beaten.</strong> Each of the four strengths that made Rome win, followed to its end, became the thing that transformed it:</p>
+        <div class="pillars">
+            <div class="pillar">
+                <h4>The Allies</h4>
+                <p>That bottomless well of soldiers demanded to <em>be</em> Rome, and were granted it. Italy became Roman, and the old distinction that built the system dissolved.</p>
+            </div>
+            <div class="pillar">
+                <h4>The Army</h4>
+                <p>Once citizen-farmers loyal to their city, they became professionals loyal to their general &mdash; and that loyalty ended the Republic and raised the Empire.</p>
+            </div>
+            <div class="pillar">
+                <h4>The Centre</h4>
+                <p>Once a shared civic cause, it became a single throne, the deadliest prize in the world, and Romans spent their resilience destroying one another to hold it.</p>
+            </div>
+            <div class="pillar">
+                <h4>The Genius for Absorbing</h4>
+                <p>Rome's habit of taking in whatever worked took in whole armed nations, until the newcomers inherited the West and Rome dissolved into the world it had made Roman.</p>
+            </div>
+        </div>
+        <p>Rome did not end with a bang or a surrender. It changed, and changed, and changed, until the question "when did it fall?" stopped having a clear answer. The city's empire became a Mediterranean world; that world became Latin Europe and Greek Byzantium; and the idea of Rome outlived them all &mdash; in our laws, our languages, our letters, the very months of our calendar. Book one asked why Rome kept winning. The answer to this book is stranger and larger: in the end, Rome did not so much <em>win</em> the world as <strong>become</strong> it.</p>
+        <div class="pull-quote">
+            <p>Ask "when did Rome fall?" and history shrugs. The Republic became an Empire; the Empire became two; the West became Europe; the East called itself Rome for another thousand years. Rome did not fall. It turned into everything that came after.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(8)">&larr; Back</button>
+            <span class="page-num">9 of 11</span>
+            <button class="nav-btn primary" onclick="go(10)">Take the Quiz &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- QUIZ -->
+<section class="page essay-page" id="page-10">
+    <div class="essay-content">
+        <div class="quiz-header">
+            <h2>Check Your Understanding</h2>
+            <p>Five questions about what you just read.</p>
+        </div>
+
+        <div class="question-block" id="q1">
+            <h3><span class="q-num">1</span> Why did the Social War &mdash; the allies' rebellion &mdash; end up making Italy <em>more</em> Roman, not less?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q1" value="a"> Because Rome destroyed the rebel cities and resettled them with citizens from Rome</label>
+                <label class="option"><input type="radio" name="q1" value="b"> Because the allies lost so badly that they were never trusted with weapons again</label>
+                <label class="option"><input type="radio" name="q1" value="c"> Because Rome won the war by granting the allies the citizenship they had fought for</label>
+                <label class="option"><input type="radio" name="q1" value="d"> Because the allies gave up and went home without changing anything at all</label>
+            </div>
+            <button class="check-btn" onclick="check(1,'c')">Check Answer</button>
+            <div class="feedback" id="fb1"></div>
+        </div>
+
+        <div class="question-block" id="q2">
+            <h3><span class="q-num">2</span> Why did Rome's professional soldiers come to follow their generals instead of the Republic?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q2" value="a"> Because their pay, land, and future came from the general, not from Rome</label>
+                <label class="option"><input type="radio" name="q2" value="b"> Because the Senate ordered every soldier to obey his commander above all</label>
+                <label class="option"><input type="radio" name="q2" value="c"> Because generals were the only Romans still allowed to own swords</label>
+                <label class="option"><input type="radio" name="q2" value="d"> Because soldiers were forbidden by law from ever entering the city of Rome</label>
+            </div>
+            <button class="check-btn" onclick="check(2,'a')">Check Answer</button>
+            <div class="feedback" id="fb2"></div>
+        </div>
+
+        <div class="question-block" id="q3">
+            <h3><span class="q-num">3</span> Why was the Crisis of the Third Century so nearly fatal to Rome?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q3" value="a"> Because a single foreign empire invaded and conquered most of Roman territory</label>
+                <label class="option"><input type="radio" name="q3" value="b"> Because the Romans forgot how to build roads, forts, and weapons</label>
+                <label class="option"><input type="radio" name="q3" value="c"> Because Rome ran out of allied peoples willing to send it any more soldiers</label>
+                <label class="option"><input type="radio" name="q3" value="d"> Because Romans spent fifty years killing one another for the throne</label>
+            </div>
+            <button class="check-btn" onclick="check(3,'d')">Check Answer</button>
+            <div class="feedback" id="fb3"></div>
+        </div>
+
+        <div class="question-block" id="q4">
+            <h3><span class="q-num">4</span> Why doesn't the year 476 mark a sudden, violent "fall of Rome"?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q4" value="a"> Because Rome had already been conquered and destroyed centuries earlier</label>
+                <label class="option"><input type="radio" name="q4" value="b"> Because the last western title simply lapsed, while Roman law and life went on</label>
+                <label class="option"><input type="radio" name="q4" value="c"> Because the city of Rome was never once captured by any foreign army</label>
+                <label class="option"><input type="radio" name="q4" value="d"> Because the emperor won the battle and drove the newcomers back out</label>
+            </div>
+            <button class="check-btn" onclick="check(4,'b')">Check Answer</button>
+            <div class="feedback" id="fb4"></div>
+        </div>
+
+        <div class="question-block" id="q5">
+            <h3><span class="q-num">5</span> In what sense did Rome not really "end" at all?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q5" value="a"> Because the old Republic was secretly restored and ruled Italy for centuries more</label>
+                <label class="option"><input type="radio" name="q5" value="b"> Because the city of Rome remained the world's capital all through the Middle Ages</label>
+                <label class="option"><input type="radio" name="q5" value="c"> Because the eastern empire lived on as Rome &mdash; calling itself Roman &mdash; until 1453</label>
+                <label class="option"><input type="radio" name="q5" value="d"> Because the western kingdoms gave up Latin and went back to older languages</label>
+            </div>
+            <button class="check-btn" onclick="check(5,'c')">Check Answer</button>
+            <div class="feedback" id="fb5"></div>
+        </div>
+
+        <div class="score-box" id="scoreBox" style="display:none;">
+            <h3>Your Score</h3>
+            <div class="score-number"><span id="scoreVal">0</span>/5</div>
+        </div>
+
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(9)">&larr; Back</button>
+            <span class="page-num">10 of 11</span>
+            <button class="nav-btn primary" onclick="go(11)">Finish &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- END -->
+<section class="page end-page" id="page-11">
+    <div class="ornament">&#10038; &#10038; &#10038;</div>
+    <h1>The End</h1>
+    <blockquote><em>Rome did not fall. It changed, and changed, and changed &mdash; until it had turned into the world that came after it.</em></blockquote>
+    <div class="ornament">&#10038;</div>
+    <p class="source">Based on the histories of the late Republic and Empire, and on the modern debate over Rome's transformation &mdash;<br>Peter Brown's <em>The World of Late Antiquity</em> and Bryan Ward-Perkins's <em>The Fall of Rome and the End of Civilization</em></p>
+    <div style="margin-top: 40px;">
+        <button class="nav-btn primary" onclick="go(0)">Read Again</button>
+    </div>
+</section>
+
+<script>
+let cur = 0;
+const total = 12;
+let score = 0;
+const answered = new Set();
+
+const answers = {
+    1: { correct: "Right. Rome ended the rebellion by conceding its cause &mdash; citizenship for the allies. The 'allies' and the 'Romans' became one people, and Italy became Roman.", incorrect: "The answer is C. Rome won by giving in: it granted the allies citizenship, so the distinction at the heart of the old system simply dissolved." },
+    2: { correct: "Exactly. Once a soldier looked to his general for wages and land, his loyalty followed his livelihood &mdash; and an army loyal to one man could be turned against Rome itself.", incorrect: "The answer is A. A professional with no farm to return to depended on his general for pay and land, so his loyalty went to the man, not the Republic." },
+    3: { correct: "Yes. The deadliest enemy was internal &mdash; general after general seizing and losing the throne, while plague and worthless money wrecked the empire from within.", incorrect: "The answer is D. The empire nearly destroyed itself: more than twenty emperors in fifty years, most murdered by rivals, while plague and ruined coinage spread chaos." },
+    4: { correct: "Right. A Germanic general just stopped appointing a western emperor and sent the crown east. Kings replaced emperors, but Roman law, language, and cities continued.", incorrect: "The answer is B. There was no final battle &mdash; the western title was quietly allowed to lapse, and everyday Roman life carried on under new kings." },
+    5: { correct: "Exactly. The eastern empire ruled from Constantinople for another thousand years, its people calling themselves Romans the whole time. 'Byzantine' is a label invented much later.", incorrect: "The answer is C. The eastern half never fell in 476 &mdash; it carried on as the Roman Empire, calling itself Roman, until Constantinople fell in 1453." }
+};
+
+function go(p) {
+    document.querySelectorAll('.page').forEach(pg => pg.classList.remove('active'));
+    document.getElementById('page-' + p).classList.add('active');
+    cur = p;
+    document.getElementById('progressBar').style.width = (cur / (total - 1) * 100) + '%';
+    window.scrollTo(0, 0);
+}
+
+function check(q, correct) {
+    if (answered.has(q)) return;
+    const sel = document.querySelector(`input[name="q${q}"]:checked`);
+    if (!sel) return;
+    const fb = document.getElementById('fb' + q);
+    const opts = document.querySelectorAll(`#q${q} .option`);
+    opts.forEach(o => {
+        const inp = o.querySelector('input');
+        if (inp.checked) o.classList.add('selected');
+    });
+    if (sel.value === correct) {
+        fb.innerHTML = answers[q].correct;
+        fb.className = 'feedback correct';
+        score++;
+    } else {
+        fb.innerHTML = answers[q].incorrect;
+        fb.className = 'feedback incorrect';
+        opts.forEach(o => {
+            const inp = o.querySelector('input');
+            if (inp.value === correct) o.classList.add('correct');
+            if (inp.checked) o.classList.add('incorrect');
+        });
+    }
+    answered.add(q);
+    document.getElementById('scoreVal').textContent = score;
+    if (answered.size === 5) document.getElementById('scoreBox').style.display = 'block';
+}
+
+document.querySelectorAll('.option input').forEach(inp => {
+    inp.addEventListener('change', () => {
+        inp.closest('.options').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+        inp.closest('.option').classList.add('selected');
+    });
+});
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' && cur < total - 1) go(cur + 1);
+    if (e.key === 'ArrowLeft' && cur > 0) go(cur - 1);
+});
+</script>
+
+</body>
+</html>
