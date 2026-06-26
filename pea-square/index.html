@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pea Square &mdash; How to Predict a Living Thing</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --violet: #9176c4;
+            --violet-deep: #6f57a0;
+            --plum: #5d4889;
+            --parchment: #f5f0e6;
+            --paper: #fffdf8;
+            --ink: #211d17;
+            --body: #2c2820;
+            --stone: #8a8279;
+            --green: #5a8c52;
+            --green-deep: #3f6b3a;
+            --gold: #bb902f;
+            --myth: #b0552f;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', 'Garamond', serif;
+            background: var(--parchment);
+            color: var(--body);
+            overflow-x: hidden;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--violet-deep), var(--violet));
+            width: 0%;
+            transition: width 0.4s ease;
+            z-index: 1000;
+        }
+
+        .home-link {
+            position: fixed;
+            top: 14px; left: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: var(--stone);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            z-index: 200;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--ink); }
+
+        .page { display: none; opacity: 0; transition: opacity 0.45s ease; }
+        .page.active { opacity: 1; }
+
+        /* Cover */
+        .cover {
+            background: #17141c;
+            color: #ece5f3;
+            text-align: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .cover.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .cover .badge {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+            opacity: 0.65; margin-bottom: 28px; padding: 6px 18px;
+            border: 1px solid rgba(255,255,255,0.22); border-radius: 20px;
+        }
+        .cover h1 { font-size: 46px; font-weight: 500; letter-spacing: 1px; line-height: 1.15; margin-bottom: 12px; }
+        .cover .subtitle { font-size: 20px; font-style: italic; opacity: 0.82; margin-bottom: 6px; }
+        .cover .setting { font-family: 'Inter', sans-serif; font-size: 12.5px; opacity: 0.5; letter-spacing: 1.5px; margin-bottom: 32px; }
+        .cover img { max-width: 640px; width: 92%; border-radius: 10px; box-shadow: 0 14px 44px rgba(0,0,0,0.55); margin-bottom: 34px; }
+        .cover .begin {
+            padding: 14px 46px; font-size: 16px; font-family: 'Cormorant Garamond', serif;
+            background: transparent; border: 1.5px solid rgba(236,229,243,0.4); color: #ece5f3;
+            cursor: pointer; border-radius: 30px; transition: all 0.3s; letter-spacing: 1px;
+        }
+        .cover .begin:hover { background: rgba(145,118,196,0.18); border-color: var(--violet); }
+
+        /* Essay pages */
+        .essay-page.active { display: flex; flex-direction: column; align-items: center; padding: 58px 24px 96px; }
+        .essay-content { max-width: 760px; width: 100%; }
+
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+            color: var(--violet-deep); margin-bottom: 8px;
+        }
+
+        .essay-content h2 { font-size: 32px; font-weight: 500; color: var(--ink); margin-bottom: 26px; line-height: 1.18; }
+
+        .essay-content p { font-size: 19px; line-height: 1.8; margin-bottom: 20px; color: var(--body); }
+        .essay-content .lead { font-size: 21px; color: var(--ink); }
+        .essay-content em { color: var(--plum); font-style: italic; }
+        .essay-content strong { font-weight: 600; color: var(--ink); }
+
+        /* genotype letter-tiles inline */
+        .geno {
+            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.86em;
+            background: #efe7f7; color: var(--plum);
+            padding: 1px 7px; border-radius: 4px; border: 1px solid #ddcdee;
+            letter-spacing: 1px; white-space: nowrap;
+        }
+
+        /* Images */
+        .essay-image { margin: 30px 0; text-align: center; }
+        .essay-image img {
+            max-width: 100%; width: 100%; border-radius: 8px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.14); border: 1px solid #e3dccd;
+        }
+        .essay-image .caption {
+            font-family: 'Inter', sans-serif; font-size: 12px; color: var(--stone);
+            margin-top: 10px; letter-spacing: 0.3px;
+        }
+
+        /* Pull quote */
+        .pull-quote { margin: 32px 0; padding: 22px 28px; border-left: 4px solid var(--violet); background: rgba(145,118,196,0.08); border-radius: 0 8px 8px 0; }
+        .pull-quote p { font-size: 22px; font-style: italic; color: var(--plum); margin-bottom: 0; line-height: 1.55; }
+
+        /* Generic boxes */
+        .box { margin: 28px 0; padding: 22px 26px; border-radius: 10px; }
+        .box .box-label {
+            font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 2px;
+            text-transform: uppercase; margin-bottom: 10px; font-weight: 600;
+        }
+        .box p { font-size: 17.5px; margin-bottom: 14px; }
+        .box p:last-child { margin-bottom: 0; }
+
+        /* fact / sidebar */
+        .fact-box { background: var(--paper); border: 1px solid #e0dbd2; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .fact-box .box-label { color: var(--violet-deep); }
+
+        /* myth-buster */
+        .myth-box { background: rgba(176,85,47,0.06); border: 1px solid rgba(176,85,47,0.28); }
+        .myth-box .box-label { color: var(--myth); }
+        .myth-box .box-label::before { content: "\26A0  "; }
+
+        /* worked example */
+        .worked-box { background: #f6f2fb; border: 1px solid #e2d6f0; }
+        .worked-box .box-label { color: var(--plum); }
+
+        /* your turn */
+        .turn-box { background: rgba(90,140,82,0.08); border: 1px solid rgba(90,140,82,0.32); }
+        .turn-box .box-label { color: var(--green-deep); }
+        .turn-box .box-label::before { content: "\270E  "; }
+
+        /* small inline grid for worked crosses */
+        .mini-grid { margin: 18px auto; border-collapse: collapse; font-family: 'Inter', sans-serif; }
+        .mini-grid td, .mini-grid th {
+            width: 64px; height: 56px; text-align: center; vertical-align: middle;
+            border: 1.5px solid #c9bfa9; font-size: 20px; font-weight: 600; color: var(--plum);
+        }
+        .mini-grid th { border: none; color: var(--ink); font-size: 18px; background: transparent; }
+        .mini-grid td.tall { background: rgba(90,140,82,0.12); }
+        .mini-grid td.short { background: rgba(187,144,47,0.14); }
+        .mini-grid caption { caption-side: bottom; font-family: 'Inter', sans-serif; font-size: 12px; color: var(--stone); padding-top: 8px; }
+
+        .calc { font-family: 'Inter', sans-serif; text-align: center; font-size: 18px; color: var(--ink); margin: 14px 0; line-height: 1.9; }
+        .calc .r { color: var(--green-deep); font-weight: 600; }
+
+        /* Glossary */
+        .glossary-item { margin-bottom: 18px; }
+        .glossary-item .term { font-weight: 600; color: var(--plum); font-size: 20px; }
+        .glossary-item .term .alt { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--stone); font-weight: 400; letter-spacing: 0.5px; }
+        .glossary-item .def { font-size: 18px; line-height: 1.65; }
+
+        /* Nav */
+        .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 46px; padding-top: 20px; border-top: 1px solid #ddd6ca; }
+        .nav-btn { padding: 11px 26px; font-size: 15px; font-family: 'Cormorant Garamond', serif; border: none; cursor: pointer; border-radius: 25px; transition: all 0.3s; }
+        .nav-btn.primary { background: var(--plum); color: #f3eefa; }
+        .nav-btn.primary:hover { background: var(--violet-deep); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(93,72,137,0.25); }
+        .nav-btn.secondary { background: transparent; color: var(--ink); border: 1.5px solid #c4b9a8; }
+        .nav-btn.secondary:hover { border-color: var(--violet); background: rgba(145,118,196,0.07); }
+        .page-num { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--stone); letter-spacing: 1px; }
+
+        /* Concept strip */
+        .concept-strip {
+            position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 7px; z-index: 60; pointer-events: none;
+            background: rgba(245,240,230,0.82); padding: 6px 10px; border-radius: 16px;
+            backdrop-filter: blur(4px);
+        }
+        .stage-chip {
+            font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.5px;
+            color: var(--stone); padding: 3px 9px; border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 12px; transition: all 0.25s ease; white-space: nowrap;
+        }
+        .stage-chip.active { color: var(--plum); border-color: var(--violet); background: rgba(145,118,196,0.16); font-weight: 600; }
+
+        /* Quiz */
+        .quiz-header { text-align: center; margin-bottom: 34px; }
+        .quiz-header h2 { font-size: 30px; font-weight: 500; margin-bottom: 8px; }
+        .quiz-header p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--stone); }
+        .question-block { background: var(--paper); border-radius: 10px; padding: 24px; margin-bottom: 22px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #e0dbd2; }
+        .question-block h3 { font-size: 18px; font-weight: 500; margin-bottom: 18px; line-height: 1.5; }
+        .q-num { display: inline-flex; align-items: center; justify-content: center; background: var(--plum); color: #f3eefa; width: 24px; height: 24px; border-radius: 50%; font-family: 'Inter', sans-serif; font-size: 12px; margin-right: 10px; }
+        .option { display: flex; align-items: flex-start; padding: 12px 16px; margin: 8px 0; background: #faf8f4; border: 2px solid #e0dbd2; border-radius: 8px; cursor: pointer; transition: all 0.2s; font-size: 16.5px; line-height: 1.45; }
+        .option:hover { background: #f1ecf6; border-color: #cabfdc; }
+        .option input { margin-right: 12px; margin-top: 4px; accent-color: var(--violet); transform: scale(1.1); }
+        .option.selected { border-color: var(--violet); background: #f1ecf6; }
+        .option.correct { border-color: #4a7c4e; background: #e8f5e9; }
+        .option.incorrect { border-color: #b55454; background: #ffebee; }
+        .check-btn { padding: 10px 24px; font-size: 14px; font-family: 'Cormorant Garamond', serif; background: var(--plum); border: none; color: #f3eefa; cursor: pointer; border-radius: 20px; margin-top: 6px; }
+        .check-btn:hover { background: var(--violet-deep); }
+        .feedback { margin-top: 14px; padding: 14px 18px; border-radius: 8px; display: none; font-size: 15.5px; line-height: 1.6; }
+        .feedback.correct { background: #e8f5e9; color: #2e5a32; border-left: 4px solid #4a7c4e; display: block; }
+        .feedback.incorrect { background: #ffebee; color: #8b3a3a; border-left: 4px solid #b55454; display: block; }
+        .score-box { text-align: center; padding: 22px; background: var(--plum); border-radius: 10px; margin-top: 28px; color: #f3eefa; display: none; }
+        .score-box .score-number { font-size: 44px; font-weight: 600; margin: 8px 0; }
+
+        /* End */
+        .end-page { background: #17141c; color: #ece5f3; text-align: center; padding: 60px 24px; min-height: 100vh; }
+        .end-page.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .end-page h1 { font-size: 32px; font-weight: 400; margin-bottom: 24px; letter-spacing: 2px; }
+        .end-page .ornament { font-size: 18px; opacity: 0.4; letter-spacing: 8px; margin: 18px 0; }
+        .end-page blockquote { font-size: 21px; font-style: italic; opacity: 0.88; max-width: 540px; line-height: 1.6; margin-bottom: 12px; }
+        .end-page .source { font-family: 'Inter', sans-serif; font-size: 12px; opacity: 0.45; margin-top: 40px; line-height: 1.8; }
+
+        @media (max-width: 768px) {
+            .cover h1 { font-size: 33px; }
+            .essay-page.active { padding: 42px 18px 80px; }
+            .essay-content h2 { font-size: 25px; }
+            .essay-content p { font-size: 17.5px; }
+            .pull-quote p { font-size: 19px; }
+            .nav { flex-wrap: wrap; gap: 12px; }
+            .nav-btn { flex: 1; min-width: 110px; text-align: center; }
+            .page-num { width: 100%; text-align: center; margin-top: 10px; }
+            .concept-strip { display: none; }
+            .mini-grid td, .mini-grid th { width: 52px; height: 48px; font-size: 17px; }
+        }
+        @media (prefers-reduced-motion: reduce) { .page, .progress-bar { transition: none; } }
+    </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<a class="home-link" href="../index.html">&larr; Stories</a>
+
+<!-- ============ COVER ============ -->
+<section class="page cover active" id="page-0" data-stage="">
+    <span class="badge">Illustrated Explainer</span>
+    <h1>The Pea Square</h1>
+    <p class="subtitle">How to Predict a Living Thing</p>
+    <p class="setting">A companion to <em>Mendel &mdash; The Monk Who Counted</em></p>
+    <img src="pages/page-00-cover.png" alt="A naturalist's study plate: a hand-ruled grid with three tall pea plants and one short one">
+    <button class="begin" onclick="go(1)">Begin Reading</button>
+</section>
+
+<!-- ============ P1 ============ -->
+<section class="page essay-page" id="page-1" data-stage="factor">
+    <div class="essay-content">
+        <span class="section-label">Part One &middot; The Mystery</span>
+        <h2>A Number Kept Appearing</h2>
+        <div class="essay-image">
+            <img src="pages/page-01.png" alt="Mendel bends over a row of pea plants; a chalk 3:1 sits on the page">
+            <div class="caption">Gregor Mendel counted his pea plants by the thousand &mdash; and the same ratio kept coming back.</div>
+        </div>
+        <p class="lead">In a monastery garden in the 1860s, a monk named Gregor Mendel did something almost nobody had thought to do with living things: he <strong>counted</strong>.</p>
+        <p>He bred pea plants &mdash; thousands of them &mdash; and kept careful tallies of what grew. When he crossed certain tall plants with each other, he did not get all tall children, and he did not get half-and-half. Over and over, across thousands of plants, he got roughly <strong>three tall plants for every one short plant</strong>.</p>
+        <p>Not "about three." Not "three this time, something else next time." The same lopsided pattern came back again and again, in trait after trait: three of the one kind for every one of the other.</p>
+        <p>A number that stubborn is not an accident. It is a <em>clue</em>. Something underneath the garden was behaving like arithmetic &mdash; following a rule clean enough to produce the same ratio every time. Mendel could see the pattern. He could not yet see the machine that made it.</p>
+        <div class="pull-quote">
+            <p>This whole book has one job: to build that machine &mdash; a little grid of four boxes &mdash; until the mysterious 3&nbsp;:&nbsp;1 stops being magic and becomes something you can work out yourself, with a pencil.</p>
+        </div>
+        <p>We will build it one piece at a time. By the end you will be able to predict the children of a cross before a single seed is planted &mdash; and know exactly why your prediction is right.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(0)">&larr; Cover</button>
+            <span class="page-num">1 of 16</span>
+            <button class="nav-btn primary" onclick="go(2)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ P2 ============ -->
+<section class="page essay-page" id="page-2" data-stage="factor">
+    <div class="essay-content">
+        <span class="section-label">Part One &middot; The Mystery</span>
+        <h2>Every Plant Carries a Pair</h2>
+        <div class="essay-image">
+            <img src="pages/page-02.png" alt="One pea plant with a pair of factor tiles, one labelled from each parent">
+            <div class="caption">Each trait is carried as a pair of factors &mdash; one from each parent.</div>
+        </div>
+        <p>Here is the first piece of the machine. Every pea plant carries its traits as instructions Mendel called <strong>factors</strong>. And it carries them in <strong>pairs</strong> &mdash; two factors for each trait, one inherited from each parent.</p>
+        <p>That pairing is the key. When a plant grows up and has offspring of its own, it does <em>not</em> hand down both of its factors. It passes on <strong>just one of the pair</strong> to each child &mdash; picked at random &mdash; and the child's other factor comes from the other parent. Two parents, one factor each, and the child has a fresh pair.</p>
+        <p>That is the entire rule of inheritance at this level, and it is worth saying slowly because everything else is built on it:</p>
+        <div class="box fact-box">
+            <div class="box-label">The Rule Everything Rests On</div>
+            <p><strong>Factors come in twos. A parent passes one of its two &mdash; chosen at random &mdash; to each child. The child gets one factor from each parent, making a new pair.</strong></p>
+        </div>
+        <p>Notice what we are <em>not</em> claiming. We are not saying what a factor is made of, or where in the plant it lives. Mendel did not know either &mdash; he had never seen a cell up close, and nobody had heard of DNA. He treated the factor as a sealed box whose insides did not matter, as long as it obeyed the rule above.</p>
+        <p>We will do the same. There is a deeper story &mdash; about cells, and chromosomes, and the molecule that spells the instructions out &mdash; and it is worth telling another day. But it is a different book. Everything in <em>this</em> one falls out of the simple rule that factors come in pairs and split one-to-each. We are not hiding the deeper story; we are choosing, on purpose, to see how far the simple rule alone can take us. The answer turns out to be: surprisingly far.</p>
+        <p class="caption" style="font-family:'Inter',sans-serif; font-size:13px; color:var(--stone);">Today scientists call one version of a factor an <strong>allele</strong>. We will meet that word again.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(1)">&larr; Back</button>
+            <span class="page-num">2 of 16</span>
+            <button class="nav-btn primary" onclick="go(3)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ P3 ============ -->
+<section class="page essay-page" id="page-3" data-stage="factor">
+    <div class="essay-content">
+        <span class="section-label">Part One &middot; The Mystery</span>
+        <h2>One Version Wins, the Other Hides</h2>
+        <div class="essay-image">
+            <img src="pages/page-03.png" alt="A tall pea plant carrying one T tile and one t tile; a ghosted short plant shows what t alone would look like">
+            <div class="caption">A plant carrying both a tall factor and a short factor still grows tall &mdash; but it is quietly carrying the short one.</div>
+        </div>
+        <p>A factor can come in different versions. For height in peas there are two: a <strong>tall</strong> version and a <strong>short</strong> version. We need a way to write them down, and the convention Mendel's successors settled on is simple and clever:</p>
+        <p>The tall version gets a <strong>capital letter</strong>, <span class="geno">T</span>. The short version gets the <strong>same letter, lowercase</strong>, <span class="geno">t</span>. Same letter because they are two versions of one thing (height); different case so you can tell them apart at a glance.</p>
+        <p>Now: a plant has a pair, so it might carry two talls <span class="geno">TT</span>, two shorts <span class="geno">tt</span>, or one of each <span class="geno">Tt</span>. What happens with one of each? It grows <strong>tall</strong>. The tall version shows; the short version does not &mdash; even though it is right there in the pair.</p>
+        <p>The version that shows when both are present is called <strong>dominant</strong>. The version that stays hidden is called <strong>recessive</strong>. So tall is dominant, short is recessive &mdash; and a <span class="geno">Tt</span> plant looks exactly like a <span class="geno">TT</span> plant, even though it is secretly carrying a short factor it can pass on.</p>
+        <div class="box myth-box">
+            <div class="box-label">A trap to avoid: dominant does NOT mean stronger</div>
+            <p>It is tempting to think the dominant version is bigger, better, healthier, or more common. <strong>None of that is true.</strong> "Dominant" only means <em>this is the one you see when both are present</em> &mdash; nothing more.</p>
+            <p>A recessive version is not weak and is not losing. It is simply quiet. In fact, plenty of recessive traits are extremely common in the world, and plenty of dominant ones are rare. Dominant is about <em>what shows</em>, never about <em>what is better</em> or <em>what wins out in the long run</em>.</p>
+        </div>
+        <p>Hold on to that, because the recessive factor &mdash; the one that hides &mdash; is about to do something surprising.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(2)">&larr; Back</button>
+            <span class="page-num">3 of 16</span>
+            <button class="nav-btn primary" onclick="go(4)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ P4 ============ -->
+<section class="page essay-page" id="page-4" data-stage="2x2">
+    <div class="essay-content">
+        <span class="section-label">Part Two &middot; Building the Machine</span>
+        <h2>Where Did the Short Plants Go?</h2>
+        <div class="essay-image">
+            <img src="pages/page-04.png" alt="A pure-tall TT plant crossed with a pure-short tt plant; all the children are tall Tt">
+            <div class="caption">Pure tall crossed with pure short gives children that are all tall &mdash; and all secretly hybrids.</div>
+        </div>
+        <p>Mendel started clean. He took a plant that was <strong>pure tall</strong> &mdash; both factors tall, <span class="geno">TT</span> &mdash; and crossed it with one that was <strong>pure short</strong> &mdash; both factors short, <span class="geno">tt</span>.</p>
+        <p>Walk it through with the rule from page two. The tall parent can only pass on a <span class="geno">T</span> (that is all it has). The short parent can only pass on a <span class="geno">t</span>. So every single child receives one <span class="geno">T</span> and one <span class="geno">t</span>: every child is <span class="geno">Tt</span>.</p>
+        <p>And what does <span class="geno">Tt</span> look like? Tall. <em>Every child is tall.</em> The short trait has vanished completely from view. A whole generation, and not one short plant among them.</p>
+        <p>This is exactly the kind of thing that makes people throw up their hands and call heredity mysterious. The short trait was right there in a parent &mdash; where did it go?</p>
+        <div class="pull-quote">
+            <p>It didn't go anywhere. Every one of those tall children is carrying a short factor, hidden inside its pair, waiting. Recessive means <em>hidden</em>, not <em>gone</em>.</p>
+        </div>
+        <p>That single idea &mdash; that the trait you cannot see is still being carried, still able to be passed on &mdash; is what the whole 3&nbsp;:&nbsp;1 mystery turns on. To see it reappear, we need the machine itself. Turn the page and we will build it.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(3)">&larr; Back</button>
+            <span class="page-num">4 of 16</span>
+            <button class="nav-btn primary" onclick="go(5)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ P5 ============ -->
+<section class="page essay-page" id="page-5" data-stage="2x2">
+    <div class="essay-content">
+        <span class="section-label">Part Two &middot; Building the Machine</span>
+        <h2>The Grid That Predicts the Children</h2>
+        <div class="essay-image">
+            <img src="pages/page-05.png" alt="A large 2x2 grid with one parent's T and t along the top, the other parent's T and t down the side, cells filled by combining them">
+            <div class="caption">The Punnett square: parents' factors along the edges, every possible pairing in the boxes.</div>
+        </div>
+        <p>Here is the machine. It is a square divided into four boxes, and it is nothing more than a tidy way to list every possible child of a cross. It is called a <strong>Punnett square</strong>, after the biologist who drew it this way.</p>
+        <p>It works like the grid on the back of a multiplication table. Along the <strong>top edge</strong> you write the two factors <em>one</em> parent could pass on. Down the <strong>left edge</strong> you write the two factors the <em>other</em> parent could pass on. Then you fill each inner box by combining the letter at the top of its column with the letter at the side of its row.</p>
+        <p>That is the whole method. But notice <em>why</em> it works &mdash; this is the part the picture cannot say out loud:</p>
+        <div class="box fact-box">
+            <div class="box-label">Why the four boxes are fair</div>
+            <p>Each parent passes one factor <em>at random</em>. The top edge lists the equally-likely things one parent can give; the side lists the equally-likely things the other can give. Pairing every top choice with every side choice gives every way the two could meet &mdash; and because each choice is equally likely, <strong>each of the four boxes is equally likely too.</strong></p>
+        </div>
+        <p>So the square is not just a doodle. It is an honest accounting: four boxes, four equally-likely children. Whatever ratio falls out of those boxes is the real prediction for the cross. Now let's fill one in for the cross that made the mystery.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(4)">&larr; Back</button>
+            <span class="page-num">5 of 16</span>
+            <button class="nav-btn primary" onclick="go(6)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ P6 ============ -->
+<section class="page essay-page" id="page-6" data-stage="3:1">
+    <div class="essay-content">
+        <span class="section-label">Part Two &middot; Building the Machine</span>
+        <h2>Where the 3&nbsp;:&nbsp;1 Comes From</h2>
+        <p>Remember those all-tall children from page four? Each one is a hybrid, <span class="geno">Tt</span> &mdash; tall, but carrying a hidden short factor. Mendel let them grow up and crossed two of them together: <span class="geno">Tt</span> &times; <span class="geno">Tt</span>. Let's run that cross through the machine.</p>
+        <div class="box worked-box">
+            <div class="box-label">Worked example &middot; Tt &times; Tt</div>
+            <p>Each parent is <span class="geno">Tt</span>, so each can pass on either a <span class="geno">T</span> or a <span class="geno">t</span>. Put one parent's choices on top, the other's down the side, and fill the boxes:</p>
+            <table class="mini-grid">
+                <tr><th></th><th>T</th><th>t</th></tr>
+                <tr><th>T</th><td class="tall">TT</td><td class="tall">Tt</td></tr>
+                <tr><th>t</th><td class="tall">Tt</td><td class="short">tt</td></tr>
+                <caption>Green = tall &middot; gold = short</caption>
+            </table>
+            <p>Now just read the four boxes by what they <em>look like</em>: <span class="geno">TT</span> is tall. <span class="geno">Tt</span> is tall. <span class="geno">Tt</span> is tall. <span class="geno">tt</span> is short. Three tall, one short.</p>
+            <p class="calc"><span class="r">3 tall : 1 short.</span></p>
+        </div>
+        <p>There it is &mdash; Mendel's number from page one, falling straight out of four boxes. It was never magic. Three of the four equally-likely children happen to carry at least one <span class="geno">T</span>, so they are tall; only one box, the lone <span class="geno">tt</span>, has no <span class="geno">T</span> at all, so it is short.</p>
+        <p>And look who came back: the short trait that <em>vanished</em> a generation ago is right there in the bottom-right box. It was hidden inside the hybrids the whole time. Cross two hybrids and it gets a one-in-four chance to meet another short factor and show itself again. That is the reappearance the mystery promised.</p>
+        <div class="essay-image">
+            <img src="pages/page-06.png" alt="The filled 2x2 grid for Tt x Tt with three tall plants and one short, captioned 3 tall : 1 short">
+            <div class="caption">The same cross as a botanical plate &mdash; three tall, one short.</div>
+        </div>
+        <div class="box turn-box">
+            <div class="box-label">Your turn</div>
+            <p>Peas are also either <strong>round</strong> <span class="geno">R</span> or <strong>wrinkled</strong> <span class="geno">r</span>, with round dominant. Before reading on, draw a square for <span class="geno">Rr</span> &times; <span class="geno">Rr</span> and fill the four boxes. What ratio of round to wrinkled do you predict? (You should land on the same shape of answer: <strong>3 round : 1 wrinkled</strong> &mdash; the machine doesn't care what trait you feed it.)</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(5)">&larr; Back</button>
+            <span class="page-num">6 of 16</span>
+            <button class="nav-btn primary" onclick="go(7)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ P7 ============ -->
+<section class="page essay-page" id="page-7" data-stage="1:2:1">
+    <div class="essay-content">
+        <span class="section-label">Part Two &middot; Building the Machine</span>
+        <h2>What They Carry vs. What You See</h2>
+        <p>The 3&nbsp;:&nbsp;1 we just found is true &mdash; but it is only half the story, and the hidden half is tidier than the visible one. To see it, we need to separate two ideas that are easy to blur together.</p>
+        <div class="box fact-box">
+            <div class="box-label">Two words, kept apart for good</div>
+            <p><strong>Phenotype</strong> &mdash; <em>what a plant looks like.</em> Tall or short. We will always write this in plain words.</p>
+            <p><strong>Genotype</strong> &mdash; <em>which factors a plant actually carries.</em> <span class="geno">TT</span>, <span class="geno">Tt</span>, or <span class="geno">tt</span>. We will always write this in letters.</p>
+            <p>Plain words for looks, letters for what's carried &mdash; keep them apart and the next idea is easy.</p>
+        </div>
+        <p>Go back to the four boxes of <span class="geno">Tt</span> &times; <span class="geno">Tt</span>. By <em>looks</em> (phenotype) they are 3 tall : 1 short, as we saw. But sort them instead by <em>what they carry</em> (genotype), and a different, cleaner pattern appears:</p>
+        <div class="calc">
+            one <span class="geno">TT</span> &nbsp;:&nbsp; two <span class="geno">Tt</span> &nbsp;:&nbsp; one <span class="geno">tt</span><br>
+            <span class="r">1 : 2 : 1</span>
+        </div>
+        <p>Here is the thing worth slowing down for. The three plants that all <em>look</em> tall are not the same underneath. <strong>One</strong> of them is pure tall <span class="geno">TT</span>. The other <strong>two</strong> are hybrids <span class="geno">Tt</span> &mdash; tall on the outside, but each carrying a hidden short factor. Three identical-looking tall plants; two different genotypes inside them.</p>
+        <p>So the lumpy 3&nbsp;:&nbsp;1 you can <em>see</em> is really a clean 1&nbsp;:&nbsp;2&nbsp;:&nbsp;1 you cannot. The square shows both stories at the same time &mdash; the look and the carry. And it explains, exactly, why the short trait keeps coming back: in every generation, two out of three tall plants are secretly ferrying a short factor forward.</p>
+        <div class="essay-image">
+            <img src="pages/page-07.png" alt="The four boxes sorted by genotype: one TT, two Tt, one tt, with the ratio 1:2:1">
+            <div class="caption">Same four boxes, sorted by what they carry: 1 : 2 : 1 hides inside the 3 : 1.</div>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(6)">&larr; Back</button>
+            <span class="page-num">7 of 16</span>
+            <button class="nav-btn primary" onclick="go(8)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ P8 ============ -->
+<section class="page essay-page" id="page-8" data-stage="3:1">
+    <div class="essay-content">
+        <span class="section-label">Part Two &middot; Building the Machine</span>
+        <h2>It's Just Counting Chances</h2>
+        <div class="essay-image">
+            <img src="pages/page-08.png" alt="Two coins with T and t faces being flipped, with a tally mapping to the four grid cells">
+            <div class="caption">Each parent's factor is a coin flip. Two flips give the four boxes.</div>
+        </div>
+        <p>If the square still feels like a special biology trick, here is the plain truth underneath it: <strong>a Punnett square is just two coin flips.</strong></p>
+        <p>A <span class="geno">Tt</span> parent passing on a factor is exactly like flipping a coin &mdash; heads for <span class="geno">T</span>, tails for <span class="geno">t</span>, a fair fifty-fifty either way. The cross <span class="geno">Tt</span> &times; <span class="geno">Tt</span> is two coins flipped together. Two coins have four equally-likely results &mdash; and those four results <em>are</em> the four boxes:</p>
+        <div class="calc">
+            T&nbsp;T &nbsp;&middot;&nbsp; T&nbsp;t &nbsp;&middot;&nbsp; t&nbsp;T &nbsp;&middot;&nbsp; t&nbsp;t<br>
+            three with a <span class="geno">T</span> &rarr; tall &nbsp;&middot;&nbsp; one without &rarr; short &nbsp;=&nbsp; <span class="r">3 : 1</span>
+        </div>
+        <p>This is a relief, not a complication. It means heredity, at this level, asks nothing harder of you than counting the ways a coin can land. But coins come with a warning that genetics inherits exactly:</p>
+        <div class="box myth-box">
+            <div class="box-label">A trap to avoid: 3 : 1 is a prediction, not a promise</div>
+            <p>Flip two coins four times and you will <em>not</em> reliably get three tall and one short. You might get four tall, or two and two. The 3&nbsp;:&nbsp;1 is what you <strong>drift toward over many, many tries</strong> &mdash; which is exactly why Mendel's ratios came out so clean: he counted <em>thousands</em> of plants, not four.</p>
+            <p>And here is the sneakiest part: the boxes have <strong>no memory</strong>. A plant that has already had three tall children still has the very same one-in-four chance of a short one next time. Past results never "use up" the odds or make the next outcome owed. Every cross is a fresh flip.</p>
+        </div>
+        <div class="box turn-box">
+            <div class="box-label">Your turn</div>
+            <p>Take two coins. Flip them together <strong>sixteen</strong> times, writing down each result as tall (at least one heads) or short (two tails). The square predicts about 12 tall and 4 short. How close did you land? Do it again &mdash; you'll get a different count each time, all hovering around 3&nbsp;:&nbsp;1. That wobble <em>is</em> what "probability, not certainty" means.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(7)">&larr; Back</button>
+            <span class="page-num">8 of 16</span>
+            <button class="nav-btn primary" onclick="go(9)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ P9 ============ -->
+<section class="page essay-page" id="page-9" data-stage="2x2">
+    <div class="essay-content">
+        <span class="section-label">Part Three &middot; Using the Machine</span>
+        <h2>A Trick to Read the Hidden Factor</h2>
+        <div class="essay-image">
+            <img src="pages/page-09.png" alt="A mystery tall plant crossed with a pure-short tt plant, with two outcome grids showing TT vs Tt">
+            <div class="caption">Cross the mystery plant with a pure-short tester, and the children reveal what was hidden.</div>
+        </div>
+        <p>We have a real problem to solve, and the machine solves it cleanly. Suppose you are holding a tall pea plant. Is it pure tall <span class="geno">TT</span>, or is it a hybrid <span class="geno">Tt</span> hiding a short factor? <strong>You cannot tell by looking</strong> &mdash; both are tall. Same phenotype, different genotype. (This is precisely the genotype-versus-phenotype gap from page seven, now standing in your way.)</p>
+        <p>The trick is to cross the mystery plant with a <strong>pure-short</strong> <span class="geno">tt</span> partner and count the children. Why a pure-short partner? Because <span class="geno">tt</span> can only ever pass on a <span class="geno">t</span> &mdash; it adds nothing of its own to the disguise, so whatever the children show comes entirely from the mystery plant.</p>
+        <p>Two outcomes, two verdicts:</p>
+        <div class="box worked-box">
+            <div class="box-label">Reading the verdict</div>
+            <p><strong>If the mystery plant is <span class="geno">TT</span>:</strong> it can only give <span class="geno">T</span>. Paired with the tester's <span class="geno">t</span>, every child is <span class="geno">Tt</span> &mdash; <em>all tall.</em></p>
+            <p><strong>If the mystery plant is <span class="geno">Tt</span>:</strong> it gives <span class="geno">T</span> half the time and <span class="geno">t</span> the other half. Paired with the tester's <span class="geno">t</span>, the children come out about half <span class="geno">Tt</span> (tall) and half <span class="geno">tt</span> (short) &mdash; so <em>any short child at all</em> exposes the hidden factor.</p>
+        </div>
+        <p>So the rule is wonderfully blunt: <strong>all tall &rarr; it was <span class="geno">TT</span>. Even one short &rarr; it was <span class="geno">Tt</span>.</strong> The hidden factor cannot hide from a count. Breeders call this a <strong>test cross</strong>, and it is the everyday tool for reading a genotype you can't see.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(8)">&larr; Back</button>
+            <span class="page-num">9 of 16</span>
+            <button class="nav-btn primary" onclick="go(10)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ P10 ============ -->
+<section class="page essay-page" id="page-10" data-stage="4x4">
+    <div class="essay-content">
+        <span class="section-label">Part Three &middot; Using the Machine</span>
+        <h2>Two Traits at Once</h2>
+        <div class="essay-image">
+            <img src="pages/page-10.png" alt="Four pea-seed specimens: round-yellow, round-green, wrinkled-yellow, wrinkled-green">
+            <div class="caption">Track shape and colour together, and every combination shows up.</div>
+        </div>
+        <p>So far we have followed one trait at a time. But a pea has many. Let's track two of them at once and see whether the machine still holds. We'll watch seed <strong>shape</strong> &mdash; round <span class="geno">R</span> or wrinkled <span class="geno">r</span> &mdash; and seed <strong>colour</strong> &mdash; yellow <span class="geno">Y</span> or green <span class="geno">y</span>. (Round and yellow are the dominant versions.)</p>
+        <p>Mendel's discovery here is the one that makes everything scale: the two traits sort <strong>independently</strong>. A seed deciding whether to be round or wrinkled does not care, in the slightest, whether it is turning out yellow or green. The shape coin and the colour coin are flipped separately.</p>
+        <p>Because they don't interfere, every combination is possible, and you really do find all four out in the garden:</p>
+        <div class="box fact-box">
+            <div class="box-label">All four combinations</div>
+            <p>round &amp; yellow &middot; round &amp; green &middot; wrinkled &amp; yellow &middot; wrinkled &amp; green</p>
+        </div>
+        <p>That word &mdash; <strong>independently</strong> &mdash; is the hinge of the next page. When two things happen independently, there is a beautifully simple way to find the chance of <em>both</em>. And it turns the most intimidating ratio in all of Mendel's work into something you can do in your head.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(9)">&larr; Back</button>
+            <span class="page-num">10 of 16</span>
+            <button class="nav-btn primary" onclick="go(11)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ P11 ============ -->
+<section class="page essay-page" id="page-11" data-stage="9:3:3:1">
+    <div class="essay-content">
+        <span class="section-label">Part Three &middot; Using the Machine</span>
+        <h2>The Same Machine, Scaled Up</h2>
+        <p>Cross two plants that are hybrid for <em>both</em> traits &mdash; <span class="geno">RrYy</span> &times; <span class="geno">RrYy</span> &mdash; and the offspring come out in the ratio <strong>9&nbsp;:&nbsp;3&nbsp;:&nbsp;3&nbsp;:&nbsp;1</strong>. That number looks like it should require a big, frightening sixteen-box grid. It does not. There is a way to see exactly where it comes from using nothing you haven't already met.</p>
+        <p>The secret is the word from the last page: the two traits are <strong>independent</strong>. So look at each trait <em>on its own</em> first. Each one is just an ordinary hybrid cross &mdash; the 3&nbsp;:&nbsp;1 we have known since page six:</p>
+        <div class="calc">
+            shape: &nbsp;<span class="geno">Rr</span> &times; <span class="geno">Rr</span> &rarr; &frac34; round, &frac14; wrinkled<br>
+            colour: &nbsp;<span class="geno">Yy</span> &times; <span class="geno">Yy</span> &rarr; &frac34; yellow, &frac14; green
+        </div>
+        <p>Now the one new tool, and it is a rule of plain probability: <strong>when two independent things must <em>both</em> happen, you multiply their chances.</strong> (The chance of flipping heads <em>and</em> rolling a six is the chance of heads times the chance of a six.) So to get the chance of each shape-and-colour combination, multiply:</p>
+        <div class="box worked-box">
+            <div class="box-label">Multiply the two 3 : 1 ratios</div>
+            <p>round &amp; yellow &nbsp;=&nbsp; &frac34; &times; &frac34; &nbsp;=&nbsp; <strong>9/16</strong></p>
+            <p>round &amp; green &nbsp;=&nbsp; &frac34; &times; &frac14; &nbsp;=&nbsp; <strong>3/16</strong></p>
+            <p>wrinkled &amp; yellow &nbsp;=&nbsp; &frac14; &times; &frac34; &nbsp;=&nbsp; <strong>3/16</strong></p>
+            <p>wrinkled &amp; green &nbsp;=&nbsp; &frac14; &times; &frac14; &nbsp;=&nbsp; <strong>1/16</strong></p>
+            <p class="calc" style="margin-bottom:0;"><span class="r">9 : 3 : 3 : 1</span></p>
+        </div>
+        <p>That is the whole thing. The famous 9&nbsp;:&nbsp;3&nbsp;:&nbsp;3&nbsp;:&nbsp;1 is not a new law to memorise &mdash; it is <strong>two small 3&nbsp;:&nbsp;1 ratios multiplied together.</strong> The biggest number in Mendel's garden is built from the smallest one you already understood.</p>
+        <p>If you <em>do</em> draw the full grid, you get the same answer the long way: two traits means four possible factors from each parent (<span class="geno">RY</span>, <span class="geno">Ry</span>, <span class="geno">rY</span>, <span class="geno">ry</span>), so the square grows to 4&nbsp;&times;&nbsp;4 = sixteen equally-likely boxes. Sort them by looks and they fall into groups of 9, 3, 3, and 1 &mdash; exactly what the multiplying told us in two lines.</p>
+        <div class="essay-image">
+            <img src="pages/page-11.png" alt="A 4x4 grid of pea seeds, colour-grouped into 9 round-yellow, 3 round-green, 3 wrinkled-yellow, 1 wrinkled-green, with the ratio 9:3:3:1">
+            <div class="caption">The long way: sixteen boxes, grouped by looks &mdash; 9 : 3 : 3 : 1, the same answer.</div>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(10)">&larr; Back</button>
+            <span class="page-num">11 of 16</span>
+            <button class="nav-btn primary" onclick="go(12)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ P12 ============ -->
+<section class="page essay-page" id="page-12" data-stage="">
+    <div class="essay-content">
+        <span class="section-label">Part Three &middot; Using the Machine</span>
+        <h2>When the Clean Rules Bend</h2>
+        <div class="essay-image">
+            <img src="pages/page-12.png" alt="A red snapdragon crossed with a white one giving a pink offspring">
+            <div class="caption">A red snapdragon and a white one make pink &mdash; neither factor hides.</div>
+        </div>
+        <p>We owe you some honesty before the finish, because a good explanation does not quietly hide its own limits. Mendel's peas obeyed beautifully tidy rules &mdash; clean either/or traits, one factor neatly dominant over the other. Plenty of living things do <em>not</em> behave so politely, and pretending otherwise would be the kind of rug-sweeping this book refuses to do.</p>
+        <p>Three honest complications:</p>
+        <div class="box fact-box">
+            <div class="box-label">Where the simple story bends</div>
+            <p><strong>Sometimes neither version hides.</strong> Cross a red snapdragon with a white one and you don't get red &mdash; you get <em>pink</em>. Both factors show at once and blend. (Peas never did this, which is part of why Mendel chose them.)</p>
+            <p><strong>Sometimes there are more than two versions.</strong> Our traits had exactly two factors, <span class="geno">T</span> or <span class="geno">t</span>. Some traits come in three or more versions &mdash; human blood type is a classic case.</p>
+            <p><strong>Sometimes many factors team up.</strong> Height in people isn't one tall-or-short switch; it's the sum of many factors plus food and health, which is why people come in every height and not just "tall" or "short."</p>
+        </div>
+        <p>None of this breaks the machine. The Punnett square still does its honest accounting &mdash; you just sometimes need more boxes, more letters, or a rule about blending. The world is simply richer than tall-or-short.</p>
+        <p>And here is the deliberate part: Mendel <em>chose</em> the tidy cases on purpose. He picked traits that came in clean pairs precisely so the hidden arithmetic could show itself clearly the first time anyone looked. Starting simple wasn't a way of dodging the hard cases &mdash; it was the only way to discover the rule that the hard cases bend.</p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(11)">&larr; Back</button>
+            <span class="page-num">12 of 16</span>
+            <button class="nav-btn primary" onclick="go(13)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ P13 ============ -->
+<section class="page essay-page" id="page-13" data-stage="all">
+    <div class="essay-content">
+        <span class="section-label">Part Three &middot; Using the Machine</span>
+        <h2>One Little Grid, Every Pattern</h2>
+        <div class="essay-image">
+            <img src="pages/page-13.png" alt="A montage of the built-up machine: the 2x2, the 3:1, the 1:2:1, the 4x4, the 9:3:3:1">
+            <div class="caption">One machine, built up &mdash; and every ratio in the book is in it.</div>
+        </div>
+        <p>Look back at page one. The mysterious <strong>3&nbsp;:&nbsp;1</strong> that kept appearing in Mendel's garden &mdash; the number that started this whole book &mdash; is now something you can derive in under a minute, and explain to someone else.</p>
+        <p>It was never magic. It is four boxes, counted. And the same four-box machine, looked at the right way, hands you everything else:</p>
+        <div class="box fact-box">
+            <div class="box-label">The whole book in one machine</div>
+            <p><strong>3 : 1</strong> &mdash; what a hybrid cross <em>looks</em> like (phenotype).</p>
+            <p><strong>1 : 2 : 1</strong> &mdash; what the same cross <em>carries</em> (genotype), hidden inside the 3 : 1.</p>
+            <p><strong>9 : 3 : 3 : 1</strong> &mdash; two traits at once, just two 3 : 1's multiplied.</p>
+        </div>
+        <p>One idea runs under all of it: a factor is passed down at random, like a coin, and a grid is simply the honest count of how the coins can land. That is the entire engine. From it falls every ratio Mendel spent years tallying by hand.</p>
+        <div class="pull-quote">
+            <p>Heredity, at this level, is not a mystery and not magic. It is arithmetic &mdash; the kind you can do with paper, a pencil, and a steady habit of counting.</p>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(12)">&larr; Back</button>
+            <span class="page-num">13 of 16</span>
+            <button class="nav-btn primary" onclick="go(14)">Continue &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ P14 ============ -->
+<section class="page essay-page" id="page-14" data-stage="all">
+    <div class="essay-content">
+        <span class="section-label">Part Three &middot; Using the Machine</span>
+        <h2>Now You Breed the Peas</h2>
+        <div class="essay-image">
+            <img src="pages/page-14.png" alt="Cut-out factor tiles, two coins, and a blank grid to fill; Mendel's cameo at the edge">
+            <div class="caption">Everything you need to run a real cross is on this page.</div>
+        </div>
+        <p>You don't have to take any of this on faith. You can run Mendel's experiment yourself this afternoon, with things already in the house.</p>
+        <div class="box turn-box">
+            <div class="box-label">The whole experiment, on paper</div>
+            <p><strong>1.</strong> Cut four small cards: two marked <span class="geno">T</span> and two marked <span class="geno">t</span>. Give each "parent" one <span class="geno">T</span> and one <span class="geno">t</span> &mdash; both parents are hybrids, just like Mendel's.</p>
+            <p><strong>2.</strong> For each child, take one card at random from each parent (turn them face-down and pick), and write down the pair. Or just flip two coins &mdash; heads <span class="geno">T</span>, tails <span class="geno">t</span>.</p>
+            <p><strong>3.</strong> Mark each child tall (any <span class="geno">T</span>) or short (<span class="geno">tt</span>). Do it <strong>twenty times</strong> and keep a tally.</p>
+            <p><strong>4.</strong> Count up. You will land near 3 tall : 1 short &mdash; not exactly, but close, and closer the more rounds you run.</p>
+        </div>
+        <p>When you do this, you are not playing at science &mdash; you are doing the real thing. This is exactly what Mendel did. The only difference is the scale: where you tally twenty, he tallied thousands, season after patient season, until the ratio was unmistakable.</p>
+        <p>That patience &mdash; the willingness to count and count until a hidden rule shows itself &mdash; is the whole story of the monk who started all this. If you'd like to meet him, his life is the companion to this book: <em>Mendel &mdash; The Monk Who Counted.</em></p>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(13)">&larr; Back</button>
+            <span class="page-num">14 of 16</span>
+            <button class="nav-btn primary" onclick="go(15)">The Words, in One Place &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ GLOSSARY ============ -->
+<section class="page essay-page" id="page-15" data-stage="">
+    <div class="essay-content">
+        <span class="section-label">Reference</span>
+        <h2>The Words, in One Place</h2>
+        <p>Six words carry the whole book. Here they are together, so you never have to hunt back through the pages for one.</p>
+        <div class="glossary-item">
+            <div class="term">Factor <span class="alt">(modern word: allele)</span></div>
+            <div class="def">One instruction for a trait, passed from parent to child. Comes in versions &mdash; for height, a tall version and a short version.</div>
+        </div>
+        <div class="glossary-item">
+            <div class="term">Dominant</div>
+            <div class="def">The version that <em>shows</em> when both versions are present. It does not mean stronger, better, or more common &mdash; only "this is the one you see."</div>
+        </div>
+        <div class="glossary-item">
+            <div class="term">Recessive</div>
+            <div class="def">The version that <em>hides</em> when a dominant one is present. It is still carried, and can reappear later. Hidden, not gone.</div>
+        </div>
+        <div class="glossary-item">
+            <div class="term">Genotype</div>
+            <div class="def">Which factors a plant actually carries &mdash; <span class="geno">TT</span>, <span class="geno">Tt</span>, or <span class="geno">tt</span>. We write it in letters.</div>
+        </div>
+        <div class="glossary-item">
+            <div class="term">Phenotype</div>
+            <div class="def">What a plant looks like &mdash; tall or short. We write it in plain words.</div>
+        </div>
+        <div class="glossary-item">
+            <div class="term">Punnett square</div>
+            <div class="def">The four-box grid that lists every equally-likely child of a cross: one parent's factors along the top, the other's down the side, every pairing in the boxes.</div>
+        </div>
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(14)">&larr; Back</button>
+            <span class="page-num">15 of 16</span>
+            <button class="nav-btn primary" onclick="go(16)">Check Your Understanding &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section class="page essay-page" id="page-16" data-stage="">
+    <div class="essay-content">
+        <div class="quiz-header">
+            <h2>Check Your Understanding</h2>
+            <p>Six questions about the WHY, not the what.</p>
+        </div>
+
+        <div class="question-block" id="q1">
+            <h3><span class="q-num">1</span> Why does crossing two tall hybrids (<span class="geno">Tt</span> &times; <span class="geno">Tt</span>) give about three tall plants for every short one?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q1" value="a"> The grid makes four equally-likely boxes; three of them hold at least one <span class="geno">T</span> and so are tall, and only one is <span class="geno">tt</span> and short.</label>
+                <label class="option"><input type="radio" name="q1" value="b"> The tall factor is exactly three times stronger than the short factor, so it wins three of every four contests inside a plant.</label>
+                <label class="option"><input type="radio" name="q1" value="c"> Three of the four parent plants were already tall, and offspring copy whichever parents are in the majority.</label>
+            </div>
+            <button class="check-btn" onclick="check(1,'a')">Check Answer</button>
+            <div class="feedback" id="fb1"></div>
+        </div>
+
+        <div class="question-block" id="q2">
+            <h3><span class="q-num">2</span> A friend says "the tall factor is dominant, so most pea plants in the world must be tall." What's wrong with that?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q2" value="a"> Nothing &mdash; dominant factors really are more common, by definition.</label>
+                <label class="option"><input type="radio" name="q2" value="b"> Dominant only means the version that <em>shows</em> when both are present. It says nothing about how common, strong, or good a factor is.</label>
+                <label class="option"><input type="radio" name="q2" value="c"> The friend mixed up tall and short &mdash; short is actually the dominant one in peas.</label>
+            </div>
+            <button class="check-btn" onclick="check(2,'b')">Check Answer</button>
+            <div class="feedback" id="fb2"></div>
+        </div>
+
+        <div class="question-block" id="q3">
+            <h3><span class="q-num">3</span> Why does the short trait vanish in the first cross, then reappear a generation later?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q3" value="a"> The short factor is worn away by the tall plants and has to be slowly rebuilt from nothing.</label>
+                <label class="option"><input type="radio" name="q3" value="b"> The short trait grows tired of hiding and forces its own way back into view.</label>
+                <label class="option"><input type="radio" name="q3" value="c"> It is recessive: hidden whenever a <span class="geno">T</span> is present but never lost, it shows again only when a plant inherits two <span class="geno">t</span> factors.</label>
+            </div>
+            <button class="check-btn" onclick="check(3,'c')">Check Answer</button>
+            <div class="feedback" id="fb3"></div>
+        </div>
+
+        <div class="question-block" id="q4">
+            <h3><span class="q-num">4</span> A <span class="geno">Tt</span> &times; <span class="geno">Tt</span> cross has already produced three tall plants in a row. What is the chance the next one is short?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q4" value="a"> Still about one in four &mdash; each cross is a fresh draw, and the boxes have no memory of past results.</label>
+                <label class="option"><input type="radio" name="q4" value="b"> Much higher than usual &mdash; a short one is now "owed" to balance the three talls out.</label>
+                <label class="option"><input type="radio" name="q4" value="c"> Zero &mdash; once three talls appear, the short factor has clearly been used up.</label>
+            </div>
+            <button class="check-btn" onclick="check(4,'a')">Check Answer</button>
+            <div class="feedback" id="fb4"></div>
+        </div>
+
+        <div class="question-block" id="q5">
+            <h3><span class="q-num">5</span> Three pea plants all look tall. Why might they not be the same underneath?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q5" value="a"> They can't differ &mdash; if they look the same, they carry the same factors.</label>
+                <label class="option"><input type="radio" name="q5" value="b"> Looking tall (phenotype) can come from <span class="geno">TT</span> or from <span class="geno">Tt</span>; the two hide the same on the outside but carry different factors inside.</label>
+                <label class="option"><input type="radio" name="q5" value="c"> One of them is secretly short and only looks tall because of good soil.</label>
+            </div>
+            <button class="check-btn" onclick="check(5,'b')">Check Answer</button>
+            <div class="feedback" id="fb5"></div>
+        </div>
+
+        <div class="question-block" id="q6">
+            <h3><span class="q-num">6</span> Why does tracking two independent traits give 9&nbsp;:&nbsp;3&nbsp;:&nbsp;3&nbsp;:&nbsp;1?</h3>
+            <div class="options">
+                <label class="option"><input type="radio" name="q6" value="a"> It's a separate law you simply have to memorise for two-trait crosses.</label>
+                <label class="option"><input type="radio" name="q6" value="b"> Because two traits always produce sixteen identical plants split into four random groups.</label>
+                <label class="option"><input type="radio" name="q6" value="c"> Each trait is its own 3 : 1 (&frac34; vs &frac14;); since they're independent you multiply the chances, and &frac34;&times;&frac34; : &frac34;&times;&frac14; : &frac14;&times;&frac34; : &frac14;&times;&frac14; gives 9 : 3 : 3 : 1.</label>
+            </div>
+            <button class="check-btn" onclick="check(6,'c')">Check Answer</button>
+            <div class="feedback" id="fb6"></div>
+        </div>
+
+        <div class="score-box" id="scoreBox">
+            <h3>Your Score</h3>
+            <div class="score-number"><span id="scoreVal">0</span>/6</div>
+        </div>
+
+        <div class="nav">
+            <button class="nav-btn secondary" onclick="go(15)">&larr; Back</button>
+            <span class="page-num">16 of 16</span>
+            <button class="nav-btn primary" onclick="go(17)">Finish &rarr;</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ END ============ -->
+<section class="page end-page" id="page-17" data-stage="">
+    <div class="ornament">&#10038; &#10038; &#10038;</div>
+    <h1>Heredity Is Arithmetic</h1>
+    <blockquote><em>Mendel found a mysterious three-to-one hiding in his garden. Underneath it was a grid of four boxes you can fill in yourself &mdash; and from it falls the 3&nbsp;:&nbsp;1, the hidden 1&nbsp;:&nbsp;2&nbsp;:&nbsp;1, and, scaled up, the 9&nbsp;:&nbsp;3&nbsp;:&nbsp;3&nbsp;:&nbsp;1. None of it was magic. Just outcomes, counted.</em></blockquote>
+    <div class="ornament">&#10038;</div>
+    <p class="source">A companion to <em>Mendel &mdash; The Monk Who Counted</em></p>
+    <div style="margin-top: 40px;">
+        <button class="nav-btn primary" onclick="go(0)">Read Again</button>
+    </div>
+</section>
+
+<!-- Concept strip -->
+<div class="concept-strip" id="conceptStrip">
+    <span class="stage-chip" data-stage="factor">factor</span>
+    <span class="stage-chip" data-stage="2x2">2&times;2</span>
+    <span class="stage-chip" data-stage="3:1">3:1</span>
+    <span class="stage-chip" data-stage="1:2:1">1:2:1</span>
+    <span class="stage-chip" data-stage="4x4">4&times;4</span>
+    <span class="stage-chip" data-stage="9:3:3:1">9:3:3:1</span>
+</div>
+
+<script>
+let cur = 0;
+const total = 18;
+let score = 0;
+const answered = new Set();
+const conceptStrip = document.getElementById('conceptStrip');
+const stageChips = conceptStrip.querySelectorAll('.stage-chip');
+
+const answers = {
+    1: { correct: "Right — the ratio is just the four boxes counted. Fill Tt × Tt and you get TT, Tt, Tt, tt: three carry a T (tall), one is tt (short). 3 : 1 falls straight out of the arithmetic.",
+         incorrect: "Not quite. A factor isn't \"stronger\" by a number, and offspring don't vote with the majority. Fill Tt × Tt: TT, Tt, Tt, tt — three tall, one short. The 3 : 1 is simply the four equally-likely boxes counted." },
+    2: { correct: "Exactly. Dominant means \"the version that shows when both are present\" — nothing about strength, health, or how common it is. Recessive traits can be far more common than dominant ones.",
+         incorrect: "The answer is B. Dominant only means the version that shows when both are present. It says nothing about how common or strong a factor is — recessive traits are often more common than dominant ones." },
+    3: { correct: "Right — recessive means hidden, not gone. A Tt plant looks tall because the T shows, but it quietly carries a t. Only when two t factors meet (tt) does the short trait appear again.",
+         incorrect: "The answer is C. The factor is never destroyed and has no will of its own. The short trait is recessive: hidden whenever a T is present, still carried, and it reappears only when a plant inherits two t factors." },
+    4: { correct: "Right — the boxes have no memory. Each cross is a fresh one-in-four draw, no matter what came before. Past results never \"use up\" the odds or owe you a particular outcome.",
+         incorrect: "The answer is A. This is the classic trap: each cross is an independent one-in-four draw. Nothing is \"owed\" and nothing is \"used up\" — the boxes don't remember the three talls that came before." },
+    5: { correct: "Right — that's the genotype-vs-phenotype gap. Both TT and Tt look tall (same phenotype) but carry different factors (different genotype). You can't read the genotype off the outside.",
+         incorrect: "The answer is B. Looking tall (phenotype) can come from TT or from Tt — same outside, different factors inside. That's exactly why a test cross is needed to tell them apart." },
+    6: { correct: "Exactly. Each trait alone is a 3 : 1 (¾ vs ¼). Because the traits are independent you multiply: ¾×¾, ¾×¼, ¼×¾, ¼×¼ = 9 : 3 : 3 : 1. The big ratio is just two small ones multiplied.",
+         incorrect: "The answer is C. It isn't a new law to memorise. Each trait is its own 3 : 1, and because the two are independent you multiply the chances: ¾×¾ : ¾×¼ : ¼×¾ : ¼×¼ = 9 : 3 : 3 : 1." }
+};
+
+function updateStrip(stage) {
+    if (!stage) { conceptStrip.style.display = 'none'; return; }
+    conceptStrip.style.display = 'flex';
+    stageChips.forEach(function(chip) {
+        const on = stage === 'all' || chip.dataset.stage === stage;
+        chip.classList.toggle('active', on);
+    });
+}
+
+function go(p) {
+    document.querySelectorAll('.page').forEach(pg => pg.classList.remove('active'));
+    const sec = document.getElementById('page-' + p);
+    sec.classList.add('active');
+    cur = p;
+    document.getElementById('progressBar').style.width = (cur / (total - 1) * 100) + '%';
+    updateStrip(sec.dataset.stage);
+    window.scrollTo(0, 0);
+}
+
+function check(q, correct) {
+    if (answered.has(q)) return;
+    const sel = document.querySelector('input[name="q' + q + '"]:checked');
+    if (!sel) return;
+    const fb = document.getElementById('fb' + q);
+    const opts = document.querySelectorAll('#q' + q + ' .option');
+    opts.forEach(o => { if (o.querySelector('input').checked) o.classList.add('selected'); });
+    if (sel.value === correct) {
+        fb.innerHTML = answers[q].correct;
+        fb.className = 'feedback correct';
+        score++;
+    } else {
+        fb.innerHTML = answers[q].incorrect;
+        fb.className = 'feedback incorrect';
+        opts.forEach(o => {
+            const inp = o.querySelector('input');
+            if (inp.value === correct) o.classList.add('correct');
+            if (inp.checked) o.classList.add('incorrect');
+        });
+    }
+    answered.add(q);
+    document.getElementById('scoreVal').textContent = score;
+    if (answered.size === 6) document.getElementById('scoreBox').style.display = 'block';
+}
+
+document.querySelectorAll('.option input').forEach(inp => {
+    inp.addEventListener('change', () => {
+        inp.closest('.options').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+        inp.closest('.option').classList.add('selected');
+    });
+});
+
+document.addEventListener('keydown', e => {
+    if (e.target.tagName === 'INPUT') return;
+    if (e.key === 'ArrowRight' && cur < total - 1) go(cur + 1);
+    if (e.key === 'ArrowLeft' && cur > 0) go(cur - 1);
+});
+
+updateStrip('');
+</script>
+
+</body>
+</html>

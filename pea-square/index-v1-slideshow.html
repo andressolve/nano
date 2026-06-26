@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pea Square &mdash; How to Predict a Living Thing</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            background: #15171c;
+            color: #ece7da;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #6f57a0, #9176c4);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .reader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px 16px;
+        }
+
+        .page-frame {
+            max-width: min(1400px, 96vw);
+            width: 100%;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .page-frame.fading { opacity: 0; }
+
+        .page-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .page-frame.cover img {
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #ece7da;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            z-index: 50;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            user-select: none;
+        }
+
+        .nav-arrow.prev { left: 18px; }
+        .nav-arrow.next { right: 18px; }
+
+        .nav-arrow:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .nav-arrow:disabled {
+            opacity: 0.18;
+            cursor: default;
+        }
+
+        .page-info {
+            position: fixed;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: rgba(236, 231, 218, 0.45);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .concept-strip {
+            position: fixed;
+            bottom: 38px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 7px;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .stage-chip {
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(236, 231, 218, 0.28);
+            padding: 3px 9px;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .stage-chip.active {
+            color: #c2acea;
+            border-color: rgba(145, 118, 196, 0.5);
+            background: rgba(145, 118, 196, 0.15);
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(236, 231, 218, 0.4);
+        }
+
+        .home-link {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            font-size: 13px;
+            color: rgba(236, 231, 218, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            z-index: 100;
+        }
+
+        .home-link:hover { color: rgba(236, 231, 218, 0.7); }
+
+        @media (max-width: 768px) {
+            .reader { padding: 16px 10px; }
+            .nav-arrow { width: 44px; height: 44px; font-size: 22px; }
+            .nav-arrow.prev { left: 8px; }
+            .nav-arrow.next { right: 8px; }
+            .home-link { top: 10px; left: 10px; }
+            .page-info { bottom: 8px; }
+            .concept-strip { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-frame, .progress-bar { transition: none; }
+        }
+
+        .end-interstitial {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .end-interstitial.fading { opacity: 0; }
+
+        .end-interstitial h2 {
+            font-size: 32px;
+            font-weight: normal;
+            color: #e8e2d2;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .end-interstitial .subtitle {
+            font-size: 18px;
+            color: rgba(236, 231, 218, 0.6);
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .quiz-container {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .quiz-container.fading { opacity: 0; }
+
+        .quiz-container h2 {
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #e8e2d2;
+        }
+
+        .question-block {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .question-text {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #e8e2d2;
+            line-height: 1.6;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #d4ccc0;
+            line-height: 1.5;
+        }
+
+        .options label:hover { background: rgba(255,255,255,0.06); }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #9176c4;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-family: inherit;
+            background: rgba(145, 118, 196, 0.14);
+            border: 1px solid rgba(145, 118, 196, 0.32);
+            color: #c2acea;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .check-btn:hover { background: rgba(145, 118, 196, 0.26); }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            background: rgba(90, 180, 90, 0.1);
+            border: 1px solid rgba(90, 180, 90, 0.2);
+            color: #8cd48c;
+        }
+
+        .feedback.incorrect {
+            background: rgba(200, 90, 90, 0.1);
+            border: 1px solid rgba(200, 90, 90, 0.2);
+            color: #d4a0a0;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            display: none;
+            color: #c2acea;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <a class="home-link" href="../index.html">&larr; Stories</a>
+
+    <div class="reader">
+        <div class="page-title" id="pageTitle">Cover</div>
+        <div class="page-frame cover" id="pageFrame">
+            <img id="pageImg" src="pages/page-00-cover.png" alt="The Pea Square &mdash; Cover" />
+        </div>
+
+        <div class="end-interstitial" id="endInterstitial">
+            <h2>Heredity Is Arithmetic</h2>
+            <div class="subtitle">The Pea Square &mdash; How to Predict a Living Thing</div>
+            <p style="color: rgba(236, 231, 218, 0.75); font-size: 17px; line-height: 1.7; max-width: 560px; margin: 0 auto;">
+                Mendel found a mysterious three-to-one hiding in his garden. This book built the little machine underneath it &mdash; a grid of four boxes you can fill in yourself. From two factors and one square came the 3&nbsp;:&nbsp;1, the hidden 1&nbsp;:&nbsp;2&nbsp;:&nbsp;1, and, scaled up, the 9&nbsp;:&nbsp;3&nbsp;:&nbsp;3&nbsp;:&nbsp;1. None of it was magic &mdash; just outcomes, counted. One short quiz stands between you and the end. It tests the WHY, not the what.
+            </p>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <h2>Test Your Understanding</h2>
+
+            <div class="question-block" id="q1">
+                <div class="question-text">1. Why does crossing two tall hybrids (Tt &times; Tt) give about three tall plants for every short one?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> Because the grid makes four equally-likely boxes &mdash; three of them hold at least one T and so are tall, and only one is tt and short.</label>
+                    <label><input type="radio" name="q1" value="b"> Because the tall factor is exactly three times stronger than the short factor, so it simply wins three out of every four contests inside a plant.</label>
+                    <label><input type="radio" name="q1" value="c"> Because three of the four parent plants used in the cross were already tall, and the offspring always copy whichever parents are in the majority.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q1', 'a')">Check Answer</button>
+                <div class="feedback correct" id="q1-correct">Right &mdash; the ratio is just the four boxes counted. Fill the grid for Tt &times; Tt and you get TT, Tt, Tt, tt. Three carry at least one T (tall); one is tt (short). 3&nbsp;:&nbsp;1 falls straight out of the arithmetic.</div>
+                <div class="feedback incorrect" id="q1-incorrect">Not quite. A factor is not "stronger" by a number, and offspring do not vote with the majority. Fill the grid for Tt &times; Tt: you get TT, Tt, Tt, tt &mdash; three tall, one short. The 3&nbsp;:&nbsp;1 is simply the four equally-likely boxes counted.</div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <div class="question-text">2. Why does the short trait vanish in the first cross, then reappear in a later generation?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> Because the short factor is slowly worn away by the tall plants and then has to be rebuilt from nothing across several of the generations that follow.</label>
+                    <label><input type="radio" name="q2" value="b"> Because it is recessive: it hides whenever a T is present, but it is never lost, and it shows again only when a plant inherits two t factors at once.</label>
+                    <label><input type="radio" name="q2" value="c"> Because the short trait grows tired of staying hidden after a single generation and then forces its own way back into view in every plant thereafter.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q2', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q2-correct">Right &mdash; recessive means hidden, not gone. A Tt plant looks tall because the T shows, but it quietly carries a t. Only when two of those t factors meet (tt) does the short trait appear again.</div>
+                <div class="feedback incorrect" id="q2-incorrect">Not quite. The factor is never destroyed, and it does not have a will of its own. The short trait is recessive: hidden whenever a T is present, but still carried &mdash; it shows again only when a plant inherits two t factors (tt).</div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <div class="question-text">3. Why is a Punnett square really just counting chances, the way flipping coins is?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> Because the grid was first drawn on the backs of old gambling cards, and its four boxes are copied directly from the four suits in an ordinary playing deck.</label>
+                    <label><input type="radio" name="q3" value="b"> Because you have to flip a real coin to decide which letter belongs in each of the four boxes before the finished grid is able to give you any answer.</label>
+                    <label><input type="radio" name="q3" value="c"> Because each parent passes on one factor at random, so the four boxes are simply the four equally-likely results of two coin-flips laid side by side.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q3', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q3-correct">Right &mdash; that is the whole idea. Each parent's two factors split at random, like a coin landing T or t. Two flips give four equally-likely results, and those four results are exactly the four boxes of the square.</div>
+                <div class="feedback incorrect" id="q3-incorrect">Not quite &mdash; the grid has nothing to do with playing cards, and you do not flip a coin to fill it in. It mirrors coin-flips because each parent passes one factor at random, so the four boxes are the four equally-likely results of two flips.</div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <div class="question-text">4. Why does crossing a mystery tall plant with a pure-short (tt) plant reveal its hidden factor?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> Because a pure-short partner can only ever give a t, so the children's heights show whether the mystery plant was secretly carrying a t of its own.</label>
+                    <label><input type="radio" name="q4" value="b"> Because crossing it with a short plant permanently rewrites the mystery plant's own pair of factors, so that they can at last be read off directly.</label>
+                    <label><input type="radio" name="q4" value="c"> Because the pure-short plant is able to sense its partner's hidden factor and then passes that secret information along to each one of its many children.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q4', 'a')">Check Answer</button>
+                <div class="feedback correct" id="q4-correct">Right &mdash; the tt partner is a clean test. Since it can only give a t, every child's height depends on the mystery plant. All tall means it was TT; any short children mean it was hiding a t (Tt). The count cannot be fooled.</div>
+                <div class="feedback incorrect" id="q4-incorrect">Not quite &mdash; a cross does not rewrite a plant's factors, and a plant cannot "sense" anything. The trick works because a pure-short plant can only give a t, so the children's heights reveal whether the mystery plant secretly carried a t.</div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <div class="question-text">5. Why did Mendel deliberately choose traits like tall-vs-short and round-vs-wrinkled?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> Because those happened to be the only pea traits that the monastery's thin soil and short growing season would let him raise in any reliable number at all.</label>
+                    <label><input type="radio" name="q5" value="b"> Because they came in clean either/or forms, which kept the counting simple &mdash; many real traits instead blend, or come in more than two different versions.</label>
+                    <label><input type="radio" name="q5" value="c"> Because tall, round peas fetched the highest price at market, and a careful abbey was always expected to grow whatever crop was the most valuable.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q5', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q5-correct">Right &mdash; he picked the tidy cases on purpose. Clean either/or traits gave sharp counts and clear ratios. He knew the world is richer than that &mdash; red and white snapdragons blend to pink &mdash; but simple traits let the hidden arithmetic show itself first.</div>
+                <div class="feedback incorrect" id="q5-incorrect">Not quite &mdash; it was not about soil or market price. Mendel chose either/or traits because their clean forms kept the counting simple. Many real traits blend (red &times; white snapdragon &rarr; pink) or come in more than two versions; he started with the tidy cases on purpose.</div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay"></div>
+        </div>
+
+    </div>
+
+    <button class="nav-arrow prev" id="prevBtn" onclick="prev()" disabled aria-label="Previous page">&larr;</button>
+    <button class="nav-arrow next" id="nextBtn" onclick="next()" aria-label="Next page">&rarr;</button>
+
+    <div class="concept-strip" id="conceptStrip">
+        <span class="stage-chip" data-stage="factor">factor</span>
+        <span class="stage-chip" data-stage="2x2">2&times;2</span>
+        <span class="stage-chip" data-stage="3:1">3:1</span>
+        <span class="stage-chip" data-stage="1:2:1">1:2:1</span>
+        <span class="stage-chip" data-stage="4x4">4&times;4</span>
+        <span class="stage-chip" data-stage="9:3:3:1">9:3:3:1</span>
+    </div>
+
+    <span class="page-info" id="pageInfo">Cover</span>
+
+    <script>
+        const pages = [
+            { file: 'pages/page-00-cover.png', title: 'Cover', label: 'Cover', stage: null },
+            { file: 'pages/page-01.png', title: 'A Number Kept Appearing', label: 'Page 1 of 14', stage: 'factor' },
+            { file: 'pages/page-02.png', title: 'Every Plant Carries a Pair', label: 'Page 2 of 14', stage: 'factor' },
+            { file: 'pages/page-03.png', title: 'One Version Wins, the Other Hides', label: 'Page 3 of 14', stage: 'factor' },
+            { file: 'pages/page-04.png', title: 'Cross Pure Tall and Pure Short', label: 'Page 4 of 14', stage: '2x2' },
+            { file: 'pages/page-05.png', title: 'The Grid That Predicts the Children', label: 'Page 5 of 14', stage: '2x2' },
+            { file: 'pages/page-06.png', title: 'Where the 3 : 1 Comes From', label: 'Page 6 of 14', stage: '3:1' },
+            { file: 'pages/page-07.png', title: 'The Hidden 1 : 2 : 1', label: 'Page 7 of 14', stage: '1:2:1' },
+            { file: 'pages/page-08.png', title: 'It’s Just Counting the Chances', label: 'Page 8 of 14', stage: '3:1' },
+            { file: 'pages/page-09.png', title: 'The Test Cross', label: 'Page 9 of 14', stage: '2x2' },
+            { file: 'pages/page-10.png', title: 'Two Traits, Shuffled Separately', label: 'Page 10 of 14', stage: '4x4' },
+            { file: 'pages/page-11.png', title: 'The Same Machine, Scaled Up', label: 'Page 11 of 14', stage: '9:3:3:1' },
+            { file: 'pages/page-12.png', title: 'When the Clean Rules Bend', label: 'Page 12 of 14', stage: null },
+            { file: 'pages/page-13.png', title: 'One Little Grid, Every Pattern', label: 'Page 13 of 14', stage: 'all' },
+            { file: 'pages/page-14.png', title: 'Now You Breed the Peas', label: 'Page 14 of 14', stage: 'all' },
+            { file: null, title: 'Heredity Is Arithmetic', label: 'The End', end: true },
+            { file: null, title: 'Quiz', label: 'Quiz', quiz: true },
+        ];
+
+        let current = 0;
+        const img = document.getElementById('pageImg');
+        const frame = document.getElementById('pageFrame');
+        const quiz = document.getElementById('quizContainer');
+        const endInt = document.getElementById('endInterstitial');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageInfo = document.getElementById('pageInfo');
+        const pageTitle = document.getElementById('pageTitle');
+        const progressBar = document.getElementById('progressBar');
+        const conceptStrip = document.getElementById('conceptStrip');
+        const stageChips = conceptStrip.querySelectorAll('.stage-chip');
+
+        function updateStrip(stage) {
+            if (!stage) {
+                conceptStrip.style.display = 'none';
+                return;
+            }
+            conceptStrip.style.display = 'flex';
+            stageChips.forEach(function(chip) {
+                const on = stage === 'all' || chip.dataset.stage === stage;
+                chip.classList.toggle('active', on);
+            });
+        }
+
+        function show(index) {
+            frame.classList.add('fading');
+            quiz.classList.add('fading');
+            endInt.classList.add('fading');
+            setTimeout(() => {
+                current = index;
+                const p = pages[current];
+                if (p.quiz || p.end) {
+                    frame.style.display = 'none';
+                    conceptStrip.style.display = 'none';
+                    if (p.quiz) { quiz.style.display = 'block'; endInt.style.display = 'none'; }
+                    else { endInt.style.display = 'block'; quiz.style.display = 'none'; }
+                } else {
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'none';
+                    frame.style.display = 'block';
+                    img.src = p.file;
+                    img.alt = 'The Pea Square — ' + p.title;
+                    updateStrip(p.stage);
+                }
+                pageTitle.innerHTML = p.title;
+                pageInfo.innerHTML = p.label;
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === pages.length - 1;
+                progressBar.style.width = (current / (pages.length - 1)) * 100 + '%';
+                frame.classList.toggle('cover', current === 0);
+                frame.classList.remove('fading');
+                quiz.classList.remove('fading');
+                endInt.classList.remove('fading');
+                window.scrollTo(0, 0);
+            }, 250);
+        }
+
+        let answered = 0;
+        let correctCount = 0;
+
+        function checkAnswer(qId, correctAnswer) {
+            const selected = document.querySelector('input[name="' + qId + '"]:checked');
+            if (!selected) return;
+            const block = document.getElementById(qId);
+            const isCorrect = selected.value === correctAnswer;
+            block.querySelectorAll('input').forEach(function(i) { i.disabled = true; });
+            block.querySelector('.check-btn').style.display = 'none';
+            if (isCorrect) {
+                document.getElementById(qId + '-correct').style.display = 'block';
+                correctCount++;
+            } else {
+                document.getElementById(qId + '-incorrect').style.display = 'block';
+            }
+            answered++;
+            if (answered === 5) {
+                var display = document.getElementById('scoreDisplay');
+                display.textContent = 'You got ' + correctCount + ' out of 5 correct!';
+                display.style.display = 'block';
+            }
+        }
+
+        function next() { if (current < pages.length - 1) show(current + 1); }
+        function prev() { if (current > 0) show(current - 1); }
+
+        img.addEventListener('click', function(e) {
+            const rect = img.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x < rect.width * 0.35) prev();
+            else next();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) next();
+                else prev();
+            }
+        }, { passive: true });
+
+        function preload() {
+            if (current < pages.length - 1 && pages[current + 1].file) {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = pages[current + 1].file;
+                document.head.appendChild(link);
+            }
+        }
+        img.addEventListener('load', preload);
+    </script>
+
+</body>
+</html>
