@@ -81,6 +81,76 @@
       margin-top: 28px;
     }
 
+    .shelf { margin-top: 46px; }
+    .shelf:first-of-type { margin-top: 30px; }
+    .shelf .grid { margin-top: 16px; }
+
+    .shelf-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(34, 31, 28, 0.16);
+    }
+
+    .shelf-title {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      color: rgba(34, 31, 28, 0.74);
+    }
+
+    .shelf-count {
+      font-size: 13px;
+      letter-spacing: 0.4px;
+      color: var(--muted);
+    }
+
+    .linklist {
+      list-style: none;
+      margin: 16px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 16px;
+    }
+
+    .linklist a {
+      display: grid;
+      gap: 2px;
+      text-decoration: none;
+      color: inherit;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: background 160ms ease, border-color 160ms ease;
+    }
+
+    .linklist a:hover {
+      background: rgba(255, 255, 255, 0.6);
+      border-color: var(--card-border);
+    }
+
+    .ll-title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .linklist a:hover .ll-title { color: var(--accent); }
+
+    .ll-meta {
+      font-size: 12.5px;
+      letter-spacing: 0.4px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 620px) {
+      .linklist { grid-template-columns: 1fr; }
+    }
+
     .card {
       grid-column: span 6;
       display: grid;
@@ -228,656 +298,31 @@
       </p>
     </header>
 
-    <main class="grid" aria-label="Story cards">
-      <a class="card" href="marcus/index.html" aria-label="Open The View From Above">
+    <main aria-label="Story catalog">
+      <section class="shelf">
+        <div class="shelf-head">
+          <h2 class="shelf-title">Latest &middot; just shipped</h2>
+          <span class="shelf-count">6</span>
+        </div>
+        <div class="grid">
+          <a class="card" href="kepler/index.html" aria-label="Open Kepler — The Man Who Trusted the Data">
         <div class="thumb">
-          <img src="marcus/cover.png" alt="Rome at dusk with palace gardens" />
+          <img src="kepler/pages/page-00-cover.png" alt="A gaunt scholar with a high forehead and pointed beard at a candlelit desk of calculation sheets, gazing through a leaded window at a deep-blue night sky over Prague where a thin golden ellipse is traced among the stars with one small burning red point, oil-painting realism" />
         </div>
         <div class="meta">
           <div class="title-row">
-            <h2 class="story-title">The View From Above</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A moment of humiliation becomes a lesson in scale, time, and perspective.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Rome</span>
-            <span class="chip">170 CE</span>
-            <span class="chip">Perspective</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="orchard/index.html" aria-label="Open The Orchard of Small Things">
-        <div class="thumb">
-          <img src="orchard/cover.png" alt="Terraced orchard at dusk with village and sea" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Orchard of Small Things</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A restless boy learns how patience, repair, and repetition become a kind of strength.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Mediterranean</span>
-            <span class="chip">12th c.</span>
-            <span class="chip">Patience</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="salt-and-stone/index.html" aria-label="Open Salt and Stone">
-        <div class="thumb">
-          <img src="salt-and-stone/pages/page-00-cover.png" alt="Boy on rocky shore looking out at dark sea" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Salt and Stone</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A Greek boy loses everything to war, washes ashore in a foreign land, and rebuilds his life through the craft his father taught him.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Aegean &amp; Phoenicia</span>
-            <span class="chip">480 BC</span>
-            <span class="chip">Resilience</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="salt-and-stone-two/index.html" aria-label="Open Salt and Stone — Life Two">
-        <div class="thumb">
-          <img src="salt-and-stone-two/pages/page-00-cover.png" alt="Youth at the prow of a warship, fleet and fire on dark sea" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Salt and Stone — Life Two</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">Five years later, the boy is a young man — conscripted into the Persian fleet, fighting against the country of his birth at the Battle of Salamis.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Sidon, Salamis &amp; Athens</span>
-            <span class="chip">480 BC</span>
-            <span class="chip">Identity</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="salt-and-stone-life-three/index.html" aria-label="Open Salt and Stone — Life Three">
-        <div class="thumb">
-          <img src="salt-and-stone-life-three/pages/cover.png" alt="Man standing on endless steppe, wind in grass, horse nearby" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Salt and Stone — Life Three</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">Shipwrecked for the third time, Nikos washes ashore in a world without cities or ships — and discovers that who he is without any of it might be enough.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Athens &amp; the Steppe</span>
-            <span class="chip">476 BC</span>
-            <span class="chip">Freedom</span>
-          </div>
-        </div>
-      </a>
-      <a class="card" href="salt-and-stone-life-four/index.html" aria-label="Open Salt and Stone — Life Four">
-        <div class="thumb">
-          <img src="salt-and-stone-life-four/pages/cover.png" alt="A man kneels in winter grass, holding a shell necklace out to a small boy" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Salt and Stone — Life Four</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">Six years on the steppe, Nikos has a son who asks about the sea. When Greek traders arrive from the south, he must decide what to pass on — and what to let go.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Pontic Steppe</span>
-            <span class="chip">468 BC</span>
-            <span class="chip">Legacy</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="lantern-and-sword/index.html" aria-label="Open The Lantern and the Sword">
-        <div class="thumb">
-          <img src="lantern-and-sword/cover.png" alt="Japanese lantern workshop at dusk with warm light glowing through paper screens" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Lantern and the Sword</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A lantern-maker's son dreams of forging swords — until a wounded samurai shows him that light can be braver than steel.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Sengoku Japan</span>
-            <span class="chip">16th c.</span>
-            <span class="chip">Courage</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="mapped-the-wind/index.html" aria-label="Open The Boy Who Mapped the Wind">
-        <div class="thumb">
-          <img src="mapped-the-wind/cover.png" alt="A Polynesian voyaging canoe under a star-filled Pacific sky" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Boy Who Mapped the Wind</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">An overconfident young navigator learns that the ocean is always speaking — if you know how to listen.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Polynesian Pacific</span>
-            <span class="chip">1100 AD</span>
-            <span class="chip">Attention</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="house-of-atreus-vol1/index.html" aria-label="Open The House of Atreus — Volume 1">
-        <div class="thumb">
-          <img src="house-of-atreus-vol1/pages/cover.png" alt="A hilltop palace at golden hour with a long banquet table stretching into shadow" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The House of Atreus — Vol. 1</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A father serves his son to the gods. A champion betrays the man who helped him win. Two brothers tear a kingdom apart. Three generations, three curses, one bloodline.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Mycenaean Greece</span>
-            <span class="chip">Mythic Age</span>
-            <span class="chip">Legacy</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="shock-of-florence/index.html" aria-label="Open The Shock of Florence">
-        <div class="thumb">
-          <img src="shock-of-florence/cover.png" alt="A horseman rides from a dark medieval street into sunlit Renaissance Florence" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Shock of Florence</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A French ambassador rides south expecting a city of merchants. What he finds rewrites everything he knows about what humans can build.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">France &amp; Florence</span>
-            <span class="chip">1460</span>
-            <span class="chip">Illustrated Essay</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="house-of-atreus-vol2/index.html" aria-label="Open The House of Atreus — Volume 2">
-        <div class="thumb">
-          <img src="house-of-atreus-vol2/pages/cover.png" alt="The Lion Gate of Mycenae at twilight with a purple carpet on the steps" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The House of Atreus — Vol. 2</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A king sacrifices his daughter for war. A queen waits ten years for revenge. A son must choose between divine law and his own mother. The cycle of blood ends — not by a sword, but by a vote.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Mycenae &amp; Athens</span>
-            <span class="chip">Mythic Age</span>
-            <span class="chip">Justice</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="trial-of-socrates/index.html" aria-label="Open The Trial of Socrates">
-        <div class="thumb">
-          <img src="trial-of-socrates/pages/cover.png" alt="A barefoot figure stands before hundreds of jurors in the Athenian agora at golden hour" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Trial of Socrates</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A potter's son watches Athens put its wisest man on trial. When Socrates refuses to save himself, the boy must reckon with what it means to believe something enough to die for it.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Athens</span>
-            <span class="chip">399 BC</span>
-            <span class="chip">Integrity</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="the-builders/index.html" aria-label="Open The Builders">
-        <div class="thumb">
-          <img src="the-builders/cover.png" alt="Split image: Roman aqueduct arches on the left, a qanat shaft in the Persian desert on the right" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Builders</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A Roman boy and a Persian girl face the same problem — a city that needs water — a thousand years and a thousand miles apart. Two solutions. Same physics. Same patience.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Rome &amp; Persia</span>
-            <span class="chip">500 BC &amp; 90 AD</span>
-            <span class="chip">Dual Story</span>
-          </div>
-        </div>
-      </a>
-      <a class="card" href="descartes/index.html" aria-label="Open Cogito: The Life of René Descartes">
-        <div class="thumb">
-          <img src="descartes/pages/page-01-cover.png" alt="René Descartes at his desk with geometric drawings, candlelight, and a rumpled bed behind him" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Cogito: The Life of René Descartes</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A sickly boy who was allowed to stay in bed became the man who unified geometry and algebra, stripped away every certainty until only three words survived, and was killed by the cold when a queen forced him out of bed at five in the morning.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">France &amp; Netherlands</span>
-            <span class="chip">1596–1650</span>
-            <span class="chip">Biographical</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="einstein/index.html" aria-label="Open Relativity: The Life of Albert Einstein">
-        <div class="thumb">
-          <img src="einstein/pages/page-01.png" alt="Albert Einstein at his Princeton desk, white hair, chalkboard covered in equations behind him" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Relativity: The Life of Albert Einstein</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A five-year-old is handed a brass compass and never gets over the mystery of the needle. Forty years later, working alone in a patent office, he discovers that time itself can bend — and the world never looks the same again.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Germany, Switzerland &amp; USA</span>
-            <span class="chip">1879–1955</span>
-            <span class="chip">Biographical</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="newton-vol1/index.html" aria-label="Open The Invisible Forces: Isaac Newton, Book One">
-        <div class="thumb">
-          <img src="newton-vol1/pages/page-01.png" alt="Isaac Newton as a young scholar in a dark study with a prism, manuscripts, and geometric diagrams" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Invisible Forces: Isaac Newton, Book One</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A fragile baby nobody expected to live grows into the silent man who shuts himself in a plague-year farmhouse and, in eighteen months alone, invents calculus, splits white light into its hidden colors, and realizes that the same force that drops an apple holds the moon in the sky.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">England</span>
-            <span class="chip">1642&ndash;1687</span>
-            <span class="chip">Biographical</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="honda-soichiro/index.html" aria-label="Open The Boy Who Chased Engines: Soichiro Honda, Part One">
-        <div class="thumb">
-          <img src="honda-soichiro/pages/cover.png" alt="A young Soichiro Honda in a white headband works at a forge with a brass piston ring, oil-painting realism" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Boy Who Chased Engines</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A village boy chases a rattling automobile down a dirt road in 1914 and never stops. Fifty years later, his small motorcycles are sold and ridden across Japan, Europe, and America by people who had never owned a motor before. A story about failure, machines, and ordinary people moving farther than they could before.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Japan &amp; America</span>
-            <span class="chip">1906&ndash;1963</span>
-            <span class="chip">Biographical</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="honda-soichiro-part-two/index.html" aria-label="Open The Machine That Learned to Breathe: Soichiro Honda, Part Two">
-        <div class="thumb">
-          <img src="honda-soichiro-part-two/pages/cover.png" alt="Older Soichiro Honda beside a CVCC engine and Civic factory line" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Machine That Learned to Breathe</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">Honda's motorcycles had crossed oceans. Cars were harder. The second volume follows the move into automobiles, the air-cooled 1300's hard lesson, the CVCC breakthrough, and the moment Honda and Fujisawa let the next generation carry the answer.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Japan &amp; America</span>
-            <span class="chip">1963&ndash;1975</span>
-            <span class="chip">Biographical</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="da-vinci-vol1/index.html" aria-label="Open The Boy Who Watched Birds: Leonardo da Vinci, Book One">
-        <div class="thumb">
-          <img src="da-vinci-vol1/pages/cover.png" alt="Leonardo da Vinci at forty-five in Milan, oil-painting realism, with the Sforza horse visible through a doorway behind him and an open notebook of bird-wing studies on the table beside him" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Boy Who Watched Birds</h2>
-            <span class="cta">Read <span aria-hidden="true">→</span></span>
-          </div>
-          <p class="desc">A peasant woman&#39;s son, barred by birth from the careers of Florence, teaches himself to read the world directly &mdash; and ends up reading it more carefully than anyone in Europe. Book One ends in 1499 with the Sforza horse shot to pieces by French archers and the Last Supper already flaking on its wall. Leonardo leaves Milan with two saddlebags of notebooks and the discipline that made them.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Italy</span>
-            <span class="chip">1452&ndash;1499</span>
-            <span class="chip">Biographical</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="newton-vol2/index.html" aria-label="Open The Invisible Forces: Isaac Newton, Book Two">
-        <div class="thumb">
-          <img src="newton-vol2/pages/page-00-cover.png" alt="Sir Isaac Newton at sixty-five in the Kneller full-bottom wig, severe and self-contained, at his Royal Society desk with the open Opticks and a single candle" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Invisible Forces: Isaac Newton, Book Two</h2>
+            <h2 class="story-title">Kepler &mdash; The Man Who Trusted the Data</h2>
             <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
           </div>
-          <p class="desc">The same mind that solved gravity in his thirties spent his sixties hunting counterfeiters through London taverns, ran the Royal Society like a kingdom, refused to publish the book that would humiliate his dead enemy, and outlived every rival who had ever crossed him. Book Two follows Newton from the exhaustion that followed the <em>Principia</em> through the Mint years, the long war with Leibniz, the private nights of alchemy and prophecy at Kensington, and his burial at Westminster Abbey.</p>
+          <p class="desc">He built the best theory of the heavens ever made &mdash; then killed it over an error of eight-sixtieths of one degree. Out of that refusal came the ellipse, and modern science.</p>
           <div class="chips" aria-label="Story tags">
-            <span class="chip">England</span>
-            <span class="chip">1687&ndash;1727</span>
-            <span class="chip">Biographical</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="name-of-the-rose/index.html" aria-label="Open The Name of the Rose, Book One">
-        <div class="thumb">
-          <img src="name-of-the-rose/pages/page-00-cover.png" alt="The Aedificium of a fourteenth-century Benedictine abbey in the snow at dawn, two tiny mounted figures on the switchback road approaching, gilt title block in deep red" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Name of the Rose: Book One</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">A Franciscan friar with riveted-leather spectacles and his teenage novice ride up to a Benedictine abbey in the Italian Alps in the winter of 1327. They are there because the Pope and the Franciscans are about to argue, inside that abbey, over whether Christ owned his own clothes. They find the abbey already in panic: a monk has fallen from the tower in the night, and four days later three more brothers will be dead, each with the same black stain on their fingertips. Adapted from Umberto Eco&#39;s novel, Book One covers the first four days &mdash; the riddle, the forbidden library, and the arrival of Bernard Gui&#39;s inquisitorial tribunal.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Italy</span>
-            <span class="chip">1327</span>
-            <span class="chip">Mystery</span>
-            <span class="chip">After Umberto Eco</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="name-of-the-rose-vol2/index.html" aria-label="Open The Name of the Rose, Book Two">
-        <div class="thumb">
-          <img src="name-of-the-rose-vol2/pages/page-00-cover.png" alt="The Aedificium of a fourteenth-century Benedictine abbey in the snow at night, one high library window glowing amber beneath a gilt title block" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Name of the Rose: Book Two</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">The final three days at the abbey bring the poverty debate into the chapter house, Bernard Gui's tribunal to its sentence, and William's search through the labyrinth to the room called the finis Africae. Book Two follows the poisoned book to Aristotle's lost work on comedy, Jorge's secret guardianship of the library, the fire that destroys the Aedificium, and old Adso's return to the ruins decades later.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Italy</span>
-            <span class="chip">1327</span>
-            <span class="chip">Mystery</span>
-            <span class="chip">After Umberto Eco</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="pythagoras-seeker/index.html" aria-label="Open Ratio: The Seeker, Volume One">
-        <div class="thumb">
-          <img src="pythagoras-seeker/pages/page-00-cover.png" alt="A young Greek man in a flax-colored linen tunic stands on a rocky Samos headland at dusk, looking out over the Aegean toward a faint right triangle and a scatter of dots painted in the darkening sky, a coil of knotted rope on the rock beside him, the word RATIO above" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Ratio: The Seeker (Volume One)</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">A gem-cutter's son on the Greek island of Samos hears the world speak in numbers &mdash; hammers that ring in whole tones, stars that move by counting &mdash; and cannot stop asking why. At about twenty he leaves home and crosses the known world looking for the answer: to Egypt, where the rope-stretchers make a perfect square corner with a rope knotted three, four, five but cannot say why it works; to Babylon, where the Magi have charted the number-sky for a thousand years but cannot say why either. He comes home a greyer man with the same unanswered question, and an island too small to hold it &mdash; then sails west to a young city called Croton to build the place where it can finally be answered. The true history of Pythagoras is mostly legend, and the book says so; Volume One plants the 3-4-5 rope that Volume Two pays off as the famous theorem.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Samos &middot; Egypt &middot; Babylon &middot; Italy</span>
-            <span class="chip">6th c. BC</span>
-            <span class="chip">Biographical</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="sky-duel/index.html" aria-label="Open Sky Duel — How Fighter Jet Weapons Actually Work">
-        <div class="thumb">
-          <img src="sky-duel/pages/cover.png" alt="A light-gray fighter jet banks through deep blue high-altitude sky as a slender white missile streaks past dramatic clouds, premium aerospace illustration" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Sky Duel: How Fighter Jet Weapons Actually Work</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">An illustrated tech explainer that opens in the middle of a dogfight and then takes the whole machine apart. How does a missile see heat? How does it steer toward a jet that is turning away at the speed of sound? Inside: the desert engineers at China Lake who built the first Sidewinder out of spare parts, the spinning-mirror eye that finds a hot engine against a cold sky, the collision-course rule that guides the chase, and the seventy-year arms race that followed &mdash; flares, smarter seekers, radar missiles, and stealth. Ends with a five-question quiz that asks why, not what.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">China Lake &middot; High Sky</span>
-            <span class="chip">1947&ndash;today</span>
-            <span class="chip">Tech Explainer</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="scattergun/index.html" aria-label="Open Scattergun — How Shotguns Actually Work">
-        <div class="thumb">
-          <img src="scattergun/pages/cover.png" alt="An elegant over-and-under sporting shotgun against a golden dawn trap field, a hunter-orange clay disc shattering in the sky above, premium field-sports illustration" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Scattergun: How Shotguns Actually Work</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">An illustrated tech explainer that opens with a clay disc shattering over a dawn trap field and then takes the whole machine apart. Why throw a cloud of pellets instead of one bullet? Inside: the shell as a tiny one-shot factory, the three-thousandths-of-a-second journey from primer to muzzle, the choke that shapes the cloud like a pinched garden hose, the strange medieval ruler behind &ldquo;12-gauge,&rdquo; and John Browning &mdash; the gunsmith&rsquo;s boy from Ogden, Utah &mdash; whose pump-action and self-loading Humpback taught the gun to reload itself. Nothing living gets shot; the targets are clay, glass, and paper. Ends with a five-question quiz that asks why, not what.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Trap Field &middot; Ogden, Utah</span>
-            <span class="chip">1855&ndash;today</span>
-            <span class="chip">Tech Explainer</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="gauss/index.html" aria-label="Open The Boy Who Chose Numbers: Carl Friedrich Gauss, Book One">
-        <div class="thumb">
-          <img src="gauss/pages/page-00-cover.png" alt="A poor boy of about seven sits by candlelight at a rough table covered in numbers, looking up toward a window where a cold dawn breaks, a faint seventeen-sided figure ghosted into the sky, oil-painting realism" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Boy Who Chose Numbers: Carl Friedrich Gauss, Book One</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">A poor boy born in Brunswick in 1777 could not stop counting &mdash; the story goes that he corrected his father&rsquo;s wage sums at three, and as a schoolboy added every number from 1 to 100 in seconds by pairing them into fifty 101s. A duke paid for his schooling, and at university the boy found himself torn between two lives: the glowing world of languages and the dull-looking world of mathematics. Then one morning in March 1796 he drew, with only compass and straightedge, a perfect seventeen-sided shape &mdash; the first new one in two thousand years &mdash; and let that single proof choose his life. The book ends in 1801, when the young man found a lost planet with nothing but arithmetic and became famous across Europe. Two things in here you can do on paper yourself: the pairing trick and the compass constructions the Greeks began.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Brunswick &middot; G&ouml;ttingen</span>
-            <span class="chip">1777&ndash;1801</span>
-            <span class="chip">Biographical</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="gauss-vol2/index.html" aria-label="Open The Man Who Measured the World: Carl Friedrich Gauss, Book Two">
-        <div class="thumb">
-          <img src="gauss-vol2/pages/page-00-cover.png" alt="A man of about forty-five stands on a Hanover hilltop at dusk, one hand on a brass surveying telescope on its tripod, a vast landscape laced with faint triangulation lines behind him and a single spark of reflected sunlight on a far peak under a starlit sky, oil-painting realism" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Man Who Measured the World: Carl Friedrich Gauss, Book Two</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">Book One&rsquo;s boy chose numbers over words; Book Two&rsquo;s man aims those numbers at everything he can reach. He finds a lost planet with pure calculation, then loses his patron, his wife Johanna, and their infant son &mdash; and keeps measuring, because measuring is how he holds on. He covers the whole Kingdom of Hanover in a net of triangles, invents a mirror that flashes sunlight between mountains, proves that a curved surface&rsquo;s shape is built into it, and with the young physicist Wilhelm Weber sends the first words down an electric wire strung over the rooftops of G&ouml;ttingen. The thing you can do on paper yourself: triangulation &mdash; measure a distance you could never walk to, using one baseline and two angles, a ruler and a protractor. His name still rides on the world&rsquo;s instruments: the unit of magnetism is the gauss.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">G&ouml;ttingen &middot; Hanover</span>
-            <span class="chip">1801&ndash;1830s</span>
-            <span class="chip">Biographical</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="aim-itself/index.html" aria-label="Open The Gun That Aims Itself — How Machines Learned to Shoot Down Drones">
-        <div class="thumb">
-          <img src="aim-itself/pages/page-00-cover.png" alt="A squat armored anti-drone turret at night, barrel tilted up with a green sensor glow, a single small drone silhouette against a hazy moon and a faint orange muzzle flash, gritty military-technology illustration" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Gun That Aims Itself: How Machines Learned to Shoot Down Drones</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">An illustrated tech explainer that opens at three in the morning, when a turret snaps around on its own, finds a drone in the dark, and fires &mdash; one second, nobody pulled the trigger &mdash; and then takes the whole machine apart. Why can a drone costing a few hundred dollars destroy a tank worth three million, and why can no human guard keep up? Inside: how the machine SEES with radar, cameras, thermal, and sound, and why it needs all of them against something so small; how a computer tells a drone from a bird or an airliner; why you point where the drone is going to be, not where it is; the five ways to stop a drone &mdash; jam, net, laser, interceptor, gun; the Phalanx and the border sentry guns that have done this for forty years; and the whole kill chain, finished faster than you can say it. The target is always a drone, never a person. Ends with a five-question quiz that asks why, not what.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Frontline &middot; Open Sky</span>
-            <span class="chip">1980&ndash;today</span>
-            <span class="chip">Tech Explainer</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="iron-triangle/index.html" aria-label="Open The Iron Triangle — How a Tank Does Three Impossible Things at Once">
-        <div class="thumb">
-          <img src="iron-triangle/pages/page-00-cover.png" alt="A modern main battle tank charging out of a wall of dust and engine smoke, long gun leveled, a warm amber glow behind it, gritty military-technology illustration" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Iron Triangle: How a Tank Does Three Impossible Things at Once</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">An illustrated tech explainer built around one idea: a tank is asked to do three things that fight each other &mdash; hit hard, survive being hit, and move fast &mdash; and you can never win all three at once. Every tank is a careful compromise inside that iron triangle. Inside: the smoothbore gun that throws a shell flat and fast; the two ways through steel &mdash; the kinetic dart and the shaped-charge jet; the computer that leads the shot a hundred times a second so the tank can hit while bouncing over rough ground; the three tricks of armor &mdash; slope it, layer it, space it; the arms race from reactive-armor bricks to active protection that shoots an incoming rocket out of the air; the engine and wide tracks that let sixty tonnes cross mud a truck would sink in; the crew of four in a steel box; the first tanks crawling onto the Somme in 1916; and the cheap drone that now hunts the giant from above. Machines only, no casualties. Ends with a five-question quiz that asks why, not what.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Battlefield &middot; Field Manual</span>
-            <span class="chip">1916&ndash;today</span>
-            <span class="chip">Tech Explainer</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="tesla/index.html" aria-label="Open Tesla — The Man Who Gave the World Its Power">
-        <div class="thumb">
-          <img src="tesla/pages/page-00-cover.png" alt="A tall, gaunt, elegant inventor in a dark suit stands in silhouette against a storm of cold electric blue-white arcs leaping from a great brass coil, oil-painting realism" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Tesla: The Man Who Gave the World Its Power</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">A biographical graphic novel about Nikola Tesla &mdash; not a parade of inventions, but the story of what he gave away. A priest's son who nearly died of fever sees a whole machine in a flash of sunset light: a current that rushes back and forth and makes a magnetic field that spins a motor with no sparks at all. It becomes the alternating current that still runs every wall socket and every motor on earth. He could have been one of the richest men alive &mdash; instead he tears up the royalty contract to save the one man who believed in him, chases an even bigger dream of free power for everyone, and loses everything. He dies alone in a New York hotel room, feeding a white pigeon, certain the future will prove him right. It did. Inside: the AC idea drawn in the dirt of a Budapest park; the War of the Currents; Niagara Falls lighting a distant city; man-made lightning at Colorado Springs; the great tower that failed; and a unit of science that now carries his name. Ends with a five-question quiz that asks why, not what.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">America &middot; Austrian Empire</span>
-            <span class="chip">1856&ndash;1943</span>
-            <span class="chip">Biography</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="darwin/index.html" aria-label="Open Darwin — The Man Who Let Nature Speak">
-        <div class="thumb">
-          <img src="darwin/pages/page-00-cover.png" alt="A grave, bald, heavy-browed old man with a long flowing white beard in a dark caped coat, a faint branching tree and a small survey ship glimpsed in green-gold light behind him, oil-painting realism" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Darwin: The Man Who Let Nature Speak</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">A biographical graphic novel about Charles Darwin &mdash; not a lightning-bolt of genius, but one of the great turns in the history of thought: the patience to let the evidence of living things declare its own logic, instead of imposing a design on nature. A quiet boy who cared for nothing but beetles sails on HMS Beagle and comes home with crates of fossils and birds. He has no epiphany on the Gal&aacute;pagos &mdash; the famous finches tell him nothing yet. The pattern only emerges when an expert, John Gould, reads the specimens carefully back in London. Darwin draws a small branching tree in a notebook above two cautious words, &ldquo;I think&rdquo;; finds the engine of natural selection in a book about populations; and then waits twenty years, gathering evidence until the conclusion is almost impossible to deny &mdash; getting it right mattering more to him than getting it first. A letter from Alfred Russel Wallace, who reached the same idea alone in a jungle hut, proves it was there in the facts all along. Inside: the Beagle, the lifted Andean coast, eight years of barnacles, the joint reading at the Linnean Society, the sold-out Origin of Species, and the Tree of Life that holds all of it. Ends with a five-question quiz that asks why, not what.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">England &middot; South America</span>
-            <span class="chip">1809&ndash;1882</span>
-            <span class="chip">Biography</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="mendel/index.html" aria-label="Open Mendel — The Monk Who Counted">
-        <div class="thumb">
-          <img src="mendel/pages/page-00-cover.png" alt="A heavy, grey, clean-shaven old monk in a black Augustinian abbot's habit with a gold pectoral cross, holding a split green pea pod, a walled monastery garden of staked pea rows and violet blossoms behind him, oil-painting realism" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Mendel: The Monk Who Counted</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">A biographical graphic novel about Gregor Mendel &mdash; the companion to Darwin, and the mechanism hidden inside his pattern. A poor farmer&rsquo;s son who learned to graft fruit trees half-starves his way through school, becomes an Augustinian friar, and discovers he is no good at comforting the dying &mdash; so his abbot sends him to teach and to learn. In Vienna the physicist Doppler teaches him the one thing that will change everything: that nature can be counted. Back in the monastery garden he does what no naturalist had the patience for &mdash; he breeds garden peas by the thousand, spends two years just making pure lines, and counts every plant. The blending idea of heredity breaks on its first day: a tall pea crossed with a short one gives all-tall children, and the shortness vanishes&hellip; then returns in exactly one of four. 5,474 round peas to 1,850 wrinkled &mdash; always close to three to one. Mendel had found the hidden &ldquo;factors&rdquo; we now call genes, and turned the deepest mystery of life into arithmetic. He reads Darwin and holds the exact answer Darwin&rsquo;s tree is missing; he reads his paper to a polite, uncomprehending room in 1865; and the work sits ignored for thirty-four years until, sixteen years after his death, three botanists rediscover it and find the monk got there first. Ends with a five-question quiz that asks why, not what.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Moravia &middot; Austrian Empire</span>
-            <span class="chip">1822&ndash;1884</span>
-            <span class="chip">Biography</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="pea-square/index.html" aria-label="Open The Pea Square — How to Predict a Living Thing">
-        <div class="thumb">
-          <img src="pea-square/pages/page-00-cover.png" alt="A 19th-century botanical study-plate on aged cream paper: a hand-ruled pencil 2x2 grid holding three tiny tall pea vines and one short bush, a violet pea blossom and curling tendril framing one corner, two hand-inked factor tiles T and t at the edge, ink-and-watercolour realism" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Pea Square: How to Predict a Living Thing</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">An illustrated explainer &mdash; the companion to the Mendel biography. The biography ended on a mystery: Mendel bred peas by the thousand and the same odd number kept coming back, three tall plants for every short one. This book builds the little machine that answers it. Drawn as a naturalist&rsquo;s notebook opened up &mdash; pea vines in ink and watercolour, factor tiles as hand-cut cards, the Punnett square hand-ruled in pencil &mdash; it adds exactly one idea per page and lets you fill in the next grid yourself. The factor that comes in pairs; the dominant version that shows and the recessive one that hides; pure lines crossed until the short trait vanishes, then returns. Then the grid itself: four equally-likely boxes where the 3&nbsp;:&nbsp;1 falls straight out of the arithmetic, the hidden 1&nbsp;:&nbsp;2&nbsp;:&nbsp;1 underneath it, probability as nothing more than counting coin-flips, the test cross that reads a hidden factor, and &mdash; scaled up to a 4&times;4 &mdash; the 9&nbsp;:&nbsp;3&nbsp;:&nbsp;3&nbsp;:&nbsp;1 for two traits at once. It stays honest: a page on the snapdragons that blend red and white into pink, where Mendel&rsquo;s clean either/or rules bend. No cells, no DNA &mdash; just the arithmetic a child can re-enact with paper, pencil, and two coins. Ends with a six-question quiz that asks why, not what.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Heredity &middot; Genetics</span>
-            <span class="chip">Illustrated explainer</span>
-            <span class="chip">Companion to Mendel</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="why-rome-won/index.html" aria-label="Open Why Rome Kept Winning">
-        <div class="thumb">
-          <img src="why-rome-won/images/cover.png" alt="A gilded Roman eagle standard raised against a warm Mediterranean sky above a column of Republican legionaries marching down a paved Roman road, oil-painting historical reconstruction in muted parchment, bronze, iron and oxblood-red" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Why Rome Kept Winning</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">An illustrated essay that takes a claim everyone repeats &mdash; that Rome conquered the ancient world because its army was uniquely <em>organized</em> &mdash; and tests it honestly. The discipline was real: every single night on the march, Roman soldiers stopped early to dig a fortified camp with a ditch, a rampart, and gridded streets, then tore it down at dawn and did it again. But organization wasn&rsquo;t Rome&rsquo;s secret, because it wasn&rsquo;t unique &mdash; Assyria, Macedon, and Qin China all built disciplined, drilled armies too, and several of them were <em>more</em> orderly than Rome. So why did Rome win? The real answer is three things its rivals didn&rsquo;t have together: a vast reservoir of manpower drawn from dozens of Italian allies (the <em>socii</em>, who supplied roughly half of every Roman army); an almost inhuman refusal to quit &mdash; after Hannibal annihilated eight legions in a single afternoon at Cannae, killing more men in one day than almost any battle in history, Rome simply raised new armies and kept fighting; and a habit of stealing whatever worked, copying the Spanish sword, the Carthaginian warship, and the manipular formation from the enemies who beat them. Built as text accompanied by museum-quality painted reconstructions and antique tactical maps, it ends with a four-pillar synthesis &mdash; Discipline, Manpower, Resilience, Adaptation &mdash; and a five-question quiz that asks why, not what.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Roman Republic &middot; 300&ndash;200 BC</span>
-            <span class="chip">Illustrated essay</span>
-            <span class="chip">History &middot; myth-busting</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="rome-became-world/index.html" aria-label="Open How Rome Became the World">
-        <div class="thumb">
-          <img src="rome-became-world/images/cover.png" alt="A gilded Roman eagle standard half in the cold shadow of dusk while a great domed city catches golden dawn light on the far horizon, the light of empire shifting from west to east, oil-painting historical reconstruction in muted parchment, bronze, iron and imperial purple" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">How Rome Became the World</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">The direct sequel to <em>Why Rome Kept Winning</em>, and the harder question it leaves behind: a machine built to lose battles and still win wars &mdash; how does a thing like that ever <em>stop</em>? Not, it turns out, the way most people half-remember it. There was no single day when barbarians smashed the gates and Rome was gone. This is the honest story instead: each of the four strengths that made Rome unbeatable, followed across six centuries, became the very thing that transformed it. The allies who supplied half its armies demanded to <em>be</em> Rome &mdash; and a war to deny them ended by making all Italy Roman. The professional army grew loyal to the generals who paid it, not the Republic &mdash; and Caesar crossed the Rubicon. The throne became the deadliest prize in the world, and for fifty years Romans murdered Romans to hold it. And Rome&rsquo;s old genius for absorbing outsiders took in whole armed nations, until the newcomers inherited the West. Then the famous &ldquo;fall&rdquo; of 476 turns out to be a man quietly deciding the title wasn&rsquo;t worth filling and putting the crown in a box &mdash; while the eastern half went on calling itself <em>Roman</em> for another thousand years, to 1453. Told as text with museum-quality painted reconstructions and antique maps, with a four-pillar synthesis and a five-question quiz that asks why, not what.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Rome &middot; 100 BC &ndash; AD 1453</span>
-            <span class="chip">Illustrated essay</span>
-            <span class="chip">History &middot; the fall of Rome</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="cicero/index.html" aria-label="Open Cicero — The Man Who Fought With Words">
-        <div class="thumb">
-          <img src="cicero/pages/page-00-cover.png" alt="A clean-shaven Roman statesman in a purple-bordered toga, right hand raised in the oratorical gesture, lit by warm lamp-gold light in a shadowed Senate house, oil-painting realism in austere travertine grey, senatorial off-white and wine-dark shadow" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Cicero &mdash; The Man Who Fought With Words</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">The human face of the same story the two Rome essays tell from above: this is the Republic turning into the Empire as it happens to one man. Cicero was a nobody &mdash; born in a hill town a hundred miles from Rome, with no famous family name, no army, and no inheritance of glory in a city where power came from blood, money, or soldiers. He had only a voice, and on that alone he climbed to the very top, beating the most admired orator in Rome and reaching the consulship at the youngest age the law allowed. Then comes the knot the book is built around: crushing the Catiline conspiracy was his finest hour <em>and</em> a lawless act &mdash; he had citizens executed without trial &mdash; and that exact act drove him into exile five years later. Shut out of politics by Caesar&rsquo;s rise and broken by his daughter&rsquo;s death, he turned his voice inward and did something no soldier could: he carried Greek philosophy into Latin and <em>invented the words for it</em> &mdash; <em>qualitas</em>, <em>humanitas</em>, <em>moralis</em>, <em>scientia</em>, our &ldquo;quality,&rdquo; &ldquo;humanity,&rdquo; &ldquo;moral,&rdquo; &ldquo;science.&rdquo; In the end the men with swords won: Antony nailed the hands that wrote against him to the very platform he had spoken from. But they could not kill what he wrote. An eighteen-page graphic novel in oil-painting realism, with a five-question quiz that asks why, not what.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Rome &middot; 106&ndash;43 BC</span>
+            <span class="chip">Germany &middot; Prague &middot; 1571&ndash;1630</span>
             <span class="chip">Graphic novel</span>
-            <span class="chip">Biography &middot; the word as power</span>
+            <span class="chip">Biography &middot; data over beauty</span>
           </div>
         </div>
       </a>
-
-      <a class="card" href="icarus/index.html" aria-label="Open Icarus — The Boy Who Touched the Sun">
+          <a class="card" href="icarus/index.html" aria-label="Open Icarus — The Boy Who Touched the Sun">
         <div class="thumb">
           <img src="icarus/pages/cover.png" alt="A boy in mid-flight, arms flung wide, huge white-and-gold feathered wings spread against a blazing golden sun, the deep-blue Aegean and tiny islands far below, bold ink-line comic art with flat vivid color" />
         </div>
@@ -886,7 +331,7 @@
             <h2 class="story-title">Icarus &mdash; The Boy Who Touched the Sun</h2>
             <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
           </div>
-          <p class="desc">The first volume of a new shelf: Greek myths told as true comics &mdash; bold ink-line and flat, vivid color, a brighter and more heroic register than anything else here. Daedalus is the cleverest maker in the world, and Minos, the king of Crete, will not let him leave. He builds the Labyrinth to cage the Minotaur, and when he helps Theseus escape it the king locks him and his young son Icarus in a tower above a guarded sea. So Daedalus builds the one road Minos cannot watch: wings of feathers and wax. He warns his son of a narrow safe path between two dangers &mdash; fly too low and the sea soaks the feathers; too high and the sun melts the wax. But flying is so wonderful that the fear leaves the boy and only the joy remains, and the joy carries him up and up toward the sun. This is the purest of the appetite-and-consequence myths: not a story about a foolish boy, but about how intoxicating a new power can be, and how safety can live in a thin band between two real dangers. Fourteen landscape comic pages with baked-in dialogue, and a five-question quiz that asks why, not what.</p>
+          <p class="desc">A father builds wings to flee Crete and warns his son to fly the middle way &mdash; neither too low nor too high. Greek myth as a vivid comic.</p>
           <div class="chips" aria-label="Story tags">
             <span class="chip">Greek myth &middot; Crete &amp; the Aegean</span>
             <span class="chip">Graphic novel</span>
@@ -894,6 +339,177 @@
           </div>
         </div>
       </a>
+          <a class="card" href="cicero/index.html" aria-label="Open Cicero — The Man Who Fought With Words">
+        <div class="thumb">
+          <img src="cicero/pages/page-00-cover.png" alt="A clean-shaven Roman statesman in a purple-bordered toga, right hand raised in the oratorical gesture, lit by warm lamp-gold light in a shadowed Senate house, oil-painting realism in austere travertine grey, senatorial off-white and wine-dark shadow" />
+        </div>
+        <div class="meta">
+          <div class="title-row">
+            <h2 class="story-title">Cicero &mdash; The Man Who Fought With Words</h2>
+            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
+          </div>
+          <p class="desc">A small-town nobody rises to the top of Rome on his voice alone &mdash; until the men with swords win.</p>
+          <div class="chips" aria-label="Story tags">
+            <span class="chip">Rome &middot; 106&ndash;43 BC</span>
+            <span class="chip">Graphic novel</span>
+            <span class="chip">Biography &middot; the word as power</span>
+          </div>
+        </div>
+      </a>
+          <a class="card" href="rome-became-world/index.html" aria-label="Open How Rome Became the World">
+        <div class="thumb">
+          <img src="rome-became-world/images/cover.png" alt="A gilded Roman eagle standard half in the cold shadow of dusk while a great domed city catches golden dawn light on the far horizon, the light of empire shifting from west to east, oil-painting historical reconstruction in muted parchment, bronze, iron and imperial purple" />
+        </div>
+        <div class="meta">
+          <div class="title-row">
+            <h2 class="story-title">How Rome Became the World</h2>
+            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
+          </div>
+          <p class="desc">The sequel to <em>Why Rome Kept Winning</em>: how Rome&rsquo;s four great strengths slowly transformed it, and what the &ldquo;fall&rdquo; of 476 really was.</p>
+          <div class="chips" aria-label="Story tags">
+            <span class="chip">Rome &middot; 100 BC &ndash; AD 1453</span>
+            <span class="chip">Illustrated essay</span>
+            <span class="chip">History &middot; the fall of Rome</span>
+          </div>
+        </div>
+      </a>
+          <a class="card" href="why-rome-won/index.html" aria-label="Open Why Rome Kept Winning">
+        <div class="thumb">
+          <img src="why-rome-won/images/cover.png" alt="A gilded Roman eagle standard raised against a warm Mediterranean sky above a column of Republican legionaries marching down a paved Roman road, oil-painting historical reconstruction in muted parchment, bronze, iron and oxblood-red" />
+        </div>
+        <div class="meta">
+          <div class="title-row">
+            <h2 class="story-title">Why Rome Kept Winning</h2>
+            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
+          </div>
+          <p class="desc">Rome didn&rsquo;t win by being uniquely organized. The real reasons: manpower, a refusal to quit, and stealing whatever worked.</p>
+          <div class="chips" aria-label="Story tags">
+            <span class="chip">Roman Republic &middot; 300&ndash;200 BC</span>
+            <span class="chip">Illustrated essay</span>
+            <span class="chip">History &middot; myth-busting</span>
+          </div>
+        </div>
+      </a>
+          <a class="card" href="pea-square/index.html" aria-label="Open The Pea Square — How to Predict a Living Thing">
+        <div class="thumb">
+          <img src="pea-square/pages/page-00-cover.png" alt="A 19th-century botanical study-plate on aged cream paper: a hand-ruled pencil 2x2 grid holding three tiny tall pea vines and one short bush, a violet pea blossom and curling tendril framing one corner, two hand-inked factor tiles T and t at the edge, ink-and-watercolour realism" />
+        </div>
+        <div class="meta">
+          <div class="title-row">
+            <h2 class="story-title">The Pea Square: How to Predict a Living Thing</h2>
+            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
+          </div>
+          <p class="desc">The companion to Mendel: the little grid that explains why three tall peas keep turning up for every short one.</p>
+          <div class="chips" aria-label="Story tags">
+            <span class="chip">Heredity &middot; Genetics</span>
+            <span class="chip">Illustrated explainer</span>
+            <span class="chip">Companion to Mendel</span>
+          </div>
+        </div>
+      </a>
+        </div>
+      </section>
+
+      <section class="shelf">
+        <div class="shelf-head">
+          <h2 class="shelf-title">Illustrated biographies</h2>
+          <span class="shelf-count">15</span>
+        </div>
+        <ul class="linklist">
+          <li><a href="descartes/index.html" aria-label="Open Cogito: The Life of René Descartes"><span class="ll-title">Cogito: The Life of René Descartes</span><span class="ll-meta">France &amp; Netherlands &middot; 1596–1650</span></a></li>
+          <li><a href="newton-vol1/index.html" aria-label="Open The Invisible Forces: Isaac Newton, Book One"><span class="ll-title">The Invisible Forces: Isaac Newton, Book One</span><span class="ll-meta">England &middot; 1642&ndash;1687</span></a></li>
+          <li><a href="newton-vol2/index.html" aria-label="Open The Invisible Forces: Isaac Newton, Book Two"><span class="ll-title">The Invisible Forces: Isaac Newton, Book Two</span><span class="ll-meta">England &middot; 1687&ndash;1727</span></a></li>
+          <li><a href="einstein/index.html" aria-label="Open Relativity: The Life of Albert Einstein"><span class="ll-title">Relativity: The Life of Albert Einstein</span><span class="ll-meta">Germany, Switzerland &amp; USA &middot; 1879–1955</span></a></li>
+          <li><a href="tesla/index.html" aria-label="Open Tesla — The Man Who Gave the World Its Power"><span class="ll-title">Tesla: The Man Who Gave the World Its Power</span><span class="ll-meta">America &middot; Austrian Empire &middot; 1856&ndash;1943</span></a></li>
+          <li><a href="gauss/index.html" aria-label="Open The Boy Who Chose Numbers: Carl Friedrich Gauss, Book One"><span class="ll-title">The Boy Who Chose Numbers: Carl Friedrich Gauss, Book One</span><span class="ll-meta">Brunswick &middot; G&ouml;ttingen &middot; 1777&ndash;1801</span></a></li>
+          <li><a href="gauss-vol2/index.html" aria-label="Open The Man Who Measured the World: Carl Friedrich Gauss, Book Two"><span class="ll-title">The Man Who Measured the World: Carl Friedrich Gauss, Book Two</span><span class="ll-meta">G&ouml;ttingen &middot; Hanover &middot; 1801&ndash;1830s</span></a></li>
+          <li><a href="darwin/index.html" aria-label="Open Darwin — The Man Who Let Nature Speak"><span class="ll-title">Darwin: The Man Who Let Nature Speak</span><span class="ll-meta">England &middot; South America &middot; 1809&ndash;1882</span></a></li>
+          <li><a href="mendel/index.html" aria-label="Open Mendel — The Monk Who Counted"><span class="ll-title">Mendel: The Monk Who Counted</span><span class="ll-meta">Moravia &middot; Austrian Empire &middot; 1822&ndash;1884</span></a></li>
+          <li><a href="pythagoras-seeker/index.html" aria-label="Open Ratio: The Seeker, Volume One"><span class="ll-title">Ratio: The Seeker (Volume One)</span><span class="ll-meta">Samos &middot; Egypt &middot; Babylon &middot; Italy &middot; 6th c. BC</span></a></li>
+          <li><a href="da-vinci-vol1/index.html" aria-label="Open The Boy Who Watched Birds: Leonardo da Vinci, Book One"><span class="ll-title">The Boy Who Watched Birds</span><span class="ll-meta">Italy &middot; 1452&ndash;1499</span></a></li>
+          <li><a href="honda-soichiro/index.html" aria-label="Open The Boy Who Chased Engines: Soichiro Honda, Part One"><span class="ll-title">The Boy Who Chased Engines</span><span class="ll-meta">Japan &amp; America &middot; 1906&ndash;1963</span></a></li>
+          <li><a href="honda-soichiro-part-two/index.html" aria-label="Open The Machine That Learned to Breathe: Soichiro Honda, Part Two"><span class="ll-title">The Machine That Learned to Breathe</span><span class="ll-meta">Japan &amp; America &middot; 1963&ndash;1975</span></a></li>
+          <li><a href="cicero/index.html" aria-label="Open Cicero — The Man Who Fought With Words"><span class="ll-title">Cicero &mdash; The Man Who Fought With Words</span><span class="ll-meta">Rome &middot; 106&ndash;43 BC &middot; Graphic novel</span></a></li>
+          <li><a href="kepler/index.html" aria-label="Open Kepler — The Man Who Trusted the Data"><span class="ll-title">Kepler &mdash; The Man Who Trusted the Data</span><span class="ll-meta">Germany &middot; Prague &middot; 1571&ndash;1630</span></a></li>
+        </ul>
+      </section>
+
+      <section class="shelf">
+        <div class="shelf-head">
+          <h2 class="shelf-title">Graphic novels &middot; Greek myth &amp; legend</h2>
+          <span class="shelf-count">4</span>
+        </div>
+        <ul class="linklist">
+          <li><a href="icarus/index.html" aria-label="Open Icarus — The Boy Who Touched the Sun"><span class="ll-title">Icarus &mdash; The Boy Who Touched the Sun</span><span class="ll-meta">Greek myth &middot; Crete &amp; the Aegean &middot; Graphic novel</span></a></li>
+          <li><a href="house-of-atreus-vol1/index.html" aria-label="Open The House of Atreus — Volume 1"><span class="ll-title">The House of Atreus — Vol. 1</span><span class="ll-meta">Mycenaean Greece &middot; Mythic Age</span></a></li>
+          <li><a href="house-of-atreus-vol2/index.html" aria-label="Open The House of Atreus — Volume 2"><span class="ll-title">The House of Atreus — Vol. 2</span><span class="ll-meta">Mycenae &amp; Athens &middot; Mythic Age</span></a></li>
+          <li><a href="trial-of-socrates/index.html" aria-label="Open The Trial of Socrates"><span class="ll-title">The Trial of Socrates</span><span class="ll-meta">Athens &middot; 399 BC</span></a></li>
+        </ul>
+      </section>
+
+      <section class="shelf">
+        <div class="shelf-head">
+          <h2 class="shelf-title">Graphic novels &middot; Salt and Stone</h2>
+          <span class="shelf-count">4</span>
+        </div>
+        <ul class="linklist">
+          <li><a href="salt-and-stone/index.html" aria-label="Open Salt and Stone"><span class="ll-title">Salt and Stone</span><span class="ll-meta">Aegean &amp; Phoenicia &middot; 480 BC</span></a></li>
+          <li><a href="salt-and-stone-two/index.html" aria-label="Open Salt and Stone — Life Two"><span class="ll-title">Salt and Stone — Life Two</span><span class="ll-meta">Sidon, Salamis &amp; Athens &middot; 480 BC</span></a></li>
+          <li><a href="salt-and-stone-life-three/index.html" aria-label="Open Salt and Stone — Life Three"><span class="ll-title">Salt and Stone — Life Three</span><span class="ll-meta">Athens &amp; the Steppe &middot; 476 BC</span></a></li>
+          <li><a href="salt-and-stone-life-four/index.html" aria-label="Open Salt and Stone — Life Four"><span class="ll-title">Salt and Stone — Life Four</span><span class="ll-meta">Pontic Steppe &middot; 468 BC</span></a></li>
+        </ul>
+      </section>
+
+      <section class="shelf">
+        <div class="shelf-head">
+          <h2 class="shelf-title">Graphic novels &middot; literary adaptation</h2>
+          <span class="shelf-count">2</span>
+        </div>
+        <ul class="linklist">
+          <li><a href="name-of-the-rose/index.html" aria-label="Open The Name of the Rose, Book One"><span class="ll-title">The Name of the Rose: Book One</span><span class="ll-meta">Italy &middot; 1327</span></a></li>
+          <li><a href="name-of-the-rose-vol2/index.html" aria-label="Open The Name of the Rose, Book Two"><span class="ll-title">The Name of the Rose: Book Two</span><span class="ll-meta">Italy &middot; 1327</span></a></li>
+        </ul>
+      </section>
+
+      <section class="shelf">
+        <div class="shelf-head">
+          <h2 class="shelf-title">Illustrated essays</h2>
+          <span class="shelf-count">4</span>
+        </div>
+        <ul class="linklist">
+          <li><a href="shock-of-florence/index.html" aria-label="Open The Shock of Florence"><span class="ll-title">The Shock of Florence</span><span class="ll-meta">France &amp; Florence &middot; 1460</span></a></li>
+          <li><a href="why-rome-won/index.html" aria-label="Open Why Rome Kept Winning"><span class="ll-title">Why Rome Kept Winning</span><span class="ll-meta">Roman Republic &middot; 300&ndash;200 BC &middot; Illustrated essay</span></a></li>
+          <li><a href="rome-became-world/index.html" aria-label="Open How Rome Became the World"><span class="ll-title">How Rome Became the World</span><span class="ll-meta">Rome &middot; 100 BC &ndash; AD 1453 &middot; Illustrated essay</span></a></li>
+          <li><a href="pea-square/index.html" aria-label="Open The Pea Square — How to Predict a Living Thing"><span class="ll-title">The Pea Square: How to Predict a Living Thing</span><span class="ll-meta">Heredity &middot; Genetics &middot; Illustrated explainer</span></a></li>
+        </ul>
+      </section>
+
+      <section class="shelf">
+        <div class="shelf-head">
+          <h2 class="shelf-title">How things work &middot; illustrated explainers</h2>
+          <span class="shelf-count">4</span>
+        </div>
+        <ul class="linklist">
+          <li><a href="sky-duel/index.html" aria-label="Open Sky Duel — How Fighter Jet Weapons Actually Work"><span class="ll-title">Sky Duel: How Fighter Jet Weapons Actually Work</span><span class="ll-meta">China Lake &middot; High Sky &middot; 1947&ndash;today</span></a></li>
+          <li><a href="scattergun/index.html" aria-label="Open Scattergun — How Shotguns Actually Work"><span class="ll-title">Scattergun: How Shotguns Actually Work</span><span class="ll-meta">Trap Field &middot; Ogden, Utah &middot; 1855&ndash;today</span></a></li>
+          <li><a href="aim-itself/index.html" aria-label="Open The Gun That Aims Itself — How Machines Learned to Shoot Down Drones"><span class="ll-title">The Gun That Aims Itself: How Machines Learned to Shoot Down Drones</span><span class="ll-meta">Frontline &middot; Open Sky &middot; 1980&ndash;today</span></a></li>
+          <li><a href="iron-triangle/index.html" aria-label="Open The Iron Triangle — How a Tank Does Three Impossible Things at Once"><span class="ll-title">The Iron Triangle: How a Tank Does Three Impossible Things at Once</span><span class="ll-meta">Battlefield &middot; Field Manual &middot; 1916&ndash;today</span></a></li>
+        </ul>
+      </section>
+
+      <section class="shelf">
+        <div class="shelf-head">
+          <h2 class="shelf-title">Text &amp; illustration &middot; short stories</h2>
+          <span class="shelf-count">5</span>
+        </div>
+        <ul class="linklist">
+          <li><a href="marcus/index.html" aria-label="Open The View From Above"><span class="ll-title">The View From Above</span><span class="ll-meta">Rome &middot; 170 CE</span></a></li>
+          <li><a href="orchard/index.html" aria-label="Open The Orchard of Small Things"><span class="ll-title">The Orchard of Small Things</span><span class="ll-meta">Mediterranean &middot; 12th c.</span></a></li>
+          <li><a href="lantern-and-sword/index.html" aria-label="Open The Lantern and the Sword"><span class="ll-title">The Lantern and the Sword</span><span class="ll-meta">Sengoku Japan &middot; 16th c.</span></a></li>
+          <li><a href="mapped-the-wind/index.html" aria-label="Open The Boy Who Mapped the Wind"><span class="ll-title">The Boy Who Mapped the Wind</span><span class="ll-meta">Polynesian Pacific &middot; 1100 AD</span></a></li>
+          <li><a href="the-builders/index.html" aria-label="Open The Builders"><span class="ll-title">The Builders</span><span class="ll-meta">Rome &amp; Persia &middot; 500 BC &amp; 90 AD</span></a></li>
+        </ul>
+      </section>
     </main>
 
     <footer>
