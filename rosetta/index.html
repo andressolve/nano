@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Riddle of the Stone</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            background: #0d1418;
+            color: #e4ece9;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #d9a441, #7a5c1e);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .reader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px 16px 64px;
+        }
+
+        .page-frame {
+            max-width: min(1400px, 96vw);
+            width: 100%;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .page-frame.fading { opacity: 0; }
+
+        .page-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .page-frame.cover img {
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #e4ece9;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            z-index: 50;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            user-select: none;
+        }
+
+        .nav-arrow.prev { left: 18px; }
+        .nav-arrow.next { right: 18px; }
+
+        .nav-arrow:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .nav-arrow:disabled {
+            opacity: 0.18;
+            cursor: default;
+        }
+
+        .page-info {
+            position: fixed;
+            bottom: 42px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: rgba(228, 236, 233, 0.45);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 50;
+            pointer-events: none;
+            transition: bottom 0.2s ease;
+        }
+
+        .page-info.no-strip { bottom: 14px; }
+
+        .case-strip {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            padding: 8px 10px;
+            background: rgba(13, 20, 24, 0.92);
+            border-top: 1px solid rgba(217, 164, 65, 0.18);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 60;
+            font-size: 10.5px;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+
+        .case-strip .stage {
+            padding: 3px 12px;
+            border-radius: 12px;
+            color: rgba(217, 164, 65, 0.34);
+            white-space: nowrap;
+            transition: all 0.25s ease;
+        }
+
+        .case-strip .stage.active {
+            color: #0d1418;
+            background: #d9a441;
+            font-weight: bold;
+        }
+
+        .case-strip .sep {
+            color: rgba(217, 164, 65, 0.22);
+            align-self: center;
+        }
+
+        .case-strip.hidden { display: none; }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(228, 236, 233, 0.4);
+        }
+
+        .home-link {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            font-size: 13px;
+            color: rgba(228, 236, 233, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            z-index: 100;
+        }
+
+        .home-link:hover { color: rgba(228, 236, 233, 0.7); }
+
+        @media (max-width: 768px) {
+            .reader { padding: 16px 10px 64px; }
+            .nav-arrow { width: 44px; height: 44px; font-size: 22px; }
+            .nav-arrow.prev { left: 8px; }
+            .nav-arrow.next { right: 8px; }
+            .home-link { top: 10px; left: 10px; }
+            .page-info { bottom: 38px; }
+            .page-info.no-strip { bottom: 8px; }
+            .case-strip { font-size: 8.5px; letter-spacing: 1px; gap: 2px; }
+            .case-strip .stage { padding: 3px 6px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-frame, .progress-bar { transition: none; }
+        }
+
+        .end-interstitial {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .end-interstitial.fading { opacity: 0; }
+
+        .end-interstitial h2 {
+            font-size: 32px;
+            font-weight: normal;
+            color: #e0eae6;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .end-interstitial .subtitle {
+            font-size: 18px;
+            color: rgba(228, 236, 233, 0.6);
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .quiz-container {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .quiz-container.fading { opacity: 0; }
+
+        .quiz-container h2 {
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #e0eae6;
+        }
+
+        .question-block {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .question-text {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #e0eae6;
+            line-height: 1.6;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #c9d4d0;
+            line-height: 1.5;
+        }
+
+        .options label:hover { background: rgba(255,255,255,0.06); }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #d9a441;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-family: inherit;
+            background: rgba(217, 164, 65, 0.14);
+            border: 1px solid rgba(217, 164, 65, 0.32);
+            color: #e5c07b;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .check-btn:hover { background: rgba(217, 164, 65, 0.26); }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            background: rgba(90, 180, 90, 0.1);
+            border: 1px solid rgba(90, 180, 90, 0.2);
+            color: #8cd48c;
+        }
+
+        .feedback.incorrect {
+            background: rgba(200, 90, 90, 0.1);
+            border: 1px solid rgba(200, 90, 90, 0.2);
+            color: #d4a0a0;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            display: none;
+            color: #e5c07b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <a class="home-link" href="../index.html">&larr; Stories</a>
+
+    <div class="reader">
+        <div class="page-title" id="pageTitle">Cover</div>
+        <div class="page-frame cover" id="pageFrame">
+            <img id="pageImg" src="pages/cover.png" alt="The Riddle of the Stone &mdash; Cover" />
+        </div>
+
+        <div class="end-interstitial" id="endInterstitial">
+            <h2>The Silence Was Broken</h2>
+            <div class="subtitle">The Riddle of the Stone &mdash; How one man read a language no one alive had ever heard</div>
+            <p style="color: rgba(228, 236, 233, 0.75); font-size: 17px; line-height: 1.7; max-width: 560px; margin: 0 auto;">
+                For 1,400 years, nobody on Earth could read a single hieroglyph &mdash; and the wisest scholars were sure they knew why: the signs were pure symbols, a picture-code with no sounds inside. They were wrong, and the wrong idea was the real lock. A broken stone from a fort wall, a queen's name on an obelisk, a half-forgotten church language, and one man who had trained his whole life for exactly this case finally forced it open &mdash; three signs at a time. One quiz stands between you and the end. It tests the WHY, not the what.
+            </p>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <h2>Test Your Understanding</h2>
+
+            <div class="question-block" id="q1">
+                <div class="question-text">1. Everyone expected the Rosetta Stone to solve the mystery in weeks. Why couldn't the stone do it alone?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> The Greek section turned out to be a completely different text from the other two.</label>
+                    <label><input type="radio" name="q1" value="b"> The stone was kept locked away in the British Museum where no scholar could study it.</label>
+                    <label><input type="radio" name="q1" value="c"> Most of its hieroglyphic section had broken off &mdash; and scholars read the surviving signs with a wrong idea, as symbols instead of sounds.</label>
+                    <label><input type="radio" name="q1" value="d"> The demotic script in the middle had never been seen anywhere else in Egypt.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q1', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q1-correct">Right &mdash; both halves matter. The best evidence was physically missing, AND the false trail (signs = pure symbols) made even the surviving lines unreadable. A key is useless while you hold it upside down.</div>
+                <div class="feedback incorrect" id="q1-incorrect">Not quite. The three sections say the same thing &mdash; that's what made the stone a key at all &mdash; and copies traveled to scholars all over Europe. The real problem: most of the hieroglyphic band had broken off, and everyone read what survived with a wrong idea &mdash; as symbols instead of sounds.</div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <div class="question-text">2. Why was Cleopatra's cartouche the decisive test of the sound-spelling idea?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> Because her name shares sounds with Ptolemy's &mdash; so the same signs HAD to appear in both cartouches, exactly where the shared sounds fall. Champollion predicted it before looking.</label>
+                    <label><input type="radio" name="q2" value="b"> Because Cleopatra was the most famous ruler Egypt ever had, so her name appeared on the most monuments.</label>
+                    <label><input type="radio" name="q2" value="c"> Because her cartouche was the only one on the Rosetta Stone that survived undamaged.</label>
+                    <label><input type="radio" name="q2" value="d"> Because her name was written in Greek letters inside the cartouche itself.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q2', 'a')">Check Answer</button>
+                <div class="feedback correct" id="q2-correct">Right &mdash; a theory earns trust when it predicts evidence you haven't seen yet. P, O, L landed exactly in place &mdash; coincidence was no longer possible. (And remember: Cleopatra's name isn't on the stone at all &mdash; it came from the Philae obelisk.)</div>
+                <div class="feedback incorrect" id="q2-incorrect">Not quite. Cleopatra's cartouche isn't on the Rosetta Stone at all &mdash; it came from the Philae obelisk &mdash; and it was written in hieroglyphs, not Greek. What made it decisive: her name shares sounds with Ptolemy's, so the same signs HAD to appear in both cartouches, exactly where the shared sounds fall. The prediction came before the evidence.</div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <div class="question-text">3. Champollion could already read Ptolemy, Alexander, Caesar&hellip; Why did the RAMESSES cartouche still matter so much more?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> Because Ramesses built more temples than all the Greek rulers combined.</label>
+                    <label><input type="radio" name="q3" value="b"> Because his cartouche was the first ever found containing the sun-disc sign.</label>
+                    <label><input type="radio" name="q3" value="c"> Because it proved hieroglyphs could also be read in Coptic.</label>
+                    <label><input type="radio" name="q3" value="d"> Because every name read before him was a FOREIGN ruler's &mdash; Ramesses was a true ancient pharaoh, so his name proved sound-spelling was Egyptian from the very beginning, not a trick for foreign words.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q3', 'd')">Check Answer</button>
+                <div class="feedback correct" id="q3-correct">Right &mdash; that was the exact hole in the case: Young's "foreign names only" theory. One native king's name, three thousand years old, sounding itself out, closed it.</div>
+                <div class="feedback incorrect" id="q3-incorrect">Not quite. The temples and the sun-disc are beside the point. Ptolemy, Alexander and Caesar were all FOREIGN rulers &mdash; so their sounded-out names could still fit Young's theory that sound-spelling was only a trick for foreign words. Ramesses was a true ancient pharaoh: his name proved the sounds were Egyptian from the very beginning.</div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <div class="question-text">4. Why was Coptic &mdash; a language chanted in Egyptian churches &mdash; Champollion's secret weapon?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> Coptic uses hieroglyphic signs, so he could match them one to one.</label>
+                    <label><input type="radio" name="q4" value="b"> Coptic is the last living descendant of ancient Egyptian &mdash; so once a sign yielded a sound, Coptic could tell him what the sounds MEANT: re, the sun; mise, to give birth.</label>
+                    <label><input type="radio" name="q4" value="c"> Coptic priests had secretly preserved the ability to read hieroglyphs since 394.</label>
+                    <label><input type="radio" name="q4" value="d"> The Rosetta Stone's middle band turned out to be written in Coptic.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q4', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q4-correct">Right &mdash; sounds alone give you a name; a living cousin-language gives you MEANING. RE-MES-SES wasn't just readable &mdash; it made sense: "Re gave him birth."</div>
+                <div class="feedback incorrect" id="q4-incorrect">Not quite. Coptic is written with Greek letters, no priest could still read hieroglyphs, and the stone's middle band is demotic. Coptic's power is that it is the last living descendant of ancient Egyptian: once a sign yielded a sound, Coptic told Champollion what the sounds MEANT &mdash; re, the sun; mise, to give birth.</div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <div class="question-text">5. The signs stood in plain sight for 1,400 years, and the stone for 23 more. What kept the mystery unsolved so long?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> Not enough copies of the inscriptions existed for scholars to compare.</label>
+                    <label><input type="radio" name="q5" value="b"> The languages of Egypt had vanished so completely that no clue survived anywhere.</label>
+                    <label><input type="radio" name="q5" value="c"> A wrong idea held as fact: that hieroglyphs were pure symbols, not sounds &mdash; an assumption so comfortable that even Champollion believed it until 1821.</label>
+                    <label><input type="radio" name="q5" value="d"> Scholars refused to share their discoveries with rivals in other countries.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q5', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q5-correct">Right &mdash; the evidence was public; the assumption was the lock. The detective's lesson of the whole case: test the idea you are most sure of &mdash; that is where the case is stuck.</div>
+                <div class="feedback incorrect" id="q5-incorrect">Not quite. Copies circulated across Europe, Coptic survived as a living clue, and rivals published constantly &mdash; Champollion and Young read each other's every word. The lock was a wrong idea held as fact: hieroglyphs were "pure symbols, not sounds" &mdash; an assumption so comfortable that even Champollion believed it until 1821.</div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay"></div>
+        </div>
+
+    </div>
+
+    <button class="nav-arrow prev" id="prevBtn" onclick="prev()" disabled aria-label="Previous page">&larr;</button>
+    <button class="nav-arrow next" id="nextBtn" onclick="next()" aria-label="Next page">&rarr;</button>
+    <span class="page-info" id="pageInfo">Cover</span>
+
+    <div class="case-strip hidden" id="caseStrip">
+        <span class="stage">The Silence</span><span class="sep">&middot;</span><span class="stage">The Stone</span><span class="sep">&middot;</span><span class="stage">False Trails</span><span class="sep">&middot;</span><span class="stage">The Clues</span><span class="sep">&middot;</span><span class="stage">The Reveal</span><span class="sep">&middot;</span><span class="stage">The Language</span>
+    </div>
+
+    <script>
+        const pages = [
+            { file: 'pages/cover.png', title: 'Cover', label: 'Cover' },
+            { file: 'pages/page-01.png', title: 'The Silence', label: 'Page 1 of 17', stage: 0 },
+            { file: 'pages/page-02.png', title: 'The Stone in the Wall', label: 'Page 2 of 17', stage: 1 },
+            { file: 'pages/page-03.png', title: "The Key That Doesn't Turn", label: 'Page 3 of 17', stage: 1 },
+            { file: 'pages/page-04.png', title: 'The False Trail', label: 'Page 4 of 17', stage: 2 },
+            { file: 'pages/page-05.png', title: 'The Boy Who Promised', label: 'Page 5 of 17', stage: 3 },
+            { file: 'pages/page-06.png', title: 'The Rival Detective', label: 'Page 6 of 17', stage: 3 },
+            { file: 'pages/page-07.png', title: 'Thirteen Guesses', label: 'Page 7 of 17', stage: 3 },
+            { file: 'pages/page-08.png', title: "The Detective's Blind Spot", label: 'Page 8 of 17', stage: 2 },
+            { file: 'pages/page-09.png', title: 'The Second Name', label: 'Page 9 of 17', stage: 3 },
+            { file: 'pages/page-10.png', title: 'The Cross-Check', label: 'Page 10 of 17', stage: 3 },
+            { file: 'pages/page-11.png', title: 'The Cascade — and the Doubt', label: 'Page 11 of 17', stage: 3 },
+            { file: 'pages/page-12.png', title: 'The Envelope from Egypt', label: 'Page 12 of 17', stage: 4 },
+            { file: 'pages/page-13.png', title: '"Je tiens mon affaire !"', label: 'Page 13 of 17', stage: 4 },
+            { file: 'pages/page-14.png', title: 'The Confession Scene', label: 'Page 14 of 17', stage: 4 },
+            { file: 'pages/page-15.png', title: 'Whose Key Was It?', label: 'Page 15 of 17', stage: 5 },
+            { file: 'pages/page-16.png', title: 'The Whole Answer', label: 'Page 16 of 17', stage: 5 },
+            { file: 'pages/page-17.png', title: 'The Country That Spoke Again', label: 'Page 17 of 17', stage: 5 },
+            { file: null, title: 'The Silence Was Broken', label: 'The End', end: true },
+            { file: null, title: 'Quiz', label: 'Quiz', quiz: true },
+        ];
+
+        let current = 0;
+        const img = document.getElementById('pageImg');
+        const frame = document.getElementById('pageFrame');
+        const quiz = document.getElementById('quizContainer');
+        const endInt = document.getElementById('endInterstitial');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageInfo = document.getElementById('pageInfo');
+        const pageTitle = document.getElementById('pageTitle');
+        const progressBar = document.getElementById('progressBar');
+        const caseStrip = document.getElementById('caseStrip');
+        const stageEls = caseStrip.querySelectorAll('.stage');
+
+        function show(index) {
+            frame.classList.add('fading');
+            quiz.classList.add('fading');
+            endInt.classList.add('fading');
+            setTimeout(() => {
+                current = index;
+                const p = pages[current];
+                if (p.quiz) {
+                    frame.style.display = 'none';
+                    endInt.style.display = 'none';
+                    quiz.style.display = 'block';
+                } else if (p.end) {
+                    frame.style.display = 'none';
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'block';
+                } else {
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'none';
+                    frame.style.display = 'block';
+                    img.src = p.file;
+                    img.alt = 'The Riddle of the Stone — ' + p.title;
+                }
+                pageTitle.innerHTML = p.title;
+                pageInfo.innerHTML = p.label;
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === pages.length - 1;
+                progressBar.style.width = (current / (pages.length - 1)) * 100 + '%';
+                frame.classList.toggle('cover', current === 0);
+                if (typeof p.stage === 'number') {
+                    caseStrip.classList.remove('hidden');
+                    pageInfo.classList.remove('no-strip');
+                    stageEls.forEach(function(el, i) {
+                        el.classList.toggle('active', i === p.stage);
+                    });
+                } else {
+                    caseStrip.classList.add('hidden');
+                    pageInfo.classList.add('no-strip');
+                }
+                frame.classList.remove('fading');
+                quiz.classList.remove('fading');
+                endInt.classList.remove('fading');
+                window.scrollTo(0, 0);
+            }, 250);
+        }
+
+        let answered = 0;
+        let correctCount = 0;
+
+        function checkAnswer(qId, correctAnswer) {
+            const selected = document.querySelector('input[name="' + qId + '"]:checked');
+            if (!selected) return;
+            const block = document.getElementById(qId);
+            const isCorrect = selected.value === correctAnswer;
+            block.querySelectorAll('input').forEach(function(i) { i.disabled = true; });
+            block.querySelector('.check-btn').style.display = 'none';
+            if (isCorrect) {
+                document.getElementById(qId + '-correct').style.display = 'block';
+                correctCount++;
+            } else {
+                document.getElementById(qId + '-incorrect').style.display = 'block';
+            }
+            answered++;
+            if (answered === 5) {
+                var display = document.getElementById('scoreDisplay');
+                display.textContent = 'You got ' + correctCount + ' out of 5 correct!';
+                display.style.display = 'block';
+            }
+        }
+
+        function next() { if (current < pages.length - 1) show(current + 1); }
+        function prev() { if (current > 0) show(current - 1); }
+
+        img.addEventListener('click', function(e) {
+            const rect = img.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x < rect.width * 0.35) prev();
+            else next();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) next();
+                else prev();
+            }
+        }, { passive: true });
+
+        function preload() {
+            if (current < pages.length - 1 && pages[current + 1].file) {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = pages[current + 1].file;
+                document.head.appendChild(link);
+            }
+        }
+        img.addEventListener('load', preload);
+
+        // Initialize the case strip state for the cover
+        pageInfo.classList.add('no-strip');
+    </script>
+
+</body>
+</html>
