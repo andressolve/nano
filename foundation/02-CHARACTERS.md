@@ -63,9 +63,9 @@ No ref needed. Observed for the record: middle-aged man, slicked-back black hair
 ## JORD FARA, Board trustee (P10 f2, P12 f2)
 
 **Lock (paste verbatim):**
-> Frail trustee around eighty, bald crown with thin white side wisps, clean-shaven deeply wrinkled face, hollow cheeks, prominent ears, anxious watery eyes, slate blue-grey high-collared tunic, stooped posture.
+> Frail trustee around eighty, bald crown with thin white side wisps, clean-shaven deeply wrinkled face, hollow cheeks, prominent ears, anxious watery eyes, warm russet-brown high-collared tunic with a dull copper clasp, stooped posture.
 
-**Ref:** `refs/ref_fara.png` — extracted via `edit_image` from P10's own first rendering (the bald trustee as actually painted = canon; maximally distinct from Pirenne).
+**Ref:** `refs/ref_fara_brown.png` — extracted via `edit_image` from P10's own first rendering (the bald trustee as actually painted = canon), then recolored russet-brown. QA LESSON: the first ref kept his original slate-blue tunic — nearly identical to Pirenne's, so two different faces in the same costume read as ONE councillor morphing between panels. **Distinct recurring characters need distinct COSTUMES, not just distinct faces.** Prompts must also state explicitly: "REFERENCE B and REFERENCE C are TWO DIFFERENT characters who must never be merged."
 
 QA LESSON (round 2, user-caught): this character was originally an "anonymous elderly trustee" locked in prose only — he rendered as two different old men on P10 and P12 and read as a continuity error. **There is no such thing as "anonymous" in a recurring room. Any character who appears on 2+ pages gets a ref. RELYING ON TEXT PROMPTS FOR CHARACTER LOCK IS NOT ACCEPTABLE** (user directive, 2026-07-05).
 
@@ -74,8 +74,8 @@ QA LESSON (round 2, user-caught): this character was originally an "anonymous el
 - `refs/composite_act1_gaal_seldon.png` — [ref_gaal | ref_seldon], thin labels "REFERENCE A" / "REFERENCE B". Anchor for P2, P3, P4, P7.
 - `refs/composite_act2_hardin_pirenne.png` — [ref_hardin | ref_pirenne]. Anchor for P9, P15.
 - `refs/composite_p6_bench_seldon.png` — [bench crop | ref_seldon]. Anchor for P6 (repair).
-- `refs/composite_p10_hardin_pirenne_fara.png` — [ref_hardin | ref_pirenne | ref_fara]. Anchor for P10 (repair).
-- `refs/composite_p12_hardin_fara.png` — [ref_hardin | ref_fara]. Anchor for P12 (repair).
+- `refs/composite_p10_hardin_pirenne_fara_v2.png` — [ref_hardin | ref_pirenne | ref_fara_brown]. Anchor for P10 (repair round 3).
+- `refs/composite_p12_hardin_fara_v2.png` — [ref_hardin | ref_fara_brown]. Anchor for P12 (repair round 3).
 - Vault pages (P13, P14) anchor on `ref_seldon_hologram`; the Board is background prose (Pirenne named but small — glasses + white pointed beard carry him).
 
 Every plate prompt must include: "This input is a REFERENCE SHEET, not a layout to keep — paint ONE NEW unified single-scene image using the references; do not reproduce the sheet's split layout; ignore any printed labels."
