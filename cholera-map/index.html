@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Riddle of the Well</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+            background: #0d1418;
+            color: #e4ece9;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #4a9b95, #285450);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        .reader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px 16px 64px;
+        }
+
+        .page-frame {
+            max-width: min(1400px, 96vw);
+            width: 100%;
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .page-frame.fading { opacity: 0; }
+
+        .page-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .page-frame.cover img {
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #e4ece9;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            z-index: 50;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            user-select: none;
+        }
+
+        .nav-arrow.prev { left: 18px; }
+        .nav-arrow.next { right: 18px; }
+
+        .nav-arrow:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .nav-arrow:disabled {
+            opacity: 0.18;
+            cursor: default;
+        }
+
+        .page-info {
+            position: fixed;
+            bottom: 42px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: rgba(228, 236, 233, 0.45);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            z-index: 50;
+            pointer-events: none;
+            transition: bottom 0.2s ease;
+        }
+
+        .page-info.no-strip { bottom: 14px; }
+
+        .case-strip {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            padding: 8px 10px;
+            background: rgba(13, 20, 24, 0.92);
+            border-top: 1px solid rgba(74, 155, 149, 0.22);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 60;
+            font-size: 10.5px;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+
+        .case-strip .stage {
+            padding: 3px 12px;
+            border-radius: 12px;
+            color: rgba(74, 155, 149, 0.4);
+            white-space: nowrap;
+            transition: all 0.25s ease;
+        }
+
+        .case-strip .stage.active {
+            color: #0d1418;
+            background: #4a9b95;
+            font-weight: bold;
+        }
+
+        .case-strip .sep {
+            color: rgba(74, 155, 149, 0.25);
+            align-self: center;
+        }
+
+        .case-strip.hidden { display: none; }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 14px;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(228, 236, 233, 0.4);
+        }
+
+        .home-link {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            font-size: 13px;
+            color: rgba(228, 236, 233, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            z-index: 100;
+        }
+
+        .home-link:hover { color: rgba(228, 236, 233, 0.7); }
+
+        @media (max-width: 768px) {
+            .reader { padding: 16px 10px 64px; }
+            .nav-arrow { width: 44px; height: 44px; font-size: 22px; }
+            .nav-arrow.prev { left: 8px; }
+            .nav-arrow.next { right: 8px; }
+            .home-link { top: 10px; left: 10px; }
+            .page-info { bottom: 38px; }
+            .page-info.no-strip { bottom: 8px; }
+            .case-strip { font-size: 8.5px; letter-spacing: 1px; gap: 2px; }
+            .case-strip .stage { padding: 3px 6px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-frame, .progress-bar { transition: none; }
+        }
+
+        .end-interstitial {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .end-interstitial.fading { opacity: 0; }
+
+        .end-interstitial h2 {
+            font-size: 32px;
+            font-weight: normal;
+            color: #e0eae6;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .end-interstitial .subtitle {
+            font-size: 18px;
+            color: rgba(228, 236, 233, 0.6);
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .quiz-container {
+            max-width: 680px;
+            width: 100%;
+            display: none;
+            opacity: 1;
+            transition: opacity 0.25s ease;
+        }
+
+        .quiz-container.fading { opacity: 0; }
+
+        .quiz-container h2 {
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 35px;
+            color: #e0eae6;
+        }
+
+        .question-block {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .question-text {
+            font-size: 17px;
+            margin-bottom: 16px;
+            color: #e0eae6;
+            line-height: 1.6;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px 16px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 16px;
+            color: #c9d4d0;
+            line-height: 1.5;
+        }
+
+        .options label:hover { background: rgba(255,255,255,0.06); }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #4a9b95;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-family: inherit;
+            background: rgba(74, 155, 149, 0.16);
+            border: 1px solid rgba(74, 155, 149, 0.38);
+            color: #7cc2bb;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .check-btn:hover { background: rgba(74, 155, 149, 0.28); }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.correct {
+            background: rgba(90, 180, 90, 0.1);
+            border: 1px solid rgba(90, 180, 90, 0.2);
+            color: #8cd48c;
+        }
+
+        .feedback.incorrect {
+            background: rgba(200, 90, 90, 0.1);
+            border: 1px solid rgba(200, 90, 90, 0.2);
+            color: #d4a0a0;
+        }
+
+        .score-display {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 20px;
+            display: none;
+            color: #7cc2bb;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <a class="home-link" href="../index.html">&larr; Stories</a>
+
+    <div class="reader">
+        <div class="page-title" id="pageTitle">Cover</div>
+        <div class="page-frame cover" id="pageFrame">
+            <img id="pageImg" src="pages/cover.png" alt="The Riddle of the Well &mdash; Cover" />
+        </div>
+
+        <div class="end-interstitial" id="endInterstitial">
+            <h2>The Map Was Correct</h2>
+            <div class="subtitle">The Riddle of the Well &mdash; How a map, a doctor, and a skeptical priest traced a plague to a single pump</div>
+            <p style="color: rgba(228, 236, 233, 0.75); font-size: 17px; line-height: 1.7; max-width: 560px; margin: 0 auto;">
+                Cholera killed by the hundreds in ten days, and the era's leading answer &mdash; bad air &mdash; was not stupidity. It was a serious theory that fit the visible facts, which is exactly why it was so hard to unseat. What broke it open was not a flash of genius but a doctor's stubborn habit of asking one question at every door, a map patient enough to let five hundred deaths draw their own conclusion, a young priest who set out to disprove the map and found the leak instead, and a rival statistician who, twelve years later, quietly used the doctor's own method to solve a new outbreak himself. Officialdom said no anyway. History said yes. One quiz stands between you and the end. It tests the WHY, not the what.
+            </p>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <h2>Test Your Understanding</h2>
+
+            <div class="question-block" id="q1">
+                <div class="question-text">1. For decades before 1854, "bad air," or miasma, was the leading answer for how disease spread. Why does this story treat miasma as a serious rival theory rather than dismiss it as nonsense?</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> Because miasma theory was invented by the same doctors who later proved Snow wrong.</label>
+                    <label><input type="radio" name="q1" value="b"> Because slums genuinely were filthy AND genuinely were where cholera struck hardest &mdash; the visible facts fit miasma just as well as they fit water, which is exactly what made the wrong idea so hard to dislodge.</label>
+                    <label><input type="radio" name="q1" value="c"> Because no one in London had ever tried to test the water theory before Snow.</label>
+                    <label><input type="radio" name="q1" value="d"> Because miasma theory was only believed by uneducated people, not real scientists.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q1', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q1-correct">Right &mdash; a rival theory earns respect by explaining the same visible facts as the truth. Slums were both filthy AND disease-ridden, so miasma had genuine evidence behind it. That's what made it dangerous, not stupidity &mdash; even William Farr, a careful statistician, believed it.</div>
+                <div class="feedback incorrect" id="q1-incorrect">Not quite. Miasma theory was believed by serious, respected scientists &mdash; including William Farr, a careful government statistician &mdash; and the water theory HAD already been proposed, by Snow himself, five years earlier. What made miasma so hard to beat: slums were both filthy AND disease-ridden, so the visible facts fit the wrong idea just as well as the right one.</div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <div class="question-text">2. Snow tested his water theory on the brewery workers and workhouse inmates living right inside the worst-hit streets. Why was this such a powerful test?</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> Because brewery workers and workhouse inmates were the wealthiest people in Soho.</label>
+                    <label><input type="radio" name="q2" value="b"> Because they lived right inside the worst-hit streets, so if bad air caused cholera they should have died just like their neighbours &mdash; but they drank from a separate well and were almost entirely spared.</label>
+                    <label><input type="radio" name="q2" value="c"> Because the brewery and workhouse had already installed modern plumbing decades ahead of their neighbours.</label>
+                    <label><input type="radio" name="q2" value="d"> Because Snow owned shares in the brewery and had special access to its private records.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q2', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q2-correct">Right &mdash; a theory proves itself by predicting something surprising in advance. If the air were poisoned, location alone should have doomed them. It didn't &mdash; because it was never the air.</div>
+                <div class="feedback incorrect" id="q2-incorrect">Not quite. Wealth and plumbing aren't the point, and Snow had no financial stake in the brewery. What made the test powerful: these men lived inside the worst-hit streets, so bad air theory predicted they should die too &mdash; but their separate well spared them, exactly as the water theory predicted.</div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <div class="question-text">3. Reverend Henry Whitehead set out to find the holes in Snow's map &mdash; and instead found the actual leaking cesspool beside the well. Why did it matter that this came from Whitehead, checking Snow's work independently, rather than from Snow himself?</div>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> Because Whitehead was a trained scientist and Snow was only a physician.</label>
+                    <label><input type="radio" name="q3" value="b"> Because Snow had gotten the location of the pump wrong, and Whitehead quietly corrected it.</label>
+                    <label><input type="radio" name="q3" value="c"> Because an independent check that reaches the same conclusion &mdash; and then goes further, from WHERE to HOW &mdash; is stronger evidence than one investigator's word alone, and Whitehead's trust in the parish let him find what a stranger with a notebook could not.</label>
+                    <label><input type="radio" name="q3" value="d"> Because Whitehead was paid by the Vestry Board of Guardians to double-check Snow's numbers.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q3', 'c')">Check Answer</button>
+                <div class="feedback correct" id="q3-correct">Right &mdash; Whitehead set out to disprove Snow and instead confirmed him, which counts for far more than Snow confirming himself. And his years welcomed in these homes let him find the actual cesspool crack Snow's map could only point toward.</div>
+                <div class="feedback incorrect" id="q3-incorrect">Not quite. Snow's pump location was correct, and no one paid Whitehead to check the case &mdash; he did it on his own, meaning to prove Snow wrong. That's exactly why it mattered: an independent skeptic reaching the same answer, then finding the actual mechanism (the cesspool) that Snow's map could only imply.</div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <div class="question-text">4. In his own report, Snow admitted that removing the Broad Street pump handle was NOT proof his theory was right. Why not?</div>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> Because the handle was quietly put back on again the following week.</label>
+                    <label><input type="radio" name="q4" value="b"> Because deaths had already been falling before the handle was removed &mdash; most residents had fled the neighbourhood, so the decline couldn't be credited to the handle alone.</label>
+                    <label><input type="radio" name="q4" value="c"> Because Snow had not actually been the one who ordered it removed.</label>
+                    <label><input type="radio" name="q4" value="d"> Because the Vestry never believed his theory in the first place.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q4', 'b')">Check Answer</button>
+                <div class="feedback correct" id="q4-correct">Right &mdash; the outbreak was already dying down as residents fled, so the timing alone couldn't prove the handle's effect. Snow said so himself, in writing &mdash; the shelf's honesty rule applied to its own hero moment.</div>
+                <div class="feedback incorrect" id="q4-incorrect">Not quite. The handle stayed off, Snow himself requested its removal, and the Vestry acted on his word that same evening. The real reason: deaths were already falling before the handle came off, because most residents had already fled &mdash; so the famous gesture couldn't be credited with ending the outbreak alone.</div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <div class="question-text">5. Snow's "Grand Experiment" compared death rates on streets served by two different water companies. Why was this comparison so much stronger evidence than the Broad Street map alone?</div>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> Because the two companies charged very different prices for their water.</label>
+                    <label><input type="radio" name="q5" value="b"> Because one company was much older and more established than the other.</label>
+                    <label><input type="radio" name="q5" value="c"> Because it covered a much bigger part of London, so it simply had more total deaths to count.</label>
+                    <label><input type="radio" name="q5" value="d"> Because the same streets, sometimes the same block, were divided only by which company's pipe happened to run underneath &mdash; eliminating neighbourhood, air, and poverty as explanations, leaving only the water itself as the difference.</label>
+                </div>
+                <button class="check-btn" onclick="checkAnswer('q5', 'd')">Check Answer</button>
+                <div class="feedback correct" id="q5-correct">Right &mdash; a city had accidentally run its own controlled experiment. Same streets, same people, only the water source differed, and the death rate differed nearly eightfold. That's evidence a critic can't explain away by blaming the neighbourhood.</div>
+                <div class="feedback incorrect" id="q5-incorrect">Not quite. Price and age of the companies aren't the point, and bigger numbers alone don't prove causation. What made it so strong: the SAME streets, sometimes the same block, were split only by which company's pipe ran underneath &mdash; ruling out neighbourhood, air, and poverty, leaving only the water itself to explain a nearly eightfold difference in deaths.</div>
+            </div>
+
+            <div class="score-display" id="scoreDisplay"></div>
+        </div>
+
+    </div>
+
+    <button class="nav-arrow prev" id="prevBtn" onclick="prev()" disabled aria-label="Previous page">&larr;</button>
+    <button class="nav-arrow next" id="nextBtn" onclick="next()" aria-label="Next page">&rarr;</button>
+    <span class="page-info" id="pageInfo">Cover</span>
+
+    <div class="case-strip hidden" id="caseStrip">
+        <span class="stage">The Fear</span><span class="sep">&middot;</span><span class="stage">The Outbreak</span><span class="sep">&middot;</span><span class="stage">The False Trail</span><span class="sep">&middot;</span><span class="stage">The Map</span><span class="sep">&middot;</span><span class="stage">The Reveal</span><span class="sep">&middot;</span><span class="stage">The Cure</span>
+    </div>
+
+    <script>
+        const pages = [
+            { file: 'pages/cover.png', title: 'Cover', label: 'Cover' },
+            { file: 'pages/page-01.png', title: 'The Fear', label: 'Page 1 of 19', stage: 0 },
+            { file: 'pages/page-02.png', title: 'The First Night', label: 'Page 2 of 19', stage: 1 },
+            { file: 'pages/page-03.png', title: 'Ten Days', label: 'Page 3 of 19', stage: 1 },
+            { file: 'pages/page-04.png', title: 'The Established Theory', label: 'Page 4 of 19', stage: 2 },
+            { file: 'pages/page-05.png', title: 'The Rival Detective', label: 'Page 5 of 19', stage: 2 },
+            { file: 'pages/page-06.png', title: 'Enter the Doctor', label: 'Page 6 of 19', stage: 3 },
+            { file: 'pages/page-07.png', title: 'The One Question', label: 'Page 7 of 19', stage: 3 },
+            { file: 'pages/page-08.png', title: 'The Map Takes Shape', label: 'Page 8 of 19', stage: 3 },
+            { file: 'pages/page-09.png', title: 'The First Test', label: 'Page 9 of 19', stage: 3 },
+            { file: 'pages/page-10.png', title: 'The Second Test', label: 'Page 10 of 19', stage: 3 },
+            { file: 'pages/page-11.png', title: 'The Map, In Full', label: 'Page 11 of 19', stage: 3 },
+            { file: 'pages/page-12.png', title: 'The Confrontation', label: 'Page 12 of 19', stage: 4 },
+            { file: 'pages/page-13.png', title: 'The Pump Handle', label: 'Page 13 of 19', stage: 4 },
+            { file: 'pages/page-14.png', title: 'The Honest Doubt', label: 'Page 14 of 19', stage: 4 },
+            { file: 'pages/page-15.png', title: 'The Second Detective', label: 'Page 15 of 19', stage: 4 },
+            { file: 'pages/page-16.png', title: 'The Mechanism', label: 'Page 16 of 19', stage: 4 },
+            { file: 'pages/page-17.png', title: 'The Number-Proof', label: 'Page 17 of 19', stage: 4 },
+            { file: 'pages/page-18.png', title: 'Officialdom Says No', label: 'Page 18 of 19', stage: 5 },
+            { file: 'pages/page-19.png', title: 'The World Changes', label: 'Page 19 of 19', stage: 5 },
+            { file: null, title: 'The Map Was Correct', label: 'The End', end: true },
+            { file: null, title: 'Quiz', label: 'Quiz', quiz: true },
+        ];
+
+        let current = 0;
+        const img = document.getElementById('pageImg');
+        const frame = document.getElementById('pageFrame');
+        const quiz = document.getElementById('quizContainer');
+        const endInt = document.getElementById('endInterstitial');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageInfo = document.getElementById('pageInfo');
+        const pageTitle = document.getElementById('pageTitle');
+        const progressBar = document.getElementById('progressBar');
+        const caseStrip = document.getElementById('caseStrip');
+        const stageEls = caseStrip.querySelectorAll('.stage');
+
+        function show(index) {
+            frame.classList.add('fading');
+            quiz.classList.add('fading');
+            endInt.classList.add('fading');
+            setTimeout(() => {
+                current = index;
+                const p = pages[current];
+                if (p.quiz) {
+                    frame.style.display = 'none';
+                    endInt.style.display = 'none';
+                    quiz.style.display = 'block';
+                } else if (p.end) {
+                    frame.style.display = 'none';
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'block';
+                } else {
+                    quiz.style.display = 'none';
+                    endInt.style.display = 'none';
+                    frame.style.display = 'block';
+                    img.src = p.file;
+                    img.alt = 'The Riddle of the Well — ' + p.title;
+                }
+                pageTitle.innerHTML = p.title;
+                pageInfo.innerHTML = p.label;
+                prevBtn.disabled = current === 0;
+                nextBtn.disabled = current === pages.length - 1;
+                progressBar.style.width = (current / (pages.length - 1)) * 100 + '%';
+                frame.classList.toggle('cover', current === 0);
+                if (typeof p.stage === 'number') {
+                    caseStrip.classList.remove('hidden');
+                    pageInfo.classList.remove('no-strip');
+                    stageEls.forEach(function(el, i) {
+                        el.classList.toggle('active', i === p.stage);
+                    });
+                } else {
+                    caseStrip.classList.add('hidden');
+                    pageInfo.classList.add('no-strip');
+                }
+                frame.classList.remove('fading');
+                quiz.classList.remove('fading');
+                endInt.classList.remove('fading');
+                window.scrollTo(0, 0);
+            }, 250);
+        }
+
+        let answered = 0;
+        let correctCount = 0;
+
+        function checkAnswer(qId, correctAnswer) {
+            const selected = document.querySelector('input[name="' + qId + '"]:checked');
+            if (!selected) return;
+            const block = document.getElementById(qId);
+            const isCorrect = selected.value === correctAnswer;
+            block.querySelectorAll('input').forEach(function(i) { i.disabled = true; });
+            block.querySelector('.check-btn').style.display = 'none';
+            if (isCorrect) {
+                document.getElementById(qId + '-correct').style.display = 'block';
+                correctCount++;
+            } else {
+                document.getElementById(qId + '-incorrect').style.display = 'block';
+            }
+            answered++;
+            if (answered === 5) {
+                var display = document.getElementById('scoreDisplay');
+                display.textContent = 'You got ' + correctCount + ' out of 5 correct!';
+                display.style.display = 'block';
+            }
+        }
+
+        function next() { if (current < pages.length - 1) show(current + 1); }
+        function prev() { if (current > 0) show(current - 1); }
+
+        img.addEventListener('click', function(e) {
+            const rect = img.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x < rect.width * 0.35) prev();
+            else next();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) next();
+                else prev();
+            }
+        }, { passive: true });
+
+        function preload() {
+            if (current < pages.length - 1 && pages[current + 1].file) {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = pages[current + 1].file;
+                document.head.appendChild(link);
+            }
+        }
+        img.addEventListener('load', preload);
+
+        // Initialize the case strip state for the cover
+        pageInfo.classList.add('no-strip');
+    </script>
+
+</body>
+</html>
