@@ -1,12 +1,18 @@
-# HANDOFF — A Wizard of Earthsea (SHIPPED, not yet committed)
+# HANDOFF — A Wizard of Earthsea (legacy compressed edition)
 
-**State (2026-07-08):** Full production complete in one autonomous session: 6 refs + cover + 20 pages generated (zero regens across the whole bulk batch), dark-flipper reader built (`index.html`, "voyage-strip" footer), 5-question WHY-quiz, landing card added to root `index.html` (Latest strip + literary-adaptation shelf). See `project_earthsea_retrospective.md` in memory for full run details.
+**State (2026-07-09):** Preserved as the original 20-page complete-book adaptation and visual-register source. It is no longer the active root-index entry: `../earthsea-wizard-part1/` replaces it with a 24-page adaptation of Chapters 1-2 only, after reader QA found that the complete-book compression omitted too much connective tissue.
 
 ## What's left
-- **Not yet committed/pushed.** `earthsea/` is untracked; root `index.html` has uncommitted edits (Earthsea card added, Kepler dropped from Latest strip since it already lives in the biographies list).
-- **User-QA + kid-QA both OPEN** — this entire run was autonomous with no human review checkpoint. Before treating this as fully shipped, a human should read through `earthsea/index.html` at least once (check panel-to-panel character consistency, the P20 tablet's dropped accent on "Éa"→"Ea" is a known cosmetic nit, not worth fixing).
-- If approved, next step is a normal commit+push of `earthsea/` + root `index.html`, following repo convention (see other retrospectives for the commit-message pattern).
+- **Kid-QA open.**
+- Known cosmetic nit: P20 tablet renders "Éa" as "Ea" (accepted, not worth a regen).
+
+## Successors
+
+- `../earthsea-wizard-part1/`: active root-index edition of *A Wizard of Earthsea*, Part One: The Boy of Gont.
+- `../earthsea-vol2/`: completed *The Tombs of Atuan*, Part One: The Eaten One.
+- Standing pacing rule: adapt bounded story arcs with enough pages to dramatize transitions, motives, consequences, and relationship changes. Do not compress an entire novel merely to keep a conventional page count.
 
 ## Reference
-- All 5 planning docs (`00`–`04`) are unchanged from the original handoff and remain the source of truth for panel beats/lettering.
-- Cost envelope was ~$6 as estimated (cover + 20 pages + 6 ref gens, all single-pass).
+
+- This edition's planning docs and pages remain the visual-register source: sea-mist ink line, skin-tone fidelity, gold only for fire/werelight/spell-glow, and the shadow as flat matte black.
+- Do not use this edition as the pacing or text-density model. Use `../earthsea-wizard-part1/` for those decisions.

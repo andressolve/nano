@@ -106,7 +106,21 @@ Both characters must match their reference images exactly.
 - Those gains do **not** eliminate the core risks of sequential storytelling. Recurring-character drift, panel-layout drift, and over-dense science/exposition pages still need human discipline.
 - Keep each science page to one main visual argument. If a page needs too many labels or too much narration, split it.
 - Prototype the hardest pages first: scientific diagrams, multi-character argument scenes, and any page where text and composition must both be exact.
-- Prefer targeted local edits once the page is mostly right. Full rerolls tend to lose solved continuity.
+- Prefer a targeted full-image edit request once a page is mostly right. Do not crop a defect, regenerate it in isolation, and composite it back into a finished page; that method creates visible seams and often fails to preserve identity or lettering.
+
+## Speech-Bubble Attribution Calibration (July 2026)
+
+- OpenAI's official [GPT Image Generation Models Prompting Guide](https://developers.openai.com/cookbook/examples/multimodal/image-gen-models-prompting-guide) provides useful general rules for composition, literal text, indexed inputs, invariants, and controlled iteration, but no dedicated speech-balloon attribution recipe.
+- Treat attribution as composition. Put speakers in dialogue order and keep each bubble on the same side as its speaker.
+- For A-B-A in one panel, use two tiers: A upper-left, B upper-right, A lower-left. A numbered balloon map must name the speaker, verbatim line, position, and tail endpoint for every bubble.
+- State exact balloon counts per speaker and identify silent characters explicitly.
+- Keep mouths visible and leave a clear tail corridor without hands, props, animals, or bystanders.
+- Even a repeated strong prompt can produce a tail that ends at a torso or an orphan tail fragment. Inspect every page; do not treat "tail ends at the mouth" as a guarantee.
+- One visible speaker and one bubble per panel is the most robust fallback for difficult dialogue.
+- If attribution fails, revise the blocking and regenerate the full page. Do not crop-patch tails or swap text between existing bubble shapes.
+- Validate canvas dimensions after every generation. A test requesting 3:2 returned a 1774x887 strip when the three-panel structure dominated the prompt.
+
+The controlled Earthsea tests, raw images, canonical prompt block, and QA checklist are in `earthsea-wizard-part1/05-SPEECH-ATTRIBUTION-STUDY.md`.
 
 ---
 
