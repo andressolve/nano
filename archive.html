@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Browse the full Illustrated Stories family reading library." />
+  <title>Full Archive · Illustrated Stories</title>
+  <link rel="stylesheet" href="site.css" />
+  <script src="stories.js" defer></script>
+  <script src="archive.js" defer></script>
+</head>
+<body class="archive-page">
+  <a class="skip-link" href="#archive-list">Skip to the story list</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Illustrated Stories home">
+      <span class="brand-mark" aria-hidden="true">N</span>
+      <span>
+        <strong>Illustrated Stories</strong>
+        <small>A family reading library</small>
+      </span>
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="index.html"><span aria-hidden="true">←</span> New arrivals</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="archive-hero" aria-labelledby="archive-title">
+      <p class="eyebrow">Every story · one place</p>
+      <h1 id="archive-title">The full library</h1>
+      <p>Look for a favorite, continue a series, or choose a shelf and see where it leads.</p>
+    </section>
+
+    <section class="archive-browser" aria-label="Browse the story archive">
+      <div class="archive-tools">
+        <label class="search-field">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <span class="sr-only">Search stories</span>
+          <input id="archive-search" type="search" placeholder="Search by title, person, place, or series…" autocomplete="off" />
+        </label>
+        <label class="sort-field">
+          <span>Sort</span>
+          <select id="archive-sort">
+            <option value="newest">Newest first</option>
+            <option value="title">Title A–Z</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="filter-row" id="archive-filters" aria-label="Filter by shelf"></div>
+
+      <div class="result-heading">
+        <p id="result-count" aria-live="polite">45 stories</p>
+        <button class="clear-button" id="clear-filters" type="button" hidden>Clear filters</button>
+      </div>
+
+      <div class="archive-list" id="archive-list"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <p class="empty-mark" aria-hidden="true">?</p>
+        <h2>No story found</h2>
+        <p>Try another word or clear the shelf filter.</p>
+        <button class="primary-link button-link" id="empty-clear" type="button">Show all stories</button>
+      </div>
+
+      <noscript>
+        <p class="noscript-note">JavaScript is needed to search and filter this catalog.</p>
+      </noscript>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Illustrated stories, built to be reread.</p>
+    <a href="index.html">Back to new arrivals →</a>
+  </footer>
+</body>
+</html>

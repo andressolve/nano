@@ -1,546 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A family library of illustrated stories, biographies, history, science, myth, and fiction." />
   <title>Illustrated Stories</title>
-  <style>
-    :root {
-      --bg0: #f3efe7;
-      --bg1: #efe7da;
-      --ink: #221f1c;
-      --muted: rgba(34, 31, 28, 0.68);
-      --card: rgba(255, 255, 255, 0.72);
-      --card-border: rgba(34, 31, 28, 0.12);
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-      --shadow2: 0 18px 48px rgba(0, 0, 0, 0.18);
-      --accent: #6b4f3a;
-      --accent2: #2f2a26;
-      --radius: 18px;
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Garamond, Georgia, serif;
-      background:
-        radial-gradient(1200px 800px at 15% 10%, rgba(107, 79, 58, 0.12), transparent 55%),
-        radial-gradient(900px 600px at 85% 20%, rgba(47, 42, 38, 0.10), transparent 52%),
-        radial-gradient(900px 700px at 35% 95%, rgba(132, 104, 73, 0.10), transparent 55%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      overflow-x: hidden;
-    }
-
-    .wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 56px 22px 80px;
-    }
-
-    header {
-      display: grid;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .badge {
-      width: fit-content;
-      font-size: 12px;
-      letter-spacing: 2.6px;
-      text-transform: uppercase;
-      color: rgba(34, 31, 28, 0.76);
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(34, 31, 28, 0.16);
-      background: rgba(255, 255, 255, 0.35);
-      backdrop-filter: blur(8px);
-    }
-
-    h1 {
-      margin: 0;
-      font-weight: 500;
-      letter-spacing: 0.2px;
-      font-size: clamp(34px, 4.2vw, 54px);
-      line-height: 1.06;
-    }
-
-    .subhead {
-      max-width: 72ch;
-      margin: 0;
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .shelf { margin-top: 46px; }
-    .shelf:first-of-type { margin-top: 30px; }
-    .shelf .grid { margin-top: 16px; }
-
-    .shelf-head {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid rgba(34, 31, 28, 0.16);
-    }
-
-    .shelf-title {
-      margin: 0;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 2.4px;
-      text-transform: uppercase;
-      color: rgba(34, 31, 28, 0.74);
-    }
-
-    .shelf-count {
-      font-size: 13px;
-      letter-spacing: 0.4px;
-      color: var(--muted);
-    }
-
-    .linklist {
-      list-style: none;
-      margin: 16px 0 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 6px 16px;
-    }
-
-    .linklist a {
-      display: grid;
-      gap: 2px;
-      text-decoration: none;
-      color: inherit;
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-      transition: background 160ms ease, border-color 160ms ease;
-    }
-
-    .linklist a:hover {
-      background: rgba(255, 255, 255, 0.6);
-      border-color: var(--card-border);
-    }
-
-    .ll-title {
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-    }
-
-    .linklist a:hover .ll-title { color: var(--accent); }
-
-    .ll-meta {
-      font-size: 12.5px;
-      letter-spacing: 0.4px;
-      color: var(--muted);
-    }
-
-    @media (max-width: 620px) {
-      .linklist { grid-template-columns: 1fr; }
-    }
-
-    .card {
-      grid-column: span 6;
-      display: grid;
-      gap: 14px;
-      padding: 16px;
-      border-radius: var(--radius);
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      box-shadow: var(--shadow);
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-      overflow: hidden;
-      transform: translateZ(0);
-      transition: transform 200ms ease, box-shadow 250ms ease, border-color 250ms ease;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      background:
-        radial-gradient(500px 260px at 10% 10%, rgba(107, 79, 58, 0.20), transparent 60%),
-        radial-gradient(480px 240px at 90% 0%, rgba(47, 42, 38, 0.16), transparent 55%);
-      opacity: 0.75;
-      pointer-events: none;
-      filter: saturate(1.05);
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow2);
-      border-color: rgba(34, 31, 28, 0.22);
-    }
-
-    .thumb {
-      position: relative;
-      border-radius: calc(var(--radius) - 6px);
-      overflow: hidden;
-      border: 1px solid rgba(34, 31, 28, 0.10);
-      background: rgba(0, 0, 0, 0.06);
-    }
-
-    .thumb img {
-      display: block;
-      width: 100%;
-      height: 270px;
-      object-fit: cover;
-      transform: scale(1.02);
-      filter: contrast(1.03) saturate(1.03);
-      transition: transform 260ms ease;
-    }
-
-    .card:hover .thumb img { transform: scale(1.06); }
-
-    .meta {
-      position: relative;
-      display: grid;
-      gap: 10px;
-      padding: 2px 4px 6px;
-    }
-
-    .title-row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .story-title {
-      margin: 0;
-      font-size: 24px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-    }
-
-    .cta {
-      font-size: 14px;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      color: rgba(107, 79, 58, 0.95);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      user-select: none;
-    }
-
-    .desc {
-      margin: 0;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.65;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 2px;
-    }
-
-    .chip {
-      font-size: 12px;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      color: rgba(34, 31, 28, 0.72);
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(34, 31, 28, 0.12);
-      background: rgba(255, 255, 255, 0.55);
-      backdrop-filter: blur(8px);
-    }
-
-    footer {
-      margin-top: 34px;
-      color: rgba(34, 31, 28, 0.55);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    footer code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 0.95em;
-    }
-
-    @media (max-width: 920px) {
-      .card { grid-column: span 12; }
-      .thumb img { height: 240px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .card, .thumb img { transition: none; }
-      .card:hover { transform: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="site.css" />
+  <script src="stories.js" defer></script>
+  <script src="home.js" defer></script>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="badge">Illustrated Stories</div>
-      <h1>Short stories, built to be reread.</h1>
-      <p class="subhead">
-        Each story pairs reflective narrative with scene-by-scene illustrations. Pick one, read through, then take the short quiz at the end.
-      </p>
-    </header>
+  <a class="skip-link" href="#latest">Skip to the latest stories</a>
 
-    <main aria-label="Story catalog">
-      <section class="shelf">
-        <div class="shelf-head">
-          <h2 class="shelf-title">Latest &middot; just shipped</h2>
-          <span class="shelf-count">6</span>
-        </div>
-        <div class="grid">
-          <a class="card" href="earthsea-vol2/index.html" aria-label="Open The Tombs of Atuan — Part One: The Eaten One">
-        <div class="thumb">
-          <img src="earthsea-vol2/pages/cover.png" alt="A lone girl in black robes stands among nine black tombstones on a bone-pale hill under a harsh sky, with a single silver-violet werelight glowing far below in the absolute dark underground, bold ink-line comic art in bone, black, and violet" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Tombs of Atuan &mdash; Part One: The Eaten One</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">Her name was fed to the dark. Then a light came under the hill. A girl raised from age six to be Priestess of the Nameless Ones meets a wizard who sees beauty where she was taught only to obey. After Ursula K. Le Guin.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Earthsea &middot; the Kargad Lands</span>
-            <span class="chip">Graphic novel</span>
-            <span class="chip">Fantasy &middot; after Ursula K. Le Guin</span>
-          </div>
-        </div>
-      </a>
-          <a class="card" href="earthsea-wizard-part1/index.html" aria-label="Open A Wizard of Earthsea — Part One: The Boy of Gont">
-        <div class="thumb">
-          <img src="earthsea-wizard-part1/pages/cover.png" alt="Young Duny stands above a dark mountain village and storm-grey sea while Ogion walks toward a waiting ship below, bold etched ink-line comic art in cold maritime tones" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">A Wizard of Earthsea &mdash; Part One: The Boy of Gont</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">Before he was Ged, he was Duny: a proud village boy who learned a witch&rsquo;s words by listening, called fog against raiders, and chose the quicker road to power. Chapters 1&ndash;2, expanded after Ursula K. Le Guin.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Earthsea &middot; Gont</span>
-            <span class="chip">24-page graphic novel</span>
-            <span class="chip">Fantasy &middot; after Ursula K. Le Guin</span>
-          </div>
-        </div>
-      </a>
-          <a class="card" href="foundation-vol3/index.html" aria-label="Open Foundation — Book Three: The Merchants">
-        <div class="thumb">
-          <img src="foundation-vol3/pages/cover.png" alt="A copper-and-chrome trade ship riding a blazing amber-gold river of trade routes across deep space, a teal-and-magenta galaxy spiral behind, glossy 1970s science-fiction paperback airbrush art with chrome lettering" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Foundation &mdash; Book Three: The Merchants</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">The religion of science stops at Korell&rsquo;s border &mdash; so trader Hober Mallow walks in with no priests, no missionaries, and a hold full of gadgets. He wins a war without firing a shot. After Isaac Asimov.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Terminus &amp; Korell &middot; 155 F.E.</span>
-            <span class="chip">Graphic novel</span>
-            <span class="chip">Science fiction &middot; after Asimov</span>
-          </div>
-        </div>
-      </a>
-          <a class="card" href="cholera-map/index.html" aria-label="Open The Riddle of the Well">
-        <div class="thumb">
-          <img src="cholera-map/pages/cover.png" alt="A physician's silhouette leans over a lamplit desk in his study at night, a hand-drawn map of Soho streets propped on an easel glowing faintly gold where death-bars cluster around one pump, foggy rooftops through the window behind, bold ink-line comic art in deep ink-blue and lamplight gold" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Riddle of the Well</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">Cholera kills by the hundreds in ten days, and the era's leading theory &mdash; bad air &mdash; fits the facts just well enough to survive. A doctor's door-to-door map, a skeptical priest, and a rival statistician trace it to a single pump.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">London &middot; 1854&ndash;1866</span>
-            <span class="chip">Graphic novel</span>
-            <span class="chip">Intellectual detective story &middot; Case No. 2</span>
-          </div>
-        </div>
-      </a>
-          <a class="card" href="foundation-vol2/index.html" aria-label="Open Foundation — Book Two: The Priests">
-        <div class="thumb">
-          <img src="foundation-vol2/pages/cover.png" alt="A kilometer-long chrome Imperial battlecruiser painted with gold sunburst banners looming low over a night planet whose cities glow in temple-gold constellations, a teal-and-magenta galaxy spiral behind, glossy 1970s science-fiction paperback airbrush art with chrome lettering" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">Foundation &mdash; Book Two: The Priests</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">Thirty years on, Hardin rules four kingdoms without an army &mdash; through a religion whose miracles are machines. Then his enemy aims a resurrected Imperial battleship at Terminus, exactly as planned. After Isaac Asimov.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Terminus &amp; Anacreon &middot; 80 F.E.</span>
-            <span class="chip">Graphic novel</span>
-            <span class="chip">Science fiction &middot; after Asimov</span>
-          </div>
-        </div>
-      </a>
-          <a class="card" href="rosetta/index.html" aria-label="Open The Riddle of the Stone">
-        <div class="thumb">
-          <img src="rosetta/pages/cover.png" alt="A dark-haired scholar in a shabby frock coat holds a candle up to a broken black stone slab covered in three bands of ancient script, in which a shadowed face is faintly reflected, an amber oil lamp and night-time Paris rooftops behind, bold ink-line comic art in deep ink-blue and lamplight gold" />
-        </div>
-        <div class="meta">
-          <div class="title-row">
-            <h2 class="story-title">The Riddle of the Stone</h2>
-            <span class="cta">Read <span aria-hidden="true">&rarr;</span></span>
-          </div>
-          <p class="desc">For 1,400 years no one on Earth could read a hieroglyph &mdash; and the wisest scholars were sure they knew why. A broken stone, a queen&rsquo;s name, and one relentless reader crack the greatest cold case in history. Race him to the answer.</p>
-          <div class="chips" aria-label="Story tags">
-            <span class="chip">Egypt &amp; Paris &middot; 1799&ndash;1832</span>
-            <span class="chip">Graphic novel</span>
-            <span class="chip">Intellectual detective story &middot; Case No. 1</span>
-          </div>
-        </div>
-      </a>
-        </div>
-      </section>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Illustrated Stories home">
+      <span class="brand-mark" aria-hidden="true">N</span>
+      <span>
+        <strong>Illustrated Stories</strong>
+        <small>A family reading library</small>
+      </span>
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="archive.html">Full archive <span aria-hidden="true">→</span></a>
+    </nav>
+  </header>
 
-      <section class="shelf">
-        <div class="shelf-head">
-          <h2 class="shelf-title">Illustrated biographies</h2>
-          <span class="shelf-count">15</span>
-        </div>
-        <ul class="linklist">
-          <li><a href="descartes/index.html" aria-label="Open Cogito: The Life of René Descartes"><span class="ll-title">Cogito: The Life of René Descartes</span><span class="ll-meta">France &amp; Netherlands &middot; 1596–1650</span></a></li>
-          <li><a href="newton-vol1/index.html" aria-label="Open The Invisible Forces: Isaac Newton, Book One"><span class="ll-title">The Invisible Forces: Isaac Newton, Book One</span><span class="ll-meta">England &middot; 1642&ndash;1687</span></a></li>
-          <li><a href="newton-vol2/index.html" aria-label="Open The Invisible Forces: Isaac Newton, Book Two"><span class="ll-title">The Invisible Forces: Isaac Newton, Book Two</span><span class="ll-meta">England &middot; 1687&ndash;1727</span></a></li>
-          <li><a href="einstein/index.html" aria-label="Open Relativity: The Life of Albert Einstein"><span class="ll-title">Relativity: The Life of Albert Einstein</span><span class="ll-meta">Germany, Switzerland &amp; USA &middot; 1879–1955</span></a></li>
-          <li><a href="tesla/index.html" aria-label="Open Tesla — The Man Who Gave the World Its Power"><span class="ll-title">Tesla: The Man Who Gave the World Its Power</span><span class="ll-meta">America &middot; Austrian Empire &middot; 1856&ndash;1943</span></a></li>
-          <li><a href="gauss/index.html" aria-label="Open The Boy Who Chose Numbers: Carl Friedrich Gauss, Book One"><span class="ll-title">The Boy Who Chose Numbers: Carl Friedrich Gauss, Book One</span><span class="ll-meta">Brunswick &middot; G&ouml;ttingen &middot; 1777&ndash;1801</span></a></li>
-          <li><a href="gauss-vol2/index.html" aria-label="Open The Man Who Measured the World: Carl Friedrich Gauss, Book Two"><span class="ll-title">The Man Who Measured the World: Carl Friedrich Gauss, Book Two</span><span class="ll-meta">G&ouml;ttingen &middot; Hanover &middot; 1801&ndash;1830s</span></a></li>
-          <li><a href="darwin/index.html" aria-label="Open Darwin — The Man Who Let Nature Speak"><span class="ll-title">Darwin: The Man Who Let Nature Speak</span><span class="ll-meta">England &middot; South America &middot; 1809&ndash;1882</span></a></li>
-          <li><a href="mendel/index.html" aria-label="Open Mendel — The Monk Who Counted"><span class="ll-title">Mendel: The Monk Who Counted</span><span class="ll-meta">Moravia &middot; Austrian Empire &middot; 1822&ndash;1884</span></a></li>
-          <li><a href="pythagoras-seeker/index.html" aria-label="Open Ratio: The Seeker, Volume One"><span class="ll-title">Ratio: The Seeker (Volume One)</span><span class="ll-meta">Samos &middot; Egypt &middot; Babylon &middot; Italy &middot; 6th c. BC</span></a></li>
-          <li><a href="da-vinci-vol1/index.html" aria-label="Open The Boy Who Watched Birds: Leonardo da Vinci, Book One"><span class="ll-title">The Boy Who Watched Birds</span><span class="ll-meta">Italy &middot; 1452&ndash;1499</span></a></li>
-          <li><a href="honda-soichiro/index.html" aria-label="Open The Boy Who Chased Engines: Soichiro Honda, Part One"><span class="ll-title">The Boy Who Chased Engines</span><span class="ll-meta">Japan &amp; America &middot; 1906&ndash;1963</span></a></li>
-          <li><a href="honda-soichiro-part-two/index.html" aria-label="Open The Machine That Learned to Breathe: Soichiro Honda, Part Two"><span class="ll-title">The Machine That Learned to Breathe</span><span class="ll-meta">Japan &amp; America &middot; 1963&ndash;1975</span></a></li>
-          <li><a href="cicero/index.html" aria-label="Open Cicero — The Man Who Fought With Words"><span class="ll-title">Cicero &mdash; The Man Who Fought With Words</span><span class="ll-meta">Rome &middot; 106&ndash;43 BC &middot; Graphic novel</span></a></li>
-          <li><a href="kepler/index.html" aria-label="Open Kepler — The Man Who Trusted the Data"><span class="ll-title">Kepler &mdash; The Man Who Trusted the Data</span><span class="ll-meta">Germany &middot; Prague &middot; 1571&ndash;1630</span></a></li>
-        </ul>
-      </section>
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Read · wonder · talk about it</p>
+        <h1 id="page-title">Something new<br />is waiting.</h1>
+        <p class="hero-intro">The newest illustrated stories in the library—made for reading together, rereading alone, and following every good question to the end.</p>
+      </div>
+      <aside class="library-note" aria-label="Library size">
+        <span class="note-number" id="story-total">45</span>
+        <span class="note-label">stories in<br />the full library</span>
+        <a href="archive.html">See every story</a>
+      </aside>
+    </section>
 
-      <section class="shelf">
-        <div class="shelf-head">
-          <h2 class="shelf-title">Graphic novels &middot; Greek myth &amp; legend</h2>
-          <span class="shelf-count">4</span>
+    <section class="latest-section" id="latest" aria-labelledby="latest-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">The front table</p>
+          <h2 id="latest-title">New on the shelf</h2>
         </div>
-        <ul class="linklist">
-          <li><a href="icarus/index.html" aria-label="Open Icarus — The Boy Who Touched the Sun"><span class="ll-title">Icarus &mdash; The Boy Who Touched the Sun</span><span class="ll-meta">Greek myth &middot; Crete &amp; the Aegean &middot; Graphic novel</span></a></li>
-          <li><a href="house-of-atreus-vol1/index.html" aria-label="Open The House of Atreus — Volume 1"><span class="ll-title">The House of Atreus — Vol. 1</span><span class="ll-meta">Mycenaean Greece &middot; Mythic Age</span></a></li>
-          <li><a href="house-of-atreus-vol2/index.html" aria-label="Open The House of Atreus — Volume 2"><span class="ll-title">The House of Atreus — Vol. 2</span><span class="ll-meta">Mycenae &amp; Athens &middot; Mythic Age</span></a></li>
-          <li><a href="trial-of-socrates/index.html" aria-label="Open The Trial of Socrates"><span class="ll-title">The Trial of Socrates</span><span class="ll-meta">Athens &middot; 399 BC</span></a></li>
-        </ul>
-      </section>
+        <p>The 12 most recently added readings.</p>
+      </div>
 
-      <section class="shelf">
-        <div class="shelf-head">
-          <h2 class="shelf-title">Graphic novels &middot; Salt and Stone</h2>
-          <span class="shelf-count">4</span>
-        </div>
-        <ul class="linklist">
-          <li><a href="salt-and-stone/index.html" aria-label="Open Salt and Stone"><span class="ll-title">Salt and Stone</span><span class="ll-meta">Aegean &amp; Phoenicia &middot; 480 BC</span></a></li>
-          <li><a href="salt-and-stone-two/index.html" aria-label="Open Salt and Stone — Life Two"><span class="ll-title">Salt and Stone — Life Two</span><span class="ll-meta">Sidon, Salamis &amp; Athens &middot; 480 BC</span></a></li>
-          <li><a href="salt-and-stone-life-three/index.html" aria-label="Open Salt and Stone — Life Three"><span class="ll-title">Salt and Stone — Life Three</span><span class="ll-meta">Athens &amp; the Steppe &middot; 476 BC</span></a></li>
-          <li><a href="salt-and-stone-life-four/index.html" aria-label="Open Salt and Stone — Life Four"><span class="ll-title">Salt and Stone — Life Four</span><span class="ll-meta">Pontic Steppe &middot; 468 BC</span></a></li>
-        </ul>
-      </section>
+      <div class="story-grid" id="latest-grid" aria-live="polite"></div>
+      <noscript>
+        <p class="noscript-note">JavaScript is needed to display the story catalog. You can still use the <a href="archive.html">full archive</a>.</p>
+      </noscript>
+    </section>
 
-      <section class="shelf">
-        <div class="shelf-head">
-          <h2 class="shelf-title">Graphic novels &middot; literary adaptation</h2>
-          <span class="shelf-count">4</span>
-        </div>
-        <ul class="linklist">
-          <li><a href="name-of-the-rose/index.html" aria-label="Open The Name of the Rose, Book One"><span class="ll-title">The Name of the Rose: Book One</span><span class="ll-meta">Italy &middot; 1327</span></a></li>
-          <li><a href="name-of-the-rose-vol2/index.html" aria-label="Open The Name of the Rose, Book Two"><span class="ll-title">The Name of the Rose: Book Two</span><span class="ll-meta">Italy &middot; 1327</span></a></li>
-          <li><a href="earthsea-wizard-part1/index.html" aria-label="Open A Wizard of Earthsea, Part One"><span class="ll-title">A Wizard of Earthsea: Part One</span><span class="ll-meta">The Boy of Gont &middot; after Ursula K. Le Guin</span></a></li>
-          <li><a href="earthsea-vol2/index.html" aria-label="Open The Tombs of Atuan, Part One"><span class="ll-title">The Tombs of Atuan: Part One</span><span class="ll-meta">Earthsea &middot; after Ursula K. Le Guin</span></a></li>
-        </ul>
-      </section>
+    <section class="archive-invite" aria-labelledby="archive-invite-title">
+      <div>
+        <p class="eyebrow">There is plenty more</p>
+        <h2 id="archive-invite-title">Wander through the whole library.</h2>
+        <p>Search by title, explore a subject, or find the next book in a series.</p>
+      </div>
+      <a class="primary-link" href="archive.html">Browse all stories <span aria-hidden="true">→</span></a>
+      <div class="shelf-links" aria-label="Browse popular shelves">
+        <a href="archive.html?category=Biography">Remarkable people</a>
+        <a href="archive.html?category=History">History</a>
+        <a href="archive.html?category=Myth%20%26%20Literature">Myth &amp; literature</a>
+        <a href="archive.html?category=Science%20Fiction%20%26%20Fantasy">Sci-fi &amp; fantasy</a>
+        <a href="archive.html?category=How%20Things%20Work">How things work</a>
+      </div>
+    </section>
+  </main>
 
-      <section class="shelf">
-        <div class="shelf-head">
-          <h2 class="shelf-title">Graphic novels &middot; science fiction</h2>
-          <span class="shelf-count">3</span>
-        </div>
-        <ul class="linklist">
-          <li><a href="foundation/index.html" aria-label="Open Foundation — Book One: The Plan"><span class="ll-title">Foundation &mdash; Book One: The Plan</span><span class="ll-meta">After Isaac Asimov &middot; Trantor &amp; Terminus &middot; Graphic novel</span></a></li>
-          <li><a href="foundation-vol2/index.html" aria-label="Open Foundation — Book Two: The Priests"><span class="ll-title">Foundation &mdash; Book Two: The Priests</span><span class="ll-meta">After Isaac Asimov &middot; Terminus &amp; Anacreon &middot; Graphic novel</span></a></li>
-          <li><a href="foundation-vol3/index.html" aria-label="Open Foundation — Book Three: The Merchants"><span class="ll-title">Foundation &mdash; Book Three: The Merchants</span><span class="ll-meta">After Isaac Asimov &middot; Terminus &amp; Korell &middot; Graphic novel</span></a></li>
-        </ul>
-      </section>
-
-      <section class="shelf">
-        <div class="shelf-head">
-          <h2 class="shelf-title">Intellectual detective stories</h2>
-          <span class="shelf-count">2</span>
-        </div>
-        <ul class="linklist">
-          <li><a href="rosetta/index.html" aria-label="Open The Riddle of the Stone"><span class="ll-title">The Riddle of the Stone &mdash; Case No. 1</span><span class="ll-meta">Egypt &amp; Paris &middot; 1799&ndash;1832 &middot; Graphic novel</span></a></li>
-          <li><a href="cholera-map/index.html" aria-label="Open The Riddle of the Well"><span class="ll-title">The Riddle of the Well &mdash; Case No. 2</span><span class="ll-meta">London &middot; 1854&ndash;1866 &middot; Graphic novel</span></a></li>
-        </ul>
-      </section>
-
-      <section class="shelf">
-        <div class="shelf-head">
-          <h2 class="shelf-title">Illustrated essays</h2>
-          <span class="shelf-count">4</span>
-        </div>
-        <ul class="linklist">
-          <li><a href="shock-of-florence/index.html" aria-label="Open The Shock of Florence"><span class="ll-title">The Shock of Florence</span><span class="ll-meta">France &amp; Florence &middot; 1460</span></a></li>
-          <li><a href="why-rome-won/index.html" aria-label="Open Why Rome Kept Winning"><span class="ll-title">Why Rome Kept Winning</span><span class="ll-meta">Roman Republic &middot; 300&ndash;200 BC &middot; Illustrated essay</span></a></li>
-          <li><a href="rome-became-world/index.html" aria-label="Open How Rome Became the World"><span class="ll-title">How Rome Became the World</span><span class="ll-meta">Rome &middot; 100 BC &ndash; AD 1453 &middot; Illustrated essay</span></a></li>
-          <li><a href="pea-square/index.html" aria-label="Open The Pea Square — How to Predict a Living Thing"><span class="ll-title">The Pea Square: How to Predict a Living Thing</span><span class="ll-meta">Heredity &middot; Genetics &middot; Illustrated explainer</span></a></li>
-        </ul>
-      </section>
-
-      <section class="shelf">
-        <div class="shelf-head">
-          <h2 class="shelf-title">How things work &middot; illustrated explainers</h2>
-          <span class="shelf-count">4</span>
-        </div>
-        <ul class="linklist">
-          <li><a href="sky-duel/index.html" aria-label="Open Sky Duel — How Fighter Jet Weapons Actually Work"><span class="ll-title">Sky Duel: How Fighter Jet Weapons Actually Work</span><span class="ll-meta">China Lake &middot; High Sky &middot; 1947&ndash;today</span></a></li>
-          <li><a href="scattergun/index.html" aria-label="Open Scattergun — How Shotguns Actually Work"><span class="ll-title">Scattergun: How Shotguns Actually Work</span><span class="ll-meta">Trap Field &middot; Ogden, Utah &middot; 1855&ndash;today</span></a></li>
-          <li><a href="aim-itself/index.html" aria-label="Open The Gun That Aims Itself — How Machines Learned to Shoot Down Drones"><span class="ll-title">The Gun That Aims Itself: How Machines Learned to Shoot Down Drones</span><span class="ll-meta">Frontline &middot; Open Sky &middot; 1980&ndash;today</span></a></li>
-          <li><a href="iron-triangle/index.html" aria-label="Open The Iron Triangle — How a Tank Does Three Impossible Things at Once"><span class="ll-title">The Iron Triangle: How a Tank Does Three Impossible Things at Once</span><span class="ll-meta">Battlefield &middot; Field Manual &middot; 1916&ndash;today</span></a></li>
-        </ul>
-      </section>
-
-      <section class="shelf">
-        <div class="shelf-head">
-          <h2 class="shelf-title">Text &amp; illustration &middot; short stories</h2>
-          <span class="shelf-count">5</span>
-        </div>
-        <ul class="linklist">
-          <li><a href="marcus/index.html" aria-label="Open The View From Above"><span class="ll-title">The View From Above</span><span class="ll-meta">Rome &middot; 170 CE</span></a></li>
-          <li><a href="orchard/index.html" aria-label="Open The Orchard of Small Things"><span class="ll-title">The Orchard of Small Things</span><span class="ll-meta">Mediterranean &middot; 12th c.</span></a></li>
-          <li><a href="lantern-and-sword/index.html" aria-label="Open The Lantern and the Sword"><span class="ll-title">The Lantern and the Sword</span><span class="ll-meta">Sengoku Japan &middot; 16th c.</span></a></li>
-          <li><a href="mapped-the-wind/index.html" aria-label="Open The Boy Who Mapped the Wind"><span class="ll-title">The Boy Who Mapped the Wind</span><span class="ll-meta">Polynesian Pacific &middot; 1100 AD</span></a></li>
-          <li><a href="the-builders/index.html" aria-label="Open The Builders"><span class="ll-title">The Builders</span><span class="ll-meta">Rome &amp; Persia &middot; 500 BC &amp; 90 AD</span></a></li>
-        </ul>
-      </section>
-    </main>
-
-    <footer>
-      Tip: open this folder with a local web server if your browser blocks file navigation.
-      Stories live in <code>marcus/</code>, <code>orchard/</code>, <code>salt-and-stone/</code>, <code>salt-and-stone-two/</code>, <code>salt-and-stone-life-three/</code>, <code>salt-and-stone-life-four/</code>, <code>lantern-and-sword/</code>, <code>mapped-the-wind/</code>, <code>house-of-atreus-vol1/</code>, <code>house-of-atreus-vol2/</code>, <code>shock-of-florence/</code>, <code>trial-of-socrates/</code>, <code>the-builders/</code>, <code>descartes/</code>, <code>einstein/</code>, <code>newton-vol1/</code>, <code>honda-soichiro/</code>, <code>honda-soichiro-part-two/</code>, <code>da-vinci-vol1/</code>, <code>newton-vol2/</code>, <code>name-of-the-rose/</code>, <code>name-of-the-rose-vol2/</code>, <code>pythagoras-seeker/</code>, <code>sky-duel/</code>, <code>scattergun/</code>, <code>gauss/</code>, <code>gauss-vol2/</code>, <code>aim-itself/</code>, <code>iron-triangle/</code>, <code>tesla/</code>, <code>darwin/</code>, <code>mendel/</code>, <code>pea-square/</code>, <code>why-rome-won/</code>, <code>rome-became-world/</code>, <code>cicero/</code>, <code>icarus/</code>, <code>earthsea-wizard-part1/</code>, and <code>earthsea-vol2/</code>.
-    </footer>
-  </div>
+  <footer class="site-footer">
+    <p>Illustrated stories, built to be reread.</p>
+    <a href="#page-title">Back to top ↑</a>
+  </footer>
 </body>
 </html>

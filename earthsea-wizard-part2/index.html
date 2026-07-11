@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Wizard of Earthsea - Part Two: The School for Wizards</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --ink: #10151a;
+            --paper: #e4ece9;
+            --muted: rgba(228, 236, 233, 0.58);
+            --accent: #5aa8a2;
+            --accent-bright: #8fd0c8;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: var(--ink);
+            color: var(--paper);
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        }
+
+        button { font: inherit; }
+
+        .progress {
+            position: fixed;
+            inset: 0 auto auto 0;
+            z-index: 1000;
+            height: 3px;
+            width: 0;
+            background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+            transition: width 180ms ease;
+        }
+
+        .home {
+            position: fixed;
+            z-index: 100;
+            top: 14px;
+            left: 16px;
+            color: var(--muted);
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .reader {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px 94px;
+        }
+
+        .page-title {
+            margin-bottom: 12px;
+            color: rgba(228, 236, 233, 0.45);
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .frame {
+            width: 100%;
+            max-width: min(1400px, 96vw);
+            opacity: 1;
+            transition: opacity 180ms ease;
+        }
+
+        .frame.fading { opacity: 0; }
+
+        .frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.58);
+            cursor: zoom-in;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .nav {
+            position: fixed;
+            z-index: 60;
+            top: 50%;
+            display: grid;
+            width: 52px;
+            height: 52px;
+            transform: translateY(-50%);
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--paper);
+            font-size: 26px;
+            cursor: pointer;
+            backdrop-filter: blur(7px);
+        }
+
+        .nav:hover:not(:disabled) { background: rgba(90, 168, 162, 0.24); }
+        .nav:disabled { opacity: 0.18; cursor: default; }
+        .nav.prev { left: 16px; }
+        .nav.next { right: 16px; }
+
+        .page-info {
+            position: fixed;
+            z-index: 50;
+            right: 14px;
+            bottom: 60px;
+            color: rgba(228, 236, 233, 0.43);
+            font-size: 11px;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+        }
+
+        .route {
+            position: fixed;
+            z-index: 50;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 8px 12px;
+            border-top: 1px solid rgba(90, 168, 162, 0.3);
+            background: rgba(14, 18, 22, 0.96);
+            color: rgba(228, 236, 233, 0.55);
+            font-size: 11px;
+            letter-spacing: 0.7px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .route-label {
+            display: block;
+            margin-bottom: 3px;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .route-stop {
+            display: inline-block;
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        .route-stop.active {
+            background: rgba(90, 168, 162, 0.2);
+            box-shadow: inset 0 0 0 1px rgba(90, 168, 162, 0.45);
+            color: var(--accent-bright);
+        }
+
+        .sep { padding: 0 3px; opacity: 0.35; }
+
+        .interstitial,
+        .quiz {
+            display: none;
+            width: 100%;
+            max-width: 720px;
+            padding: 48px 20px;
+        }
+
+        .interstitial { text-align: center; }
+        .interstitial h2, .quiz h2 { margin-bottom: 16px; font-size: 30px; font-weight: normal; }
+        .interstitial p { color: rgba(228, 236, 233, 0.76); font-size: 17px; line-height: 1.65; }
+
+        .question {
+            margin: 22px 0;
+            padding-bottom: 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .question h3 { margin-bottom: 12px; font-size: 18px; font-weight: normal; line-height: 1.45; }
+        .question label { display: block; margin: 9px 0; color: rgba(228, 236, 233, 0.78); line-height: 1.42; cursor: pointer; }
+        .question input { margin-right: 8px; accent-color: var(--accent); }
+
+        .check {
+            margin-top: 10px;
+            padding: 8px 14px;
+            border: 1px solid rgba(90, 168, 162, 0.55);
+            border-radius: 4px;
+            background: rgba(90, 168, 162, 0.14);
+            color: var(--paper);
+            cursor: pointer;
+        }
+
+        .feedback { display: none; margin-top: 10px; line-height: 1.45; }
+        .feedback.correct { color: #9fd7b6; }
+        .feedback.incorrect { color: #e5a99f; }
+        .score { margin-top: 24px; color: var(--accent-bright); font-size: 20px; text-align: center; }
+
+        .zoom {
+            position: fixed;
+            z-index: 2000;
+            inset: 0;
+            display: none;
+            overflow: auto;
+            padding: 54px 42px;
+            background: rgba(5, 7, 9, 0.96);
+            cursor: zoom-out;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .zoom.open { display: block; }
+        .zoom img {
+            display: block;
+            width: min(2300px, 178vw);
+            max-width: none;
+            height: auto;
+            margin: 0 auto;
+            box-shadow: 0 12px 60px #000;
+        }
+
+        .zoom-close {
+            position: fixed;
+            z-index: 2010;
+            top: 12px;
+            right: 16px;
+            display: none;
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 50%;
+            background: #182027;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .zoom.open + .zoom-close { display: grid; place-items: center; }
+
+        @media (max-width: 768px) {
+            .reader { justify-content: flex-start; padding: 50px 8px 78px; }
+            .frame { max-width: 100%; }
+            .nav { top: auto; bottom: 46px; width: 42px; height: 42px; transform: none; }
+            .nav.prev { left: 8px; }
+            .nav.next { right: 8px; }
+            .page-info { bottom: 52px; }
+            .route { padding: 5px 4px; font-size: 8px; }
+            .route-label { display: none; }
+            .zoom { padding: 52px 10px 30px; }
+            .zoom img { width: 280vw; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .frame, .progress { transition: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress" id="progress"></div>
+    <a class="home" href="../index.html">&larr; Stories</a>
+
+    <main class="reader">
+        <div class="page-title" id="pageTitle">Cover</div>
+        <div class="frame" id="frame">
+            <img id="pageImg" src="pages/cover.png" alt="A Wizard of Earthsea - Part Two cover">
+        </div>
+
+        <section class="interstitial" id="interstitial">
+            <h2>The School for Wizards</h2>
+            <p>Ged found the quick road he had chosen. Roke gave him knowledge, friendship, and every chance to learn restraint; pride turned those gifts into a measure against Jasper. The shadow he loosed cost Nemmerle his life and left Ged changed. He departed only after learning that the last door opened through a question, not a command.</p>
+        </section>
+
+        <section class="quiz" id="quiz">
+            <h2>What Did Power Cost?</h2>
+
+            <div class="question" id="q1">
+                <h3>1. Why could Ged enter the Great House only after speaking his true name?</h3>
+                <label><input type="radio" name="q1" value="a"> The masters used each student's true name to record who had entered the school.</label>
+                <label><input type="radio" name="q1" value="b"> The door yielded only when Ged trusted the Doorkeeper enough to ask for help.</label>
+                <label><input type="radio" name="q1" value="c"> Ogion's sealed letter worked only after Ged repeated the name written inside it.</label>
+                <button class="check" data-question="q1" data-answer="b">Check</button>
+                <p class="feedback correct">Yes. The first threshold tests humility and trust, not magical force.</p>
+                <p class="feedback incorrect">The letter brings Ged to the school, but power cannot cross the door. He passes only after admitting he needs help and risking his true name.</p>
+            </div>
+
+            <div class="question" id="q2">
+                <h3>2. Why did Master Hand distinguish illusion from real change?</h3>
+                <label><input type="radio" name="q2" value="a"> An illusion was useful only when every witness agreed to see the same thing.</label>
+                <label><input type="radio" name="q2" value="b"> A true change lasted longer, so advanced students could display it at ceremonies.</label>
+                <label><input type="radio" name="q2" value="c"> A true change shifted the Balance, so its consequences had to be understood.</label>
+                <button class="check" data-question="q2" data-answer="c">Check</button>
+                <p class="feedback correct">Yes. Greater power means wider consequence, not permission to repair harm afterward.</p>
+                <p class="feedback incorrect">The lesson is about consequence. An illusion ends with perception; a true change alters the world beyond the moment of display.</p>
+            </div>
+
+            <div class="question" id="q3">
+                <h3>3. Why could Vetch's friendship not end Ged's rivalry with Jasper?</h3>
+                <label><input type="radio" name="q3" value="a"> Ged treated his shame as a contest to win, shutting out Vetch's honest concern.</label>
+                <label><input type="radio" name="q3" value="b"> Vetch believed Jasper was the stronger wizard and refused to take Ged's side.</label>
+                <label><input type="radio" name="q3" value="c"> Their lessons rewarded rivalry so strongly that friendship could not matter inside the school.</label>
+                <button class="check" data-question="q3" data-answer="a">Check</button>
+                <p class="feedback correct">Yes. Vetch offers another way to belong, but Ged keeps choosing proof over connection.</p>
+                <p class="feedback incorrect">No spell compels Ged. Pride makes the rivalry feel necessary, and isolation protects that belief from friendship.</p>
+            </div>
+
+            <div class="question" id="q4">
+                <h3>4. Why was Nemmerle's rescue a cost to the whole school, not only a rescue of Ged?</h3>
+                <label><input type="radio" name="q4" value="a"> The masters abandoned Roke Knoll because Ged's spell had permanently poisoned the hill.</label>
+                <label><input type="radio" name="q4" value="b"> Nemmerle spent his life saving Ged, but the unleashed shadow still escaped Roke.</label>
+                <label><input type="radio" name="q4" value="c"> Every master surrendered part of his power, leaving the school unable to teach magic.</label>
+                <button class="check" data-question="q4" data-answer="b">Check</button>
+                <p class="feedback correct">Yes. Nemmerle saves Ged, but Roke loses its Archmage and the danger remains beyond its walls.</p>
+                <p class="feedback incorrect">The school and Knoll survive. The irreplaceable loss is Nemmerle, who spends his life to keep Ged alive while the shadow escapes.</p>
+            </div>
+
+            <div class="question" id="q5">
+                <h3>5. Why could Ged pass the final door only after he stopped trying to command it?</h3>
+                <label><input type="radio" name="q5" value="a"> Ged asked for knowledge, accepting that wisdom could not be taken by force.</label>
+                <label><input type="radio" name="q5" value="b"> His scars prevented him from speaking the spell that opened the ninth door.</label>
+                <label><input type="radio" name="q5" value="c"> The Doorkeeper waited until Ged offered his new staff as payment for passage.</label>
+                <button class="check" data-question="q5" data-answer="a">Check</button>
+                <p class="feedback correct">Yes. The last threshold repeats the first lesson at a deeper level: wisdom begins where command ends.</p>
+                <p class="feedback incorrect">Ged still knows magic. What changes is his posture toward knowledge: he asks for it instead of treating another's name as something to seize.</p>
+            </div>
+
+            <div class="score" id="score"></div>
+        </section>
+    </main>
+
+    <button class="nav prev" id="prev" aria-label="Previous page">&larr;</button>
+    <button class="nav next" id="next" aria-label="Next page">&rarr;</button>
+    <span class="page-info" id="pageInfo">Cover</span>
+
+    <div class="route" id="route">
+        <span class="route-label">Ged's second road</span>
+        <span class="route-stop" data-place="sea">SEA</span><span class="sep">&middot;</span>
+        <span class="route-stop" data-place="thwil">THWIL</span><span class="sep">&middot;</span>
+        <span class="route-stop" data-place="great-house">GREAT HOUSE</span><span class="sep">&middot;</span>
+        <span class="route-stop" data-place="isolate">ISOLATE TOWER</span><span class="sep">&middot;</span>
+        <span class="route-stop" data-place="knoll">ROKE KNOLL</span><span class="sep">&middot;</span>
+        <span class="route-stop" data-place="healing">HEALING</span><span class="sep">&middot;</span>
+        <span class="route-stop" data-place="west">WEST</span>
+    </div>
+
+    <div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-label="Zoomed comic page">
+        <img id="zoomImg" alt="">
+    </div>
+    <button class="zoom-close" id="zoomClose" aria-label="Close zoom">&times;</button>
+
+    <script>
+        const titles = [
+            "Cover", "First Sea-Comrades", "A Light Through the Storm", "Thwil",
+            "Riddles in the Street", "Enter If You Can", "The Price of Entrance",
+            "The Inner Court", "The Archmage", "The Long Table", "Magic in Thwil",
+            "At Roke Knoll", "A Private Oath", "First Lessons", "Candle and Shadow",
+            "The Names of the Sea", "Winter of Names", "The Otak", "Hoeg Chooses",
+            "Sunreturn", "Sorcerers and Prentice", "The Master Summoner",
+            "Power Without Friendship", "Moon's Night", "The Challenge Accepted",
+            "A Door in the Dark", "The Thing That Entered", "The Cost of Rescue",
+            "Gensher", "Estarriol", "The Ninth Door"
+        ];
+
+        function placeFor(index) {
+            if (index <= 2) return "sea";
+            if (index <= 4) return "thwil";
+            if (index <= 14) return "great-house";
+            if (index <= 17) return "isolate";
+            if (index <= 22) return "great-house";
+            if (index <= 26) return "knoll";
+            if (index <= 29) return "healing";
+            return "west";
+        }
+
+        const pages = titles.map((title, index) => ({
+            title,
+            file: index === 0 ? "pages/cover.png" : "pages/page-" + String(index).padStart(2, "0") + ".png",
+            label: index === 0 ? "Cover" : "Page " + index + " of 30",
+            place: index === 0 ? null : placeFor(index)
+        }));
+        pages.push({ title: "The School for Wizards", label: "Afterword", interstitial: true });
+        pages.push({ title: "Comprehension", label: "Quiz", quiz: true });
+
+        let current = 0;
+        let answered = 0;
+        let correct = 0;
+        let touchStartX = 0;
+
+        const frame = document.getElementById("frame");
+        const image = document.getElementById("pageImg");
+        const title = document.getElementById("pageTitle");
+        const info = document.getElementById("pageInfo");
+        const progress = document.getElementById("progress");
+        const prevButton = document.getElementById("prev");
+        const nextButton = document.getElementById("next");
+        const route = document.getElementById("route");
+        const interstitial = document.getElementById("interstitial");
+        const quiz = document.getElementById("quiz");
+        const zoom = document.getElementById("zoom");
+        const zoomImage = document.getElementById("zoomImg");
+        const zoomClose = document.getElementById("zoomClose");
+
+        function show(index) {
+            if (index < 0 || index >= pages.length) return;
+            frame.classList.add("fading");
+            window.setTimeout(() => {
+                current = index;
+                const page = pages[current];
+                frame.style.display = page.file ? "block" : "none";
+                interstitial.style.display = page.interstitial ? "block" : "none";
+                quiz.style.display = page.quiz ? "block" : "none";
+                route.style.display = page.place ? "block" : "none";
+                if (page.file) {
+                    image.src = page.file;
+                    image.alt = "A Wizard of Earthsea - " + page.title;
+                }
+                document.querySelectorAll(".route-stop").forEach(stop => {
+                    stop.classList.toggle("active", stop.dataset.place === page.place);
+                });
+                title.textContent = page.title;
+                info.textContent = page.label;
+                prevButton.disabled = current === 0;
+                nextButton.disabled = current === pages.length - 1;
+                progress.style.width = (current / (pages.length - 1)) * 100 + "%";
+                frame.classList.remove("fading");
+                window.scrollTo(0, 0);
+            }, 180);
+        }
+
+        function openZoom() {
+            if (!pages[current].file) return;
+            zoomImage.src = pages[current].file;
+            zoomImage.alt = image.alt;
+            zoom.classList.add("open");
+            document.body.style.overflow = "hidden";
+            zoom.scrollTo(0, 0);
+        }
+
+        function closeZoom() {
+            zoom.classList.remove("open");
+            document.body.style.overflow = "";
+        }
+
+        prevButton.addEventListener("click", () => show(current - 1));
+        nextButton.addEventListener("click", () => show(current + 1));
+        image.addEventListener("click", openZoom);
+        zoom.addEventListener("click", closeZoom);
+        zoomClose.addEventListener("click", closeZoom);
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") closeZoom();
+            if (!zoom.classList.contains("open") && event.key === "ArrowLeft") show(current - 1);
+            if (!zoom.classList.contains("open") && event.key === "ArrowRight") show(current + 1);
+        });
+
+        document.addEventListener("touchstart", event => {
+            touchStartX = event.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener("touchend", event => {
+            if (zoom.classList.contains("open")) return;
+            const delta = event.changedTouches[0].screenX - touchStartX;
+            if (Math.abs(delta) < 60) return;
+            show(current + (delta < 0 ? 1 : -1));
+        }, { passive: true });
+
+        document.querySelectorAll(".check").forEach(button => {
+            button.addEventListener("click", () => {
+                const block = document.getElementById(button.dataset.question);
+                const selected = block.querySelector("input:checked");
+                if (!selected) return;
+                const isCorrect = selected.value === button.dataset.answer;
+                block.querySelectorAll("input").forEach(input => { input.disabled = true; });
+                block.querySelector(".correct").style.display = isCorrect ? "block" : "none";
+                block.querySelector(".incorrect").style.display = isCorrect ? "none" : "block";
+                button.style.display = "none";
+                answered += 1;
+                if (isCorrect) correct += 1;
+                if (answered === 5) {
+                    document.getElementById("score").textContent = correct + " of 5";
+                }
+            });
+        });
+
+        show(0);
+    </script>
+</body>
+</html>
