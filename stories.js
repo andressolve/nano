@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "earthsea-wizard-part3",
+    title: "A Wizard of Earthsea — Part Three: The Dragon of Pendor",
+    cover: "earthsea-wizard-part3/pages/cover.png",
+    published: "2026-07-11",
+    category: "Science Fiction & Fantasy",
+    series: "Earthsea · A Wizard of Earthsea · Part 3",
+    summary: "On his first charge, Ged fails to save one child—then sails alone against the dragons of Pendor before the shadow reaches everyone he serves."
+  },
+  {
     slug: "earthsea-wizard-part2",
     title: "A Wizard of Earthsea — Part Two: The School for Wizards",
     cover: "earthsea-wizard-part2/pages/cover.png",
