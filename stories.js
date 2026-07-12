@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "earthsea-wizard-part4",
+    title: "A Wizard of Earthsea — Part Four: Hunted",
+    cover: "earthsea-wizard-part4/pages/cover.png",
+    published: "2026-07-12",
+    category: "Science Fiction & Fantasy",
+    series: "Earthsea · A Wizard of Earthsea · Part 4",
+    summary: "Roke's own wind refuses Ged. Fleeing north without counsel, he follows a stranger's road toward a hunter wearing a man's empty hood."
+  },
+  {
     slug: "earthsea-wizard-part3",
     title: "A Wizard of Earthsea — Part Three: The Dragon of Pendor",
     cover: "earthsea-wizard-part3/pages/cover.png",

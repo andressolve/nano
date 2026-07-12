@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Wizard of Earthsea - Part Four: Hunted</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --ink: #10151a;
+            --paper: #e4ece9;
+            --muted: rgba(228, 236, 233, 0.58);
+            --accent: #9aa9b4;
+            --accent-bright: #d7e3e9;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: var(--ink);
+            color: var(--paper);
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        }
+
+        button { font: inherit; }
+
+        .progress {
+            position: fixed;
+            inset: 0 auto auto 0;
+            z-index: 1000;
+            height: 3px;
+            width: 0;
+            background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+            transition: width 180ms ease;
+        }
+
+        .home {
+            position: fixed;
+            z-index: 100;
+            top: 14px;
+            left: 16px;
+            color: var(--muted);
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .reader {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px 94px;
+        }
+
+        .page-title {
+            margin-bottom: 12px;
+            color: rgba(228, 236, 233, 0.45);
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .frame {
+            width: 100%;
+            max-width: min(1400px, 96vw);
+            opacity: 1;
+            transition: opacity 180ms ease;
+        }
+
+        .frame.fading { opacity: 0; }
+
+        .frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.58);
+            cursor: zoom-in;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .nav {
+            position: fixed;
+            z-index: 60;
+            top: 50%;
+            display: grid;
+            width: 52px;
+            height: 52px;
+            transform: translateY(-50%);
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--paper);
+            font-size: 26px;
+            cursor: pointer;
+            backdrop-filter: blur(7px);
+        }
+
+        .nav:hover:not(:disabled) { background: rgba(154, 169, 180, 0.24); }
+        .nav:disabled { opacity: 0.18; cursor: default; }
+        .nav.prev { left: 16px; }
+        .nav.next { right: 16px; }
+
+        .page-info {
+            position: fixed;
+            z-index: 50;
+            right: 14px;
+            bottom: 60px;
+            color: rgba(228, 236, 233, 0.43);
+            font-size: 11px;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+        }
+
+        .route {
+            position: fixed;
+            z-index: 50;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 8px 12px;
+            border-top: 1px solid rgba(154, 169, 180, 0.3);
+            background: rgba(14, 18, 22, 0.96);
+            color: rgba(228, 236, 233, 0.55);
+            font-size: 11px;
+            letter-spacing: 0.7px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .route-label {
+            display: block;
+            margin-bottom: 3px;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .route-stop {
+            display: inline-block;
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        .route-stop.active {
+            background: rgba(154, 169, 180, 0.2);
+            box-shadow: inset 0 0 0 1px rgba(154, 169, 180, 0.45);
+            color: var(--accent-bright);
+        }
+
+        .sep { padding: 0 3px; opacity: 0.35; }
+
+        .interstitial,
+        .quiz {
+            display: none;
+            width: 100%;
+            max-width: 720px;
+            padding: 48px 20px;
+        }
+
+        .interstitial { text-align: center; }
+        .interstitial h2, .quiz h2 { margin-bottom: 16px; font-size: 30px; font-weight: normal; }
+        .interstitial p { color: rgba(228, 236, 233, 0.76); font-size: 17px; line-height: 1.65; }
+
+        .question {
+            margin: 22px 0;
+            padding-bottom: 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .question h3 { margin-bottom: 12px; font-size: 18px; font-weight: normal; line-height: 1.45; }
+        .question label { display: block; margin: 9px 0; color: rgba(228, 236, 233, 0.78); line-height: 1.42; cursor: pointer; }
+        .question input { margin-right: 8px; accent-color: var(--accent); }
+
+        .check {
+            margin-top: 10px;
+            padding: 8px 14px;
+            border: 1px solid rgba(154, 169, 180, 0.55);
+            border-radius: 4px;
+            background: rgba(154, 169, 180, 0.14);
+            color: var(--paper);
+            cursor: pointer;
+        }
+
+        .feedback { display: none; margin-top: 10px; line-height: 1.45; }
+        .feedback.correct { color: #9fd7b6; }
+        .feedback.incorrect { color: #e5a99f; }
+        .score { margin-top: 24px; color: var(--accent-bright); font-size: 20px; text-align: center; }
+
+        .zoom {
+            position: fixed;
+            z-index: 2000;
+            inset: 0;
+            display: none;
+            overflow: auto;
+            padding: 54px 42px;
+            background: rgba(5, 7, 9, 0.96);
+            cursor: zoom-out;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .zoom.open { display: block; }
+        .zoom img {
+            display: block;
+            width: min(2300px, 178vw);
+            max-width: none;
+            height: auto;
+            margin: 0 auto;
+            box-shadow: 0 12px 60px #000;
+        }
+
+        .zoom-close {
+            position: fixed;
+            z-index: 2010;
+            top: 12px;
+            right: 16px;
+            display: none;
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 50%;
+            background: #182027;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .zoom.open + .zoom-close { display: grid; place-items: center; }
+
+        @media (max-width: 768px) {
+            .reader { justify-content: flex-start; padding: 50px 8px 78px; }
+            .frame { max-width: 100%; }
+            .nav { top: auto; bottom: 46px; width: 42px; height: 42px; transform: none; }
+            .nav.prev { left: 8px; }
+            .nav.next { right: 8px; }
+            .page-info { bottom: 52px; }
+            .route { padding: 5px 4px; font-size: 8px; }
+            .route-label { display: none; }
+            .zoom { padding: 52px 10px 30px; }
+            .zoom img { width: 280vw; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .frame, .progress { transition: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress" id="progress"></div>
+    <a class="home" href="../index.html">&larr; Stories</a>
+
+    <main class="reader">
+        <div class="page-title" id="pageTitle">Cover</div>
+        <div class="frame" id="frame">
+            <img id="pageImg" src="pages/cover.png" alt="A Wizard of Earthsea - Part Four cover">
+        </div>
+
+        <section class="interstitial" id="interstitial">
+            <h2>Hunted</h2>
+            <p>Ged left the people who praised him because the shadow made every refuge a danger to others. Roke's own wind recognized what followed him and closed the island against his return. Without rest, counsel, or a language he understood, Ged mistook a planted direction for chance and followed it north. On the Osskil moor, the hunter finally wore a man's clothes and spoke the one name that could leave Ged powerless. The light beyond the gate saved him from the shadow—but not yet from the road fear had chosen.</p>
+        </section>
+
+        <section class="quiz" id="quiz">
+            <h2>How Did Fear Choose the Road?</h2>
+
+            <div class="question" id="q1">
+                <h3>1. Why does Ged leave Low Torning immediately after saving it?</h3>
+                <label><input type="radio" name="q1" value="a"> Pechvarry orders him away before the thanksgiving song can be finished.</label>
+                <label><input type="radio" name="q1" value="b"> He knows the shadow is coming and refuses to lead it into another island home.</label>
+                <label><input type="radio" name="q1" value="c"> The dragon's oath requires Ged to report to Roke before sunrise.</label>
+                <button class="check" data-question="q1" data-answer="b">Check</button>
+                <p class="feedback correct">Yes. Ged leaves because staying would turn the community he protected into shelter for the thing hunting him.</p>
+                <p class="feedback incorrect">No one banishes Ged, and Yevaud's oath sets no reporting deadline. He goes because the approaching shadow would endanger Low Torning.</p>
+            </div>
+
+            <div class="question" id="q2">
+                <h3>2. Why does Ged order the ship away from Roke instead of forcing the weather?</h3>
+                <label><input type="radio" name="q2" value="a"> He decides the Masters no longer deserve his trust.</label>
+                <label><input type="radio" name="q2" value="b"> The shipmaster refuses to let a passenger use magic aboard.</label>
+                <label><input type="radio" name="q2" value="c"> Roke's warding wind has sensed the shadow, and fighting it further would break the ship and endanger the crew.</label>
+                <button class="check" data-question="q2" data-answer="c">Check</button>
+                <p class="feedback correct">Yes. Ged understands that the wind is protecting Roke from what follows him, so he gives up his own refuge to protect the crew.</p>
+                <p class="feedback incorrect">The shipmaster allows Ged to try, and Ged still trusts the Masters. He turns back because the warding wind will not admit the danger bound to him.</p>
+            </div>
+
+            <div class="question" id="q3">
+                <h3>3. Why does the grey stranger's advice work even though Ged distrusts him?</h3>
+                <label><input type="radio" name="q3" value="a"> Exhaustion and fear have left Ged without counsel, so the first specific direction feels like an answer.</label>
+                <label><input type="radio" name="q3" value="b"> The stranger proves his honesty by speaking Ged's true name.</label>
+                <label><input type="radio" name="q3" value="c"> Ged has already received the same order in a message from Ogion.</label>
+                <button class="check" data-question="q3" data-answer="a">Check</button>
+                <p class="feedback correct">Yes. Ged recognizes danger but is too frightened and tired to distinguish a planted road from a chosen one.</p>
+                <p class="feedback incorrect">The stranger never speaks Ged's true name, and Ogion has sent no message. The advice succeeds because Ged is isolated and desperate for direction.</p>
+            </div>
+
+            <div class="question" id="q4">
+                <h3>4. Why is Hoeg's unease on the moor important?</h3>
+                <label><input type="radio" name="q4" value="a"> Hoeg can see the future road to the Court more clearly than a wizard can.</label>
+                <label><input type="radio" name="q4" value="b"> The small living animal feels the danger that Ged's exhaustion has buried, briefly restoring his caution.</label>
+                <label><input type="radio" name="q4" value="c"> Hoeg recognizes Skiorh as the same sailor who fed it aboard ship.</label>
+                <button class="check" data-question="q4" data-answer="b">Check</button>
+                <p class="feedback correct">Yes. Hoeg performs no magic; its ordinary living instinct registers the wrongness Ged has become too exhausted to notice.</p>
+                <p class="feedback incorrect">Hoeg neither predicts the future nor befriends Skiorh. Its fear matters because it wakes Ged's own nearly buried warning.</p>
+            </div>
+
+            <div class="question" id="q5">
+                <h3>5. Why does the gebbeth speaking Ged's true name change the chase?</h3>
+                <label><input type="radio" name="q5" value="a"> It summons the Masters of Roke to witness the fight.</label>
+                <label><input type="radio" name="q5" value="b"> It forces Ged to obey every spoken command Skiorh gives.</label>
+                <label><input type="radio" name="q5" value="c"> The name gives the hunter leverage over Ged's power, closing transformation and summons while draining his strength.</label>
+                <button class="check" data-question="q5" data-answer="c">Check</button>
+                <p class="feedback correct">Yes. The true name turns the naming power Ged used against Yevaud back upon him, leaving him with only a failing physical defense.</p>
+                <p class="feedback incorrect">No Masters arrive, and the gebbeth does not command Ged like a servant. The name closes his magical choices and weakens the self it names.</p>
+            </div>
+
+            <div class="score" id="score"></div>
+        </section>
+    </main>
+
+    <button class="nav prev" id="prev" aria-label="Previous page">&larr;</button>
+    <button class="nav next" id="next" aria-label="Next page">&rarr;</button>
+    <span class="page-info" id="pageInfo">Cover</span>
+
+    <div class="route" id="route">
+        <span class="route-label">A road chosen by fear</span>
+        <span class="route-stop" data-place="low-torning">LOW TORNING</span><span class="sep">&middot;</span>
+        <span class="route-stop" data-place="roke-wind">ROKE-WIND</span><span class="sep">&middot;</span>
+        <span class="route-stop" data-place="serd">SERD</span><span class="sep">&middot;</span>
+        <span class="route-stop" data-place="orrimy">ORRIMY</span><span class="sep">&middot;</span>
+        <span class="route-stop" data-place="north-ship">NORTH SHIP</span><span class="sep">&middot;</span>
+        <span class="route-stop" data-place="osskil">OSSKIL</span><span class="sep">&middot;</span>
+        <span class="route-stop" data-place="gate">THE GATE</span>
+    </div>
+
+    <div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-label="Zoomed comic page">
+        <img id="zoomImg" alt="">
+    </div>
+    <button class="zoom-close" id="zoomClose" aria-label="Close zoom">&times;</button>
+
+    <script>
+        const titles = [
+            "Cover", "The Song Begins", "The Nearer Loss", "The Safest Harbor",
+            "Weather Against Them", "No Weatherwork", "Turn West", "The Closed Island",
+            "Serd by Night", "Chance for a Guide", "Orrimy", "A Sword for Shadows",
+            "The Planted Road", "Passage North", "One Bench Among Many",
+            "Ten Days of Iron Water", "Skiorh", "A Face Mislaid", "No Empty Place",
+            "The Pale Coast", "I Go That Road", "Beyond the Last Roof",
+            "A Tower That Never Nears", "Hoeg Wakes", "Not a Man's Voice",
+            "The Empty Hood", "His Name in Its Mouth", "The Husk Rises", "Run",
+            "The Open Gate", "Across the Threshold"
+        ];
+
+        function placeFor(index) {
+            if (index <= 2) return "low-torning";
+            if (index <= 7) return "roke-wind";
+            if (index <= 9) return "serd";
+            if (index <= 12) return "orrimy";
+            if (index <= 19) return "north-ship";
+            if (index <= 24) return "osskil";
+            return "gate";
+        }
+
+        const pages = titles.map((title, index) => ({
+            title,
+            file: index === 0 ? "pages/cover.png" : "pages/page-" + String(index).padStart(2, "0") + ".png",
+            label: index === 0 ? "Cover" : "Page " + index + " of 30",
+            place: placeFor(index)
+        }));
+        pages.push({ title: "Hunted", label: "Afterword", interstitial: true });
+        pages.push({ title: "Comprehension", label: "Quiz", quiz: true });
+
+        let current = 0;
+        let answered = 0;
+        let correct = 0;
+        let touchStartX = 0;
+
+        const frame = document.getElementById("frame");
+        const image = document.getElementById("pageImg");
+        const title = document.getElementById("pageTitle");
+        const info = document.getElementById("pageInfo");
+        const progress = document.getElementById("progress");
+        const prevButton = document.getElementById("prev");
+        const nextButton = document.getElementById("next");
+        const route = document.getElementById("route");
+        const interstitial = document.getElementById("interstitial");
+        const quiz = document.getElementById("quiz");
+        const zoom = document.getElementById("zoom");
+        const zoomImage = document.getElementById("zoomImg");
+        const zoomClose = document.getElementById("zoomClose");
+
+        function show(index) {
+            if (index < 0 || index >= pages.length) return;
+            frame.classList.add("fading");
+            window.setTimeout(() => {
+                current = index;
+                const page = pages[current];
+                frame.style.display = page.file ? "block" : "none";
+                interstitial.style.display = page.interstitial ? "block" : "none";
+                quiz.style.display = page.quiz ? "block" : "none";
+                route.style.display = page.place ? "block" : "none";
+                if (page.file) {
+                    image.src = page.file;
+                    image.alt = "A Wizard of Earthsea - " + page.title;
+                }
+                document.querySelectorAll(".route-stop").forEach(stop => {
+                    stop.classList.toggle("active", stop.dataset.place === page.place);
+                });
+                title.textContent = page.title;
+                info.textContent = page.label;
+                prevButton.disabled = current === 0;
+                nextButton.disabled = current === pages.length - 1;
+                progress.style.width = (current / (pages.length - 1)) * 100 + "%";
+                frame.classList.remove("fading");
+                window.scrollTo(0, 0);
+            }, 180);
+        }
+
+        function openZoom() {
+            if (!pages[current].file) return;
+            zoomImage.src = pages[current].file;
+            zoomImage.alt = image.alt;
+            zoom.classList.add("open");
+            document.body.style.overflow = "hidden";
+            zoom.scrollTo(0, 0);
+        }
+
+        function closeZoom() {
+            zoom.classList.remove("open");
+            document.body.style.overflow = "";
+        }
+
+        prevButton.addEventListener("click", () => show(current - 1));
+        nextButton.addEventListener("click", () => show(current + 1));
+        image.addEventListener("click", openZoom);
+        zoom.addEventListener("click", closeZoom);
+        zoomClose.addEventListener("click", closeZoom);
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") closeZoom();
+            if (!zoom.classList.contains("open") && event.key === "ArrowLeft") show(current - 1);
+            if (!zoom.classList.contains("open") && event.key === "ArrowRight") show(current + 1);
+        });
+
+        document.addEventListener("touchstart", event => {
+            touchStartX = event.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener("touchend", event => {
+            if (zoom.classList.contains("open")) return;
+            const delta = event.changedTouches[0].screenX - touchStartX;
+            if (Math.abs(delta) < 60) return;
+            show(current + (delta < 0 ? 1 : -1));
+        }, { passive: true });
+
+        document.querySelectorAll(".check").forEach(button => {
+            button.addEventListener("click", () => {
+                const block = document.getElementById(button.dataset.question);
+                const selected = block.querySelector("input:checked");
+                if (!selected) return;
+                const isCorrect = selected.value === button.dataset.answer;
+                block.querySelectorAll("input").forEach(input => { input.disabled = true; });
+                block.querySelector(".correct").style.display = isCorrect ? "block" : "none";
+                block.querySelector(".incorrect").style.display = isCorrect ? "none" : "block";
+                button.style.display = "none";
+                answered += 1;
+                if (isCorrect) correct += 1;
+                if (answered === 5) {
+                    document.getElementById("score").textContent = correct + " of 5";
+                }
+            });
+        });
+
+        show(0);
+    </script>
+</body>
+</html>
