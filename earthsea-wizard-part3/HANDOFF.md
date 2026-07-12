@@ -2,7 +2,18 @@
 
 ## Status
 
-**Complete, 2026-07-11.** The folder contains the full production plan, seven locked references, three accepted prototypes, cover + 32 finished pages, responsive reader, afterword, five-question why quiz, seven-stop route strip, QA record, and shared catalog integration for Chapter 5, "The Dragon of Pendor."
+**Complete and user-approved, 2026-07-12.** The folder contains the full production plan, seven locked references, three accepted prototypes, cover + 32 finished pages, responsive reader, afterword, five-question why quiz, seven-stop route strip, QA record, and shared catalog integration for Chapter 5, "The Dragon of Pendor."
+
+## New-session continuation state
+
+- Working branch: `codex/expanded-earthsea-part3`.
+- Draft pull request: [andressolve/nano#1](https://github.com/andressolve/nano/pull/1), targeting `main`.
+- Production commit: `19e3ff2` (`Add Expanded Earthsea Part Three`).
+- The branch and remote were verified aligned after push. The pull request had no configured automated checks at handoff time.
+- Volume 3 is finished and approved. Do not regenerate, revise, or relabel its pages unless the user explicitly requests a new change.
+- The final active Page 10 is `pages/page-10.png`, byte-identical to the approved `pages/page-10-v3.png`. It was reimagined as a full-page regeneration to avoid the earlier crowd of converging hands. Keep `page-10-v1.png` and `page-10-v2.png` only as production history.
+- The repository also contains numerous unrelated modified and untracked files from other projects. They were deliberately excluded from the Volume 3 commit. Never stage them as part of this work; inspect `git status` and stage explicit paths only.
+- If the user asks to continue the expanded Earthsea sequence, the next story boundary is Part Four, Chapter 6, "Hunted." Start it as a separate production folder and preserve this volume unchanged.
 
 ## Story boundary
 
