@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "foundation-expanded-part1",
+    title: "Foundation — Part One: The Man Who Saw the End",
+    cover: "foundation-expanded-part1/pages/cover.png",
+    published: "2026-07-13",
+    category: "Science Fiction & Fantasy",
+    series: "Foundation · Expanded edition · Part 1",
+    summary: "Gaal arrives beneath Trantor's perfect sky, verifies Hari Seldon's impossible warning, and discovers that exile is the Plan's first move."
+  },
+  {
     slug: "earthsea-wizard-part4",
     title: "A Wizard of Earthsea — Part Four: Hunted",
     cover: "earthsea-wizard-part4/pages/cover.png",
@@ -93,7 +102,9 @@ window.NANO_STORIES = [
     published: "2026-07-05",
     category: "Science Fiction & Fantasy",
     series: "Foundation · Book 1",
-    summary: "A mathematician predicts an empire’s fall and places a colony on a bare rock at exactly the right moment."
+    summary: "A mathematician predicts an empire’s fall and places a colony on a bare rock at exactly the right moment.",
+    status: "superseded",
+    replacedBy: "foundation-expanded-part1"
   },
   {
     slug: "kepler",
