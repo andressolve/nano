@@ -1,5 +1,16 @@
 # AGENTS.md — Project Notes for nano
 
+## Git Publishing Rule — Use `main`
+
+For this `nano` repository, the user's standing instruction is to publish routine completed work directly to `main`.
+
+- A request to "commit and push" means: verify the checkout is on `main`, stage only the files belonging to the requested task, commit them on `main`, and push `origin main`.
+- Do **not** create, reuse, or push a feature branch, Codex branch, agent branch, or pull request unless the user explicitly asks for one in that conversation.
+- This repository-specific instruction overrides generic branch/PR defaults in publishing workflows.
+- If work was accidentally completed on another branch, first verify that `origin/main` is an ancestor and that a fast-forward is safe. Move the intended commits to `main` without force-pushing or rewriting history, then switch the local checkout to `main`.
+- The worktree often contains unrelated user changes. Stage explicit task paths only; never use `git add -A`, stash, reset, clean, or otherwise alter unrelated files.
+- After pushing, verify local `HEAD` equals `origin/main`. When the site is affected, wait for the GitHub Pages deployment and verify the public index and target reader before reporting completion.
+
 ## Graphic-Novel Execution Lessons
 
 The completed `honda-soichiro/` project is the model for future biographical graphic-novel execution. The earlier `honda/` folder had useful research and planning, but execution failed when it drifted into one-off overlay demos, under-dense pages, skipped reference locking, and workaround thinking.
