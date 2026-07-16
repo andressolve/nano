@@ -75,7 +75,8 @@ window.NANO_STORIES = [
     published: "2026-07-07",
     category: "Science Fiction & Fantasy",
     series: "Foundation · Book 3",
-    summary: "Hober Mallow enters Korell with no priests, no army, and a hold full of gadgets—then wins without firing a shot."
+    summary: "Hober Mallow enters Korell with no priests, no army, and a hold full of gadgets—then wins without firing a shot.",
+    status: "hidden"
   },
   {
     slug: "foundation-vol2",
@@ -84,7 +85,8 @@ window.NANO_STORIES = [
     published: "2026-07-06",
     category: "Science Fiction & Fantasy",
     series: "Foundation · Book 2",
-    summary: "Hardin rules four kingdoms without an army—until an enemy aims a resurrected Imperial battleship at Terminus."
+    summary: "Hardin rules four kingdoms without an army—until an enemy aims a resurrected Imperial battleship at Terminus.",
+    status: "hidden"
   },
   {
     slug: "rosetta",
