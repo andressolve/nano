@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1536" viewBox="0 0 1536 1536">
+  <!--
+    Exact overlay for Page 13.
+    A = (650, 500), B = (890, 500), AB = 240.
+    C = (770, 500 - 240 * sqrt(3) / 2) = (770, 292.153903...).
+    Both circles have radius AB and are centered at A and B.
+    The black mask areas let the flattened callout cards and foreground tools
+    occlude the construction naturally.
+  -->
+  <rect width="1536" height="1536" fill="#00ff00"/>
+  <defs>
+    <mask id="page-occlusion-mask">
+      <rect width="1536" height="1536" fill="white"/>
+
+      <!-- Four existing callout cards. -->
+      <rect x="124" y="188" width="372" height="200" rx="8" fill="black"/>
+      <rect x="1060" y="188" width="340" height="232" rx="8" fill="black"/>
+      <rect x="124" y="526" width="352" height="202" rx="8" fill="black"/>
+      <rect x="1058" y="526" width="344" height="232" rx="8" fill="black"/>
+
+      <!-- Existing foreground hands and instruments. -->
+      <path d="M 245 676 L 525 676 L 664 900 L 664 1030 L 245 1030 Z" fill="black"/>
+      <path d="M 1010 676 L 1300 676 L 1300 1030 L 858 1030 L 900 878 Z" fill="black"/>
+    </mask>
+  </defs>
+
+  <g mask="url(#page-occlusion-mask)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="650" cy="500" r="240" stroke="#5a503e" stroke-width="4" opacity="0.82"/>
+    <circle cx="890" cy="500" r="240" stroke="#5a503e" stroke-width="4" opacity="0.82"/>
+    <path d="M 650 500 L 890 500 L 770 292.153903 Z"
+          stroke="#2f2a20" stroke-width="5" opacity="0.94"/>
+  </g>
+
+  <g mask="url(#page-occlusion-mask)" fill="#2f2a20" opacity="0.96">
+    <circle cx="650" cy="500" r="7"/>
+    <circle cx="890" cy="500" r="7"/>
+    <circle cx="770" cy="292.153903" r="7"/>
+  </g>
+</svg>

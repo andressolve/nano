@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "euclid",
+    title: "Euclid — The Man Who Built a Road to Truth",
+    cover: "euclid/pages/cover.png",
+    published: "2026-07-20",
+    category: "Biography",
+    series: "Euclid · Alexandria · c. 300 BC",
+    summary: "History kept his Elements and almost nothing of the man. This openly invented life asks what kind of teacher would build a proof that could outlive his portrait."
+  },
+  {
     slug: "foundation-expanded-part1",
     title: "Foundation — Part One: The Man Who Saw the End",
     cover: "foundation-expanded-part1/pages/cover.png",

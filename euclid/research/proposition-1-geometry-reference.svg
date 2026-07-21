@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <rect width="1200" height="1200" fill="#fffdf6"/>
+
+  <!--
+    Euclid, Elements I.1.
+    A = (430, 620), B = (770, 620), AB = 340.
+    C = (600, 620 - 340 * sqrt(3) / 2) = (600, 325.55136...).
+    Both circles therefore have radius AB and meet at C.
+  -->
+  <circle cx="430" cy="620" r="340" fill="none" stroke="#b94b43" stroke-width="6"/>
+  <circle cx="770" cy="620" r="340" fill="none" stroke="#397aa3" stroke-width="6"/>
+
+  <path d="M 430 620 L 770 620 L 600 325.55136 Z"
+        fill="none" stroke="#171717" stroke-width="9" stroke-linejoin="round"/>
+
+  <circle cx="430" cy="620" r="10" fill="#171717"/>
+  <circle cx="770" cy="620" r="10" fill="#171717"/>
+  <circle cx="600" cy="325.55136" r="10" fill="#171717"/>
+</svg>

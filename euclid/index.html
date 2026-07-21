@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111923">
+  <title>Euclid — The Man Who Built a Road to Truth</title>
+  <style>
+    :root {
+      --ink: #111923;
+      --paper: #eee7d7;
+      --muted: rgba(238, 231, 215, .58);
+      --bronze: #c9a45b;
+      --bronze-dim: rgba(201, 164, 91, .18);
+      --line: rgba(238, 231, 215, .14);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { background: var(--ink); }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--paper);
+      background:
+        radial-gradient(circle at 50% 28%, rgba(34, 51, 66, .72), transparent 52%),
+        var(--ink);
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    }
+
+    button, a, input { font: inherit; }
+
+    .progress-bar {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 1000;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #80693a, var(--bronze), #ead699);
+      transition: width .25s ease;
+    }
+
+    .home-link, .zoom-btn {
+      position: fixed;
+      top: 14px;
+      z-index: 100;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(17, 25, 35, .78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      text-decoration: none;
+      letter-spacing: .05em;
+      font-size: 12px;
+      line-height: 1;
+      padding: 10px 14px;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+
+    .home-link { left: 14px; }
+    .zoom-btn { right: 14px; cursor: pointer; }
+    .home-link:hover, .zoom-btn:hover { color: var(--paper); border-color: rgba(201, 164, 91, .55); }
+
+    .reader {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 54px 74px 104px;
+    }
+
+    .page-title {
+      min-height: 22px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .page-frame {
+      position: relative;
+      width: 100%;
+      max-width: min(1400px, calc(100vw - 148px));
+      opacity: 1;
+      transition: opacity .2s ease;
+    }
+
+    .page-frame.fading, .afterword.fading, .quiz-container.fading { opacity: 0; }
+
+    .page-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 14px 54px rgba(0, 0, 0, .55);
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .page-frame.cover img { box-shadow: 0 18px 65px rgba(0, 0, 0, .65); }
+
+    .nav-arrow {
+      position: fixed;
+      top: 50%;
+      z-index: 80;
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      transform: translateY(-50%);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--paper);
+      background: rgba(17, 25, 35, .78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      cursor: pointer;
+      font-size: 25px;
+      transition: transform .2s, background .2s, opacity .2s;
+    }
+
+    .nav-arrow.prev { left: 14px; }
+    .nav-arrow.next { right: 14px; }
+    .nav-arrow:hover:not(:disabled) { transform: translateY(-50%) scale(1.06); background: rgba(201, 164, 91, .18); }
+    .nav-arrow:disabled { opacity: .16; cursor: default; }
+
+    .page-info {
+      position: fixed;
+      bottom: 12px;
+      left: 50%;
+      z-index: 70;
+      transform: translateX(-50%);
+      color: rgba(238, 231, 215, .5);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    .road-map {
+      position: fixed;
+      left: 50%;
+      bottom: 34px;
+      z-index: 70;
+      width: min(760px, calc(100vw - 150px));
+      transform: translateX(-50%);
+      padding: 8px 12px 9px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(17, 25, 35, .86);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .road-label {
+      margin-bottom: 6px;
+      color: rgba(238, 231, 215, .42);
+      font-size: 9px;
+      letter-spacing: .13em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .road-stages { display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px; }
+
+    .road-stage {
+      position: relative;
+      padding-top: 8px;
+      color: rgba(238, 231, 215, .34);
+      font-size: 9px;
+      letter-spacing: .08em;
+      text-align: center;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+
+    .road-stage::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      background: rgba(238, 231, 215, .13);
+    }
+
+    .road-stage.complete, .road-stage.active { color: var(--bronze); }
+    .road-stage.complete::before, .road-stage.active::before { background: var(--bronze); }
+    .road-stage.active::before { box-shadow: 0 0 8px rgba(201, 164, 91, .55); }
+
+    .afterword, .quiz-container {
+      display: none;
+      width: min(760px, 100%);
+      opacity: 1;
+      transition: opacity .2s ease;
+    }
+
+    .afterword {
+      padding: 38px 42px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .035);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, .3);
+    }
+
+    .afterword h2, .quiz-container h2 {
+      margin-bottom: 12px;
+      color: #f1e8d5;
+      font-size: clamp(26px, 4vw, 39px);
+      font-weight: normal;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .afterword .deck {
+      margin-bottom: 28px;
+      color: var(--bronze);
+      font-size: 15px;
+      letter-spacing: .08em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .afterword p {
+      margin: 0 auto 17px;
+      color: rgba(238, 231, 215, .78);
+      font-size: 17px;
+      line-height: 1.72;
+    }
+
+    .afterword .sources {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: rgba(238, 231, 215, .48);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .afterword a { color: #d8bd82; }
+
+    .quiz-container { padding: 10px 0 30px; }
+    .quiz-container h2 { margin-bottom: 28px; }
+
+    .question-block {
+      margin-bottom: 18px;
+      padding: 23px 25px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .035);
+    }
+
+    .question-text { margin-bottom: 15px; color: #eee7d7; font-size: 17px; line-height: 1.55; }
+    .options label { display: block; margin-bottom: 7px; padding: 10px 12px; border-radius: 6px; color: rgba(238, 231, 215, .76); font-size: 15px; line-height: 1.48; cursor: pointer; }
+    .options label:hover { background: rgba(255, 255, 255, .055); }
+    .options input { margin-right: 9px; accent-color: var(--bronze); }
+
+    .check-btn {
+      margin-top: 9px;
+      padding: 8px 18px;
+      border: 1px solid rgba(201, 164, 91, .42);
+      border-radius: 999px;
+      color: #e2c986;
+      background: var(--bronze-dim);
+      cursor: pointer;
+    }
+
+    .feedback { display: none; margin-top: 12px; padding: 12px 14px; border-radius: 7px; font-size: 14px; line-height: 1.5; }
+    .feedback.correct { color: #a8d7a6; border: 1px solid rgba(92, 174, 96, .25); background: rgba(92, 174, 96, .1); }
+    .feedback.incorrect { color: #d9aaa4; border: 1px solid rgba(190, 95, 82, .25); background: rgba(190, 95, 82, .1); }
+    .score-display { display: none; padding: 22px; color: var(--bronze); font-size: 20px; text-align: center; }
+
+    .zoom-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      overflow: auto;
+      padding: 50px;
+      background: rgba(8, 12, 18, .96);
+      cursor: zoom-out;
+    }
+
+    .zoom-overlay.open { display: block; }
+    .zoom-overlay img { display: block; width: 1536px; max-width: none; height: auto; margin: 0 auto; box-shadow: 0 20px 80px #000; }
+    body.zoom-open { overflow: hidden; }
+
+    @media (max-width: 760px) {
+      .reader { justify-content: flex-start; padding: 66px 8px 108px; }
+      .page-frame { max-width: 100%; }
+      .page-title { padding: 0 50px; font-size: 10px; }
+      .nav-arrow { top: auto; bottom: 32px; width: 42px; height: 42px; font-size: 21px; }
+      .nav-arrow.prev { left: 8px; }
+      .nav-arrow.next { right: 8px; }
+      .road-map { bottom: 31px; width: calc(100vw - 108px); padding-inline: 8px; }
+      .road-label { display: none; }
+      .road-stage { overflow: hidden; font-size: 0; }
+      .road-stage::after { content: attr(data-short); font-size: 8px; }
+      .afterword { padding: 27px 20px; }
+      .afterword p, .question-text { font-size: 16px; }
+      .question-block { padding: 19px 16px; }
+      .zoom-overlay { padding: 42px 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .page-frame, .afterword, .quiz-container, .progress-bar { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <a class="home-link" href="../index.html">&larr; Stories</a>
+  <button class="zoom-btn" id="zoomBtn" type="button" aria-label="Open full-size page">Zoom · Z</button>
+
+  <main class="reader">
+    <div class="page-title" id="pageTitle">Cover</div>
+
+    <div class="page-frame cover" id="pageFrame">
+      <img id="pageImg" src="pages/cover.png" alt="Euclid — Cover">
+    </div>
+
+    <article class="afterword" id="afterword">
+      <h2>What History Knows—and What This Novel Invented</h2>
+      <div class="deck">The proof survived the portrait</div>
+      <p>Euclid was a Greek mathematician active in Alexandria around 300 BCE and is credited with the thirteen-book <em>Elements</em>. The book gathers and rigorously organizes mathematical work created across generations. Nearly every personal scene you have just read—including Euclid's childhood, Nefru, Philippos, and the making of the manuscript—is invented.</p>
+      <p>The “royal road” and coin stories are ancient traditions preserved long after Euclid's lifetime, not eyewitness reports. We used them because, like the famous Gauss classroom story, they express a lasting idea even when their literal history is uncertain. The difference is made visible here: the novel tells them confidently, and this note tells you what kind of evidence stands behind them.</p>
+      <p>What does not need invention is the central achievement. Begin with definitions and a few permitted moves. Prove one result. Use it to prove the next. Build a structure a reader can question from the first line to the last. That is why the <em>Elements</em> survived the man.</p>
+      <div class="sources">Read further: <a href="https://doi.org/10.1093/acrefore/9780199381135.013.2521">Oxford's Euclid overview</a>; <a href="https://www.maths.tcd.ie/~dwilkins/Euclid/Elements_Heath1908/BookI/EuclidElementsBk01Prop01_Heath1908.php">Book I, Proposition 1 in Heath's translation</a>; <a href="https://www.gutenberg.org/ebooks/74253">Proclus's later commentary</a>; and an <a href="https://euclid.analogmachine.org/early-history">overview of the text's early transmission</a>.</div>
+    </article>
+
+    <section class="quiz-container" id="quizContainer">
+      <h2>Test the Why</h2>
+
+      <div class="question-block" id="q1">
+        <div class="question-text">1. Why does the moved boundary stone matter to the invented Euclid?</div>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> It proves that rulers understand geometry better than teachers, which is why Euclid later seeks a king's protection for his work.</label>
+          <label><input type="radio" name="q1" value="b"> It shows him that power can relocate a marker and change ownership, while the relation between two points does not change by command.</label>
+          <label><input type="radio" name="q1" value="c"> It convinces him that physical measurement is always corrupt, so practical surveying should be abandoned in favor of pure thought.</label>
+        </div>
+        <button class="check-btn" onclick="checkAnswer('q1', 'b')">Check Answer</button>
+        <div class="feedback correct" id="q1-correct">Right. The stone gives the invented Euclid his lifelong problem: authority can move a boundary people must obey, but it cannot command a mathematical relation to become false.</div>
+        <div class="feedback incorrect" id="q1-incorrect">Not quite. The point is neither royal wisdom nor contempt for measurement. The stone moves because power says so; the distance between two points does not. Euclid wants knowledge that does not depend on permission.</div>
+      </div>
+
+      <div class="question-block" id="q2">
+        <div class="question-text">2. Why is Philippos's crooked triangle still a successful construction?</div>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> Because an equilateral triangle only needs to look roughly balanced when a skilled teacher recognizes the intended shape.</label>
+          <label><input type="radio" name="q2" value="b"> Because Euclid can measure the crooked drawing afterward and quietly adjust the two sides until the picture becomes exact.</label>
+          <label><input type="radio" name="q2" value="c"> Because the permitted construction makes the new sides equal radii, so the reason remains exact even when the drawn marks are imperfect.</label>
+        </div>
+        <button class="check-btn" onclick="checkAnswer('q2', 'c')">Check Answer</button>
+        <div class="feedback correct" id="q2-correct">Right. The circles, not visual neatness, carry the equality: each new side is a radius equal to the original segment. The hand can wobble without weakening the reason.</div>
+        <div class="feedback incorrect" id="q2-incorrect">Not quite. Neither a teacher's eye nor a later measurement makes the construction trustworthy. The permitted moves establish that all three sides are equal radii, even when the marks look crooked.</div>
+      </div>
+
+      <div class="question-block" id="q3">
+        <div class="question-text">3. Why does Nefru return the three coins to Euclid?</div>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> To show that Philippos asked about having a livelihood after study, not the abstract value of geometry—and that Euclid answered the easier question.</label>
+          <label><input type="radio" name="q3" value="b"> To warn Euclid that the coins are counterfeit and could expose the school to punishment if Philippos spends them in the market.</label>
+          <label><input type="radio" name="q3" value="c"> To insist that every student must receive the same payment, since knowledge has no value unless a teacher pays people to learn it.</label>
+        </div>
+        <button class="check-btn" onclick="checkAnswer('q3', 'a')">Check Answer</button>
+        <div class="feedback correct" id="q3-correct">Right. Nefru supplies the missing premise in Philippos's life. Euclid's clever reply treated a practical fear as greed; returning the coins forces him to examine his own unsupported conclusion.</div>
+        <div class="feedback incorrect" id="q3-incorrect">Not quite. The coins are neither counterfeit nor a universal wage. Nefru makes Euclid see the question he skipped: whether learning would give Philippos a place from which he could support his family.</div>
+      </div>
+
+      <div class="question-block" id="q4">
+        <div class="question-text">4. Why does Euclid delay the handsome royal edition even though its disputed result is correct?</div>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> Because the royal copyists left Euclid's name off the case, making a correct result useless until the proper author receives credit.</label>
+          <label><input type="radio" name="q4" value="b"> Because one step rests on an unproved claim; a correct conclusion still deceives readers if the supporting chain contains a hidden gap.</label>
+          <label><input type="radio" name="q4" value="c"> Because Euclid has decided geometry is less important than number, and wants to replace the result before any copy leaves the court.</label>
+        </div>
+        <button class="check-btn" onclick="checkAnswer('q4', 'b')">Check Answer</button>
+        <div class="feedback correct" id="q4-correct">Right. The book's promise is not merely to state correct results; it is to let an ordinary reader inspect why they follow. A hidden gap breaks that promise even when the roof appears to stand.</div>
+        <div class="feedback incorrect" id="q4-incorrect">Not quite. Credit and subject preference are not the issue. The result is correct, but one support is missing. Publishing it would ask ordinary readers to trust what the book has promised to prove.</div>
+      </div>
+
+      <div class="question-block" id="q5">
+        <div class="question-text">5. Why does the final page say Euclid's authority was not required?</div>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> Because later kings and schools certified the <em>Elements</em>, replacing one mathematician's authority with stronger institutional authority.</label>
+          <label><input type="radio" name="q5" value="b"> Because later biographies recovered enough of Euclid's private life to prove that he was trustworthy even though his portrait was lost.</label>
+          <label><input type="radio" name="q5" value="c"> Because each reader can repeat the permitted moves and inspect the dependencies, allowing the proof to survive the author, portrait, and empire.</label>
+        </div>
+        <button class="check-btn" onclick="checkAnswer('q5', 'c')">Check Answer</button>
+        <div class="feedback correct" id="q5-correct">Right. The achievement is a road another person can test from the beginning. Euclid's name may invite a reader to start, but it is the repeatable chain—not his status—that carries the proof.</div>
+        <div class="feedback incorrect" id="q5-incorrect">Not quite. No later institution or recovered biography substitutes for Euclid. His authority becomes unnecessary because the construction and proof can be repeated and questioned by the next careful reader.</div>
+      </div>
+
+      <div class="score-display" id="scoreDisplay"></div>
+    </section>
+  </main>
+
+  <button class="nav-arrow prev" id="prevBtn" type="button" aria-label="Previous page">&larr;</button>
+  <button class="nav-arrow next" id="nextBtn" type="button" aria-label="Next page">&rarr;</button>
+  <span class="page-info" id="pageInfo" aria-live="polite">Cover</span>
+
+  <div class="road-map" aria-label="Proof road">
+    <div class="road-label">A road made one step at a time</div>
+    <div class="road-stages" id="roadStages">
+      <div class="road-stage" data-short="Line">Line</div>
+      <div class="road-stage" data-short="Words">Definitions</div>
+      <div class="road-stage" data-short="Moves">Postulates</div>
+      <div class="road-stage" data-short="Proof">Proof</div>
+      <div class="road-stage" data-short="Book">Elements</div>
+      <div class="road-stage" data-short="Hands">Transmission</div>
+    </div>
+  </div>
+
+  <div class="zoom-overlay" id="zoomOverlay" role="dialog" aria-modal="true" aria-label="Full-size page">
+    <img id="zoomImg" alt="">
+  </div>
+
+  <script>
+    const pageTitles = [
+      'The Empty Space', 'The Moved Line', 'A Better Answer Than Because', 'The City That Collected',
+      'Alexandria in Straight Lines', 'Many Makers, Many Scrolls', 'The Student Who Believed Him',
+      'The Cord in the Sun', 'The Work He Chose', 'Say What You Mean', 'Things the Reader May Ask',
+      'Begin With a Line', 'The First Construction', 'Not the Picture, the Reason', 'Three Obols',
+      'The Answer That Failed', 'The Field After Water', 'A Door Back In', "The King's Question",
+      'No Royal Road', 'Whose Stones?', 'Many Hands', 'One Weak Step', 'Numbers Without End',
+      'What Cannot Share a Measure', 'Thirteen Books', 'The Man Leaves the Record', 'What Was Required'
+    ];
+
+    const pages = [{ file: 'pages/cover.png', title: 'Cover', label: 'Cover', stage: 0 }];
+    pageTitles.forEach((title, index) => {
+      const number = String(index + 1).padStart(2, '0');
+      let stage = 0;
+      if (index + 1 >= 6) stage = 1;
+      if (index + 1 >= 11) stage = 2;
+      if (index + 1 >= 13) stage = 3;
+      if (index + 1 >= 19) stage = 4;
+      if (index + 1 >= 27) stage = 5;
+      pages.push({ file: `pages/page-${number}.png`, title, label: `Page ${index + 1} of 28`, stage });
+    });
+    pages.push({ title: 'What History Knows—and What This Novel Invented', label: 'Afterword', afterword: true, stage: 5 });
+    pages.push({ title: 'Test the Why', label: 'Quiz', quiz: true, stage: 5 });
+
+    let current = 0;
+    let answered = 0;
+    let correctCount = 0;
+
+    const frame = document.getElementById('pageFrame');
+    const img = document.getElementById('pageImg');
+    const afterword = document.getElementById('afterword');
+    const quiz = document.getElementById('quizContainer');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pageInfo = document.getElementById('pageInfo');
+    const pageTitle = document.getElementById('pageTitle');
+    const progressBar = document.getElementById('progressBar');
+    const stageEls = Array.from(document.querySelectorAll('.road-stage'));
+    const zoomBtn = document.getElementById('zoomBtn');
+    const zoomOverlay = document.getElementById('zoomOverlay');
+    const zoomImg = document.getElementById('zoomImg');
+
+    function updateRoad(stage) {
+      stageEls.forEach((el, index) => {
+        el.classList.toggle('complete', index < stage);
+        el.classList.toggle('active', index === stage);
+      });
+    }
+
+    function prefetchAround() {
+      [current - 1, current + 1].forEach(index => {
+        const page = pages[index];
+        if (page && page.file) {
+          const preload = new Image();
+          preload.src = page.file;
+        }
+      });
+    }
+
+    function show(index, immediate = false) {
+      if (index < 0 || index >= pages.length) return;
+      closeZoom();
+      [frame, afterword, quiz].forEach(el => el.classList.add('fading'));
+      const swap = () => {
+        current = index;
+        const page = pages[current];
+        frame.style.display = page.file ? 'block' : 'none';
+        afterword.style.display = page.afterword ? 'block' : 'none';
+        quiz.style.display = page.quiz ? 'block' : 'none';
+        zoomBtn.style.display = page.file ? 'block' : 'none';
+        if (page.file) {
+          img.src = page.file;
+          img.alt = `Euclid — ${page.title}`;
+        }
+        frame.classList.toggle('cover', current === 0);
+        pageTitle.textContent = page.title;
+        pageInfo.textContent = page.label;
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === pages.length - 1;
+        progressBar.style.width = `${(current / (pages.length - 1)) * 100}%`;
+        updateRoad(page.stage);
+        [frame, afterword, quiz].forEach(el => el.classList.remove('fading'));
+        window.scrollTo({ top: 0, behavior: immediate ? 'auto' : 'smooth' });
+        prefetchAround();
+      };
+      if (immediate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) swap();
+      else window.setTimeout(swap, 180);
+    }
+
+    function next() { show(current + 1); }
+    function prev() { show(current - 1); }
+
+    function checkAnswer(qId, correctAnswer) {
+      const selected = document.querySelector(`input[name="${qId}"]:checked`);
+      if (!selected) return;
+      const block = document.getElementById(qId);
+      const isCorrect = selected.value === correctAnswer;
+      block.querySelectorAll('input').forEach(input => { input.disabled = true; });
+      block.querySelector('.check-btn').style.display = 'none';
+      document.getElementById(`${qId}-${isCorrect ? 'correct' : 'incorrect'}`).style.display = 'block';
+      answered += 1;
+      if (isCorrect) correctCount += 1;
+      if (answered === 5) {
+        const score = document.getElementById('scoreDisplay');
+        score.textContent = `You got ${correctCount} out of 5 correct.`;
+        score.style.display = 'block';
+      }
+    }
+
+    function openZoom() {
+      if (!pages[current].file) return;
+      zoomImg.src = pages[current].file;
+      zoomImg.alt = img.alt;
+      zoomOverlay.classList.add('open');
+      document.body.classList.add('zoom-open');
+      zoomOverlay.scrollTo({ top: 0, left: Math.max(0, (1536 - window.innerWidth) / 2), behavior: 'auto' });
+    }
+
+    function closeZoom() {
+      zoomOverlay.classList.remove('open');
+      document.body.classList.remove('zoom-open');
+    }
+
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+    zoomBtn.addEventListener('click', openZoom);
+    zoomOverlay.addEventListener('click', closeZoom);
+
+    img.addEventListener('click', event => {
+      const rect = img.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      if (x < rect.width * .34) prev();
+      else next();
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') { closeZoom(); return; }
+      if (event.key.toLowerCase() === 'z') { event.preventDefault(); openZoom(); return; }
+      if (zoomOverlay.classList.contains('open')) return;
+      if (event.key === 'ArrowRight' || event.key === ' ') { event.preventDefault(); next(); }
+      if (event.key === 'ArrowLeft') { event.preventDefault(); prev(); }
+    });
+
+    let touchStartX = 0;
+    document.addEventListener('touchstart', event => { touchStartX = event.changedTouches[0].screenX; }, { passive: true });
+    document.addEventListener('touchend', event => {
+      if (zoomOverlay.classList.contains('open')) return;
+      const distance = touchStartX - event.changedTouches[0].screenX;
+      if (Math.abs(distance) > 48) distance > 0 ? next() : prev();
+    }, { passive: true });
+
+    img.addEventListener('load', prefetchAround);
+    show(0, true);
+  </script>
+</body>
+</html>
