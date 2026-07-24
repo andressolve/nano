@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "foundation-expanded-part2",
+    title: "Foundation — Part Two: The Encyclopedists",
+    cover: "foundation-expanded-part2/pages/cover.png",
+    published: "2026-07-24",
+    category: "Science Fiction & Fantasy",
+    series: "Foundation · Expanded edition · Part 2",
+    summary: "Fifty years after exile, Salvor Hardin must save weaponless Terminus from Anacreon by turning its last surviving atomic knowledge into a balance no neighboring kingdom can break."
+  },
+  {
     slug: "euclid",
     title: "Euclid — The Man Who Built a Road to Truth",
     cover: "euclid/pages/cover.png",
