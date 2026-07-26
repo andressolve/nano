@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "monte-cristo",
+    title: "The Count of Monte Cristo — Volume I: Edmond",
+    cover: "monte-cristo/pages/cover.png",
+    published: "2026-07-25",
+    category: "Myth & Literature",
+    series: "The Count of Monte Cristo · Volume I",
+    summary: "A gifted young sailor is betrayed, buried alive, remade by friendship and knowledge, and returns with the power to restore a life—or judge one."
+  },
+  {
     slug: "foundation-expanded-part2",
     title: "Foundation — Part Two: The Encyclopedists",
     cover: "foundation-expanded-part2/pages/cover.png",
