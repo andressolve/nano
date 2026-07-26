@@ -218,6 +218,12 @@ balloon swap, HTML/SVG lettering, or direct API path was used.
 - Page 26: regenerated after Hardin drifted into Yohan Lee's identity.
 - Prototype Pages 12 and 23 were regenerated during the prototype gate to
   improve speech-tail corridors.
+- Cover, 2026-07-26: regenerated twice as complete 1536x1024 compositions after
+  the original foreground Hardin read as leathery, over-aged, and uncanny. The
+  first correction improved his scale but retained too much facial crosshatching.
+  The accepted correction uses smooth mid-thirties facial modeling, aligned
+  expressive eyes, a lean silhouette, and the locked frontier costume while
+  preserving all three exact cover text elements and the political composition.
 
 ## Regeneration Policy
 
