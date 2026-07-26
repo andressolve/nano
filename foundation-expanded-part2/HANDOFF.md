@@ -2,7 +2,7 @@
 
 ## Status
 
-**Production complete and locally release-verified as of 2026-07-24.**
+**Production complete and locally release-verified as of 2026-07-26.**
 
 This folder contains the finished cover, all 28 landscape story pages, the
 interactive reader, the complete planning packet, twenty locked references,
@@ -15,8 +15,8 @@ Final title:
 
 **FOUNDATION - PART TWO: THE ENCYCLOPEDISTS**
 
-Final scope: cover plus 28 landscape story pages, Afterword, spoiler-light Book
-& Screen note, and five-question causal quiz.
+Final scope: cover plus 28 landscape story pages, Afterword, and five-question
+causal quiz.
 
 ## Start Here
 
@@ -171,7 +171,6 @@ The completed reader follows the Part One interaction pattern:
 - landscape page navigation, keyboard/swipe controls, zoom, and progress;
 - a seven-stage location/crisis strip;
 - a short afterword about decay through lost systems and expertise;
-- a spoiler-light Book/Screen continuity note;
 - a five-question WHY-quiz testing causal understanding.
 
 Local browser QA loaded the cover and Pages 1-28 in order at their natural

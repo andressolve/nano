@@ -2,7 +2,7 @@
 
 ## Status
 
-**All raster, reader, and local catalog gates passed as of 2026-07-24.**
+**All raster, reader, and local catalog gates passed as of 2026-07-26.**
 
 The accepted set contains one cover and 28 story pages, all generated through
 the subscription-backed Codex image path with story lettering baked into the
@@ -218,12 +218,14 @@ balloon swap, HTML/SVG lettering, or direct API path was used.
 - Page 26: regenerated after Hardin drifted into Yohan Lee's identity.
 - Prototype Pages 12 and 23 were regenerated during the prototype gate to
   improve speech-tail corridors.
-- Cover, 2026-07-26: regenerated twice as complete 1536x1024 compositions after
-  the original foreground Hardin read as leathery, over-aged, and uncanny. The
-  first correction improved his scale but retained too much facial crosshatching.
-  The accepted correction uses smooth mid-thirties facial modeling, aligned
-  expressive eyes, a lean silhouette, and the locked frontier costume while
-  preserving all three exact cover text elements and the political composition.
+- Cover, 2026-07-26: the original and two correction directions were rejected
+  first for leathery, over-aged facial rendering and then for a thin, undersized
+  body and unnatural pose. The accepted cover was generated from a blank
+  composition using only the five locked character, city, recording, and
+  political-model references. Hardin now has a healthy medium build, conventional
+  head-to-body proportions, a grounded full-body stance, natural arms and hands,
+  and the locked frontier costume. The political composition and all three exact
+  cover text elements remain intact at 1536x1024.
 
 ## Regeneration Policy
 
@@ -254,14 +256,13 @@ pattern and verify:
 - [x] click/tap zoom opens and closes without leaving body scroll locked;
 - [x] desktop and 390x844 mobile layouts have no body-level horizontal overflow;
 - [x] afterword explains decay through lost systems and expertise;
-- [x] spoiler-light Book/Screen note preserves the continuity boundary;
 - [x] five WHY-quiz answers lock, explain causality, and score correctly;
 - [x] no browser console errors.
 
 Browser audit record: the local reader loaded all 29 rasters at natural
 1536x1024 dimensions, exposed all seven route states in order, reached the
-Afterword, Book & Screen note, and quiz, and produced a 5-of-5 locked quiz
-score. Keyboard navigation and zoom/body-scroll recovery passed interactively.
+Afterword and then the quiz, and produced a 5-of-5 locked quiz score. Keyboard
+navigation and zoom/body-scroll recovery passed interactively.
 The touch handler was code-audited because the desktop browser's device-size
 override does not synthesize touch events. Desktop and 390x844 layouts were
 visually inspected with zero body-level horizontal overflow.

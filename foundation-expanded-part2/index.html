@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Foundation — Part Two: The Encyclopedists. A 28-page illustrated adaptation with an afterword, a spoiler-light book-and-screen note, and a causal comprehension quiz.">
+    <meta name="description" content="Foundation — Part Two: The Encyclopedists. A 28-page illustrated adaptation with an afterword and a causal comprehension quiz.">
     <title>Foundation — Part Two: The Encyclopedists</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -220,36 +220,6 @@
 
         .callout strong { color: var(--paper); }
 
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-            margin-top: 24px;
-        }
-
-        .comparison-card {
-            padding: 18px;
-            border: 1px solid rgba(238, 229, 206, 0.13);
-            border-radius: 5px;
-            background: rgba(16, 26, 33, 0.78);
-        }
-
-        .comparison-card h3 {
-            margin-bottom: 9px;
-            color: var(--teal-bright);
-            font-size: 17px;
-            font-weight: normal;
-        }
-
-        .comparison-card ul { padding-left: 20px; }
-        .comparison-card li + li { margin-top: 7px; }
-
-        .spoiler-note {
-            margin-top: 20px;
-            color: rgba(238, 229, 206, 0.55) !important;
-            font-size: 14px !important;
-        }
-
         .question {
             margin: 23px 0;
             padding: 0 0 23px;
@@ -347,7 +317,6 @@
             .sep { padding: 0 1px; }
             .text-page, .quiz { padding: 40px 66px 110px; }
             .text-mode .page-info { display: none; }
-            .comparison-grid { grid-template-columns: 1fr; }
             .zoom { padding: 52px 10px 30px; }
             .zoom img { width: 280vw; }
         }
@@ -378,53 +347,6 @@
             <div class="callout">
                 <p><strong>Why no battle?</strong> Smyrno, Konom, and Daribow force Anacreon to withdraw because an Anacreonian monopoly on Terminus's atomic skill would unbalance the entire region. The Foundation survives through dependency and balance—not through a fleet it does not have.</p>
             </div>
-        </section>
-
-        <section class="text-page" id="screenNote">
-            <p class="kicker">Book &amp; screen · spoiler-light</p>
-            <h2>One Crisis, Two Continuities</h2>
-            <p class="lead">This volume follows Asimov's first crisis on Terminus. Apple TV+'s series uses several of the same names and premises, but builds a different chain of events around them.</p>
-
-            <div class="comparison-grid">
-                <article class="comparison-card">
-                    <h3>Shared foundation</h3>
-                    <ul>
-                        <li>Terminus is an isolated settlement founded under Hari Seldon's Plan.</li>
-                        <li>Anacreon becomes the immediate external threat.</li>
-                        <li>A Seldon recording marks a predicted crisis.</li>
-                        <li>Salvor Hardin becomes central to the colony's survival.</li>
-                    </ul>
-                </article>
-
-                <article class="comparison-card">
-                    <h3>This book continuity</h3>
-                    <ul>
-                        <li>The first crisis is resolved through political leverage and a balance among four kingdoms.</li>
-                        <li>Seldon's recording is timed, not an interactive adviser.</li>
-                        <li>The television Vault's null field, Phara, and the Invictus are not part of this chapter.</li>
-                    </ul>
-                </article>
-
-                <article class="comparison-card">
-                    <h3>What television changes</h3>
-                    <ul>
-                        <li>The series builds a more continuous personal and action-driven story.</li>
-                        <li>Its Anacreon conflict becomes an occupation and war rather than this book's bloodless regional standoff.</li>
-                        <li>The Vault, its mechanics, and the characters around it serve a different dramatic structure.</li>
-                    </ul>
-                </article>
-
-                <article class="comparison-card">
-                    <h3>Where this volume stops</h3>
-                    <ul>
-                        <li>The story ends after the first balance-of-power resolution.</li>
-                        <li>Hardin has turned knowledge into political leverage, but the Foundation's next system has not yet been built.</li>
-                        <li>The religion-of-science phase belongs to Part Three.</li>
-                    </ul>
-                </article>
-            </div>
-
-            <p class="spoiler-note">This note avoids later plot developments in both the books and the television series.</p>
         </section>
 
         <section class="quiz" id="quiz">
@@ -535,7 +457,6 @@
         }));
 
         pages.push({ title: "What Vanishes Before the Buildings", label: "Afterword", textPage: "afterword" });
-        pages.push({ title: "One Crisis, Two Continuities", label: "Book & Screen", textPage: "screenNote" });
         pages.push({ title: "Can You Trace the Crisis?", label: "Quiz", quiz: true });
 
         let current = 0;
@@ -552,7 +473,6 @@
         const nextButton = document.getElementById("next");
         const route = document.getElementById("route");
         const afterword = document.getElementById("afterword");
-        const screenNote = document.getElementById("screenNote");
         const quiz = document.getElementById("quiz");
         const zoom = document.getElementById("zoom");
         const zoomImage = document.getElementById("zoomImg");
@@ -567,7 +487,6 @@
                 document.body.classList.toggle("text-mode", !page.file);
                 frame.style.display = page.file ? "block" : "none";
                 afterword.style.display = page.textPage === "afterword" ? "block" : "none";
-                screenNote.style.display = page.textPage === "screenNote" ? "block" : "none";
                 quiz.style.display = page.quiz ? "block" : "none";
                 route.style.display = page.place ? "block" : "none";
 
