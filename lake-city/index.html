@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="The Lake City, Book One: The Boy Who Wanted the War — a historical graphic novel set in November 1519."
+  />
+  <title>The Lake City — The Boy Who Wanted the War</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #15171c;
+      --paper: #f0ece2;
+      --muted: rgba(240, 236, 226, 0.58);
+      --dim: rgba(240, 236, 226, 0.34);
+      --line: rgba(240, 236, 226, 0.14);
+      --panel: rgba(255, 255, 255, 0.045);
+      --accent: #35a7a0;
+      --accent-soft: rgba(53, 167, 160, 0.16);
+      --danger: #cf8f80;
+      --success: #86c8ae;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 50% -30%, rgba(53, 167, 160, 0.08), transparent 42rem),
+        var(--bg);
+      color: var(--paper);
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .progress-track {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, #217d7a, var(--accent), #8ed3c7);
+      box-shadow: 0 0 12px rgba(53, 167, 160, 0.42);
+      transition: width 220ms ease;
+    }
+
+    .home-link {
+      position: fixed;
+      top: 15px;
+      left: 17px;
+      z-index: 100;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 160ms ease, background 160ms ease;
+    }
+
+    .home-link:hover,
+    .home-link:focus-visible {
+      color: var(--paper);
+      background: rgba(255, 255, 255, 0.06);
+      outline: none;
+    }
+
+    .reader-shell {
+      min-height: 100vh;
+      padding: 54px 72px 82px;
+    }
+
+    .top-meta {
+      width: min(1400px, 100%);
+      margin: 0 auto 12px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 18px;
+      color: var(--dim);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .page-title {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .page-info {
+      white-space: nowrap;
+    }
+
+    .viewport {
+      min-height: calc(100vh - 150px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: opacity 180ms ease;
+    }
+
+    .viewport.is-fading {
+      opacity: 0;
+    }
+
+    .page-frame {
+      position: relative;
+      width: min(1400px, 100%);
+      margin: 0 auto;
+    }
+
+    .page-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 12px 50px rgba(0, 0, 0, 0.58);
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .page-frame.is-cover .page-image {
+      box-shadow: 0 16px 58px rgba(0, 0, 0, 0.66);
+    }
+
+    .nav-arrow {
+      position: fixed;
+      top: 50%;
+      z-index: 90;
+      display: grid;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      transform: translateY(-50%);
+      border: 1px solid rgba(240, 236, 226, 0.2);
+      border-radius: 50%;
+      background: rgba(21, 23, 28, 0.72);
+      color: var(--paper);
+      font-size: 27px;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition:
+        transform 160ms ease,
+        background 160ms ease,
+        border-color 160ms ease,
+        opacity 160ms ease;
+    }
+
+    .nav-arrow.prev {
+      left: 14px;
+    }
+
+    .nav-arrow.next {
+      right: 14px;
+    }
+
+    .nav-arrow:hover:not(:disabled),
+    .nav-arrow:focus-visible:not(:disabled) {
+      transform: translateY(-50%) scale(1.06);
+      border-color: rgba(53, 167, 160, 0.72);
+      background: rgba(53, 167, 160, 0.2);
+      outline: none;
+    }
+
+    .nav-arrow:disabled {
+      opacity: 0.16;
+      cursor: default;
+    }
+
+    .act-strip {
+      position: fixed;
+      right: 50%;
+      bottom: 13px;
+      z-index: 80;
+      display: flex;
+      gap: 4px;
+      max-width: calc(100vw - 180px);
+      padding: 5px;
+      transform: translateX(50%);
+      border: 1px solid rgba(240, 236, 226, 0.1);
+      border-radius: 999px;
+      background: rgba(21, 23, 28, 0.78);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(9px);
+      -webkit-backdrop-filter: blur(9px);
+    }
+
+    .act {
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: rgba(240, 236, 226, 0.28);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      transition: color 180ms ease, background 180ms ease;
+    }
+
+    .act.is-active {
+      background: var(--accent-soft);
+      color: #9ad8cf;
+    }
+
+    .interstitial,
+    .quiz {
+      width: min(860px, 92vw);
+      margin: 0 auto;
+      padding: 42px 0 70px;
+    }
+
+    .interstitial {
+      line-height: 1.72;
+    }
+
+    .interstitial-kicker,
+    .quiz-kicker {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .interstitial h1,
+    .quiz h1 {
+      margin: 0 0 34px;
+      color: var(--paper);
+      font-size: clamp(30px, 5vw, 48px);
+      font-weight: normal;
+      line-height: 1.08;
+      text-align: center;
+    }
+
+    .truth-copy {
+      padding: clamp(24px, 5vw, 52px);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+      box-shadow: 0 16px 55px rgba(0, 0, 0, 0.22);
+      color: rgba(240, 236, 226, 0.82);
+      font-size: clamp(16px, 2vw, 19px);
+    }
+
+    .truth-copy p {
+      margin: 0 0 1.15em;
+    }
+
+    .truth-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .truth-copy ul {
+      margin: 0 0 1.3em;
+      padding-left: 1.25em;
+    }
+
+    .truth-copy li {
+      margin: 0 0 0.8em;
+      padding-left: 0.35em;
+    }
+
+    .truth-copy strong {
+      color: #f5f0e5;
+    }
+
+    .truth-nav-hint {
+      margin: 24px 0 0;
+      color: var(--dim);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .quiz-intro {
+      max-width: 620px;
+      margin: -18px auto 32px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .question {
+      margin: 0 0 20px;
+      padding: clamp(20px, 4vw, 30px);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--panel);
+      transition: border-color 180ms ease, background 180ms ease;
+    }
+
+    .question.is-correct {
+      border-color: rgba(134, 200, 174, 0.42);
+      background: rgba(134, 200, 174, 0.06);
+    }
+
+    .question.is-wrong {
+      border-color: rgba(207, 143, 128, 0.38);
+      background: rgba(207, 143, 128, 0.05);
+    }
+
+    .question h2 {
+      margin: 0 0 18px;
+      color: var(--paper);
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: normal;
+      line-height: 1.38;
+    }
+
+    .options {
+      display: grid;
+      gap: 8px;
+    }
+
+    .option {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 11px;
+      align-items: start;
+      padding: 11px 13px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      color: rgba(240, 236, 226, 0.76);
+      font-size: 15px;
+      line-height: 1.48;
+      cursor: pointer;
+      transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+    }
+
+    .option:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--paper);
+    }
+
+    .option:has(input:focus-visible) {
+      border-color: rgba(53, 167, 160, 0.58);
+      outline: none;
+    }
+
+    .option.is-answer {
+      border-color: rgba(134, 200, 174, 0.42);
+      background: rgba(134, 200, 174, 0.09);
+      color: #dff2e9;
+    }
+
+    .option.is-selected-wrong {
+      border-color: rgba(207, 143, 128, 0.4);
+      background: rgba(207, 143, 128, 0.08);
+      color: #efd3cc;
+    }
+
+    .option input {
+      margin: 4px 0 0;
+      accent-color: var(--accent);
+    }
+
+    .check-answer,
+    .restart-quiz,
+    .library-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      margin-top: 18px;
+      padding: 9px 19px;
+      border: 1px solid rgba(53, 167, 160, 0.42);
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #9ad8cf;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+    }
+
+    .check-answer:hover,
+    .check-answer:focus-visible,
+    .restart-quiz:hover,
+    .restart-quiz:focus-visible,
+    .library-button:hover,
+    .library-button:focus-visible {
+      border-color: rgba(53, 167, 160, 0.78);
+      background: rgba(53, 167, 160, 0.25);
+      color: #c6eee7;
+      outline: none;
+    }
+
+    .selection-warning {
+      display: none;
+      margin: 10px 0 0;
+      color: var(--danger);
+      font-size: 14px;
+    }
+
+    .feedback {
+      display: none;
+      margin: 17px 0 0;
+      padding: 15px 17px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 7px 7px 0;
+      background: rgba(53, 167, 160, 0.08);
+      color: rgba(240, 236, 226, 0.8);
+      font-size: 15px;
+      line-height: 1.58;
+    }
+
+    .quiz-results {
+      display: none;
+      margin-top: 30px;
+      padding: 30px;
+      border: 1px solid rgba(53, 167, 160, 0.35);
+      border-radius: 12px;
+      background: rgba(53, 167, 160, 0.08);
+      text-align: center;
+    }
+
+    .quiz-results h2 {
+      margin: 0 0 9px;
+      color: #c6eee7;
+      font-size: 28px;
+      font-weight: normal;
+    }
+
+    .quiz-results p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .quiz-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .restart-quiz,
+    .library-button {
+      margin-top: 0;
+    }
+
+    @media (max-width: 820px) {
+      .reader-shell {
+        padding: 46px 8px 80px;
+      }
+
+      .top-meta {
+        width: min(1400px, 100%);
+        padding: 0 4px;
+      }
+
+      .nav-arrow {
+        top: auto;
+        bottom: 12px;
+        width: 44px;
+        height: 44px;
+        transform: none;
+        font-size: 22px;
+      }
+
+      .nav-arrow.prev {
+        left: 10px;
+      }
+
+      .nav-arrow.next {
+        right: 10px;
+      }
+
+      .nav-arrow:hover:not(:disabled),
+      .nav-arrow:focus-visible:not(:disabled) {
+        transform: scale(1.05);
+      }
+
+      .act-strip {
+        bottom: 14px;
+        max-width: calc(100vw - 116px);
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .act-strip::-webkit-scrollbar {
+        display: none;
+      }
+
+      .act {
+        padding: 7px 9px;
+        font-size: 8px;
+      }
+
+      .interstitial,
+      .quiz {
+        width: min(860px, 94vw);
+        padding-top: 30px;
+      }
+
+      .truth-copy {
+        padding: 23px 20px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .home-link {
+        top: 9px;
+        left: 7px;
+      }
+
+      .top-meta {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .page-info {
+        display: none;
+      }
+
+      .question {
+        padding: 19px 15px;
+      }
+
+      .option {
+        padding: 10px 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-track" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <a class="home-link" href="../index.html">← Stories</a>
+
+  <main class="reader-shell" id="readerShell">
+    <div class="top-meta">
+      <span class="page-title" id="pageTitle">Cover</span>
+      <span class="page-info" id="pageInfo">Cover</span>
+    </div>
+
+    <div class="viewport" id="viewport">
+      <figure class="page-frame is-cover" id="pageFrame">
+        <img
+          class="page-image"
+          id="pageImage"
+          src="pages/cover-v2.png"
+          alt="The Lake City, Book One: The Boy Who Wanted the War — cover"
+          draggable="false"
+        />
+      </figure>
+
+      <article class="interstitial" id="truthNote" hidden>
+        <p class="interstitial-kicker">After the story</p>
+        <h1>A note on what is true.</h1>
+        <div class="truth-copy">
+          <p>Olin is invented. Xiuhtototzin is invented. Everyone else in this book was a real person, and everything that happens to them happened.</p>
+
+          <p>A thousand Tlaxcalan porters really did walk into Tenochtitlán with the Spanish in November 1519, to carry the guns and the baggage and clear the road — one of the soldiers who was there wrote it down, and he also wrote down that Tlaxcalans inside the city were the ones passing warnings to the interpreters. Tlaxcala really had been ringed in for generations without salt or cotton; a Tlaxcalan lord said so himself, and it was written into a letter to the King of Spain. The gold-soled sandals, the swept road, the glass beads traded for shell collars hung with golden shrimps, the sixty thousand people in the market, the twelve judges, the broken measures, the two water channels with one kept dry for cleaning, the three hundred men who worked only on the birds — all of that is from people who stood there and saw it.</p>
+
+          <p>Three things in this book are honestly uncertain, and the book says so rather than pretending:</p>
+          <ul>
+            <li><strong>Nobody knows how many people died at Cholula.</strong> The eyewitness numbers range from three thousand to thirty thousand and none of them can be trusted. And the Tlaxcalans, who had their own reasons to want Cholula punished, did their share of the looting and the captive-taking.</li>
+            <li><strong>Nobody is sure the Speaker was really a prisoner</strong> when the Spanish said he was. Historians now doubt it. That is why Olin cannot answer his friend's question.</li>
+            <li><strong>The Speaker's famous welcome speech, where he supposedly hands his empire over, is almost certainly not something he said.</strong> It appears in accounts written by people who needed it to be true. So it is not in this book. Neither is the story that the Mexica thought the Spanish were returning gods — there is no good evidence anyone believed that, and the one place it comes up here, the Speaker is laughing at it.</li>
+          </ul>
+
+          <p>Two lines really were reported by men who were in the room, and they are the only quotations in the book: <strong>"You and your brothers are in your own house. Rest awhile."</strong> And: <strong>"Look at me. I am flesh and bones, the same as you and as everybody. And I am mortal."</strong></p>
+        </div>
+        <p class="truth-nav-hint">Continue to the five-question quiz →</p>
+      </article>
+
+      <section class="quiz" id="quiz" hidden>
+        <p class="quiz-kicker">Five questions · why, not what</p>
+        <h1>Test your understanding.</h1>
+        <p class="quiz-intro">Choose the best explanation. Each answer opens a short note about why the detail matters.</p>
+
+        <article class="question" data-question="q1" data-correct="b">
+          <h2>1. Why had Olin never tasted salt before he reached the market at Tlatelolco?</h2>
+          <div class="options">
+            <label class="option"><input type="radio" name="q1" value="a" /> <span>a) Salt was reserved for nobles by law throughout the Nahua world, and he was a commoner.</span></label>
+            <label class="option"><input type="radio" name="q1" value="b" /> <span>b) The Mexica had ringed Tlaxcala in for generations, so no salt could be traded into his country at all.</span></label>
+            <label class="option"><input type="radio" name="q1" value="c" /> <span>c) Tlaxcala was too high and too dry for the salt pans that the lake towns used.</span></label>
+            <label class="option"><input type="radio" name="q1" value="d" /> <span>d) Salt was used only in temple offerings, and commoners were forbidden to eat it.</span></label>
+          </div>
+          <button class="check-answer" type="button">Check answer</button>
+          <p class="selection-warning" role="alert">Choose an answer first.</p>
+          <div class="feedback" aria-live="polite">Tlaxcala was never conquered — but it was surrounded. A Tlaxcalan lord himself described being unable to buy salt or wear cotton, and choosing to stay hungry and free. That blockade, not a law, is what Olin's whole hatred is made of.</div>
+        </article>
+
+        <article class="question" data-question="q2" data-correct="c">
+          <h2>2. Why were the Tlaxcalans let into Tenochtitlán when Cholula had refused them entry?</h2>
+          <div class="options">
+            <label class="option"><input type="radio" name="q2" value="a" /> <span>a) The Speaker wanted to show the Tlaxcalan lords how much stronger his city was.</span></label>
+            <label class="option"><input type="radio" name="q2" value="b" /> <span>b) They had fought for the Spanish at Cholula and were now treated as soldiers rather than servants.</span></label>
+            <label class="option"><input type="radio" name="q2" value="c" /> <span>c) They came in as porters and road-clearers, not as a war party — a thousand carriers rather than ten thousand warriors.</span></label>
+            <label class="option"><input type="radio" name="q2" value="d" /> <span>d) A truce had been agreed between Tlaxcala and the Mexica for the length of the strangers' visit.</span></label>
+          </div>
+          <button class="check-answer" type="button">Check answer</button>
+          <p class="selection-warning" role="alert">Choose an answer first.</p>
+          <div class="feedback" aria-live="polite">Tlaxcala offered ten thousand warriors. Cortés took one thousand men to haul the cannon and the baggage. That is exactly why the city's gates opened: nobody lets in an enemy army, but everyone lets in the luggage. It is also why Olin — a porter — ends up inside every room that matters.</div>
+        </article>
+
+        <article class="question" data-question="q3" data-correct="a">
+          <h2>3. On the causeway, every great lord was barefoot and only the Speaker wore sandals. Why does that detail matter so much to Olin?</h2>
+          <div class="options">
+            <label class="option"><input type="radio" name="q3" value="a" /> <span>a) Because rank in his world was worn on the body, and his own bare feet and short coarse cloak marked him as nothing at all.</span></label>
+            <label class="option"><input type="radio" name="q3" value="b" /> <span>b) Because going barefoot was a religious act of humility that outsiders were not permitted to perform.</span></label>
+            <label class="option"><input type="radio" name="q3" value="c" /> <span>c) Because gold on the feet meant the Speaker had taken more captives in war than any other man there.</span></label>
+            <label class="option"><input type="radio" name="q3" value="d" /> <span>d) Because it proved the lords were servants rather than rulers of their own cities.</span></label>
+          </div>
+          <button class="check-answer" type="button">Check answer</button>
+          <p class="selection-warning" role="alert">Choose an answer first.</p>
+          <div class="feedback" aria-live="polite">Nahua law regulated who could wear cotton, how long a cloak could be, and who could wear sandals in a city — and breaking those rules could cost your life. Olin's knee-length maguey cloak is a legal statement about his worth. So when he and Xiuhtototzin compare cloth, they are really comparing what each of them is allowed to be.</div>
+        </article>
+
+        <article class="question" data-question="q4" data-correct="d">
+          <h2>4. Why can't Olin answer when Xiuhtototzin asks whether the Speaker is a prisoner?</h2>
+          <div class="options">
+            <label class="option"><input type="radio" name="q4" value="a" /> <span>a) He has been ordered by Malintzin not to discuss anything he overhears in the palace.</span></label>
+            <label class="option"><input type="radio" name="q4" value="b" /> <span>b) He does not yet know that the lord from the coast has been burned in the square.</span></label>
+            <label class="option"><input type="radio" name="q4" value="c" /> <span>c) He is afraid that telling the truth would put his friend's family in danger.</span></label>
+            <label class="option"><input type="radio" name="q4" value="d" /> <span>d) Because nothing visibly changed — the Speaker still governed, still heard petitions, still had his household — and yet everything had.</span></label>
+          </div>
+          <button class="check-answer" type="button">Check answer</button>
+          <p class="selection-warning" role="alert">Choose an answer first.</p>
+          <div class="feedback" aria-live="polite">Historians today doubt that Moctezuma was truly a captive at this point; no Spaniard even wrote to the king claiming they controlled the city. The book keeps Olin's honest uncertainty instead of tidying it into a clean arrest, because the uncertainty is the historically accurate answer.</div>
+        </article>
+
+        <article class="question" data-question="q5" data-correct="b">
+          <h2>5. Olin tells Xiuhtototzin the strangers only want gold. Why is that the most important moment in the book?</h2>
+          <div class="options">
+            <label class="option"><input type="radio" name="q5" value="a" /> <span>a) Because it is the first time he has understood the strangers' real plan.</span></label>
+            <label class="option"><input type="radio" name="q5" value="b" /> <span>b) Because he knows the shape of what is coming, and choosing to say nothing makes him part of it.</span></label>
+            <label class="option"><input type="radio" name="q5" value="c" /> <span>c) Because Malintzin has instructed him to keep the Tlaxcalan lords' intentions secret.</span></label>
+            <label class="option"><input type="radio" name="q5" value="d" /> <span>d) Because he has finally decided that his loyalty belongs to Tlaxcala rather than to his friend.</span></label>
+          </div>
+          <button class="check-answer" type="button">Check answer</button>
+          <p class="selection-warning" role="alert">Choose an answer first.</p>
+          <div class="feedback" aria-live="polite">He wanted this war before he ever saw the city. By the last page he has seen it, loved it, tasted its salt, and stood on its temple — and he still says nothing. He is not a witness to what happens next. He is one of the reasons it happens.</div>
+        </article>
+
+        <div class="quiz-results" id="quizResults" aria-live="polite">
+          <h2 id="scoreText">0 of 5</h2>
+          <p>The story ends with uncertainty. The score is only a reason to look again.</p>
+          <div class="quiz-actions">
+            <button class="restart-quiz" id="restartQuiz" type="button">Try the quiz again</button>
+            <a class="library-button" href="../index.html">Return to the library</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <button class="nav-arrow prev" id="previousButton" type="button" aria-label="Previous page" disabled>←</button>
+  <button class="nav-arrow next" id="nextButton" type="button" aria-label="Next page">→</button>
+
+  <nav class="act-strip" id="actStrip" aria-label="Book acts" hidden>
+    <span class="act" data-act="0">The Hatred</span>
+    <span class="act" data-act="1">The Road</span>
+    <span class="act" data-act="2">The City</span>
+    <span class="act" data-act="3">The Silence</span>
+  </nav>
+
+  <script>
+    const pageTitles = [
+      "Cover",
+      "A boy with fast legs",
+      "A hundred years",
+      "The strangers",
+      "The council",
+      "What we are",
+      "Cholula will not have us",
+      "I heard it",
+      "Snow",
+      "And then the mountain ended",
+      "He is measuring it",
+      "The road comes apart",
+      "The city comes out to meet us",
+      "Rest awhile",
+      "Turquoise Bird",
+      "Salt",
+      "Mostly from your country",
+      "Three hundred men for the birds",
+      "Flesh and bones",
+      "The doorway",
+      "I don't know",
+      "The only lie",
+      "I said nothing"
+    ];
+
+    const revisedPages = new Set([1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22]);
+
+    const states = pageTitles.map((title, index) => ({
+      type: "page",
+      title,
+      number: index,
+      file: index === 0
+        ? "pages/cover-v2.png"
+        : `pages/page-${String(index).padStart(2, "0")}${revisedPages.has(index) ? "-v2" : ""}.png`,
+      label: index === 0 ? "Cover" : `Page ${index} of 22`
+    }));
+
+    states.push(
+      { type: "truth", title: "A note on what is true", label: "After the story" },
+      { type: "quiz", title: "Five questions", label: "Quiz" }
+    );
+
+    const viewport = document.getElementById("viewport");
+    const pageFrame = document.getElementById("pageFrame");
+    const pageImage = document.getElementById("pageImage");
+    const truthNote = document.getElementById("truthNote");
+    const quiz = document.getElementById("quiz");
+    const pageTitle = document.getElementById("pageTitle");
+    const pageInfo = document.getElementById("pageInfo");
+    const progressBar = document.getElementById("progressBar");
+    const previousButton = document.getElementById("previousButton");
+    const nextButton = document.getElementById("nextButton");
+    const actStrip = document.getElementById("actStrip");
+    const actLabels = [...document.querySelectorAll(".act")];
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let current = 0;
+    let transitionTimer = null;
+
+    function actForPage(pageNumber) {
+      if (pageNumber >= 1 && pageNumber <= 5) return 0;
+      if (pageNumber >= 6 && pageNumber <= 9) return 1;
+      if (pageNumber >= 10 && pageNumber <= 19) return 2;
+      if (pageNumber >= 20 && pageNumber <= 22) return 3;
+      return -1;
+    }
+
+    function updateActs(state) {
+      const activeAct = state.type === "page" ? actForPage(state.number) : -1;
+      actStrip.hidden = activeAct < 0;
+      actLabels.forEach((label, index) => {
+        label.classList.toggle("is-active", index === activeAct);
+      });
+    }
+
+    function prefetchNext() {
+      const nextState = states[current + 1];
+      if (!nextState || !nextState.file) return;
+      const preload = new Image();
+      preload.src = nextState.file;
+    }
+
+    function commitState(index) {
+      current = Math.max(0, Math.min(index, states.length - 1));
+      const state = states[current];
+
+      pageFrame.hidden = state.type !== "page";
+      truthNote.hidden = state.type !== "truth";
+      quiz.hidden = state.type !== "quiz";
+
+      if (state.type === "page") {
+        pageImage.src = state.file;
+        pageImage.alt = state.number === 0
+          ? "The Lake City, Book One: The Boy Who Wanted the War — cover"
+          : `The Lake City — Page ${state.number}: ${state.title}`;
+        pageFrame.classList.toggle("is-cover", state.number === 0);
+      }
+
+      pageTitle.textContent = state.title;
+      pageInfo.textContent = state.label;
+      previousButton.disabled = current === 0;
+      nextButton.disabled = current === states.length - 1;
+      progressBar.style.width = `${(current / (states.length - 1)) * 100}%`;
+      updateActs(state);
+      prefetchNext();
+
+      document.title = state.type === "page"
+        ? `${state.title} — The Lake City`
+        : `${state.title} — The Lake City`;
+
+      window.scrollTo({ top: 0, behavior: "instant" });
+      viewport.classList.remove("is-fading");
+    }
+
+    function show(index, instant = false) {
+      if (index < 0 || index >= states.length || index === current && !instant) return;
+      window.clearTimeout(transitionTimer);
+
+      if (instant || reducedMotion) {
+        commitState(index);
+        return;
+      }
+
+      viewport.classList.add("is-fading");
+      transitionTimer = window.setTimeout(() => commitState(index), 180);
+    }
+
+    function next() {
+      if (current < states.length - 1) show(current + 1);
+    }
+
+    function previous() {
+      if (current > 0) show(current - 1);
+    }
+
+    previousButton.addEventListener("click", previous);
+    nextButton.addEventListener("click", next);
+
+    pageImage.addEventListener("click", (event) => {
+      const bounds = pageImage.getBoundingClientRect();
+      const clickX = event.clientX - bounds.left;
+      if (clickX < bounds.width / 3) previous();
+      else next();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      const activeTag = document.activeElement && document.activeElement.tagName;
+      const isInteractive = ["INPUT", "BUTTON", "A", "LABEL"].includes(activeTag);
+      if (isInteractive) return;
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        previous();
+      } else if (event.key === "ArrowRight" || event.key === " ") {
+        event.preventDefault();
+        next();
+      }
+    });
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    document.getElementById("readerShell").addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].screenX;
+      touchStartY = event.changedTouches[0].screenY;
+    }, { passive: true });
+
+    document.getElementById("readerShell").addEventListener("touchend", (event) => {
+      if (states[current].type === "quiz") return;
+      const deltaX = touchStartX - event.changedTouches[0].screenX;
+      const deltaY = touchStartY - event.changedTouches[0].screenY;
+      if (Math.abs(deltaX) > 54 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+        if (deltaX > 0) next();
+        else previous();
+      }
+    }, { passive: true });
+
+    let answered = 0;
+    let correct = 0;
+
+    document.querySelectorAll(".check-answer").forEach((button) => {
+      button.addEventListener("click", () => {
+        const question = button.closest(".question");
+        const questionId = question.dataset.question;
+        const selected = question.querySelector(`input[name="${questionId}"]:checked`);
+        const warning = question.querySelector(".selection-warning");
+
+        if (!selected) {
+          warning.style.display = "block";
+          return;
+        }
+
+        warning.style.display = "none";
+        const isCorrect = selected.value === question.dataset.correct;
+        question.classList.add(isCorrect ? "is-correct" : "is-wrong");
+        question.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+          if (input.value === question.dataset.correct) {
+            input.closest(".option").classList.add("is-answer");
+          } else if (input.checked) {
+            input.closest(".option").classList.add("is-selected-wrong");
+          }
+        });
+
+        button.hidden = true;
+        question.querySelector(".feedback").style.display = "block";
+        answered += 1;
+        if (isCorrect) correct += 1;
+
+        if (answered === 5) {
+          document.getElementById("scoreText").textContent = `${correct} of 5`;
+          document.getElementById("quizResults").style.display = "block";
+        }
+      });
+    });
+
+    document.getElementById("restartQuiz").addEventListener("click", () => {
+      answered = 0;
+      correct = 0;
+      document.querySelectorAll(".question").forEach((question) => {
+        question.classList.remove("is-correct", "is-wrong");
+        question.querySelectorAll("input").forEach((input) => {
+          input.checked = false;
+          input.disabled = false;
+          input.closest(".option").classList.remove("is-answer", "is-selected-wrong");
+        });
+        question.querySelector(".check-answer").hidden = false;
+        question.querySelector(".selection-warning").style.display = "none";
+        question.querySelector(".feedback").style.display = "none";
+      });
+      document.getElementById("quizResults").style.display = "none";
+      quiz.scrollIntoView({ block: "start", behavior: reducedMotion ? "auto" : "smooth" });
+    });
+
+    show(0, true);
+  </script>
+</body>
+</html>

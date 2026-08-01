@@ -6,7 +6,21 @@
   <meta name="description" content="A family library of illustrated stories, biographies, history, science, myth, and fiction." />
   <title>Illustrated Stories</title>
   <link rel="stylesheet" href="site.css" />
-  <script src="stories.js" defer></script>
+  <script src="stories.js"></script>
+  <script>
+    window.NANO_STORIES = [
+      {
+        slug: "lake-city",
+        title: "The Lake City — Book One: The Boy Who Wanted the War",
+        cover: "lake-city/pages/cover-v2.png",
+        published: "2026-07-26",
+        category: "History",
+        series: "The Lake City · Book One",
+        summary: "A Tlaxcalan boy walks into Tenochtitlán beside the Spanish, wanting the war—and falls in love with the city he came to help destroy."
+      },
+      ...(window.NANO_STORIES || [])
+    ];
+  </script>
   <script src="home.js" defer></script>
 </head>
 <body>
@@ -62,6 +76,7 @@
       </div>
       <a class="primary-link" href="archive.html">Browse all stories <span aria-hidden="true">→</span></a>
       <div class="shelf-links" aria-label="Browse popular shelves">
+        <a href="lake-city/index.html">The Lake City · graphic novel</a>
         <a href="archive.html?category=Biography">Remarkable people</a>
         <a href="archive.html?category=History">History</a>
         <a href="archive.html?category=Myth%20%26%20Literature">Myth &amp; literature</a>
