@@ -65,7 +65,7 @@ Low angle from behind and below: the barefoot boy in the coarse knee-length fibr
 - P2, speech bubble, tail to the boy: `And we never lost.`
 - P3, speech bubble, tail to the older man: `We never won, either. Look at your cloak.`
 - P3, caption box, lower right: `Maguey fibre. Only lords wear cotton, and no cotton reached us. I was seventeen and I had never touched it.`
-- P4, speech bubble, tail to the boy: `They took my father in the war when I was nine. Nobody ever told me where he died.`
+- P4, speech bubble, tail to the boy: `The lake people took my father in the war when I was nine. Nobody ever told me where he died.`
 
 ---
 
@@ -83,7 +83,7 @@ Low angle from behind and below: the barefoot boy in the coarse knee-length fibr
 **LETTERING:**
 - P1, caption box, upper left: `Then the strangers came over the mountains. We fought them, and then we stopped fighting them.`
 - P1, caption box, lower right: `They had animals as tall as a roof that men sat on top of. They had dogs the size of deer. They had tubes that made thunder. Nobody in my town thought they were gods. We thought they were useful.`
-- P2, speech bubble, tail to the boy: `What is it for?`
+- P2, speech bubble, tail to the boy: `What is that animal for?`
 - P3, speech bubble, tail to the young woman: `It carries a man faster than you can run.`
 - P4, speech bubble, tail to the boy: `Nothing carries a man faster than I can run.`
 - P4, speech bubble, tail to the young woman: `Then you are the one I want. Can you keep your mouth shut?`
@@ -98,17 +98,17 @@ Low angle from behind and below: the barefoot boy in the coarse knee-length fibr
 **T:** T5
 
 - **P1** — Interior council room, whitewashed, painted red band at floor level, reed mats, braziers. The heavy-set lord in the ankle-length white cotton mantle speaking, hands open.
-- **P2** — The very old blind lord seated on a low reed-backed seat, chin lifted, pale clouded eyes, one hand out on an attendant's arm.
+- **P2** — The very old blind lord seated on a low reed-backed seat, chin lifted, pale clouded eyes, one hand resting on the forearm of a plainly dressed young attendant. The attendant is visibly a servant/support figure, not the lord's son: no red-and-white mantle, military bearing, war club, or captain's regalia. Xicotencatl the Younger does not appear until P3.
 - **P3** — WIDE. The hard-faced young captain in the half-red/half-white mantle standing alone in the middle of the room, everyone else seated or at the walls. At the far right edge, small, the barefoot boy against the wall with a bundle, watching.
 
 **LETTERING:**
 - P1, caption box, upper left: `The lords of our four towns argued for two days.`
 - P1, speech bubble, tail to the lord in the white cotton mantle: `We have hated the Mexica for a hundred years and we have not moved them one step. These strangers move things.`
-- P2, speech bubble, tail to the old blind lord: `My son says no. My son is a better soldier than I ever was. And he is wrong.`
+- P2, speech bubble, tail to the old blind lord: `My son, the captain, says we must refuse the strangers. He is a better soldier than I ever was—but this time he is wrong.`
 - P3, speech bubble, tail to the young captain standing in the middle: `You are opening our gate because you hate our neighbour. That is not a reason. That is an appetite.`
-- P3, speech bubble, tail to the young captain standing in the middle: `And when the lake city falls, what stands between these men and us? Nothing. We will be the last thing left to take.`
+- P3, speech bubble, tail to the young captain standing in the middle: `And when the lake city falls, what stands between the strangers and us? Nothing. We will be the last thing left to take.`
 - P3, speech bubble, tail to the lord in the white cotton mantle: `Then we will be the last. Better last than kept.`
-- P3, caption box, lower right: `I was at the wall with the other carriers. I remember thinking that the angry one talked too much.`
+- P3, caption box, lower right: `I was at the wall with the other carriers. I remember thinking that the angry captain talked too much.`
 
 **NOTE — accuracy:** the split is **father vs. son.** The blind elder and Maxixcatzin are both FOR; only Xicotencatl the Younger is against. Do not reverse this. (`RESEARCH.md` §1)
 
@@ -128,7 +128,7 @@ Low angle from behind and below: the barefoot boy in the coarse knee-length fibr
 - P1, caption box, upper left: `Our lords offered the strangers ten thousand warriors. The strangers took one thousand of us, and not to fight.`
 - P1, caption box, lower right: `We were to carry the guns and the baggage, and clear the road.`
 - P2, speech bubble, tail to the older porter: `Ten thousand warriors offered. One thousand porters taken. Remember which one we are.`
-- P3, speech bubble, tail to the boy: `I don't care what we carry. I want to see it.`
+- P3, speech bubble, tail to the boy: `I don't care what we carry. I want to see the city.`
 - P3, speech bubble, tail to the older porter: `See what?`
 - P3, speech bubble, tail to the boy: `The city. I want to stand in the middle of the thing that has been beating us for a hundred years.`
 - P3, caption box, lower right: `That is the true reason I went. Not for Tlaxcala. I wanted to see it.`
@@ -151,7 +151,7 @@ Low angle from behind and below: the barefoot boy in the coarse knee-length fibr
 - P2, speech bubble, tail to the black-robed priest at the gate: `Armed enemies do not enter this city.`
 - P3, speech bubble, tail to the older porter with the rope: `We are carrying their cannon.`
 - P3, speech bubble, tail to the black-robed priest: `Then carry it in, and go back out.`
-- P4, caption box, lower right: `They let the strangers in. They would not let us in. We slept in the fields outside the wall, and looked at their roofs, and hated them properly.`
+- P4, caption box, lower right: `The Cholulans let the strangers in. They would not let us in. We slept in the fields outside the wall, and looked at their roofs, and hated them properly.`
 
 ---
 
@@ -170,10 +170,10 @@ Low angle from behind and below: the barefoot boy in the coarse knee-length fibr
 **LETTERING:**
 - P1, caption box, upper left: `I did not see what happened inside Cholula. I heard it.`
 - P1, caption box, lower right: `Malintzin had been told the Cholulans meant to kill the strangers in their sleep. Whether that was true, I still do not know.`
-- P2, caption box, upper right: `It began before the sun was properly up, and it did not last long.`
+- P2, caption box, upper right: `The killing began before the sun was properly up, and it did not last long.`
 - P3, speech bubble, tail to a Tlaxcalan warrior carrying rolled cloth: `Move, boy. There is cotton in there.`
 - P3, speech bubble, tail to the older porter standing empty-handed: `Don't touch it.`
-- P3, caption box, lower left: `Our own companies went in. They came back out with cotton, with feathers, and with captives on ropes. Then the strangers made them give the captives up, and that was the only time that day I saw our men truly angry.`
+- P3, caption box, lower left: `Our own companies went in. They returned with cotton, feathers, and captives on ropes. The strangers ordered the captives released. That was the only time that day I saw our men truly angry.`
 - P3, caption box, lower right: `Thousands died in Cholula. No two people have ever agreed how many.`
 
 **NOTE — accuracy:** Tlaxcalan looting and captive-taking is documented, as is Cortés forcing the captives' release. Do not assign single-author blame for the massacre itself. (`RESEARCH.md` §8)
@@ -194,7 +194,7 @@ Low angle from behind and below: the barefoot boy in the coarse knee-length fibr
 - P1, caption box, upper left: `We climbed for a day and a half between two mountains. One of them was smoking.`
 - P2, speech bubble, tail to the boy: `My feet have stopped feeling anything.`
 - P2, speech bubble, tail to the older porter: `Good. Then they have stopped hurting.`
-- P2, speech bubble, tail to the young woman in the white cotton tunic: `Keep walking. You wanted to see it.`
+- P2, speech bubble, tail to the young woman in the white cotton tunic: `Keep walking. You wanted to see the lake city.`
 - P3, caption box, lower right: `Snow. I had heard the word all my life. I had never had it in my hand.`
 
 ---
@@ -211,7 +211,7 @@ The reveal. High vantage at the top of the pass, looking down and out: the whole
 
 **LETTERING:**
 - Caption box, upper left, small: `And then the mountain ended.`
-- Caption box, bottom, full width: `I had been taught my whole life that the lake people were thieves who stole children and had no right to anything they owned. Nobody had ever told me that it was beautiful.`
+- Caption box, bottom, full width: `I had been taught my whole life that the lake people were thieves who stole children and had no right to anything they owned. Nobody had ever told me that their city was beautiful.`
 
 ---
 
@@ -223,16 +223,16 @@ The reveal. High vantage at the top of the pass, looking down and out: the whole
 
 - **P1** — WIDE. Iztapalapa: a well-built lakeshore town, stone-and-plaster houses, flower beds, fruit trees, cut walkways, canes and reeds, water everywhere.
 - **P2** — An enormous square pool of cut masonry, its paved edge running away to a vanishing point, full of fish and waterfowl. The boy crouched at the rim with his hand in the water.
-- **P3** — Mid-ground: the Spanish captain walking the paved edge of the pool with measured, deliberate paces, looking down at his own feet.
+- **P3** — Mid-ground: the Spanish captain walking the paved edge of the pool with measured, deliberate paces, looking down at his own feet. The young woman in the white cotton tunic stands nearby, watching him and the boy.
 - **P4** — Close two-shot: the young woman in the white cotton tunic and the boy, both watching the captain.
 
 **LETTERING:**
-- P1, caption box, upper left: `Before the city there was a town on the shore called Iztapalapa. It was ruled by the Speaker's own brother.`
+- P1, caption box, upper left: `Before the city there was a town on the shore called Iztapalapa. It was ruled by the brother of the tlatoani — the Speaker, king of the lake people.`
 - P2, caption box, upper right: `It had gardens. It had a pool of cut stone four hundred paces across, full of fish, with a path all the way round it.`
 - P2, speech bubble, tail to the crouching boy: `Who is it for?`
-- P3, speech bubble, tail to the young woman in the white tunic: `He is counting his paces.`
+- P3, speech bubble, tail to the young woman in the white tunic: `The strangers' leader is counting his paces.`
 - P4, speech bubble, tail to the boy: `Why?`
-- P4, speech bubble, tail to the young woman: `Because he measures everything. You should learn from it.`
+- P4, speech bubble, tail to the young woman: `Because he measures everything. Watch him.`
 
 ---
 
@@ -250,7 +250,7 @@ The reveal. High vantage at the top of the pass, looking down and out: the whole
 - P1, caption box, upper left: `On the eighth day of the month the strangers call November, we walked out onto the water.`
 - P1, caption box, lower right: `The road was stone, straight as a spear, wide enough for eight horsemen side by side, and it ran two leagues out into the lake.`
 - P1, speech bubble, tail to the boy: `There is more canoe than there is water.`
-- P1, speech bubble, tail to the older porter: `They came out to look at us.`
+- P1, speech bubble, tail to the older porter: `The lake people came out to look at us.`
 - P2, speech bubble, tail to the crouching boy: `This part is not stone. It lifts out.`
 - P2, speech bubble, tail to the older porter: `What?`
 - P2, speech bubble, tail to the crouching boy: `The bridge. Loose timber. They can pull their own road apart whenever they like.`
@@ -271,11 +271,11 @@ The reveal. High vantage at the top of the pass, looking down and out: the whole
 
 **LETTERING:**
 - P1, caption box, upper left: `Then the city came out to meet us.`
-- P1, caption box, lower left: `He came in a litter under a canopy of green feathers. Lords walked ahead of him sweeping the road and laying cloths down so that his feet would not touch the earth.`
+- P1, caption box, lower left: `The Speaker came in a litter under a canopy of green feathers. Lords walked ahead of him sweeping the road and laying cloths down so that his feet would not touch the earth.`
 - P2, caption box, upper right: `Every great lord on that road was barefoot. He was the only man wearing sandals, and the soles of them were gold.`
 - P3, speech bubble, tail to the lord gripping the captain's arm: `You do not touch him.`
-- P3, caption box, lower left: `The stranger tried to embrace him and was held back by the arms. Not one of those great men would even look at his face.`
-- P4, caption box, lower left: `They traded gifts: glass beads on a gold cord, scented so they would smell sweet, for two collars of coloured shell hung with eight golden shrimps.`
+- P3, caption box, lower left: `The stranger tried to embrace him and was held back by the arms. Not one of those great men would even look at the Speaker's face.`
+- P4, caption box, lower left: `The Speaker and the strangers' captain traded gifts: glass beads on a gold cord, scented so they would smell sweet, for two collars of coloured shell hung with eight golden shrimps.`
 - P4, speech bubble, tail to the boy with the bundle: `Which one of them just won?`
 - P4, speech bubble, tail to the older porter: `Be quiet.`
 
@@ -294,9 +294,9 @@ The reveal. High vantage at the top of the pass, looking down and out: the whole
 - **P3** — WIDE. The boy lying on his back on bare stone, eyes open, hands behind his head. Around him sleeping men. Above and beyond, the lit windows and doorways of the inner rooms.
 
 **LETTERING:**
-- P1, caption box, upper left: `They put the strangers in the palace of the Speaker's dead father. They put us in its outer courts, with the cannon and the horses.`
+- P1, caption box, upper left: `The Speaker's people put the strangers in the palace of his dead father. They put us in its outer courts, with the cannon and the horses.`
 - P1, speech bubble, tail to the ruler in the doorway: `You and your brothers are in your own house. Rest awhile.`
-- P2, caption box, upper right: `At Cholula they would not let us through the gate. Here the greatest city in the world opened its door and told us to rest.`
+- P2, caption box, upper right: `At Cholula the Cholulans would not let us through the gate. Here the greatest city in the world opened its door and told us to rest.`
 - P3, speech bubble, tail to a sleeping man's neighbour, the older porter: `Sleep, Olin.`
 - P3, speech bubble, tail to the boy lying on his back: `I can't.`
 - P3, caption box, lower right: `I lay on the stones of a courtyard inside Tenochtitlán — the city my people had been fighting for a hundred years — and listened to it breathe.`
@@ -317,7 +317,7 @@ The reveal. High vantage at the top of the pass, looking down and out: the whole
 - **P4** — Close two-shot, the two boys facing each other. The difference in their clothes is the subject of the panel: coarse fibre above the knee vs. fine cotton to the ankle.
 
 **LETTERING:**
-- P1, caption box, upper left: `He found me on the second day, drinking out of a channel I was almost certainly not allowed to drink out of.`
+- P1, caption box, upper left: `The boy in the white mantle found me on the second day, drinking out of a channel I was almost certainly not allowed to drink out of.`
 - P1, speech bubble, tail to the boy in the long white cotton mantle: `That water comes from Chapultepec, out on the shore. It walks all the way here on a stone road of its own.`
 - P2, speech bubble, tail to the boy in the long white mantle: `Two channels, side by side. One carries the water. The other stays dry, so they can clean the first one without anybody going thirsty.`
 - P3, speech bubble, tail to the barefoot boy in the short fibre cloak: `Why are you talking to me?`
@@ -341,14 +341,14 @@ The reveal. High vantage at the top of the pass, looking down and out: the whole
 - **P4** — Close: the Tlaxcalan boy's open palm with a pinch of white salt in it, the Mexica boy's hand withdrawing.
 
 **LETTERING:**
-- P1, caption box, upper left: `On the fourth day they took us to the market at Tlatelolco. I have tried to describe it many times since.`
+- P1, caption box, upper left: `On the fourth day the strangers took us to the market at Tlatelolco. I have tried to describe it many times since.`
 - P1, caption box, lower left: `A square twice the size of any square I had ever stood in, with sixty thousand people in it in one day, and every kind of goods sold in its own street and nowhere else.`
 - P2, speech bubble, tail to the boy in the long white cotton mantle: `Birds here. Herbs two streets over. Barbers past them.`
 - P3, speech bubble, tail to the boy in the long white cotton mantle: `Sell in the wrong street and those judges hear about it before you get home.`
 - P3, caption box, upper right: `Everything was sold by measure and nothing by weight. Inspectors walked the aisles and broke false measures in front of whoever owned them.`
 - P4, speech bubble, tail to the barefoot boy: `What is the white?`
 - P4, speech bubble, tail to the boy in the long white mantle: `Salt. Hold out your hand.`
-- P4, caption box, lower right: `I was seventeen years old, and that was the first time I tasted salt. It was sold by the basket, in the open, at a fair price, to anybody who walked up. My people had gone three generations without it because this city could arrange that.`
+- P4, caption box, lower right: `I was seventeen years old, and that was the first time I tasted salt. It was sold by the basket, in the open, at a fair price, to anybody who walked up. My people had gone three generations without salt because the rulers of this city kept us surrounded and would not let us buy it.`
 
 ---
 
@@ -365,7 +365,7 @@ The reveal. High vantage at the top of the pass, looking down and out: the whole
 - **P3** — WIDE. The two boys small on the platform, backs to us, looking out over the whole shining city and lake spread below them.
 
 **LETTERING:**
-- P1, caption box, upper left: `Then he took me up the great temple, because he was proud of it.`
+- P1, caption box, upper left: `Then Xiuhtototzin took me up the great temple, because he was proud of it.`
 - P1, speech bubble, tail to the boy in the long white cotton mantle: `Two shrines at the top. Rain on the left. War on the right.`
 - P1, caption box, lower right: `The steps had been washed. The stone at the top had been scrubbed pale. The priests wore black and their hair had never once been cut or combed.`
 - P2, speech bubble, tail to the barefoot boy: `Where do the captives come from?`
@@ -394,9 +394,9 @@ The reveal. High vantage at the top of the pass, looking down and out: the whole
 - P2, speech bubble, tail to the boy in the long white cotton mantle: `Three hundred men work here. Only on the birds.`
 - P2, speech bubble, tail to the barefoot boy: `Three hundred.`
 - P2, speech bubble, tail to the boy in the long white mantle: `And doctors. For the birds.`
-- P3, caption box, upper right: `The fish-eating birds ate two hundred and fifty pounds of fish a day. Every hawk and eagle had a cage to itself, with one perch for the night and one for the sun.`
+- P3, caption box, upper right: `The fish-eating birds consumed basket after basket of fish. Every hawk and eagle had its own cage, with one perch for night and one for sun.`
 - P4, speech bubble, tail to the barefoot boy: `In my town a man died last winter because nobody had anything left to give him.`
-- P4, speech bubble, tail to the boy in the long white mantle: `That is not a thing I know how to answer.`
+- P4, speech bubble, tail to the boy in the long white mantle: `I don't know how to answer that.`
 - P4, caption box, lower right: `It was the first true thing either of us had said to the other.`
 
 ---
@@ -413,13 +413,13 @@ The reveal. High vantage at the top of the pass, looking down and out: the whole
 - **P4** — Close on the Tlaxcalan boy's face at the edge of the hall, water jar forgotten.
 
 **LETTERING:**
-- P1, caption box, upper left: `Six hundred lords came to his door every morning and waited there all day for nothing in particular. I carried a jar through them and not one of them saw me.`
-- P1, caption box, lower left: `Which is how I came to be standing in the room on the day he laughed at us.`
+- P1, caption box, upper left: `Six hundred lords came to the Speaker's door every morning and waited there all day to be summoned. I carried a jar through them and not one of them saw me.`
+- P1, caption box, lower left: `Which is how I came to be standing in the room when the Speaker laughed at what my people had told the strangers.`
 - P2, speech bubble, tail to the seated ruler: `I know quite well what the people of Tlaxcala have told you. That I am a god. That everything in my house is made of gold and silver.`
 - P3, speech bubble, tail to the ruler holding out his bare arm: `Look at me. I am flesh and bones, the same as you and as everybody. And I am mortal.`
 - P3, caption box, upper right: `He was laughing when he said it. He pulled back his own sleeve to prove it.`
 - P4, caption box, lower left: `My own people had told them he was a god. That is what you say about a thing you have never once been able to beat.`
-- P4, caption box, lower right: `He was the first Mexica I ever stood close enough to to hear breathing.`
+- P4, caption box, lower right: `I stood close enough to hear him breathing.`
 
 **NOTE — accuracy:** both of the Speaker's lines here are close to reported wording — the god/gold-and-silver line from Bernal Díaz (who says he said it laughing), the flesh-and-bones line from Cortés's own letter. **Deliberate compression: two separately reported remarks are staged as one exchange.** Recorded here so the choice is traceable; both are listed in the back-matter source note. **The "returning god" myth is NOT used anywhere in this book — this scene is the opposite of it.** (`RESEARCH.md` §12)
 
@@ -437,12 +437,12 @@ The reveal. High vantage at the top of the pass, looking down and out: the whole
 
 **LETTERING:**
 - P1, caption box, upper left: `Word came up from the coast that a lord out there had killed some of the strangers.`
-- P1, caption box, lower left: `I was in the doorway with an empty jar when they decided what to do about it.`
-- P2, speech bubble, tail to the bearded captain: `Tell him he will be safer in our rooms.`
+- P1, caption box, lower left: `I was in the doorway with an empty jar while the captain and Malintzin spoke about what to do.`
+- P2, speech bubble, tail to the bearded captain: `Tell the Speaker he will be safer in our rooms.`
 - P2, speech bubble, tail to the young woman in the white tunic: `That is not what you mean.`
 - P2, speech bubble, tail to the bearded captain: `It is what you will say.`
-- P3, caption box, lower right: `She looked at me exactly once. She knew how much of it I had understood, in both languages. She said nothing about it, and neither did I.`
-- P3, caption box, lower left: `I was the only person in that courtyard who could speak to both sides. And my legs were the only thing I had ever been proud of.`
+- P3, caption box, lower left: `I did not know the strangers' language. I knew her face. She looked at me exactly once and said nothing.`
+- P3, caption box, lower right: `When the Speaker crossed into their rooms, I understood what I had witnessed. My legs were the only thing I had ever been proud of.`
 
 ---
 
@@ -461,10 +461,10 @@ The reveal. High vantage at the top of the pass, looking down and out: the whole
 
 **LETTERING:**
 - P1, caption box, upper left: `They put men at the ends of the streets first. Then they walked into his palace the way they always did, and talked pleasantly, and then they did not leave.`
-- P2, caption box, upper right: `He came across to their rooms and brought his household with him. He still heard petitions. Lords still came at dawn. He bathed every evening and never wore the same cloak twice in four days.`
+- P2, caption box, upper right: `Inside the strangers' quarters, he still heard petitions and received lords at dawn. His household came with him. Nothing about the room told me whether he could leave.`
 - P3, speech bubble, tail to the boy in the long white cotton mantle: `Olin. Is he a prisoner?`
 - P3, speech bubble, tail to the barefoot boy: `I don't know.`
-- P3, speech bubble, tail to the boy in the long white mantle: `You sleep in that building.`
+- P3, speech bubble, tail to the boy in the long white mantle: `You sleep in the strangers' quarters.`
 - P4, speech bubble, tail to the barefoot boy: `I know. I still don't know.`
 - P4, caption box, lower right: `That is the truth and I have never been able to improve on it. Nothing looked different. Everything was different.`
 
@@ -483,11 +483,11 @@ The reveal. High vantage at the top of the pass, looking down and out: the whole
 - **P3** — WIDE. The two of them facing each other in the dark court, braziers behind, the sleeping porters and stacked cannon around them.
 
 **LETTERING:**
-- P1, caption box, upper left: `Then they burned the lord from the coast and his son in a public square, and while it was happening they put irons on the Speaker's ankles, and took them off again the same day.`
+- P1, caption box, upper left: `Then the strangers burned the coastal lord and his son in a public square. While it was happening, they put irons on the Speaker's ankles, then took them off again the same day.`
 - P2, caption box, upper right: `That night Xiuhtototzin was waiting for me at the edge of the court.`
-- P2, speech bubble, tail to the boy in the long white cotton mantle: `Tell me what they are going to do to my city.`
-- P3, caption box, lower left: `I knew. Not the details — I was seventeen and I carried bundles. But I had hauled their cannon since Cholula, and I had heard what our own lords wanted, and I had watched a man count his paces round a fish pool.`
-- P3, speech bubble, tail to the barefoot boy: `Nothing. They want gold. They will take gold and go home.`
+- P2, speech bubble, tail to the boy in the long white cotton mantle: `Tell me what the strangers are going to do to my city.`
+- P3, caption box, lower left: `I knew. Not the details — I was seventeen and I carried bundles. But I had hauled the strangers' cannon since Cholula, and I had heard what our own lords wanted, and I had watched a man count his paces round a fish pool.`
+- P3, speech bubble, tail to the barefoot boy: `Nothing. The strangers want gold. They will take gold and go home.`
 - P3, speech bubble, tail to the boy in the long white mantle: `Good.`
 - P3, caption box, lower right: `That is the only lie I ever told him.`
 
@@ -504,7 +504,7 @@ Night, high and wide. A flat plastered rooftop above the sleeping city; one smal
 **LETTERING:**
 - Caption box, upper left: `I went up onto the roof and looked at it for a long time.`
 - Caption box, mid right: `A hundred years of war, and this was the thing we had been fighting: the cleanest, best-fed, best-ordered place any of us would ever stand in.`
-- Caption box, bottom, full width: `I had wanted this city to fall since before I was strong enough to carry a load. I had wanted it more than I have ever wanted anything, and I had never once seen it.`
+- Caption box, bottom, full width: `I had wanted this city to fall since before I was strong enough to carry a load. I had wanted it more than I had ever wanted anything, and I had never once seen it.`
 - Caption box, bottom right, small: `I was seventeen. I had tasted salt. I said nothing.`
 - Final line, small, lower right corner: `The war I wanted began in the spring.`
 

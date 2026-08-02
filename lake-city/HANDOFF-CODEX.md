@@ -1,14 +1,16 @@
 # HANDOFF — CODEX EXECUTION
 
-> ## ⚠️ STATUS 2026-07-31 — PRODUCTION IS COMPLETE. DO NOT RE-RUN THIS.
+> ## ⚠️ STATUS 2026-08-02 — REVISED EDITION COMPLETE; AWAIT USER QA / COMMIT
 >
-> Codex executed this handoff on 25–27 July. On disk now: **9/9 refs, cover + 22/22 pages, `index.html` reader built, landing-page card added.** `pages/page-01-v2.png` is a repair and the reader points at it (page 1 is special-cased at `index.html:743`) — `page-01.png` is the superseded original, keep both.
+> The original production run was committed and pushed to `main` as `3864f3d` (`Publish The Lake City book one`). After publication, the script was revised for effortless reading and the revisions were propagated into a complete local replacement edition. **Do not regenerate or redesign it.** The active local reader map is Page 1 v3, 2 v2, 3 v2, 4 v6, 5 v3, 6 v3, 7 v6, 8 v3, 9 v3, 10 v4, 11 v3, 12 v7, 13 v2, 14 v3, 15 v4, 16 v5, 17 v4, 18 v3, 19 v4, 20 v4, 21 v3, 22 v3; cover remains `cover-v2.png`.
 >
-> **Everything below this box is the original production brief, kept for the record.** The remaining work is not generation. It is:
+> Both independent critics passed the earlier frozen revised script and rendered book. During user QA, Page 4 P2 was still found semantically ambiguous: `My son says no` did not name the decision, and the attendant could be mistaken for the son. `page-04-v6.png` is the active repair, with explicit wording and clearly subordinate attendant staging. User QA also caught `AHIEAD` for `AHEAD` in Page 12 P1; `page-12-v7.png` is the active exact-text repair. Page 15 P4's vague `this city could arrange that` was replaced in `page-15-v4.png` with an explicit account of the rulers maintaining the encirclement and preventing salt purchases. The evidence and iteration history are in `SCRIPT-CRITIC-REPORT.md`.
 >
-> 1. **User-QA** — the user has not signed off on the 23 images. Nothing ships before he does.
-> 2. **Commit** — `lake-city/` is entirely untracked and root `index.html` is modified. Stage **only** those two; the repo has a lot of unrelated uncommitted work.
-> 3. **Two loose ends** — the landing-page entry was added as an inline `window.NANO_STORIES` shim at the top of root `index.html` instead of an entry in `stories.js` where every other volume lives; and there is no production log recording regens, cost, or refusals for this run. See the memory file `project_lake_city.md`.
+> Remaining work: **user QA, then—only when explicitly requested—commit and push the revised edition.** Stage only the changed/untracked files inside `lake-city/`; the worktree contains extensive unrelated user work. Do not stage root `index.html`, `stories.js`, or anything outside `lake-city/` unless the user explicitly expands scope. The checkout is `main`, and the repo rule is to publish routine completed work directly to `origin/main`.
+>
+> Image production used the built-in subscription-backed Codex image path. No `OPENAI_API_KEY`, CLI, or separately billed API path was used. If any later image repair is requested, inspect the active page and every referenced PNG first, use one whole-page edit with all refs, fix one defect only, save a versioned sibling, and rerun both critics.
+>
+> **Everything below this box is the original production brief, kept for the record.**
 
 Planning is done. Everything in this folder is finished and approved. **Your job is production only: nine refs, three prototypes, twenty-three pages, then the reader, the quiz, and the landing card.** Do not redesign the book. If something in the script genuinely cannot be rendered, say so in writing rather than quietly substituting.
 
