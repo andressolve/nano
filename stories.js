@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "treasure-island",
+    title: "Treasure Island — Volume I: The Map",
+    cover: "treasure-island/pages/cover.png",
+    published: "2026-08-04",
+    category: "Myth & Literature",
+    series: "Treasure Island · Volume I",
+    summary: "Jim Hawkins finds a dead pirate's packet, sails aboard the Hispaniola, and learns too late that the warmest man on deck is plotting mutiny."
+  },
+  {
     slug: "monte-cristo",
     title: "The Count of Monte Cristo — Volume I: Edmond",
     cover: "monte-cristo/pages/cover.png",

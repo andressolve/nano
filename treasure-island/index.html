@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Read Treasure Island, Volume I: The Map — a 33-page illustrated adventure about Jim Hawkins, Long John Silver, and the voyage to a dangerous island." />
+  <title>Treasure Island — Volume I: The Map</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #07100f;
+      --deep: #0b1816;
+      --rag: #e9dfc5;
+      --muted: rgba(233, 223, 197, 0.58);
+      --teal: #477b75;
+      --red: #98483b;
+      --gold: #c6a35d;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { background: var(--ink); }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--rag);
+      background:
+        radial-gradient(circle at 18% 10%, rgba(71, 123, 117, 0.12), transparent 28rem),
+        radial-gradient(circle at 82% 28%, rgba(152, 72, 59, 0.07), transparent 26rem),
+        linear-gradient(180deg, #10201d, var(--ink) 70%);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    button, input { font: inherit; }
+
+    .progress {
+      position: fixed;
+      z-index: 100;
+      inset: 0 auto auto 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--red), var(--gold));
+      box-shadow: 0 0 15px rgba(198, 163, 93, 0.34);
+      transition: width 220ms ease;
+    }
+
+    .reader-bar {
+      position: fixed;
+      z-index: 80;
+      inset: 3px 0 auto;
+      display: grid;
+      grid-template-columns: 1fr minmax(0, auto) 1fr;
+      align-items: center;
+      gap: 14px;
+      min-height: 48px;
+      padding: 8px 18px;
+      background: linear-gradient(180deg, rgba(7, 16, 15, 0.95), rgba(7, 16, 15, 0.66), transparent);
+      pointer-events: none;
+    }
+
+    .reader-bar a,
+    .reader-bar span { pointer-events: auto; }
+
+    .home {
+      justify-self: start;
+      color: var(--muted);
+      text-decoration: none;
+      font: 650 11px/1.2 system-ui, sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .home:hover { color: var(--rag); }
+
+    .chapter {
+      max-width: 60vw;
+      overflow: hidden;
+      color: rgba(233, 223, 197, 0.76);
+      font-size: 12px;
+      letter-spacing: 0.09em;
+      text-align: center;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .counter {
+      color: var(--muted);
+      font: 650 11px/1.2 system-ui, sans-serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .reader-actions {
+      display: flex;
+      justify-self: end;
+      gap: 10px;
+      align-items: center;
+      pointer-events: auto;
+    }
+
+    .inspect-toggle {
+      padding: 5px 9px;
+      border: 1px solid rgba(198, 163, 93, 0.38);
+      border-radius: 99px;
+      color: var(--gold);
+      background: rgba(7, 16, 15, 0.72);
+      cursor: pointer;
+      font: 750 10px/1 system-ui, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .inspect-toggle:hover { background: rgba(198, 163, 93, 0.11); }
+
+    main {
+      display: grid;
+      min-height: 100vh;
+      place-items: center;
+      padding: 56px 16px 24px;
+    }
+
+    .page-frame {
+      width: min(94vw, calc((100vh - 86px) * 2 / 3), 1024px);
+      opacity: 1;
+      transition: opacity 170ms ease, transform 170ms ease;
+    }
+
+    .page-frame.changing {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+
+    .page-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(198, 163, 93, 0.17);
+      border-radius: 3px;
+      box-shadow:
+        0 24px 76px rgba(0, 0, 0, 0.74),
+        0 0 0 1px rgba(0, 0, 0, 0.76);
+      cursor: zoom-in;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .nav {
+      position: fixed;
+      z-index: 70;
+      top: 50%;
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border: 1px solid rgba(233, 223, 197, 0.18);
+      border-radius: 50%;
+      color: rgba(233, 223, 197, 0.82);
+      background: rgba(7, 16, 15, 0.68);
+      box-shadow: 0 5px 22px rgba(0, 0, 0, 0.34);
+      cursor: pointer;
+      font: 24px/1 system-ui, sans-serif;
+      transform: translateY(-50%);
+      transition: background 160ms ease, border-color 160ms ease, opacity 160ms ease;
+      backdrop-filter: blur(7px);
+    }
+
+    .nav:hover:not(:disabled) {
+      border-color: rgba(198, 163, 93, 0.55);
+      background: rgba(71, 123, 117, 0.35);
+    }
+
+    .nav:disabled {
+      opacity: 0.15;
+      cursor: default;
+    }
+
+    .prev { left: 16px; }
+    .next { right: 16px; }
+
+    .interstitial,
+    .quiz {
+      display: none;
+      width: min(720px, 92vw);
+      margin: auto;
+      opacity: 1;
+      transition: opacity 170ms ease;
+    }
+
+    .interstitial.changing,
+    .quiz.changing { opacity: 0; }
+
+    .interstitial {
+      position: relative;
+      padding: 58px 30px;
+      border-block: 1px solid rgba(198, 163, 93, 0.25);
+      text-align: center;
+    }
+
+    .interstitial::before {
+      position: absolute;
+      inset: 13px 8% auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--teal), var(--gold), transparent);
+      content: "";
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      color: var(--gold);
+      font: 750 11px/1.3 system-ui, sans-serif;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .interstitial h1,
+    .quiz h1 {
+      margin: 0;
+      color: #f2ead8;
+      font-size: clamp(32px, 6vw, 54px);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+    }
+
+    .interstitial .subtitle {
+      margin: 10px 0 30px;
+      color: rgba(233, 223, 197, 0.66);
+      font-size: 19px;
+      font-style: italic;
+    }
+
+    .interstitial .promise {
+      max-width: 590px;
+      margin: 0 auto;
+      color: rgba(233, 223, 197, 0.8);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .next-volume {
+      margin: 38px 0 6px;
+      color: var(--red);
+      font: 750 11px/1.3 system-ui, sans-serif;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+    }
+
+    .volume-name {
+      margin: 0;
+      color: var(--gold);
+      font-size: 26px;
+    }
+
+    .volume-link {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 11px 20px;
+      border: 1px solid rgba(198, 163, 93, 0.48);
+      border-radius: 99px;
+      color: #f2ead8;
+      background: rgba(198, 163, 93, 0.09);
+      font: 750 12px/1 system-ui, sans-serif;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .volume-link:hover { background: rgba(198, 163, 93, 0.18); }
+
+    .quiz .volume-link {
+      display: table;
+      margin: 28px auto 0;
+    }
+
+    body.inspect-open { overflow: hidden; }
+
+    .inspect-overlay {
+      position: fixed;
+      z-index: 200;
+      inset: 0;
+      overflow: auto;
+      background: rgba(3, 9, 8, 0.97);
+      overscroll-behavior: contain;
+    }
+
+    .inspect-overlay[hidden] { display: none; }
+
+    .inspect-canvas {
+      width: max-content;
+      min-width: 100%;
+      padding: 70px 16px 42px;
+    }
+
+    .inspect-image {
+      display: block;
+      width: min(1024px, max(768px, calc(100vw - 32px)));
+      height: auto;
+      margin: 0 auto;
+      box-shadow: 0 24px 76px rgba(0, 0, 0, 0.82);
+    }
+
+    .inspect-close {
+      position: fixed;
+      z-index: 210;
+      top: 14px;
+      right: 14px;
+      padding: 10px 14px;
+      border: 1px solid rgba(233, 223, 197, 0.3);
+      border-radius: 99px;
+      color: var(--rag);
+      background: rgba(7, 16, 15, 0.92);
+      cursor: pointer;
+      font: 750 11px/1 system-ui, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .quiz { padding: 26px 0 80px; }
+
+    .quiz > .eyebrow,
+    .quiz > h1 { text-align: center; }
+
+    .quiz-intro {
+      max-width: 540px;
+      margin: 14px auto 36px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .question {
+      margin: 0 0 16px;
+      padding: 22px;
+      border: 1px solid rgba(233, 223, 197, 0.1);
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.027);
+    }
+
+    .question h2 {
+      margin: 0 0 16px;
+      color: #eee6d4;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .option {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 6px 0;
+      padding: 10px 12px;
+      border-radius: 3px;
+      color: rgba(233, 223, 197, 0.74);
+      cursor: pointer;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .option:hover { background: rgba(198, 163, 93, 0.07); }
+    .option input { margin-top: 3px; accent-color: var(--teal); }
+
+    .check {
+      margin-top: 12px;
+      padding: 8px 15px;
+      border: 1px solid rgba(198, 163, 93, 0.34);
+      border-radius: 99px;
+      color: var(--gold);
+      background: transparent;
+      cursor: pointer;
+      font: 750 11px/1 system-ui, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .check:hover { background: rgba(198, 163, 93, 0.09); }
+
+    .feedback {
+      display: none;
+      margin: 13px 0 0;
+      padding: 11px 13px;
+      border-left: 2px solid;
+      color: rgba(233, 223, 197, 0.8);
+      font: 14px/1.55 system-ui, sans-serif;
+    }
+
+    .feedback.correct {
+      border-color: #7f9d80;
+      background: rgba(127, 157, 128, 0.08);
+    }
+
+    .feedback.incorrect {
+      border-color: var(--red);
+      background: rgba(152, 72, 59, 0.09);
+    }
+
+    .score {
+      display: none;
+      margin: 28px 0 0;
+      color: var(--gold);
+      font-size: 22px;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .reader-bar { padding-inline: 10px; }
+      .chapter { max-width: 46vw; }
+      main { padding: 52px 8px 70px; }
+      .page-frame { width: min(100%, calc((100vh - 124px) * 2 / 3)); }
+      .nav {
+        top: auto;
+        bottom: 12px;
+        width: 44px;
+        height: 44px;
+        transform: none;
+      }
+      .prev { left: calc(50% - 54px); }
+      .next { right: calc(50% - 54px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .progress, .page-frame, .interstitial, .quiz { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <header class="reader-bar">
+    <a class="home" href="../index.html">← Stories</a>
+    <span class="chapter" id="chapter" aria-live="polite">The Map</span>
+    <span class="reader-actions">
+      <span class="counter" id="counter">Cover</span>
+      <button class="inspect-toggle" id="inspectToggle" type="button">Zoom</button>
+    </span>
+  </header>
+
+  <main>
+    <figure class="page-frame" id="pageFrame">
+      <img id="pageImage" src="pages/cover.png" alt="Treasure Island, Volume I: The Map — cover" />
+    </figure>
+
+    <section class="interstitial" id="interstitial" aria-labelledby="end-title">
+      <p class="eyebrow">End of Volume I</p>
+      <h1 id="end-title">The Map</h1>
+      <p class="subtitle">The island is before them. The mutiny is still hidden.</p>
+      <p class="promise">Jim has heard enough to save his friends—but not enough to know what the island will ask of him. The boats are coming down. The shore is close. Long John Silver is still smiling.</p>
+      <p class="next-volume">Volume II</p>
+      <p class="volume-name">Revision in progress</p>
+      <a class="volume-link" href="../index.html">Return to Stories →</a>
+    </section>
+
+    <section class="quiz" id="quiz" aria-labelledby="quiz-title">
+      <p class="eyebrow">After the story</p>
+      <h1 id="quiz-title">Test your understanding</h1>
+      <p class="quiz-intro">Five questions about choices, trust, and the clues Jim learned to read—not a test of pirate trivia.</p>
+
+      <article class="question" id="q1">
+        <h2>1. Why did Mrs. Hawkins return to the inn after Billy Bones died?</h2>
+        <label class="option"><input type="radio" name="q1" value="a" /> She wanted every coin in the sea chest.</label>
+        <label class="option"><input type="radio" name="q1" value="b" /> She meant to collect only the money Billy lawfully owed her.</label>
+        <label class="option"><input type="radio" name="q1" value="c" /> Pew promised that no pirates would return.</label>
+        <button class="check" type="button" data-question="q1" data-answer="b">Check answer</button>
+        <p class="feedback correct">Yes. Her courage is joined to a limit: she will claim what is owed, but she refuses to become a thief because thieves are coming.</p>
+        <p class="feedback incorrect">Not quite. Mrs. Hawkins returns for the inn’s lawful dues and insists on taking no more. That refusal defines her as strongly as her courage.</p>
+      </article>
+
+      <article class="question" id="q2">
+        <h2>2. Why did Jim take the oilskin packet from the chest?</h2>
+        <label class="option"><input type="radio" name="q2" value="a" /> His mother could not finish counting unfamiliar coins before the pirates arrived.</label>
+        <label class="option"><input type="radio" name="q2" value="b" /> He already knew it contained a map to Treasure Island.</label>
+        <label class="option"><input type="radio" name="q2" value="c" /> Billy had told him to give it to Long John Silver.</label>
+        <button class="check" type="button" data-question="q2" data-answer="a">Check answer</button>
+        <p class="feedback correct">Right. Jim takes the sealed packet to square an unfinished count. Only later do Livesey and Trelawney discover what it contains.</p>
+        <p class="feedback incorrect">Not quite. Jim does not know the packet is a map. He takes it because danger interrupts the coin count and his mother refuses to take more than she is owed.</p>
+      </article>
+
+      <article class="question" id="q3">
+        <h2>3. What made Captain Smollett distrust the voyage before it began?</h2>
+        <label class="option"><input type="radio" name="q3" value="a" /> The ship was too small to cross the ocean.</label>
+        <label class="option"><input type="radio" name="q3" value="b" /> The crew knew the island’s bearings and the treasure, although those facts were meant to be secret.</label>
+        <label class="option"><input type="radio" name="q3" value="c" /> Jim refused to obey orders on deck.</label>
+        <button class="check" type="button" data-question="q3" data-answer="b">Check answer</button>
+        <p class="feedback correct">Exactly. Smollett sees that the secret has already escaped. Moving powder, weapons, and loyal berths aft is caution based on evidence.</p>
+        <p class="feedback incorrect">Not quite. Smollett’s concern is the leaked secret: men he did not choose already know the destination and the treasure.</p>
+      </article>
+
+      <article class="question" id="q4">
+        <h2>4. Why was Silver able to win Jim’s trust?</h2>
+        <label class="option"><input type="radio" name="q4" value="a" /> He hid from Jim throughout the voyage.</label>
+        <label class="option"><input type="radio" name="q4" value="b" /> He was capable, warm, funny, and seemed genuinely surprised when Black Dog escaped.</label>
+        <label class="option"><input type="radio" name="q4" value="c" /> He confessed the mutiny plan to Jim before sailing.</label>
+        <button class="check" type="button" data-question="q4" data-answer="b">Check answer</button>
+        <p class="feedback correct">Yes. Silver does not merely tell Jim to trust him. He teaches, works, laughs, and performs innocence convincingly enough that the later revelation hurts.</p>
+        <p class="feedback incorrect">Not quite. Silver earns trust through real competence and apparent warmth. His performance works because much of the pleasure Jim feels around him is genuine.</p>
+      </article>
+
+      <article class="question" id="q5">
+        <h2>5. What is the loyal group’s one advantage when Jim reports the mutiny?</h2>
+        <label class="option"><input type="radio" name="q5" value="a" /> The mutineers do not know that Jim overheard them.</label>
+        <label class="option"><input type="radio" name="q5" value="b" /> The loyal men greatly outnumber the crew.</label>
+        <label class="option"><input type="radio" name="q5" value="c" /> Silver has already surrendered his weapons.</label>
+        <button class="check" type="button" data-question="q5" data-answer="a">Check answer</button>
+        <p class="feedback correct">Right. They are badly outnumbered, but knowledge has changed sides. Silver still believes his plan is secret.</p>
+        <p class="feedback incorrect">Not quite. The loyal party is small. Its advantage is secrecy: the conspirators do not know Jim heard them.</p>
+      </article>
+
+      <p class="score" id="score"></p>
+      <a class="volume-link" href="../index.html">Return to Stories →</a>
+    </section>
+  </main>
+
+  <button class="nav prev" id="prev" type="button" aria-label="Previous page">←</button>
+  <button class="nav next" id="next" type="button" aria-label="Next page">→</button>
+
+  <div class="inspect-overlay" id="inspectOverlay" hidden>
+    <button class="inspect-close" id="inspectClose" type="button">Close</button>
+    <div class="inspect-canvas">
+      <img class="inspect-image" id="inspectImage" src="pages/cover.png" alt="Enlarged comic page" />
+    </div>
+  </div>
+
+  <script>
+    const pageTitles = [
+      "Cover",
+      "The Chest Comes Up the Road",
+      "The Captain’s Berth",
+      "The One-Legged Man",
+      "Doctor at the Table",
+      "Black Dog",
+      "Steel and Silence",
+      "A House in Mourning",
+      "The Blind Man’s Hand",
+      "Till Ten",
+      "No One Will Come",
+      "The Sea Chest",
+      "Not a Farthing Over",
+      "Flint’s Fist",
+      "Hooves in the Moonlight",
+      "The Dead Man’s Book",
+      "The Island Unfolds",
+      "Good-bye to the Benbow",
+      "Bristol",
+      "The Spy-glass",
+      "A Perfect Trump",
+      "Captain Smollett Is Not Pleased",
+      "Powder and Arms",
+      "All Hands",
+      "The Sea Cook",
+      "A Good Crew",
+      "The Captain’s Line",
+      "The Last Apple",
+      "Flint’s Quartermaster",
+      "Gentlemen of Fortune",
+      "After the Treasure",
+      "Land Ho",
+      "Council in the Cabin",
+      "The Sweet Spot"
+    ];
+
+    const ASSET_VERSION = "20260804-v1-p14-rescue-copy";
+
+    const pages = pageTitles.map((title, index) => ({
+      type: "page",
+      title,
+      label: index === 0 ? "Cover" : `${index} / 33`,
+      file: `${index === 0 ? "pages/cover.png" : `pages/page-${String(index).padStart(2, "0")}.png`}?v=${ASSET_VERSION}`
+    }));
+
+    pages.push(
+      { type: "end", title: "End of Volume I", label: "End" },
+      { type: "quiz", title: "Test Your Understanding", label: "Quiz" }
+    );
+
+    const frame = document.getElementById("pageFrame");
+    const image = document.getElementById("pageImage");
+    const interstitial = document.getElementById("interstitial");
+    const quiz = document.getElementById("quiz");
+    const chapter = document.getElementById("chapter");
+    const counter = document.getElementById("counter");
+    const progress = document.getElementById("progress");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    const inspectToggle = document.getElementById("inspectToggle");
+    const inspectOverlay = document.getElementById("inspectOverlay");
+    const inspectImage = document.getElementById("inspectImage");
+    const inspectClose = document.getElementById("inspectClose");
+    let current = 0;
+    let transitionTimer;
+
+    function openInspect() {
+      if (pages[current].type !== "page") return;
+      inspectImage.src = image.src;
+      inspectImage.alt = `Enlarged view: ${image.alt}`;
+      inspectOverlay.hidden = false;
+      document.body.classList.add("inspect-open");
+      inspectOverlay.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      inspectClose.focus();
+    }
+
+    function closeInspect() {
+      if (inspectOverlay.hidden) return;
+      inspectOverlay.hidden = true;
+      document.body.classList.remove("inspect-open");
+      inspectToggle.focus();
+    }
+
+    function indexFromHash() {
+      const match = location.hash.match(/^#(?:page-)?(\d+)$/);
+      if (!match) return 0;
+      return Math.max(0, Math.min(pages.length - 1, Number(match[1])));
+    }
+
+    function updateHash(index) {
+      const nextHash = index === 0 ? "" : `#page-${index}`;
+      if (`${location.hash}` !== nextHash) {
+        history.replaceState(null, "", `${location.pathname}${nextHash}`);
+      }
+    }
+
+    function preload(index) {
+      [index - 1, index + 1].forEach((candidate) => {
+        const page = pages[candidate];
+        if (page?.file) {
+          const preloadImage = new Image();
+          preloadImage.src = page.file;
+        }
+      });
+    }
+
+    function show(index, immediate = false) {
+      clearTimeout(transitionTimer);
+      const active = pages[index];
+      const visible = [frame, interstitial, quiz].find((element) => element.style.display !== "none");
+      if (!immediate && visible) visible.classList.add("changing");
+
+      const render = () => {
+        current = index;
+        frame.style.display = active.type === "page" ? "block" : "none";
+        interstitial.style.display = active.type === "end" ? "block" : "none";
+        quiz.style.display = active.type === "quiz" ? "block" : "none";
+
+        if (active.type === "page") {
+          image.src = active.file;
+          image.alt = active.title === "Cover"
+            ? "Treasure Island, Volume I: The Map — cover"
+            : `Treasure Island, Volume I: The Map — Page ${index}: ${active.title}`;
+        }
+
+        chapter.textContent = active.title;
+        counter.textContent = active.label;
+        progress.style.width = `${(index / (pages.length - 1)) * 100}%`;
+        prev.disabled = index === 0;
+        next.disabled = index === pages.length - 1;
+        inspectToggle.hidden = active.type !== "page";
+        updateHash(index);
+        preload(index);
+        [frame, interstitial, quiz].forEach((element) => element.classList.remove("changing"));
+        window.scrollTo({ top: 0, behavior: immediate ? "auto" : "smooth" });
+      };
+
+      if (immediate) render();
+      else transitionTimer = setTimeout(render, 170);
+    }
+
+    function goNext() {
+      if (current < pages.length - 1) show(current + 1);
+    }
+
+    function goPrevious() {
+      if (current > 0) show(current - 1);
+    }
+
+    prev.addEventListener("click", goPrevious);
+    next.addEventListener("click", goNext);
+    inspectToggle.addEventListener("click", openInspect);
+    inspectClose.addEventListener("click", closeInspect);
+
+    image.addEventListener("click", openInspect);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !inspectOverlay.hidden) {
+        closeInspect();
+        return;
+      }
+      if (event.target instanceof HTMLInputElement || event.target instanceof HTMLButtonElement) return;
+      if (!inspectOverlay.hidden) return;
+      if (event.key === "ArrowLeft") goPrevious();
+      if (event.key === "ArrowRight" || event.key === " ") {
+        event.preventDefault();
+        goNext();
+      }
+      if (event.key === "Home") show(0);
+      if (event.key === "End") show(pages.length - 1);
+    });
+
+    let touchX = 0;
+    document.addEventListener("touchstart", (event) => {
+      if (!inspectOverlay.hidden) return;
+      touchX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    document.addEventListener("touchend", (event) => {
+      if (!inspectOverlay.hidden) return;
+      const distance = touchX - event.changedTouches[0].screenX;
+      if (Math.abs(distance) < 50) return;
+      if (distance > 0) goNext();
+      else goPrevious();
+    }, { passive: true });
+
+    let answered = 0;
+    let correct = 0;
+
+    document.querySelectorAll(".check").forEach((button) => {
+      button.addEventListener("click", () => {
+        const id = button.dataset.question;
+        const block = document.getElementById(id);
+        const selected = block.querySelector(`input[name="${id}"]:checked`);
+        if (!selected) return;
+
+        const isCorrect = selected.value === button.dataset.answer;
+        block.querySelectorAll("input").forEach((input) => { input.disabled = true; });
+        block.querySelector(".feedback.correct").style.display = isCorrect ? "block" : "none";
+        block.querySelector(".feedback.incorrect").style.display = isCorrect ? "none" : "block";
+        button.style.display = "none";
+        answered += 1;
+        if (isCorrect) correct += 1;
+
+        if (answered === 5) {
+          const score = document.getElementById("score");
+          score.textContent = `${correct} of 5 correct`;
+          score.style.display = "block";
+        }
+      });
+    });
+
+    window.addEventListener("hashchange", () => show(indexFromHash(), true));
+    show(indexFromHash(), true);
+  </script>
+</body>
+</html>
