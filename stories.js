@@ -20,7 +20,8 @@ window.NANO_STORIES = [
     published: "2026-07-25",
     category: "Myth & Literature",
     series: "The Count of Monte Cristo · Volume I",
-    summary: "A gifted young sailor is betrayed, buried alive, remade by friendship and knowledge, and returns with the power to restore a life—or judge one."
+    summary: "A gifted young sailor is betrayed, buried alive, remade by friendship and knowledge, and returns with the power to restore a life—or judge one.",
+    status: "draft"
   },
   {
     slug: "foundation-expanded-part2",
