@@ -73,6 +73,11 @@ This repo contains illustrated stories for kids (Francisco, 9, and Sebastian, 7)
 
 This repo's graphic-novel workflow was originally written around Gemini MCP tools. The core discipline still holds for current OpenAI image work: **reference sheets first, sparse text, sequential review, and immediate drift correction**.
 
+For a long-form narrative or dialogue-driven graphic novel, read
+[`dialogue.md`](dialogue.md) and use its separate builder/critic/production-lead
+loop. This is a dialogue-production workflow only; biographical graphic novels
+continue to use [`bio.md`](bio.md) unchanged.
+
 ### Tool Selection
 
 - `generate`: Use for covers, setting plates, character references, or pages without locked characters.

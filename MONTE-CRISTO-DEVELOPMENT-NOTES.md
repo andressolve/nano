@@ -6,12 +6,15 @@ Historical early-development dossier for the now-authorized library adaptation
 of Alexandre Dumas's *The Count of Monte Cristo*.
 
 This file preserves the July 24, 2026 discussion. It is not the current script,
-visual brief, production log, or handoff. Those now live in
-[`monte-cristo/`](monte-cristo/), where Volume I's cover, 32-page story,
-reference locks, landscape reader, and quiz are complete.
+visual brief, production log, or handoff. The 32-page first edition lives in
+[`monte-cristo/`](monte-cristo/). The authoritative expanded Volume I lives in
+[`monte-cristo-expanded/`](monte-cristo-expanded/).
 
-Current position: **Volume I complete and locally QA-passed; publication remains
-an explicit future step.**
+Current position: **the expanded 55-page portrait Volume I is complete and
+locked. Volume II is the next narrative project, but its page architecture and
+endpoint have not yet been approved. Begin with
+[`MONTE-CRISTO-VOLUME-2-HANDOFF.md`](MONTE-CRISTO-VOLUME-2-HANDOFF.md), not by
+extending the completed Volume I reader or generating Pages 56 onward.**
 
 ### Locked creative correction — 2026-07-25
 

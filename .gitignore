@@ -1,2 +1,6 @@
 .DS_Store
 potters-slow-fire/old/
+
+# Monte Cristo expanded: retain raw/rejected render evidence locally. Canonical
+# pages, refs, prompts, audits, scripts, and critic reports remain tracked.
+monte-cristo-expanded/qa/**/*.png

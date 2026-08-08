@@ -164,9 +164,12 @@ Use these files together for continuity, repair, or future volumes:
 The script's exact dialogue remains authoritative. Lettering stays baked into
 the page images. The reader remains navigation and quiz infrastructure only.
 
-## Next Gate
+## Publication and Next Gate
 
-Volume I is complete locally. The next external gate is publication, but only
-when explicitly requested. Follow the repository rule: publish routine finished
-work directly on `main`, stage only the Monte Cristo and catalog paths, push
-`origin main`, then verify the GitHub Pages library and reader.
+The first edition was committed to `main` in `cad1ba7`, deployed through GitHub
+Pages, and publicly verified on 2026-07-26.
+
+A separate expanded edition is now in architecture development at
+[`../monte-cristo-expanded/`](../monte-cristo-expanded/). Its purpose is to
+improve pace, orientation, causal clarity, character reintroduction, and
+emotional duration without overwriting this completed reader.

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1536" viewBox="0 0 1024 1536">
+  <style>.p{fill:#d8d1c4;stroke:#111;stroke-width:12}.f{fill:#6e8ca6;stroke:#17324a;stroke-width:8}.b{fill:#fff8df;stroke:#6a401b;stroke-width:7}.t{font:700 24px sans-serif;fill:#111}.l{stroke:#d7263d;stroke-width:14;stroke-linecap:round}</style>
+  <rect class="p" x="6" y="6" width="1012" height="355"/><text class="t" x="40" y="65">P1 NAME</text>
+  <rect class="p" x="6" y="371" width="1012" height="330"/><circle class="f" cx="260" cy="535" r="100"/><text class="t" x="205" y="542">EDMOND</text><rect class="b" x="385" y="395" rx="35" width="500" height="115"/><text class="t" x="440" y="465">LECLÈRE LINE</text><rect class="b" x="385" y="535" rx="35" width="530" height="135"/><text class="t" x="435" y="612">BERTRAND LINE</text><line class="l" x1="385" y1="585" x2="355" y2="555"/>
+  <rect class="p" x="6" y="711" width="1012" height="285"/><text class="t" x="40" y="770">P3 TWO SILENT MEMORIES</text>
+  <rect class="p" x="6" y="1006" width="1012" height="225"/><circle class="f" cx="250" cy="1118" r="88"/><text class="t" x="195" y="1125">VILLEFORT</text><rect class="b" x="365" y="1050" rx="35" width="420" height="125"/><text class="t" x="420" y="1120">WHY RISK...</text><line class="l" x1="365" y1="1115" x2="342" y2="1118"/>
+  <rect class="p" x="6" y="1241" width="1012" height="289"/><text class="t" x="40" y="1300">P5 OPPOSED PROFILES</text>
+</svg>

@@ -124,6 +124,111 @@ The controlled Earthsea tests, raw images, canonical prompt block, and QA checkl
 
 ---
 
+## Narrative/Dialogue-Driven Builder/Critic Calibration (August 2026)
+
+The completed 55-page `monte-cristo-expanded/` run established a reliable
+workflow for long, sequential, fully lettered **narrative and dialogue-driven**
+graphic novels.
+
+The workspace-wide playbook is [`dialogue.md`](dialogue.md). The exact Monte
+Cristo orchestration record remains in
+`monte-cristo-expanded/36-BUILDER-CRITIC-RUN-NOTES.md` as its evidence source.
+
+This calibration is deliberately scoped. It does **not** alter the established
+biographical graphic-novel workflow in `bio.md` or the `honda-soichiro/` model.
+Biographical production keeps its existing research, reference, prototype,
+density, QA, and iteration rules unchanged.
+
+### Separate making from approving
+
+- The **builder** writes the prompt, generates one candidate, and performs one
+  practical essentials audit.
+- The **critic** independently decides whether the page passes. The builder does
+  not keep rerolling privately in pursuit of an imagined perfect page.
+- While Page N is under review, the builder may prepare the Page N+1 prompt, but
+  must not generate it until Page N is approved, promoted, and explicitly
+  released.
+
+### Use a reasonable essentials gate
+
+The Monte Cristo critic was implemented as a separate agent. For each candidate,
+the production lead sent it the image path, pointed it to the sibling page
+prompt, builder audit, and desktop/tablet proofs, and used this repeated brief:
+
+> Independently review Page NN under the corrected essentials gate: exact
+> script/story, clear attribution, obvious generation/anatomy integrity,
+> consequential identity/continuity, and actual desktop/tablet comfort.
+> Typography/cosmetic/numeric prompt deviations are nonblocking unless they
+> materially harm reading or story. Write a concise critic report and return
+> APPROVED or REJECTED with mandatory findings only. Do not edit or promote.
+
+The production lead then added a short page-specific checklist taken from that
+page's script and prompt—for example, a required action sequence, memory/source
+boundary, decisive object handoff, forbidden premature reveal, or closed-case
+safety boundary. This was how visual faithfulness to the page prompt was put in
+front of the critic in the actual run; the critic was not merely asked whether
+the page looked good.
+
+The repeated review areas were:
+
+1. exact script, story facts, or causal/reading order;
+2. the page-specific staging, action, object, source, and exclusion checks
+   named in the critic task;
+3. clear speech, sound, narration, and memory attribution;
+4. obvious actor or anatomy integrity;
+5. consequential character, setting, or object continuity;
+6. comfortable reading at the actual desktop and tablet targets.
+
+Nominal font pixels, tiny margin differences, exact panel percentages,
+microscopic tail distances, phone-only legibility, and cosmetic polish are not
+independent reasons to regenerate. They become blocking only when their
+deviation causes a real failure in the six review areas above.
+
+The reusable workflow lives in `dialogue.md`; the exact page-review task,
+builder task, promotion boundary, and batch-gate task used in the source run
+remain recorded in `monte-cristo-expanded/36-BUILDER-CRITIC-RUN-NOTES.md`.
+
+### Correct narrowly, but redraw honestly
+
+- When a real defect exists, preserve the rejected candidate and name the one
+  defect being corrected.
+- Regenerate the complete page. Do not patch, crop, swap lettering, or repair a
+  tail in isolation.
+- Do not use the correction as permission for unrelated refinement.
+
+In Monte Cristo, redraws were reserved for concrete failures such as reversed
+cause/response order, an answer appearing before an approaching-sound cue, and
+a required story line being missing. Pages were not regenerated for typography
+size or finish preferences.
+
+### Advance from approved state only
+
+- Use the latest approved canonical page as the immediate visual and narrative
+  anchor, plus only the minimum character/object references needed for the new
+  page.
+- Never feed a rejected page back as an image reference.
+- Promote the critic-approved candidate byte-for-byte and retain its prompt,
+  builder audit, desktop/tablet proofs, critic report, hash, and any rejected
+  evidence.
+
+### Add sequence gates
+
+Individual page approval cannot prove that a run works as a story. After each
+ten-page batch—and after the final shorter batch—review the canonical pages
+uninterrupted for:
+
+- story and emotional continuity;
+- identity, setting, and object continuity;
+- cross-page attribution and reading order;
+- generation/anatomy integrity;
+- actual desktop/tablet comfort.
+
+The Monte Cristo production authority and audit trail live in
+`monte-cristo-expanded/29-PAGES-21-55-BUILDER-CRITIC-WORKFLOW.md` and the
+numbered production QA ledgers that follow it.
+
+---
+
 ## Tips for Best Results
 
 1. **Be explicit about consistency**: In every prompt, remind the model to keep clothing, hair, and features "exactly as shown" in the reference.

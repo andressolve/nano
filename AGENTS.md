@@ -15,6 +15,11 @@ For this `nano` repository, the user's standing instruction is to publish routin
 
 The completed `honda-soichiro/` project is the model for future biographical graphic-novel execution. The earlier `honda/` folder had useful research and planning, but execution failed when it drifted into one-off overlay demos, under-dense pages, skipped reference locking, and workaround thinking.
 
+For long-form narrative and dialogue-driven graphic novels, read
+[`dialogue.md`](dialogue.md) before scripting or production. It is the
+workspace-wide builder/critic playbook distilled from `monte-cristo-expanded/`.
+It does not supersede the biographical workflow in `bio.md`.
+
 - **Image-generation billing rule:** For future image production, use the Codex in-app image generation path intended to run under the user's Codex/ChatGPT subscription entitlement. Do **not** use `OPENAI_API_KEY`, the bundled imagegen CLI, or any direct OpenAI API path for production images unless the user explicitly approves separate API billing in that conversation. If a workflow note says "from this Codex session," interpret that as subscription-backed Codex image generation, not API-key CLI generation.
 - Preserve useful plans, then execute them directly: production folder, refs, prototype pages, full page run, reader, quiz, and landing card.
 - Do not plan blank speech bubbles, blank caption boxes, or "caption bottles" with text added later in HTML/SVG. Dialogue and captions must be baked into the generated page image, or the page/script must be redesigned until in-image lettering is feasible.

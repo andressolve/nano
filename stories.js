@@ -14,14 +14,13 @@ window.NANO_STORIES = [
     summary: "Jim Hawkins finds a dead pirate's packet, sails aboard the Hispaniola, and learns too late that the warmest man on deck is plotting mutiny."
   },
   {
-    slug: "monte-cristo",
-    title: "The Count of Monte Cristo — Volume I: Edmond",
+    slug: "monte-cristo-expanded",
+    title: "The Count of Monte Cristo — Volume I: Edmond (Expanded Edition)",
     cover: "monte-cristo/pages/cover.png",
-    published: "2026-07-25",
+    published: "2026-08-08",
     category: "Myth & Literature",
     series: "The Count of Monte Cristo · Volume I",
-    summary: "A gifted young sailor is betrayed, buried alive, remade by friendship and knowledge, and returns with the power to restore a life—or judge one.",
-    status: "draft"
+    summary: "Across 55 cinematic pages, a gifted young sailor is betrayed, buried alive, remade by friendship and knowledge, and returns with the power to restore a life—or judge one."
   },
   {
     slug: "foundation-expanded-part2",

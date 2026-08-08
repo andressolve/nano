@@ -5,7 +5,7 @@
 
 ## Status
 
-**Volume I is complete and locally QA-passed.**
+**Volume I is complete, published, and retained as the first edition.**
 
 Completed:
 
@@ -23,11 +23,19 @@ Completed:
 - five-question quiz;
 - root-library landing card;
 - desktop and 390 × 844 mobile-browser QA;
+- publication from `main` in commit `cad1ba7`;
 - production log and generation rules.
 
-Not yet done:
+New development:
 
-- publication to the live library.
+- a separate expanded edition is now in development under
+  [`../monte-cristo-expanded/`](../monte-cristo-expanded/);
+- the first edition remains intact while the expanded edition addresses pace,
+  orientation, causality, identity, and emotional duration.
+
+The expanded edition completed its 1024 × 1536 portrait Pages 12–18 continuous
+prototype on 2026-07-27. Resume through its handoff rather than modifying this
+landscape first edition.
 
 ## Read First
 
@@ -104,7 +112,10 @@ The full accepted reference inventory and repair history are recorded in
 
 ## Resume Here
 
-If publishing is requested:
+For the expanded edition, resume through
+[`../monte-cristo-expanded/HANDOFF.md`](../monte-cristo-expanded/HANDOFF.md).
+
+If republishing first-edition repairs is requested:
 
 1. Re-run dimension, syntax, and browser smoke checks.
 2. Review the explicit Monte Cristo and catalog diff.
@@ -123,5 +134,5 @@ unless the user explicitly approves it in a future conversation.
 
 ## Repository Note
 
-The worktree contains unrelated user changes. Volume I is complete locally but
-has not been committed, pushed, or deployed as part of this production pass.
+The worktree contains unrelated user changes. The first edition is live at
+[the public reader](https://andressolve.github.io/nano/monte-cristo/index.html).
