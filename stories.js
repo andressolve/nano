@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "french",
+    title: "French Comics",
+    cover: "french/les-jeux-video/pages/page-01.png",
+    published: "2026-08-08",
+    category: "Language Learning",
+    series: "French Starter · Short comics",
+    summary: "One-page comics that turn familiar French Starter phrases into natural, enjoyable little scenes."
+  },
+  {
     slug: "treasure-island/volume-2",
     title: "Treasure Island — Volume II: The Island",
     cover: "treasure-island/volume-2/pages/cover.png",

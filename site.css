@@ -117,6 +117,14 @@ main,
   text-transform: uppercase;
 }
 
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .top-nav a {
   display: inline-flex;
   align-items: center;
@@ -720,6 +728,7 @@ main,
   .brand small { display: none; }
   .brand strong { font-size: 16px; }
   .brand-mark { width: 36px; }
+  .top-nav { gap: 6px; }
   .top-nav a { padding: 10px 12px; font-size: 12px; }
 
   .hero { min-height: auto; grid-template-columns: 1fr; gap: 42px; padding: 62px 0 54px; }
