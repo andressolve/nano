@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Read Treasure Island, Volume I: The Map — a 33-page illustrated adventure about Jim Hawkins, Long John Silver, and the voyage to a dangerous island." />
-  <title>Treasure Island — Volume I: The Map</title>
+  <meta name="description" content="Read Treasure Island, Volume II: The Island — a 33-page illustrated adventure about Jim Hawkins, Long John Silver, Ben Gunn, and the battle for the stockade." />
+  <title>Treasure Island — Volume II: The Island</title>
   <style>
     :root {
       color-scheme: dark;
@@ -287,6 +287,36 @@
 
     .inspect-overlay[hidden] { display: none; }
 
+    .inspect-context {
+      position: fixed;
+      z-index: 210;
+      top: 14px;
+      left: 16px;
+      max-width: min(56vw, 560px);
+    }
+
+    .inspect-context strong,
+    .inspect-context span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .inspect-context strong {
+      color: var(--rag);
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .inspect-context span {
+      margin-top: 3px;
+      color: var(--muted);
+      font: 700 9px/1.2 system-ui, sans-serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
     .inspect-canvas {
       width: max-content;
       min-width: 100%;
@@ -316,6 +346,8 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
+
+    .inspect-nav { z-index: 210; }
 
     .quiz { padding: 26px 0 80px; }
 
@@ -431,8 +463,8 @@
   <div class="progress" id="progress"></div>
 
   <header class="reader-bar">
-    <a class="home" href="../index.html">← Stories</a>
-    <span class="chapter" id="chapter" aria-live="polite">The Map</span>
+    <a class="home" href="../../index.html">← Stories</a>
+    <span class="chapter" id="chapter" aria-live="polite">The Island</span>
     <span class="reader-actions">
       <span class="counter" id="counter">Cover</span>
       <button class="inspect-toggle" id="inspectToggle" type="button">Zoom</button>
@@ -441,76 +473,76 @@
 
   <main>
     <figure class="page-frame" id="pageFrame">
-      <img id="pageImage" src="pages/cover.png" alt="Treasure Island, Volume I: The Map — cover" />
+      <img id="pageImage" src="pages/cover.png" alt="Treasure Island, Volume II: The Island — cover" />
     </figure>
 
     <section class="interstitial" id="interstitial" aria-labelledby="end-title">
-      <p class="eyebrow">End of Volume I</p>
-      <h1 id="end-title">The Map</h1>
-      <p class="subtitle">The island is before them. The mutiny is still hidden.</p>
-      <p class="promise">Jim has heard enough to save his friends—but not enough to know what the island will ask of him. The boats are coming down. The shore is close. Long John Silver is still smiling.</p>
-      <p class="next-volume">Next · Volume II</p>
-      <p class="volume-name">The Island</p>
-      <a class="volume-link" href="volume-2/index.html">Continue to Volume II →</a>
+      <p class="eyebrow">End of Volume II</p>
+      <h1 id="end-title">The Island</h1>
+      <p class="subtitle">The fort still stands. The ship waits in the fog.</p>
+      <p class="promise">Jim has found Ben Gunn, survived the attack, and counted what his freedom has cost. Now he has a coracle on his shoulder, black water before him, and a plan no captain would permit.</p>
+      <p class="next-volume">Volume III</p>
+      <p class="volume-name">Revision in progress</p>
+      <a class="volume-link" href="../../index.html">Return to Stories →</a>
     </section>
 
     <section class="quiz" id="quiz" aria-labelledby="quiz-title">
       <p class="eyebrow">After the story</p>
       <h1 id="quiz-title">Test your understanding</h1>
-      <p class="quiz-intro">Five questions about choices, trust, and the clues Jim learned to read—not a test of pirate trivia.</p>
+      <p class="quiz-intro">Five questions about loyalty, judgment, and the cost of acting alone—not a test of pirate trivia.</p>
 
       <article class="question" id="q1">
-        <h2>1. Why did Mrs. Hawkins return to the inn after Billy Bones died?</h2>
-        <label class="option"><input type="radio" name="q1" value="a" /> She wanted every coin in the sea chest.</label>
-        <label class="option"><input type="radio" name="q1" value="b" /> She meant to collect only the money Billy lawfully owed her.</label>
-        <label class="option"><input type="radio" name="q1" value="c" /> Pew promised that no pirates would return.</label>
+        <h2>1. Why did Tom refuse Silver in the forest?</h2>
+        <label class="option"><input type="radio" name="q1" value="a" /> He believed the treasure had already been moved.</label>
+        <label class="option"><input type="radio" name="q1" value="b" /> He would not join men who had turned against their captain and murdered a shipmate.</label>
+        <label class="option"><input type="radio" name="q1" value="c" /> Ben Gunn had secretly hired him first.</label>
         <button class="check" type="button" data-question="q1" data-answer="b">Check answer</button>
-        <p class="feedback correct">Yes. Her courage is joined to a limit: she will claim what is owed, but she refuses to become a thief because thieves are coming.</p>
-        <p class="feedback incorrect">Not quite. Mrs. Hawkins returns for the inn’s lawful dues and insists on taking no more. That refusal defines her as strongly as her courage.</p>
+        <p class="feedback correct">Yes. Tom understands what Silver is asking and refuses it plainly. His courage is moral before it becomes physical.</p>
+        <p class="feedback incorrect">Not quite. Tom refuses because joining Silver would mean sharing the mutineers’ betrayal and violence.</p>
       </article>
 
       <article class="question" id="q2">
-        <h2>2. Why did Jim take the oilskin packet from the chest?</h2>
-        <label class="option"><input type="radio" name="q2" value="a" /> His mother could not finish counting unfamiliar coins before the pirates arrived.</label>
-        <label class="option"><input type="radio" name="q2" value="b" /> He already knew it contained a map to Treasure Island.</label>
-        <label class="option"><input type="radio" name="q2" value="c" /> Billy had told him to give it to Long John Silver.</label>
-        <button class="check" type="button" data-question="q2" data-answer="a">Check answer</button>
-        <p class="feedback correct">Right. Jim takes the sealed packet to square an unfinished count. Only later do Livesey and Trelawney discover what it contains.</p>
-        <p class="feedback incorrect">Not quite. Jim does not know the packet is a map. He takes it because danger interrupts the coin count and his mother refuses to take more than she is owed.</p>
+        <h2>2. What did Ben Gunn ask Jim to carry back to the loyal party?</h2>
+        <label class="option"><input type="radio" name="q2" value="a" /> A demand to be made captain of the Hispaniola.</label>
+        <label class="option"><input type="radio" name="q2" value="b" /> A promise that Silver would surrender before nightfall.</label>
+        <label class="option"><input type="radio" name="q2" value="c" /> A request for the Squire’s word, one thousand pounds, and passage home.</label>
+        <button class="check" type="button" data-question="q2" data-answer="c">Check answer</button>
+        <p class="feedback correct">Right. Ben asks for a gentleman’s promise, a reward, and a way home. His “reasons of his own” remain deliberately unresolved.</p>
+        <p class="feedback incorrect">Not quite. Ben wants Trelawney’s word: one thousand pounds and passage home if his knowledge helps them.</p>
       </article>
 
       <article class="question" id="q3">
-        <h2>3. What made Captain Smollett distrust the voyage before it began?</h2>
-        <label class="option"><input type="radio" name="q3" value="a" /> The ship was too small to cross the ocean.</label>
-        <label class="option"><input type="radio" name="q3" value="b" /> The crew knew the island’s bearings and the treasure, although those facts were meant to be secret.</label>
-        <label class="option"><input type="radio" name="q3" value="c" /> Jim refused to obey orders on deck.</label>
-        <button class="check" type="button" data-question="q3" data-answer="b">Check answer</button>
-        <p class="feedback correct">Exactly. Smollett sees that the secret has already escaped. Moving powder, weapons, and loyal berths aft is caution based on evidence.</p>
-        <p class="feedback incorrect">Not quite. Smollett’s concern is the leaked secret: men he did not choose already know the destination and the treasure.</p>
+        <h2>3. What weakness did Smollett expose when he rejected Silver’s terms?</h2>
+        <label class="option"><input type="radio" name="q3" value="a" /> Silver’s men could not find the treasure, properly sail the schooner, or escape the lee shore.</label>
+        <label class="option"><input type="radio" name="q3" value="b" /> Silver had forgotten where the stockade stood.</label>
+        <label class="option"><input type="radio" name="q3" value="c" /> The pirates had thrown every weapon into the sea.</label>
+        <button class="check" type="button" data-question="q3" data-answer="a">Check answer</button>
+        <p class="feedback correct">Exactly. Silver sounds powerful, but Smollett names the facts hemming him in: no treasure, no reliable crew for the ship, Gray lost, and a dangerous shore.</p>
+        <p class="feedback incorrect">Not quite. Smollett’s answer works because it exposes practical failures beneath Silver’s performance of control.</p>
       </article>
 
       <article class="question" id="q4">
-        <h2>4. Why was Silver able to win Jim’s trust?</h2>
-        <label class="option"><input type="radio" name="q4" value="a" /> He hid from Jim throughout the voyage.</label>
-        <label class="option"><input type="radio" name="q4" value="b" /> He was capable, warm, funny, and seemed genuinely surprised when Black Dog escaped.</label>
-        <label class="option"><input type="radio" name="q4" value="c" /> He confessed the mutiny plan to Jim before sailing.</label>
-        <button class="check" type="button" data-question="q4" data-answer="b">Check answer</button>
-        <p class="feedback correct">Yes. Silver does not merely tell Jim to trust him. He teaches, works, laughs, and performs innocence convincingly enough that the later revelation hurts.</p>
-        <p class="feedback incorrect">Not quite. Silver earns trust through real competence and apparent warmth. His performance works because much of the pleasure Jim feels around him is genuine.</p>
+        <h2>4. What does Jim understand while cleaning the log-house after the attack?</h2>
+        <label class="option"><input type="radio" name="q4" value="a" /> That leaving alone caused every death in the stockade.</label>
+        <label class="option"><input type="radio" name="q4" value="b" /> That intentions matter more than whether friends can rely on you.</label>
+        <label class="option"><input type="radio" name="q4" value="c" /> That he did not fire the fatal shots, but his absence still cost the others worry and a needed pair of hands.</label>
+        <button class="check" type="button" data-question="q4" data-answer="c">Check answer</button>
+        <p class="feedback correct">Yes. Jim neither claims all the blame nor escapes responsibility. He begins to measure courage by what it asks of other people.</p>
+        <p class="feedback incorrect">Not quite. Jim’s reckoning is careful: he did not cause the gunfire, but leaving without permission still had a real cost.</p>
       </article>
 
       <article class="question" id="q5">
-        <h2>5. What is the loyal group’s one advantage when Jim reports the mutiny?</h2>
-        <label class="option"><input type="radio" name="q5" value="a" /> The mutineers do not know that Jim overheard them.</label>
-        <label class="option"><input type="radio" name="q5" value="b" /> The loyal men greatly outnumber the crew.</label>
-        <label class="option"><input type="radio" name="q5" value="c" /> Silver has already surrendered his weapons.</label>
-        <button class="check" type="button" data-question="q5" data-answer="a">Check answer</button>
-        <p class="feedback correct">Right. They are badly outnumbered, but knowledge has changed sides. Silver still believes his plan is secret.</p>
-        <p class="feedback incorrect">Not quite. The loyal party is small. Its advantage is secrecy: the conspirators do not know Jim heard them.</p>
+        <h2>5. Why does Jim decide to cut the Hispaniola loose?</h2>
+        <label class="option"><input type="radio" name="q5" value="a" /> He wants to sail home alone before anyone wakes.</label>
+        <label class="option"><input type="radio" name="q5" value="b" /> If the mutineers regain and use the schooner, the stockade cannot protect the loyal party.</label>
+        <label class="option"><input type="radio" name="q5" value="c" /> Ben Gunn tells him the anchor rope is made of gold.</label>
+        <button class="check" type="button" data-question="q5" data-answer="b">Check answer</button>
+        <p class="feedback correct">Right. The plan is reckless, but it answers a real strategic danger: the ship can turn the pirates’ numbers into control of the island.</p>
+        <p class="feedback incorrect">Not quite. Jim sees the schooner as the pirates’ greatest advantage and means to remove it before they can use it.</p>
       </article>
 
       <p class="score" id="score"></p>
-      <a class="volume-link" href="volume-2/index.html">Continue to Volume II →</a>
+      <a class="volume-link" href="../../index.html">Return to Stories →</a>
     </section>
   </main>
 
@@ -518,7 +550,13 @@
   <button class="nav next" id="next" type="button" aria-label="Next page">→</button>
 
   <div class="inspect-overlay" id="inspectOverlay" hidden>
+    <div class="inspect-context" aria-live="polite">
+      <strong id="inspectTitle">Cover</strong>
+      <span id="inspectCounter">Cover</span>
+    </div>
     <button class="inspect-close" id="inspectClose" type="button">Close</button>
+    <button class="nav prev inspect-nav" id="inspectPrev" type="button" aria-label="Previous page while zoomed">←</button>
+    <button class="nav next inspect-nav" id="inspectNext" type="button" aria-label="Next page while zoomed">→</button>
     <div class="inspect-canvas">
       <img class="inspect-image" id="inspectImage" src="pages/cover.png" alt="Enlarged comic page" />
     </div>
@@ -527,52 +565,50 @@
   <script>
     const pageTitles = [
       "Cover",
-      "The Chest Comes Up the Road",
-      "The Captain’s Berth",
-      "The One-Legged Man",
-      "Doctor at the Table",
-      "Black Dog",
-      "Steel and Silence",
-      "A House in Mourning",
-      "The Blind Man’s Hand",
-      "Till Ten",
-      "No One Will Come",
-      "The Sea Chest",
-      "Not a Farthing Over",
-      "Flint’s Fist",
-      "Hooves in the Moonlight",
-      "The Dead Man’s Book",
-      "The Island Unfolds",
-      "Good-bye to the Benbow",
-      "Bristol",
-      "The Spy-glass",
-      "A Perfect Trump",
-      "Captain Smollett Is Not Pleased",
-      "Powder and Arms",
-      "All Hands",
-      "The Sea Cook",
-      "A Good Crew",
-      "The Captain’s Line",
-      "The Last Apple",
-      "Flint’s Quartermaster",
-      "Gentlemen of Fortune",
-      "After the Treasure",
-      "Land Ho",
-      "Council in the Cabin",
-      "The Sweet Spot"
+      "A Sickly Island",
+      "Over the Side",
+      "Alone Ashore",
+      "Silver in the Trees",
+      "No",
+      "First Blow",
+      "The Man Who Ran Sideways",
+      "Ben Gunn",
+      "Dreaming of Cheese",
+      "What a Man Can Do for Himself",
+      "A Flag Above the Trees",
+      "The Doctor Finds a Fort",
+      "The First Boatload",
+      "Gray Chooses",
+      "Too Low in the Water",
+      "The Gun",
+      "Cannonball",
+      "Run for the Stockade",
+      "Redruth",
+      "The Colors",
+      "Jim Comes Home",
+      "Reasons of His Own",
+      "Night in the Log-house",
+      "Flag of Truce",
+      "Over the Wall",
+      "Terms",
+      "Them That Die",
+      "North Wall",
+      "Inside the House",
+      "Five Standing",
+      "What My Folly Cost",
+      "White Rock",
+      "Two Lights"
     ];
-
-    const ASSET_VERSION = "20260804-v1-p14-rescue-copy";
 
     const pages = pageTitles.map((title, index) => ({
       type: "page",
       title,
       label: index === 0 ? "Cover" : `${index} / 33`,
-      file: `${index === 0 ? "pages/cover.png" : `pages/page-${String(index).padStart(2, "0")}.png`}?v=${ASSET_VERSION}`
+      file: index === 0 ? "pages/cover.png" : `pages/page-${String(index).padStart(2, "0")}.png`
     }));
 
     pages.push(
-      { type: "end", title: "End of Volume I", label: "End" },
+      { type: "end", title: "End of Volume II", label: "End" },
       { type: "quiz", title: "Test Your Understanding", label: "Quiz" }
     );
 
@@ -589,16 +625,30 @@
     const inspectOverlay = document.getElementById("inspectOverlay");
     const inspectImage = document.getElementById("inspectImage");
     const inspectClose = document.getElementById("inspectClose");
+    const inspectTitle = document.getElementById("inspectTitle");
+    const inspectCounter = document.getElementById("inspectCounter");
+    const inspectPrev = document.getElementById("inspectPrev");
+    const inspectNext = document.getElementById("inspectNext");
     let current = 0;
     let transitionTimer;
 
-    function openInspect() {
-      if (pages[current].type !== "page") return;
+    function updateInspect(resetScroll = true) {
+      const active = pages[current];
+      if (active.type !== "page") return;
       inspectImage.src = image.src;
       inspectImage.alt = `Enlarged view: ${image.alt}`;
+      inspectTitle.textContent = active.title;
+      inspectCounter.textContent = active.label;
+      inspectPrev.disabled = current === 0;
+      inspectNext.disabled = current === pageTitles.length - 1;
+      if (resetScroll) inspectOverlay.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+
+    function openInspect() {
+      if (pages[current].type !== "page") return;
       inspectOverlay.hidden = false;
       document.body.classList.add("inspect-open");
-      inspectOverlay.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      updateInspect(true);
       inspectClose.focus();
     }
 
@@ -634,12 +684,12 @@
 
     function show(index, immediate = false) {
       clearTimeout(transitionTimer);
+      current = index;
       const active = pages[index];
       const visible = [frame, interstitial, quiz].find((element) => element.style.display !== "none");
       if (!immediate && visible) visible.classList.add("changing");
 
       const render = () => {
-        current = index;
         frame.style.display = active.type === "page" ? "block" : "none";
         interstitial.style.display = active.type === "end" ? "block" : "none";
         quiz.style.display = active.type === "quiz" ? "block" : "none";
@@ -647,8 +697,8 @@
         if (active.type === "page") {
           image.src = active.file;
           image.alt = active.title === "Cover"
-            ? "Treasure Island, Volume I: The Map — cover"
-            : `Treasure Island, Volume I: The Map — Page ${index}: ${active.title}`;
+            ? "Treasure Island, Volume II: The Island — cover"
+            : `Treasure Island, Volume II: The Island — Page ${index}: ${active.title}`;
         }
 
         chapter.textContent = active.title;
@@ -657,6 +707,10 @@
         prev.disabled = index === 0;
         next.disabled = index === pages.length - 1;
         inspectToggle.hidden = active.type !== "page";
+        if (!inspectOverlay.hidden) {
+          if (active.type === "page") updateInspect(true);
+          else closeInspect();
+        }
         updateHash(index);
         preload(index);
         [frame, interstitial, quiz].forEach((element) => element.classList.remove("changing"));
@@ -679,6 +733,12 @@
     next.addEventListener("click", goNext);
     inspectToggle.addEventListener("click", openInspect);
     inspectClose.addEventListener("click", closeInspect);
+    inspectPrev.addEventListener("click", () => {
+      if (current > 0) show(current - 1);
+    });
+    inspectNext.addEventListener("click", () => {
+      if (current < pageTitles.length - 1) show(current + 1);
+    });
 
     image.addEventListener("click", openInspect);
 
@@ -688,7 +748,22 @@
         return;
       }
       if (event.target instanceof HTMLInputElement || event.target instanceof HTMLButtonElement) return;
-      if (!inspectOverlay.hidden) return;
+      if (!inspectOverlay.hidden) {
+        if (event.key === "ArrowLeft" || event.key === "PageUp") {
+          event.preventDefault();
+          if (current > 0) show(current - 1);
+        } else if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+          event.preventDefault();
+          if (current < pageTitles.length - 1) show(current + 1);
+        } else if (event.key === "Home") {
+          event.preventDefault();
+          show(0);
+        } else if (event.key === "End") {
+          event.preventDefault();
+          show(pageTitles.length - 1);
+        }
+        return;
+      }
       if (event.key === "ArrowLeft") goPrevious();
       if (event.key === "ArrowRight" || event.key === " ") {
         event.preventDefault();

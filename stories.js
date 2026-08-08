@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "treasure-island/volume-2",
+    title: "Treasure Island — Volume II: The Island",
+    cover: "treasure-island/volume-2/pages/cover.png",
+    published: "2026-08-04",
+    category: "Myth & Literature",
+    series: "Treasure Island · Volume II",
+    summary: "Jim Hawkins slips ashore, witnesses Long John Silver's first murder, finds Ben Gunn, and rejoins the loyal party as the island erupts into open war."
+  },
+  {
     slug: "treasure-island",
     title: "Treasure Island — Volume I: The Map",
     cover: "treasure-island/pages/cover.png",
