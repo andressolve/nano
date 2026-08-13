@@ -13,7 +13,8 @@ Production references and notes may live inside an accepted comic’s folder, bu
 
 ## Collection rules
 
-- One short, complete comic page per entry unless a later format is explicitly approved.
+- One short, complete comic per entry. One page is the proven default; a compact
+  two-page story is allowed when its action genuinely needs the extra page.
 - Language comes from lessons the students have already completed.
 - Natural situations first; no manufactured mystery, twist, or vocabulary gimmick.
 - Dialogue is baked into the generated comic page.

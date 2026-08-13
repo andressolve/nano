@@ -1,0 +1,303 @@
+# French Comics — session handoff
+
+Updated: 2026-08-13
+
+## Current state
+
+The French Comics collection is live and published inside Nano.
+
+- Nano: `https://andressolve.github.io/nano/`
+- Collection: `https://andressolve.github.io/nano/french/`
+- First comic: `https://andressolve.github.io/nano/french/les-jeux-video/`
+- Published commit: `7918a1174cde0b4d155b70a95ca9f8a5ca820872` (`Add French Comics collection`)
+- At publication time, local `HEAD` matched `origin/main` exactly.
+
+The second comic, `Demain, il fait beau !`, was approved and completed locally
+on 2026-08-13. Its two finished pages, reader, optional checks, production
+evidence, and catalog entry are present under
+`french/demain-il-fait-beau/`. It has **not** been committed or published; the
+user has not asked for either action.
+
+`Les jeux vidéo` is the first accepted French comic after several failed approaches. Treat it as the working model unless the user explicitly changes direction.
+
+## New-session setup note
+
+The current ChatGPT thread continued to display **Ultra** even after the user
+asked to move to **Extra High**. The user-level Codex config now contains:
+
+```toml
+model = "gpt-5.6-sol"
+model_reasoning_effort = "xhigh"
+```
+
+The desktop build in this session did not recognize `/reasoning`. When opening
+the replacement session, verify that the new chat displays **Extra High**
+before beginning production. If it still displays Ultra, fully quit and reopen
+ChatGPT, then create a new chat. Do not tell the user that changing
+`config.toml` retroactively changes an already-open thread.
+
+## Read first in a new session
+
+1. Root `AGENTS.md` — especially local command stability, image-generation billing, reference locking, lettering, and direct-to-`main` publishing rules.
+2. `french/README.md` — collection structure and publishing rules.
+3. This handoff.
+4. `french/les-jeux-video/00-PROJECT-BIBLE.md` — the successful comic’s script and constraints.
+5. `french/les-jeux-video/QA.md` — accepted result and known imperfection.
+6. `french/catalog.js` — the learner-facing French catalog.
+
+Source course: `https://francisco-french-starter.brutus.chatgpt.site/course/`
+
+The user confirmed on 2026-08-13 that the children had **just finished Lesson
+11**. This is the authoritative learner boundary. The live course was checked
+again the same day and contained eighteen lessons:
+
+1. Hello and how are you?
+2. Getting help in French
+3. Introduce yourself
+4. Numbers and age
+5. Likes and dislikes
+6. Read a whole tiny conversation
+7. School and free time
+8. Order at a café
+9. Talk about family
+10. Make a simple plan
+11. Weather and what to wear
+12. The passport checkpoint — review of Lessons 1–5
+13. Find your way around town
+14. Tell the story of your day
+15. The mystery picnic — review of Lessons 6–10
+16. Choose and buy something
+17. Say how you feel—and why
+18. The French adventure finale — whole-course review
+
+Lessons 12–18 are live but are **not** part of the confirmed learner boundary.
+Do not use their language until the user says the children have completed it.
+There is no need to ask again about Lessons 7–11; their completion is already
+confirmed here.
+
+## What Lessons 1–11 now support
+
+In familiar, strongly cued situations, the children have encountered enough
+French to:
+
+- greet someone, ask how they are, introduce themselves, and give a basic age;
+- use communication-repair phrases such as asking for repetition, slower
+  speech, or a meaning;
+- express likes and dislikes about familiar interests, school, and free time;
+- place a small café order and answer `Et avec ça ?`;
+- mention a close family member with `J’ai` and use `il` or `elle` to give a
+  name;
+- invite someone, accept or decline, and state a simple plan for tomorrow;
+- recognize `Il fait beau/chaud/froid`, `Il pleut`, four clothing items, and
+  rehearse a tiny weather-and-clothing report.
+
+The safest overall description is **pre-A1 moving into early A1 task
+performance**. Recognition is likely ahead of cold production. Do not claim
+global A1 proficiency: the course through Lesson 11 is only about 2–2.75 hours,
+and it does not establish free writing, natural-speed listening, pronunciation
+accuracy, or flexible grammar transfer.
+
+The course engine distinguishes objective checks completed independently from
+those completed after a hint or after the answer was shown. Its speaking step
+is self-attested, so lesson completion proves exposure and supported rehearsal,
+not spontaneous oral mastery. Lesson 11 also uses device-dependent browser
+speech synthesis rather than fixed recorded audio. A useful optional cold
+check is to hide the models, show a new weather situation, and ask each child
+for `Aujourd’hui, il...` plus `Je porte...`.
+
+## What the user wants
+
+The children enjoy Tintin and Asterix, but that is a reading-taste signal—not a request for elaborate mysteries, period settings, imitation, lore, or clever plot machinery.
+
+The target is:
+
+- A simple, pleasant, entertaining short comic.
+- French they have already learned, used naturally.
+- A situation that makes the language feel real and relevant.
+- Enough personality and visual pleasure to feel like a real comic rather than a worksheet.
+- No need to impress anyone or make the premise “earth-shattering.”
+
+The most important user calibration from this session:
+
+> Do not try to be cute or clever. Do not manufacture a twist merely to justify a lesson phrase.
+
+Every line must have an obvious, natural meaning in the scene. If a reader cannot tell exactly why a character says a phrase, the line or concept is not ready.
+
+## Successful format
+
+`Les jeux vidéo` succeeded with:
+
+- One portrait comic page.
+- Four large panels in a 2×2 grid.
+- Two children.
+- One ordinary modern setting.
+- One simple interaction.
+- One visible speaker and one balloon per panel.
+- Four exact lesson-aligned exchanges.
+- One combined cast/prop reference followed by one full-page generation.
+- Dialogue baked into the page image.
+- A lightweight reader and three optional checks after the comic.
+
+Do not split a future page into separately generated panels unless the user explicitly changes their preference. The user questioned that approach, and the successful page was generated as one cohesive image.
+
+The user has now explicitly said that the next comic may be **a bit more than
+one page when appropriate**. This authorizes considering a compact two-page
+story; it does not authorize padding. For a two-page comic, keep the proven
+four-large-panels-per-page pattern, generate each page as one cohesive image,
+approve Page 1 before generating Page 2, and perform a final uninterrupted
+two-page read for continuity and comprehension.
+
+## Image-generation rule
+
+Use the subscription-backed built-in Codex ImageGen path.
+
+Do not use:
+
+- `OPENAI_API_KEY`
+- the bundled image-generation CLI
+- direct OpenAI API image calls
+
+unless the user explicitly approves separate API billing in that conversation.
+
+Generate and inspect a combined character/prop reference first. For a similarly small one-page comic, stop reference iteration once identity, clothing, major props, and overall register are usable. Do not repeat the `Train de nuit` failure of spending many generations perfecting a complicated reference plate.
+
+## Accepted recurring cast
+
+The first comic established two reusable boys:
+
+- **Hugo:** ten; pale olive skin; tousled dark-brown hair; green overshirt over an orange T-shirt; charcoal trousers; red canvas trainers; curious and initially reserved.
+- **Léo:** eleven; deep brown skin; short tight black curls; mustard-yellow hoodie; dark navy jeans; white trainers; relaxed and welcoming.
+
+Reference: `french/les-jeux-video/refs/ref-hugo-leo-gaming.png`
+
+Reusing them is encouraged when natural, but the collection does not require an ongoing serialized plot.
+
+## Collection architecture
+
+```text
+french/
+  index.html             collection landing page
+  catalog.js             published French comics only
+  french.css
+  home.js
+  README.md
+  HANDOFF.md
+  les-jeux-video/
+    index.html            comic reader and optional checks
+    pages/page-01.png     finished page
+    refs/                 production reference
+    project notes and QA
+```
+
+Nano’s main `stories.js` contains one entry for the **French Comics** collection. Do not add every one-page French comic to the main catalog. Add future accepted comics only to `french/catalog.js`.
+
+## Legacy work
+
+The following are failed or superseded production history and are intentionally unlinked:
+
+- `french-comics/`
+- `train-de-nuit/`
+
+Do not continue either project or copy its production architecture into a new comic. Read them only if a specific postmortem is needed.
+
+Failure patterns to avoid:
+
+- Unrelated bridge vocabulary driving the premise.
+- Six-panel pages with too many actors, balloons, props, and causal staging demands.
+- Historical machinery, crowds, labelled diagrams, exact numbering, mixed scribble balloons, or other brittle generation requirements.
+- Using `Je ne comprends pas.` as a generic reaction when the reader cannot tell what is not understood.
+- Building a mystery, thief, magical object, or twist merely to make course phrases “do plot work.”
+- Treating beginner French as preschool material.
+
+## Git and worktree safety
+
+The repository has many unrelated modified and untracked files. Never stage broadly.
+
+For a requested commit/push:
+
+- Verify the branch is `main`.
+- Fetch and ensure `main` is synchronized with `origin/main`.
+- Stage explicit French-task paths only.
+- Commit directly to `main`.
+- Push `origin main`.
+- Wait for GitHub Pages and verify the public Nano homepage, French collection, target reader, and page image.
+
+Never use `git add -A`, stash, reset, clean, a feature branch, or a pull request unless the user explicitly requests it.
+
+## Second comic completed locally
+
+The user approved the proposed two-page comic **Demain, il fait beau !**. It
+reuses Hugo and Léo, adds one café server, and is now complete locally.
+
+Production files:
+
+- project bible: `french/demain-il-fait-beau/00-PROJECT-BIBLE.md`
+- exact prompts: `french/demain-il-fait-beau/01-IMAGE-PROMPTS.md`
+- QA ledger: `french/demain-il-fait-beau/QA.md`
+- approved supplemental reference:
+  `french/demain-il-fait-beau/refs/ref-rain-cafe-football.png`
+- canonical pages: `french/demain-il-fait-beau/pages/page-01.png` and
+  `french/demain-il-fait-beau/pages/page-02.png`
+- finished local reader: `french/demain-il-fait-beau/index.html`
+
+Both pages are 1024×1536. Each has exactly four panels, four correctly
+attributed balloons, and the exact approved text. The final two-page sequence
+proof is `french/demain-il-fait-beau/qa/two-page-sequence-proof.png`.
+
+### Final exact script
+
+Two portrait pages, exactly four large panels per page, read left-to-right and
+top-to-bottom. One visible speaker and one balloon per speaking panel.
+
+#### Page 1 — Rain and the café
+
+1. Rain begins while Hugo and Léo are outside. A football is already visible
+   so the later invitation has a visual source. HUGO: `Il pleut.`
+2. They enter a warm café. HUGO: `Bonjour ! Je voudrais un chocolat chaud,
+   s’il vous plaît.`
+3. The server continues the order. SERVER: `Et avec ça ?`
+4. Léo indicates the pastry display. LÉO: `Un croissant, s’il vous plaît.`
+
+#### Page 2 — Tomorrow’s plan
+
+1. Still at the counter, Hugo closes the order. HUGO: `C’est tout, merci.`
+2. At a table, with the same football visibly beside them, Hugo makes the
+   invitation. HUGO: `Tu veux jouer demain ?`
+3. Léo accepts. LÉO: `Oui, avec plaisir !`
+4. Clear next-day transition: bright sun, changed outdoor location, and both
+   boys playing football. LÉO: `Il fait beau !`
+
+All eight balloons use exact language already encountered in Lessons 8, 10,
+and 11. The causal spine is intentionally plain: rain leads to a café stop; the
+boys make a plan; good weather lets them play the next day. Rainwear and boots
+may carry Lesson 11 visually without forcing unnatural dialogue.
+
+### Production record and locks
+
+- Reuse the accepted Hugo/Léo identity reference.
+- Make one minimal supplemental reference for rainwear, the football, the café
+  counter, and the single server; do not overdevelop the reference sheet.
+- Keep the football present from Page 1 through the café scene so it does not
+  materialize only when the invitation is spoken.
+- No additional dialogue, captions, translations, labels, prices, menu text,
+  logos, or sound effects.
+- Generate and inspect each complete page through subscription-backed built-in
+  Codex ImageGen. Do not use an API key or the imagegen CLI.
+- Do not generate Page 2 until Page 1 has passed exact-text, attribution,
+  identity, anatomy, and reader-comfort review.
+- After both pages pass individually, review them as one uninterrupted story
+  before building the reader or catalog entry.
+
+### Exact start for the next session
+
+1. Verify that the new chat shows **Extra High**.
+2. Read the files listed in “Read first in a new session,” then inspect
+   `french/demain-il-fait-beau/QA.md`.
+3. Treat the second comic as complete. Do not regenerate its reference or pages
+   unless the user identifies a concrete defect.
+4. Do not commit or push unless the user asks. If asked, follow the root rule:
+   stage only the relevant French paths, commit directly to `main`, push
+   `origin main`, wait for GitHub Pages, and verify the collection and new
+   reader publicly.
+
+The bar is not novelty. The bar is: would the children willingly read this small scene, and does every French line make immediate sense?
