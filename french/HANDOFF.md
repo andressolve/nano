@@ -1,6 +1,6 @@
 # French Comics — session handoff
 
-Updated: 2026-08-13
+Updated: 2026-08-19
 
 ## Current state
 
@@ -9,14 +9,21 @@ The French Comics collection is live and published inside Nano.
 - Nano: `https://andressolve.github.io/nano/`
 - Collection: `https://andressolve.github.io/nano/french/`
 - First comic: `https://andressolve.github.io/nano/french/les-jeux-video/`
-- Published commit: `7918a1174cde0b4d155b70a95ca9f8a5ca820872` (`Add French Comics collection`)
-- At publication time, local `HEAD` matched `origin/main` exactly.
+- First-collection commit: `7918a1174cde0b4d155b70a95ca9f8a5ca820872` (`Add French Comics collection`)
+- Second-comic commit: `6f73790eadd139ba038f570fbb3df7161b66843c` (`Add second French Starter comic`)
+- Third comic: `Où est la bibliothèque ?`, produced 2026-08-19, folder
+  `french/ou-est-la-bibliotheque/`. Commit hash and live-URL confirmation to be
+  added here once pushed — see "Third comic published" below.
 
-The second comic, `Demain, il fait beau !`, was approved and completed locally
-on 2026-08-13. Its two finished pages, reader, optional checks, production
-evidence, and catalog entry are present under
-`french/demain-il-fait-beau/`. It has **not** been committed or published; the
-user has not asked for either action.
+The second comic, `Demain, il fait beau !`, was approved, completed, committed,
+and published on 2026-08-13. Its two finished pages, reader, optional checks,
+production evidence, and catalog entry are under
+`french/demain-il-fait-beau/`.
+
+- Live reader: `https://andressolve.github.io/nano/french/demain-il-fait-beau/`
+- GitHub Pages deployment: successful
+- Both public page PNGs were downloaded after deployment and matched their
+  canonical local files byte-for-byte by SHA-256.
 
 `Les jeux vidéo` is the first accepted French comic after several failed approaches. Treat it as the working model unless the user explicitly changes direction.
 
@@ -43,13 +50,28 @@ ChatGPT, then create a new chat. Do not tell the user that changing
 3. This handoff.
 4. `french/les-jeux-video/00-PROJECT-BIBLE.md` — the successful comic’s script and constraints.
 5. `french/les-jeux-video/QA.md` — accepted result and known imperfection.
-6. `french/catalog.js` — the learner-facing French catalog.
+6. `french/demain-il-fait-beau/00-PROJECT-BIBLE.md` — the accepted two-page
+   structure and exact script.
+7. `french/demain-il-fait-beau/QA.md` — page hashes, generation audits, and
+   final sequence gate.
+8. `french/ou-est-la-bibliotheque/00-PROJECT-BIBLE.md` — the third comic's
+   script and constraints (Lesson 13, directions in town).
+9. `french/ou-est-la-bibliotheque/QA.md` — its builder/critic review trail,
+   including the one revision round.
+10. `french/catalog.js` — the learner-facing French catalog.
 
-Source course: `https://francisco-french-starter.brutus.chatgpt.site/course/`
+Source course: `https://francisco-french-starter.brutus.chatgpt.site/course/`,
+which now ships as **two separate JS data files**: `course/course-data.js`
+(Lessons 1–10) and `course/course-chapter-2.js` (Lessons 11–18). Fetch both
+when re-extracting vocabulary — trusting only the first file silently misses
+everything past Lesson 10.
 
-The user confirmed on 2026-08-13 that the children had **just finished Lesson
-11**. This is the authoritative learner boundary. The live course was checked
-again the same day and contained eighteen lessons:
+The user confirmed on 2026-08-18 that the children had **completed through
+Lesson 13** (superseding the 2026-08-13 confirmation of Lesson 11 below).
+Lesson 12 is a pure review quest of Lessons 1–5 with no new language. This is
+the authoritative learner boundary as of this update — re-confirm with the
+user before writing a fourth comic, since this number has moved twice already.
+The live course contained eighteen lessons at last check:
 
 1. Hello and how are you?
 2. Getting help in French
@@ -70,10 +92,10 @@ again the same day and contained eighteen lessons:
 17. Say how you feel—and why
 18. The French adventure finale — whole-course review
 
-Lessons 12–18 are live but are **not** part of the confirmed learner boundary.
+Lessons 14–18 are live but are **not** part of the confirmed learner boundary.
 Do not use their language until the user says the children have completed it.
-There is no need to ask again about Lessons 7–11; their completion is already
-confirmed here.
+There is no need to ask again about Lessons 7–13 (Lesson 12 is the review
+quest noted above); their completion is already confirmed here.
 
 ## What Lessons 1–11 now support
 
@@ -187,6 +209,16 @@ french/
     pages/page-01.png     finished page
     refs/                 production reference
     project notes and QA
+  demain-il-fait-beau/
+    index.html            two-page reader and optional checks
+    pages/                two canonical finished pages
+    refs/                 accepted supplemental reference
+    qa/                   candidates and reduced sequence proofs
+    project notes and QA
+  ou-est-la-bibliotheque/
+    index.html            comic reader and optional checks
+    pages/page-01.png     finished page, plus kept revision candidates
+    project notes and QA (no new refs/; reused prior comics' references)
 ```
 
 Nano’s main `stories.js` contains one entry for the **French Comics** collection. Do not add every one-page French comic to the main catalog. Add future accepted comics only to `french/catalog.js`.
@@ -224,10 +256,10 @@ For a requested commit/push:
 
 Never use `git add -A`, stash, reset, clean, a feature branch, or a pull request unless the user explicitly requests it.
 
-## Second comic completed locally
+## Second comic published
 
 The user approved the proposed two-page comic **Demain, il fait beau !**. It
-reuses Hugo and Léo, adds one café server, and is now complete locally.
+reuses Hugo and Léo, adds one café server, and is complete and live.
 
 Production files:
 
@@ -239,6 +271,8 @@ Production files:
 - canonical pages: `french/demain-il-fait-beau/pages/page-01.png` and
   `french/demain-il-fait-beau/pages/page-02.png`
 - finished local reader: `french/demain-il-fait-beau/index.html`
+- live reader:
+  `https://andressolve.github.io/nano/french/demain-il-fait-beau/`
 
 Both pages are 1024×1536. Each has exactly four panels, four correctly
 attributed balloons, and the exact approved text. The final two-page sequence
@@ -288,14 +322,51 @@ may carry Lesson 11 visually without forcing unnatural dialogue.
 - After both pages pass individually, review them as one uninterrupted story
   before building the reader or catalog entry.
 
+## Third comic published
+
+The user approved a third comic, **Où est la bibliothèque ?**, built this
+session (2026-08-19) after confirming the children had reached Lesson 13.
+
+- One portrait page, 1024×1536, the same four-panel 2×2 grid as `Les jeux
+  vidéo`.
+- Hugo asks a neighbor where the library is; she says go straight, then left
+  (two visually distinct gestures); Léo spots the library.
+- All language is Lesson 13 ("Find your way around town") plus the
+  established Lesson-1 `Bonjour !` greeting.
+- Reused both prior comics' existing references
+  (`french/les-jeux-video/refs/ref-hugo-leo-gaming.png` and
+  `french/demain-il-fait-beau/refs/ref-rain-cafe-football.png`); no new
+  reference art was generated.
+- Built by a Claude Code session, not a Codex/ChatGPT session — this session
+  only had the `gemini-pro-thin` image MCP available, so pages were generated
+  with `compose_images` rather than the Codex ImageGen path. Re-verify which
+  image tooling is available at the start of a session rather than assuming
+  the rule above always applies unchanged.
+- One builder/critic revision round was needed: the first candidate drifted
+  Léo's identity (pale skin, loose light-brown wavy hair instead of deep
+  brown skin and short tight black curls) and left a stray "2" numeral in the
+  bottom margin. A targeted repair pass fixed both; the second candidate was
+  approved. Full trail: `french/ou-est-la-bibliotheque/QA.md`.
+- Production files: `french/ou-est-la-bibliotheque/00-PROJECT-BIBLE.md`,
+  `01-IMAGE-PROMPTS.md`, `QA.md`, `index.html`, `pages/page-01.png`.
+- Added to `french/catalog.js` (not root `stories.js`, per the rule above).
+
 ### Exact start for the next session
 
-1. Verify that the new chat shows **Extra High**.
+1. Verify that the new chat shows **Extra High** (Codex-session note; not
+   applicable if working from a Claude Code session).
 2. Read the files listed in “Read first in a new session,” then inspect
-   `french/demain-il-fait-beau/QA.md`.
-3. Treat the second comic as complete. Do not regenerate its reference or pages
-   unless the user identifies a concrete defect.
-4. Do not commit or push unless the user asks. If asked, follow the root rule:
+   `french/ou-est-la-bibliotheque/QA.md` for the most recent production
+   record.
+3. Treat the first three comics as complete. Do not regenerate any reference
+   or page unless the user identifies a concrete defect.
+4. The authoritative confirmed learner boundary is Lesson 13 as of
+   2026-08-18/19 — this has moved twice already (11 → 13). If the user wants
+   another story, re-confirm the boundary first rather than trusting this
+   document; do not silently use Lessons 14–18.
+5. There is no approved fourth-comic concept or script yet. Begin with the
+   children’s current lesson boundary and the same natural-scene standard.
+6. Do not commit or push unless the user asks. If asked, follow the root rule:
    stage only the relevant French paths, commit directly to `main`, push
    `origin main`, wait for GitHub Pages, and verify the collection and new
    reader publicly.

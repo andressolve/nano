@@ -1,5 +1,15 @@
 window.NANO_FRENCH_COMICS = [
   {
+    slug: "ou-est-la-bibliotheque",
+    title: "Où est la bibliothèque ?",
+    cover: "ou-est-la-bibliotheque/pages/page-01.png",
+    published: "2026-08-18",
+    readTime: "1 minute",
+    lessonLabel: "Read after Lesson 13",
+    lessons: [13],
+    summary: "Hugo asks a friendly neighbor where the library is, and a two-step direction leads the boys straight to it."
+  },
+  {
     slug: "demain-il-fait-beau",
     title: "Demain, il fait beau !",
     cover: "demain-il-fait-beau/pages/page-01.png",
