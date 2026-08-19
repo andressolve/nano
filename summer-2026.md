@@ -69,7 +69,7 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
 |-----------|--------|-------|
 | Intellectual detective stories | vol 1 shipped | A NEW SHELF: true stories told as genuine mysteries — the reader follows the evidence to the reveal; the deduction IS the story. Adds the one tone the collection lacks (mystery) at full intellectual seriousness. **Vol 1 chosen 2026-07-05: Champollion & the Rosetta Stone**, narrative-mystery-comic chassis (multi-panel whodunit pacing, clues on-page). **Vol 2 leading candidate (user: "great idea"): John Snow's cholera map.** Also on deck: Neptune discovered by pure math (Le Verrier); Linear B (Ventris). |
 | Money & human systems | idea | First economics piece — an entire domain of thought untouched. "What Is Money?" (shells → coins → paper → numbers on a screen — why any of it works) or "How a Price Is Set." Text-led illustrated essay (argument payload). |
-| The idea as protagonist | idea | Every math book so far is a mathematician, never the mathematics. A book where the hero is an idea itself: "Infinity," "Zero," or "Proof — how we know for sure" (Euclid's infinite primes walked through honestly). Hardest to illustrate, most distilled intellectually. |
+| The idea as protagonist | shipped | "The Promise." Every math book before this one was a mathematician, never the mathematics — this is the hero-is-an-idea-itself volume: proof vs. pattern, Euclid's infinite primes walked through honestly as the payoff. Illustrated-essay format, folder `the-promise/`. Cover + 9 pages + 5-Q quiz + landing card. **Shipped 2026-08-18 (commit bd84bc8, pushed).** User QA passed ("absolutely love it"); kid-QA pending. |
 | How music works | idea | New sensory domain: vibration → pitch → why an octave sounds "the same" → harmony vs. dissonance → why a chord resolves. Pythagoras volume on the shelf gives it a hook. Explainer chassis, but about something you hear, not a machine. |
 
 ---
@@ -256,4 +256,112 @@ Status key: `idea` → `planned` → `in-progress` → `shipped`
 - Vol 2's group-ref technique held and tightened: 7 recurring characters locked in 4 calls (1 Mallow solo + 3 two-figure group sheets), each face review-gated; native multi-ref `imagePaths` fed sheets per page with "use ONLY figure A/B" clauses — partial group-sheet use worked every time. Seldon hologram reused unchanged from Vol 1's ref (third volume, same ghost).
 - Moderation design-outs held again: missionary mob = distant torchlight through a viewport, his fate caption-only; the war = looming dreadnoughts vs. withdrawing traders, nothing fired upon; embargo hardship = cold and stillness, no suffering bodies. ZERO safety rejections.
 - **Run: ZERO content regens across 21 images** (4 refs + cover + 16 pages), ≈ $4.40 — on budget. One transient 502 retried (P9). Two accepted nits: Ponyets' ref rendered his coverall denim-blue instead of scripted grey-green (ref-is-truth: lock updated to match); P12 caption has a ~2px stray accent ("Fouńdation"), invisible at reading size (Gauss P12 precedent).
-- **Status: produced 2026-07-07 autonomously, NOT committed — user-QA gate open.** Kid-QA open behind it. The sci-fi shelf's first complete trilogy.
+- **Status: ✅ Shipped — produced 2026-07-07 autonomously, user-QA PASSED 2026-07-07 ("excellent work. well done!"), committed+pushed (f635d53).** Kid-QA open. The sci-fi shelf's first complete trilogy.
+
+### 2026-07-06/07 — "The Riddle of the Well" ships Case No. 2 of the intellectual-detective shelf (autonomous, committed+pushed 2026-07-07)
+- John Snow's 1854 Broad Street cholera investigation as a true whodunit: miasma treated as a serious rival theory (not a strawman), the door-to-door death map, two predictive tests (brewery/workhouse; the Hampstead widow), the honest-doubt beat about the pump handle, Whitehead's independent cesspool discovery, and Farr's own 1866 conversion to Snow's method. Folder `cholera-map/`: cover + 19 pages, dark reader with well-water teal `#4a9b95` accent + CASE-FILE strip (THE FEAR · THE OUTBREAK · THE FALSE TRAIL · THE MAP · THE REVEAL · THE CURE) + 5-Q WHY-quiz + landing card.
+- **5 PIL exhibit plates** (`tools/build_broad_street_map.py`, modeled on Rosetta's cartouche-plate precedent): unannotated map (reader-race page), full labeled map, solved map with discovery ring, cesspool diagram, Grand Experiment number table. New reusable "label halo" technique — a small cream rounded-rectangle drawn behind text labels so they stay legible over dense death-bar clutter.
+- One caught+fixed defect: P17 (Grand Experiment page) — the model invented an unscripted "nine-fold" claim that numerically contradicted the scripted "nearly eightfold" caption. One regen with an explicit "do not invent extra captions / no additional numeric claims" instruction landed clean.
+- Dignified-death and honest-mystery discipline held with zero fixes needed (Susannah Eley and the cesspool-house infant handled entirely off-page).
+- **Run: ZERO regens beyond the one P17 fix, ZERO safety rejections across 20 images + 4 refs.**
+- **Status: produced 2026-07-06, user approved "commit and push" 2026-07-07, committed+pushed (23d9767).** User-QA + kid-QA open.
+
+### 2026-07-08 — "A Wizard of Earthsea — The Shadow and the Name" ships (autonomous, committed+pushed)
+- Le Guin adaptation, first Narrative Mode volume run fully end-to-end by a single autonomous session with no check-ins. Folder `earthsea/`: cover + 20 pages, "sea-mist ink-line" register (cold maritime flats, gold reserved strictly for fire/werelight/spell-glow, THE SHADOW always flat matte black), "voyage-strip" reader (teal `#5aa8a2`, highlights active isle: GONT · ROKE · LOW TORNING · PENDOR · OSSKIL · IFFISH · THE OPEN SEA) + 5-Q WHY-quiz + landing card.
+- Skin-tone discipline required two targeted regens (`ref_ged_young`, `ref_ged_scarred` first-passed light/olive despite the brief naming skin tone the volume's non-negotiable, per Le Guin's own stated intent) — fixed with unambiguous "DEEP RED-BROWN COPPER, NOT pale, NOT olive" language. Lesson: cross-check refs against the stated non-negotiable explicitly, not just "does it look okay."
+- **Run: 3 prototypes passed first try; ZERO regens across the entire 18-page bulk batch** (21 images total), ≈ on-budget. Group ref sheets (Foundation-validated) worked cleanly for two multi-character casts.
+- **Status: ✅ Shipped — produced + committed+pushed 2026-07-08 (8b6c2fc), fully autonomous; user-QA PASSED 2026-07-08 ("absolutely amazing. bravo!!!").** Kid-QA open.
+- **The QA pass came with a pacing critique, now a standing rule:** the volume compressed all 10 chapters into 20 pages and parts felt rushed, with events happening off-page. User: "no need to rush. if we need many volumes, so be it… don't skimp on pages/volumes." → Never cram a source into one volume; partition at natural arc boundaries, as many volumes as the story needs. **Next: Vol 2 = *The Tombs of Atuan*, Part One — planning docs first, image generation deferred to a later session.**
+
+### 2026-08-08 — *The Count of Monte Cristo* expanded edition completes its 55-page production run
+
+- Folder `monte-cristo-expanded/` now contains all 55 canonical 1024 × 1536
+  portrait pages with native lettering and a complete local reader. The run is
+  production-complete, locally verified, and published from `main` on
+  2026-08-08 after Andres's final approval.
+- User QA on the working result: **"so far looking great. i think you nailed the
+  workflow on this one."** The praised workflow is now recorded as the durable
+  long-run builder/critic pattern for **narrative/dialogue-driven graphic
+  novels** in the workspace-wide `dialogue.md` playbook, with a summary in
+  `IMAGE_GENERATION_GUIDE.md` and the binding subset in `AGENTS.md`.
+  Per Andres's explicit follow-up, this does **not** change the previous
+  biographical graphic-novel workflow; `bio.md` and the `honda-soichiro/` model
+  remain authoritative and unchanged.
+- **Builder/critic separation was the key.** The builder generated one plausible
+  page after one essentials check; the independent critic—not the builder—owned
+  pass/fail. Prompt preparation for the next page ran during review, but the next
+  generation stayed held until the current canonical page was approved and
+  promoted.
+- **How the critic was actually built is now recorded, not inferred from its
+  reports.** It was a separate agent repeatedly given the candidate path and
+  sibling prompt/audit/proofs, then asked to judge exact script/story, clear
+  attribution, obvious generation/anatomy integrity, consequential
+  identity/continuity, actual desktop/tablet comfort, and a short page-specific
+  checklist drawn from that page's script and prompt. Its output was constrained
+  to a saved report plus `APPROVED` or `REJECTED` with mandatory findings only;
+  it could not edit or promote art. See
+  `monte-cristo-expanded/36-BUILDER-CRITIC-RUN-NOTES.md` for the actual task
+  templates and control flow.
+- **Regeneration was rare and evidence-based.** Complete redraws occurred only
+  for real defects: reversed dialogue causality, response-before-sound order,
+  and a missing required line. Rejected versions were preserved; no crop patch,
+  post-hoc lettering, failed-page reference reuse, or opportunistic polish loop
+  was allowed.
+- **Approved state drove continuity.** Every new page used the latest canonical
+  predecessor plus the minimum needed identity/object references. Approved
+  candidates were promoted byte-for-byte with prompt, audit, proofs, critic
+  report, and hash retained.
+- **Batch gates mattered.** Fresh uninterrupted reviews of Pages 21–30, 31–40,
+  41–50, and 51–55 all passed. The gates evaluated the story as a reader sees it,
+  catching the class of cross-page problem that isolated page inspection cannot.
+- Production used subscription-backed in-app ImageGen throughout, never an API
+  key or separately billed image-generation path.
+- Volume II is next, as a separate production rather than Pages 56 onward. Its
+  substantial new-session brief is `MONTE-CRISTO-VOLUME-2-HANDOFF.md`; research,
+  remaining-series rebudgeting, complete-script review, and reference gates
+  precede any new image generation.
+
+### 2026-08-18 — "The Promise" ships: the idea-as-protagonist essay, first of its kind (committed+pushed)
+
+- Folder `the-promise/` — cover + 9 essay pages + 5-Q quiz + end page, illustrated-essay
+  format (parchment theme, no fictional protagonist). Fills the backlog item
+  "the idea as protagonist" (line 72 above, brainstormed 2026-07-05): the hero
+  is a piece of mathematics itself, not a mathematician. Spine: the difference
+  between **pattern/evidence** (a pile of confirming cases, always revisable)
+  and **proof** (finished, permanent), with Euclid's proof that there are
+  infinitely many primes as the payoff the whole essay is built to deliver.
+- **Editing was entirely iterative, not a single generation pass** — this volume
+  was built through many rounds of granular user feedback across a single long
+  session: line-level phrasing cuts, an Opus-agent-drafted rewrite of the
+  Euclid-proof paragraph (with the user demanding the key inference be stated
+  explicitly rather than implied), and progressively more aggressive structural
+  cuts. Content removed entirely during the session: a "now watch it break"
+  recap section, a full "What He Actually Said" footnote page on Euclid's
+  proof's exact historicity, and a whole "The Fence" / "The Thing Gödel Found"
+  detour into the limits of proof — all judged well-written but tangential.
+- **The Fermat-vs-Euler swap.** Part One originally carried two "pattern that
+  breaks" examples (Fermat's 2^k+1 primes, breaking at k=32; Euler's n²+n+41,
+  breaking at n=40). User first cut Euler and kept Fermat, then reversed that
+  decision a turn later ("fermat page puts more things under the rug") on an
+  Opus agent's recommendation: Fermat's break (641 × 6,700,417) is asserted,
+  not derived — "Euler produced the factor like a man pulling a card out of a
+  deck" — while Euler's break is fully constructible on-page from
+  n(n+1)+41, which is the essay's actual thesis (reasoning beats counting).
+  Fermat was cut outright, including its "the honest mathematician" historical
+  color — no trimmed remnant kept, per the session's cut-fully-or-not-at-all
+  pattern.
+- **Closing move: a full-essay clarity audit.** After all structural cuts
+  landed, the user asked for one more Opus-agent pass across the *entire*
+  finished essay — not for more content cuts, but hunting line-level
+  "impress the reader" writerly flourishes surviving inside otherwise-kept
+  pages (rhetorical throat-clearing like "this is the hinge the whole essay
+  turns on," redundant closing beats restating a point already made, a
+  history-of-scholarship detour on page 6 that delayed its own payoff). All
+  11 flagged fixes were applied as recommended.
+- User verdict, verbatim: **"absolutely love it. great work."** New standing
+  principle recorded from this session: [[feedback-single-idea-focus]] — drive
+  ONE idea, cut anything that's a side show even if individually well-written,
+  and when cutting, cut fully rather than leaving a softened remnant.
+- **Status: ✅ Shipped — committed+pushed 2026-08-18 (bd84bc8).** Not yet
+  linked from the root `index.html` landing-page card grid — offered, not yet
+  actioned. User-QA + kid-QA open.

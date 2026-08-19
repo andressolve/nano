@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "the-promise",
+    title: "The Promise — How We Know Things That Can Never Be Wrong",
+    cover: "the-promise/images/cover.png",
+    published: "2026-08-18",
+    category: "Ideas & Discovery",
+    series: "Illustrated essay · Alexandria, c. 300 BC",
+    summary: "Evidence can never finish; proof can. An essay that hands you Euclid's proof that the primes never run out — and then shows you what that certainty costs."
+  },
+  {
     slug: "french",
     title: "French Comics",
     cover: "french/les-jeux-video/pages/page-01.png",
