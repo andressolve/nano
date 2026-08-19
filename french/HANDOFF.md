@@ -11,9 +11,10 @@ The French Comics collection is live and published inside Nano.
 - First comic: `https://andressolve.github.io/nano/french/les-jeux-video/`
 - First-collection commit: `7918a1174cde0b4d155b70a95ca9f8a5ca820872` (`Add French Comics collection`)
 - Second-comic commit: `6f73790eadd139ba038f570fbb3df7161b66843c` (`Add second French Starter comic`)
-- Third comic: `Où est la bibliothèque ?`, produced 2026-08-19, folder
-  `french/ou-est-la-bibliotheque/`. Commit hash and live-URL confirmation to be
-  added here once pushed — see "Third comic published" below.
+- Third-comic commit: `9b506bb` (`Add third French Starter comic: Où est la
+  bibliothèque ?`), folder `french/ou-est-la-bibliotheque/`. Live-URL
+  confirmation to be added here once GitHub Pages redeploys — see "Third
+  comic published" below.
 
 The second comic, `Demain, il fait beau !`, was approved, completed, committed,
 and published on 2026-08-13. Its two finished pages, reader, optional checks,
