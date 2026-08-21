@@ -1,0 +1,7 @@
+# Page 32 candidate v3 prompt
+
+Subscription-backed built-in image generation; five inputs only, in order: approved Haydée, approved Fernand, approved hall, approved document, promoted Page 31. Rejected v1/v2 images were not used.
+
+Create exactly one finished flattened 1024 × 1536 RGB portrait graphic-novel page with exactly two panels. Top 30%: silent parliamentary crowd in ranked tiers, every man turning the same direction at once, no woman, no doorway, no standing figure, no text. Bottom 70%: one dominant deep-perspective view of the same crimson-bench, dark-oak, gold hall toward the open door at the far back. Haydée is small, centred, full-figure and alone in that distant doorway, with substantial hall perspective between her and the viewer; deep crimson-and-gold Epirote clothing, long unbound black hair, folded document at her side with a clearly visible red wax seal and only illegible marks. Fernand is tiny and distant at the far end near the bar, far behind her, identified only by heavy silhouette, black moustache mass and a decoration glint; never a readable face or foreground figure behind her.
+
+Velvet Cinema painterly realism: matte gouache, opaque watercolor, charcoal/ink construction, broad brushwork, tactile baize and waxed oak, cold overhead daylight. Preserve the same-direction silent crowd turn, visible seal, crimson/gold bench rhyme, zero strings, and no Count. No balloons, captions, labels, watermark, page number, readable writing, other women, soldiers, weapons, outside crowd, border, or crop sheet.

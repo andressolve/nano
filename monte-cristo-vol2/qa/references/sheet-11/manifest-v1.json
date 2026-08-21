@@ -1,0 +1,589 @@
+{
+  "artifact": "Sheet 11 — grayscale silhouette board",
+  "version": 1,
+  "method": "deterministic figure extraction, scale normalization, flat silhouette conversion, and placement",
+  "generative_operation": false,
+  "canvas": {
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "format": "PNG"
+  },
+  "ground_rgb": [
+    224,
+    219,
+    211
+  ],
+  "silhouette_rgb": [
+    38,
+    36,
+    34
+  ],
+  "order": "01 Count, 02 Mercédès, 03 Fernand, 04 Albert, 05 Haydée, 06 Danglars, 07 Beauchamp, 08 Villefort",
+  "normalization": {
+    "target_body_height_px": 370,
+    "target_floor_y": 697,
+    "mask_resampling": "Pillow LANCZOS",
+    "interior": "one flat dark RGB value; no source color or interior detail"
+  },
+  "sources": [
+    {
+      "order": 1,
+      "id": "01",
+      "character": "Count",
+      "source_path": "monte-cristo-vol2/refs/approved/01-count-1838.png",
+      "source_sha256": "2e38a28eb27183c7bc9addbbbc2b9ccdfefb8c7a3e9d5ac945e81c0a424b3bd0",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "crop_box_xyxy": [
+        560,
+        30,
+        900,
+        1005
+      ],
+      "extraction": {
+        "method": "RGB distance from median 10-pixel crop border; union of four-connected source components containing explicit torso/garment seeds; fill small and source-enclosed interior paint gaps; remove only bottom-zone ground marks lacking vertical figure support; clear below recorded floor",
+        "estimated_background_rgb": [
+          117,
+          106,
+          94
+        ],
+        "rgb_distance_threshold": 48,
+        "component_seed_source_xys": [
+          [
+            720,
+            450
+          ],
+          [
+            720,
+            125
+          ]
+        ],
+        "source_mask_bbox_in_crop": [
+          27,
+          0,
+          340,
+          956
+        ]
+      },
+      "normalization_landmarks": {
+        "head_top_y": 55,
+        "floor_y": 985
+      },
+      "scale": 0.3978494623655914,
+      "resized_crop_size": [
+        135,
+        388
+      ],
+      "crop_placement_xy": [
+        23,
+        317
+      ],
+      "placed_silhouette_bbox_xyxy": [
+        31,
+        317,
+        158,
+        700
+      ],
+      "cell_xyxy": [
+        0,
+        0,
+        192,
+        1024
+      ]
+    },
+    {
+      "order": 2,
+      "id": "02",
+      "character": "Mercédès",
+      "source_path": "monte-cristo-vol2/refs/approved/02-mercedes-1838.png",
+      "source_sha256": "8113d7b65a0916c8bf75d12bd1fcf180fc9a31152a11c3f2151eb968e4210821",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "crop_box_xyxy": [
+        400,
+        75,
+        845,
+        1010
+      ],
+      "extraction": {
+        "method": "RGB distance from median 10-pixel crop border; union of four-connected source components containing explicit torso/garment seeds; fill small and source-enclosed interior paint gaps; remove only bottom-zone ground marks lacking vertical figure support; clear below recorded floor",
+        "estimated_background_rgb": [
+          153,
+          144,
+          130
+        ],
+        "rgb_distance_threshold": 48,
+        "component_seed_source_xys": [
+          [
+            630,
+            450
+          ],
+          [
+            630,
+            180
+          ]
+        ],
+        "source_mask_bbox_in_crop": [
+          15,
+          0,
+          436,
+          899
+        ]
+      },
+      "normalization_landmarks": {
+        "head_top_y": 100,
+        "floor_y": 990
+      },
+      "scale": 0.4157303370786517,
+      "resized_crop_size": [
+        185,
+        389
+      ],
+      "crop_placement_xy": [
+        194,
+        317
+      ],
+      "placed_silhouette_bbox_xyxy": [
+        198,
+        317,
+        378,
+        694
+      ],
+      "cell_xyxy": [
+        192,
+        0,
+        384,
+        1024
+      ]
+    },
+    {
+      "order": 3,
+      "id": "03",
+      "character": "Fernand",
+      "source_path": "monte-cristo-vol2/refs/approved/03-fernand-1838.png",
+      "source_sha256": "487f21e1de98136ddc16fcd7aa44d69d0fd659178de417ed282dd30486ea0a40",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "crop_box_xyxy": [
+        510,
+        30,
+        930,
+        1005
+      ],
+      "extraction": {
+        "method": "RGB distance from median 10-pixel crop border; union of four-connected source components containing explicit torso/garment seeds; fill small and source-enclosed interior paint gaps; remove only bottom-zone ground marks lacking vertical figure support; clear below recorded floor",
+        "estimated_background_rgb": [
+          132,
+          123,
+          110
+        ],
+        "rgb_distance_threshold": 48,
+        "component_seed_source_xys": [
+          [
+            720,
+            450
+          ],
+          [
+            720,
+            130
+          ]
+        ],
+        "source_mask_bbox_in_crop": [
+          41,
+          0,
+          394,
+          956
+        ]
+      },
+      "normalization_landmarks": {
+        "head_top_y": 55,
+        "floor_y": 985
+      },
+      "scale": 0.3978494623655914,
+      "resized_crop_size": [
+        167,
+        388
+      ],
+      "crop_placement_xy": [
+        393,
+        317
+      ],
+      "placed_silhouette_bbox_xyxy": [
+        407,
+        317,
+        552,
+        700
+      ],
+      "cell_xyxy": [
+        384,
+        0,
+        576,
+        1024
+      ]
+    },
+    {
+      "order": 4,
+      "id": "04",
+      "character": "Albert",
+      "source_path": "monte-cristo-vol2/refs/approved/04-albert.png",
+      "source_sha256": "3ff9d03308e7f79d5b217f90e8437067a8e407c0f3347902a87db4fb0f54dbee",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "crop_box_xyxy": [
+        500,
+        30,
+        870,
+        1005
+      ],
+      "extraction": {
+        "method": "RGB distance from median 10-pixel crop border; union of four-connected source components containing explicit torso/garment seeds; fill small and source-enclosed interior paint gaps; remove only bottom-zone ground marks lacking vertical figure support; clear below recorded floor",
+        "estimated_background_rgb": [
+          139,
+          129,
+          117
+        ],
+        "rgb_distance_threshold": 48,
+        "component_seed_source_xys": [
+          [
+            690,
+            400
+          ],
+          [
+            690,
+            120
+          ],
+          [
+            650,
+            720
+          ],
+          [
+            735,
+            720
+          ]
+        ],
+        "source_mask_bbox_in_crop": [
+          46,
+          15,
+          354,
+          944
+        ]
+      },
+      "normalization_landmarks": {
+        "head_top_y": 50,
+        "floor_y": 985
+      },
+      "scale": 0.39572192513368987,
+      "resized_crop_size": [
+        146,
+        386
+      ],
+      "crop_placement_xy": [
+        593,
+        319
+      ],
+      "placed_silhouette_bbox_xyxy": [
+        609,
+        322,
+        735,
+        695
+      ],
+      "cell_xyxy": [
+        576,
+        0,
+        768,
+        1024
+      ]
+    },
+    {
+      "order": 5,
+      "id": "05",
+      "character": "Haydée",
+      "source_path": "monte-cristo-vol2/refs/approved/05-haydee.png",
+      "source_sha256": "0c717b0aaf9eac65f515e604b93112ad7cd7560579631a423acbec947ca4efbf",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "crop_box_xyxy": [
+        490,
+        55,
+        860,
+        1000
+      ],
+      "extraction": {
+        "method": "RGB distance from median 10-pixel crop border; union of four-connected source components containing explicit torso/garment seeds; fill small and source-enclosed interior paint gaps; remove only bottom-zone ground marks lacking vertical figure support; clear below recorded floor",
+        "estimated_background_rgb": [
+          150,
+          140,
+          128
+        ],
+        "rgb_distance_threshold": 48,
+        "component_seed_source_xys": [
+          [
+            680,
+            450
+          ],
+          [
+            680,
+            160
+          ],
+          [
+            680,
+            720
+          ]
+        ],
+        "source_mask_bbox_in_crop": [
+          34,
+          0,
+          345,
+          898
+        ]
+      },
+      "normalization_landmarks": {
+        "head_top_y": 80,
+        "floor_y": 980
+      },
+      "scale": 0.4111111111111111,
+      "resized_crop_size": [
+        152,
+        388
+      ],
+      "crop_placement_xy": [
+        786,
+        317
+      ],
+      "placed_silhouette_bbox_xyxy": [
+        797,
+        317,
+        930,
+        688
+      ],
+      "cell_xyxy": [
+        768,
+        0,
+        960,
+        1024
+      ]
+    },
+    {
+      "order": 6,
+      "id": "06",
+      "character": "Danglars",
+      "source_path": "monte-cristo-vol2/refs/approved/06-danglars-1838.png",
+      "source_sha256": "626f71c601069032624654958a24b06dfc33974d290d6c9d09d627f3f1e4beb9",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "crop_box_xyxy": [
+        480,
+        50,
+        880,
+        1000
+      ],
+      "extraction": {
+        "method": "RGB distance from median 10-pixel crop border; union of four-connected source components containing explicit torso/garment seeds; fill small and source-enclosed interior paint gaps; remove only bottom-zone ground marks lacking vertical figure support; clear below recorded floor",
+        "estimated_background_rgb": [
+          133,
+          124,
+          112
+        ],
+        "rgb_distance_threshold": 48,
+        "component_seed_source_xys": [
+          [
+            690,
+            450
+          ],
+          [
+            690,
+            160
+          ]
+        ],
+        "source_mask_bbox_in_crop": [
+          0,
+          0,
+          400,
+          931
+        ]
+      },
+      "normalization_landmarks": {
+        "head_top_y": 75,
+        "floor_y": 980
+      },
+      "scale": 0.4088397790055249,
+      "resized_crop_size": [
+        164,
+        388
+      ],
+      "crop_placement_xy": [
+        974,
+        317
+      ],
+      "placed_silhouette_bbox_xyxy": [
+        974,
+        317,
+        1138,
+        700
+      ],
+      "cell_xyxy": [
+        960,
+        0,
+        1152,
+        1024
+      ]
+    },
+    {
+      "order": 7,
+      "id": "07",
+      "character": "Beauchamp",
+      "source_path": "monte-cristo-vol2/refs/approved/07-beauchamp.png",
+      "source_sha256": "58ba63bf5b77fdf31c585da888461c143474c750d0fa8b2bf7cdab218f38d834",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "crop_box_xyxy": [
+        485,
+        20,
+        815,
+        1005
+      ],
+      "extraction": {
+        "method": "RGB distance from median 10-pixel crop border; union of four-connected source components containing explicit torso/garment seeds; fill small and source-enclosed interior paint gaps; remove only bottom-zone ground marks lacking vertical figure support; clear below recorded floor",
+        "estimated_background_rgb": [
+          140,
+          132,
+          122
+        ],
+        "rgb_distance_threshold": 48,
+        "component_seed_source_xys": [
+          [
+            650,
+            450
+          ],
+          [
+            650,
+            120
+          ]
+        ],
+        "source_mask_bbox_in_crop": [
+          33,
+          12,
+          330,
+          957
+        ]
+      },
+      "normalization_landmarks": {
+        "head_top_y": 35,
+        "floor_y": 990
+      },
+      "scale": 0.387434554973822,
+      "resized_crop_size": [
+        128,
+        382
+      ],
+      "crop_placement_xy": [
+        1178,
+        321
+      ],
+      "placed_silhouette_bbox_xyxy": [
+        1188,
+        323,
+        1306,
+        695
+      ],
+      "cell_xyxy": [
+        1152,
+        0,
+        1344,
+        1024
+      ]
+    },
+    {
+      "order": 8,
+      "id": "08",
+      "character": "Villefort",
+      "source_path": "monte-cristo-vol2/refs/approved/08-villefort-1838.png",
+      "source_sha256": "46e31557dd3fd34d3a103e028721869dba5dc0b16874bb40dc00f0982c262e75",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "crop_box_xyxy": [
+        640,
+        50,
+        990,
+        1005
+      ],
+      "extraction": {
+        "method": "RGB distance from median 10-pixel crop border; union of four-connected source components containing explicit torso/garment seeds; fill small and source-enclosed interior paint gaps; remove only bottom-zone ground marks lacking vertical figure support; clear below recorded floor",
+        "estimated_background_rgb": [
+          161,
+          150,
+          140
+        ],
+        "rgb_distance_threshold": 48,
+        "component_seed_source_xys": [
+          [
+            800,
+            400
+          ],
+          [
+            800,
+            150
+          ]
+        ],
+        "source_mask_bbox_in_crop": [
+          15,
+          0,
+          303,
+          933
+        ]
+      },
+      "normalization_landmarks": {
+        "head_top_y": 75,
+        "floor_y": 985
+      },
+      "scale": 0.4065934065934066,
+      "resized_crop_size": [
+        142,
+        388
+      ],
+      "crop_placement_xy": [
+        1375,
+        317
+      ],
+      "placed_silhouette_bbox_xyxy": [
+        1378,
+        317,
+        1501,
+        699
+      ],
+      "cell_xyxy": [
+        1344,
+        0,
+        1536,
+        1024
+      ]
+    }
+  ],
+  "output_path": "monte-cristo-vol2/refs/11-silhouette-board.png",
+  "output_sha256": "5894a3eb660e47f98e9ac87695f5e0ed6a9fd005e8ead775890e2cfbd3958b0f"
+}

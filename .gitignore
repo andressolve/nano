@@ -4,3 +4,11 @@ potters-slow-fire/old/
 # Monte Cristo expanded: retain raw/rejected render evidence locally. Canonical
 # pages, refs, prompts, audits, scripts, and critic reports remain tracked.
 monte-cristo-expanded/qa/**/*.png
+
+# Monte Cristo Volume II: retain raw/rejected render evidence locally. Canonical
+# pages, approved refs, text receipts, prompts, audits, and reports remain tracked.
+monte-cristo-vol2/qa/**/*.png
+monte-cristo-vol2/qa/**/terminal-*.log
+monte-cristo-vol2/qa/**/terminal-*.status
+monte-cristo-vol2/qa/**/build-silhouette-board-v2
+monte-cristo-vol2/qa/**/sheet11-v2-runner

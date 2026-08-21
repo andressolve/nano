@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "monte-cristo-vol2",
+    title: "The Count of Monte Cristo — Volume II: The House of Morcerf",
+    cover: "monte-cristo-vol2/pages/page-01.png",
+    published: "2026-08-21",
+    category: "Myth & Literature",
+    series: "The Count of Monte Cristo · Volume II",
+    summary: "Haydée's evidence brings Fernand's hidden betrayal into public view; Albert challenges the Count, while Mercédès intervenes and Albert rejects the Morcerf name and fortune. The Count's first completed revenge leaves a contaminated cost behind."
+  },
+  {
     slug: "the-promise",
     title: "The Promise — How We Know Things That Can Never Be Wrong",
     cover: "the-promise/images/cover.png",

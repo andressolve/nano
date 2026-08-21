@@ -1,0 +1,17 @@
+Use case: illustration-story
+Asset type: finished flattened canonical-production graphic-novel page
+Input images: Image 1: character identity reference for the Count; Image 2: set/architecture and palette reference for the Count's enormous black room; Image 3: immediate continuity reference from promoted Page 39. Attach only these three images.
+Primary request: PAGE 40 — at three in the morning, the Count methodically arranges his estate because he expects Albert to kill him. The inventory of his nine constructed years ends at a closed pistol case and the arithmetic he has avoided: what revenge cost and what it bought.
+Scene/backdrop: two-image page in the Count's enormous black room lit by one lamp. Dominant upper image: the Count alone at a bare table, writing inside a small pool of warm light; everything beyond it falls to black. Lower band isolates a closed pistol case on the table with his hand resting on its lid.
+Subject: clean-shaven pallid Count, same black coat as the prior page, alone and quiet.
+Style/medium: established Velvet Cinema register: layered matte gouache and opaque watercolor over sparse charcoal/ink construction, broad visible brushwork, bold shadow masses, tactile period materials, selective hard edges at the story focus. Avoid smooth prestige-oil realism, glossy concept-art surfaces, airbrushed skin, engraved cross-hatching, and children's-book softness.
+Composition/framing: exactly 1024 × 1536, 2:3 portrait, RGB PNG. One dominant upper image and one lower band; provide comfortable negative space for two prose fields, readable from a 600 × 900 reduction. The page is quiet preparation for death, not a display of legal documents or weapon detail.
+Lighting/mood: one warm lamp pool against near-black room, grave, methodical, intimate, still.
+Color palette: black, charcoal, muted brown, warm amber lamp light, pallid skin.
+Materials/textures: bare dark table, period paper with no legible writing, closed pistol case with restrained historical leather/wood texture.
+Text (verbatim): Render only the following two prose fields, each exactly once, in the stated order and ownership, with comfortable mixed-case transcription. First field: "He wrote until three. The estate to Haydée, entire, with a man in Trieste named to see it done. A letter to a shipowner in Marseille who was old now and would not understand any of it. Instructions about a house on an island that nobody else had ever seen the inside of."
+"It took him under two hours to put down everything he had made in nine years, and there was nobody on the list he had known before 1815."
+Second field: "Then he sat with the case shut in front of him and did the one piece of arithmetic he had been avoiding since April:"
+"what he had spent, and what he had bought with it."
+Constraints: All required lettering is baked into the page. Render every supplied string exactly once. Preserve named-character identity and consequential continuity. No balloons, labels, legible writing on the papers, page number, pseudo-text, open case, or displayed pistol. One completed flattened page only; not a prototype, proof sheet, component, mockup, or spread.
+Avoid: invented readable text, extra prose, speech balloons, labels, page number, pseudo-text, open pistol case, visible pistol, legal-document display, weapon detail display, additional characters, glossy realism, airbrushed skin, engraved cross-hatching, children's-book softness, watermark.

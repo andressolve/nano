@@ -1,0 +1,373 @@
+{
+  "artifact": "Sheet 10 — neutral head board",
+  "version": 1,
+  "method": "deterministic approved-pixel crop, scale, matte, and placement",
+  "generative_operation": false,
+  "canvas": {
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "format": "PNG"
+  },
+  "ground_rgb": [
+    146,
+    137,
+    126
+  ],
+  "order": "01 Count, 02 Mercédès, 03 Fernand, 04 Albert, 05 Haydée, 06 Danglars, 07 Beauchamp, 08 Villefort",
+  "normalization": {
+    "target_head_height_px": 250,
+    "target_head_top_y": 330,
+    "resampling": "Pillow LANCZOS",
+    "background_matte": "deterministic soft portrait edge matte only; no color-based classification or removal of facial pixels",
+    "identity_pixels": "source RGB retained except deterministic LANCZOS resizing and alpha compositing onto the neutral ground"
+  },
+  "sources": [
+    {
+      "order": 1,
+      "id": "01",
+      "character": "Count",
+      "source_path": "monte-cristo-vol2/refs/approved/01-count-1838.png",
+      "source_sha256": "2e38a28eb27183c7bc9addbbbc2b9ccdfefb8c7a3e9d5ac945e81c0a424b3bd0",
+      "source_mode": "RGB",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "crop_box_xyxy": [
+        85,
+        20,
+        465,
+        960
+      ],
+      "head_landmarks": {
+        "head_top_y": 35,
+        "chin_y": 555,
+        "head_center_x": 280
+      },
+      "scale": 0.4807692307692308,
+      "resized_crop_size": [
+        183,
+        452
+      ],
+      "placement_xy": [
+        2,
+        323
+      ],
+      "cell_xyxy": [
+        0,
+        0,
+        192,
+        1024
+      ],
+      "estimated_crop_background_rgb": [
+        117,
+        107,
+        94
+      ]
+    },
+    {
+      "order": 2,
+      "id": "02",
+      "character": "Mercédès",
+      "source_path": "monte-cristo-vol2/refs/approved/02-mercedes-1838.png",
+      "source_sha256": "8113d7b65a0916c8bf75d12bd1fcf180fc9a31152a11c3f2151eb968e4210821",
+      "source_mode": "RGB",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "crop_box_xyxy": [
+        75,
+        80,
+        405,
+        960
+      ],
+      "head_landmarks": {
+        "head_top_y": 100,
+        "chin_y": 550,
+        "head_center_x": 240
+      },
+      "scale": 0.5555555555555556,
+      "resized_crop_size": [
+        183,
+        489
+      ],
+      "placement_xy": [
+        196,
+        319
+      ],
+      "cell_xyxy": [
+        192,
+        0,
+        384,
+        1024
+      ],
+      "estimated_crop_background_rgb": [
+        42,
+        40,
+        37
+      ]
+    },
+    {
+      "order": 3,
+      "id": "03",
+      "character": "Fernand",
+      "source_path": "monte-cristo-vol2/refs/approved/03-fernand-1838.png",
+      "source_sha256": "487f21e1de98136ddc16fcd7aa44d69d0fd659178de417ed282dd30486ea0a40",
+      "source_mode": "RGB",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "crop_box_xyxy": [
+        80,
+        110,
+        435,
+        960
+      ],
+      "head_landmarks": {
+        "head_top_y": 140,
+        "chin_y": 625,
+        "head_center_x": 260
+      },
+      "scale": 0.5154639175257731,
+      "resized_crop_size": [
+        183,
+        438
+      ],
+      "placement_xy": [
+        387,
+        315
+      ],
+      "cell_xyxy": [
+        384,
+        0,
+        576,
+        1024
+      ],
+      "estimated_crop_background_rgb": [
+        63,
+        57,
+        48
+      ]
+    },
+    {
+      "order": 4,
+      "id": "04",
+      "character": "Albert",
+      "source_path": "monte-cristo-vol2/refs/approved/04-albert.png",
+      "source_sha256": "3ff9d03308e7f79d5b217f90e8437067a8e407c0f3347902a87db4fb0f54dbee",
+      "source_mode": "RGB",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "crop_box_xyxy": [
+        75,
+        20,
+        455,
+        960
+      ],
+      "head_landmarks": {
+        "head_top_y": 45,
+        "chin_y": 560,
+        "head_center_x": 260
+      },
+      "scale": 0.4854368932038835,
+      "resized_crop_size": [
+        184,
+        456
+      ],
+      "placement_xy": [
+        582,
+        318
+      ],
+      "cell_xyxy": [
+        576,
+        0,
+        768,
+        1024
+      ],
+      "estimated_crop_background_rgb": [
+        145,
+        135,
+        122
+      ]
+    },
+    {
+      "order": 5,
+      "id": "05",
+      "character": "Haydée",
+      "source_path": "monte-cristo-vol2/refs/approved/05-haydee.png",
+      "source_sha256": "0c717b0aaf9eac65f515e604b93112ad7cd7560579631a423acbec947ca4efbf",
+      "source_mode": "RGB",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "crop_box_xyxy": [
+        100,
+        70,
+        455,
+        960
+      ],
+      "head_landmarks": {
+        "head_top_y": 90,
+        "chin_y": 575,
+        "head_center_x": 275
+      },
+      "scale": 0.5154639175257731,
+      "resized_crop_size": [
+        183,
+        459
+      ],
+      "placement_xy": [
+        774,
+        320
+      ],
+      "cell_xyxy": [
+        768,
+        0,
+        960,
+        1024
+      ],
+      "estimated_crop_background_rgb": [
+        141,
+        131,
+        120
+      ]
+    },
+    {
+      "order": 6,
+      "id": "06",
+      "character": "Danglars",
+      "source_path": "monte-cristo-vol2/refs/approved/06-danglars-1838.png",
+      "source_sha256": "626f71c601069032624654958a24b06dfc33974d290d6c9d09d627f3f1e4beb9",
+      "source_mode": "RGB",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "crop_box_xyxy": [
+        65,
+        150,
+        405,
+        960
+      ],
+      "head_landmarks": {
+        "head_top_y": 180,
+        "chin_y": 640,
+        "head_center_x": 235
+      },
+      "scale": 0.5434782608695652,
+      "resized_crop_size": [
+        185,
+        440
+      ],
+      "placement_xy": [
+        964,
+        314
+      ],
+      "cell_xyxy": [
+        960,
+        0,
+        1152,
+        1024
+      ],
+      "estimated_crop_background_rgb": [
+        142,
+        129,
+        101
+      ]
+    },
+    {
+      "order": 7,
+      "id": "07",
+      "character": "Beauchamp",
+      "source_path": "monte-cristo-vol2/refs/approved/07-beauchamp.png",
+      "source_sha256": "58ba63bf5b77fdf31c585da888461c143474c750d0fa8b2bf7cdab218f38d834",
+      "source_mode": "RGB",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "crop_box_xyxy": [
+        70,
+        10,
+        485,
+        960
+      ],
+      "head_landmarks": {
+        "head_top_y": 35,
+        "chin_y": 600,
+        "head_center_x": 275
+      },
+      "scale": 0.4424778761061947,
+      "resized_crop_size": [
+        184,
+        420
+      ],
+      "placement_xy": [
+        1157,
+        319
+      ],
+      "cell_xyxy": [
+        1152,
+        0,
+        1344,
+        1024
+      ],
+      "estimated_crop_background_rgb": [
+        135,
+        128,
+        119
+      ]
+    },
+    {
+      "order": 8,
+      "id": "08",
+      "character": "Villefort",
+      "source_path": "monte-cristo-vol2/refs/approved/08-villefort-1838.png",
+      "source_sha256": "46e31557dd3fd34d3a103e028721869dba5dc0b16874bb40dc00f0982c262e75",
+      "source_mode": "RGB",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "crop_box_xyxy": [
+        120,
+        70,
+        488,
+        960
+      ],
+      "head_landmarks": {
+        "head_top_y": 90,
+        "chin_y": 590,
+        "head_center_x": 305
+      },
+      "scale": 0.5,
+      "resized_crop_size": [
+        184,
+        445
+      ],
+      "placement_xy": [
+        1348,
+        320
+      ],
+      "cell_xyxy": [
+        1344,
+        0,
+        1536,
+        1024
+      ],
+      "estimated_crop_background_rgb": [
+        135,
+        126,
+        116
+      ]
+    }
+  ],
+  "output_path": "monte-cristo-vol2/refs/10-head-board.png",
+  "output_sha256": "626c2ee6a2d0e6e240cd571c9225ee1e97ef03fa258d1f591b769484089b52f6"
+}

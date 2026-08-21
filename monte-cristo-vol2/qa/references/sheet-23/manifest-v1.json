@@ -1,0 +1,106 @@
+{
+  "artifact": "Sheet 23 — Page 33 Chamber + objects carrier, unlettered",
+  "version": 1,
+  "method": "deterministic full-source direct-pixel resampling and placement",
+  "generative_operation": false,
+  "repainting_or_invented_content": false,
+  "canvas": {
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "format": "PNG",
+    "neutral_ground_rgb": [
+      215,
+      211,
+      201
+    ]
+  },
+  "layout": {
+    "order": "approved Sheet 19 left; approved Sheet 21 right",
+    "gutter_width_px": 18,
+    "gutter_box_xyxy": [
+      759,
+      0,
+      777,
+      1024
+    ],
+    "vertical_alignment": "centered",
+    "top_padding_px": 259,
+    "bottom_padding_px": 259,
+    "labels_dividers_borders": false
+  },
+  "sources": [
+    {
+      "role": "left — approved Sheet 19 Chamber of Peers",
+      "source_path": "monte-cristo-vol2/refs/approved/19-set-chamber.png",
+      "source_sha256": "f29a804117800ce50102cfd370ecfbc1907cca9696204cf1d363c2a7564108c5",
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_crop_box_xyxy": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "crop_away": false,
+      "resampling": "Pillow LANCZOS",
+      "scale_exact": "253/512",
+      "scale_decimal": 0.494140625,
+      "resized_size": [
+        759,
+        506
+      ],
+      "placement_xy": [
+        0,
+        259
+      ],
+      "placement_box_xyxy": [
+        0,
+        259,
+        759,
+        765
+      ]
+    },
+    {
+      "role": "right — approved Sheet 21 key objects",
+      "source_path": "monte-cristo-vol2/refs/approved/21-objects.png",
+      "source_sha256": "1013330cd03e6e748cad7cb1a45671e042ee46bf1f7fe5b9d5d07634406e849a",
+      "source_format": "PNG",
+      "source_mode": "RGB",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_crop_box_xyxy": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "crop_away": false,
+      "resampling": "Pillow LANCZOS",
+      "scale_exact": "253/512",
+      "scale_decimal": 0.494140625,
+      "resized_size": [
+        759,
+        506
+      ],
+      "placement_xy": [
+        777,
+        259
+      ],
+      "placement_box_xyxy": [
+        777,
+        259,
+        1536,
+        765
+      ]
+    }
+  ],
+  "output_path": "monte-cristo-vol2/refs/23-page-33-chamber-objects-carrier.png",
+  "output_sha256": "b5d48cac4e21741053a29bded5055d89ecdf7b08360c09835b65752dd483e649"
+}

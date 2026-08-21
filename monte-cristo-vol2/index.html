@@ -1,0 +1,1327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#080b0f" />
+  <meta name="description" content="Read The Count of Monte Cristo — Volume II: The House of Morcerf, a 49-page illustrated novel about evidence, revenge, family, and its cost." />
+  <title>The Count of Monte Cristo — Volume II: The House of Morcerf</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #080b0f;
+      --ink-raised: #11161c;
+      --paper: #efe5d0;
+      --paper-soft: rgba(239, 229, 208, 0.68);
+      --paper-faint: rgba(239, 229, 208, 0.42);
+      --gold: #c8a267;
+      --gold-soft: rgba(200, 162, 103, 0.14);
+      --oxblood: #78342f;
+      --sea: #314a58;
+      --line: rgba(239, 229, 208, 0.14);
+      --shadow: rgba(0, 0, 0, 0.76);
+      --bar-height: 62px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-height: 100%;
+      background: var(--ink);
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--paper);
+      background:
+        radial-gradient(circle at 50% 18%, rgba(102, 76, 48, 0.19), transparent 34rem),
+        radial-gradient(circle at 14% 72%, rgba(49, 74, 88, 0.09), transparent 28rem),
+        linear-gradient(145deg, rgba(120, 52, 47, 0.07), transparent 42%),
+        var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    button, a { font: inherit; }
+
+    button:focus-visible,
+    a:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .progress-track {
+      position: fixed;
+      z-index: 140;
+      inset: 0 0 auto;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .progress {
+      display: block;
+      width: calc(100% / 49);
+      height: 100%;
+      background: linear-gradient(90deg, var(--sea), var(--oxblood), var(--gold));
+      box-shadow: 0 0 15px rgba(200, 162, 103, 0.3);
+      transition: width 220ms ease;
+    }
+
+    .topbar {
+      position: fixed;
+      z-index: 120;
+      inset: 3px 0 auto;
+      display: grid;
+      grid-template-columns: 1fr minmax(0, auto) 1fr;
+      align-items: center;
+      gap: 16px;
+      min-height: var(--bar-height);
+      padding: 8px max(16px, env(safe-area-inset-right)) 10px max(16px, env(safe-area-inset-left));
+      background: linear-gradient(180deg, rgba(8, 11, 15, 0.98), rgba(8, 11, 15, 0.78) 72%, transparent);
+      pointer-events: none;
+    }
+
+    .topbar > * { pointer-events: auto; }
+
+    .home {
+      justify-self: start;
+      color: var(--paper-faint);
+      text-decoration: none;
+      font: 700 10px/1.2 system-ui, sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 150ms ease;
+    }
+
+    .home:hover { color: var(--paper); }
+
+    .book-id {
+      max-width: min(48vw, 560px);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .book-id strong,
+    .book-id span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .book-id strong {
+      font-size: 13px;
+      font-weight: normal;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .book-id span {
+      margin-top: 3px;
+      color: rgba(200, 162, 103, 0.8);
+      font: 700 9px/1.2 system-ui, sans-serif;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .actions {
+      display: flex;
+      justify-self: end;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tool {
+      display: inline-flex;
+      min-height: 34px;
+      align-items: center;
+      gap: 6px;
+      border: 0;
+      border-radius: 999px;
+      padding: 7px 9px;
+      color: var(--paper-faint);
+      background: transparent;
+      cursor: pointer;
+      font: 700 10px/1 system-ui, sans-serif;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      transition: color 150ms ease, background 150ms ease;
+    }
+
+    .tool:hover {
+      color: var(--paper);
+      background: rgba(239, 229, 208, 0.07);
+    }
+
+    .tool[aria-pressed="true"] {
+      color: var(--paper);
+      background: var(--gold-soft);
+    }
+
+    .tool-icon {
+      min-width: 16px;
+      color: var(--gold);
+      font-size: 15px;
+      line-height: 1;
+      text-align: center;
+    }
+
+    main {
+      display: grid;
+      min-height: 100vh;
+      min-height: 100dvh;
+      place-items: center;
+      padding: calc(var(--bar-height) + 8px) 78px 26px;
+    }
+
+    .stage {
+      width: min(94vw, calc((100vh - 128px) * 2 / 3), 1024px);
+      width: min(94vw, calc((100dvh - 128px) * 2 / 3), 1024px);
+      min-width: 0;
+    }
+
+    .page-frame {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      aspect-ratio: 2 / 3;
+      border: 1px solid rgba(200, 162, 103, 0.2);
+      border-radius: 3px;
+      background: #05070a;
+      box-shadow:
+        0 26px 82px var(--shadow),
+        0 0 0 1px rgba(0, 0, 0, 0.76);
+      opacity: 1;
+      transition: opacity 150ms ease, transform 150ms ease;
+    }
+
+    .page-frame.changing {
+      opacity: 0;
+      transform: translateY(3px);
+    }
+
+    .page-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .tap-zone {
+      position: absolute;
+      z-index: 2;
+      inset-block: 0;
+      border: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    .tap-zone.prev-zone {
+      left: 0;
+      width: 30%;
+      cursor: w-resize;
+    }
+
+    .tap-zone.zoom-zone {
+      left: 30%;
+      width: 40%;
+      cursor: zoom-in;
+    }
+
+    .tap-zone.next-zone {
+      right: 0;
+      width: 30%;
+      cursor: e-resize;
+    }
+
+    .folio {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      min-height: 34px;
+      padding: 9px 3px 0;
+      color: var(--paper-faint);
+      font: 700 9px/1.3 system-ui, sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .folio-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .folio-counter { color: rgba(200, 162, 103, 0.78); }
+
+    .nav {
+      position: fixed;
+      z-index: 90;
+      top: 50%;
+      display: grid;
+      width: 50px;
+      height: 50px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--paper);
+      background: rgba(13, 17, 22, 0.78);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.38);
+      cursor: pointer;
+      font: 23px/1 system-ui, sans-serif;
+      transform: translateY(-50%);
+      transition: background 150ms ease, border-color 150ms ease, opacity 150ms ease, transform 150ms ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav:hover:not(:disabled) {
+      border-color: rgba(200, 162, 103, 0.58);
+      background: rgba(120, 52, 47, 0.5);
+      transform: translateY(-50%) scale(1.04);
+    }
+
+    .nav:disabled {
+      opacity: 0.13;
+      cursor: default;
+    }
+
+    .nav.prev { left: 16px; }
+    .nav.next { right: 16px; }
+
+    .reader-status-card {
+      width: min(760px, calc(100vw - 48px));
+      margin: 0 auto;
+      padding: 88px 34px 42px;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .reader-status-card h1 { margin: 0 0 18px; font-size: clamp(30px, 5vw, 54px); font-weight: normal; }
+    .reader-status-card a { color: var(--gold); }
+    .quiz-card { text-align: left; padding-top: 78px; }
+    .quiz-card > h1, .quiz-card > .eyebrow { text-align: center; }
+    .quiz-card ol { margin: 24px 0 0; padding-left: 24px; }
+    .quiz-card li { margin: 0 0 18px; padding-left: 6px; }
+    .quiz-card label { display: block; margin: 8px 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; }
+    .quiz-card label:hover { border-color: var(--gold); }
+    .quiz-card .check { margin: 4px 0 6px; padding: 8px 13px; border: 1px solid var(--gold); border-radius: 999px; color: var(--paper); background: var(--gold-soft); cursor: pointer; }
+    .quiz-card .feedback { display: none; margin: 4px 0 0; color: var(--gold); }
+    .quiz-card .feedback.incorrect { color: #e39a88; }
+    body.reader-state main { display: none; }
+    body.reader-state .reader-status-card { display: block !important; }
+
+    dialog {
+      color: var(--paper);
+      background: var(--ink-raised);
+    }
+
+    dialog::backdrop {
+      background: rgba(2, 4, 7, 0.82);
+      backdrop-filter: blur(5px);
+    }
+
+    .contents-dialog {
+      width: min(420px, calc(100vw - 22px));
+      max-width: none;
+      height: 100vh;
+      height: 100dvh;
+      max-height: none;
+      margin: 0 0 0 auto;
+      border: 0;
+      border-left: 1px solid rgba(200, 162, 103, 0.22);
+      padding: 0;
+      box-shadow: -28px 0 90px rgba(0, 0, 0, 0.58);
+    }
+
+    .contents-shell {
+      display: grid;
+      height: 100%;
+      grid-template-rows: auto 1fr;
+    }
+
+    .contents-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 26px 24px 18px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(200, 162, 103, 0.055), transparent);
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      color: var(--gold);
+      font: 750 9px/1.3 system-ui, sans-serif;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .contents-head h2 {
+      margin: 0;
+      font-size: 29px;
+      font-weight: normal;
+      line-height: 1.05;
+    }
+
+    .icon-button {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--paper);
+      background: rgba(0, 0, 0, 0.16);
+      cursor: pointer;
+      font: 18px/1 system-ui, sans-serif;
+      transition: background 150ms ease, border-color 150ms ease;
+    }
+
+    .icon-button:hover {
+      border-color: rgba(200, 162, 103, 0.5);
+      background: var(--gold-soft);
+    }
+
+    .contents-list {
+      overflow: auto;
+      padding: 12px 14px 40px;
+      overscroll-behavior: contain;
+    }
+
+    .bookmarks-section {
+      margin: 4px 0 22px;
+      padding: 10px 0 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .bookmarks-section[hidden] { display: none; }
+
+    .bookmarks-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin: 0 10px 8px;
+    }
+
+    .bookmarks-head h3 {
+      margin: 0;
+      color: var(--gold);
+      font: 750 9px/1.3 system-ui, sans-serif;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .bookmark-count {
+      color: var(--paper-faint);
+      font: 700 9px/1.2 system-ui, sans-serif;
+    }
+
+    .movement {
+      margin: 17px 0 25px;
+    }
+
+    .movement h3 {
+      margin: 0 10px 8px;
+      color: rgba(200, 162, 103, 0.84);
+      font: 750 9px/1.3 system-ui, sans-serif;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .contents-page {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 31px minmax(0, 1fr) 18px;
+      gap: 10px;
+      align-items: baseline;
+      border: 0;
+      border-radius: 4px;
+      padding: 9px 10px;
+      color: var(--paper-soft);
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      transition: color 130ms ease, background 130ms ease;
+    }
+
+    .contents-page:hover {
+      color: var(--paper);
+      background: rgba(239, 229, 208, 0.055);
+    }
+
+    .contents-page[aria-current="page"] {
+      color: var(--paper);
+      background: linear-gradient(90deg, rgba(120, 52, 47, 0.28), rgba(200, 162, 103, 0.08));
+      box-shadow: inset 2px 0 var(--gold);
+    }
+
+    .contents-number {
+      color: var(--paper-faint);
+      font: 700 9px/1.2 system-ui, sans-serif;
+      letter-spacing: 0.08em;
+    }
+
+    .contents-title {
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .bookmark-mark {
+      color: var(--gold);
+      font: 13px/1 system-ui, sans-serif;
+      text-align: center;
+    }
+
+    .zoom-dialog {
+      width: 100vw;
+      max-width: none;
+      height: 100vh;
+      height: 100dvh;
+      max-height: none;
+      margin: 0;
+      border: 0;
+      padding: 0;
+      overflow: hidden;
+      background: rgba(5, 7, 10, 0.985);
+    }
+
+    .zoom-shell {
+      display: grid;
+      height: 100%;
+      grid-template-rows: auto 1fr;
+    }
+
+    .zoom-toolbar {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      min-height: 62px;
+      padding: 10px max(14px, env(safe-area-inset-right)) 10px max(14px, env(safe-area-inset-left));
+      border-bottom: 1px solid var(--line);
+      background: rgba(10, 13, 17, 0.96);
+      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.36);
+    }
+
+    .zoom-context {
+      min-width: 0;
+    }
+
+    .zoom-context strong,
+    .zoom-context span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .zoom-context strong {
+      color: var(--paper);
+      font-size: 13px;
+      font-weight: normal;
+    }
+
+    .zoom-context span {
+      margin-top: 3px;
+      color: var(--paper-faint);
+      font: 700 9px/1.2 system-ui, sans-serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .zoom-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .zoom-controls { justify-self: end; }
+
+    .zoom-page-nav { z-index: 4; }
+
+    .zoom-button,
+    .zoom-readout {
+      display: grid;
+      height: 36px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--paper-soft);
+      background: rgba(239, 229, 208, 0.035);
+      font: 750 11px/1 system-ui, sans-serif;
+    }
+
+    .zoom-button {
+      min-width: 36px;
+      padding: 0 11px;
+      cursor: pointer;
+    }
+
+    .zoom-button:hover:not(:disabled) {
+      color: var(--paper);
+      border-color: rgba(200, 162, 103, 0.5);
+      background: var(--gold-soft);
+    }
+
+    .zoom-button[aria-pressed="true"] {
+      color: var(--gold);
+      border-color: rgba(200, 162, 103, 0.48);
+      background: var(--gold-soft);
+    }
+
+    .zoom-button:disabled { opacity: 0.25; }
+
+    .zoom-readout {
+      min-width: 58px;
+      border-color: transparent;
+      color: rgba(200, 162, 103, 0.9);
+      background: transparent;
+    }
+
+    .zoom-viewport {
+      position: relative;
+      overflow: auto;
+      min-height: 0;
+      overscroll-behavior: contain;
+      scrollbar-color: rgba(200, 162, 103, 0.38) rgba(255, 255, 255, 0.025);
+      touch-action: pan-x pan-y pinch-zoom;
+    }
+
+    .zoom-viewport.dragging { cursor: grabbing; }
+
+    .zoom-canvas {
+      display: grid;
+      width: max-content;
+      min-width: 100%;
+      min-height: 100%;
+      place-items: start center;
+      padding: 26px;
+    }
+
+    .zoom-image {
+      display: block;
+      width: 600px;
+      max-width: none;
+      height: auto;
+      border: 1px solid rgba(200, 162, 103, 0.16);
+      box-shadow: 0 24px 88px rgba(0, 0, 0, 0.82);
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .reader-status {
+      position: fixed;
+      z-index: 170;
+      left: 50%;
+      bottom: max(18px, env(safe-area-inset-bottom));
+      max-width: calc(100vw - 32px);
+      padding: 9px 13px;
+      border: 1px solid rgba(200, 162, 103, 0.22);
+      border-radius: 999px;
+      color: var(--paper-soft);
+      background: rgba(13, 17, 22, 0.94);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      font: 700 10px/1.2 system-ui, sans-serif;
+      letter-spacing: 0.06em;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, 8px);
+      transition: opacity 160ms ease, transform 160ms ease;
+    }
+
+    .reader-status.visible {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    @media (max-width: 860px) {
+      .topbar { gap: 6px; padding-inline: 10px; }
+      .home-label,
+      .tool-label { display: none; }
+      .home { font-size: 15px; letter-spacing: 0; }
+      .book-id { max-width: 44vw; }
+      .book-id strong { font-size: 10px; }
+      .book-id span { font-size: 8px; }
+      .tool { width: 34px; justify-content: center; padding-inline: 0; }
+      .tool-icon { font-size: 16px; }
+      main { padding: calc(var(--bar-height) + 2px) 8px 70px; }
+      .stage { width: min(100%, calc((100dvh - 140px) * 2 / 3)); }
+      .nav {
+        top: auto;
+        bottom: max(12px, env(safe-area-inset-bottom));
+        width: 46px;
+        height: 46px;
+        transform: none;
+        background: rgba(13, 17, 22, 0.94);
+      }
+      .nav:hover:not(:disabled) { transform: scale(1.04); }
+      .nav.prev { left: calc(50% - 58px); }
+      .nav.next { right: calc(50% - 58px); }
+      .folio { padding-inline: 5px; }
+      .zoom-controls { gap: 3px; }
+      .zoom-button { padding-inline: 9px; }
+      .zoom-context strong { font-size: 11px; }
+      .zoom-readout { min-width: 50px; }
+      .zoom-canvas { padding: 18px; }
+    }
+
+    @media (max-width: 440px) {
+      .book-id { max-width: 40vw; }
+      .book-id strong { letter-spacing: 0.09em; }
+      .actions { gap: 0; }
+      .folio { grid-template-columns: minmax(0, 1fr) auto; }
+      .contents-dialog { width: 100vw; }
+      .contents-head { padding-inline: 20px; }
+      .zoom-toolbar { min-height: 58px; gap: 6px; padding-inline: 9px; }
+      .zoom-context span { display: none; }
+      .zoom-button { min-width: 32px; height: 34px; padding-inline: 8px; }
+      .zoom-readout { min-width: 44px; height: 34px; font-size: 10px; }
+      .zoom-canvas { padding: 12px; }
+    }
+
+    @media (max-height: 620px) and (orientation: landscape) {
+      :root { --bar-height: 52px; }
+      main { padding-block: 52px 18px; }
+      .stage { width: min(88vw, calc((100dvh - 84px) * 2 / 3), 1024px); }
+      .folio { min-height: 24px; padding-top: 5px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-track" aria-hidden="true"><span class="progress" id="progress"></span></div>
+
+  <header class="topbar">
+    <a class="home" href="../index.html" aria-label="Back to the story library">
+      <span aria-hidden="true">←</span> <span class="home-label">Stories</span>
+    </a>
+
+    <div class="book-id">
+      <strong>The Count of Monte Cristo — Volume II</strong>
+      <span id="movementLabel">The House of Morcerf</span>
+    </div>
+
+    <div class="actions">
+      <button class="tool" id="contentsButton" type="button" aria-label="Open contents" aria-keyshortcuts="C">
+        <span class="tool-icon" aria-hidden="true">☰</span><span class="tool-label">Contents</span>
+      </button>
+      <button class="tool" id="zoomButton" type="button" aria-label="Zoom current page" aria-keyshortcuts="Z">
+        <span class="tool-icon" aria-hidden="true">＋</span><span class="tool-label">Zoom</span>
+      </button>
+      <button class="tool" id="bookmarkButton" type="button" aria-label="Bookmark current page" aria-keyshortcuts="B" aria-pressed="false">
+        <span class="tool-icon" id="bookmarkIcon" aria-hidden="true">☆</span><span class="tool-label">Bookmark</span>
+      </button>
+      <button class="tool" id="fullscreenButton" type="button" aria-label="Enter fullscreen" aria-keyshortcuts="F">
+        <span class="tool-icon" id="fullscreenIcon" aria-hidden="true">⛶</span><span class="tool-label" id="fullscreenLabel">Full screen</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="stage" aria-label="Volume II reader" aria-live="polite">
+      <div class="page-frame" id="pageFrame">
+        <img id="pageImage" src="pages/page-01.png" alt="The Count of Monte Cristo — Volume II: The House of Morcerf — Page 1: Three Roofs" />
+        <button class="tap-zone prev-zone" id="tapPrev" type="button" aria-label="Previous page"></button>
+        <button class="tap-zone zoom-zone" id="tapZoom" type="button" aria-label="Zoom current page"></button>
+        <button class="tap-zone next-zone" id="tapNext" type="button" aria-label="Next page"></button>
+      </div>
+
+      <div class="folio">
+        <span class="folio-title" id="pageTitle">Bring Her Home</span>
+        <span class="folio-counter" id="counter">Page 1 of 49</span>
+      </div>
+    </section>
+  </main>
+
+  <section class="reader-status-card" id="endState" hidden><p class="eyebrow">End of Volume II</p><h1>One</h1><p>The Count has completed his first revenge, but its cost has reached everyone around him. In Villefort’s lit window, another reckoning waits.</p><p><a href="../monte-cristo-expanded/index.html">Read Volume I →</a> · <a href="../index.html">Return to the library →</a></p></section>
+  <section class="reader-status-card quiz-card" id="quizState" hidden><p class="eyebrow">After the story</p><h1>Test your understanding</h1><ol>
+    <li class="question" data-answer="b">Why does Haydée insist that Fernand come first?<label><input type="radio" name="q1" value="a"> To protect his reputation</label><label><input type="radio" name="q1" value="b"> So her evidence can expose him directly</label><label><input type="radio" name="q1" value="c"> To ask him for forgiveness</label><button class="check" type="button">Check answer</button><p class="feedback correct">Correct: Haydée wants her testimony to confront the man responsible for her family's ruin.</p><p class="feedback incorrect">Not quite. She insists Fernand come first so her evidence can expose him directly.</p></li>
+    <li class="question" data-answer="b">How does the Count use Danglars and the newspaper?<label><input type="radio" name="q2" value="a"> He buys Danglars's bank</label><label><input type="radio" name="q2" value="b"> He uses the paper to publish the Janina evidence and force a hearing</label><label><input type="radio" name="q2" value="c"> He asks Danglars to hide Fernand</label><button class="check" type="button">Check answer</button><p class="feedback correct">Correct: the newspaper turns the evidence into a public summons Fernand cannot ignore.</p><p class="feedback incorrect">Not quite. The paper publishes the Janina evidence, driving Fernand to demand a public hearing.</p></li>
+    <li class="question" data-answer="c">Why does Mercédès ask Edmond not to fight Albert?<label><input type="radio" name="q3" value="a"> She doubts Edmond can win</label><label><input type="radio" name="q3" value="b"> She wants Albert to inherit</label><label><input type="radio" name="q3" value="c"> She asks him to spare her son</label><button class="check" type="button">Check answer</button><p class="feedback correct">Correct: Mercédès intervenes to protect Albert, who is acting from a false understanding of his father's honor.</p><p class="feedback incorrect">Not quite. She asks Edmond to spare Albert, her son.</p></li>
+    <li class="question" data-answer="a">Why does Albert withdraw and reject the Morcerf name and fortune?<label><input type="radio" name="q4" value="a"> Fernand's betrayal makes them morally intolerable</label><label><input type="radio" name="q4" value="b"> He wants to join the army</label><label><input type="radio" name="q4" value="c"> The Count orders him to leave</label><button class="check" type="button">Check answer</button><p class="feedback correct">Correct: Albert cannot keep a name and fortune stained by Fernand's betrayal.</p><p class="feedback incorrect">Not quite. He rejects the inherited identity because Fernand's betrayal makes it morally intolerable.</p></li>
+    <li class="question" data-answer="c">What do the Count's final “One” and Villefort's lit window mean?<label><input type="radio" name="q5" value="a"> The story is over</label><label><input type="radio" name="q5" value="b"> The Count has forgiven everyone</label><label><input type="radio" name="q5" value="c"> One revenge is complete and another reckoning remains</label><button class="check" type="button">Check answer</button><p class="feedback correct">Correct: “One” marks the completed revenge, while Villefort's lit window promises another reckoning.</p><p class="feedback incorrect">Not quite. The ending marks one completed revenge and points toward another.</p></li>
+  </ol><p id="quizScore" aria-live="polite"></p></section>
+
+  <button class="nav prev" id="prev" type="button" aria-label="Previous page">←</button>
+  <button class="nav next" id="next" type="button" aria-label="Next page">→</button>
+
+  <dialog class="contents-dialog" id="contentsDialog" aria-labelledby="contentsTitle">
+    <div class="contents-shell">
+      <header class="contents-head">
+        <div>
+      <p class="eyebrow">Volume II · 49 pages</p>
+          <h2 id="contentsTitle">Contents</h2>
+        </div>
+        <button class="icon-button" id="closeContents" type="button" aria-label="Close contents">×</button>
+      </header>
+      <nav class="contents-list" id="contentsList" aria-label="Bookmarks, story movements, and pages">
+        <section class="bookmarks-section" id="bookmarksSection" hidden>
+          <div class="bookmarks-head">
+            <h3>Bookmarks</h3>
+            <span class="bookmark-count" id="bookmarkCount"></span>
+          </div>
+          <div id="bookmarksList"></div>
+        </section>
+        <div id="movementList"></div>
+      </nav>
+    </div>
+  </dialog>
+
+  <dialog class="zoom-dialog" id="zoomDialog" aria-labelledby="zoomTitle">
+    <div class="zoom-shell">
+      <header class="zoom-toolbar">
+        <div class="zoom-context">
+          <strong id="zoomTitle">Bring Her Home</strong>
+          <span id="zoomPageLabel">Page 1 of 49</span>
+        </div>
+
+        <div class="zoom-controls" aria-label="Zoom controls">
+          <button class="zoom-button" id="zoomOut" type="button" aria-label="Zoom out">−</button>
+          <output class="zoom-readout" id="zoomReadout" aria-live="polite">Fit</output>
+          <button class="zoom-button" id="zoomIn" type="button" aria-label="Zoom in">+</button>
+          <button class="zoom-button" id="zoomFit" type="button" aria-label="Fit page">Fit</button>
+          <button class="zoom-button" id="zoomBookmark" type="button" aria-label="Bookmark current page" aria-pressed="false"><span id="zoomBookmarkIcon" aria-hidden="true">☆</span></button>
+          <button class="zoom-button" id="closeZoom" type="button" aria-label="Close zoom">×</button>
+        </div>
+      </header>
+
+      <button class="nav prev zoom-page-nav" id="zoomPrev" type="button" aria-label="Previous page while zoomed">←</button>
+      <button class="nav next zoom-page-nav" id="zoomNext" type="button" aria-label="Next page while zoomed">→</button>
+
+      <div class="zoom-viewport" id="zoomViewport" tabindex="0" aria-label="Zoomed page. Scroll to inspect the page; use plus and minus to change magnification.">
+        <div class="zoom-canvas">
+          <img class="zoom-image" id="zoomImage" src="pages/page-01.png" alt="Enlarged view of Page 1: Bring Her Home" />
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="reader-status" id="readerStatus" role="status" aria-live="polite"></div>
+
+  <script>
+    const titles = ["Three Roofs","The Banker First","Janina","The Real Reason","I Shall Enjoy It","The Invitation","Albert de Morcerf","Greece","Two Handshakes","My Father","Fruit from Her Garden","She Knows","Since 1815","The First Lie","Appetite Intact","Warn Nobody","The Pleasure","The Receipt","Janina, 1822","The Price","The Market","Her Right to Speak","The Room","Danglars Decides","The Reply from Janina","In Print","The Truth, Not a Retraction","She Has Known","Beauchamp Returns","The Public Stair","The Chamber of Peers","The Door Opens","Haydée Testifies","Still Wearing the Decorations","At the End of It","The Challenge","After Victory","Edmond","Stand Still","The Night Before","Four Hours Before Dawn","Albert Withdraws","His Mother's Name","It Changes Nothing","The Empty Glass","I Am Edmond Dantès","The Shot","They Take Nothing","One"];
+
+    const movements = [
+      { title: "I · The Invitation", start: 1, end: 7 },
+      { title: "II · The House of Morcerf", start: 8, end: 17 },
+      { title: "III · What Happened at Janina", start: 18, end: 25 },
+      { title: "IV · The Fall", start: 26, end: 34 },
+      { title: "V · The Son", start: 35, end: 44 },
+      { title: "VI · The Cost", start: 45, end: 49 }
+    ];
+
+    const STORAGE_KEY = "nano:monte-cristo-vol2:page";
+    const BOOKMARKS_KEY = "nano:monte-cristo-vol2:bookmarks";
+    const END_HASH = "#end";
+    const QUIZ_HASH = "#quiz";
+    const zoomLevels = [1, 1.25, 1.5, 2, 2.5, 3];
+    const totalStates = titles.length + 2;
+    const DEFAULT_ZOOM_INDEX = 2;
+    const pageFrame = document.getElementById("pageFrame");
+    const pageImage = document.getElementById("pageImage");
+    const pageTitle = document.getElementById("pageTitle");
+    const counter = document.getElementById("counter");
+    const movementLabel = document.getElementById("movementLabel");
+    const progress = document.getElementById("progress");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    const contentsButton = document.getElementById("contentsButton");
+    const contentsDialog = document.getElementById("contentsDialog");
+    const contentsList = document.getElementById("contentsList");
+    const movementList = document.getElementById("movementList");
+    const bookmarksSection = document.getElementById("bookmarksSection");
+    const bookmarksList = document.getElementById("bookmarksList");
+    const bookmarkCount = document.getElementById("bookmarkCount");
+    const bookmarkButton = document.getElementById("bookmarkButton");
+    const bookmarkIcon = document.getElementById("bookmarkIcon");
+    const zoomButton = document.getElementById("zoomButton");
+    const zoomDialog = document.getElementById("zoomDialog");
+    const zoomViewport = document.getElementById("zoomViewport");
+    const zoomImage = document.getElementById("zoomImage");
+    const zoomTitle = document.getElementById("zoomTitle");
+    const zoomPageLabel = document.getElementById("zoomPageLabel");
+    const zoomReadout = document.getElementById("zoomReadout");
+    const zoomBookmark = document.getElementById("zoomBookmark");
+    const zoomBookmarkIcon = document.getElementById("zoomBookmarkIcon");
+    const zoomOut = document.getElementById("zoomOut");
+    const zoomIn = document.getElementById("zoomIn");
+    const zoomPrev = document.getElementById("zoomPrev");
+    const zoomNext = document.getElementById("zoomNext");
+    const fullscreenButton = document.getElementById("fullscreenButton");
+    const readerStatus = document.getElementById("readerStatus");
+    const endState = document.getElementById("endState");
+    const quizState = document.getElementById("quizState");
+    let current = initialIndex();
+    let bookmarks = loadBookmarks();
+    let zoomIndex = 0;
+    let transitionTimer;
+    let statusTimer;
+
+    function clampIndex(index) {
+      return Math.max(0, Math.min(totalStates - 1, index));
+    }
+
+    function indexFromHash() {
+      const hash = location.hash;
+      if (hash === END_HASH || hash === "#page-50") return titles.length;
+      if (hash === QUIZ_HASH || hash === "#page-51") return titles.length + 1;
+      const match = hash.match(/^#(?:page-)?(\d+)$/);
+      if (!match) return null;
+      const pageNumber = Number(match[1]);
+      return pageNumber >= 1 && pageNumber <= titles.length ? pageNumber - 1 : null;
+    }
+
+    function savedIndex() {
+      try {
+        const saved = Number(localStorage.getItem(STORAGE_KEY));
+        return Number.isInteger(saved) && saved >= 0 && saved < titles.length ? saved : titles.length - 1;
+      } catch (_) {
+        return titles.length - 1;
+      }
+    }
+
+    function initialIndex() {
+      return indexFromHash() ?? savedIndex();
+    }
+
+    function loadBookmarks() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(BOOKMARKS_KEY) || "[]");
+        if (!Array.isArray(saved)) return new Set();
+        return new Set(saved.filter((index) => Number.isInteger(index) && index >= 0 && index < titles.length));
+      } catch (_) {
+        return new Set();
+      }
+    }
+
+    function saveBookmarks() {
+      try {
+        localStorage.setItem(BOOKMARKS_KEY, JSON.stringify([...bookmarks].sort((a, b) => a - b)));
+      } catch (_) {
+        // Bookmarks remain available for this visit when storage is unavailable.
+      }
+    }
+
+    function fileFor(index) {
+      return `pages/page-${String(index + 1).padStart(2, "0")}.png`;
+    }
+
+    function movementFor(index) {
+      const pageNumber = index + 1;
+      return movements.find((movement) => pageNumber >= movement.start && pageNumber <= movement.end);
+    }
+
+    function updateUrl() {
+      const params = new URLSearchParams(location.search);
+      params.delete("set");
+      const query = params.toString();
+      const hash = current < titles.length ? `#page-${current + 1}` : current === titles.length ? END_HASH : QUIZ_HASH;
+      const target = `${location.pathname}${query ? `?${query}` : ""}${hash}`;
+      if (`${location.pathname}${location.search}${location.hash}` !== target) {
+        history.replaceState(null, "", target);
+      }
+    }
+
+    function savePosition() {
+      try {
+        localStorage.setItem(STORAGE_KEY, String(Math.min(current, titles.length - 1)));
+      } catch (_) {
+        // The URL still preserves the exact reading position when storage is unavailable.
+      }
+    }
+
+    function preload(index) {
+      [index - 1, index + 1].forEach((candidate) => {
+        if (candidate < 0 || candidate >= titles.length) return;
+        const preloadImage = new Image();
+        preloadImage.src = fileFor(candidate);
+      });
+    }
+
+    function updateContentsSelection() {
+      contentsList.querySelectorAll(".contents-page").forEach((button) => {
+        const index = Number(button.dataset.index);
+        const isCurrent = index === current;
+        if (isCurrent) button.setAttribute("aria-current", "page");
+        else button.removeAttribute("aria-current");
+        const mark = button.querySelector(".bookmark-mark");
+        if (mark) mark.textContent = bookmarks.has(index) ? "★" : "";
+      });
+    }
+
+    function updateBookmarkControls() {
+      const bookmarked = bookmarks.has(current);
+      const label = bookmarked ? "Remove bookmark from current page" : "Bookmark current page";
+      bookmarkButton.setAttribute("aria-pressed", String(bookmarked));
+      bookmarkButton.setAttribute("aria-label", label);
+      bookmarkIcon.textContent = bookmarked ? "★" : "☆";
+      zoomBookmark.setAttribute("aria-pressed", String(bookmarked));
+      zoomBookmark.setAttribute("aria-label", label);
+      zoomBookmarkIcon.textContent = bookmarked ? "★" : "☆";
+    }
+
+    function bookmarkButtonFor(index) {
+      const pageNumber = index + 1;
+      const button = document.createElement("button");
+      button.className = "contents-page";
+      button.type = "button";
+      button.dataset.index = String(index);
+      button.innerHTML = `<span class="contents-number">${String(pageNumber).padStart(2, "0")}</span><span class="contents-title">${titles[index]}</span><span class="bookmark-mark" aria-hidden="true">★</span>`;
+      button.addEventListener("click", () => {
+        contentsDialog.close();
+        render(index);
+      });
+      return button;
+    }
+
+    function renderBookmarks() {
+      const saved = [...bookmarks].sort((a, b) => a - b);
+      bookmarksSection.hidden = saved.length === 0;
+      bookmarkCount.textContent = `${saved.length} saved`;
+      bookmarksList.replaceChildren(...saved.map(bookmarkButtonFor));
+      updateContentsSelection();
+    }
+
+    function toggleBookmark() {
+      const removing = bookmarks.has(current);
+      if (removing) bookmarks.delete(current);
+      else bookmarks.add(current);
+      saveBookmarks();
+      renderBookmarks();
+      updateBookmarkControls();
+      showStatus(`${removing ? "Bookmark removed from" : "Bookmarked"} Page ${current + 1}`);
+    }
+
+    function updateZoomPage(resetScroll = false) {
+      const pageNumber = current + 1;
+      zoomImage.src = fileFor(current);
+      zoomImage.alt = `Enlarged view of Page ${pageNumber}: ${titles[current]}`;
+      zoomTitle.textContent = titles[current];
+      zoomPageLabel.textContent = `Page ${pageNumber} of ${titles.length}`;
+      zoomPrev.disabled = current === 0;
+      zoomNext.disabled = current === titles.length - 1;
+      updateBookmarkControls();
+      if (resetScroll) zoomViewport.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+
+    function render(index, immediate = false) {
+      clearTimeout(transitionTimer);
+      current = clampIndex(index);
+      if (!immediate) pageFrame.classList.add("changing");
+
+      const draw = () => {
+        const pageNumber = current + 1;
+        const isStory = current < titles.length;
+        document.body.classList.toggle("reader-state", !isStory);
+        pageFrame.hidden = !isStory;
+        endState.hidden = current !== titles.length;
+        quizState.hidden = current !== titles.length + 1;
+        if (isStory) {
+          const movement = movementFor(current);
+          pageImage.src = fileFor(current);
+          pageImage.alt = `The Count of Monte Cristo — Volume II: The House of Morcerf — Page ${pageNumber}: ${titles[current]}`;
+          pageTitle.textContent = titles[current];
+          counter.textContent = `Page ${pageNumber} of ${titles.length}`;
+          movementLabel.textContent = `The House of Morcerf · ${movement.title.replace(/^\w+ · /, "")}`;
+        } else {
+          pageTitle.textContent = current === titles.length ? "End of Volume II" : "Test your understanding";
+          counter.textContent = current === titles.length ? "End" : "Quiz";
+          movementLabel.textContent = "The House of Morcerf";
+        }
+        progress.style.width = `${(pageNumber / totalStates) * 100}%`;
+        prev.disabled = current === 0;
+        next.disabled = current === totalStates - 1;
+        updateUrl();
+        savePosition();
+        updateContentsSelection();
+        updateBookmarkControls();
+        if (zoomDialog.open && isStory) updateZoomPage(true);
+        preload(current);
+        requestAnimationFrame(() => pageFrame.classList.remove("changing"));
+      };
+
+      if (immediate) draw();
+      else transitionTimer = setTimeout(draw, 110);
+    }
+
+    function goPrevious() {
+      if (current > 0) render(current - 1);
+    }
+
+    function goNext() {
+      if (current < totalStates - 1) render(current + 1);
+    }
+
+    document.querySelectorAll(".question").forEach((question) => {
+      question.querySelector(".check").addEventListener("click", () => {
+        const selected = question.querySelector("input:checked");
+        if (!selected) return;
+        const correct = selected.value === question.dataset.answer;
+        question.querySelectorAll("input").forEach((input) => { input.disabled = true; });
+        question.querySelector(".feedback.correct").style.display = correct ? "block" : "none";
+        question.querySelector(".feedback.incorrect").style.display = correct ? "none" : "block";
+        question.querySelector(".check").disabled = true;
+      });
+    });
+
+    function buildContents() {
+      const fragment = document.createDocumentFragment();
+      movements.forEach((movement) => {
+        const section = document.createElement("section");
+        section.className = "movement";
+        const heading = document.createElement("h3");
+        heading.textContent = movement.title;
+        section.appendChild(heading);
+
+        for (let pageNumber = movement.start; pageNumber <= movement.end; pageNumber += 1) {
+          const index = pageNumber - 1;
+          const button = document.createElement("button");
+          button.className = "contents-page";
+          button.type = "button";
+          button.dataset.index = String(index);
+          button.innerHTML = `<span class="contents-number">${String(pageNumber).padStart(2, "0")}</span><span class="contents-title">${titles[index]}</span><span class="bookmark-mark" aria-hidden="true"></span>`;
+          button.addEventListener("click", () => {
+            contentsDialog.close();
+            render(index);
+          });
+          section.appendChild(button);
+        }
+        fragment.appendChild(section);
+      });
+      movementList.appendChild(fragment);
+      renderBookmarks();
+    }
+
+    function openContents() {
+      updateContentsSelection();
+      contentsDialog.showModal();
+      requestAnimationFrame(() => {
+        contentsList.querySelector('[aria-current="page"]')?.scrollIntoView({ block: "center", behavior: "auto" });
+      });
+    }
+
+    function baseZoomWidth() {
+      const horizontalRoom = window.innerWidth - (window.innerWidth <= 440 ? 24 : 52);
+      const verticalRoom = (window.innerHeight - 96) * (2 / 3);
+      return Math.max(240, Math.min(1024, horizontalRoom, verticalRoom));
+    }
+
+    function applyZoom(index, preserveCenter = true) {
+      const nextIndex = Math.max(0, Math.min(zoomLevels.length - 1, index));
+      const centerX = zoomViewport.scrollWidth
+        ? (zoomViewport.scrollLeft + zoomViewport.clientWidth / 2) / zoomViewport.scrollWidth
+        : 0.5;
+      const centerY = zoomViewport.scrollHeight
+        ? (zoomViewport.scrollTop + zoomViewport.clientHeight / 2) / zoomViewport.scrollHeight
+        : 0;
+
+      zoomIndex = nextIndex;
+      zoomImage.style.width = `${Math.round(baseZoomWidth() * zoomLevels[zoomIndex])}px`;
+      zoomReadout.textContent = zoomIndex === 0 ? "Fit" : `${Math.round(zoomLevels[zoomIndex] * 100)}%`;
+      zoomOut.disabled = zoomIndex === 0;
+      zoomIn.disabled = zoomIndex === zoomLevels.length - 1;
+
+      requestAnimationFrame(() => {
+        if (!preserveCenter) {
+          zoomViewport.scrollTo({
+            top: 0,
+            left: Math.max(0, (zoomViewport.scrollWidth - zoomViewport.clientWidth) / 2),
+            behavior: "auto"
+          });
+          return;
+        }
+        if (zoomIndex === 0) {
+          zoomViewport.scrollTo({ top: 0, left: 0, behavior: "auto" });
+          return;
+        }
+        zoomViewport.scrollLeft = centerX * zoomViewport.scrollWidth - zoomViewport.clientWidth / 2;
+        zoomViewport.scrollTop = centerY * zoomViewport.scrollHeight - zoomViewport.clientHeight / 2;
+      });
+    }
+
+    function openZoom() {
+      updateZoomPage(true);
+      zoomDialog.showModal();
+      applyZoom(DEFAULT_ZOOM_INDEX, false);
+      zoomViewport.focus({ preventScroll: true });
+    }
+
+    function showStatus(message) {
+      clearTimeout(statusTimer);
+      readerStatus.textContent = message;
+      readerStatus.classList.add("visible");
+      statusTimer = setTimeout(() => readerStatus.classList.remove("visible"), 1800);
+    }
+
+    prev.addEventListener("click", goPrevious);
+    next.addEventListener("click", goNext);
+    document.getElementById("tapPrev").addEventListener("click", goPrevious);
+    document.getElementById("tapNext").addEventListener("click", goNext);
+    document.getElementById("tapZoom").addEventListener("click", openZoom);
+    contentsButton.addEventListener("click", openContents);
+    document.getElementById("closeContents").addEventListener("click", () => contentsDialog.close());
+    zoomButton.addEventListener("click", openZoom);
+    bookmarkButton.addEventListener("click", toggleBookmark);
+    document.getElementById("closeZoom").addEventListener("click", () => zoomDialog.close());
+    zoomOut.addEventListener("click", () => applyZoom(zoomIndex - 1));
+    zoomIn.addEventListener("click", () => applyZoom(zoomIndex + 1));
+    document.getElementById("zoomFit").addEventListener("click", () => applyZoom(0, false));
+    zoomBookmark.addEventListener("click", toggleBookmark);
+    zoomPrev.addEventListener("click", goPrevious);
+    zoomNext.addEventListener("click", goNext);
+
+    contentsDialog.addEventListener("click", (event) => {
+      if (event.target === contentsDialog) contentsDialog.close();
+    });
+
+    zoomImage.addEventListener("dblclick", () => {
+      applyZoom(zoomIndex === 0 ? 3 : 0, false);
+    });
+
+    let dragState = null;
+    zoomViewport.addEventListener("pointerdown", (event) => {
+      if (event.pointerType !== "mouse" || zoomIndex === 0) return;
+      dragState = {
+        id: event.pointerId,
+        x: event.clientX,
+        y: event.clientY,
+        left: zoomViewport.scrollLeft,
+        top: zoomViewport.scrollTop
+      };
+      zoomViewport.setPointerCapture(event.pointerId);
+      zoomViewport.classList.add("dragging");
+    });
+
+    zoomViewport.addEventListener("pointermove", (event) => {
+      if (!dragState || dragState.id !== event.pointerId) return;
+      zoomViewport.scrollLeft = dragState.left - (event.clientX - dragState.x);
+      zoomViewport.scrollTop = dragState.top - (event.clientY - dragState.y);
+    });
+
+    function endDrag(event) {
+      if (!dragState || dragState.id !== event.pointerId) return;
+      dragState = null;
+      zoomViewport.classList.remove("dragging");
+    }
+
+    zoomViewport.addEventListener("pointerup", endDrag);
+    zoomViewport.addEventListener("pointercancel", endDrag);
+
+    document.addEventListener("keydown", (event) => {
+      const targetIsControl = event.target.matches("button, a, input, select, textarea");
+
+      if (zoomDialog.open) {
+        if (event.key === "+" || event.key === "=") {
+          event.preventDefault();
+          applyZoom(zoomIndex + 1);
+        } else if (event.key === "-") {
+          event.preventDefault();
+          applyZoom(zoomIndex - 1);
+        } else if (event.key === "0") {
+          event.preventDefault();
+          applyZoom(0, false);
+        } else if (event.key.toLowerCase() === "b") {
+          event.preventDefault();
+          toggleBookmark();
+        }
+        return;
+      }
+
+      if (contentsDialog.open || targetIsControl) return;
+      if (event.key === "ArrowLeft" || event.key === "PageUp") {
+        event.preventDefault();
+        goPrevious();
+      } else if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+        event.preventDefault();
+        goNext();
+      } else if (event.key === "Home") {
+        event.preventDefault();
+        render(0);
+      } else if (event.key === "End") {
+        event.preventDefault();
+        render(titles.length - 1);
+      } else if (event.key.toLowerCase() === "z") {
+        openZoom();
+      } else if (event.key.toLowerCase() === "c") {
+        openContents();
+      } else if (event.key.toLowerCase() === "f") {
+        fullscreenButton.click();
+      } else if (event.key.toLowerCase() === "b") {
+        toggleBookmark();
+      }
+    });
+
+    let touchStart = null;
+    document.addEventListener("touchstart", (event) => {
+      if (zoomDialog.open || contentsDialog.open) return;
+      const touch = event.changedTouches[0];
+      touchStart = { x: touch.clientX, y: touch.clientY };
+    }, { passive: true });
+
+    document.addEventListener("touchend", (event) => {
+      if (!touchStart || zoomDialog.open || contentsDialog.open) return;
+      const touch = event.changedTouches[0];
+      const deltaX = touchStart.x - touch.clientX;
+      const deltaY = touchStart.y - touch.clientY;
+      touchStart = null;
+      if (Math.abs(deltaX) < 52 || Math.abs(deltaX) < Math.abs(deltaY) * 1.25) return;
+      if (deltaX > 0) goNext();
+      else goPrevious();
+    }, { passive: true });
+
+    fullscreenButton.addEventListener("click", async () => {
+      try {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+        else await document.exitFullscreen();
+      } catch (_) {
+        showStatus("Full screen is not available in this browser");
+      }
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+      const active = Boolean(document.fullscreenElement);
+      fullscreenButton.setAttribute("aria-label", active ? "Exit fullscreen" : "Enter fullscreen");
+      document.getElementById("fullscreenIcon").textContent = active ? "×" : "⛶";
+      document.getElementById("fullscreenLabel").textContent = active ? "Exit full screen" : "Full screen";
+    });
+
+    window.addEventListener("resize", () => {
+      if (zoomDialog.open) applyZoom(zoomIndex, false);
+    });
+
+    window.addEventListener("hashchange", () => {
+      const hashIndex = indexFromHash();
+      if (hashIndex !== null && hashIndex !== current) render(hashIndex, true);
+    });
+
+    buildContents();
+    render(current, true);
+  </script>
+</body>
+</html>

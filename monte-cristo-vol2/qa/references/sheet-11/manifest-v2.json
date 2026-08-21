@@ -1,0 +1,517 @@
+{
+  "artifact" : "Sheet 11 — grayscale silhouette board",
+  "canvas" : {
+    "format" : "PNG",
+    "height" : 1024,
+    "mode" : "RGB",
+    "width" : 1536
+  },
+  "composition_correction" : {
+    "binary_mask_cutoff" : ">=128 foreground; <128 background",
+    "orientation" : "decoded masks remain upright; a one-time vertical row reversal is used only for Quartz clipping so the globally top-left board context does not invert them",
+    "unchanged" : "approved sources and hashes, crop boxes, Vision request/revision, largest-instance selection, recorded floor landmarks, target body height/floor, order, cells, silhouette RGB, and ground RGB"
+  },
+  "execution_route" : "run-v2-in-terminal.command outside the ChatGPT desktop sandbox",
+  "generative_operation" : false,
+  "ground_rgb" : [
+    224,
+    219,
+    211
+  ],
+  "manual_contour_operation" : false,
+  "method" : "automatic local macOS Vision person-instance segmentation, recorded-floor clear, uniform scale, flat silhouette conversion, and placement",
+  "network_or_api" : false,
+  "normalization" : {
+    "interior" : "one flat dark RGB value; no source color or interior detail",
+    "mask_scaling" : "Core Graphics high-quality interpolation during deterministic placement",
+    "target_body_height_px" : 370,
+    "target_floor_y" : 697
+  },
+  "order" : "01 Count, 02 Mercédès, 03 Fernand, 04 Albert, 05 Haydée, 06 Danglars, 07 Beauchamp, 08 Villefort",
+  "output_path" : "monte-cristo-vol2/refs/11-silhouette-board.png",
+  "output_sha256" : "46c9a8a05c6556dcaeeb64b8209db3609de01ef9cfcea56787be2bf477d3b24d",
+  "silhouette_rgb" : [
+    38,
+    36,
+    34
+  ],
+  "sources" : [
+    {
+      "cell_xyxy" : [
+        0,
+        0,
+        192,
+        1024
+      ],
+      "character" : "Count",
+      "crop_box_xyxy" : [
+        560,
+        30,
+        900,
+        1005
+      ],
+      "crop_placement_xy" : [
+        26.575268817204304,
+        317.05376344086022
+      ],
+      "extraction" : {
+        "binary_mask_decision" : "decoded alpha >=128 becomes 255; decoded alpha <128 becomes 0",
+        "floor_rule" : "clear mask rows strictly below recorded source floor",
+        "framework" : "macOS Vision",
+        "mask_path" : "monte-cristo-vol2/qa/references/sheet-11/masks-v2/mask-01.png",
+        "mask_sha256" : "31484a69986ec1e6caf0c4eaefba9043e27a04069626def2185bf82e69523e82",
+        "quartz_clip_orientation" : "upright binary evidence mask; rows reversed exactly once only for clip(to:mask:) under the existing top-left CGContext transform",
+        "request" : "VNGeneratePersonInstanceMaskRequest",
+        "revision" : 1,
+        "scaled_mask_selected_pixels_at_128" : 178875,
+        "scaled_mask_threshold_bbox_xyxy" : [
+          30,
+          0,
+          319,
+          956
+        ],
+        "selected_instance_label" : 1,
+        "selected_instance_low_resolution_area" : 120588,
+        "selection" : "largest automatically detected person instance in the exact crop"
+      },
+      "id" : "01",
+      "normalization_landmarks" : {
+        "floor_y" : 985,
+        "head_top_y" : 55
+      },
+      "order" : 1,
+      "placed_silhouette_bbox_xyxy" : [
+        38.510752688172047,
+        317.05376344086022,
+        153.48924731182797,
+        697.39784946236557
+      ],
+      "scale" : 0.39784946236559138,
+      "source_mode" : "RGB",
+      "source_path" : "monte-cristo-vol2/refs/approved/01-count-1838.png",
+      "source_sha256" : "2e38a28eb27183c7bc9addbbbc2b9ccdfefb8c7a3e9d5ac945e81c0a424b3bd0",
+      "source_size" : [
+        1536,
+        1024
+      ]
+    },
+    {
+      "cell_xyxy" : [
+        192,
+        0,
+        384,
+        1024
+      ],
+      "character" : "Mercédès",
+      "crop_box_xyxy" : [
+        400,
+        75,
+        845,
+        1010
+      ],
+      "crop_placement_xy" : [
+        200.48876404494382,
+        316.60674157303367
+      ],
+      "extraction" : {
+        "binary_mask_decision" : "decoded alpha >=128 becomes 255; decoded alpha <128 becomes 0",
+        "floor_rule" : "clear mask rows strictly below recorded source floor",
+        "framework" : "macOS Vision",
+        "mask_path" : "monte-cristo-vol2/qa/references/sheet-11/masks-v2/mask-02.png",
+        "mask_sha256" : "53ee1d2e53410efc1508f67b055574930b5e040b43f1277c8e70acbdc6620b42",
+        "quartz_clip_orientation" : "upright binary evidence mask; rows reversed exactly once only for clip(to:mask:) under the existing top-left CGContext transform",
+        "request" : "VNGeneratePersonInstanceMaskRequest",
+        "revision" : 1,
+        "scaled_mask_selected_pixels_at_128" : 215895,
+        "scaled_mask_threshold_bbox_xyxy" : [
+          16,
+          0,
+          405,
+          897
+        ],
+        "selected_instance_label" : 1,
+        "selected_instance_low_resolution_area" : 136595,
+        "selection" : "largest automatically detected person instance in the exact crop"
+      },
+      "id" : "02",
+      "normalization_landmarks" : {
+        "floor_y" : 990,
+        "head_top_y" : 100
+      },
+      "order" : 2,
+      "placed_silhouette_bbox_xyxy" : [
+        207.14044943820224,
+        316.60674157303367,
+        368.85955056179773,
+        689.51685393258424
+      ],
+      "scale" : 0.4157303370786517,
+      "source_mode" : "RGB",
+      "source_path" : "monte-cristo-vol2/refs/approved/02-mercedes-1838.png",
+      "source_sha256" : "8113d7b65a0916c8bf75d12bd1fcf180fc9a31152a11c3f2151eb968e4210821",
+      "source_size" : [
+        1536,
+        1024
+      ]
+    },
+    {
+      "cell_xyxy" : [
+        384,
+        0,
+        576,
+        1024
+      ],
+      "character" : "Fernand",
+      "crop_box_xyxy" : [
+        510,
+        30,
+        930,
+        1005
+      ],
+      "crop_placement_xy" : [
+        397.04838709677421,
+        317.05376344086022
+      ],
+      "extraction" : {
+        "binary_mask_decision" : "decoded alpha >=128 becomes 255; decoded alpha <128 becomes 0",
+        "floor_rule" : "clear mask rows strictly below recorded source floor",
+        "framework" : "macOS Vision",
+        "mask_path" : "monte-cristo-vol2/qa/references/sheet-11/masks-v2/mask-03.png",
+        "mask_sha256" : "c7366809ce3509d2496bfb73795da9501a36aa0af65f3b1d5d4a939ecef74aad",
+        "quartz_clip_orientation" : "upright binary evidence mask; rows reversed exactly once only for clip(to:mask:) under the existing top-left CGContext transform",
+        "request" : "VNGeneratePersonInstanceMaskRequest",
+        "revision" : 1,
+        "scaled_mask_selected_pixels_at_128" : 204285,
+        "scaled_mask_threshold_bbox_xyxy" : [
+          23,
+          0,
+          394,
+          956
+        ],
+        "selected_instance_label" : 1,
+        "selected_instance_low_resolution_area" : 125876,
+        "selection" : "largest automatically detected person instance in the exact crop"
+      },
+      "id" : "03",
+      "normalization_landmarks" : {
+        "floor_y" : 985,
+        "head_top_y" : 55
+      },
+      "order" : 3,
+      "placed_silhouette_bbox_xyxy" : [
+        406.19892473118279,
+        317.05376344086022,
+        553.80107526881716,
+        697.39784946236557
+      ],
+      "scale" : 0.39784946236559138,
+      "source_mode" : "RGB",
+      "source_path" : "monte-cristo-vol2/refs/approved/03-fernand-1838.png",
+      "source_sha256" : "487f21e1de98136ddc16fcd7aa44d69d0fd659178de417ed282dd30486ea0a40",
+      "source_size" : [
+        1536,
+        1024
+      ]
+    },
+    {
+      "cell_xyxy" : [
+        576,
+        0,
+        768,
+        1024
+      ],
+      "character" : "Albert",
+      "crop_box_xyxy" : [
+        500,
+        30,
+        870,
+        1005
+      ],
+      "crop_placement_xy" : [
+        592.65775401069516,
+        319.08556149732618
+      ],
+      "extraction" : {
+        "binary_mask_decision" : "decoded alpha >=128 becomes 255; decoded alpha <128 becomes 0",
+        "floor_rule" : "clear mask rows strictly below recorded source floor",
+        "framework" : "macOS Vision",
+        "mask_path" : "monte-cristo-vol2/qa/references/sheet-11/masks-v2/mask-04.png",
+        "mask_sha256" : "7779961329e28e54a737f82516332408323efff1b1359cb2248fbc4f6fb3f4d2",
+        "quartz_clip_orientation" : "upright binary evidence mask; rows reversed exactly once only for clip(to:mask:) under the existing top-left CGContext transform",
+        "request" : "VNGeneratePersonInstanceMaskRequest",
+        "revision" : 1,
+        "scaled_mask_selected_pixels_at_128" : 163561,
+        "scaled_mask_threshold_bbox_xyxy" : [
+          47,
+          16,
+          354,
+          944
+        ],
+        "selected_instance_label" : 1,
+        "selected_instance_low_resolution_area" : 113407,
+        "selection" : "largest automatically detected person instance in the exact crop"
+      },
+      "id" : "04",
+      "normalization_landmarks" : {
+        "floor_y" : 985,
+        "head_top_y" : 50
+      },
+      "order" : 4,
+      "placed_silhouette_bbox_xyxy" : [
+        611.2566844919786,
+        325.4171122994652,
+        732.7433155080214,
+        692.64705882352939
+      ],
+      "scale" : 0.39572192513368987,
+      "source_mode" : "RGB",
+      "source_path" : "monte-cristo-vol2/refs/approved/04-albert.png",
+      "source_sha256" : "3ff9d03308e7f79d5b217f90e8437067a8e407c0f3347902a87db4fb0f54dbee",
+      "source_size" : [
+        1536,
+        1024
+      ]
+    },
+    {
+      "cell_xyxy" : [
+        768,
+        0,
+        960,
+        1024
+      ],
+      "character" : "Haydée",
+      "crop_box_xyxy" : [
+        490,
+        55,
+        860,
+        1000
+      ],
+      "crop_placement_xy" : [
+        786.09444444444443,
+        316.72222222222223
+      ],
+      "extraction" : {
+        "binary_mask_decision" : "decoded alpha >=128 becomes 255; decoded alpha <128 becomes 0",
+        "floor_rule" : "clear mask rows strictly below recorded source floor",
+        "framework" : "macOS Vision",
+        "mask_path" : "monte-cristo-vol2/qa/references/sheet-11/masks-v2/mask-05.png",
+        "mask_sha256" : "83b752707c1884670aa4004d71aae5625fd2b432d2d7a0311ad00c706a148018",
+        "quartz_clip_orientation" : "upright binary evidence mask; rows reversed exactly once only for clip(to:mask:) under the existing top-left CGContext transform",
+        "request" : "VNGeneratePersonInstanceMaskRequest",
+        "revision" : 1,
+        "scaled_mask_selected_pixels_at_128" : 172382,
+        "scaled_mask_threshold_bbox_xyxy" : [
+          34,
+          0,
+          345,
+          895
+        ],
+        "selected_instance_label" : 1,
+        "selected_instance_low_resolution_area" : 138193,
+        "selection" : "largest automatically detected person instance in the exact crop"
+      },
+      "id" : "05",
+      "normalization_landmarks" : {
+        "floor_y" : 980,
+        "head_top_y" : 80
+      },
+      "order" : 5,
+      "placed_silhouette_bbox_xyxy" : [
+        800.07222222222219,
+        316.72222222222223,
+        927.92777777777769,
+        684.66666666666674
+      ],
+      "scale" : 0.41111111111111109,
+      "source_mode" : "RGB",
+      "source_path" : "monte-cristo-vol2/refs/approved/05-haydee.png",
+      "source_sha256" : "0c717b0aaf9eac65f515e604b93112ad7cd7560579631a423acbec947ca4efbf",
+      "source_size" : [
+        1536,
+        1024
+      ]
+    },
+    {
+      "cell_xyxy" : [
+        960,
+        0,
+        1152,
+        1024
+      ],
+      "character" : "Danglars",
+      "crop_box_xyxy" : [
+        480,
+        50,
+        880,
+        1000
+      ],
+      "crop_placement_xy" : [
+        969.93922651933701,
+        316.77900552486187
+      ],
+      "extraction" : {
+        "binary_mask_decision" : "decoded alpha >=128 becomes 255; decoded alpha <128 becomes 0",
+        "floor_rule" : "clear mask rows strictly below recorded source floor",
+        "framework" : "macOS Vision",
+        "mask_path" : "monte-cristo-vol2/qa/references/sheet-11/masks-v2/mask-06.png",
+        "mask_sha256" : "4722dec63919bd72ddee392e096d918fe6f6e863d693152f7fb1c2dd3ebdbdb7",
+        "quartz_clip_orientation" : "upright binary evidence mask; rows reversed exactly once only for clip(to:mask:) under the existing top-left CGContext transform",
+        "request" : "VNGeneratePersonInstanceMaskRequest",
+        "revision" : 1,
+        "scaled_mask_selected_pixels_at_128" : 230737,
+        "scaled_mask_threshold_bbox_xyxy" : [
+          21,
+          0,
+          400,
+          931
+        ],
+        "selected_instance_label" : 1,
+        "selected_instance_low_resolution_area" : 133978,
+        "selection" : "largest automatically detected person instance in the exact crop"
+      },
+      "id" : "06",
+      "normalization_landmarks" : {
+        "floor_y" : 980,
+        "head_top_y" : 75
+      },
+      "order" : 6,
+      "placed_silhouette_bbox_xyxy" : [
+        978.52486187845307,
+        316.77900552486187,
+        1133.4751381215469,
+        697.40883977900558
+      ],
+      "scale" : 0.40883977900552487,
+      "source_mode" : "RGB",
+      "source_path" : "monte-cristo-vol2/refs/approved/06-danglars-1838.png",
+      "source_sha256" : "626f71c601069032624654958a24b06dfc33974d290d6c9d09d627f3f1e4beb9",
+      "source_size" : [
+        1536,
+        1024
+      ]
+    },
+    {
+      "cell_xyxy" : [
+        1152,
+        0,
+        1344,
+        1024
+      ],
+      "character" : "Beauchamp",
+      "crop_box_xyxy" : [
+        485,
+        20,
+        815,
+        1005
+      ],
+      "crop_placement_xy" : [
+        1177.6806282722514,
+        321.18848167539267
+      ],
+      "extraction" : {
+        "binary_mask_decision" : "decoded alpha >=128 becomes 255; decoded alpha <128 becomes 0",
+        "floor_rule" : "clear mask rows strictly below recorded source floor",
+        "framework" : "macOS Vision",
+        "mask_path" : "monte-cristo-vol2/qa/references/sheet-11/masks-v2/mask-07.png",
+        "mask_sha256" : "d9f2d6eb73a608b9ea69701f88815420202a5a4f80043e9cf0ba9774d35cbf46",
+        "quartz_clip_orientation" : "upright binary evidence mask; rows reversed exactly once only for clip(to:mask:) under the existing top-left CGContext transform",
+        "request" : "VNGeneratePersonInstanceMaskRequest",
+        "revision" : 1,
+        "scaled_mask_selected_pixels_at_128" : 187221,
+        "scaled_mask_threshold_bbox_xyxy" : [
+          33,
+          13,
+          330,
+          956
+        ],
+        "selected_instance_label" : 1,
+        "selected_instance_low_resolution_area" : 138101,
+        "selection" : "largest automatically detected person instance in the exact crop"
+      },
+      "id" : "07",
+      "normalization_landmarks" : {
+        "floor_y" : 990,
+        "head_top_y" : 35
+      },
+      "order" : 7,
+      "placed_silhouette_bbox_xyxy" : [
+        1190.4659685863876,
+        326.22513089005236,
+        1305.5340314136126,
+        691.57591623036649
+      ],
+      "scale" : 0.38743455497382201,
+      "source_mode" : "RGB",
+      "source_path" : "monte-cristo-vol2/refs/approved/07-beauchamp.png",
+      "source_sha256" : "58ba63bf5b77fdf31c585da888461c143474c750d0fa8b2bf7cdab218f38d834",
+      "source_size" : [
+        1536,
+        1024
+      ]
+    },
+    {
+      "cell_xyxy" : [
+        1344,
+        0,
+        1536,
+        1024
+      ],
+      "character" : "Villefort",
+      "crop_box_xyxy" : [
+        640,
+        50,
+        990,
+        1005
+      ],
+      "crop_placement_xy" : [
+        1371.8956043956043,
+        316.83516483516485
+      ],
+      "extraction" : {
+        "binary_mask_decision" : "decoded alpha >=128 becomes 255; decoded alpha <128 becomes 0",
+        "floor_rule" : "clear mask rows strictly below recorded source floor",
+        "framework" : "macOS Vision",
+        "mask_path" : "monte-cristo-vol2/qa/references/sheet-11/masks-v2/mask-08.png",
+        "mask_sha256" : "9f256aefb76f3b98edefaee884453a073ec8df2afeef18b97317b4da76c39d80",
+        "quartz_clip_orientation" : "upright binary evidence mask; rows reversed exactly once only for clip(to:mask:) under the existing top-left CGContext transform",
+        "request" : "VNGeneratePersonInstanceMaskRequest",
+        "revision" : 1,
+        "scaled_mask_selected_pixels_at_128" : 160733,
+        "scaled_mask_threshold_bbox_xyxy" : [
+          15,
+          0,
+          320,
+          932
+        ],
+        "selected_instance_label" : 1,
+        "selected_instance_low_resolution_area" : 107839,
+        "selection" : "largest automatically detected person instance in the exact crop"
+      },
+      "id" : "08",
+      "normalization_landmarks" : {
+        "floor_y" : 985,
+        "head_top_y" : 75
+      },
+      "order" : 8,
+      "placed_silhouette_bbox_xyxy" : [
+        1377.9945054945053,
+        316.83516483516485,
+        1502.0054945054944,
+        695.7802197802198
+      ],
+      "scale" : 0.40659340659340659,
+      "source_mode" : "RGB",
+      "source_path" : "monte-cristo-vol2/refs/approved/08-villefort-1838.png",
+      "source_sha256" : "46e31557dd3fd34d3a103e028721869dba5dc0b16874bb40dc00f0982c262e75",
+      "source_size" : [
+        1536,
+        1024
+      ]
+    }
+  ],
+  "version" : 2,
+  "vision_mask_pixel_format_support" : [
+    "L008 / kCVPixelFormatType_OneComponent8",
+    "L00f / kCVPixelFormatType_OneComponent32Float; label rounding for instance maps and normalized 0–1 alpha scaling for generated masks"
+  ]
+}
