@@ -158,6 +158,20 @@ def main() -> int:
         if term not in reader:
             problems.append(f"reader boundary routing is missing: {term}")
 
+    race_safe_loading_checks = [
+        'let renderRequest = 0;',
+        'let displayedPage = null;',
+        'const pendingPageLoads = new Map();',
+        'async function displayLoadedPageInZoom(index, request)',
+        'await image.decode();',
+        'if (request !== renderRequest || current !== index) return;',
+        'pageImage.getAttribute("src") === fileFor(current)',
+        'element.setAttribute("aria-busy", String(loading));',
+    ]
+    for term in race_safe_loading_checks:
+        if term not in reader:
+            problems.append(f"reader race-safe image loading is missing: {term}")
+
     stale_reader_terms = [
         "Page 1 of 55",
         "55 pages",

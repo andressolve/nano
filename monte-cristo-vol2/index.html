@@ -205,22 +205,48 @@
       box-shadow:
         0 26px 82px var(--shadow),
         0 0 0 1px rgba(0, 0, 0, 0.76);
-      opacity: 1;
-      transition: opacity 150ms ease, transform 150ms ease;
+      transition: transform 150ms ease;
     }
 
     .page-frame.changing {
-      opacity: 0;
       transform: translateY(3px);
     }
+
+    .page-frame::after,
+    .zoom-viewport::after {
+      position: absolute;
+      z-index: 1;
+      inset: 50% auto auto 50%;
+      color: var(--paper-faint);
+      content: attr(data-loading-label);
+      font: 700 9px/1.3 system-ui, sans-serif;
+      letter-spacing: 0.14em;
+      opacity: 0;
+      pointer-events: none;
+      text-transform: uppercase;
+      transform: translate(-50%, -50%);
+      transition: opacity 150ms ease;
+      white-space: nowrap;
+    }
+
+    .page-frame.changing::after,
+    .zoom-viewport.changing::after { opacity: 1; }
 
     .page-frame img {
       display: block;
       width: 100%;
       height: 100%;
+      opacity: 1;
       object-fit: contain;
       user-select: none;
       -webkit-user-drag: none;
+      transition: opacity 150ms ease;
+    }
+
+    .page-frame.changing img,
+    .zoom-viewport.changing .zoom-image {
+      visibility: hidden;
+      opacity: 0;
     }
 
     .tap-zone {
@@ -624,9 +650,11 @@
       max-width: none;
       height: auto;
       border: 1px solid rgba(200, 162, 103, 0.16);
+      opacity: 1;
       box-shadow: 0 24px 88px rgba(0, 0, 0, 0.82);
       user-select: none;
       -webkit-user-drag: none;
+      transition: opacity 150ms ease;
     }
 
     .reader-status {
@@ -745,7 +773,7 @@
 
   <main>
     <section class="stage" aria-label="Volume II reader" aria-live="polite">
-      <div class="page-frame" id="pageFrame">
+      <div class="page-frame" id="pageFrame" data-loading-label="Loading Page 1…" aria-busy="false">
         <img id="pageImage" src="pages/page-01.png" alt="The Count of Monte Cristo — Volume II: The House of Morcerf — Page 1: Three Roofs" />
         <button class="tap-zone prev-zone" id="tapPrev" type="button" aria-label="Previous page"></button>
         <button class="tap-zone zoom-zone" id="tapZoom" type="button" aria-label="Zoom current page"></button>
@@ -814,7 +842,7 @@
       <button class="nav prev zoom-page-nav" id="zoomPrev" type="button" aria-label="Previous page while zoomed">←</button>
       <button class="nav next zoom-page-nav" id="zoomNext" type="button" aria-label="Next page while zoomed">→</button>
 
-      <div class="zoom-viewport" id="zoomViewport" tabindex="0" aria-label="Zoomed page. Scroll to inspect the page; use plus and minus to change magnification.">
+      <div class="zoom-viewport" id="zoomViewport" tabindex="0" data-loading-label="Loading Page 1…" aria-busy="false" aria-label="Zoomed page. Scroll to inspect the page; use plus and minus to change magnification.">
         <div class="zoom-canvas">
           <img class="zoom-image" id="zoomImage" src="pages/page-01.png" alt="Enlarged view of Page 1: Bring Her Home" />
         </div>
@@ -882,6 +910,9 @@
     let zoomIndex = 0;
     let transitionTimer;
     let statusTimer;
+    let renderRequest = 0;
+    let displayedPage = null;
+    const pendingPageLoads = new Map();
 
     function clampIndex(index) {
       return Math.max(0, Math.min(totalStates - 1, index));
@@ -956,11 +987,36 @@
       }
     }
 
+    function loadPage(index) {
+      if (pendingPageLoads.has(index)) return pendingPageLoads.get(index);
+
+      const source = fileFor(index);
+      const image = new Image();
+      const pending = new Promise((resolve, reject) => {
+        image.addEventListener("load", async () => {
+          try {
+            await image.decode();
+          } catch (_) {
+            // A completed image is still safe to display when decode() is unavailable.
+          }
+          resolve(source);
+        }, { once: true });
+        image.addEventListener("error", () => reject(new Error(`Unable to load ${source}`)), { once: true });
+        image.src = source;
+      });
+
+      pendingPageLoads.set(index, pending);
+      pending.then(
+        () => { if (pendingPageLoads.get(index) === pending) pendingPageLoads.delete(index); },
+        () => { if (pendingPageLoads.get(index) === pending) pendingPageLoads.delete(index); }
+      );
+      return pending;
+    }
+
     function preload(index) {
       [index - 1, index + 1].forEach((candidate) => {
         if (candidate < 0 || candidate >= titles.length) return;
-        const preloadImage = new Image();
-        preloadImage.src = fileFor(candidate);
+        loadPage(candidate).catch(() => {});
       });
     }
 
@@ -1020,7 +1076,6 @@
 
     function updateZoomPage(resetScroll = false) {
       const pageNumber = current + 1;
-      zoomImage.src = fileFor(current);
       zoomImage.alt = `Enlarged view of Page ${pageNumber}: ${titles[current]}`;
       zoomTitle.textContent = titles[current];
       zoomPageLabel.textContent = `Page ${pageNumber} of ${titles.length}`;
@@ -1030,44 +1085,131 @@
       if (resetScroll) zoomViewport.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }
 
+    function setLoadingState(element, pageNumber, loading) {
+      element.dataset.loadingLabel = `Loading Page ${pageNumber}…`;
+      element.classList.toggle("changing", loading);
+      element.setAttribute("aria-busy", String(loading));
+    }
+
+    async function displayLoadedPageInZoom(index, request) {
+      const pageNumber = index + 1;
+      setLoadingState(zoomViewport, pageNumber, true);
+      zoomImage.src = fileFor(index);
+      zoomImage.alt = `Enlarged view of Page ${pageNumber}: ${titles[index]}`;
+
+      try {
+        await zoomImage.decode();
+      } catch (_) {
+        // The main reader has already loaded this source, so decode() is optional here.
+      }
+
+      if (request !== renderRequest || current !== index || !zoomDialog.open) return;
+      requestAnimationFrame(() => {
+        if (request !== renderRequest || current !== index || !zoomDialog.open) return;
+        setLoadingState(zoomViewport, pageNumber, false);
+      });
+    }
+
+    async function displayStoryPage(index, request) {
+      const pageNumber = index + 1;
+
+      try {
+        const source = await loadPage(index);
+        if (request !== renderRequest || current !== index) return;
+
+        pageImage.src = source;
+        pageImage.alt = `The Count of Monte Cristo — Volume II: The House of Morcerf — Page ${pageNumber}: ${titles[index]}`;
+
+        const imagesToDecode = [pageImage];
+        if (zoomDialog.open) {
+          zoomImage.src = source;
+          zoomImage.alt = `Enlarged view of Page ${pageNumber}: ${titles[index]}`;
+          imagesToDecode.push(zoomImage);
+        }
+
+        await Promise.all(imagesToDecode.map(async (image) => {
+          try {
+            await image.decode();
+          } catch (_) {
+            // The load was already verified above; decode() is an optional paint guard.
+          }
+        }));
+        if (request !== renderRequest || current !== index) return;
+
+        displayedPage = index;
+        requestAnimationFrame(() => {
+          if (request !== renderRequest || current !== index) return;
+          setLoadingState(pageFrame, pageNumber, false);
+          if (zoomDialog.open) setLoadingState(zoomViewport, pageNumber, false);
+        });
+        preload(index);
+      } catch (_) {
+        if (request !== renderRequest || current !== index) return;
+        const failure = `Page ${pageNumber} could not be loaded`;
+        pageFrame.dataset.loadingLabel = failure;
+        pageFrame.setAttribute("aria-busy", "false");
+        if (zoomDialog.open) {
+          zoomViewport.dataset.loadingLabel = failure;
+          zoomViewport.setAttribute("aria-busy", "false");
+        }
+        showStatus(`${failure}. Check your connection and try again.`);
+      }
+    }
+
     function render(index, immediate = false) {
       clearTimeout(transitionTimer);
       current = clampIndex(index);
-      if (!immediate) pageFrame.classList.add("changing");
+      const request = ++renderRequest;
+      const pageNumber = current + 1;
+      const isStory = current < titles.length;
+      const isAlreadyDisplayed = isStory
+        && displayedPage === current
+        && pageImage.getAttribute("src") === fileFor(current)
+        && pageImage.complete
+        && pageImage.naturalWidth > 0;
 
-      const draw = () => {
-        const pageNumber = current + 1;
-        const isStory = current < titles.length;
-        document.body.classList.toggle("reader-state", !isStory);
-        pageFrame.hidden = !isStory;
-        endState.hidden = current !== titles.length;
-        quizState.hidden = current !== titles.length + 1;
-        if (isStory) {
-          const movement = movementFor(current);
-          pageImage.src = fileFor(current);
-          pageImage.alt = `The Count of Monte Cristo — Volume II: The House of Morcerf — Page ${pageNumber}: ${titles[current]}`;
-          pageTitle.textContent = titles[current];
-          counter.textContent = `Page ${pageNumber} of ${titles.length}`;
-          movementLabel.textContent = `The House of Morcerf · ${movement.title.replace(/^\w+ · /, "")}`;
-        } else {
-          pageTitle.textContent = current === titles.length ? "End of Volume II" : "Test your understanding";
-          counter.textContent = current === titles.length ? "End" : "Quiz";
-          movementLabel.textContent = "The House of Morcerf";
+      document.body.classList.toggle("reader-state", !isStory);
+      pageFrame.hidden = !isStory;
+      endState.hidden = current !== titles.length;
+      quizState.hidden = current !== titles.length + 1;
+
+      if (isStory) {
+        const movement = movementFor(current);
+        pageTitle.textContent = titles[current];
+        counter.textContent = `Page ${pageNumber} of ${titles.length}`;
+        movementLabel.textContent = `The House of Morcerf · ${movement.title.replace(/^\w+ · /, "")}`;
+        setLoadingState(pageFrame, pageNumber, !isAlreadyDisplayed);
+        if (zoomDialog.open) {
+          updateZoomPage(true);
+          setLoadingState(zoomViewport, pageNumber, !isAlreadyDisplayed);
         }
-        progress.style.width = `${(pageNumber / totalStates) * 100}%`;
-        prev.disabled = current === 0;
-        next.disabled = current === totalStates - 1;
-        updateUrl();
-        savePosition();
-        updateContentsSelection();
-        updateBookmarkControls();
-        if (zoomDialog.open && isStory) updateZoomPage(true);
-        preload(current);
-        requestAnimationFrame(() => pageFrame.classList.remove("changing"));
-      };
+      } else {
+        pageTitle.textContent = current === titles.length ? "End of Volume II" : "Test your understanding";
+        counter.textContent = current === titles.length ? "End" : "Quiz";
+        movementLabel.textContent = "The House of Morcerf";
+        setLoadingState(pageFrame, pageNumber, false);
+        setLoadingState(zoomViewport, pageNumber, false);
+      }
 
-      if (immediate) draw();
-      else transitionTimer = setTimeout(draw, 110);
+      progress.style.width = `${(pageNumber / totalStates) * 100}%`;
+      prev.disabled = current === 0;
+      next.disabled = current === totalStates - 1;
+      updateUrl();
+      savePosition();
+      updateContentsSelection();
+      updateBookmarkControls();
+
+      if (!isStory) return;
+      if (isAlreadyDisplayed) {
+        if (zoomDialog.open) displayLoadedPageInZoom(current, request);
+        preload(current);
+        return;
+      }
+
+      const target = current;
+      const startLoad = () => displayStoryPage(target, request);
+      if (immediate) startLoad();
+      else transitionTimer = setTimeout(startLoad, 70);
     }
 
     function goPrevious() {
@@ -1168,6 +1310,14 @@
     function openZoom() {
       updateZoomPage(true);
       zoomDialog.showModal();
+      if (displayedPage === current
+          && pageImage.getAttribute("src") === fileFor(current)
+          && pageImage.complete
+          && pageImage.naturalWidth > 0) {
+        displayLoadedPageInZoom(current, renderRequest);
+      } else {
+        setLoadingState(zoomViewport, current + 1, true);
+      }
       applyZoom(DEFAULT_ZOOM_INDEX, false);
       zoomViewport.focus({ preventScroll: true });
     }
