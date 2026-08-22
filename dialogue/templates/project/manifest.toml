@@ -1,0 +1,18 @@
+[project]
+slug = "replace-me"
+pages = 1
+
+[output]
+width = 1024
+height = 1536
+mode = "RGB"
+desktop_width = 600
+desktop_height = 900
+tablet_width = 768
+tablet_height = 1152
+
+[paths]
+script = "script/"
+contract = "contract/"
+approved_refs = "refs/approved/"
+promoted = "pages/"

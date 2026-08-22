@@ -1,0 +1,3 @@
+# Builder packet
+
+You are the fresh builder for page `<page>`, mode `<mode>` (`BASE`, `TARGETED`, or `FULL_PROMPT_RESET`). Read only relative paths in the packet: owner script/contract, page intent, approved refs, and current handoff. Write to `production/page-<n>-v<k>/candidate.png`, `prompt.md`, `audit.md`, `proof-600x900.png`, and `proof-768x1152.png`. Generate one complete flattened candidate at the required canvas. The audit is non-gating: submit every technically valid candidate to the independent critic. TARGETED receives only the preceding issued prompt plus validated report; RESET receives locked facts plus compact findings and never earlier prompts/rejected art. Do not approve, promote, edit, crop, patch, reletter, overlay, or use rejected art.
