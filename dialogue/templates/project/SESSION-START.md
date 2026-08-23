@@ -5,6 +5,9 @@ This file runs from `dialogue/works/<project>/`. Read only this project,
 
 Before any reference or page generation, run
 `python3 -B ../../tools/check_adaptation.py .` and require `ADAPTATION READY`.
+That result requires the exact owner-approved script and contract paths and a
+`Status: LOCKED` marker inside each document; folder contents alone are not
+approval.
 Do not open research dossiers or re-litigate source fidelity during production.
 Then confirm owner-approved complete script/page contract;
 exact-text, causality, and readability approval; casting anti-collision and

@@ -187,7 +187,8 @@ Before reference generation or page production:
 - the two-stage audience critic says `APPROVED`;
 - `GREENLIGHT.md` has been presented;
 - `OWNER-APPROVAL.md` records the owner, date, approved scope, and any tolerated
-  risk;
+  risk, plus the exact project-relative script and contract paths;
+- those exact script and contract documents each say `Status: LOCKED`;
 - the deterministic adaptation-readiness check reports clean.
 
 From the project directory run:

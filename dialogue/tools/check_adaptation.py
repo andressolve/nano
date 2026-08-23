@@ -78,6 +78,11 @@ MANIFEST_PATHS = {
     "owner_approval": "adaptation/OWNER-APPROVAL.md",
 }
 
+OWNER_DOCUMENTS = {
+    "Approved script": "script",
+    "Approved contract": "contract",
+}
+
 
 def field(text: str, name: str) -> str:
     match = re.search(rf"(?mi)^{re.escape(name)}:\s*(.+?)\s*$", text)
@@ -106,6 +111,21 @@ def read_complete(project: Path, relative: str) -> str:
     if PLACEHOLDER.search(text):
         raise ValueError(f"unresolved placeholder in {relative}")
     return text
+
+
+def read_owner_locked_document(project: Path, owner: str, field_name: str, directory: str) -> str:
+    relative = field(owner, field_name)
+    candidate = Path(relative)
+    if candidate.is_absolute() or ".." in candidate.parts:
+        raise ValueError(f"{field_name} must be a safe project-relative path")
+    if not candidate.parts or candidate.parts[0] != directory:
+        raise ValueError(f"{field_name} must name a document inside {directory}/")
+    if candidate.suffix.lower() not in {".md", ".txt"}:
+        raise ValueError(f"{field_name} must name a Markdown or text document")
+    text = read_complete(project, candidate.as_posix())
+    if field(text, "Status") != "LOCKED":
+        raise ValueError(f"{candidate.as_posix()} status must be LOCKED")
+    return candidate.as_posix()
 
 
 def check(project: Path) -> None:
@@ -147,14 +167,14 @@ def check(project: Path) -> None:
             raise ValueError(f"owner approval has empty {name}")
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", field(owner, "Approved on")):
         raise ValueError("owner approval date must be YYYY-MM-DD")
-
-    for directory in ("script", "contract"):
-        files = sorted(
-            path for path in (project / directory).rglob("*")
-            if path.is_file() and path.suffix.lower() in {".md", ".txt"}
-        )
-        if not files or not any(path.read_text().strip() for path in files):
-            raise ValueError(f"{directory}/ must contain a non-empty owner-approved document")
+    approved_documents = [
+        read_owner_locked_document(project, owner, field_name, directory)
+        for field_name, directory in OWNER_DOCUMENTS.items()
+    ]
+    approved_scope = field(owner, "Approved scope")
+    for relative in approved_documents:
+        if relative not in approved_scope:
+            raise ValueError(f"Approved scope must explicitly include {relative}")
 
 
 def main() -> None:

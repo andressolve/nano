@@ -21,4 +21,6 @@ After explicit owner approval, run:
 python3 -B ../../tools/check_adaptation.py .
 ```
 
+Record the exact project-relative approved script and contract paths in
+`adaptation/OWNER-APPROVAL.md`, and mark those two documents `Status: LOCKED`.
 Only a clean result permits the production entrypoint in `SESSION-START.md`.

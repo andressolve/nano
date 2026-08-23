@@ -92,6 +92,25 @@ def test_adaptation_gate_accepts_approved_sample_and_rejects_draft():
             check_adaptation(project)
 
 
+def test_adaptation_gate_requires_explicit_locked_script_and_contract():
+    with tempfile.TemporaryDirectory() as directory:
+        project = Path(directory) / "sample-dialogue"
+        shutil.copytree(SAMPLE, project)
+        script = project / "script" / "page-01.md"
+        script.write_text(script.read_text().replace("Status: LOCKED", "Status: DRAFT — OWNER REVIEW"))
+        with pytest.raises(ValueError, match="status must be LOCKED"):
+            check_adaptation(project)
+
+        script.write_text(script.read_text().replace("Status: DRAFT — OWNER REVIEW", "Status: LOCKED"))
+        owner = project / "adaptation" / "OWNER-APPROVAL.md"
+        owner.write_text(owner.read_text().replace(
+            "Approved contract: contract/page-01.md",
+            "Approved contract: script/page-01.md",
+        ))
+        with pytest.raises(ValueError, match="inside contract/"):
+            check_adaptation(project)
+
+
 def test_initializer_creates_draft_image_free_project_once():
     with tempfile.TemporaryDirectory() as directory:
         project = Path(directory) / "first-story"
