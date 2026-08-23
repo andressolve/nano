@@ -1,5 +1,6 @@
 # Framework rehearsal receipt
 
+- Adaptation readiness: `CLEAN`; research, audience, story, visual, critic, and owner records pass.
 - Assembly/preflight: `CLEAN`; exact script, intent, and card match.
 - Blind transport: version-neutral candidate and two proof paths only.
 - Candidate contract fixture: complete RGB PNGs, dimensions, and hashes valid.

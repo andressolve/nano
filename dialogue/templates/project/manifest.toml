@@ -12,7 +12,18 @@ tablet_width = 768
 tablet_height = 1152
 
 [paths]
+research = "research/"
+adaptation = "adaptation/"
 script = "script/"
 contract = "contract/"
 approved_refs = "refs/approved/"
 promoted = "pages/"
+
+[adaptation]
+audience_promise = "adaptation/AUDIENCE-PROMISE.md"
+brief = "adaptation/ADAPTATION-BRIEF.md"
+architecture = "adaptation/STORY-ARCHITECTURE.md"
+visual_direction = "adaptation/VISUAL-DIRECTION.md"
+audience_report = "adaptation/AUDIENCE-REPORT.md"
+greenlight = "adaptation/GREENLIGHT.md"
+owner_approval = "adaptation/OWNER-APPROVAL.md"

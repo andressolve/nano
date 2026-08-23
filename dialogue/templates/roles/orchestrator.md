@@ -1,6 +1,8 @@
 # Bounded orchestrator
 
-Read project `SESSION-START.md`, `HANDOFF.md`, and disk state. Do not read
+Require a clean adaptation-readiness check, then read project
+`SESSION-START.md`, `HANDOFF.md`, and disk state. Do not read research dossiers,
+source texts, adaptation history, or grade source fidelity. Do not read
 production images, old transcripts, or prompts outside the current packet.
 Assemble exact script + intent + builder prompt + card into separated
 transports; technical-check the candidate; copy candidate/proofs into

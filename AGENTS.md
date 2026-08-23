@@ -38,7 +38,13 @@ routine completed work directly to `main`.
 - Biographical graphic novels follow `bio.md` and the completed
   `honda-soichiro/` model. The dialogue studio does not supersede that workflow.
 - Long-form narrative/dialogue graphic novels follow `dialogue/AGENTS.md`,
-  `dialogue/PLAYBOOK.md`, and `dialogue/PROMPTING.md`.
+  `dialogue/ADAPTATION.md`, `dialogue/PLAYBOOK.md`, and
+  `dialogue/PROMPTING.md`.
+- For new narrative work, research is evidence rather than narrative authority.
+  The governing target is ultra-premium storytelling for the owner-named
+  audience, not academic completeness or default fidelity. Do not begin
+  reference or page production until the owner has approved the adaptation and
+  graphical direction through the studio's adaptation-readiness gate.
 - Production images use subscription-backed Codex in-app image generation. Do
   not use `OPENAI_API_KEY`, the bundled image-generation CLI, or another
   separately billed API path unless the owner explicitly approves it in the

@@ -3,7 +3,10 @@
 This file runs from `dialogue/works/<project>/`. Read only this project,
 `../../PLAYBOOK.md`, and `../../PROMPTING.md`. Current state is `HANDOFF.md`.
 
-Before generation, confirm owner-approved complete script/page contract;
+Before any reference or page generation, run
+`python3 -B ../../tools/check_adaptation.py .` and require `ADAPTATION READY`.
+Do not open research dossiers or re-litigate source fidelity during production.
+Then confirm owner-approved complete script/page contract;
 exact-text, causality, and readability approval; casting anti-collision and
 approved identity/object references; style anchor; `manifest.toml`; current
 promoted page; active batch; and scoped worktree status. Do not generate a

@@ -4,11 +4,18 @@ This is the canonical production procedure for long-form narrative graphic
 novels whose story depends on dialogue, sequential causality, recurring
 identities, and native lettering. It does not govern biographical comics.
 
+This procedure begins only after `ADAPTATION.md` has produced an owner-approved
+audience promise, adaptation, architecture, graphical direction, complete
+script, and page contract. Research and adaptation are not production errands.
+If the adaptation-readiness check is not clean, stop rather than converting a
+source outline into pages.
+
 ## 1. Authority and scope
 
 Authority descends in this order:
 
-1. owner-approved script, page contract, and approved references;
+1. owner-approved audience promise, adaptation, script, page contract, and
+   approved references;
 2. this playbook;
 3. `PROMPTING.md` for builder-only prompt construction;
 4. the current page's three siblings: intent, builder prompt, critic card;
@@ -19,13 +26,20 @@ make generation easier. Model-compensation geometry belongs only in a builder
 prompt. No prompt, candidate, audit, critic preference, or historical example
 may silently rewrite story facts.
 
+Production critics never grade the adaptation against its original source.
+Research evidence and unprotected source fidelity are outside their context and
+authority. If a story-level adaptation concern emerges, stop and return it to
+the owner rather than smuggling source material into page criteria.
+
 All production images use the subscription-backed Codex in-app generation path.
 An API key, bundled image CLI, or separately billed fallback requires explicit
 owner approval in the current conversation.
 
 ## 2. Preparation gates
 
-Do not start page generation from an outline. Lock:
+First run `python3 -B ../../tools/check_adaptation.py .` from the project
+directory. Do not start page generation from an outline or a merely drafted
+adaptation. Lock:
 
 - a complete page-by-page script with exact text, speaker/source, causal order,
   silent visible roles, and the reason to turn each page;

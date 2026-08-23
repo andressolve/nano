@@ -2,6 +2,10 @@
 
 This file governs the builder-only generation prompt. It does not govern critic
 judgment. The critic never receives this prompt or grades compliance with it.
+The builder derives it from the owner-approved adaptation, exact script, and
+page intent—not from original sources or research archives. It never restores
+material the adaptation deliberately cut or changes the story toward greater
+source fidelity.
 
 ## 1. Start from the reader event
 

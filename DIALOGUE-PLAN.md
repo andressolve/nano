@@ -4,6 +4,14 @@
 **Status:** Implemented and independently approved.
 **Completed:** 2026-08-21.
 
+**Upstream extension completed:** 2026-08-23. The studio now includes a
+research-and-adaptation phase whose target is ultra-premium storytelling for a
+named audience rather than academic completeness or default source fidelity.
+It adds a persistent default audience profile, bounded research handoffs,
+explicit adaptation liberties, a source-blind-first audience critic, graphical
+direction, an owner-facing greenlight proposal, a project initializer, and a
+deterministic adaptation-readiness gate before production.
+
 ## Objective
 
 Create `nano/dialogue/` as a self-contained production studio for future

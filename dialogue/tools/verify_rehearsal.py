@@ -7,6 +7,7 @@ import argparse
 import json
 from pathlib import Path
 
+from check_adaptation import check as check_adaptation
 from check_candidate import check as check_candidate
 from preflight import check as preflight
 from route import route_history
@@ -14,6 +15,7 @@ from validate_report import validate
 
 
 def derived_records(project: Path) -> tuple[str, str]:
+    check_adaptation(project)
     script = project / "script" / "page-01.md"
     intent = project / "intent" / "page-01.md"
     card = project / "cards" / "page-01.md"
@@ -47,6 +49,7 @@ def derived_records(project: Path) -> tuple[str, str]:
 
     receipt = (
         "# Framework rehearsal receipt\n\n"
+        "- Adaptation readiness: `CLEAN`; research, audience, story, visual, critic, and owner records pass.\n"
         "- Assembly/preflight: `CLEAN`; exact script, intent, and card match.\n"
         "- Blind transport: version-neutral candidate and two proof paths only.\n"
         "- Candidate contract fixture: complete RGB PNGs, dimensions, and hashes valid.\n"
@@ -57,7 +60,8 @@ def derived_records(project: Path) -> tuple[str, str]:
     handoff = (
         "# HANDOFF\n\n"
         "State: framework rehearsal complete.\n\n"
-        f"Derived route: `{route}`. Promoted story pages: none. The exact-script "
+        f"Derived route: `{route}`. Promoted story pages: none. The adaptation "
+        "gate, exact-script "
         "transport, deterministic candidate fixture, report validation, router, "
         "receipt, and handoff interfaces pass. The project contains no PNG and "
         "authorizes no story image or prototype.\n"

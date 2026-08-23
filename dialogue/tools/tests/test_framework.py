@@ -15,7 +15,9 @@ SAMPLE = TOOLS.parent / "works" / "sample-dialogue"
 sys.path.insert(0, str(TOOLS))
 
 from assemble import assemble
+from check_adaptation import check as check_adaptation
 from check_candidate import check as check_candidate
+from init_project import initialize
 from preflight import check as preflight
 from route import route_history
 from validate_report import validate
@@ -72,6 +74,36 @@ def test_assembly_transports_exact_script_and_neutral_paths():
         assert script.read_text().rstrip() in authority
         assert intent.read_text().rstrip() in authority
         assert "v2" not in critic.lower() and "prompt" not in critic.lower()
+
+
+def test_adaptation_gate_accepts_approved_sample_and_rejects_draft():
+    check_adaptation(SAMPLE)
+    with tempfile.TemporaryDirectory() as directory:
+        project = Path(directory) / "sample-dialogue"
+        shutil.copytree(SAMPLE, project)
+        greenlight = project / "adaptation" / "GREENLIGHT.md"
+        greenlight.write_text(greenlight.read_text().replace("Status: PRESENTED", "Status: DRAFT"))
+        with pytest.raises(ValueError):
+            check_adaptation(project)
+        greenlight.write_text(greenlight.read_text().replace("Status: DRAFT", "Status: PRESENTED"))
+        report = project / "adaptation" / "AUDIENCE-REPORT.md"
+        report.write_text(report.read_text().replace("## Findings\n\nNONE", "## Findings\n\nC1 remains unresolved"))
+        with pytest.raises(ValueError):
+            check_adaptation(project)
+
+
+def test_initializer_creates_draft_image_free_project_once():
+    with tempfile.TemporaryDirectory() as directory:
+        project = Path(directory) / "first-story"
+        initialize(project, slug="first-story", name="First Story", owner="Andres")
+        assert (project / "NEW-WORK.md").is_file()
+        assert (project / "adaptation" / "GREENLIGHT.md").is_file()
+        assert (project / "research" / "SOURCE-MAP.md").is_file()
+        assert not list(project.rglob("*.png"))
+        with pytest.raises(ValueError):
+            check_adaptation(project)
+        with pytest.raises(ValueError):
+            initialize(project, slug="first-story", name="First Story", owner="Andres")
 
 
 def test_preflight_rejects_authority_leak_and_script_substitution():

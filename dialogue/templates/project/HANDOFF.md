@@ -1,5 +1,7 @@
 # HANDOFF
 
+Phase: `<RESEARCH | ADAPTATION | GREENLIGHT | PREPARATION | PRODUCTION>`
+
 Last promoted page: `<none>`  Active page/version: `<none>`  Batch: `<n>`
 
 State: `<PROMOTE | TARGETED | FULL_PROMPT_RESET | HOLD>`
