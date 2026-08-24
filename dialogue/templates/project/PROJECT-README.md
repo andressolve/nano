@@ -2,21 +2,23 @@
 
 Project: `<name>`  Slug: `<slug>`  Owner: `<owner>`
 
-Research evidence lives in `research/`; adaptation authority and the owner-facing
-proposal live in `adaptation/`. Owner-controlled production inputs live in
-`script/`, `contract/`, and `refs/approved/`. Production state lives in
-`production/`, `proofs/`, `reports/`, and `production-ledger.md`.
+Research evidence lives in `research/`; adaptation authority and the
+owner-facing proposal live in `adaptation/`. Locked pre-production reviews,
+ledgers, approvals, context, and handoff live in `preproduction/`.
+Owner-controlled inputs live in `script/`, `contract/`, and
+`refs/approved/`. Production state lives in `production/`, `proofs/`,
+`reports/`, and `production-ledger.md`.
 
-For a new project, start from `NEW-WORK.md` and end preproduction by presenting
-`adaptation/GREENLIGHT.md`. After explicit owner approval and a clean
-adaptation-readiness check, start production from `SESSION-START.md`. Finish
-each bounded batch in `HANDOFF.md`.
+Start from `NEW-WORK.md`. A clean adaptation gate opens reference preparation,
+not story pages. Start `SESSION-START.md` only after the separate owner
+production approval and clean pre-production gate. Finish each bounded
+production batch in `HANDOFF.md`.
 
-Directories to create before work: `research/`, `adaptation/`, `script/`,
-`contract/`, `refs/approved/`, `pages/`, `production/`, `proofs/`, `reports/`,
-`run/`, and `gates/`. Keep rejected candidates under `production/`; only
-promoted bytes enter `pages/`.
+Initialization creates `research/`, `adaptation/`, `preproduction/`,
+`script/`, `contract/`, `refs/approved/`, `intent/`, `prompts/`,
+`cards/`, `pages/`, `production/`, `proofs/`, `reports/`, `run/`,
+`review/current/`, and `gates/`. Rejected candidates stay under
+`production/`; only promoted bytes enter `pages/`.
 
-Also create `intent/`, `prompts/`, `cards/`, and the version-neutral
-`review/current/` capsule. Copy the templates in this folder into the matching
-project paths rather than inventing schemas during a production run.
+Copy the three sibling templates once per page and complete them before the
+pre-production gate. Never invent a packet schema during production.

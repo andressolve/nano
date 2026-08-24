@@ -1,0 +1,8 @@
+[reference_set]
+count = 0
+casting_ledger = "preproduction/CASTING-LEDGER.md"
+casting_sha256 = "212f671bf4f6d584aac4aab4cb83a47de133abf8421091c4d28136d9102869da"
+setting_object_ledger = "preproduction/SETTING-OBJECT-LEDGER.md"
+setting_object_sha256 = "b623040d833a5c7158b82ae127a6e6083ce6ab5f5b8b74658d9de16c247e7582"
+reference_plan = "preproduction/REFERENCE-PLAN.md"
+reference_plan_sha256 = "84247d21a557520678096745e3e58a569ff936ee3c3f3de107e4b1ee05c2c8f9"

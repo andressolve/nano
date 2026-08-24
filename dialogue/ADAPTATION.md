@@ -1,9 +1,11 @@
 # Research and Adaptation Standard
 
-This is the canonical upstream procedure for every new Dialogue Studio work.
-It ends before reference generation or story-page production. `PLAYBOOK.md`
-governs only after this phase passes. `AUDIENCE.md` supplies the default reader
-profile unless the owner explicitly overrides it for a project.
+This is the canonical research-and-story-design procedure for every new
+Dialogue Studio work. It ends before reference generation or story-page
+production. `PREPRODUCTION.md` governs the production-complete script,
+readability, page-packet, casting/reference, approval, and handoff system;
+`PLAYBOOK.md` governs only after both gates pass. `AUDIENCE.md` supplies the
+default reader profile unless the owner explicitly overrides it for a project.
 
 ## 1. Governing outcome
 
@@ -137,7 +139,8 @@ and style anchors are a separately approved preparation step after greenlight.
 Use a fresh critic with no research or adaptation history.
 
 **Stage 1: story-only read.** Give the critic the audience promise, proposed
-story, architecture, and script or representative scripted sequence. Hide the
+story, architecture, and complete production script. A representative sequence
+can inform an earlier revision but can never receive the final approval. Hide the
 source map, original work, fidelity notes, and maker rationale. The critic
 reports what the story is, why the protagonist acts, where attention rises or
 drops, what is confusing or overcompressed, what feels like explanation rather
@@ -174,21 +177,27 @@ It is a decision document, not a research dump. It includes:
     silently authorized.
 
 The orchestrator must also summarize this proposal directly to the owner. A
-file silently saved to disk is not presentation. Production remains closed
-until the owner records explicit approval in `adaptation/OWNER-APPROVAL.md`.
+file silently saved to disk is not presentation. Reference preparation and
+production remain closed until the owner records explicit story approval in
+`adaptation/OWNER-APPROVAL.md`.
 
-## 9. Production handoff gate
+## 9. Adaptation-to-reference gate
 
-Before reference generation or page production:
+Before reference generation:
 
 - research files are complete and synthesized;
 - audience promise, adaptation brief, story architecture, graphical direction,
   complete script, and page contract are locked to the owner-approved scope;
 - the two-stage audience critic says `APPROVED`;
 - `GREENLIGHT.md` has been presented;
-- `OWNER-APPROVAL.md` records the owner, date, approved scope, and any tolerated
-  risk, plus the exact project-relative script and contract paths;
-- those exact script and contract documents each say `Status: LOCKED`;
+- `OWNER-APPROVAL.md` records the owner, date, approved scope, any tolerated
+  risk, exact project-relative audience, adaptation, architecture, graphical
+  direction, audience-report, greenlight, script, contract, and whole-script
+  readability paths, their SHA-256 values, and the approved page count;
+- the script is production-complete and panel-by-panel; the exact script and
+  contract each say `Status: LOCKED`;
+- a fresh complete-script readability critic says `APPROVED` with no findings
+  against the exact locked script hash;
 - the deterministic adaptation-readiness check reports clean.
 
 From the project directory run:
@@ -197,5 +206,8 @@ From the project directory run:
 python3 -B ../../tools/check_adaptation.py .
 ```
 
-Only then may `SESSION-START.md` open the production preparation and
-builder-critic workflow.
+Only then may bounded casting/reference preparation begin under
+`PREPRODUCTION.md`. Page production is still forbidden. It opens only after
+`python3 -B ../../tools/check_preproduction.py .` returns
+`PREPRODUCTION READY FOR PAGE PRODUCTION` and the owner records the separate
+production authorization.

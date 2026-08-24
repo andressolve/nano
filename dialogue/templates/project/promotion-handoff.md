@@ -1,7 +1,9 @@
-# Promotion and handoff
+# Promotion receipt
 
-Approved source and canonical destination: `<relative paths>`
-SHA-256 match: `<yes/hash>`
-Next page released: `<n>`
-Reader/publication status: `<bounded status>`
-Owner decision needed: `<none or compact request>`
+Status: <PROMOTED only after every approval and copy check>
+Page: <two digits>
+Canonical: pages/page-<NN>.png
+Canonical SHA-256: <sha256>
+Critic verdict: <APPROVED>
+Owner decision: <APPROVED>
+Next page released: <two digits, only the immediate successor>

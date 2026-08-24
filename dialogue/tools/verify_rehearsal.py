@@ -9,6 +9,7 @@ from pathlib import Path
 
 from check_adaptation import check as check_adaptation
 from check_candidate import check as check_candidate
+from check_preproduction import check as check_preproduction
 from preflight import check as preflight
 from route import route_history
 from validate_report import validate
@@ -16,10 +17,21 @@ from validate_report import validate
 
 def derived_records(project: Path) -> tuple[str, str]:
     check_adaptation(project)
-    script = project / "script" / "page-01.md"
+    check_preproduction(project, allow_ephemeral_fixture_run=True)
+    script = project / "script" / "FULL-SCRIPT.md"
+    contract = project / "contract" / "PAGE-CONTRACT.md"
     intent = project / "intent" / "page-01.md"
+    prompt = project / "prompts" / "page-01.md"
     card = project / "cards" / "page-01.md"
-    preflight(project / "run", script, intent, card)
+    preflight(
+        project / "run",
+        script,
+        intent,
+        card,
+        prompt_path=prompt,
+        page="01",
+        contract_path=contract,
+    )
 
     fixtures = Path(__file__).resolve().parent / "fixtures"
     check_candidate(
@@ -43,28 +55,36 @@ def derived_records(project: Path) -> tuple[str, str]:
     route = route_history(history)
     if route != "PROMOTE":
         raise ValueError(f"approved rehearsal history routed to {route}")
-    pngs = list(project.rglob("*.png"))
-    if pngs:
+    image_suffixes = {
+        ".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif", ".heic", ".tif", ".tiff",
+    }
+    images = [
+        path for path in project.rglob("*")
+        if path.is_file() and path.suffix.lower() in image_suffixes
+    ]
+    if images:
         raise ValueError("sample project must remain image-free")
 
     receipt = (
         "# Framework rehearsal receipt\n\n"
-        "- Adaptation readiness: `CLEAN`; research, audience, story, visual, critic, and owner records pass.\n"
-        "- Assembly/preflight: `CLEAN`; exact script, intent, and card match.\n"
+        "- Adaptation readiness: `CLEAN`; full panel script, page contract, whole-script readability, and hashed owner approval pass.\n"
+        "- Pre-production readiness: `CLEAN`; casting/reference system, every page sibling, context map, second owner approval, and handoff pass.\n"
+        "- Assembly/preflight: `CLEAN`; exact page script, page contract, intent, and card match.\n"
         "- Blind transport: version-neutral candidate and two proof paths only.\n"
         "- Candidate contract fixture: complete RGB PNGs, dimensions, and hashes valid.\n"
         "- Valid critic report: accepted. Placeholder report: rejected.\n"
         f"- Archived approved history route: `{route}`.\n"
         "- Project PNG count: `0`; image generation was not run.\n"
+        "- Retention: the text-only run capsule is rehearsed in a temporary copy and is not retained in this fixture.\n"
     )
     handoff = (
         "# HANDOFF\n\n"
         "State: framework rehearsal complete.\n\n"
         f"Derived route: `{route}`. Promoted story pages: none. The adaptation "
-        "gate, exact-script "
+        "and pre-production gates, exact page-script "
         "transport, deterministic candidate fixture, report validation, router, "
         "receipt, and handoff interfaces pass. The project contains no PNG and "
-        "authorizes no story image or prototype.\n"
+        "authorizes no story image or prototype. No run capsule is retained.\n"
     )
     return receipt, handoff
 

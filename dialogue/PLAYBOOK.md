@@ -4,11 +4,12 @@ This is the canonical production procedure for long-form narrative graphic
 novels whose story depends on dialogue, sequential causality, recurring
 identities, and native lettering. It does not govern biographical comics.
 
-This procedure begins only after `ADAPTATION.md` has produced an owner-approved
-audience promise, adaptation, architecture, graphical direction, complete
-script, and page contract. Research and adaptation are not production errands.
-If the adaptation-readiness check is not clean, stop rather than converting a
-source outline into pages.
+This procedure begins only after `PREPRODUCTION.md` has produced an
+owner-approved, hash-bound full script, page contract, whole-script readability
+approval, casting/reference system, complete page siblings, context map, and
+pre-production handoff. Research and adaptation are not production errands. If
+the pre-production check is not clean, stop rather than converting a source
+outline into pages.
 
 ## 1. Authority and scope
 
@@ -37,9 +38,11 @@ owner approval in the current conversation.
 
 ## 2. Preparation gates
 
-First run `python3 -B ../../tools/check_adaptation.py .` from the project
-directory. Do not start page generation from an outline or a merely drafted
-adaptation. Lock:
+First run `python3 -B ../../tools/check_preproduction.py .` from the project
+directory and require `PREPRODUCTION READY FOR PAGE PRODUCTION`. This check
+includes the adaptation gate and the separate owner production release. Do not
+start page generation from an outline, a merely drafted adaptation, an
+unreviewed script, or partially prepared page packets. Lock:
 
 - a complete page-by-page script with exact text, speaker/source, causal order,
   silent visible roles, and the reason to turn each page;
@@ -70,6 +73,11 @@ locks only when their continuity actually carries reader understanding.
 Preparation gates are non-transitive: script approval does not approve casting;
 reference approval does not approve pages; page approvals do not approve an
 uninterrupted sequence.
+
+The full script and page contract stay whole and owner-controlled on disk.
+Production transport extracts only the current page block; neither builder nor
+critic receives the whole book merely because the authority is stored in one
+file.
 
 ### No throwaway prototypes
 
@@ -175,8 +183,11 @@ rewrites the critic's historical verdict.
 ## 6. Promotion and milestone gates
 
 On unconditional approval, copy the candidate byte-for-byte into `pages/`,
-verify the SHA-256 match, derive promoted proofs, append the ledger, and only
-then release the next page. Run the mechanical verifier once per promotion.
+verify the SHA-256 match, derive promoted proofs, write the closed promotion
+receipt, append its byte hashes to `production/PROMOTION-LEDGER.toml`, and only
+then release the immediate next page. A later page may use only that complete,
+hash-bound predecessor for continuity. Run the mechanical verifier once per
+promotion.
 
 At approximately ten-page boundaries, stop the batch and use fresh independent
 reviewers for:

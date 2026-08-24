@@ -1,0 +1,13 @@
+[promotion_ledger]
+version = 1
+
+# Append one closed record only after independent critic approval, explicit owner
+# approval, byte-for-byte promotion, and a hashed promotion receipt.
+#
+# [[promotion]]
+# page = 1
+# path = "pages/page-01.png"
+# sha256 = "<sha256>"
+# receipt = "production/page-01/PROMOTION.md"
+# receipt_sha256 = "<sha256>"
+# status = "PROMOTED"

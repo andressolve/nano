@@ -1,5 +1,6 @@
 [project]
 slug = "replace-me"
+owner = "<owner>"
 pages = 1
 
 [output]
@@ -27,3 +28,16 @@ visual_direction = "adaptation/VISUAL-DIRECTION.md"
 audience_report = "adaptation/AUDIENCE-REPORT.md"
 greenlight = "adaptation/GREENLIGHT.md"
 owner_approval = "adaptation/OWNER-APPROVAL.md"
+
+[preproduction]
+full_script = "script/FULL-SCRIPT.md"
+page_contract = "contract/PAGE-CONTRACT.md"
+readability_report = "preproduction/READABILITY-REPORT.md"
+casting_ledger = "preproduction/CASTING-LEDGER.md"
+setting_object_ledger = "preproduction/SETTING-OBJECT-LEDGER.md"
+reference_plan = "preproduction/REFERENCE-PLAN.md"
+reference_report = "preproduction/REFERENCE-REPORT.md"
+reference_locks = "preproduction/REFERENCE-LOCKS.toml"
+owner_production_approval = "preproduction/OWNER-PRODUCTION-APPROVAL.md"
+context_map = "preproduction/CONTEXT-MAP.md"
+handoff = "preproduction/PREPRODUCTION-HANDOFF.md"

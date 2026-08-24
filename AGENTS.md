@@ -38,8 +38,8 @@ routine completed work directly to `main`.
 - Biographical graphic novels follow `bio.md` and the completed
   `honda-soichiro/` model. The dialogue studio does not supersede that workflow.
 - Long-form narrative/dialogue graphic novels follow `dialogue/AGENTS.md`,
-  `dialogue/ADAPTATION.md`, `dialogue/PLAYBOOK.md`, and
-  `dialogue/PROMPTING.md`.
+  `dialogue/ADAPTATION.md`, `dialogue/PREPRODUCTION.md`,
+  `dialogue/PLAYBOOK.md`, and `dialogue/PROMPTING.md`.
 - For new narrative work, research is evidence rather than narrative authority.
   The governing target is ultra-premium storytelling for the owner-named
   audience, not academic completeness or default fidelity. Do not begin

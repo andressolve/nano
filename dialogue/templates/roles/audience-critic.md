@@ -1,6 +1,7 @@
 # Two-stage audience critic
 
-Begin with only the audience promise and proposed story/architecture/script.
+Begin with only the audience promise, proposed story/architecture, and complete
+production script. A representative sequence cannot receive final approval.
 Record the story, agency, stakes, engagement, confusion, density, emotional
 duration, and desire to continue before opening any source material. Then open
 only declared protected claims, sensitivities, and adaptation liberties. Report

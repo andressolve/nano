@@ -1,0 +1,17 @@
+[reference_set]
+count = 0
+casting_ledger = "preproduction/CASTING-LEDGER.md"
+casting_sha256 = "<sha256>"
+setting_object_ledger = "preproduction/SETTING-OBJECT-LEDGER.md"
+setting_object_sha256 = "<sha256>"
+reference_plan = "preproduction/REFERENCE-PLAN.md"
+reference_plan_sha256 = "<sha256>"
+
+# For each approved reference, add:
+# [[reference]]
+# id = "R01"
+# path = "refs/approved/file.png"
+# sha256 = "<sha256>"
+# kind = "identity"
+# binds = "<essential identity, state, or world fact>"
+# pages = [1]
