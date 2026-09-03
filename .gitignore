@@ -12,3 +12,10 @@ monte-cristo-vol2/qa/**/terminal-*.log
 monte-cristo-vol2/qa/**/terminal-*.status
 monte-cristo-vol2/qa/**/build-silhouette-board-v2
 monte-cristo-vol2/qa/**/sheet11-v2-runner
+
+# Monkey King Volume I (built in ~/Documents/monte_inspired, copied here for the
+# library): canonical pages, approved refs, scripts, packets, and reports are
+# tracked; raw candidates, proofs, and rejected renders stay local.
+monkey-king-vol1/qa/**/*.png
+monkey-king-vol1/refs/candidates/
+monkey-king-vol1/pages/proofs/

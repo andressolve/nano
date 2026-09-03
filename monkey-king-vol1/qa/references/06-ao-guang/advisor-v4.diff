@@ -1,0 +1,138 @@
+--- 04-CHARACTER-LEDGER.md (before)
++++ 04-CHARACTER-LEDGER.md (after)
+@@ -147,15 +147,16 @@
+ **Structural lock:** a dragon in the shape of a lord: a long horse-like
+ dragon head with a scaled blue-green face, two branching antlers, long
+ white whiskers that float as if underwater, round golden eyes with slit
+-pupils, a beard of fins. Human body, enormous: seated, he is twice the
+-height of a standing man, and Wukong comes to less than half of him.
++pupils, a beard of fins. Human body, enormous: seated, he appears about twice
++the height of a standing man, and Wukong comes to less than half of him.
+ Sits on a coral throne and does not get up until the pillar moves. Habitual
+ gesture: fingers drumming on the throne's arm.
+ 
+ **Costume:** robes of deep sea-green with a pattern of waves, a coral crown,
+ a pearl at the throat.
+ 
+-**Never:** a human face. Never small.
++**Never:** a human face. Never ordinary-man scale: seated, he must visibly
++tower over a standing man, without requiring an exact drafting ratio.
+ 
+ **Voice:** grand, weary, and very polite right up to the edge of panic.
+ 
+--- 09-REFERENCE-PLAN.md (before)
++++ 09-REFERENCE-PLAN.md (after)
+@@ -54,7 +54,7 @@
+ | 03 | `03-subhuti` | character | 8 | p8 | new |
+ | 04 | `04-laozi` | character | 19 | p19 | new |
+ | 05 | `05-jade-emperor` | character | 19 | p19 | new |
+-| 06 | `06-ao-guang` | character | 16 | p16 | `06-ao-guang` (gate revision: attach the approved sheet and change only the witness) |
++| 06 | `06-ao-guang` | character | 16 | p16 | `06-ao-guang` (continuity anchor) |
+ | 07 | `07-erlang` — with lance and hound in view (b) and (d) | character | 35 | p35 | new |
+ | 08 | `08-buddha` | character | 43 | p43 | `08-buddha` (gate revision: attach the approved sheet and change only the hand and the crown) |
+ | 09 | `09-wukong-tempered` — scorched armor, gold eyes with red ring | character (state) | 41 | p41 | `01-wukong` |
+@@ -337,61 +337,49 @@
+ ## 06 — AO GUANG
+ 
+ A character reference sheet, 1536 × 1024 landscape, four views of the same
+-figure on one plain warm-paper ground, no lettering of any kind, no labels.
+-Attach the approved `06-ao-guang` sheet and reproduce it exactly, the same
+-dragon, throne, views, and layout, changing only the one thing named at the
+-end.
+-
+-Ao Guang, Dragon King of the Eastern Sea. A dragon in the shape of a lord: a
+-long horse-like dragon head with a scaled blue-green face, two branching
+-antlers, long white whiskers that float as if underwater, a beard of fins,
+-round golden eyes with slit pupils. A human body, enormous, twice the height
+-of a man when seated. Sits on a coral throne with his fingers drumming on
+-its arm. Expression: grand, weary, polite to the edge of panic. Costume:
+-robes of deep sea-green patterned with waves, a coral crown, a pearl at the
+-throat.
+-
+-Enlarge and round the visible golden eye aperture in all four views so its
+-height is at least three-quarters of its width, retain one centered vertical
+-slit pupil, and keep the surrounding brow heavy without compressing the eye
+-back into a slit. The standing panic view should widen this same round eye
+-rather than substitute a different shape.
+-
+-Replace the chin goatee in every view with overlapping blue-green fin plates
+-rooted continuously along the underside of the jaw and converging beneath the
+-chin. Keep the two long white whiskers as the only filament-like facial
+-elements; do not leave a separate hanging hair beard.
+-
+-Views: (a) three-quarter head and shoulders; (b) full length seated on the
+-coral throne, a small human-sized figure drawn only as a silhouette beside it
+-for scale; (c) strict profile, the antlers and whiskers; (d) on his feet,
+-whiskers standing straight out, alarmed.
+-
+-Enlarge the human witness, or reduce Ao Guang and the throne together, until
+-the witness's head-to-foot height is one half of Ao Guang's seated
+-antler-tip-to-foot height. Preserve the immense body and the fact that he
+-remains larger than every ordinary man.
+-
+-Put one hand flat over a clear horizontal section of the throne arm and
+-stagger the fingers into an unmistakable beat: index and ring fingertips
+-touching the arm, middle fingertip visibly raised, little finger relaxed.
+-Preserve that hand arrangement as the seated primary marker rather than a
+-clawed grip.
+-
+-Ao Guang has no lookalike in the cast. He must never be given a human face,
+-and never be small.
+-
+-*(register paragraph, verbatim)*
+-
+-Their faces must remain structurally distinct even in profile, reduced scale,
+-grayscale, partial hair, and travel clothes.
+-
+-Gate revision, the only change from the attached approved sheet:
+-Uniformly enlarge and reposition only the witness until that ratio is exactly
+-`0.500`, keeping its feet on the same ground plane. Preserve it as a neutral
+-bald featureless silhouette with no hairline, face, lapels, robe panels, prop,
+-or costume marker. Do not alter Ao Guang, the coral throne, any of the four
+-views, or the layout.
++figure on one plain warm-paper ground. No lettering, labels, watermarks,
++panel rules, view boxes, or enclosing border.
++
++Ao Guang, the old and vast Dragon King of the Eastern Sea, is a dragon in the
++shape of a lord. Give him a long horse-like dragon head, a scaled blue-green
++face, a heavy brow, and large round golden eyes, each with one centered
++vertical slit pupil. Two branching antlers crown the head. Two long white
++whiskers float as if underwater and are the only filament-like facial hair.
++His beard is a continuous mass of overlapping blue-green fin plates rooted
++along the underside of the jaw and converging beneath the chin, never a
++hanging goatee.
++
++His human-shaped body is enormous and lordly. Seated on a coral throne, he
++reads as about twice the height of a standing man and visibly larger than any
++ordinary person; this is a page-readable scale impression, not an exact
++drafting ratio. One hand lies over a clear horizontal throne arm in mid-drum,
++with some fingertips touching and another visibly lifted so the fingers read
++as beating a rhythm rather than gripping. He does not rise until alarm drives
++him from the throne. His expression is grand, weary, and very polite up to the
++edge of panic.
++
++Costume: deep sea-green robes patterned with waves, a coral crown, and one
++pearl at the throat. Keep the robe value pattern, crown silhouette, and pearl
++consistent in every view.
++
++Views: (a) three-quarter head and shoulders, clearly showing the round eye,
++slit pupil, antlers, whiskers, and fin beard; (b) full length seated on the
++coral throne with the drumming hand, beside a neutral bald featureless adult
++human silhouette on the same ground plane whose head-to-foot height reads as
++roughly half of Ao Guang's seated antler-tip-to-foot height; (c) strict
++profile, preserving the projecting horse-like muzzle, antlers, round eye,
++whiskers, and fin plates; (d) standing in alarm, with the same face and round
++eye widened and the whiskers held straight out.
++
++Ao Guang has no lookalike in the cast. His projecting dragon head, antlers,
++whiskers, fin beard, vast body, and coral-throne silhouette must remain
++unmistakable at page scale, in profile, in grayscale, and after a long
++absence. Never give him a human face or an ordinary-man scale.
++
++*(register paragraph, verbatim)*
++
++Their faces must remain structurally distinct even in profile, reduced scale,
++grayscale, partial hair, and travel clothes.
+ 
+ ## 07 — ERLANG
+ 

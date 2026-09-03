@@ -1,0 +1,1 @@
+RESET: Split the terms check into two stacked single-speaker panels and isolated `SPLASSSH`; criteria remain unchanged.

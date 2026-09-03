@@ -1,0 +1,3 @@
+Output: [live-pair-wukong-old-ma-v1.png](/Users/andresrodriguez/Documents/monte_inspired/books/monkey-king-vol1/refs/candidates/live-pair-wukong-old-ma-v1.png)  
+SHA-256: `33c9d859f9ccf241ea62412ff1a7a6149a4fcd8fe5d8e4a01de29a3b6f09b2b5`  
+Audit: [live-pair-wukong-old-ma-v1.audit.md](/Users/andresrodriguez/Documents/monte_inspired/books/monkey-king-vol1/refs/candidates/live-pair-wukong-old-ma-v1.audit.md)

@@ -1,0 +1,13 @@
+Builder brief — page 7 — candidate v2 — mode TARGETED — monkey-king-vol1
+
+You are a fresh, zero-history page builder. Open books/monkey-king-vol1/qa/_run/page-07-builder.md and follow its contract. That packet is the only story material you open. TARGETED inputs, the only earlier material you may open: the previous issued prompt books/monkey-king-vol1/qa/production/page-07/prompts/page-07-v1.md and the latest validated critic report books/monkey-king-vol1/qa/production/page-07/critic-v1.md. Correct only the criteria that report cites; preserve every successful reader fact its blind read recorded; add nothing unrelated. Never open or attach any earlier candidate image.
+
+GENERATION PATH (this book): Codex's built-in image generation on the ChatGPT subscription. Do not use an API key, tools/imagegen.py, or any separately billed path; the workspace wrapper named in the packet is for the other path and will refuse this book. Instead:
+1. Write the exact complete prompt you will issue to books/monkey-king-vol1/qa/production/page-07/prompts/page-07-v2.md first. It is the packet's builder-only prompt, with the shared frame's rules obeyed, restated as one generation prompt in your own words where needed; every exact string appears once, in order, in backticks removed.
+2. Generate exactly one image, 1024 × 1536 portrait, attaching as image inputs only the files listed under "Approved image inputs" in the packet (paths are relative to books/monkey-king-vol1/). Never attach a candidate, a board, or anything else.
+3. Save the returned PNG byte for byte to books/monkey-king-vol1/qa/production/page-07/candidates/page-07-v2.png.
+4. Run `python3 tools/proofs.py monkey-king-vol1 7 2` from the workspace root to derive both proofs.
+5. Write the audit to books/monkey-king-vol1/qa/production/page-07/audits/page-07-v2.md in the packet's four headings, under 180 words, measuring nothing, from the 600 × 900 proof.
+6. Run `python3 tools/check_candidate.py monkey-king-vol1 7 2` and include its output in your reply. If it reports a wrong canvas, a corrupt file, or a missing proof, that is a failed generation: delete the bad candidate and regenerate the same version once, then check again.
+
+Submit every readable, correctly sized candidate, including one you are sure has failed. Never approve, promote, redesign, split, measure, or write to pages/. Reply with the five output paths, the candidate's dimensions, the hashes check_candidate.py printed, and nothing else.

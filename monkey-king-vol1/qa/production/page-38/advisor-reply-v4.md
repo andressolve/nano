@@ -1,0 +1,1 @@
+RESET: C2 now judges the ring strike by its blind-read causal dominance, not panel area; exact text and attribution remain strict.

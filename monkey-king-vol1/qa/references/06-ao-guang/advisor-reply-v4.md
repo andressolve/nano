@@ -1,0 +1,1 @@
+RESET: Ao Guang’s prompt was rebuilt cleanly, with his scale lock changed from exact 0.500 geometry to a page-readable approximate two-to-one witness.

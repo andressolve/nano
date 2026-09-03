@@ -1,0 +1,26 @@
+# Book manifest — read by every tool. Edit deliberately; tools never edit it.
+
+[book]
+title = "Monkey King, Volume I: Havoc in Heaven"
+slug = "monkey-king-vol1"
+pages = 48            # working page count; follows the script, never the reverse
+audience = "Francisco (10) and Sebastian (7)"
+owner = "Andres"
+created = "2026-09-01"
+parent = ""                  # for a sequel: the parent volume's folder (its craft numbers are inherited, never relaxed silently)
+
+[form]
+canvas = [1024, 1536]        # 2:3 portrait, never landscape, never square, never mixed
+proof_desktop = [600, 900]   # binding reader proof — the transcription test runs on this
+proof_tablet = [768, 1152]   # secondary
+register = "Mineral Ink"                # one-line name of the visual register, e.g. "Velvet Cinema"; defined in 09-REFERENCE-PLAN.md
+
+[production]
+image_path = "codex-app"     # codex-cli (tools/imagegen.py, OpenAI Image API) | codex-app (ChatGPT subscription, manual handoff)
+billing = "codex in-app on the ChatGPT subscription, approved by owner 2026-09-02; no API key, no separately billed path"  # must record the owner's decision before any generation, e.g. "api approved by owner 2026-09-01"
+model = "gpt-image-2"
+quality = "high"
+# input_fidelity = "high"    # uncomment only if the model still accepts the parameter
+max_refs_per_call = 6        # image inputs per generation
+max_versions = 8             # the v4 ceiling: total generations per page from v1, never resets
+batch_size = 10              # sequence / cold-read / continuity gates run at every batch boundary

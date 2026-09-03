@@ -1,0 +1,35 @@
+Create one finished, flattened 1024 × 1536 portrait story page in a 2:3 ratio, with lettering baked into the artwork. This is a canonical printed illustrated-novel page, not a prototype, mockup, sample sheet, spread, or layout study. Use only the four attached approved reference images: Laozi character identity, Jade Emperor character identity, Hall of Jade setting, and the five-gourd object state.
+
+Use case: illustration-story.
+Asset type: premium illustrated novel page.
+Scene and story: Page 34, “no more offers.” The Hall of Jade is wrecked after the banquet: overturned tables, empty trays, spilled jars, and silent robed guests standing around the mess facing the throne. Laozi arrives running with five empty gourds and tells the Emperor where he was: counting. The monkey ate the elixir, five hundred years of work. Laozi owns the page and his face changing is the dominant turn. The Emperor asks what now, another title, a bigger house; the man who invented every offer says no more offers, cannot be killed or managed, and demands everything and Erlang. On the terrace, the army pours from the South Gate like ink. The Emperor’s hand on Laozi’s shoulder is the quiet aftermath and the reader turns to meet the one person in Heaven who will enjoy this.
+
+Composition: Use three clear panels with a strong top-to-bottom reading path and one dominant image. Panel 1 is a shallow top panel: the wrecked Hall of Jade, overturned tables, empty trays, spilled jars, scattered silent robed guests with faces toward the throne; the Jade Emperor sits on the throne at the top of the steps on the right with two fingers at his temple; Laozi runs in from the left clutching exactly five empty gourds to his chest. Place the Emperor’s first balloon upper right and Laozi’s reply middle left, each clearly on its owner’s side with open tail corridors to visible mouths.
+
+Panel 2 is the dominant central panel: Laozi is close on the throne’s step at the left, the five empty gourds dropped and rolling down the steps, his face visibly changed, mouth set, no dabbing, no smile, hands empty and still. The Jade Emperor sits above him on the right, leaning forward and seeing the change. Place the Emperor’s question upper right and Laozi’s answer middle left in a lane clear of both faces. Make Laozi’s face and the two faces the visual focus; guests and wreckage remain subordinate.
+
+Panel 3 is a shallow bottom panel on the terrace outside the hall: Laozi at the left and the Jade Emperor at the right by the balustrade, the Emperor’s hand resting on Laozi’s shoulder for the first time he has touched anyone. Far below, the army pours out of the South Gate like ink, a dark stream of tiny identical soldiers into the cloud. Place the Emperor’s line upper right and Laozi’s reply lower left, with clear ownership by placement and tail.
+
+Character identity and costume: Laozi is a round old man with a round face and cheeks, small bright eyes, a bald shining crown with white hair only at the sides and back, a short square white beard, and a round belly. He is short with weight forward, wearing a deep indigo robe and gold sash, with one gourd on a cord at his hip. On this page his face has changed: no dabbing, no smile, hands still in the dominant panel. Never give him a topknot, pointed beard, or whisk. The Jade Emperor is a broad-faced man in his prime with a heavy jaw, full cheeks, black brows and eyes, a black beard trimmed into three points, hair under a flat-topped jade crown with strings of beads before his face, and a heavy build. He wears yellow-gold robes with dragon roundels, seated in panels 1 and 2 and standing only on the terrace. He has the only black beard on the page. Keep the two faces structurally distinct in every scale and profile.
+
+Silent figures: guests are faceless at distance and carry no balloons. Soldiers are scenery, identical black lacquered armor with faceplates down. No other speaking figures.
+
+Visual register: mineral ink on toothed paper, Chinese blue-green landscape tradition lit like a film, visible ink line, visible paper tooth, pigment pooling at wash edges, real cast shadows and real depth. Use flat washes of malachite green, azurite blue, cinnabar red, shell white, and flat gold leaf. The living world is malachite and azurite; Heaven is gold leaf and cloud-white. Keep the hall wreckage readable, with empty trays and no green in the distant cloud stream. Use a restrained cinematic hierarchy, textured brush-and-ink surfaces, and grounded anatomy. No glossy concept-art surfaces, airbrushed skin, engraved cross-hatching, anime proportions, children’s-book softness, or plastic 3D rendering.
+
+Lettering: Place all six exact strings in the panel sequence below, once each and in this order. Use warm ivory organic oval balloons with restrained dark painted outlines and open tails ending beside the visible speaker’s mouth. Dialogue is large, upright, hand-lettered mixed case; prose fields are not used on this page. Keep every balloon inside its panel and away from faces, hands, props, and panel borders. Maintain comfortable line wrapping and a clear top-to-bottom reading order.
+
+My banquet. In front of everyone. Where were you?
+
+In my laboratory, Majesty. Counting. He ate the elixir. All five gourds. Five hundred years of my work.
+
+And now? Another title? A bigger house?
+
+No more offers. He can't be killed and he can't be managed. Send Erlang. Send everything, and send Erlang.
+
+Erlang. My nephew. He never comes to this hall.
+
+He'll come for a fight. Three eyes, a hound, and the only one in Heaven who will enjoy this.
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+Do not add any text, punctuation, labels, numerals, title, page number, production mark, editorial text, or sound cue. Do not letter speaker names. Do not use a serif or italic face for dialogue. Do not use rectangular or rounded-rectangle dialogue boxes. Exactly five empty gourds appear: all five in Laozi’s arms in panel 1 and those same five rolling on the steps in panel 2; no sixth gourd. The iron ring is absent. Wukong is absent: no monkey anywhere. Erlang is absent despite being named: no third eye, silver helmet, standing red plume, hound, or lance anywhere. Subhuti is absent. No banner. No guest may wear Laozi’s bald crown and square white beard, the Emperor’s black three-point beard and crown, or a third eye. Keep all essential text within the safe page area and keep the page uncluttered enough for every listed string to read.

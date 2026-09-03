@@ -1,0 +1,29 @@
+Create one finished, flattened 1024 × 1536 portrait story page in a 2:3 aspect ratio, with lettering baked into the artwork. This is a canonical printed illustrated novel page, not a prototype, mockup, sample sheet, spread, or layout study. Use a clear top-to-bottom reading path, strong visual hierarchy, and one dominant dramatic turn: the wager. No page number, title, production label, editorial text, speaker name, or other text appears anywhere except the six listed strings below.
+
+Use a Mineral Ink register: brush-and-ink line on toothed paper with flat washes of malachite green, azurite blue, cinnabar red, shell white, and flat gold leaf, lit like a film with real cast shadows and real depth. Show visible ink line, paper tooth, and pigment pooling at wash edges. Use the Chinese blue-green landscape tradition for the living world, gold leaf and cloud-white for Heaven, and cinnabar and black for the furnace accents only if visible. Do not use glossy prestige-oil realism, airbrushed skin, engraved cross-hatching, anime proportions, children's-book softness, or plastic 3D rendering.
+
+Build the page as three clearly separated panels with calm gutters and generous safe margins. The top dominant panel should plainly own the page. It shows the hall with the Buddha seated at the far end, a serene giant filling the hall, so the throne sits beside his knee on the right. The Jade Emperor is small and silent on that throne. The Buddha has saffron cloth over one shoulder, a bare curled head, golden skin, a broad smooth face, half-closed eyes, long earlobes, broad round shoulders, a small smile, and one hand open on his knee. Wukong is tiny on the floor at the left before that hand, holding his staff up. Everyone else is small, silent, faceless at the walls. The Buddha's balloon belongs upper right beside his visible mouth; Wukong's reply belongs lower left beside his visible mouth, with tails ending in open space beside the correct mouths and never crossing.
+
+The middle panel is a close causal beat. The Buddha's hand opens flat, palm up, as wide as a courtyard and filling the lower part of the panel; the Buddha's smiling face is small above it with mouth visible. The hand carries nothing else. Place the Buddha's two balloons stacked on the right in top-to-bottom reading order, both tails clearly ending beside the Buddha's mouth. No other figure speaks.
+
+The bottom panel shows Wukong at the left climbing onto the Buddha's palm, laughing, crouched and wiry rather than square, looking back over his shoulder toward the Jade Emperor on the throne at the right. The Buddha's face appears at the upper right edge with mouth visible. Put Wukong's balloon upper left beside his mouth and the Buddha's short reply lower right beside his mouth, clearly lower in the reading path. The reader should feel that Wukong is about to leap.
+
+Use the attached approved images only as identity and setting references: the tempered Wukong sheet for his short heart-shaped monkey face, pale muzzle, golden fur and ruff, small ears, wiry build, long tail, scorched gold armor, tiger-skin kilt, cap with singed plume tips, gold eyes with a thin red ring, and staff in hand; the Buddha sheet for the serene giant and his exact facial, body, robe, and hand traits; the Jade Emperor sheet for the black three-point beard, jade crown with beads, yellow-gold robes, and seated silent pose; and the hall plate for architecture, palette, light, and depth. Keep the staff in Wukong's hand and visually secondary. The Buddha never has a beard, topknot, crown, or halo. No long white pointed beard appears anywhere. Laozi, Erlang, the hound, Subhuti, Old Ma, and Ao Guang are absent; Laozi is only out of frame at the walls. The Buddha never stands or gestures except for the open hand. Silent figures have no balloons or tail fragments.
+
+Lettering construction: dialogue is large, warm ivory, and hand-lettered natively in a rounded upright mixed-case hand inside organic oval balloons with restrained dark painted outlines; never serif, never italic, never typeset, never boxed or rectangular. Speech must remain comfortably readable, with tails ending in open space beside the speaker's mouth. There is no prose field, caption, sound cue, or object label on this page. The only visible text is the following exact dialogue, each string appearing once and in this order. Do not add punctuation, words, labels, or any other text.
+
+The Buddha, seated at the far end of the hall with his mouth visible, says: Heaven asked, so I came. Sit down a moment. What is it you want the throne for?
+
+Wukong, tiny at the left of the dominant hall panel with his mouth visible, says: So they can't ever say I'm nobody. It goes to the strongest. That's me. Ask them.
+
+The Buddha, above the open palm in the middle panel with his mouth visible, says: Then a small bet. Jump out of my hand, and it's yours. I'll say so myself.
+
+The Buddha, in the same middle panel with his mouth visible, says: If you can't, you go back to Earth, and you stay there.
+
+Wukong, climbing onto the palm in the bottom panel with his mouth visible, says: Out of your hand? One somersault is a hundred thousand miles. You're a very big man, but you're not that big.
+
+The Buddha, at the upper right edge of the bottom panel with his mouth visible, says: Then go.
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+Preserve the exact six strings, their order, their ownership, and their readable placement. No balloon or text field crosses a panel border. No essential text is clipped or placed at the bottom edge. The dominant visual must be the Buddha's scale and the open-palm wager, while Wukong's climb and backward look create the page-turn anticipation.

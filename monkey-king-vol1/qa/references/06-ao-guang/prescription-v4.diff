@@ -1,0 +1,20 @@
+--- 09-REFERENCE-PLAN.md (before)
++++ 09-REFERENCE-PLAN.md (after)
+@@ -387,12 +387,11 @@
+ grayscale, partial hair, and travel clothes.
+ 
+ Gate revision, the only change from the attached approved sheet:
+-Enlarge and reposition **only** that witness on the same ground plane until
+-its head-to-foot height is exactly 50% of Ao Guang's seated
+-antler-tip-to-foot height. Reduce it to a neutral, bald, featureless human
+-silhouette with no readable hairline, face, lapels, robe panels, prop, or
+-other costume marker. Preserve Ao Guang, every part of the coral throne, all
+-four views, and the layout without drift.
++Uniformly enlarge and reposition only the witness until that ratio is exactly
++`0.500`, keeping its feet on the same ground plane. Preserve it as a neutral
++bald featureless silhouette with no hairline, face, lapels, robe panels, prop,
++or costume marker. Do not alter Ao Guang, the coral throne, any of the four
++views, or the layout.
+ 
+ ## 07 — ERLANG
+ 

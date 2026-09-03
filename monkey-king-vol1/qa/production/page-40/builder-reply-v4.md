@@ -1,0 +1,7 @@
+VALID CANDIDATE  
+CANDIDATE `qa/production/page-40/candidates/page-40-v4.png` SHA256=939ba09bf01f9f5ca1b4fa6320c8d39c07098f60e62893360f1fcfde4b64b407  
+PROMPT `qa/production/page-40/prompts/page-40-v4.md` SHA256=33008d4dae947c2e887f6800f167bf55571f1453490f457f4ec92094f242371b  
+AUDIT `qa/production/page-40/audits/page-40-v4.md` SHA256=d3b23d3e778587dad5b24f5f273c7edfbc78464480820bdcec0ec2357995325a  
+DESKTOP `qa/production/page-40/proofs/page-40-v4-600x900.png` SHA256=b199738c1eefb7f02754df13c0f302c032239fec30e3a8bd885083840de27bd0  
+TABLET `qa/production/page-40/proofs/page-40-v4-768x1152.png` SHA256=2b161e5d3392074bc8f608ab29e5d992bbbf6326f959523ddaf723206f9d5353  
+DIMENSIONS 1024×1536; MODE FULL_PROMPT_RESET

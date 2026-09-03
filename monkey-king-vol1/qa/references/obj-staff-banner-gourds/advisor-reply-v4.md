@@ -1,0 +1,1 @@
+RESET: The `obj-staff-banner-gourds` prompt was rewritten as a clean consolidated lock because four rounds converged from broad composition errors to one remaining miniature-staff silhouette defect.

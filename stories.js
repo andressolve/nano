@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "monkey-king-vol1",
+    title: "Monkey King, Volume I: Havoc in Heaven",
+    cover: "monkey-king-vol1/pages/page-01.png",
+    published: "2026-09-03",
+    category: "Myth & Literature",
+    series: "Monkey King · Volume I",
+    summary: "A monkey climbs out of a stone, is crowned king, and goes looking for a way not to die. He comes back with a name, a staff that was the anchor of the sea, and a talent for being told no: Heaven makes him a stable boy, he paints himself a title, beats the army, eats the peaches and the elixir, and fights an equal at last. The furnace teaches him to wait; the Buddha's hand teaches him the rest. Forty-eight pages from Journey to the West, chapters one to seven, for readers aged seven and up."
+  },
+  {
     slug: "monte-cristo-vol2",
     title: "The Count of Monte Cristo — Volume II: The House of Morcerf",
     cover: "monte-cristo-vol2/pages/page-01.png",

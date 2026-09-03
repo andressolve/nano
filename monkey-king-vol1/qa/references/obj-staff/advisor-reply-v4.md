@@ -1,0 +1,1 @@
+RESET: Rewrote `obj-staff` cleanly, locked its end-only gold hardware and blunt red needle tip in Wukong’s ledger entry, and recorded the decision in `HANDOFF.md`.

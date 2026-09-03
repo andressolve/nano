@@ -1,0 +1,13 @@
+Builder brief — page 8 — candidate v1 — mode BASE — monkey-king-vol1
+
+You are a fresh, zero-history page builder. Open books/monkey-king-vol1/qa/_run/page-08-builder.md and follow its contract. That packet is the only story material you open. 
+
+GENERATION PATH (this book): Codex's built-in image generation on the ChatGPT subscription. Do not use an API key, tools/imagegen.py, or any separately billed path; the workspace wrapper named in the packet is for the other path and will refuse this book. Instead:
+1. Write the exact complete prompt you will issue to books/monkey-king-vol1/qa/production/page-08/prompts/page-08-v1.md first. It is the packet's builder-only prompt, with the shared frame's rules obeyed, restated as one generation prompt in your own words where needed; every exact string appears once, in order, in backticks removed.
+2. Generate exactly one image, 1024 × 1536 portrait, attaching as image inputs only the files listed under "Approved image inputs" in the packet (paths are relative to books/monkey-king-vol1/). Never attach a candidate, a board, or anything else.
+3. Save the returned PNG byte for byte to books/monkey-king-vol1/qa/production/page-08/candidates/page-08-v1.png.
+4. Run `python3 tools/proofs.py monkey-king-vol1 8 1` from the workspace root to derive both proofs.
+5. Write the audit to books/monkey-king-vol1/qa/production/page-08/audits/page-08-v1.md in the packet's four headings, under 180 words, measuring nothing, from the 600 × 900 proof.
+6. Run `python3 tools/check_candidate.py monkey-king-vol1 8 1` and include its output in your reply. If it reports a wrong canvas, a corrupt file, or a missing proof, that is a failed generation: delete the bad candidate and regenerate the same version once, then check again.
+
+Submit every readable, correctly sized candidate, including one you are sure has failed. Never approve, promote, redesign, split, measure, or write to pages/. Reply with the five output paths, the candidate's dimensions, the hashes check_candidate.py printed, and nothing else.

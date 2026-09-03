@@ -1,0 +1,27 @@
+Create one finished, flattened 1024 × 1536 portrait story page in a 2:3 aspect ratio for a printed illustrated novel. Use the approved reference images only as identity, costume, architecture, palette, light, and object-state references: the golden monkey Wukong, the old monkey Old Ma, Laozi, the mountain peak setting, and the flying red banner with seal and peach motif. Do not copy any reference page composition.
+
+Use case: illustration-story. Asset type: canonical production page. Render a cinematic Chinese blue-green landscape in the Mineral Ink register: brush-and-ink line on toothed paper, flat washes of malachite green, azurite blue, cinnabar red, shell white, and flat gold leaf, with visible ink, paper tooth, pigment pooling, real cast shadows, and real depth. The living world is malachite and azurite; monkey objects are cinnabar; Heaven is gold leaf and cloud-white. Avoid glossy concept-art surfaces, airbrushed skin, engraved cross-hatching, anime proportions, children's-book softness, plastic 3D rendering, UI typography, mockup or layout-study appearance.
+
+Build a clear top-to-bottom reading path with one dominant image owning the page and two smaller sequential beats beneath it. The dominant upper image is the peak beneath the flying red banner: Laozi alone on a small cloud at the right, visibly above the ground, reading a gold scroll to the silent troop. Wukong sits on the split stone at the left with arms folded, the straight red-lacquered iron staff across his knees, looking toward the scroll. Old Ma stands below him at the foot of the stone with her peach-wood stick. Brown, bare, young, faceless mountain monkeys fill the distant troop. Keep Laozi's first balloon upper on his side and his second balloon below it on his side, with clear ownership and tails ending in open space beside his visible mouth. The banner flies on its pole wherever the sky is visible, but its cloth has no legible lettering. The cloud never touches the ground. The scroll has no legible writing.
+
+The second beat is a smaller isolated two-shot: Old Ma on the left looks up at Wukong on the right, while Wukong continues looking toward the scroll rather than at her. Place Old Ma's line upper left and Wukong's reply clearly lower right so the reading path is top-down. Keep both mouths visible and each tail clear. The third beat is a smaller rising moment: Wukong steps onto Laozi's cloud at the right, plumes lifting, with Laozi a silent shape behind him. Old Ma reaches up from the left and rests her hand flat on Wukong's head. Place her line upper left and Wukong's reply lower right. Preserve the emotional turn: he is returning to the people who laughed at him, and her hand and his answer make the choice and consequence unmistakable.
+
+Identity locks: Wukong is a small, wiry golden monkey with a heart-shaped face, pale muzzle, round amber eyes, golden ruff, tail in frame, Great Sage costume of gold scale armor, red tunic, tiger-skin kilt, black cloud-boots, and plumed cap. Old Ma is an old monkey with a long narrow face, white muzzle, thinning silver-gray fur, white tufted brows, pale half-lidded eyes, stooped posture, peach-wood stick, and faded red shawl. Laozi has a round bald crown, white hair at the sides, short square white beard, round belly, indigo robe, gold sash, and gourd at his hip. Keep Wukong and Old Ma structurally distinct in every scale and angle. No other monkey wears a garment or carries a stick. The troop is silent; no unnamed figure has a speech balloon or tail.
+
+Letter the six listed strings natively into warm ivory balloons with restrained dark painted outlines. Use large upright hand-lettered mixed case for speech, a legible literary serif for any narrative field, and no condensed comic-display, geometric UI, cursive body, all-capital prose, distressed, thin old-style italic, or tiny handwritten document lettering. Keep every balloon inside its panel, away from borders and faces, with comfortable width and generous clear space. Use at most two locations, no page number, title, production label, editorial text, speaker name, label, tag, numeral, bullet, or other lettering. The banner and scroll are image elements with no readable writing. Render the exact visible text below once each, in this order, with ownership conveyed only by staging, balloon placement, and tail:
+
+By order of the Jade Emperor: Sun Wukong is named Great Sage Equal to Heaven, with a house in Heaven and no duties.
+
+Those are your words, Great Sage. I read them off your banner. Heaven agrees to them.
+
+You beat them. You have a mountain and a name. Why go back up?
+
+Because they said it. Heaven said my name, the way I wrote it. I want to hear them say it up there.
+
+Come back.
+
+I always do.
+
+No speaker names, labels, or tags are lettered anywhere; the only text on the page is the listed strings.
+
+No essential text is near the page edge, no balloon or text field crosses a panel border, and no silent figure receives a balloon or tail fragment. Do not introduce the Jade Emperor, Erlang, extra named characters, extra props, extra clothing, extra readable text, punctuation not present in the six strings, watermarks, borders, page furniture, or production marks. Preserve the split stone, the flying banner, the small airborne cloud, the staff across Wukong's knees, and Old Ma's flat hand on Wukong's head. Make the page feel like Heaven saying his own name back to him, ending on the clear visual and verbal turn from Old Ma's invitation to Wukong's returning promise.

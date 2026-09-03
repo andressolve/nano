@@ -1,0 +1,21 @@
+--- 09-REFERENCE-PLAN.md (before)
++++ 09-REFERENCE-PLAN.md (after)
+@@ -396,9 +396,15 @@
+ A lean gray hound at his heel.
+ 
+ Views: (a) three-quarter head and shoulders, all three eyes open; (b) full
+-length with the lance upright and the hound sitting at his heel; (c) strict
+-profile showing the third eye's ridge and the single standing plume; (d) the
+-third eye narrowed, the other two level, mid-laugh.
++length with the lance upright and the hound sitting at his heel. Redraw view
++(c) at the same true ninety-degree angle with a shallow but unmistakable
++forward projection and eyelid seam centered above the normal brow, aligned to
++the third eye's placement in view (a). Preserve the long jaw, high cheekbone,
++straight nose, and single upright plume. Redraw view (d) with both ordinary
++eyes equally open, aligned on one level axis, and holding the same forward
++gaze; narrow only the vertical third eye to a clearly thinner vertical
++aperture. Carry the laugh through the open mouth, lifted cheeks, and
++nasolabial folds without changing either ordinary eyelid.
+ 
+ Erlang must never be confused with Wukong in armor. Differentiators that must
+ survive grayscale and thumbnail: a human face against a monkey's muzzle, skin

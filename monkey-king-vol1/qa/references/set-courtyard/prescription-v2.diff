@@ -1,0 +1,22 @@
+--- 09-REFERENCE-PLAN.md (before)
++++ 09-REFERENCE-PLAN.md (after)
+@@ -531,10 +531,15 @@
+   required primary marker survives grayscale and thumbnail without borrowing
+   the monkey/Heaven color codes. Reduce the bell silhouette to less than half
+   the round door's diameter and hang it from a plain side bracket beside the
+-  cave mouth rather than in the center of the cave opening. Lift the cave
+-  interior from near-black to a cool mid-dark value so neither bell nor void
+-  overpowers the shut round door, which must be the location's strongest
+-  compact accent at thumbnail scale.
++  cave mouth rather than in the center of the cave opening. Lift the entire
++  visible cave interior by two clear value steps to a cool mid-dark
++  shell-gray/azurite wash, with legible interior rock planes rather than a
++  single dark mass. At the same time, give the round door one continuous
++  desaturated blue-gray value that is one step darker than the immediately
++  surrounding cliff and preserve a clean circular edge, closed central seam,
++  and single small dark pull. The door, not the cave void or bell, must become
++  the strongest compact accent when the plate is reduced to thumbnail size
++  and converted to grayscale.
+ - **set-sea-palace.** Ao Guang's hall: crystal and coral, columns of white
+   shell, a sand floor lit from above, fish in the hall, a coral throne; a
+   treasury doorway at the back with a dull red glow. Azurite and crystal, no

@@ -1,0 +1,49 @@
+--- 09-REFERENCE-PLAN.md (before)
++++ 09-REFERENCE-PLAN.md (after)
+@@ -656,9 +656,12 @@
+   red-lacquered iron shaft about 1/35–1/40 of its total length, parallel from
+   cap to cap, with blunt gold end caps and bands in the same relative positions,
+   and no mid-shaft collar. The full-length state is that one straight,
+-  uninterrupted master cylinder. Produce the miniature by uniformly reducing
+-  that complete master geometry, retaining the prescribed single visible red
+-  tip; do not independently redesign or simplify either end. Neither state has
++  uninterrupted master cylinder. Replace it with one uniformly scaled copy of
++  the complete full-length cylinder, preserving exactly the same shaft-to-cap
++  and band positions, parallel constant-diameter shaft, and two blunt ends at
++  every proportion; reduce the whole object as one transform and stage the
++  needle state so one red tip remains visibly legible. Do not introduce a
++  collar, point, finial, or independently enlarged end hardware. Neither state has
+   an attached banner, ties, bead, finial, blade, barb, spear point, stepped
+   shoulder, or silver-gray extension. In grayscale and at thumbnail, both
+   states must read as Wukong's blunt staff, never as Erlang's pointed lance.
+@@ -667,20 +670,21 @@
+   on one plain, slender, neutral dark support of constant diameter, with blunt
+   unornamented ends and no gold bands, collars, blade, barb, spear point, or
+   finial. Keep it clearly separate from the staff states. Fully unfurl the cloth
+-  in a wind-filled flying silhouette. Rebuild it with one continuous, unbroken
+-  wind-pulled outer hem from the upper edge around the trailing edge to the lower
+-  edge: fill the missing wedge completely, join the two tails into one broad
+-  cloth body, and leave no notch, split, tear, hole, fray, or missing corner.
++  in a wind-filled flying silhouette. Fill the entire wedge, join the tails into
++  one broad cloth body, and redraw one continuous, unbroken wind-pulled outer hem
++  from upper edge through trailing edge to lower edge. Preserve saturated
++  cinnabar across the repaired area and leave no notch, split, tear, hole, fray,
++  or missing corner.
+   Keep the entire cloth saturated cinnabar red, with no fading or writing; the
+   faded state belongs only to p47.
+   Include exactly five independently countable dried bottle gourds, each with a
+   clearly pinched neck-and-bulb silhouette and enough separation that the group
+   still reads as five at thumbnail and in grayscale. Include one isolated dull
+-  iron bracelet-sized ring; exactly one isolated gold seal marker, a paper-thin
+-  glyph-free vertical gold-leaf strip at least four times taller than wide, with
+-  no beveled side, raised rim, hard slab thickness, relief, or glyph-like
+-  mottling; use only a feather-light local shadow or slight paper curl to
+-  establish that it is flexible paper rather than metal. Include one isolated
++  iron bracelet-sized ring; exactly one isolated gold seal marker. Narrow it to
++  a glyph-free vertical strip at least four times taller than wide, remove the
++  beveled side and every raised rim or relief cue, flatten the surface to
++  paper-thin gold leaf, and use only a feather-light local shadow or one slight
++  paper curl to show flexibility. Include one isolated
+   peach approximately a bare Wukong head width relative to the approved staff
+   shaft, with a clear cleft and softly asymmetric contour. The banner's words
+   are rendered on the pages, never on this plate.
