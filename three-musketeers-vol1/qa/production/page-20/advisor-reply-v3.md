@@ -1,0 +1,1 @@
+RESET: Restaged page 20 to foreground a fully detached, still-lit lantern falling beneath a visibly empty bracket; all strings and C5 remain unchanged, no split is warranted, and verification is CLEAN.

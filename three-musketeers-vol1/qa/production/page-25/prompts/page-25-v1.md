@@ -1,0 +1,37 @@
+Create one finished, flattened story page for a printed illustrated novel, in a 1024 × 1536 portrait canvas with a 2:3 aspect ratio. This is a new staged scene, not a prototype, mockup, sample sheet, spread, layout study, montage, model sheet, portrait board, or collage of the references. Letter all text natively into the image. No page number, title, production label, speaker name, editorial text, invented caption, laugh line, label, or document writing appears anywhere. The only visible text is the nine listed spoken strings, each rendered exactly once and in the listed reading order.
+
+Use the visual register “Lantern and Steel”: brush-and-ink line on warm laid paper with opaque matte gouache washes; lamp-black line, raw umber and yellow ochre, Prussian blue for the Musketeers, vermilion only for Cardinal-associated items (none are present), lead white for lace and collars, and a little gold. Seventeenth-century France indoors is lit by candle and lantern light with real cast shadows and depth. Show visible brush line, paper grain, chalky gouache edges, and tactile wool, leather, steel, and wax. Avoid smooth prestige-oil realism, glossy concept-art surfaces, airbrushed skin, engraved cross-hatching, anime proportions, children’s-book softness, and plastic 3D rendering. Keep the room quiet, dramatic, and intimate.
+
+The page has three vertically stacked panels with a clear top-to-bottom reading path. Panel one is a wide shallow panel, about 30 percent of the page: Athos’s bare whitewashed room, containing exactly one chair, one table, one bed, and one sword mounted on the wall, with nothing else on the walls. Athos sits still in the one chair on the RIGHT, hands folded on the pommel of his grounded sword. Porthos fills the window at the back. Aramis sits on the edge of the table LEFT of centre holding his small book. The boy stands in the middle nearest the viewer, holding up a small folded letter sealed in BLUE wax with a crown impressed in the seal; the letter has no writing. Stage this first panel as four separate single-speaker beats, descending rather than level: the boy’s plan in an upper-left balloon over the boy; Athos’s question in an upper-right balloon over Athos; the boy’s three-word reply in a middle-left balloon; Athos’s answer in a lower-right balloon. Every balloon tail ends beside its own visible speaker’s mouth, with clear corridors and no crossing tails.
+
+Panel two is the dominant image, about 40 percent of the page and clearly the largest, close and tall. Porthos stands on the LEFT turning from the window, delighted, one hand smoothing his baldric. Aramis is in the MIDDLE closing his book, two fingers at his moustache. Athos is on the RIGHT in the chair, hands on his pommel and still. Place three balloons in a descending reading path: Porthos’s balloon upper left, Aramis’s balloon middle centre, Athos’s balloon lower right. Each tail ends beside its own speaker’s visible mouth. This panel must make the three men’s decision to ride feel like the page’s dominant dramatic turn.
+
+Panel three is about 30 percent: the boy stands on the LEFT looking from one face to the next; Porthos is large on the RIGHT with arms spread. Place the boy’s line in an upper-left balloon with its tail to his mouth, then Porthos’s answer in a lower-right balloon after it, with its tail to Porthos’s mouth. The reply must sit clearly lower than the line that prompts it.
+
+Identity and continuity are exact. The boy is d’Artagnan: eighteen, long narrow face, sharp chin, long straight nose, close-set quick dark eyes, clean-shaven with no moustache, black unruly hair in his eyes, lean and narrow-shouldered, weight forward, faded ochre-yellow doublet, brown breeches and boots, grey felt hat with one broken feather, no cloak, and a plain swept-hilt rapier too long for him. Athos is thirty, the tallest man, with a long pale face, hooded level grey eyes, lines beside the mouth, dark hair straight to the shoulder, short pointed dark beard and neat moustache, lean, wearing a blue cassock with the white cross over a black doublet, black hat with one white plume, and no sling; he is the one man in every panel who is not moving. Porthos is thirty-five and enormous, the widest man, with barrel chest, round ruddy face, small bright eyes, big nose, red-brown curls to the collar, great red-brown moustache waxed to points and no beard; he wears a blue cassock with the white cross over a crimson doublet, a wide gold-embroidered baldric, black hat with three red ostrich plumes, and a gilt-hilted sword. Aramis is twenty-four, slim, with fine oval face, small straight nose, large dark eyes, pale skin, fine blond curls to the collar always in order, small neat blond moustache and lip tuft with no beard; he wears an immaculate blue cassock with the white cross over dove grey, a wide white lace collar, black hat with one white plume, slim silver-hilted sword, and a small book at his belt. Separate the three Musketeers immediately by mass, hair, facial hair, costume, and habitual gesture: Athos tall and dark and still; Porthos huge with red-brown curls, waxed moustache, gold baldric, and red plumes; Aramis slim and blond with lace collar and book.
+
+Use warm ivory organic oval speech balloons with restrained dark painted outlines. Dialogue is rounded upright mixed-case hand lettering, warm and slightly irregular, never serif, never italic, never typeset, never condensed comic-display, never geometric UI, never cursive, never all-capital, and never inside a rectangular or rounded-rectangle box. Use a literary serif only if a prose field existed, but no prose field is present here. Keep all balloons within the panels and safely inside the page edges; keep tails open and beside mouths. Silent figures have no balloons or tail fragments.
+
+Letter the following exact strings once each, in this order, with ownership conveyed only by staging and balloon tail:
+
+The boy in the middle of the first panel says: “Two days to the sea, a day to London, and back by Monday. It can be done. The Cardinal will try to stop me.”
+
+Athos in the chair at the right of the first panel says: “What does the letter say?”
+
+The boy in the first panel says: “I don't know.”
+
+Athos in the chair says: “Good. Then nobody can make us tell.”
+
+Porthos turning from the window in the dominant panel says: “London! I have never once beaten an Englishman. I've always wanted to.”
+
+Aramis closing his book in the dominant panel says: “In theory, four riders are more than one. In practice, the Cardinal will not let four through.”
+
+Athos in the chair says: “That's why it takes four. So that one arrives.”
+
+The boy looking from face to face in the final panel says: “You haven't asked me why. Not one of you.”
+
+Porthos with arms spread in the final panel says: “Why would we? You're going. That's the why.”
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+Do not show Constance, Rochefort, the Cardinal, Buckingham, blood, a drawn sword, a sling on Athos, extra furniture, extra wall objects, or any other lettering. Keep the room and all figures readable at proof size, preserve the exact nine strings, and make the final beat feel like a turn: three men decide to ride for a reason none of them asks, and Porthos gets the line that makes the reader turn the page.

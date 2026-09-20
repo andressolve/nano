@@ -1,0 +1,5 @@
+[Candidate]( /Users/andresrodriguez/Documents/monte_inspired/books/three-musketeers-vol1/qa/production/page-11/candidates/page-11-v3.png): 1024×1536 RGB PNG  
+[Prompt]( /Users/andresrodriguez/Documents/monte_inspired/books/three-musketeers-vol1/qa/production/page-11/prompts/page-11-v3.md): SHA256 `1c37ce7f4402c380053bffb9f9ec46a392159d62bfb6a5002aaeda1c813212d0`  
+[Audit]( /Users/andresrodriguez/Documents/monte_inspired/books/three-musketeers-vol1/qa/production/page-11/audits/page-11-v3.md): SHA256 `ea4edebc9eeecb39ef1dbb7745c5d3728d8cefb839e2639e8df5343fd6d47d56`  
+[Desktop proof]( /Users/andresrodriguez/Documents/monte_inspired/books/three-musketeers-vol1/qa/production/page-11/proofs/page-11-v3-600x900.png): SHA256 `9b77cbcbfdae8fd80a8e2fc362273bcb8429f3c97d9ece52cf495f2d7d4db9d9`  
+[Tablet proof]( /Users/andresrodriguez/Documents/monte_inspired/books/three-musketeers-vol1/qa/production/page-11/proofs/page-11-v3-768x1152.png): SHA256 `5d15853c43619024e7dff70627a96e6d2af2f073e80e15b4eb69e16b88b0bb01`

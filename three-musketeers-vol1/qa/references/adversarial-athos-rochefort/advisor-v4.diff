@@ -1,0 +1,47 @@
+--- 04-CHARACTER-LEDGER.md (before)
++++ 04-CHARACTER-LEDGER.md (after)
+@@ -275,9 +275,11 @@
+ 
+ **Structural lock:** a dark man of middle height, taller than d'Artagnan,
+ shorter than Athos: a square hard face, heavy black brows, black eyes, a
+-strong jaw, sallow skin, and **a pale scar running from the left temple down
+-across the cheekbone to the corner of the mouth**, visible in every panel he
+-is in. Black hair, straight, to the collar; a thin black moustache, no
++strong jaw, sallow skin, and **a pale scar anatomically fixed to the left
++side, running from the left temple down across the cheekbone to the corner
++of the mouth**. It is visible only when the left facial plane is exposed;
++his right-cheek profile is clean and must never inherit or mirror the scar.
++Black hair, straight, to the collar; a thin black moustache, no
+ beard. Compact, muscular, sits a horse sideways, stands with his weight back
+ and his chin up. Habitual gesture: a laugh through the nose.
+ 
+@@ -288,7 +290,8 @@
+ 
+ **Never:** blue, a white cross, a pointed beard, a sling on the left arm,
+ stillness with hands on a pommel (Athos). Red robes (the Cardinal). A scar
+-anywhere but the left side of the face.
++anywhere but the left side of the face, including any mark on the right
++cheek in a right-cheek profile.
+ 
+ **Voice:** clipped and mocking, and always one word too many, which is how
+ the boy knows he is not calm.
+@@ -360,7 +363,7 @@
+ 
+ | Pair | Risk | Carried by |
+ |---|---|---|
+-| Athos / Rochefort | highest | beard shape (pointed beard vs thin moustache only); the scar; height (Athos a head taller); cloak value (blue with white cross vs all black); posture (stillness vs weight back, chin up); the sling on opposite arms in their shared pages |
++| Athos / Rochefort | highest | beard shape (pointed beard vs thin moustache only); Rochefort's anatomically fixed left-cheek scar and clean right cheek; height (Athos a head taller); cloak value (blue with white cross vs all black); posture (stillness vs weight back, chin up); the sling on opposite arms in their shared pages |
+ | Aramis / Buckingham | high | mass (slim vs broad); hair length and curl (to the collar, fine vs past the shoulder, heavy); beard (none vs short golden beard); costume value (blue serge vs white satin); pearls; the two are never on the same page |
+ | d'Artagnan / Aramis | medium | hair colour (black vs blond); beard (none vs small moustache); costume (ochre, no cloak vs blue cassock); posture (weight forward vs weight on one hip) |
+ | Athos / the Cardinal | medium | age (thirty vs forty-five, grey); colour (blue vs red); posture (standing vs seated); hair mass (to the shoulder vs cropped under a cap) |
+--- 09-REFERENCE-PLAN.md (before)
++++ 09-REFERENCE-PLAN.md (after)
+@@ -576,7 +576,7 @@
+ `board-heads` and `board-silhouette-grayscale` are crop-and-place from
+ approved pixels (`tools/boards.py`), never generated.
+ 
+-- **adversarial-athos-rochefort.** 1536 × 1024 landscape, plain warm-paper ground, no lettering, no borders. Upper band: the two men from the attached sheets side by side at the same distance under the same flat even light, hats on, both in three-quarter view on the left half and both in strict profile on the right half. Lower band, the costume-free proof: matched same-scale head crops ending at the jaw and upper neck, hats, collars, cassock, cloak, cross, and feather all excluded, containing for each man one neutral three-quarter face, one strict profile, and one identical strong reaction (open-mouth alarm); then the complete lower strip repeated in pure grayscale; and one additional matched pair in which both men are turned three-quarter toward their anatomical right, so that Rochefort's left-cheek scar is partly or wholly occluded and does not migrate to the visible cheek. Each face must be exactly the face on its sheet: Athos's long gaunt face, high forehead, hooded grey eyes, and short pointed dark beard; Rochefort's shorter square face, heavy brow and jaw, thin moustache with no beard, and the continuous scar from the left temple to the mouth. Redraw every right-cheek view with no scar, and preserve the scar only on frontal/three-quarter views where the left cheek is visible or on a strict left-cheek profile with the nose pointing toward screen right. Do not mirror the scar to preserve visibility.
++- **adversarial-athos-rochefort.** One unframed 1536 × 1024 landscape reference board on a plain warm laid-paper ground, under flat even light, with no lettering, labels, rules, or props in hand. On the left third, show the two men from the attached approved sheets full length, side by side on one floor line and at one scale: Athos is one bare head taller, upright and still in his blue cassock with white cross and single white plume; Rochefort stands compactly with weight back and chin raised, dressed entirely in black with one red feather. On the right two-thirds, arrange four matched costume-free head pairs in a clean two-by-two field with open paper between them, every crop ending at the jaw and upper neck: a neutral three-quarter pair; the same pair sharing an open-mouth alarm; strict left-cheek profiles with every nose pointing screen right; and strict right-cheek profiles with every nose pointing screen left, this last pair rendered in pure grayscale. Keep the faces identical to the approved sheets in every view: Athos has a long pale narrow face, high forehead, hooded level grey eyes, straight nose, neat moustache, and short pointed dark beard; Rochefort has a shorter square hard face, heavy black brows, strong jaw, thin black moustache, and no beard. Rochefort's single pale scar is anatomically fixed from his left temple across the left cheekbone to the left corner of his mouth: show the continuous scar in the left-cheek profile and whenever that left facial plane is exposed, and show an entirely unmarked right cheek in the right-cheek profile. The scar never changes sides. Preserve Athos's longer beard-pointed lower face against Rochefort's broader bare chin through the reaction, profiles, and grayscale reduction.
+ - **adversarial-aramis-buckingham.** 1536 × 1024 landscape, plain warm-paper ground, no lettering, no borders. Four matched tests on one scale, the two fair men from the attached sheets in each: a costume-free neutral three-quarter face pair; a costume-free strict-profile pair; a costume-free shared-reaction pair, both with the same clenched-jaw anger; and a pure-grayscale repeat of the shared reaction. Costume-free means crops ending at the jaw and upper neck with no lace, pearls, sash, collar, or cassock visible. Each face must be exactly the face on its sheet: Aramis's short oval face, tapered chin, high fine brows, small upturned moustache and lip tuft, fine curls to the collar; Buckingham's square jaw, short full beard, wide mouth, heavy gold curls past the shoulder.
+ - **adversarial-dartagnan-aramis.** 1536 × 1024 landscape, plain warm-paper ground, no lettering, no borders. The two young men from the attached sheets, hats off, at identical scale and angle in four quadrants: neutral three-quarter pair in colour; strict-profile pair in colour; the pair sharing one strong open-mouth alarm reaction; and the neutral pair repeated in pure grayscale. Crops end at the jaw and upper neck with no cassock or collar. Each face must be exactly the face on its sheet: d'Artagnan's long projecting nose, sharp narrow chin, close-set eyes, jagged black fringe, bare upper lip; Aramis's shorter nose, tapered oval chin, high fine brows, blond hairline, small upturned moustache and lip tuft.
+ - **adversarial-athos-cardinal.** 1536 × 1024 landscape, plain warm-paper ground, no lettering, no borders. Four matched tests at one scale under identical flat light, the two men from the attached sheets in each: a costume-free neutral three-quarter face pair; a costume-free strict-profile pair; a costume-free shared-reaction pair, both with the same clenched-jaw anger; and a pure-grayscale repeat of the shared reaction. Costume-free means crops ending at the jaw and upper neck with no hat, skullcap, plume, collar, cassock, or red robe visible. Each face must be exactly the face on its sheet: Athos thirty, long pale face filled at the cheek, hooded grey eyes, dark hair to the shoulder, short pointed dark beard; the Cardinal forty-five, hollow cheeks, thin high-bridged nose, pale unblinking eyes, cropped grey hair, precise short grey beard.

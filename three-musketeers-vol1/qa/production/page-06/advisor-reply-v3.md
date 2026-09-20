@@ -1,0 +1,1 @@
+RESET: Restaged page 6 as one city-first panorama with a reserved caption field and tiny rear-view mounted silhouette; made tiny hat/facial details nonblocking while retaining exact caption and Paris-dominance gates.

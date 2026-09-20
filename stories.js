@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "three-musketeers-vol1",
+    title: "The Three Musketeers, Volume I: The Queen's Diamonds",
+    cover: "three-musketeers-vol1/pages/page-01.png",
+    published: "2026-09-20",
+    category: "Myth & Literature",
+    series: "The Three Musketeers · Volume I",
+    summary: "A boy from Gascony arrives in Paris with a yellow horse and a talent for picking fights. Three duels become a friendship, and a secret sends d'Artagnan, Athos, Porthos, and Aramis racing to save the Queen from the Cardinal's trap. Forty-nine illustrated pages of swordplay, loyalty, and a road that only one of them can finish."
+  },
+  {
     slug: "monkey-king-vol1",
     title: "Monkey King, Volume I: Havoc in Heaven",
     cover: "monkey-king-vol1/pages/page-01.png",

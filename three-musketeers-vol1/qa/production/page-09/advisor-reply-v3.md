@@ -1,0 +1,1 @@
+RESET: Strengthened page 9 C1 so punctuation-adjacent whitespace is explicitly nonblocking when every word, causal order, and owner survive; recorded the ruling, with no restage or split.

@@ -1,0 +1,1 @@
+RESET: C1 now treats `duelling`/`dueling` as a nonblocking regional spelling variant; v3 proves all nine lines fit, so no restage or split is needed.

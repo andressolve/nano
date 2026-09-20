@@ -1,0 +1,1 @@
+RESET: Page 27 C2 now treats an absent visible arch as nonblocking when exact prose and four mounted riders clearly convey the dawn departure; decision recorded and packets verify CLEAN.

@@ -1,0 +1,1 @@
+RESET: Fixed Rochefort’s scar to the anatomical left with a clean right profile, rebuilt the sheet prompt from scratch as a two-sided identity test, and recorded the decision in HANDOFF.md.

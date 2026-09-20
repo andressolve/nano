@@ -1,0 +1,1 @@
+RESET: Restaged page 10 as four full-width stacked panels, placing Aramis’s invitation alone above the reply and final quip; all strings unchanged, decision recorded, packets rebuilt, verification CLEAN.

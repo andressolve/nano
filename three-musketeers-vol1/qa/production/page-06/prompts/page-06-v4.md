@@ -1,0 +1,23 @@
+Create one finished, flattened story page for a premium printed illustrated novel: 1024 × 1536 portrait, 2:3, with lettering baked in natively. This is a single uninterrupted full-bleed panorama, not a prototype, mockup, sample sheet, spread, layout study, panel sequence, or collection of vignettes.
+
+Use the attached image inputs only as identity and environment references: the d'Artagnan sheet keys the tiny rear-view mounted boy; the yellow horse sheet keys the tiny buttercup-yellow horse; the Paris setting plate keys the architecture, palette, and atmosphere. Do not copy the framing of any reference sheet. Do not attach or imitate any other image.
+
+Use the Lantern and Steel register: brush-and-ink line on warm laid paper with opaque, matte gouache washes; lamp-black line, raw umber and yellow ochre, grey-blue slate, brown river, Prussian blue accents only where appropriate, visible brush line and paper grain, chalky gouache edges, wool, leather, wet stone, steel, and wax. Make seventeenth-century France feel like a lantern film under an overcast sky: rain-grey and river-grey outdoors, dust and dawn on the road, real depth and cast shadows. Avoid smooth prestige-oil realism, glossy concept-art surfaces, airbrushed skin, engraved cross-hatching, anime proportions, children's-book softness, and plastic 3D rendering.
+
+Composition: the page is seen from behind and high above the rider at the crest of the last hill. Paris is the subject and fills almost the entire page. Build one vast, coherent city panorama with stacked grey-blue slate roofs running to the horizon, the brown river clearly visible in the middle distance, stone bridges with houses built on them, several spires, smoke, and a descending road running from the crest down into the city. The road is only the visual path into Paris. Preserve a clear top-to-bottom reading path from the immense city to the tiny foreground rider. Make the city scale overwhelming and legible: the boy must feel insignificant, a newcomer no one notices.
+
+At the very bottom edge, place the boy and yellow horse together as one small mounted rear-view silhouette at the crest, looking down into Paris. The boy is mounted, not walking beside the horse; his grey hat is off his head and visibly held in one hand or resting at his side, while his head and gaze turn toward the city. Keep him small enough that no facial detail is needed. Preserve the boy's ochre clothing and the horse's buttercup-yellow colour as the only readable identity cues. Do not enlarge, repeat, portrait, inset, or separately show the boy or horse. No gate, street-level arrival, walking figure, close-up, or repeated view.
+
+Reserve a broad, quiet matte parchment caption field at lower right over an uncluttered stretch of descending road, away from the horse and silhouette. It is one tail-free block with comfortable literary line breaks and a calm ragged right edge. Use the exact caption text below once, with no changes, no added words, and no quotation marks:
+
+Paris. He had never seen more than three hundred people in one place. Here they were all at once, and none of them looked up.
+
+The caption is the only visible lettering. It must be fully readable, correctly spelled, and set in a legible literary serif inside the matte field. No title, page number, name label, speaker label, signs, shop boards, bridge words, readable documents, sound effects, invented caption, or editorial text anywhere else. Do not let the caption cover the boy, horse, river, bridges, or the strongest city landmarks.
+
+No red feather, blue cassock, or red cassock anywhere in the crowd. Rochefort, the three Musketeers, and Constance are absent. All other figures are tiny scenery: many small distant people and carts on the road and bridges, faceless or turned away, no reserved identity stack, no balloons, no readable clothing details. No blood and no drawn sword.
+
+Keep the page airy enough for the city to read as one enormous spectacle. The foreground rider is the only close compositional anchor, but Paris must plainly own the page by scale, detail, horizon, river, inhabited bridges, spires, smoke, and the long descending road. The city does not acknowledge him: no figure looks up toward the rider.
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+Do not add any other text, balloons, borders, panels, gutters, title treatment, watermark, signature, or production mark. Deliver exactly one 1024 × 1536 portrait PNG.

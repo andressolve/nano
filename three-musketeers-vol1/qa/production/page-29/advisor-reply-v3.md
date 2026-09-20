@@ -1,0 +1,1 @@
+RESET: Restaged panel 2 to foreground d’Artagnan’s unobscured profile and give his warning a short tail directly to his mouth; C1 remains strict, no strings changed, no split needed, and packets verify CLEAN.

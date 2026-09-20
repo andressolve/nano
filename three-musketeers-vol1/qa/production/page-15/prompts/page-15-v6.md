@@ -1,0 +1,33 @@
+Create one finished, flattened 1024 × 1536 portrait story page in a 2:3 aspect ratio, with native baked-in lettering. This is a canonical printed illustrated novel page, not a prototype, mockup, sample sheet, spread, layout study, montage, model sheet, portrait board, or collage. Use the three attached images only as identity and place references, and create a new staged scene. No page number, title, production label, speaker name, editorial text, invented caption, label, or other text appears. No lettering on the yellow wall. No background figure has a balloon.
+
+Use the visual register Lantern and Steel: brush-and-ink line on warm laid paper with opaque matte gouache washes; lamp-black line, raw umber, yellow ochre, Prussian blue for the Musketeers, vermilion for the Cardinal, lead white for lace and collars, and a little gold. Seventeenth-century France at bright dry flat noon: warm sunlight, clear sky, dry pale grass, hard short shadows, rain-grey and river-grey only where appropriate. Visible brush line and paper grain, chalky gouache edges, wool, leather, dry stone, steel, and wax. Avoid glossy prestige-oil realism, airbrushed skin, engraved cross-hatching, anime proportions, children's-book softness, plastic 3D rendering, rain, clouds, puddles, mud, wet clothes, wet hair, or reflections.
+
+Make d'Artagnan's ochre-yellow belong to him and his horse alone. Make the Musketeer blue cassock with white cross distinct from Cardinal red. Exactly two large figures appear: d'Artagnan and Rochefort. d'Artagnan is eighteen, with a long narrow face, sharp chin, long straight nose, close-set quick dark eyes, clean-shaven face with no moustache, unruly black hair in his eyes, lean narrow shoulders, weight forward, a plain swept-hilt rapier too long for him, faded ochre-yellow doublet, brown breeches and boots, grey felt hat with one broken feather, and no cloak. Rochefort is forty, with a square hard face, heavy black brows, a pale scar from the anatomical LEFT temple to the corner of the mouth visible in every panel, straight black hair to the collar, thin black moustache, no beard, compact build, weight back, chin up, black doublet, black cloak, black hat, and one red feather. Preserve the contrast: beardless boy against scarred moustached man, ochre against black, broken grey feather against red feather, weight forward against weight back.
+
+The setting is the Carmelite field and inn-yard wall: a yellow wall with a clear gap, dry pale grass, warm sunlight, and hard short shadows. Keep the page bloodless. Nobody is touched, wounded, or bleeding. No blade touches skin. The guards are small and far back, generic and turned away, in red cassocks with white crosses and plain steel morions or wide hats with no feather, never scarred and never pointed-bearded. One is dripping wet from the trough but the page remains dry in its weather; one is bareheaded; one holds a pulled arm. Porthos is small and distant, drawn from words: enormous, red-brown curls, waxed moustache, blue cassock, waving a black hat with three red plumes at the departing guards. Athos and Aramis are only small silent distant figures if present. Constance is absent.
+
+Use three clear panels with a top-to-bottom reading path and one dominant image. Panel one is a shallow upper strip: Rochefort stands on the RIGHT with sword out and chin up; d'Artagnan stands on the LEFT, turning from his beaten guard with blade up. The first speaker is on the left. Place the boy's balloon upper left with its tail ending beside his visible mouth; place Rochefort's reply lower right with its tail beside his visible mouth, clearly after the boy's line. Panel two is the dominant, close, tall image: the two blades cross high, d'Artagnan on the LEFT fast and low, Rochefort on the RIGHT surprised, both faces clear. Behind them, small and far, the guards go through the gap: one dripping wet, one bareheaded, one holding an arm; Porthos waves them off with his enormous three-plumed hat. Place Rochefort's question upper right and d'Artagnan's answer lower left, each tail ending beside its own visible mouth. Panel three shows Rochefort already THROUGH the gap in the yellow wall on the RIGHT and going: his body is beyond the wall, turned away in a run, only his head turned back over his shoulder to shout, sword lowered; the guards have gone ahead down the lane. D'Artagnan is on the LEFT, this side of the wall, holding his ground and not pursuing. Rochefort's line is upper right, d'Artagnan's line lower left and clearly after it, with tails to their visible mouths. Rochefort must plainly be escaping, not fencing.
+
+Use exactly two hands for the focal sword action, one belonging to each large figure. Keep all mouths visible and every tail corridor clear of hands, blades, props, and bystanders. Use warm ivory organic oval speech balloons with restrained dark painted outlines. Speech is rounded upright mixed-case hand lettering, comfortable and readable; never serif, italic, boxed, all caps, condensed comic-display, geometric UI, cursive, or tiny. Keep all text within safe margins and panel boundaries. There is no prose field on this page. The sound cue is hand-lettered exactly as given, with no added punctuation or words.
+
+The only visible text, in this exact reading order, is:
+
+Meung. The inn yard. You laughed at my horse and you took my letter.
+
+I took a letter. I don't remember a boy.
+
+TSANG
+
+Where did a farm boy learn that?
+
+From my father. Where did you learn to run?
+
+Twice you've drawn on me, boy. Twice is enough for one week.
+
+The third time, you stay.
+
+Stage the first line as d'Artagnan speaking from the left in panel one. Stage the second line as Rochefort replying from the right in panel one. Put the sound cue beside the crossed blades in panel two. Stage the fourth line as Rochefort speaking from the right in panel two, then the fifth as d'Artagnan answering from the left. Stage the sixth line as Rochefort shouting back over his shoulder from beyond the gap in panel three, then the seventh as d'Artagnan answering from the left in the foreground.
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+No extra text, no invented dialogue, no object lettering, no page furniture, no modern details, no rain or mud, no blood, no wounds, no duplicate figures, no extra large figures, no cropped faces, no crossed balloon tails, and no blade contact with skin. Make the escape, the scar, and d'Artagnan's control of the page immediately legible.

@@ -1,0 +1,1 @@
+RETIRE: Split `set-buckingham-palace` into `set-buckingham-water-stair`, `set-buckingham-bedchamber`, and `set-buckingham-workroom`; the counted casket remains locked on `obj-casket-pouch-ring`, and the ruling is recorded in `HANDOFF.md`.

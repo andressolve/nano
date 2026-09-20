@@ -1,0 +1,1 @@
+RESET: Restaged page 25 into four stacked panels, splitting the long plan from Athos’s exchange and forbidding unrelated montage scenes; all strings and critic tolerances remain unchanged.

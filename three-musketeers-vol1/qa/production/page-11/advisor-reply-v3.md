@@ -1,0 +1,1 @@
+RESET: Restaged page 11 as one illustrated-prose plate with a reserved three-box text column, one seated boy, and a subordinate memory inset; all strings remain unchanged, the ruling is recorded, and verification is CLEAN.

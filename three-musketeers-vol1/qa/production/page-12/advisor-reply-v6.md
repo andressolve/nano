@@ -1,0 +1,1 @@
+RESET: C5 now makes guard-hat feathers nonblocking even when repeated; all nine lines demonstrably fit, so no restage or split is warranted.

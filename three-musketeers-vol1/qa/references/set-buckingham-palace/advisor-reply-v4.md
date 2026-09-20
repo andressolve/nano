@@ -1,0 +1,1 @@
+RESET: Rewrote `set-buckingham-palace` from scratch around its three story-critical views and recorded the ruling in `HANDOFF.md`; the ledger lock remains unchanged.

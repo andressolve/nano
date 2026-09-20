@@ -1,0 +1,5 @@
+- [Candidate]( /Users/andresrodriguez/Documents/monte_inspired/books/three-musketeers-vol1/qa/production/page-20/candidates/page-20-v1.png): 1024×1536, BASE — SHA256 `472a5e3765285d417eee1de792047c1e3880b532a88a61558f3e4db30873e0b2`
+- [Prompt](/Users/andresrodriguez/Documents/monte_inspired/books/three-musketeers-vol1/qa/production/page-20/prompts/page-20-v1.md): `b805e20d8b282dfb7f74c18652380ab9c88f1a084634d2167fe1f7db48eb59e5`
+- [Audit](/Users/andresrodriguez/Documents/monte_inspired/books/three-musketeers-vol1/qa/production/page-20/audits/page-20-v1.md): `24032ac8f15cd051b91c35ffefb7ad8a36f04bc87a5ae75fd7e8bb0600b0ece1`
+- [Desktop proof](/Users/andresrodriguez/Documents/monte_inspired/books/three-musketeers-vol1/qa/production/page-20/proofs/page-20-v1-600x900.png): `9e9b6a1cf75384651e9b9621b3369610242d99af86f6ca8bf4ff13c715857956`
+- [Tablet proof](/Users/andresrodriguez/Documents/monte_inspired/books/three-musketeers-vol1/qa/production/page-20/proofs/page-20-v1-768x1152.png): `91fe56589ecc637007cb0441a75610d43b7361c5f73661cd6f966606d3d807bf`

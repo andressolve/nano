@@ -1,0 +1,1 @@
+RESET: Restaged page 47 into four stacked panels with a mouth-visible Porthos/Athos joke panel, made the indistinct second hat nonblocking when Porthos reads clearly, recorded the ruling, and reassembled CLEAN.

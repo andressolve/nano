@@ -1,0 +1,1 @@
+RESET: Rewrote `set-calais-quay` from scratch around a bare hinged checkpoint gate and dominant diagonal gangplank, and recorded the decision in `HANDOFF.md`.

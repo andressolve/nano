@@ -19,3 +19,10 @@ monte-cristo-vol2/qa/**/sheet11-v2-runner
 monkey-king-vol1/qa/**/*.png
 monkey-king-vol1/refs/candidates/
 monkey-king-vol1/pages/proofs/
+
+# The Three Musketeers Volume I: publish final pages, approved references,
+# and text records; production candidates and proofs stay in monte_inspired.
+three-musketeers-vol1/qa/**/*.png
+three-musketeers-vol1/refs/candidates/
+three-musketeers-vol1/pages/proofs/
+three-musketeers-vol1/**/__pycache__/

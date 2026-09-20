@@ -1,0 +1,1 @@
+RESET: Rewrote `set-house` from scratch with a clean three-vignette lock, unmistakable straight bare nail, and only story-bearing attic inventory; recorded the ruling in `HANDOFF.md`.
