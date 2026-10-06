@@ -26,3 +26,10 @@ three-musketeers-vol1/qa/**/*.png
 three-musketeers-vol1/refs/candidates/
 three-musketeers-vol1/pages/proofs/
 three-musketeers-vol1/**/__pycache__/
+
+# Three Kingdoms Volume I: publish final pages, approved references,
+# and text records; production candidates and proofs stay in monte_inspired.
+three-kingdoms-vol1/qa/**/*.png
+three-kingdoms-vol1/refs/candidates/
+three-kingdoms-vol1/pages/proofs/
+three-kingdoms-vol1/**/__pycache__/

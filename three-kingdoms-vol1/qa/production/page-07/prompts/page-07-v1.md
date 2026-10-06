@@ -1,0 +1,33 @@
+Create one finished, flattened 1024 × 1536 portrait story page in a 2:3 ratio, with lettering baked in natively. This is a canonical printed illustrated-novel page, not a prototype, mockup, sample sheet, spread, layout study, montage, model sheet, portrait board, or collage. Use only the three attached character sheets as identity references; they provide identity and place no other images on the page. No page number, title, production label, speaker name, editorial note, or any text other than the five listed strings may appear.
+
+Use case: historical-scene and illustration-story. Register: Lacquer and Dust. Use bold wet brush-and-ink line on warm toothed mulberry paper, flat matte washes of earth and mineral pigment, visible brush line and paper tooth, ink and wash pooling at stroke edges. Use lamp-black ink, raw umber, loess yellow-ochre, dust grey, cinnabar vermilion, malachite green, indigo, ivory, imperial purple, dull bronze, and iron. Late-Han China should feel lit like a war film: hard white noon and long dust, with real cast shadows and depth. Show lamellar iron, lacquered leather, hemp, silk, horsehair, rammed earth, grey tile, and steel where relevant. Avoid smooth prestige-oil realism, glossy concept-art surfaces, airbrushed skin, engraved cross-hatching, anime proportions, children's-book softness, plastic 3D rendering, blue-green landscape-scroll prettiness, and gold leaf.
+
+This is the peach garden, the only soft-colour place in the book: pink and white blossom and green leaf under a bright sky, with a warm loess garden wall and a farmhouse roof beyond it. Keep the garden intimate and real, with the table and cups small. Deaths are not part of this page; show no blood, wounds, bodies, or severed things.
+
+Compose a clear top-to-bottom dramatic reading path with exactly three panels and one dominant turn. Panel one is a wide shallow upper panel: under the blossom, the three new brothers are rising from their knees beside a small table. Draw exactly three empty cups on the table, visibly countable. Zhang Fei stands on the LEFT, grinning, mouth open, counting on his thick fingers. Liu Bei and Guan Yu stand on the RIGHT, half-risen and watching him, mouths closed. Place Zhang Fei's two balloons stacked above him on the upper left, the first higher than the second, with both tails ending beside his visible mouth. Do not let any tail cross another speaker or object.
+
+Panel two is the dominant close and tall panel. Liu Bei stands on the LEFT, bowing with hands folded low into his sleeves, face moved and hungry at once, mouth visible and tail corridor clear. Guan Yu stands on the RIGHT, upright and massive, one hand stroking his loose beard downward at his chest, mouth visible above the hand. Zhang Fei is absent from this panel. Place Liu Bei's balloon upper left beside his mouth. Place Guan Yu's balloon on the right, clearly lower than Liu Bei's, beside Guan Yu's mouth. Tails must end beside their own mouths and never cross. The quiet admission and Liu Bei's bow own this panel.
+
+Panel three is a narrower lower consequence panel. Zhang Fei is alone, grinning, throwing exactly two open hands wide toward the farmhouse roof beyond the garden wall. His mouth is visible and his balloon sits beside it with a clear tail. The reader must understand that he will sell everything he owns except the house and this garden.
+
+Keep the colour ownership exact: Liu Bei is white and pale; Guan Yu is the tallest by a head with a deep red face and a dark green robe; Zhang Fei is black and ruddy-brown. No named character wears yellow. Liu Bei is a broad, compact pale oval face with full cheeks, a short bluntly rounded chin, downturned almond eyes, long heavy earlobes, thin moustache only, clean-shaven chin and jaw, dark cloth cap, tall slim body with narrow sloping shoulders, patched hemp robe, and hands folded low into sleeves. Guan Yu is the tallest by a head, with a deep red face, upturned phoenix eyes, glossy black beard in one sheet to the belt and always loose, green headscarf, dark green robe, no armor, and no weapon. Zhang Fei has a square head, round bulging eyes, bristling black cheek-whiskers, ruddy-brown skin, a short enormously broad dark barrel of a body, leather butcher's apron over a dark tunic, and rolled sleeves. Preserve three visibly different species of man: slim and pale, a red-faced giant, and a dark barrel.
+
+Include no weapons, no armor, no horse, no cart, and no other people. No writing appears on the table, cups, wall, farmhouse, or anywhere except the five listed strings. No background figure carries a balloon. Do not give any background man a red face, long earlobes, beard to the belt, bristling cheek whiskers with black armor, pointed goatee in indigo, obesity in purple, tall black lacquered hat, or pheasant plumes.
+
+Letter the following five strings exactly once each, in this order, with clear ownership carried only by staging, placement, and balloon tails. Do not add, omit, paraphrase, spell-correct, or repeat any word or punctuation:
+
+Now, who's oldest? You are, Liu Bei. So you're Big Brother.
+
+Red Face is Second Brother. I'm the youngest, so I'm Third Brother. Third! It sounds terrible.
+
+Brothers need weapons, and soldiers, and money. I have twenty pairs of sandals.
+
+And I have a horse and a cart.
+
+And I have a shop, fields, and cattle. Tomorrow I sell all of it. Everything but the house and this garden.
+
+Stage the first two strings in Zhang Fei's two stacked upper-left balloons in panel one. Stage the third string in Liu Bei's upper-left balloon in panel two. Stage the fourth string in Guan Yu's lower-right balloon in panel two. Stage the fifth string beside Zhang Fei's mouth in panel three. The exact strings above are the only text on the page.
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+Use warm ivory balloon fills with restrained dark painted outlines and tails ending in open space beside the speaker's mouth. Dialogue is large, upright, hand-lettered, mixed-case, warm and slightly irregular. Use legible literary serif only for illustrated prose, but this page has no prose field. Never use condensed comic-display faces, geometric UI fonts, cursive body text, all-capital prose, distressed letterforms, thin old-style italics, or tiny handwritten documents. Keep all lettering safely inside the page and keep every balloon clear of panel borders, faces, hands, props, and bystanders. Generate exactly one new staged page using the three attached approved character sheets and no other input images.

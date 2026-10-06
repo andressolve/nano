@@ -1,0 +1,1 @@
+RESET: Liu Bei now has a broad compact face, clean rounded chin, long earlobes, and tall narrow silhouette; the unstable lip tuft and concealed long-arm lock were removed, the prompt rebuilt cleanly, and the decision recorded in HANDOFF.

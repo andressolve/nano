@@ -1,0 +1,357 @@
+[01-liu-bei v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/01-liu-bei-v1.png sha 283b4f737960
+[01-liu-bei v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/01-liu-bei/prescription-v1.diff
+[01-liu-bei v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/01-liu-bei-v2.png sha 9fbee7bca74b
+[01-liu-bei v2] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/01-liu-bei/prescription-v2.diff
+[01-liu-bei v3] builder (gpt-5.6-luna)
+  candidate refs/candidates/01-liu-bei-v3.png sha d30e8141928f
+[01-liu-bei v3] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/01-liu-bei/prescription-v3.diff
+[01-liu-bei v4] builder (gpt-5.6-luna)
+  candidate refs/candidates/01-liu-bei-v4.png sha 57772b09e4d5
+[01-liu-bei v4] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/01-liu-bei/prescription-v4.diff
+[01-liu-bei] 4 candidates — ceiling; asking the advisor
+  advisor: RESET: Liu Bei now has a broad compact face, clean rounded chin, long earlobes, and tall narrow silhouette; the unstable lip tuft and concealed long-arm lock were removed, the prompt rebuilt cleanly, and the decision rec
+[01-liu-bei v5] builder (gpt-5.6-luna)
+  candidate refs/candidates/01-liu-bei-v5.png sha 23e39df12841
+[01-liu-bei v5] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/01-liu-bei.png SHA256=23e39df1284163c8783dad3492571b9757885980a4ccd6659cc4e04337b71a1d
+[04-cao-cao v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/04-cao-cao-v1.png sha f93a1c156753
+[04-cao-cao v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/04-cao-cao.png SHA256=f93a1c156753b2922f5085a5deea3609ce27017f8c5b747c7655f5a937488346
+[02-guan-yu v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/02-guan-yu-v1.png sha 0a50fbb649e6
+[02-guan-yu v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/02-guan-yu/prescription-v1.diff
+[02-guan-yu v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/02-guan-yu-v2.png sha e6c3b37a883f
+[02-guan-yu v2] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/02-guan-yu/prescription-v2.diff
+[02-guan-yu v3] builder (gpt-5.6-luna)
+  candidate refs/candidates/02-guan-yu-v3.png sha b95722878a21
+[02-guan-yu v3] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/02-guan-yu/prescription-v3.diff
+[02-guan-yu v4] builder (gpt-5.6-luna)
+[01-liu-bei] already locked
+[04-cao-cao] already locked
+[02-guan-yu v4] builder (gpt-5.6-luna)
+  candidate refs/candidates/02-guan-yu-v4.png sha d0bd96d88e4d
+[02-guan-yu v4] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/02-guan-yu.png SHA256=d0bd96d88e4d23d5e09d4c1b1b686c311cfadbc064c6950439380bdc544d2661
+[06-lu-bu v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/06-lu-bu-v1.png sha 50f86ed25652
+[06-lu-bu v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/06-lu-bu/prescription-v1.diff
+[06-lu-bu v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/06-lu-bu-v2.png sha b59cc91be6df
+[06-lu-bu v2] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/06-lu-bu.png SHA256=b59cc91be6df12a4de59df46d2517310dc96eef6d96f82884f44c84363fc4aa0
+[05-dong-zhuo v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/05-dong-zhuo-v1.png sha 3fe3f003e8a4
+[05-dong-zhuo v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/05-dong-zhuo.png SHA256=3fe3f003e8a4f97e5f61db6ee7a2c9860da435b93e9002241cd807356ddb54e3
+[07-yuan-shao v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/07-yuan-shao-v1.png sha 38448cc5c46e
+[07-yuan-shao v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/07-yuan-shao.png SHA256=38448cc5c46ec7efe5b67a2883b6082597399f6141f98df039fab5e95ba1bbfe
+[03-zhang-fei v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/03-zhang-fei-v1.png sha 3fcc7b73a56c
+[03-zhang-fei v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/03-zhang-fei.png SHA256=3fcc7b73a56ca8993873089f31463ee767d8ca193b9a4ed438189db8ceb81aff
+[08-uncle v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/08-uncle-v1.png sha c3ed09fc87d8
+[08-uncle v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/08-uncle.png SHA256=c3ed09fc87d8bd01ec507310b9255056b34730158d179c22c534b96e031260e2
+  LOCKED refs/approved/board-heads.png SHA256=0a29a1e6c54458ed70debee34478bc2b848fd65c3ae98dc5108dbfdd6d4c752c
+  LOCKED refs/approved/board-silhouette-grayscale.png SHA256=dc9cc407f1cf8274562d758b162c78e815bbf61ef86566f6dec14fd2a69cc68c
+[adversarial-liu-bei-cao-cao v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/adversarial-liu-bei-cao-cao-v1.png sha 8e0626b8d8f8
+[adversarial-liu-bei-cao-cao v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/adversarial-liu-bei-cao-cao.png SHA256=8e0626b8d8f8ad980e07c6beb02f2468dd9e14d47140512b3a83950171e15784
+[adversarial-guan-yu-lu-bu v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/adversarial-guan-yu-lu-bu-v1.png sha 895cde90c9f1
+[adversarial-guan-yu-lu-bu v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/adversarial-guan-yu-lu-bu.png SHA256=895cde90c9f1c4ea2bf9a66601284f7b32ac12bbe24241e7765dd16c46221435
+[adversarial-dong-zhuo-yuan-shao v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/adversarial-dong-zhuo-yuan-shao-v1.png sha 190a9f3f1ed8
+[adversarial-dong-zhuo-yuan-shao v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/adversarial-dong-zhuo-yuan-shao.png SHA256=190a9f3f1ed8148e175a15623ed2bfc575606bd1a2dd5d4055d6992fead2e556
+[adversarial-zhang-fei-dong-zhuo v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/adversarial-zhang-fei-dong-zhuo-v1.png sha 0f2f357edd0b
+[adversarial-zhang-fei-dong-zhuo v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/adversarial-zhang-fei-dong-zhuo.png SHA256=0f2f357edd0b1c1ab7ad124218a66e9bd95d62a78a6fd23cc683170d3278d8d2
+[live-pair-liu-bei-cao-cao v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/live-pair-liu-bei-cao-cao-v1.png sha 9f2152ef6b60
+[live-pair-liu-bei-cao-cao v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/live-pair-liu-bei-cao-cao.png SHA256=9f2152ef6b608e5cb6c8e2e97fb29c0d255c16d888975e8d77fdc3428683ab77
+[set-zhuo-market v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-zhuo-market-v1.png sha 09ff8e737d4a
+[set-zhuo-market v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-zhuo-market/prescription-v1.diff
+[set-zhuo-market v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-zhuo-market-v2.png sha 5cba4c2e06c9
+[set-zhuo-market v2] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/set-zhuo-market.png SHA256=5cba4c2e06c9832b376bf5480400c2cc54501fb07e162ce3e5251e7dafbee4b1
+[set-peach-garden v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-peach-garden-v1.png sha d7851f747610
+[set-peach-garden v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-peach-garden/prescription-v1.diff
+[set-peach-garden v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-peach-garden-v2.png sha 2a5c9340bdc3
+[set-peach-garden v2] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/set-peach-garden.png SHA256=2a5c9340bdc3760f80a493b2c831366d5b86fee510d8f1863f56a43f02158f13
+[set-ridge-valley v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-ridge-valley-v1.png sha 198cc2bd00df
+[set-ridge-valley v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/set-ridge-valley.png SHA256=198cc2bd00dfa6513893659963f481c5d6755afd7e79a6ad634b0bd02a7badaa
+[set-grass-plain v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-grass-plain-v1.png sha 85edaa3dcc73
+[set-grass-plain v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-grass-plain/prescription-v1.diff
+[set-grass-plain v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-grass-plain-v2.png sha 11e6adbd966d
+[set-grass-plain v2] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/set-grass-plain.png SHA256=11e6adbd966de74195d1112f194137c2bc3b7933beb73fe3f2aeb90ca909a5c2
+[set-imperial-camp v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-imperial-camp-v1.png sha ee8fdd33a895
+[set-imperial-camp v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/set-imperial-camp.png SHA256=ee8fdd33a8950582e357a4c02d44191ce90729897c0e5c6f0e70ab636ac5d929
+[set-palace v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-palace-v1.png sha 5b8d957bfcf7
+[set-palace v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-palace/prescription-v1.diff
+[set-palace v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-palace-v2.png sha 0a7c59b11e6a
+[set-palace v2] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-palace/prescription-v2.diff
+[set-palace v3] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-palace-v3.png sha 75b858cbe1a5
+[set-palace v3] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-palace/prescription-v3.diff
+[set-palace v4] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-palace-v4.png sha 6296c068772c
+[set-palace v4] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/set-palace.png SHA256=6296c068772c83d27ddaec5f35d775a54ffa6bafe30aa03a2be464a3e6e468dc
+[set-banquet-stable v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-banquet-stable-v1.png sha 1292805ff0ce
+[set-banquet-stable v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-banquet-stable/prescription-v1.diff
+[set-banquet-stable v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-banquet-stable-v2.png sha 3ee861c00028
+[set-banquet-stable v2] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/set-banquet-stable.png SHA256=3ee861c000281251958ad332677e7f4f3446041562ffaa75aca10daa20f0833b
+[set-bedchamber v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-bedchamber-v1.png sha 1faf84de1b5a
+[set-bedchamber v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-bedchamber/prescription-v1.diff
+[set-bedchamber v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-bedchamber-v2.png sha 668f3b12e04a
+[set-bedchamber v2] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/set-bedchamber.png SHA256=668f3b12e04a765940765e9f7f6a41e033db7886907683fcfaaa1d9ce5444819
+[set-farmhouse-road v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-farmhouse-road-v1.png sha 33db6c0b4228
+[set-farmhouse-road v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-farmhouse-road/prescription-v1.diff
+[set-farmhouse-road v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-farmhouse-road-v2.png sha 867c48bce3f3
+[set-farmhouse-road v2] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-farmhouse-road/prescription-v2.diff
+[set-farmhouse-road v3] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-farmhouse-road-v3.png sha 9fa2adc45168
+[set-farmhouse-road v3] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/set-farmhouse-road.png SHA256=9fa2adc45168ef86d77877e94acc1a984f48c38ed8218a6dd7cb334e54d3b06b
+[set-coalition-camp v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-coalition-camp-v1.png sha 3e3b40ae70f5
+[set-coalition-camp v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-coalition-camp/prescription-v1.diff
+[set-coalition-camp v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-coalition-camp-v2.png sha ed81fcdb34fd
+[set-coalition-camp v2] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-coalition-camp/prescription-v2.diff
+[set-coalition-camp v3] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-coalition-camp-v3.png sha f4a2a9025371
+[set-coalition-camp v3] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-coalition-camp/prescription-v3.diff
+[set-coalition-camp v4] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-coalition-camp-v4.png sha 5302a16a5bfe
+[set-coalition-camp v4] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-coalition-camp/prescription-v4.diff
+[set-coalition-camp] 4 candidates — ceiling; asking the advisor
+  advisor: RESET: Rewrote `set-coalition-camp` from scratch as a clean, figure-free two-study plate and recorded the decision in `HANDOFF.md`.
+[set-coalition-camp v5] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-coalition-camp-v5.png sha 7ae7af089e0f
+[set-coalition-camp v5] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/set-coalition-camp.png SHA256=7ae7af089e0f7cfcf09eecf4bcb734333886e79adfe9b8bb307a98e9312ffe3b
+[set-great-tent v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-great-tent-v1.png sha f353e2b81aae
+[set-great-tent v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-great-tent/prescription-v1.diff
+[set-great-tent v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-great-tent-v2.png sha 8c24d59c726f
+[set-great-tent v2] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-great-tent/prescription-v2.diff
+[set-great-tent v3] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-great-tent-v3.png sha 61679716a945
+[set-great-tent v3] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/set-great-tent.png SHA256=61679716a945bc11bb4ed468490cbd9caf5c49a826c4de421e166366a24f4c0b
+[set-hulao-gate v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-hulao-gate-v1.png sha bba12b881494
+[set-hulao-gate v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-hulao-gate/prescription-v1.diff
+[set-hulao-gate v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-hulao-gate-v2.png sha 583394b476df
+[set-hulao-gate v2] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/set-hulao-gate/prescription-v2.diff
+[set-hulao-gate v3] builder (gpt-5.6-luna)
+  candidate refs/candidates/set-hulao-gate-v3.png sha f29ecbe2ab28
+[set-hulao-gate v3] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/set-hulao-gate.png SHA256=f29ecbe2ab28d3ca31a385df1d4ac6d322389cc9d908f2ba9b791c49fa1197ed
+[obj-weapons v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/obj-weapons-v1.png sha d2537838a023
+[obj-weapons v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/obj-weapons.png SHA256=d2537838a023ae1fa026f927d2d76de8d706ccfbbad820fb71643c4374965412
+[obj-red-hare v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/obj-red-hare-v1.png sha a3c6a04f2089
+[obj-red-hare v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/obj-red-hare/prescription-v1.diff
+[obj-red-hare v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/obj-red-hare-v2.png sha 8774520dbe1b
+[obj-red-hare v2] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/obj-red-hare.png SHA256=8774520dbe1bb0c72fd85a4d29d6202171e59a1cded25e4fa94dd72d1231aa6d
+[obj-small-things v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/obj-small-things-v1.png sha 72be59289c3a
+[obj-small-things v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/obj-small-things.png SHA256=72be59289c3a2c162d2d7d3cf0e239c25bd22bb3d3d1daaa93252e8691eb435a
+[gate] critic (gpt-5.6-sol)
+  VERDICT: REVISE
+BOOK Three Kingdoms, Volume I: The Peach Garden Oath  (three-kingdoms-vol1)
+script pages: 49   manifest pages: 49   billing: codex in-app on the ChatGPT subscription; the owner's standing decision of 2026-09-07 for every book in this workspace; no API key, no separately billed path   image path: codex-app
+script gate: round-06.md → APPROVED
+reference gate: REVISE   approved locks: 30
+packets: 1–49 (49 pages)
+promoted: none (0 of 49)
+in flight: page 1 — no candidate yet (next: builder v1, mode BASE)
+
+[01-liu-bei] already locked
+[04-cao-cao] already locked
+[02-guan-yu] already locked
+[06-lu-bu] already locked
+[05-dong-zhuo] already locked
+[07-yuan-shao] already locked
+[03-zhang-fei] already locked
+[08-uncle] already locked
+[adversarial-liu-bei-cao-cao] already locked
+[adversarial-guan-yu-lu-bu] already locked
+[adversarial-dong-zhuo-yuan-shao] already locked
+[adversarial-zhang-fei-dong-zhuo] already locked
+[adversarial-yuan-shao-uncle v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/adversarial-yuan-shao-uncle-v1.png sha 89146a48dcc9
+[adversarial-yuan-shao-uncle v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/adversarial-yuan-shao-uncle.png SHA256=89146a48dcc93efca14472b37689bfd22dab90957b0226b2831051b7d0d6078c
+[adversarial-liu-bei-yuan-shao v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/adversarial-liu-bei-yuan-shao-v1.png sha 6f8199f5bbfe
+[adversarial-liu-bei-yuan-shao v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/adversarial-liu-bei-yuan-shao.png SHA256=6f8199f5bbfe4812d1592960ad00be45d3b90b7549995368647ede0b0daa9b60
+[adversarial-heads-neutral-1 v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/adversarial-heads-neutral-1-v1.png sha d07b5187e67c
+[adversarial-heads-neutral-1 v1] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/adversarial-heads-neutral-1.png SHA256=d07b5187e67c97e6a88a333ac7f75a7bffdc5e3f35e3c22712cdc1102fb0760d
+[adversarial-heads-neutral-2 v1] builder (gpt-5.6-luna)
+  candidate refs/candidates/adversarial-heads-neutral-2-v1.png sha af3aa5a3c9a7
+[adversarial-heads-neutral-2 v1] critic (gpt-5.6-sol)
+  verdict VERDICT: REVISE
+  prescription applied; diff at /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/references/adversarial-heads-neutral-2/prescription-v1.diff
+[adversarial-heads-neutral-2 v2] builder (gpt-5.6-luna)
+  candidate refs/candidates/adversarial-heads-neutral-2-v2.png sha 41a5bc88060f
+[adversarial-heads-neutral-2 v2] critic (gpt-5.6-sol)
+  verdict VERDICT: APPROVED
+  LOCKED refs/approved/adversarial-heads-neutral-2.png SHA256=41a5bc88060f96972c4b00ada157cdaa9044ec0a1b2cb77237efa29e1b287f9f
+[live-pair-liu-bei-cao-cao] already locked
+[set-zhuo-market] already locked
+[set-peach-garden] already locked
+[set-ridge-valley] already locked
+[set-grass-plain] already locked
+[set-imperial-camp] already locked
+[set-palace] already locked
+[set-banquet-stable] already locked
+[set-bedchamber] already locked
+[set-farmhouse-road] already locked
+[set-coalition-camp] already locked
+[set-great-tent] already locked
+[set-hulao-gate] already locked
+[obj-weapons] already locked
+[obj-red-hare] already locked
+[obj-small-things] already locked
+[gate] critic (gpt-5.6-sol)
+  VERDICT: APPROVED
+BOOK Three Kingdoms, Volume I: The Peach Garden Oath  (three-kingdoms-vol1)
+script pages: 49   manifest pages: 49   billing: codex in-app on the ChatGPT subscription; the owner's standing decision of 2026-09-07 for every book in this workspace; no API key, no separately billed path   image path: codex-app
+script gate: round-06.md → APPROVED
+reference gate: APPROVED   approved locks: 34
+packets: 1–49 (49 pages)
+promoted: none (0 of 49)
+in flight: page 1 — no candidate yet (next: builder v1, mode BASE)
+

@@ -1,0 +1,1 @@
+RESET: Rewrote `set-coalition-camp` from scratch as a clean, figure-free two-study plate and recorded the decision in `HANDOFF.md`.

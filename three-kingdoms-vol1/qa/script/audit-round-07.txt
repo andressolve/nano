@@ -1,0 +1,29 @@
+pages: 50   dramatic 31  prose 9  spectacle 10
+mode share target ≈ 60 / 20 / 13 — a book of only dramatic scenes has lost the form
+
+BLOCKERS: none
+WARNINGS (craft signals, judged by the script critic):
+  - p1: spectacle page carries 34 words — text should stay under 15% of attention
+  - p6: spectacle page carries 31 words — text should stay under 15% of attention
+  - p27: dramatic page with no dialogue
+  - p50: spectacle page carries 37 words — text should stay under 15% of attention
+
+FIVE-WORD AUDIT — 17 balloons of five words or fewer. Each needs the explicit ambiguity audit
+(complete thought or intentional answer? one visible referent? clear without notes? forceful, not compressed?):
+  - p3: LIU BEI: 'My name is Liu Bei.'
+  - p12: ZHANG FEI: 'Hey! Somebody stole our battle!'
+  - p13: ZHANG FEI: 'I like him!'
+  - p13: GUAN YU: 'He smiles too quickly.'
+  - p14: ZHANG FEI: 'Whose general is he?'
+  - p14: LIU BEI: 'Does it matter whose? Ride!'
+  - p18: YUAN SHAO: "Do you think mine isn't?"
+  - p19: DONG ZHUO: 'Then I want him.'
+  - p23: DONG ZHUO: "You're late, Cao Cao."
+  - p28: CAO CAO: "Uncle, I'm sorry."
+  - p28: UNCLE: 'Sorry? Sorry for what?'
+  - p33: YUAN SHAO: 'Send out our best!'
+  - p36: GUAN YU: 'His helmet. As I promised.'
+  - p41: LÜ BU: 'What did you call me?'
+  - p43: GUAN YU: 'Third Brother! I am here!'
+  - p47: GUAN YU: 'No.'
+  - p48: CAO CAO: 'Of course you are.'

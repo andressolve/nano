@@ -1,0 +1,15 @@
+## PAGE 47
+
+A dramatic page at the foot of Hulao Gate, late in the day. The gate has slammed and Lü Bu is safe behind it, but the page belongs to him looking down from the battlements, out of breath for the first time in the book, asking the three men below who they are. The dominant turn is the exchange itself: "Who are you?", Liu Bei answering with three names and the word "brothers," and Guan Yu's one-word refusal. Zhang Fei's shouted insult opens the page and stays a small beat; the brothers below are small against the grey wall. What changes is that the best warrior in the empire has had to learn their names. Guan Yu's "No." closes the page with the oath answering Lü Bu's bargain. The reader turns because Lü Bu knows who they are now and the light is going.
+
+## PAGE 48
+
+A dramatic page at the brothers' fire at the edge of the camp, at dusk. Cao Cao sits down beside Liu Bei with two cups of wine; Liu Bei will not take his and asks where Cao Cao was when Lü Bu came. Cao Cao answers without shame: on his hill, watching, testing them. He mocks Yuan Shao's claim to the victory, then leans close in the firelight and says the thing the page turns on: there are two heroes in this camp, Liu Bei and himself. That close, glittering face owns the page. Liu Bei, who refused the cup, ends the page holding it and looking into it, answering that he is only a man who sells sandals, while Cao Cao laughs and goes. Guan Yu and Zhang Fei stay subordinate, apart by the fire. The reader turns because Liu Bei has just been told what he most wants to hear by the man he trusts least.
+
+## PAGE 49
+
+An illustrated-prose page at the edge of the camp, at night. Liu Bei stands alone in moonlight with his back to us, looking at the dark mass of Hulao Gate filling the pass, while behind him his brothers sleep by the embers. The prose carries his sleepless thinking: who is behind the gate, who is in front of it, the moment he flinched and let Lü Bu through, the peach garden, and what Cao Cao said. The dominant turn is the last sentence: he is ashamed of how much he wants it to be true. The single image owns the page; the sleeping brothers stay small and quiet, a reminder of the oath behind him. The reader turns because Liu Bei wants the empire, and the gate is still shut.
+
+## PAGE 50
+
+A spectacle page before Hulao Gate at cold blue dawn, the last page of the volume. The three brothers sit their horses side by side before the shut gate, Liu Bei in the middle facing it, Guan Yu and Zhang Fei on either side. High on the battlements, small against the sky, Lü Bu's two pheasant plumes. Behind them, large and clear on a ridge in the near corner, Cao Cao on his horse under his black-and-indigo banners, watching. The dominant turn is that Liu Bei does not turn round: he has chosen his brothers over Cao Cao's praise, for today. One caption tells it, and a small title card ends the volume. Nothing else is said. The book ends with the gate still shut and the man on the ridge still watching.

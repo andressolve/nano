@@ -1,0 +1,6 @@
+[p15] promoted, regenerating; the new approval supersedes it in the ledger
+[p15 v2] builder (gpt-5.6-luna, EDIT)
+  VALID CANDIDATE
+[p15 v2] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-15.png SHA256=09bc4f0b3bd416855414c6f1a8f49087bf9f7f8d8e253864a4a66c12b2d94370

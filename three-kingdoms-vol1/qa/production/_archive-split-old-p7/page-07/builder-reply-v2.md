@@ -1,0 +1,8 @@
+VALID CANDIDATE  
+CANDIDATE DIMENSIONS: 1024 × 1536; MODE: TARGETED
+
+CANDIDATE `qa/production/page-07/candidates/page-07-v2.png` SHA256=58c54696100301ddf76deef789471e0dc2d1f9eace77dc05caebe6360e5c181e  
+PROMPT `qa/production/page-07/prompts/page-07-v2.md` SHA256=229b7518549297697c39d19e8738a947e1ffe20638b9ca40b7f94b3b475cf622  
+AUDIT `qa/production/page-07/audits/page-07-v2.md` SHA256=e52bfbc57e77812562f4646b468f28cb4fc55f8d6130671764155c6363be2ece  
+DESKTOP `qa/production/page-07/proofs/page-07-v2-600x900.png` SHA256=7798c9fe2689879d9696b2f2b885c12d9461a014f3dd80eb8e80d5892b291cec  
+TABLET `qa/production/page-07/proofs/page-07-v2-768x1152.png` SHA256=5c1a2a9e4c4825097c39d19e8738a947e1ffe20638b9ca40b7f94b3b475cf622

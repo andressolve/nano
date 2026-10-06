@@ -1,0 +1,1 @@
+RESET: Restaged Page 7 into a generous narration band with three separate paragraph blocks above a dominant forge and narrower garden panel; all strings and critic tolerances remain unchanged, the ruling is recorded, and verification is CLEAN.

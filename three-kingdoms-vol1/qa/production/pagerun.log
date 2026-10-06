@@ -1,0 +1,453 @@
+[p1 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p1 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-01.png SHA256=9a24622f752f226f1de4db188690371bad0a8bcc380ceaa6f869d189cb0c514c
+[p2 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p2 v1] critic (gpt-5.6-sol)
+  TARGETED  criteria C1
+[p2 v2] builder (gpt-5.6-luna, TARGETED)
+  VALID CANDIDATE
+[p2 v2] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-02.png SHA256=6e6da22f56cc91e3dc95de0161ccbd7536b224c4a1a3829f62fbb771f40f72ab
+[p3 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p3 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-03.png SHA256=3ae23ec4ce69afa09229e1920a51c8d2f1c463ca99be6c0251370c3c82482d7b
+[p4 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p4 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-04.png SHA256=cd85de115d8e370f48a162df02c2b5bf301f29a3e0a498ddac76f45f6b5ab0a5
+[p5 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p5 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-05.png SHA256=73b857fb6738089df8ed262bb6f61a48d43f080f59de5490f339ff362db68117
+[p6 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p6 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-06.png SHA256=b655202d7bda5ccd5659353245c1290b3e4b0e9b04ae16864b5f1764a3176c98
+[p7 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p7 v1] critic (gpt-5.6-sol)
+  TARGETED  criteria C1,C2,C4
+[p7 v2] builder (gpt-5.6-luna, TARGETED)
+  VALID CANDIDATE
+[p7 v2] critic (gpt-5.6-sol)
+  FULL_PROMPT_RESET  criteria C1  repeated C1
+[p7 v3] builder (gpt-5.6-luna, FULL_PROMPT_RESET)
+  VALID CANDIDATE
+[p7 v3] critic (gpt-5.6-sol)
+  RESISTANT_DEFECT_HOLD  criteria C1  repeated C1
+  advisor: RESET: Restaged Page 7 into a generous narration band with three separate paragraph blocks above a dominant forge and narrower garden panel; all strings and critic tolerances remain unchanged, the ruling is recorded, and
+[p7 v4] builder (gpt-5.6-luna, FULL_PROMPT_RESET)
+  VALID CANDIDATE
+[p7 v4] critic (gpt-5.6-sol)
+  V4_OWNER_HOLD  criteria C1  repeated -
+[p7] V4_OWNER_HOLD after an advisor reset — page held for a split
+stopped at page 7: held. See HANDOFF.md.
+[p8 v1] builder (gpt-5.6-luna, BASE)
+check_candidate failed for p8 v1:
+INVALID candidate: size=(1536, 1024) mode=RGB format=PNG; expected (1024, 1536) RGB PNG
+
+[p7 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p7 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-07.png SHA256=57aff567409d6d931294a59e5d1ff6a50ea33cdf2e22693a56101b71346ef961
+[p8 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p8 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-08.png SHA256=bd158de726c01c5d5dd85f1e48ee0453a90cf977ccccea8d8756bc832eaa59ed
+[p9 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p9 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-09.png SHA256=474a4964e9fa33695e17abafcd2884e3e5c3119dfec68a87dbc193135a66c276
+[p10 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p10 v1] critic (gpt-5.6-sol)
+  TARGETED  criteria C2
+[p10 v2] builder (gpt-5.6-luna, TARGETED)
+  VALID CANDIDATE
+[p10 v2] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-10.png SHA256=3a9bcf4c2ecdb2e8eaa210ac75948ca5ce9eccc4e1fde82f81a8c5e52354173a
+[gate 01-10 sequence] critic (gpt-5.6-sol)
+  APPROVED
+[gate 01-10 continuity] critic (gpt-5.6-sol)
+  APPROVED
+[gate 01-10 cold-read] critic (gpt-5.6-sol)
+  APPROVED
+[p11 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p11 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-11.png SHA256=b4e845c942db883661c386ab5008faf2befa2c966567846a881171d2d136ec2b
+[p12 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p12 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-12.png SHA256=989498c5d99a76825659a95f3f0436e02ff0099e89410b21f7328664cb77d7cb
+[p13 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p13 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-13.png SHA256=4587d4a677fe6b14c5ace436b98cacaac03549c327659533311c121c5f7d5c5d
+[p14 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p14 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-14.png SHA256=bde860a52cebc7d9cb316bc6f51bb9b9f6a0f495cf395f9b9c2fc02547e17d25
+[p15 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p15 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-15.png SHA256=31e5933bf74cab9a896f6dffab450aaf65bdca52ac169738b01422651f75885c
+[p16 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p16 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-16.png SHA256=0188053c2bec763e0b168b23bab288605b444529801e91a45e2c1977df99a123
+[p17 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p17 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-17.png SHA256=0032c28fc98f853f5a2e8946ea324f7895824765e53b2b10a904a9f5f3f1a37e
+[p18 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p18 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-18.png SHA256=fa0e82462d619927dfddf8c9b759c3ab5d1874594888c50fb36fc3c08f3e68cf
+[p19 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p19 v1] critic (gpt-5.6-sol)
+  TARGETED  criteria C2
+[p19 v2] builder (gpt-5.6-luna, TARGETED)
+  VALID CANDIDATE
+[p19 v2] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-19.png SHA256=336e32f469b7072c0c9454f816fee372e171cc2ea7aca2ed83fcc4f42a6e370d
+[p20 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p20 v1] critic (gpt-5.6-sol)
+  TARGETED  criteria C3
+[p20 v2] builder (gpt-5.6-luna, TARGETED)
+  VALID CANDIDATE
+[p20 v2] critic (gpt-5.6-sol)
+  TARGETED  criteria C1  repeated -
+[p20 v3] builder (gpt-5.6-luna, TARGETED)
+  VALID CANDIDATE
+[p20 v3] critic (gpt-5.6-sol)
+  TARGETED  criteria C2  repeated -
+[p20 v4] builder (gpt-5.6-luna, TARGETED)
+  VALID CANDIDATE
+[p20 v4] critic (gpt-5.6-sol)
+  V4_OWNER_HOLD  criteria C1  repeated -
+  advisor: RESET: Restaged page 20 into four panels with isolated long balloons and clarified that one-beat-early shoulder contact is nonblocking when the coercive exchange remains clear.
+[p20] 4 candidates — ceiling; page held
+stopped at page 20: held. See HANDOFF.md.
+[gate 11-20 sequence] critic (gpt-5.6-sol)
+  APPROVED
+[gate 11-20 continuity] critic (gpt-5.6-sol)
+  APPROVED
+[gate 11-20 cold-read] critic (gpt-5.6-sol)
+  APPROVED
+verify.py not CLEAN:
+er packet is 17,161 chars (target under 15 KB)
+WARN p34: builder packet is 17,291 chars (target under 15 KB)
+WARN p35: builder packet is 16,394 chars (target under 15 KB)
+WARN p36: builder packet is 17,017 chars (target under 15 KB)
+WARN p37: builder packet is 17,647 chars (target under 15 KB)
+WARN p38: builder packet is 16,633 chars (target under 15 KB)
+WARN p39: builder packet is 16,446 chars (target under 15 KB)
+WARN p40: builder packet is 17,472 chars (target under 15 KB)
+WARN p41: builder packet is 17,083 chars (target under 15 KB)
+WARN p42: builder packet is 16,167 chars (target under 15 KB)
+WARN p43: builder packet is 17,183 chars (target under 15 KB)
+WARN p44: builder packet is 17,325 chars (target under 15 KB)
+WARN p45: builder packet is 16,523 chars (target under 15 KB)
+WARN p46: builder packet is 17,010 chars (target under 15 KB)
+WARN p47: builder packet is 17,499 chars (target under 15 KB)
+WARN p48: builder packet is 17,852 chars (target under 15 KB)
+WARN p49: builder packet is 17,061 chars (target under 15 KB)
+WARN p50: builder packet is 17,216 chars (target under 15 KB)
+PROBLEM p20: 5 generations exceed the v4 ceiling (the count never resets)
+NOT CLEAN — 1 problem(s)
+
+[p21 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p21 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-21.png SHA256=d36a9f90aa672f625a7f4e1a3fcbce8bf0f10b59a9b83d4973bdb47554d250f4
+[p22 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p22 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-22.png SHA256=fe3e4151683b5992ffbad7430724167527576de81d07d8418fc6b63fba636db5
+[p23 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p23 v1] critic (gpt-5.6-sol)
+codex exec failed (1): alloon tail points to him.
++- “Forgive me, my lord.\n+My horse is old and slow.” — the bowed dark-robed visitor in the top panel; the balloon is placed over him and its tail points to him.
++- “Lü Bu, go down to my stable\n+and choose a fast horse for Cao Cao.” — the reclining lord in the middle panel; the balloon tail points to him.
++- “Wake me\n+when the horse\n+comes.” — the reclining lord in the bottom panel; the balloon is placed beside his face and its tail points to him.
++
++Lettered names: “Cao Cao” appears twice in dialogue, and “Lü Bu” appears once in dialogue. No name is lettered outside dialogue, and there is no `EXTRA TEXT`.
+
+ERROR: Selected model is at capacity. Please try a different model.
+ERROR: Selected model is at capacity. Please try a different model.
+tokens used
+10,087
+
+verify.py not CLEAN:
+161 chars (target under 15 KB)
+WARN p34: builder packet is 17,291 chars (target under 15 KB)
+WARN p35: builder packet is 16,394 chars (target under 15 KB)
+WARN p36: builder packet is 17,017 chars (target under 15 KB)
+WARN p37: builder packet is 17,647 chars (target under 15 KB)
+WARN p38: builder packet is 16,633 chars (target under 15 KB)
+WARN p39: builder packet is 16,446 chars (target under 15 KB)
+WARN p40: builder packet is 17,472 chars (target under 15 KB)
+WARN p41: builder packet is 17,083 chars (target under 15 KB)
+WARN p42: builder packet is 16,167 chars (target under 15 KB)
+WARN p43: builder packet is 17,183 chars (target under 15 KB)
+WARN p44: builder packet is 17,325 chars (target under 15 KB)
+WARN p45: builder packet is 16,523 chars (target under 15 KB)
+WARN p46: builder packet is 17,010 chars (target under 15 KB)
+WARN p47: builder packet is 17,499 chars (target under 15 KB)
+WARN p48: builder packet is 17,852 chars (target under 15 KB)
+WARN p49: builder packet is 17,061 chars (target under 15 KB)
+WARN p50: builder packet is 17,216 chars (target under 15 KB)
+PROBLEM p23: 1 candidates but 0 critic reports — a candidate was withheld from the critic
+NOT CLEAN — 1 problem(s)
+
+[p24 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p24 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-24.png SHA256=da3929d60e5f4423d14b54ec0c2d5c42d3f2db826239c5d4013b4e91642062a9
+[p25 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p25 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-25.png SHA256=fd9a47ae4280e200ca19cd4aa94a981f2c3eaf58f1919f74838272aabe4ad1fd
+[p26 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p26 v1] critic (gpt-5.6-sol)
+  TARGETED  criteria C1
+[p26 v2] builder (gpt-5.6-luna, TARGETED)
+  VALID CANDIDATE
+[p26 v2] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-26.png SHA256=a30439ffe496dadf782ca82149f80977e915138267d4d77049b2a470eece4316
+[p27 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p27 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-27.png SHA256=8635857a492bcd89a18af09df5886c89db3bac125c752c526d7690cbcc318d8d
+[p28 v1] builder (gpt-5.6-luna, BASE)
+codex exec failed (1): hon3 tools/imagegen.py three-kingdoms-vol1 28 K --prompt-file PROMPT.md --ref REF1 --ref REF2 …
+```
+
+Then run `python3 tools/check_candidate.py three-kingdoms-vol1 28 K`.
+
+The audit stays under 180 words and uses exactly these headings:
+
+`## Intent read` — what happens and who owns the page, from the 600 × 900 proof.
+
+`## Exact text check` — exact transcription, or concise discrepancies.
+
+`## Technical facts` — canvas/mode and obvious focal integrity issues.
+
+`## Submission` — `SUBMITTED TO INDEPENDENT CRITIC`.
+
+Return only the five output paths, candidate dimensions/mode, and file hashes.
+Do not approve, promote, or write to `pages/`.
+
+ERROR: Selected model is at capacity. Please try a different model.
+ERROR: Selected model is at capacity. Please try a different model.
+tokens used
+10,835
+
+[p28 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p28 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-28.png SHA256=d65eabd204e9f7dcd2dd32ee151c42a3dfd00648bb9b41677274a8f82e4d44ac
+[p29 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p29 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-29.png SHA256=f1c7f5819ce21499a9e988c0bfe95b78fd273bd9bac250973cda98349bd5a007
+[p30 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p30 v1] critic (gpt-5.6-sol)
+  TARGETED  criteria C1,C3
+[p30 v2] builder (gpt-5.6-luna, TARGETED)
+  VALID CANDIDATE
+[p30 v2] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-30.png SHA256=5aed7c83bc588d658c6ffdf612dfc81b832c80fbd61d2386fe86d1afb254e23b
+[gate 21-30 sequence] critic (gpt-5.6-sol)
+  APPROVED
+[gate 21-30 continuity] critic (gpt-5.6-sol)
+  APPROVED
+[gate 21-30 cold-read] critic (gpt-5.6-sol)
+  APPROVED
+[p31 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p31 v1] critic (gpt-5.6-sol)
+  TARGETED  criteria C1
+[p31 v2] builder (gpt-5.6-luna, TARGETED)
+  VALID CANDIDATE
+[p31 v2] critic (gpt-5.6-sol)
+  FULL_PROMPT_RESET  criteria C1,C2,C3  repeated C1
+[p31 v3] builder (gpt-5.6-luna, FULL_PROMPT_RESET)
+  VALID CANDIDATE
+[p31 v3] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-31.png SHA256=a24c33fa20fef69c678168919acd7cef1f0fae6fc05ab88bb6fc6e36e1993750
+[p32 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p32 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-32.png SHA256=34fa0fae0acaae9f8ad42a353bb4a115aa8aa458f9f425f1e88f355b2c9a1429
+[p33 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p33 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-33.png SHA256=e726404722288628430afde14eb501b41fced35847c31550655be8f10b7835bb
+[p34 v1] builder (gpt-5.6-luna, BASE)
+check_candidate failed for p34 v1:
+INVALID candidate: size=(1536, 1024) mode=RGB format=PNG; expected (1024, 1536) RGB PNG
+
+[p34 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p34 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-34.png SHA256=f72d76ea4583c4f5bb38c2967c31339eb3b0af1b57fd035bbdb27f495103d634
+[p35 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p35 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-35.png SHA256=3fbbdbc916348804372237e5df2e7ac35c28a60c7b87d666f8260711358f8aaa
+[p36 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p36 v1] critic (gpt-5.6-sol)
+  TARGETED  criteria C1,C2
+[p36 v2] builder (gpt-5.6-luna, TARGETED)
+  VALID CANDIDATE
+[p36 v2] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-36.png SHA256=71f51f6bda16255e94bbf761aa9630d569ba83718debe4143ac9bb8b281045b8
+[p37 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p37 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-37.png SHA256=75c4eb60dad04588438f974ca8cbdb0a396790e0979e23e0482096b152ec806c
+[p38 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p38 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-38.png SHA256=feebdedf43716f39ec56dfa49157778b70546f5980344f735ba1884ad9922666
+[p39 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p39 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-39.png SHA256=e271630e1d7f1434630f3e88bdfa6b7792ac76d8d8216bff7a519183de5008c6
+[p40 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p40 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-40.png SHA256=a60238e3c561efbf816a938ece3337da095fe0bbd9d3a0ff7e1d06a80f8f2885
+[gate 31-40 sequence] critic (gpt-5.6-sol)
+  APPROVED
+[gate 31-40 continuity] critic (gpt-5.6-sol)
+  APPROVED
+[gate 31-40 cold-read] critic (gpt-5.6-sol)
+  APPROVED
+[p41 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p41 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-41.png SHA256=d0df26be0bf1d6aa135fe6c7ff5063cf16332a51b0b8bf9be1938eb7c8b05022
+[p42 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p42 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-42.png SHA256=590534477518e73fa1df3872113f703fdbfbe95bcf498b2bd2608bb1834fc4d3
+[p43 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p43 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-43.png SHA256=8417018d1fd0edc7dc73392864c8e015217003b4f1854e8aa5e4ca2b2bac7d35
+[p44 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p44 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-44.png SHA256=6514a0e643d73e2c80ef2972256543ee0cd75ebb85f8c57020aee69359480a51
+[p45 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p45 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-45.png SHA256=9cd54f50517cfc60f2b8dbaa7a80d8998e107ec1b8cfe616153580ec49efc8af
+[p46 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p46 v1] critic (gpt-5.6-sol)
+  TARGETED  criteria C4
+[p46 v2] builder (gpt-5.6-luna, TARGETED)
+  VALID CANDIDATE
+[p46 v2] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-46.png SHA256=4d8d6f2219cdcfbb447afb85ab229e6df29e9572761171957ce45b8ff17fb157
+[p47 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p47 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-47.png SHA256=c642561fc23409862c279a8a07c98f4497070e70a0647d0e6379538093468a47
+[p48 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p48 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-48.png SHA256=e507761efe79aed93a7bc7aa2d5eebfa8b33a1a57b4322f139009f5de850211d
+[p49 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p49 v1] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-49.png SHA256=ae94046436c0b405b421570b927258b12fa7a44db393e8ee30920b225a2bc145
+[p50 v1] builder (gpt-5.6-luna, BASE)
+  VALID CANDIDATE
+[p50 v1] critic (gpt-5.6-sol)
+  TARGETED  criteria C1,C2,C3
+[p50 v2] builder (gpt-5.6-luna, TARGETED)
+  VALID CANDIDATE
+[p50 v2] critic (gpt-5.6-sol)
+  PROMOTE  criteria -
+  PROMOTED pages/page-50.png SHA256=f1f9ef2a2bccf52fa1769c1c003eed6e3ef31df47b99daa23d2a737f10fdcfbc
+[gate 41-50 sequence] critic (gpt-5.6-sol)
+  APPROVED
+[gate 41-50 continuity] critic (gpt-5.6-sol)
+  APPROVED
+[gate 41-50 cold-read] critic (gpt-5.6-sol)
+  APPROVED
+BOOK Three Kingdoms, Volume I: The Peach Garden Oath  (three-kingdoms-vol1)
+script pages: 50   manifest pages: 50   billing: codex in-app on the ChatGPT subscription; the owner's standing decision of 2026-09-07 for every book in this workspace; no API key, no separately billed path   image path: codex-app
+script gate: round-07.md → APPROVED
+reference gate: APPROVED   approved locks: 34
+packets: 1–50 (50 pages)
+promoted: 1–50 (50 of 50)
+all scripted pages promoted → whole-book gate, then publication
+
+[gate 11-20 sequence] critic (gpt-5.6-sol)
+  APPROVED
+[gate 11-20 continuity] critic (gpt-5.6-sol)
+  APPROVED
+[gate 11-20 cold-read] critic (gpt-5.6-sol)
+  APPROVED

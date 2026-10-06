@@ -1,0 +1,198 @@
+--- 04-CHARACTER-LEDGER.md (before)
++++ 04-CHARACTER-LEDGER.md (after)
+@@ -55,28 +55,31 @@
+ Lü Bu → draws his swords and rides in → says the word "brothers" up at a wall
+ → told he is one of two heroes → says he is only a sandal-seller.
+ 
+-**Structural lock:** an oval face, smooth and pale, with a high clear brow
+-and gentle, slightly downturned almond eyes that look sad even when he
+-smiles. **Unusually long, heavy earlobes** that hang nearly to the jaw line,
+-the one feature no one else in the book has. A straight medium nose, a small
+-mouth. A thin, neat black moustache and a small tuft of beard under the
+-lower lip, nothing on the cheeks. Black hair in a plain topknot under a
+-simple dark cloth cap. Tall and slim, long-necked, with **arms noticeably
+-long for his body**: his hands hang low at his sides. Posture: upright,
+-hands folded into his sleeves, head very slightly bowed, until he draws.
+-Habitual gesture: a small bow with folded hands, the bow of a man used to
+-selling things.
++**Structural lock:** a broad, compact oval face, smooth and pale, with a
++high clear brow, full cheeks, a full lower jaw, and a short, bluntly rounded
++chin. The jaw does not taper. His gentle, slightly downturned almond eyes
++look sad even when he smiles. **Unusually long, heavy earlobes** hang nearly
++to the jaw line, the one feature no one else in the book has. A straight
++medium nose, a small mouth, and a thin, neat black moustache; beneath the
++lower lip, the chin and jaw are clean-shaven. Black hair in a plain topknot
++under a simple dark cloth cap. Tall and slim, long-necked, with narrow,
++sloping shoulders that keep his silhouette open and unlike Cao Cao's compact
++one. Posture: upright, hands folded low into his sleeves, head very slightly
++bowed, until he draws. Habitual gesture: a small bow with folded hands, the
++bow of a man used to selling things.
+ 
+ **Costume:** Movement I: undyed hemp robe, faded, patched at the elbows,
+ straw sandals on his feet, a bundle of straw sandals on a pole. From the
+-oath on: plain dark iron lamellar over a white robe, a white cloak, white
+-headband, still the straw sandals in the stirrups; two matching straight
+-swords in black scabbards worn crossed high on his back, hilts above the
+-shoulders, sheathed until page 43. Accent: white.
+-
+-**Never:** a pointed goatee, narrow slanted eyes, short stature, indigo (Cao
+-Cao). A red face, a long beard (Guan Yu). Whiskers on the cheeks (Zhang Fei).
+-Yellow of any kind (the rebels).
++oath on: plain dark iron lamellar over a white robe with modest, unbulky
++sleeves, a white cloak, white headband, still the straw sandals in the
++stirrups; two matching straight swords in black scabbards worn crossed high
++on his back, hilts above the shoulders, sheathed until page 43. Accent:
++white.
++
++**Never:** a long or tapered lower face; any beard beneath the lower lip or
++on the chin or jaw; a pointed goatee, narrow slanted eyes, short stature,
++indigo (Cao Cao). A red face, a long beard (Guan Yu). Whiskers on the cheeks
++(Zhang Fei). Yellow of any kind (the rebels).
+ 
+ **Voice:** courteous, speaks of others first, asks questions, and lets the
+ hunger show in what he asks. "Why would anyone follow a man who sells
+@@ -392,9 +395,9 @@
+ 
+ | Pair | Risk | Carried by |
+ |---|---|---|
+-| Liu Bei / Cao Cao | highest | height (tall vs short); face shape (soft oval vs narrow angular); eyes (sad almond vs narrow glittering); earlobes; beard (lip tuft vs pointed goatee); white vs indigo |
++| Liu Bei / Cao Cao | highest | height (tall vs short); face shape (broad compact oval vs narrow angular); eyes (sad almond vs narrow glittering); long earlobes; clean rounded chin vs pointed goatee; white vs indigo |
+ | Guan Yu / Lü Bu | high | red face vs pale face; beard to the belt vs clean-shaven; massive vs lean; green headscarf vs pheasant plumes; green vs vermilion |
+ | Dong Zhuo / Yuan Shao | high | obese vs thin; jowls vs long narrow face; drooping sparse moustache vs combed three-strand beard; gold cap vs tall black hat; purple vs ivory |
+ | Zhang Fei / Dong Zhuo | medium | young hard bulk vs old soft fat; bristling cheek-whiskers vs drooping moustache; black armor vs purple silk |
+ | Yuan Shao / Uncle | medium | age; black three-strand beard vs sparse white beard; tall hat vs bald topknot; silk vs farmer's cotton |
+-| Liu Bei / Yuan Shao | medium | age; lip tuft vs three-strand beard; cloth cap vs tall hat; hemp/white vs ivory silk |
++| Liu Bei / Yuan Shao | medium | age; moustache-only clean chin vs three-strand beard; cloth cap vs tall hat; hemp/white vs ivory silk |
+--- 09-REFERENCE-PLAN.md (before)
++++ 09-REFERENCE-PLAN.md (after)
+@@ -120,7 +120,7 @@
+ 
+ | Sheet | Never confused with | Carried by |
+ |---|---|---|
+-| 01 Liu Bei | 04 Cao Cao; 07 Yuan Shao | tall vs short; soft oval face vs narrow angular; sad almond eyes vs narrow glittering; long earlobes; a lip tuft vs a pointed goatee; white vs indigo. Young vs forty-five; lip tuft vs long three-strand beard; cloth cap vs tall black hat |
++| 01 Liu Bei | 04 Cao Cao; 07 Yuan Shao | tall vs short; broad compact oval face vs narrow angular; sad almond eyes vs narrow glittering; long earlobes; clean rounded chin vs pointed goatee; white vs indigo. Young vs forty-five; moustache-only clean chin vs long three-strand beard; cloth cap vs tall black hat |
+ | 02 Guan Yu | 06 Lü Bu | red face vs pale; beard to the belt vs clean-shaven; massive vs lean; green headscarf vs pheasant plumes; green vs vermilion |
+ | 03 Zhang Fei | 05 Dong Zhuo | young hard bulk vs old soft fat; round bulging eyes and bristling cheek whiskers vs small sunk eyes and a drooping thin moustache; black armor vs purple silk |
+ | 04 Cao Cao | 01 Liu Bei | as above, inverted; short, quick, chin forward, one eyebrow up |
+@@ -167,67 +167,51 @@
+ 
+ ## 01 — LIU BEI
+ 
+-A character reference sheet, 1536 × 1024 landscape, four views of the same
+-figure on one plain warm-paper ground, no lettering of any kind, no labels, no
+-borders between views.
+-
+-Liu Bei, twenty-eight, a sandal-seller descended from princes. An oval face,
+-smooth and pale, with a high clear brow and gentle, slightly downturned
+-almond eyes that look sad even when he smiles. Unusually long, heavy
+-earlobes that hang nearly to the line of his jaw: the one feature no one else
+-has. A straight medium nose and a small mouth. A thin, neat black moustache
+-and a small tuft of beard under the lower lip; nothing on the cheeks or along
+-the jaw. In all four views, shorten the mouth-to-chin distance by about ten
+-percent, widen the jaw immediately below both cheekbones, and round the lower
+-jaw and chin into one continuous oval curve. Remove every beard stroke from
+-the lower chin and jaw; retain one small vertical tuft directly under the lower
+-lip that ends clearly above the chin's lower edge.
+-Black hair in a plain topknot. Tall and slim, long-necked, with arms noticeably
+-long for his body, so his hands hang low at his sides. Posture: upright, hands
+-folded into his sleeves, head very slightly bowed. Habitual
+-gesture: a small bow with folded hands. Expression at rest: courteous, with
+-something hungry behind the eyes.
+-
+-Default costume, views (a), (b), (c): plain dark iron lamellar armor over a
+-white robe, a white cloak, a plain white cloth headband around the topknot,
+-straw sandals bound over his feet, and two matching straight swords in plain
+-black scabbards worn crossed high on his back, both hilts showing above his
+-shoulders.
+-
+-View (a): a true three-quarter head-and-shoulders study in even light, large
+-enough to lock the soft oval face, the downturned almond eyes, the long
+-heavy earlobes, the thin moustache and lip tuft, and the bare cheeks.
+-
+-View (b): full length, upright, hands folded into his sleeves, head slightly
+-bowed, the long arms visible, the two crossed sword hilts above his
+-shoulders, straw sandals on his feet. Lengthen both upper arms and forearms so
+-the released fingertips would reach mid-thigh; place the folded hands below the
+-belt at upper-thigh level; and redraw the sleeve bends in the front, profile,
+-and market views so both elbow points sit visibly below an ordinary man's
+-waist. Preserve the tall, slim torso rather than gaining the reach through
+-sleeve length alone.
+-
+-View (c): a true ninety-degree profile from topknot to sandals, same light,
+-keeping the long earlobe, the lip tuft, the height, and the crossed hilts.
+-
+-Views (a)–(c) have no scenery and no props beyond the swords.
+-
+-View (d): the same man as a market sandal-seller: a faded, undyed hemp robe
+-patched at the elbows, a plain dark cloth cap, straw sandals, a bamboo pole
+-over one shoulder hung with straw sandals, no armor, no swords. Straighten the
+-trunk to near vertical, reduce the bow to a slight inclination of the head and
+-upper torso, balance the bamboo pole over one shoulder, and show the hands
+-folded inside the sleeves at upper-thigh level with the elbows set
+-conspicuously low. Preserve the long neck and slim unbroken torso in the
+-silhouette.
+-
+-Liu Bei must never be confused with Cao Cao. Differentiators that must
+-survive grayscale and thumbnail: tall and slim against short and compact; a
+-soft oval face against a narrow angular one; sad, gentle almond eyes against
+-narrow glittering ones; the long heavy earlobes; a small tuft under the lip
+-against a pointed goatee; white against indigo. He must never be confused
+-with Yuan Shao: twenty-eight against forty-five; a lip tuft against a long
+-three-strand beard; a cloth headband against a tall black lacquered hat.
++A 1536 × 1024 landscape character reference sheet with four views of one
++twenty-eight-year-old man on a plain warm-paper ground. No words, labels,
++seals, borders, or scenery.
++
++Liu Bei is a poor sandal-seller who carries himself like a prince. He is tall
++and slim, with a long neck and narrow, sloping shoulders. His face is a broad,
++compact oval: high clear brow, full cheeks, full lower jaw, and a short,
++bluntly rounded chin. His pale skin is smooth. Gentle, slightly downturned
++almond eyes look sad even when he smiles. A straight medium nose and small
++mouth sit above a thin, neat black moustache. The skin beneath his lower lip
++and across his rounded chin and jaw is completely clean-shaven. His unusually
++long, heavy earlobes hang almost to the jaw line. Black hair is tied in a
++plain topknot. Keep this exact head, jaw, clean chin, eye shape, and ear length
++in every view.
++
++In views (a), (b), and (c), he wears plain dark iron lamellar over a white
++robe with modest, unbulky sleeves, a white cloak, a plain white cloth headband,
++and straw sandals. Two matching straight swords remain sheathed in plain black
++scabbards crossed high on his back, with both hilts above his shoulders.
++
++View (a): a large three-quarter head-and-shoulders portrait in flat even light,
++showing both the broad rounded lower face and the full length of the near
++earlobe. His expression is courteous and restrained, with private ambition in
++the eyes.
++
++View (b): full length from the front, upright and slim, head only slightly
++bowed, hands folded low inside the sleeves below the belt. The narrow shoulders,
++long neck, dark armored core, white outer cloth, crossed sword hilts, and straw
++sandals make one clear silhouette.
++
++View (c): a strict ninety-degree head-and-shoulders profile in the same flat
++light. Show the high brow, straight nose, short rounded chin, bare jaw, thin
++moustache, and long heavy earlobe without changing their proportions.
++
++View (d): the same man full length as a market sandal-seller, standing nearly
++upright in a small courteous bow. He wears a faded undyed hemp robe patched at
++the elbows, a plain dark cloth cap, and straw sandals. A bamboo pole rests over
++one shoulder with bundles of straw sandals hanging from it. No armor or swords.
++Keep the tall slim torso, narrow shoulders, broad compact face, clean rounded
++chin, downturned eyes, and long earlobes identical to the other views.
++
++At thumbnail size Liu Bei is the tall, slim man with the broad gentle face,
++long earlobes, clean rounded chin, and white outer clothing. Cao Cao is short
++and compact, narrow-faced, sharp-eyed, indigo-clad, and has a pointed goatee.
++Yuan Shao is older and wears a long three-strand beard and tall black hat.
+ 
+ *(register paragraph, verbatim)*
+ 
+@@ -563,7 +547,7 @@
+ 
+ ## Board prompts (critic-only rasters, generated from the two attached approved sheets)
+ 
+-- **adversarial-liu-bei-cao-cao.** One unframed 1536 × 1024 landscape reference board on a plain warm mulberry-paper ground, under flat even light, with no lettering, labels, rules, or props in hand. On the left third, the two men from the attached approved sheets full length, side by side on one floor line and at one scale: Liu Bei a head taller, slim, hands folded in his sleeves, in white; Cao Cao short and compact, weight on one hip, chin forward, in indigo. On the right two-thirds, four matched costume-free head pairs in a clean two-by-two field with open paper between them, every crop ending at the jaw and upper neck: a neutral three-quarter pair; the same pair sharing a sudden laugh; strict profiles with both noses pointing screen right; and the same strict profiles rendered in pure grayscale. Keep the faces identical to the approved sheets in every view: Liu Bei's soft oval face, sad downturned almond eyes, long heavy earlobes, thin moustache and lip tuft with bare cheeks; Cao Cao's narrow angular face, sharp cheekbones, narrow glittering eyes, slightly hooked nose, neat moustache and short pointed goatee, ordinary earlobes.
++- **adversarial-liu-bei-cao-cao.** One unframed 1536 × 1024 landscape reference board on a plain warm mulberry-paper ground, under flat even light, with no lettering, labels, rules, or props in hand. On the left third, the two men from the attached approved sheets full length, side by side on one floor line and at one scale: Liu Bei a head taller, slim, hands folded in his sleeves, in white; Cao Cao short and compact, weight on one hip, chin forward, in indigo. On the right two-thirds, four matched costume-free head pairs in a clean two-by-two field with open paper between them, every crop ending at the jaw and upper neck: a neutral three-quarter pair; the same pair sharing a sudden laugh; strict profiles with both noses pointing screen right; and the same strict profiles rendered in pure grayscale. Keep the faces identical to the approved sheets in every view: Liu Bei's broad compact oval face, sad downturned almond eyes, long heavy earlobes, thin moustache, clean rounded chin, and bare cheeks and jaw; Cao Cao's narrow angular face, sharp cheekbones, narrow glittering eyes, slightly hooked nose, neat moustache and short pointed goatee, ordinary earlobes.
+ - **adversarial-guan-yu-lu-bu.** One unframed 1536 × 1024 landscape reference board on a plain warm mulberry-paper ground, flat even light, no lettering or labels. On the left third, the two warriors full length side by side on one floor line at one scale, each holding his polearm upright: Guan Yu massive and long-torsoed in green with the beard to his belt; Lü Bu as tall but lean and long-legged in vermilion and gold with the two long pheasant plumes. On the right two-thirds, four costume-free head pairs (headscarf and headdress removed, hair only), crops ending at the jaw: neutral three-quarter; the same pair shouting; strict profiles screen right; the same profiles in pure grayscale. Guan Yu's deep red face, upturned phoenix eyes, silkworm brows and long smooth black beard; Lü Bu's pale clean-shaven long face, high cheekbones, cold wide-set eyes, thin lips.
+ - **adversarial-dong-zhuo-yuan-shao.** One unframed 1536 × 1024 landscape reference board on a plain warm mulberry-paper ground, flat even light, no lettering or labels. On the left third, the two lords full length side by side at one scale: Dong Zhuo obese and leaning back in purple and gold; Yuan Shao tall, thin, and stiff in ivory with the tall black hat. On the right two-thirds, four hat-free head pairs, crops ending at the jaw: neutral three-quarter; the same pair sneering; strict profiles screen right; the same profiles in pure grayscale. Dong Zhuo's heavy jowls, small sunk eyes, fleshy nose, drooping thin moustache; Yuan Shao's long narrow face, high forehead, long thin nose, combed three-strand black beard.
+ - **adversarial-zhang-fei-dong-zhuo.** One unframed 1536 × 1024 landscape reference board on a plain warm mulberry-paper ground, flat even light, no lettering or labels. On the left third, the two heavy men full length side by side at one scale: Zhang Fei short, young, barrel-chested and hard, fists on hips, in black; Dong Zhuo old, obese and soft, leaning back, in purple. On the right two-thirds, four costume-free head pairs, crops ending at the jaw: neutral three-quarter; the same pair laughing; strict profiles screen right; the same profiles in pure grayscale. Zhang Fei's square head, round bulging eyes, wild brows, bristling whiskers all round the jaw and cheeks; Dong Zhuo's jowls, sunk small eyes, drooping thin moustache, greying.

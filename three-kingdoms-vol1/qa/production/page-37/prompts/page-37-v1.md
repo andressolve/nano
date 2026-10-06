@@ -1,0 +1,29 @@
+Create one finished, flattened 1024 × 1536 portrait story page in 2:3 format for a printed illustrated novel, with lettering baked in natively. This is a new staged scene, not a montage, model sheet, collage, mockup, spread, or layout study. Use only the three attached character sheets as identity references: reference image 1 is Cao Cao, reference image 2 is Liu Bei, and reference image 3 is Zhang Fei. Do not attach or depict any other reference image. The references supply identity only; draw the brothers' tent and Guan Yu from the words below.
+
+Use the Lacquer and Dust register: bold wet brush-and-ink line on warm toothed mulberry paper; flat matte washes of lamp-black, raw umber, loess yellow-ochre, dust grey, cinnabar vermilion, malachite green, indigo, ivory, imperial purple, dull bronze, and iron. Late-Han China is lit like a war film, here by one oil lamp in night darkness with real cast shadows and depth. Show visible brush line, paper tooth, and ink-and-wash pooling. Use lamellar iron, lacquered leather, hemp, silk, horsehair, rammed earth, and plain canvas. Avoid smooth prestige-oil realism, glossy concept-art surfaces, airbrushed skin, engraved cross-hatching, anime proportions, children's-book softness, plastic 3D rendering, blue-green landscape-scroll prettiness, and gold leaf.
+
+This is one dramatic page with a clear top-to-bottom reading path and one dominant image. Use three panels, with the opening panel largest and owning the page: a tall upper panel inside the brothers' small plain canvas tent at night, with one oil lamp and an earth floor. Keep its upper third as plain dark tent canvas for two stacked balloons on the left before placing faces. Cao Cao crouches alone on the LEFT, low and serious for once, beside a wine jar and a basket of roast meat on the ground between him and the three brothers seated to the RIGHT. Liu Bei is nearest to Cao Cao; Guan Yu and Zhang Fei sit beyond him. Cao Cao's first two balloons are stacked in the upper left, and both tails end beside his visible mouth.
+
+Panel two is a smaller middle panel. Cao Cao remains on the LEFT and leans closer. Liu Bei is on the RIGHT with his hands folded low in his sleeves. Place Cao Cao's balloon upper left at his visible mouth and Liu Bei's balloon lower right at his visible mouth. Keep their faces structurally distinct in profile and lamplight: Cao Cao is short and compact with a narrow angular face, glittering slanted eyes, a pointed goatee, small black cap, indigo lacquered armor, and black cloak; Liu Bei is tall even seated, with a broad compact pale oval face, short rounded chin, sad almond eyes, very long earlobes, thin moustache only, clean-shaven chin, iron lamellar over a white robe, white cloak, and two sheathed swords crossed on his back. Guan Yu is the tallest, with a red face, beard to the belt, green headscarf, and green robe. Zhang Fei is short and enormously broad, with a square leopard head, round bulging eyes, bristling black whiskers on jaw and cheeks, and black lamellar.
+
+Panel three is a bottom panel, slightly shallower but clearly consequential. Cao Cao is gone and the tent flap swings behind the brothers. Zhang Fei stands on the LEFT turned toward them, with exactly two hands: one fist slams into his other palm. Guan Yu stands on the RIGHT stroking his beard and looking toward the swinging flap. Place Zhang Fei's balloon upper left and Guan Yu's balloon lower right, clearly below it. Their mouths are visible and each tail ends beside its own mouth; no tail crosses to another person.
+
+The page's turn is that Cao Cao warns that Lü Bu comes tomorrow and asks for the brothers, while Liu Bei gives him no promise. The opening image must make the warning and request feel urgent and intimate; the final panel must leave the reader with Lü Bu coming tomorrow. No Yuan Shao, Dong Zhuo, or Lü Bu appears. No horse appears in the tent. The jar and basket remain blank, with nothing lettered on them. Unnamed figures carry no balloons.
+
+Letter the following six strings exactly once each, in this order, with clear ownership carried only by placement and balloon tail. Place the first two in Cao Cao's stacked balloons in the dominant panel; place the next two in panel two; place the last two in panel three. The opening speaker in each exchange is on the left, and the reply is lower than the line that prompts it:
+
+Tomorrow they'll send out Lü Bu. He kneels to Dong Zhuo now, and calls that fat man Father.
+
+I was at court when he killed the man who raised him, for a red horse. Nobody here will last three blows.
+
+When he comes, I want you three with me. Not with Yuan Shao.
+
+We came to fight Dong Zhuo, Lord Cao. We will fight beside anyone who does.
+
+Lü Bu killed his own father for a horse? Tomorrow I'll call him that to his face, in front of both armies.
+
+Cao Cao watched a son kill his father, and he went on bowing.
+
+Reserve generous balloon lanes before placing faces and seat figures low. Use warm ivory organic oval balloons with restrained dark painted outlines and open tails. Dialogue is hand-lettered in a rounded upright mixed-case hand; prose is not used on this page. No page number, title, production label, editorial text, invented caption, sound cue, object label, laugh line, or other lettering appears. No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+Respect the safe margins and keep every balloon fully inside its panel. No balloon crosses a panel border. Do not add blood, wounds, bodies, severed parts, or drawn deaths. No background man has a reserved character identity. The final result must read as a premium historical illustrated novel page with one dominant intimate warning scene, not as a stack of equal bands.

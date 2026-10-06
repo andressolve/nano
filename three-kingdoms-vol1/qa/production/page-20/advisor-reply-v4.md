@@ -1,0 +1,1 @@
+RESET: Restaged page 20 into four panels with isolated long balloons and clarified that one-beat-early shoulder contact is nonblocking when the coercive exchange remains clear.

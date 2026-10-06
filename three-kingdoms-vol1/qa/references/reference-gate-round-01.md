@@ -1,0 +1,43 @@
+VERDICT: REVISE
+
+# Reference gate — whole cast
+
+The eight permanent character locks are individually strong and the four existing adversarial boards show no unresolved face collision. The system is not approvable unconditionally, however, because two pairs that the ledger itself classifies as risky have no adversarial board, and the required neutral head board does not put the cast into a genuinely neutral, matched-angle comparison. Those are missing gate evidence, not requests to alter an approved character lock.
+
+## Collision matrix
+
+| Risky pair | Risk | Gate result | What carries the separation |
+|---|---:|---|---|
+| Liu Bei / Cao Cao | Highest | PASS in the character sheets, adversarial board, grayscale profiles, reactions, and unlettered live-pair proof. The pair remains readable under firelight and same-panel proximity. | Liu Bei is tall and slim with a broad compact oval, sad downturned almond eyes, very long earlobes, and a clean rounded chin; Cao Cao is short and compact with a narrow angular face, sharp cheekbones, narrow amused eyes, a hooked nose, and a pointed goatee. White versus indigo and folded restraint versus hip-weighted forwardness reinforce structure. |
+| Guan Yu / Lü Bu | High | PASS in the character sheets and adversarial board, including costume-free heads, reaction faces, profiles, grayscale, and same-scale full figures. | Guan Yu has the unique deep-red face, upturned phoenix eyes, massive long torso, and a single beard sheet to the belt; Lü Bu has a pale long clean-shaven face, high cheekbones, wide-set eyes, a lean long-legged build, and the tallest two-plume silhouette. Green versus vermilion reinforces structure. |
+| Dong Zhuo / Yuan Shao | High | PASS in the character sheets and adversarial board, including hat-free heads, reactions, profiles, grayscale, and same-scale full figures. | Dong Zhuo is old, obese, jowled, thick-necked, small-eyed, and soft, with a sparse drooping moustache; Yuan Shao is tall, thin, stiff, long-faced, high-foreheaded, and three-strand-bearded. Purple bulk versus ivory verticality reinforces structure. |
+| Zhang Fei / Dong Zhuo | Medium | PASS in the character sheets and adversarial board, including reactions, profiles, grayscale, and same-scale full figures. | Zhang Fei is young hard bulk: square head, exposed-round eyes, thick neck, and short bristling cheek whiskers. Dong Zhuo is old soft bulk: round belly, merged chin and neck, sunk eyes, and sparse drooping facial hair. Forward charge versus backward sway reinforces structure. |
+| Yuan Shao / Uncle | Medium | STRUCTURALLY SEPARATED in the individual sheets and cast boards, but NOT FULLY GATED because no pair-specific adversarial board exists. | Yuan Shao is tall, stiff, long- and narrow-faced, black-haired, and three-strand-bearded; Uncle is small, bent, round-faced, nearly bald, white-browed, sparse-white-bearded, apple-cheeked, and missing a tooth. Silk/hat versus cotton/bare topknot reinforces structure. |
+| Liu Bei / Yuan Shao | Medium | STRUCTURALLY SEPARATED in the individual sheets and cast boards, but NOT FULLY GATED because no pair-specific adversarial board exists. | Liu Bei is twenty-eight, broad-oval and full-jawed, with sad almond eyes, long earlobes, a thin moustache, and a bare rounded chin; Yuan Shao is about forty-five, long- and narrow-faced, hooded-eyed, long-nosed, and three-strand-bearded. Slim open shoulders versus stiff verticality reinforces structure. |
+
+No additional pair rises to risky status after costume-free, thumbnail, grayscale, profile, reaction, same-panel, and re-entry review. Cao Cao/Yuan Shao separate through stature, face length, eye set, and beard mass; Zhang Fei/Guan Yu separate through head shape, eye shape, beard architecture, height, and posture; Liu Bei/Lü Bu separate through jaw length, earlobes, facial hair, and build.
+
+## Mandatory findings
+
+1. **The Yuan Shao / Uncle collision lane lacks its required adversarial artifact.** Exact structural redesign requirement: add one unlettered critic-only board built from these approved locks, with both full figures on one floor line at one scale and matched costume-free head pairs showing neutral three-quarter, reaction, strict same-direction profile, and grayscale profile states. The head studies must preserve Yuan Shao's long narrow high-foreheaded skull, hooded eyes, long nose, and three distinct black beard strands against Uncle's short round lined skull, apple cheeks, nearly bald white topknot, sparse white beard, and missing tooth. Approval requires the pair to remain distinct when hats, silk/cotton, colour, donkey, and other props are absent.
+
+2. **The Liu Bei / Yuan Shao collision lane lacks its required adversarial artifact.** Exact structural redesign requirement: add one unlettered critic-only board built from these approved locks, with both full figures on one floor line at one scale and matched costume-free head pairs showing neutral three-quarter, reaction, strict same-direction profile, and grayscale profile states. The head studies must preserve Liu Bei's broad compact oval, full untapered lower jaw, sad almond eyes, long earlobes, thin moustache, and completely bare rounded chin against Yuan Shao's long narrow face, high forehead, hooded eyes, long thin nose, and three beard strands. Approval requires the pair to remain distinct without the white/ivory value difference, headwear, age costume, or sword.
+
+3. **`board-heads.png` is not the required neutral matched-angle head board.** It mixes different head turns and strongly different expressions, most conspicuously Zhang Fei's open-mouthed laugh and Uncle's broad smile, so skull, eye, mouth, and facial-hair comparisons are partly confounded by performance. Exact structural redesign requirement: rebuild the critic-only board with all eight heads at one head scale, one true three-quarter angle, one flat even light, and closed-mouth resting expressions, preserving complete crown, ears, jaw, and beard endpoints with open paper between subjects. Keep it unlettered and do not change any permanent character lock.
+
+## Stage 2 system checks
+
+- All eight recurring roles named by the ledger and plan have approved permanent 1536 × 1024 landscape locks with profile and scripted-state coverage.
+- Each character's nearest lookalike is named in the plan and the approved locks visibly carry the stated structural separation. The two missing boards above prevent the required pair-specific proof from being complete.
+- No character sheet, board, setting plate, or object plate contains a name, caption, readable label, calligraphy, seal text, or other lettering. Blank notice, banner, lintel, and sign surfaces remain blank.
+- Reserved identity stacks are protected from background figures: red face plus belt-length beard; vermilion plus two long plumes; obese purple-and-gold bulk; tall black hat plus three-strand beard; long earlobes plus white; bristling cheek whiskers plus black armor; short pointed-goatee indigo; and bald white-bearded donkey rider.
+- The setting plates carry location architecture, light, faction colour, and scripted state changes rather than new character identities. The object plates are restricted to consequential continuity: weapons, Red Hare, the Seven-Star dagger, tiger tally, hot-wine cup, champion's helmet, and straw sandals. No unlisted incidental prop is positioned to become a forty-page continuity obligation.
+
+## Nonblocking observations
+
+- The live Liu Bei / Cao Cao proof is especially effective: long earlobes and rounded bare chin versus angular cheekbones and pointed goatee remain readable in warm, uneven firelight even though both men wear dark lamellar cores and have black topknots and moustaches.
+- The grayscale silhouette board preserves the principal height, breadth, posture, beard, weapon, and plume lanes well enough to expose rather than hide the cast's value-pattern dependencies.
+- The reference plan's Cao Cao prompt describes Liu Bei once as having a "small tuft under the lip," while the binding ledger and approved sheet correctly give Liu Bei a completely clean chin beneath the moustache. The approved visual lock is unambiguous; future text reuse should follow the ledger and lock.
+- Dong Zhuo's food, Cao Cao's cup and plain side sword, and Uncle's fruit basket are state-specific character business rather than consequential object continuity; none creates a broad recurring prop dependency.
+
+Reference approval does not approve any generated page and does not waive balloon attribution. This report is REVISE; no reference promotion or page approval follows from it.

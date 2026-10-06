@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "three-kingdoms-vol1",
+    title: "Three Kingdoms, Volume I: The Peach Garden Oath",
+    cover: "three-kingdoms-vol1/pages/page-01.png",
+    published: "2026-10-06",
+    category: "Myth & Literature",
+    series: "Three Kingdoms · Volume I",
+    summary: "A sandal-seller with the blood of princes, a red-faced giant on the run, and a butcher with a voice like thunder swear in a peach garden to die on the same day. The empire is falling to a tyrant who owns the warrior nobody can beat, and the great lords keep shutting the door on three nobodies, until the door is Hulao Gate and Lü Bu rides out on Red Hare. Fifty illustrated pages of oaths, ambushes, fire, a cup of wine still warm, and Cao Cao, who might be a hero or a villain."
+  },
+  {
     slug: "three-musketeers-vol1",
     title: "The Three Musketeers, Volume I: The Queen's Diamonds",
     cover: "three-musketeers-vol1/pages/page-01.png",

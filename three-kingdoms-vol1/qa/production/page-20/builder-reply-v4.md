@@ -1,0 +1,5 @@
+[Candidate]( /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/production/page-20/candidates/page-20-v4.png) — 1024×1536, TARGETED  
+[Prompt]( /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/production/page-20/prompts/page-20-v4.md) — SHA256=8649b6b44ed60c4ace34316627a1168bcb9af71cc3642a61ebba75974cdf981c  
+[Audit]( /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/production/page-20/audits/page-20-v4.md) — SHA256=430a329db641fec310f31eddea70e86653e02d523ec1a8f9aa16accc6c46a6e5  
+[Desktop proof]( /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/production/page-20/proofs/page-20-v4-600x900.png) — SHA256=84ee42c570171066b42059bcff679e9a78c7be2c3e6c1c7ca230756089d42f90  
+[Tablet proof]( /Users/andresrodriguez/Documents/monte_inspired/books/three-kingdoms-vol1/qa/production/page-20/proofs/page-20-v4-768x1152.png) — SHA256=9264e1863432aa0e9f50e09249280ca97611a5b24670a6efae07ea17cf2e8031
