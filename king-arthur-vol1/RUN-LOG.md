@@ -309,3 +309,9 @@ register distinct from the story register; record the result at ship.
 - **2026-10-13 — pages.** gate 31-40 sequence: APPROVED.
 - **2026-10-13 — pages.** gate 31-40 continuity: APPROVED.
 - **2026-10-13 — pages.** gate 31-40 cold-read: APPROVED.
+
+## Nano publication — 2026-10-13
+
+Owner: "add to nano library, and commit and push". Published 59 final pages and 29 approved references, byte-identical to production, plus the reader (with toolbar and ending library links) and the text records; candidates, proofs, superseded references and logs excluded by `.gitignore`. Card added first in `stories.js`. Only `.gitignore`, `stories.js`, and `king-arthur-vol1/` were staged; the repo's other uncommitted work was left untouched. Commit `aa0624f` pushed to `origin/main`; Pages run `38414284999` success. Live checks: reader 200 with the correct title, page 59 200, live `stories.js` carries the card. Source and publication reader verifiers CLEAN.
+
+Live reader: https://andressolve.github.io/nano/king-arthur-vol1/index.html
