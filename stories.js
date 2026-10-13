@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "king-arthur-vol1",
+    title: "King Arthur, Volume I: The Sword and the Table",
+    cover: "king-arthur-vol1/pages/page-01.png",
+    published: "2026-10-13",
+    category: "Myth & Literature",
+    series: "King Arthur · Volume I",
+    summary: "A farm boy pulls a sword out of a stone because his brother forgot his own, and in one afternoon he is king of Britain and nobody's son. The lords laugh, the people choose him, and he nearly loses everything to his own pride before a lake gives him a better sword and a harder lesson. Fifty-nine illustrated pages of swords, a wizard who won't apologize, a brother who tells him no, and a table with no head, plus six Chronicle pages on what was really going on: Roman Britain, the monks who wrote it down, and how the legend grew."
+  },
+  {
     slug: "three-kingdoms-vol1",
     title: "Three Kingdoms, Volume I: The Peach Garden Oath",
     cover: "three-kingdoms-vol1/pages/page-01.png",

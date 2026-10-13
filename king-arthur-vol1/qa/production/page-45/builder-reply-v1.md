@@ -1,0 +1,5 @@
+- Candidate: `qa/production/page-45/candidates/page-45-v1.png` — 1024×1536, BASE — SHA256 `e44c42291e34eb609cd247e16f5b980ed2771ae6040905eff48c534fcc2089b2`
+- Prompt: `qa/production/page-45/prompts/page-45-v1.md` — SHA256 `dd87a3983832980c7f977e34f523c8347ca1aa8e462eb6d53a0e393a5f439676`
+- Audit: `qa/production/page-45/audits/page-45-v1.md` — SHA256 `7aba47d70fd2db9737939efd0a4e7431fe2505d7299cccc2c5bf4d241436312b`
+- Desktop proof: `qa/production/page-45/proofs/page-45-v1-600x900.png` — SHA256 `628ad5987326dfd46681a95948698abccabdd6f045722a671d3f437524b7829a`
+- Tablet proof: `qa/production/page-45/proofs/page-45-v1-768x1152.png` — SHA256 `858f349b95abfe46e3083c725c76cf4cb68133034f376a7d61e711de1d9ab911`

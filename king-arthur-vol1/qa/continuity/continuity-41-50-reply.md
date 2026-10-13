@@ -1,0 +1,1 @@
+APPROVED — report written to [continuity-41-50.md](/Users/andresrodriguez/Documents/monte_inspired/books/king-arthur-vol1/qa/continuity/continuity-41-50.md).

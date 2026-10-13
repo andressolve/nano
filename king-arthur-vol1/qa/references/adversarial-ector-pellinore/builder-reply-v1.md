@@ -1,0 +1,3 @@
+Output: [adversarial-ector-pellinore-v1.png](/Users/andresrodriguez/Documents/monte_inspired/books/king-arthur-vol1/refs/candidates/adversarial-ector-pellinore-v1.png)  
+SHA-256: `8e9ed09f1e77f66e1e2eae04e13d7e7bc4ad17665cd5de0011e97aef043de07b`  
+Audit: [adversarial-ector-pellinore-v1.audit.md](/Users/andresrodriguez/Documents/monte_inspired/books/king-arthur-vol1/refs/candidates/adversarial-ector-pellinore-v1.audit.md)

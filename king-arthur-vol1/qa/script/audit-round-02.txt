@@ -1,0 +1,34 @@
+pages: 56   dramatic 34  prose 8  spectacle 8  chronicle 6
+mode share target ≈ 60 / 20 / 13 over the story pages; chronicle ≤ 15% of the book — a book of only dramatic scenes has lost the form
+
+BLOCKERS: none
+WARNINGS (craft signals, judged by the script critic):
+  - p56: the book ends on a chronicle page — confirm the story's last turn lands before it
+
+FIVE-WORD AUDIT — 25 balloons of five words or fewer. Each needs the explicit ambiguity audit
+(complete thought or intentional answer? one visible referent? clear without notes? forceful, not compressed?):
+  - p2: UTHER: 'Is he safe? My son?'
+  - p4: KAY: 'My first tournament!'
+  - p5: ARTHUR: "That isn't an answer."
+  - p13: KAY: 'Arthur gave it to me.'
+  - p14: ARTHUR: 'What?'
+  - p15: ARTHUR: "Then I'm not anybody's son."
+  - p24: MERLIN: "I'd do it again."
+  - p24: ARTHUR: 'Did he ever see me?'
+  - p25: ARTHUR: 'No.'
+  - p25: ARTHUR: 'No.'
+  - p25: MERLIN: 'Then why are you asking?'
+  - p25: ARTHUR: 'Then we fight.'
+  - p29: ARTHUR: 'For Britain! Follow me!'
+  - p31: ARTHUR: 'Hold together! Hold!'
+  - p33: MERLIN: 'You did.'
+  - p36: ARTHUR: "Kings in the songs don't."
+  - p38: ARTHUR: 'Gladly.'
+  - p39: ARTHUR: 'No! Not this sword!'
+  - p40: PELLINORE: "Then I'm sorry for it."
+  - p40: MERLIN: 'Sleep, Pellinore.'
+  - p41: ARTHUR: 'Kay.'
+  - p41: ARTHUR: 'Pellinore.'
+  - p41: ARTHUR: 'Me.'
+  - p47: PELLINORE: "I'll think about it."
+  - p54: ARTHUR: 'Who?'

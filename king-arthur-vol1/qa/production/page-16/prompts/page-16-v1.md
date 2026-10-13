@@ -1,0 +1,27 @@
+Create one finished, flattened 1024 × 1536 portrait story page in 2:3 format, with lettering baked into the artwork. This is a canonical printed illustrated-novel page, not a prototype, mockup, sample sheet, spread, layout study, montage, model sheet, portrait board, or collage. Use the three attached images only as identity and place references: reproduce Ector's and Arthur's faces, builds, posture, costume states, and habitual gestures faithfully, and use the churchyard stone setting; create a new staged scene in which the people act. No page number, title, production label, speaker name, or editorial text appears. Only the six listed dialogue strings are visible text, each exactly once and in the order given below. No owner tags, prefixes, labels, numerals, bullets, or extra words are lettered.
+
+Use the Greenwood Romance register: golden-age adventure illustration in opaque oil on canvas board, visible confident brushwork, warm raw-umber underpainting, thick impasto highlights, strong simple shapes, and faces with character and weather. Use raw umber, burnt sienna, yellow ochre, oxide red, sap green, oak brown, iron grey, bone white, snow-light blue, and deep Prussian-blue winter shadows. Light is like a stage, with low winter sun and real cast shadows across snow and stone. Paint riveted mail, quilted linen, rough wool, oak, wet grey stone, iron, leather, horsehair, and snow with weight. Avoid glossy concept-art surfaces, airbrushed skin, photographic rendering, anime proportions, children's-book softness, plastic 3D rendering, fantasy-game armour, glowing magic, signatures, monograms, artist marks, and watermarks.
+
+The location is an English winter churchyard with old grey stone, snow, and quiet open space. Ector is short, broad, bald on top with a grey fringe, round ruddy clean-shaven face, bushy grey brows, russet tunic over old mail, and brown cloak; his warmth is unmistakably paternal. Arthur is a slight fifteen-year-old boy with an oval soft freckled face, thick uneven straw-blond hair, and patched brown wool tunic. Kay is a tall lean young man with a sharp face, short straight black hair, faint moustache, new mail, and black-and-yellow surcoat; he stands apart with arms folded, red in the face, silent. Arthur alone has deep ultramarine blue, and in this page he wears none. Merlin, Lot, crowds, and all other named identities are absent. Unnamed background people are absent too unless needed only as indistinct distant atmosphere. The sword across Arthur's knees is the plain dull iron-grey sword from the stone, with dark iron cross-guard and round iron pommel; it does not glow.
+
+Build one clear top-to-bottom reading path with one dominant image. The dominant panel is a close, tall father-and-son beat occupying roughly the largest share of the page: Ector stands on the LEFT, newly risen from his knees, and places one big hand on the back of Arthur's neck in a father's gesture. Arthur sits on the edge of the stone on the RIGHT, the plain sword across his knees, and looks up at Ector. Make Ector's hand on Arthur's neck and Arthur's upward question the visual and emotional center. Ector's mouth is visible on the left; Arthur's mouth is visible on the right. Stage the three lines as a readable vertical exchange: Ector's first balloon upper left beside his mouth, Arthur's question middle right beside his mouth, Ector's answer lower left beside his mouth. Keep each tail ending in open space beside its own speaker's mouth, never through a hand or prop; the reply is clearly lower than the question.
+
+Below it, use a middle panel with Ector on the left, glancing across the snowy churchyard toward Kay far right, apart and red-faced, silent, arms folded. Keep Kay's face readable but give him no balloon and no tail. Place Ector's two balloons stacked on the left beside his visible mouth, with clear vertical ordering. Use a restrained bottom panel in which Arthur nods, eyes fixed toward Kay offstage; place Arthur's final balloon beside his visible mouth. No other character speaks.
+
+Use the exact dialogue below as the only visible text, lettering each line once, in this order, with clear ownership through staging and balloon tails:
+
+You'll always have us, lad, if you want us.
+
+I do want you. Can I still call you Father?
+
+When nobody's listening, lad. Always.
+
+And I'll ask one thing of the new king. Make Kay your steward, the keeper of your house.
+
+He's got a sharp tongue, but no man alive will fight harder for you.
+
+Then he will be. But first I need to talk to him.
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+Apply the page lettering construction carefully: warm ivory organic oval balloons with restrained dark painted outlines; large, legible upright mixed-case hand lettering; comfortable spacing; no balloon or text crossing a panel border; no essential text near the bottom edge. The only visible text is the six dialogue strings above. No captions, sound cues, labels, signs, documents, laugh lines, invented punctuation, or extra words. No text is placed over faces, hands, the sword, or busy art. Keep the composition cinematic, quiet, and emotionally legible: the page's turn is that Arthur still has a father, then must face the brother who tried to take the crown.

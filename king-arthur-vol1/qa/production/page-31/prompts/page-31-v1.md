@@ -1,0 +1,29 @@
+One finished, flattened illustrated story page in 1024 × 1536 portrait format, 2:3, with the lettering baked into the image natively. This is a canonical printed-page composition, not a prototype, mockup, sample sheet, spread, montage, model sheet, portrait board, or collage. Use the two attached character sheets only as identity references and create a new staged scene. No page number, title, production label, speaker name, editorial text, invented caption, laugh line, or other writing appears anywhere beyond the four listed dialogue strings.
+
+Paint in the Greenwood Romance register: golden-age adventure illustration in opaque oil on canvas board, confident visible brushwork, warm raw-umber underpainting, thick impasto highlights, strong simple shapes, and faces with character and weather. Use raw umber, burnt sienna, yellow ochre, oxide red, sap green, oak brown, iron grey, bone white, snow-light blue, and deep Prussian-blue nights. Light the page like a stage with winter sun and real cast shadows. Show riveted mail, quilted linen, rough wool, oak, wet grey stone, iron, leather, horsehair, and water with painted weight. Avoid glossy concept-art surfaces, airbrushed skin, photographic rendering, anime proportions, children's-book softness, plastic 3D rendering, fantasy-game armour, and glowing magic effects. No signature, monogram, artist mark, or watermark in any corner.
+
+The setting is the frosty stream at Bedegraine: English winter and greenwood, muddy banks, shallow cold water, a near slope, distant winter trees, white breath and mist, and subdued earth colours. The stream is wet and readable beneath Arthur's feet. Keep the enemy riders anonymous and subordinate, with muted surcoats and iron helmets. Townspeople wear browns and greys. Kay alone wears a black-and-yellow surcoat and rides a black horse. Arthur alone wears a deep-blue surcoat; nobody else wears deep blue. Arthur is a slight fifteen-year-old boy with an oval face, soft beardless jaw, freckles, wide-set grey-green eyes, straight dark brows, and thick straw-blond hair plastered wet; he wears soaked mail and the deep-blue surcoat. Kay is nineteen, tall and lean, with a narrow face, high sharp cheekbones, pointed chin, thin straight nose, narrow dark eyes, thin mouth with a half-smile on one side, faint first moustache, and short straight black hair; he wears new mail and the black-and-yellow surcoat. Keep Arthur and Kay unmistakably separated by face, hair, age, and colour.
+
+Build one clear top-to-bottom reading path with one dominant image owning the page. The dominant upper panel occupies roughly 55 percent of the page: Arthur stands in a shallow stream at centre-right, soaked, sword raised in both hands, while a ring of anonymous enemy riders and lowered spears closes around him. From the left, Kay bursts into the ring on his black horse, sword swinging and black-and-yellow surcoat flying. Kay is the only speaker in this panel, with his mouth clearly visible; place his long organic oval balloon in the upper left beside his mouth, with its tail ending in open space beside that mouth. Arthur is silent and has no balloon or tail fragment. Kay's swinging sword is only a threat: no blow lands.
+
+The lower area occupies roughly 45 percent and has two parts. First make a wide strip: Kay rides his black horse back toward the near slope and the townspeople's line of spears descending the hill, with Arthur clinging behind Kay's saddle. The horse faces left, Kay is in front and on the left, and Kay's mouth is visible. Place his balloon beside his mouth with a clear tail. Beneath that, make a strip divided into two readable close beats from left to right. On the left, show Arthur alone behind Kay's shoulder, wet hair in his eyes and half-smiling, mouth visible, with his balloon beside his mouth. On the right, show Kay alone turning his face back over his shoulder, with a dry half-smile on one side of his mouth, mouth visible, and his balloon beside his mouth. Stage the reply lower than the line that prompts it. Every balloon belongs visibly to its speaker, with tails ending beside that speaker's mouth; keep every tail corridor clear of hands, props, and bystanders.
+
+Use exactly these four dialogue strings once each, in this reading order, with no speaker names or tags rendered. Kay speaks in the dominant panel:
+
+Get away from him! I am Sir Kay, the king's steward, and that's my brother!
+
+Kay speaks in the wide lower strip:
+
+Back to the line, where you belong! You charged out alone!
+
+Arthur speaks in the left lower close beat:
+
+And you came for me alone.
+
+Kay speaks in the right lower close beat:
+
+Somebody had to. You're very bad at this.
+
+Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed. Use warm ivory balloon fills and restrained dark painted outlines. Keep the lettering comfortably readable at proof size and keep the balloons out of faces and panel borders. No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+No Lot and no Merlin. No words on banners. No one is cut, no blood, no fallen men, and no wound is shown; no blow lands on the page. Arthur's plain iron sword is dull iron-grey with a dark iron cross-guard and round iron pommel, never glowing. Do not show red braids, bearskin, or white samite. Do not give any rider deep blue or black-and-yellow clothing except Arthur and Kay respectively. Preserve clear hands, readable faces, and the warm, funny brotherly exchange under danger. Make Kay own the page: the jealous brother rides into an army for the king, carries Arthur back to their own line, and leaves the reader poised for the coming charge.
