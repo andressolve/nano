@@ -1,0 +1,31 @@
+## PAGE 1
+
+Illustrated prose. The book opens at night outside the high garden wall of a dark, shuttered house at Auteuil. The Count of Monte Cristo stands alone at the iron gate, lantern held low, looking up at one huge old plane tree as if it were a face he knew. The title is printed over the night sky; one prose field over the dark of the lane tells the reader who he is, what was done to him, and that the second man on his list is Villefort, the King's Attorney, the one who knew Edmond was innocent and buried him anyway. The dominant turn: the Count has come back to his list, and the second name is Villefort. The reader turns because he has come to this dark house for that man. The house details, the gate's ironwork and the lane stay subordinate to the lone figure and the tree.
+
+## PAGE 2
+
+Dramatic. In the overgrown garden at Auteuil, under the great plane tree, the Count holds his lantern low over a circle of bare earth while Haydée, arms folded against the cold, watches him rather than the ground. A caption tells the reader who Haydée is and why she alone knows his secret. She asks plain questions; he answers that twenty-one years ago a man buried a box here with a newborn baby in it, and the Count's face, lit from below, begins to smile before he names the man: Gérard de Villefort. The dominant turn: the Count shows Haydée where Villefort buried a newborn, and smiles. The reader turns because a baby went into this ground and the Count is enjoying it. The garden walls, the house and the lantern's make stay subordinate to the bare ground and his face.
+
+## PAGE 3
+
+Dramatic. Continuous in the night garden. Haydée turns on him: how can he know? The Count explains that a hidden enemy of Villefort dug the box up alive, and later confessed it to a priest who was the Count in disguise. Then, wide and small under the vast tree with the black house behind and the glow of Paris far off over the wall, he tells her the child lived, is twenty-one, and is a thief, a liar and a murderer; Villefort's son by a woman not his wife. Villefort does not know he has a son, and the Count means to give him back. The dominant turn: the buried baby lived, and the Count means to return him to Villefort. The reader turns because that gift is a murderer. The distant city glow stays a small light, never a scene of its own.
+
+## PAGE 4
+
+Dramatic. A low, smoky cellar tavern in Paris. Benedetto, young, insolent, in a stained mustard-brown jacket, lays down a winning hand while two rough card players glare; the Count sits down across from him, black and still. Benedetto mocks him; the Count names him, then names his crimes: the escape from the galleys at Toulon and the guard who did not fall by himself. Benedetto's grin stays but his hand goes for the knife in his boot. Leaning into the candlelight, the Count says he knows where Benedetto was born, in a garden, in a box, and that his story has a rich father in it. The dominant turn: the Count finds a murderer born in a box and dangles a rich father. The reader turns because Benedetto now wants the name. The card players and the cellar's bottles stay background.
+
+## PAGE 5
+
+Dramatic. The cellar, continuous. Benedetto, interested at last, demands his father's name; the Count refuses and offers him a better name of his own. On the stained table the Count's gloved hand sets down a fat purse, a gold signet ring and an engraved white visiting card that reads Prince Andrea Cavalcanti: from tonight the convict is an Italian prince. Benedetto slides the ring on, delighted, and asks the price; the Count says the prince will dine where he is told, next week with the King's Attorney, and Benedetto laughs at the joke. The dominant turn: Benedetto becomes Prince Andrea Cavalcanti, bound for the King's Attorney's table. The reader turns because only the Count knows the prince is Villefort's son. The purse and ring stay secondary to the card.
+
+## PAGE 6
+
+Dramatic. The Assize court in grey winter light. Villefort, King's Attorney, in his black robe with white bands, demands twenty years in the galleys for a thin, hungry prisoner while every face is on him; a caption says he has not lost a case in eleven years. High in the gallery the Count watches. Later, the court empty, the Count comes down to Villefort's desk; Villefort greets him with cold courtesy, and the two men stand face to face across the desk exchanging polite lines that mean two different things. The dominant turn: the Count measures Villefort face to face, and Villefort has no idea who he is. The reader turns because the Count is close enough to touch the man who buried him. The prisoner, the crowd and the papers stay subordinate to Villefort's performance and the two faces.
+
+## PAGE 7
+
+Spectacle. On the steep walled lane at Auteuil two bay horses bolt downhill with no coachman, dragging a light open carriage in which Madame de Villefort screams and clutches her small son. A single caption tells who they are. The Count steps out of his own gateway into the road, cloak flying, seizes the lead horse's bridle with both hands and throws his weight back; the horses rear above him, a wheel smashes into the gatepost, and he does not move. Then sudden stillness: the horses heaving, the carriage tilted against the post, and over its side a small limp hand still holding a tin hussar. The dominant turn: the Count stops the runaway carriage, and the boy is limp. The reader turns because the child is not moving. Splinters and the lane's walls stay subordinate to the man in the road.
+
+## PAGE 8
+
+Dramatic. On the gravel inside the Count's gate, he kneels with the limp boy across his knee while Madame de Villefort, hair fallen, begs. One red drop from a small crystal vial falls on the boy's lips; his eyes fly open and he flings his arms round his mother, tin hussar still in his fist. She asks what the Count gave him. Then, face to face over the boy's head, the vial held up between them, her eyes are on the vial, wanting it, and his are on her, reading her: she asks what more than one drop would do, he tells her ten would stop a heart undetectably, and gives it to her. The dominant turn: the Count revives the boy and hands the vial to a mother he knows will use it. The reader turns because he knew. The gravel and the gate stay background to the two faces and the one vial.

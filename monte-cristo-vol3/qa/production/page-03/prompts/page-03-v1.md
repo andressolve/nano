@@ -1,0 +1,27 @@
+Create one finished, flattened 1024 × 1536 portrait 2:3 story page for a premium printed illustrated novel, with lettering baked into the artwork. This is a new staged three-panel dramatic scene, not a montage, model sheet, portrait board, collage, mockup, or layout study. Use only the two supplied reference images as identity references: the Count's sheet for the Count and Haydée's sheet for Haydée. Preserve the Count's fourth-view identity exactly: long black cloak over black, pallor, high cheekbones, hollow temples, clean-shaven face, swept-back black wave with the first grey, and the slight lift at the left corner of his mouth. Preserve Haydée's identity exactly: one heavy black braid, very dark wide-set eyes, olive-gold skin, a crimson-and-gold Epirote coat, slight build, and direct bearing.
+
+Use mature historical graphic-novel realism painted in layered matte gouache and opaque watercolor over sparse charcoal and ink construction. Keep broad visible brushstrokes, simplified interlocking color shapes, bold shadow masses, selective hard edges at faces and hands, tactile cloth, stone, wood, paper, wax, and metal, and expressive anatomically credible faces. Use cinematic blocking without photographic lens effects. This is Velvet Cinema: not smooth prestige-oil realism, glossy game-concept-art surfaces, airbrushed skin, engraved cross-hatching, oil-painting pastiche, anime proportions, children's-book softness, or generic grimdark.
+
+The setting is the night garden at Auteuil in Paris, autumn 1838. Use night-blue darkness and lantern-gold light. The garden has a huge pale-trunked plane tree, bare undisturbed ground, a shuttered black house behind it, and a wall with only a faint small gold glow of Paris far away; the city glow must never become a separate scene. There is no hole, box, baby, priest, Villefort, Benedetto, flashback, or other person. The Count is the only unbroken black vertical figure. Haydée is the only other principal figure. No readable words appear except the eight listed strings.
+
+Build a clear top-to-bottom reading path with one dominant image. Use three panels with no panel border crossings and a minimum-feeling gutter. Panel one is a shallow upper strip: Haydée stands on the left and turns sharply on the Count, with the lantern between them; the Count stands on the right. Her balloon is upper left with its tail ending beside her visible mouth. His reply is on the upper right and then lower right, with its tail ending beside his visible mouth. Panel two is a quiet close panel: the Count alone, half-turned and privately amused, mouth visible, with his balloon beside his mouth. Panel three is by far the largest and dominant: a wide distant view of Haydée on the left and the Count on the right, both small beneath the vast plane tree, with the black house behind and the faint Paris glow beyond the wall. The Count looks toward the distant glow. Reserve the open night sky above them as clean balloon lanes: Haydée's first line upper left, the Count's reply upper right and lower, Haydée's second line middle left lower again, then the Count's final two balloons stacked lower right. A reply must sit clearly lower than the line that prompts it. Keep every visible mouth clear, every tail ending beside its own speaker's mouth, and every tail away from hands, props, bystanders, and open space. Do not add any silent figures or balloons.
+
+The dialogue is read in this exact order, with each line lettered exactly once and no quotation marks rendered. Haydée, standing on the left in the first panel, says: If he buried it in the dark, how can you know?
+
+The Count, standing on the right in the first panel, replies: A man who hated Villefort was hiding behind that wall. He dug the box up the moment Villefort left, and the baby was breathing.
+
+The Count, alone and half-turned in the second panel, says: Years later he confessed it to a priest, the Abbé Busoni. I was the Abbé Busoni — one of my disguises.
+
+Haydée, in the large garden panel on the left, asks: And the child?
+
+The Count, in the large garden panel on the right, replies: Alive. Twenty-one. A thief, a liar, and since spring, a murderer.
+
+Haydée, still on the left in the large garden panel, says: Villefort's son.
+
+The Count, on the right in the large garden panel, says: His child by a lady who was not his wife. A baby like that would have ruined a young prosecutor.
+
+The Count, on the right in the large garden panel, finishes: He doesn't know he has a son. I'm going to give him back.
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+Use warm ivory balloon fill with restrained dark painted outlines and organic oval shapes. Keep dialogue lettering large, upright, legible, warm, and slightly irregular; use no condensed comic-display face, geometric UI font, cursive body text, all-capital prose, distressed letterforms, thin old-style italics, tiny handwritten documents, captions, sound cues, page numbers, title, production label, editorial text, labels, or invented words. Keep a generous safe margin, comfortable balloon widths, and all essential lettering comfortably inside the page. Do not letter anything beyond the eight exact strings above. The final page must be a single finished illustrated-novel page at 1024 × 1536 portrait, with no watermark.

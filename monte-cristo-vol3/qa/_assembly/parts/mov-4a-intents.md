@@ -1,0 +1,23 @@
+## PAGE 28
+
+A dramatic page in Noirtier's green room in the morning. Valentine sits on a footstool at her grandfather's chair, chatting about how kind her stepmother has been and sipping the chocolate her stepmother sent down. She notices it tastes bitter, and then she falls. The page belongs to the fall and to the old man above it: Valentine sliding off the stool, the cup breaking, the book dropping open, while Noirtier, who cannot move a muscle or make a sound, stares at her in terror. The dominant turn: Valentine drinks the poisoned chocolate and falls while Noirtier can only watch. The reader turns because the poison has reached the girl the Count's plan was supposed to keep safe. Subordinate: the furniture of the room, the book, the medicine glass on his table.
+
+## PAGE 29
+
+A dramatic page in the Count's black-and-gold study. Maximilien bursts in soaked from the rain with the news that Valentine fell this morning and should be dead. The Count's poised hand closes when he hears it. Maximilien seizes him and demands to know what is happening in that house; the Count tells him plainly that someone there is a poisoner, then stops him from running to the police, because the police answer to Valentine's father, and gives his word that she will not die. The page belongs to Maximilien's desperation meeting the Count's stillness, and the turn is the promise. Dominant turn: Maximilien begs for help, and the Count promises Valentine will not die. The reader turns knowing he has promised to save the girl his own poison is killing. Subordinate: the study's furniture, the rain, the crushed hat.
+
+## PAGE 30
+
+A dramatic page in Noirtier's room in the evening. Valentine, pale on a daybed, says her grandfather made her sip his medicine every morning. The Count smells the old man's glass and understands: Noirtier has been dosing her against the poison, and his one long blink confirms it. Then, close and low so Valentine cannot hear, the Count tells Noirtier that the next dose will be bigger, and when the old man's eyes demand to know how he knows, the Count confesses the bottle was his, and that he will still have Noirtier's son. Dominant turn: Noirtier's medicine saved her once, and the Count confesses the vial was his. The old man owns the page with nothing but his eyes; the confession is pulled out of the Count. Subordinate: the daybed, the room, the glass once it has been smelled.
+
+## PAGE 31
+
+An illustrated-prose page in a bare, dusty upper room of the empty house next door to Villefort's, at night. The Count, alone, holds a lantern beside a narrow doorway newly cut through the wall; through it, past the back boards of a tall wardrobe left open a crack, lies a sliver of a white room. The prose tells how he bought the house, had the door cut by workmen paid to keep quiet, put out his lantern and sat down in the dark to wait, why he did not warn Valentine, and that he could wait three nights in a wall. Dominant turn: the Count cuts into the wall and waits in the dark. The reader turns because he is inside the wall and someone is coming. Subordinate: the dust, the tools, the room's emptiness.
+
+## PAGE 32
+
+A silent spectacle page in Valentine's room at night. We look out from inside the dark wardrobe, through the crack of its door: a white moonlit room, Valentine asleep in her narrow bed, and her stepmother in a violet dressing-gown, a shaded candle in one hand, tipping red drops from the small crystal vial into the glass of water by the bed. Below, in the black of the wardrobe, the Count's eye at the crack and his hand flat on the door. Dominant turn: the Count watches Héloïse pour the drops into Valentine's glass. The page belongs to the act seen through the gap; the reader turns because he has caught the poisoner in the act, with his own vial. Subordinate: the room's furniture, the moonlight, the candle.
+
+## PAGE 33
+
+A dramatic page in Valentine's room minutes later. The Count steps out of the wardrobe and quiets her with a hand over her mouth, then holds her glass up to the candle so she can see the red threads drifting in it. He tells her who poured them; she cannot believe it of her stepmother, then lifts her chin and says she will tell her father, and the Count answers that two people have been poisoned in her father's house and he has not called the police. Dominant turn: the Count shows Valentine the poisoned glass and that her father will not save her. The glass held to the candle owns the page; the reader turns because Valentine now knows, and even her father will not save her. Subordinate: the bed, the wardrobe, the room.

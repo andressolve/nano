@@ -1,0 +1,27 @@
+Create one finished, flattened 1024 × 1536 portrait story page in a 2:3 format, with lettering baked in natively. This is a canonical printed illustrated novel page, not a prototype, mockup, sample sheet, spread, layout study, montage, model sheet, portrait board, or collage. Use the two attached images only as identity references for the two people; create a new staged scene in which they act. No page number, title, production label, speaker name, or editorial text appears anywhere. The only visible text is the seven exact strings listed below, rendered once each and in their listed reading order. No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+Use mature historical graphic-novel realism painted in layered matte gouache and opaque watercolor over sparse charcoal and ink construction. Broad visible brushstrokes, simplified interlocking color shapes, bold shadow masses, selective hard edges at faces and hands, tactile cloth, stone, wood, paper, wax and metal, expressive anatomically credible faces, cinematic blocking without photographic lens effects. Do not use smooth prestige-oil realism, glossy game-concept-art surfaces, airbrushed skin, engraved cross-hatching, oil-painting pastiche, anime proportions, children's-book softness, or generic grimdark.
+
+Set the scene in Paris in autumn 1838, inside the Count's study on the Champs-Élysées at night. The study is black and gold with one candle and a tall window over the lamps of Paris. Use vertical accumulation and a clear top-to-bottom reading path. The man is tall and columnar, with deep-set black-brown eyes, strong straight brow, high cheekbones, hollow temples, pallor, clean-shaven face, swept-back black wave with first grey, and slight left-mouth asymmetry. He wears unrelieved black evening dress and black gloves. The woman has long unbound black hair or one heavy braid, large wide-set very dark eyes, straight brows, olive-gold skin, full mouth, slight build, and crimson-and-gold Epirote long open coat over a straight underdress. Her bearing is direct and still. No other people appear. No vial or bottle appears anywhere; it is only spoken of. No legible papers appear on any surface.
+
+Make one dominant image plainly own the page. The largest panel is the quiet, close, tall beat and occupies about half the page: at RIGHT, the man stands at the tall window looking out over the lamps of Paris, black gloves still on, turned enough that his mouth is visible; at LEFT, the woman stands in the doorway with arms folded. Her first balloon is upper left beside her visible mouth. His reply is upper right, clearly lower than hers, with a tail ending beside his mouth in open space. Keep the candle and window light black-and-gold, with the room falling into deep painted shadow.
+
+Below it, make a second panel occupying about a quarter of the page: at LEFT, the woman crosses the room toward him, blunt and visible-mouthed; at RIGHT, the man is half turned. Her balloon is upper left. His reply is on the right, lower than hers. Keep each tail beside its own speaker's mouth and clear of hands, props, and bystanders.
+
+Below a clear gutter, make a final quarter-page panel divided into two stacked beats. In the upper beat, show the man alone turning from the window, his poised right hand flat on the glass, exactly one hand on the glass. Place his two balloons stacked beside his visible mouth, with their tails ending beside him. In the lower beat, show the woman alone in a close view, looking straight at him and at us; place her one balloon beside her mouth in its own clear lane of open dark, with nothing else near it. The last beat is the page's knife: she looks at him without softening, and he has no answer.
+
+Render the first balloon, spoken by the woman in the doorway on the left, exactly as: The girl Maximilien loves sleeps in Villefort's house. So does your little bottle.
+
+Render the lower reply, spoken by the man at the window on the right, exactly as: I know where she sleeps.
+
+Render the next balloon, spoken by the woman crossing from the left, exactly as: Then go back tonight and ask her for it. She would give anything to the man who saved her son.
+
+Render the lower reply, spoken by the man on the right, exactly as: And give Villefort back his quiet house? No. I want to hear it fall, Haydée. Every floor of it.
+
+Render the first stacked balloon in the upper final beat, spoken by the man turning from the window, exactly as: I will be standing in every road of that house. Nothing will happen there that I don't see.
+
+Render the second stacked balloon in the upper final beat, spoken by the same man, exactly as: Whatever happens, Valentine walks out of it alive. I promise you that.
+
+Render the final balloon in the lower final beat, spoken by the woman looking straight at him and at us, exactly as: That is what you said about the boy in the carriage.
+
+Use warm ivory balloon fill with restrained dark painted outlines and open tails. Use a comfortable, readable hand-lettered scale; never let any balloon, caption, or field cross a panel border. Keep essential text well inside the page edges. Dialogue is upright mixed case only. There are no captions, sound cues, prose fields, labels, signs, documents, invented words, or added punctuation. Nothing else is lettered anywhere on the page.

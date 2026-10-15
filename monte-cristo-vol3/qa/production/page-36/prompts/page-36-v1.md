@@ -1,0 +1,37 @@
+Create one finished, flattened illustrated novel story page in a 1024 × 1536 portrait canvas, 2:3 aspect ratio, with lettering baked in natively. This is a canonical printed page, not a prototype, mockup, sample sheet, spread, layout study, montage, model sheet, portrait board, or collage. Use the two attached character sheets only as identity references; create a new staged scene. Do not show any page number, title, production label, editorial note, speaker name, label, tag, or other text beyond the exact strings specified below.
+
+Use mature historical graphic-novel realism painted in layered matte gouache and opaque watercolor over sparse charcoal and ink construction. Use broad visible brushstrokes, simplified interlocking color shapes, bold shadow masses, selective hard edges at faces and hands, and tactile cloth, stone, wood, paper, wax, and metal. Keep faces expressive and anatomically credible, with cinematic blocking and no photographic lens effects. This is Velvet Cinema: not smooth prestige-oil realism, glossy game-concept-art surfaces, airbrushed skin, engraved cross-hatching, oil-painting pastiche, anime proportions, children's-book softness, or generic grimdark.
+
+Set the page in Paris in the afternoon after the recent death, in Noirtier's room at Villefort's house. The room is dark forest green and kept as in 1815: green walls, restrained furniture, cold afternoon light, and a small empty footstool beside Noirtier's wheeled armchair. Furniture and the clock remain subordinate. The dominant emotional turn is that the silent old man spells the name of his daughter-in-law and Villefort can no longer pretend not to know that his wife is the poisoner. The page must read as a quiet, dramatic revelation rather than an action tableau.
+
+Use a clear top-to-bottom reading path and one dominant image. Build four clearly separated panels with a restrained panel gutter and a safe outer margin. The top strip is a shallow establishing beat: Villefort stands on the LEFT, exhausted, in the dark green room; Noirtier sits motionless on the RIGHT in his wheeled armchair, staring at the small empty footstool beside him. Villefort's mouth is visible and his balloon is upper left beside his mouth. Noirtier has no balloon, no tail, and no spoken text.
+
+The dominant middle panel is the largest image by far and carries the page's emotional weight. Villefort is on the LEFT, seated unwillingly at a little table with pencil and paper, his mouth visible. Noirtier is on the RIGHT, motionless in the armchair, his fierce eyes blazing and then closing once to select a letter. Stage them as opposed figures with the father's gaze and the son's reluctant attention carrying the exchange. Villefort's first speech balloon is on the left beside his mouth; his second, shorter reply is clearly lower on the left, never level with the first. Keep every tail ending in open space directly beside Villefort's mouth. No tail or tail fragment points toward Noirtier.
+
+The third panel is a small, quiet insert of the scrap of paper on the table under Villefort's pencil. Show the letters H É L O Ï S E written large in a single spaced row on the scrap, with no other legible writing. This is object text, not a balloon. Place the caption field beside the paper with no tail. Keep the pencil and paper readable while leaving the furniture subordinate.
+
+The bottom panel is another quiet dramatic beat. Villefort stands or sits on the LEFT, grey and stricken, looking up from the written word toward his father; Noirtier is on the RIGHT, his eyes closing slowly once. Stack all three of Villefort's balloons on the LEFT beside his visible mouth in reading order: first the question, then the short answer, then the final realization. The lower reply must sit clearly below the question that prompts it. Keep the tails short and distinct, all terminating beside Villefort's mouth. Noirtier never speaks and receives no balloon or tail.
+
+Villefort must match the approved sheet exactly: narrow inverted-triangle face, very high forehead, close-set grey-hazel eyes, aquiline nose, iron-grey hard side part, clean-shaven face, rigid black frock coat, and high white stock. Noirtier must match the approved sheet exactly: broad gaunt leonine face, long white hair, white cavalry moustache, fierce eyes, motionless body in the wheeled armchair, forest-green Empire coat, and tartan rug. Preserve the visual contrast of Noirtier's white mane and moustache against Villefort's clean-shaven narrow face and grey side part. Valentine, Madame de Villefort, the Count, the boy, a vial, and all other named figures are absent. Do not introduce any additional readable writing.
+
+Render dialogue in a rounded upright mixed-case hand inside organic oval balloons with warm ivory fill and a restrained dark painted outline. It must be hand-lettered, never serif, never italic, never boxed, never a rectangular or rounded-rectangle box, never condensed comic-display, geometric UI, cursive body text, all-capital prose, distressed, or tiny. The only serif lettering is the caption field. Use comfortable balloon shapes and clear separation from faces, hands, props, and panel borders. Use a legible literary serif for the single caption field, left-aligned on matte parchment in the page palette, with a calm ragged right edge. Keep all essential lettering comfortably inside the page.
+
+In the top strip, stage Villefort alone as the visible speaker on the left and letter beside his mouth: They tell me you have stared at Valentine's empty stool since they wheeled you back, Father. She is dead. What is there to say?
+
+In the dominant middle panel, stage Villefort alone as the visible speaker on the left, seated at the table with pencil and paper. Letter beside his mouth: You want to spell something. Very well. A, B, C, D, E, F, G, H —
+
+In the same dominant middle panel, place a second, short Villefort balloon clearly lower on the left, after Noirtier's eyes have closed once. Letter: H.
+
+Beside the paper in the small insert panel, place one tail-free caption field and letter: Letter by letter, it took a quarter of an hour.
+
+On the scrap of paper in the small insert panel, letter the object text in one large spaced row: H É L O Ï S E
+
+In the bottom panel, stage Villefort alone as the visible speaker on the left, looking toward Noirtier, and letter the upper balloon beside his mouth: Héloïse? My wife?
+
+In the bottom panel, after Noirtier's eyes close slowly once, place a second Villefort balloon below the question, still on the left beside Villefort's mouth, and letter: Yes.
+
+In the bottom panel, place the final Villefort balloon below the answer, still on the left beside his mouth, and letter: I think I have known it since the night her grandmother died.
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+Render exactly the eight specified strings once each, in the order given, with the ownership and staging described above. Do not add punctuation, captions, labels, sound effects, decorative writing, invented dialogue, page numbers, or any other text. Noirtier remains silent throughout. Make the page feel like the instant Villefort's denial collapses: the empty stool, the blazing eye, the selected letter, and his grey final confession form a legible vertical descent from observation to knowledge.

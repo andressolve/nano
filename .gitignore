@@ -51,3 +51,12 @@ beowulf-vol1/refs/superseded/
 beowulf-vol1/pages/proofs/
 beowulf-vol1/logs/
 beowulf-vol1/**/__pycache__/
+
+# The Count of Monte Cristo Volume III: publish final pages, approved references,
+# and text records; production candidates and proofs stay in monte_inspired.
+monte-cristo-vol3/qa/**/*.png
+monte-cristo-vol3/refs/candidates/
+monte-cristo-vol3/refs/superseded/
+monte-cristo-vol3/pages/proofs/
+monte-cristo-vol3/logs/
+monte-cristo-vol3/**/__pycache__/

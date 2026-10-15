@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "monte-cristo-vol3",
+    title: "The Count of Monte Cristo, Volume III: The King's Attorney",
+    cover: "monte-cristo-vol3/pages/page-01.png",
+    published: "2026-10-15",
+    category: "Myth & Literature",
+    series: "The Count of Monte Cristo · Volume III",
+    summary: "Twenty-one years ago the King's Attorney buried a baby under a tree at Auteuil and never stopped to listen. The baby lived. Now the Count of Monte Cristo has bought the house, dressed the boy up as an Italian prince, and handed a little red bottle to the one woman in Villefort's house who will use it. Fifty-six illustrated pages of a grandfather who speaks only with his eyes, a door cut through a wall, a false death and a tomb opened at night, a courtroom where the prisoner names the prosecutor as his father, and the price, paid by people who did nothing."
+  },
+  {
     slug: "beowulf-vol1",
     title: "Beowulf: The Hall, the Mere, and the Dragon",
     cover: "beowulf-vol1/pages/page-01.png",
