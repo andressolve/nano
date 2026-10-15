@@ -307,3 +307,16 @@ Count REVISE verdicts by category:
 Owner: "add it nano, commit and push". Published 57 final pages and 34 approved references, byte-identical to production, plus the reader (with toolbar and ending library links) and the text records; candidates, proofs, superseded references and logs excluded by `.gitignore`. Card added first in `stories.js`. Commit `850469d` pushed to `origin/main`; Pages run `38660871975` success. Live checks: reader 200 with the correct title, pages 1 and 57 200, live `stories.js` carries the card first.
 
 Live reader: https://andressolve.github.io/nano/beowulf-vol1/index.html
+
+## 2026-10-14 — learnings (full journal: `10-PRODUCTION-MEMOIR.md`)
+
+- Keep a source's "epilogue" half in the same volume when the first half can plant its payoff (Hrothgar's warning → the dragon).
+- A climax partner needs a scene with the hero before the fight (Wiglaf's forge scene, the book's one invention).
+- Script holes the critics found were all causal/continuity: unnamed speakers, a death without the hero's grief, a victim never met, kinship revealed at the deathbed, an unstated climax motive, a dying wish overridden without saying so.
+- Reference markers must be bold enough to hold at sheet scale; multi-object plates get split or retired; extras on 2+ pages get sheets; every sheet names a nearest lookalike.
+- Parallel plate workers save hours; stop `--all` before collisions.
+- Extras described as "old man" inherit a principal's look — write their look.
+- Reserved hero colour leaks onto extras (promoted to method/07).
+- Chronicle map labels need positions on the card; the page critic passed a mislabelled map.
+- Batch-boundary artifacts (answer on the next page, outside the batch) are ruled and rerun, not redrawn.
+- Edits that touch text: spell out every string in the region (a capital-letter fix changed a colon).
