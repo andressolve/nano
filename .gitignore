@@ -42,3 +42,12 @@ king-arthur-vol1/refs/superseded/
 king-arthur-vol1/pages/proofs/
 king-arthur-vol1/logs/
 king-arthur-vol1/**/__pycache__/
+
+# Beowulf: publish final pages, approved references,
+# and text records; production candidates and proofs stay in monte_inspired.
+beowulf-vol1/qa/**/*.png
+beowulf-vol1/refs/candidates/
+beowulf-vol1/refs/superseded/
+beowulf-vol1/pages/proofs/
+beowulf-vol1/logs/
+beowulf-vol1/**/__pycache__/

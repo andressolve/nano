@@ -1,0 +1,25 @@
+Create one finished, flattened story page for a printed illustrated novel, 1024 × 1536 portrait in a 2:3 ratio, with lettering baked into the image. This is a canonical chronicle page, not a prototype, mockup, sample sheet, spread, layout study, montage, collage, model sheet, or portrait board. Use the attached set-chronicle.png only as the identity reference for the vellum, ruled margin, interlace initial frame, and unlettered map treatment; create a new complete staged page. Do not add a page number, title, production label, editorial text, signature, monogram, artist mark, or watermark.
+
+The whole canvas is a page from an old English chronicle about the year 1000: warm ivory vellum, a ruled brown-ink margin, iron-gall brown ink, fine pen hatching, and transparent watercolour wash. Use one illuminated initial at the beginning of the first chronicle field, built from red and lapis-blue interlace knotwork with a touch of raised gold leaf. The page must visibly be a different medium from the painted Northern Saga story pages: no oil paint, no full-bleed painted scene, no glossy concept art, no photographic rendering, no anime proportions, no children's-book softness, no plastic 3D rendering, and no fantasy-game styling.
+
+The dominant image is a hand-drawn ink-and-watercolour map occupying the upper-right and central portion of the page. It shows the lands around the North Sea and Baltic long ago, with soft green-wash land and pale grey-green sea: the Danish peninsula and islands in the middle, southern Sweden across the water to the right, the open North Sea, and the eastern coast of England at the left edge. Show the dotted sea-road from the Geats' coast to the Danish island of Zealand. Mark Lejre on Zealand with a tiny, clearly recognizable long hall drawing. Any small ships have striped sails and no visible people. Keep the map legible and historically evocative, with no compass rose, scale bar, extra place names, dates, pseudo-writing, or decorative text.
+
+Place the first chronicle field on plain vellum to the left of the map. It begins with a large illuminated red-and-lapis interlace initial W with raised-gold accents, and the rest of the first word continues directly from that initial without doubling the letter. Continue the field in a dark brown prose serif, left aligned with a calm ragged right edge, generous vellum around it, and no drawing behind the words. Place the second chronicle field below the map, full width inside the ruled margin, also on plain vellum in the same dark brown prose serif with generous breathing room. Keep both fields highly readable at the 600 × 900 proof. The first field and second field are prose fields, not speech balloons, captions, or boxes.
+
+Letter all dialogue-like text, if any, in a rounded upright mixed-case hand, but this page has no spoken dialogue and no balloons. Chronicle prose uses only a legible literary serif. The only visible text on the page is the six strings listed below. Render each exact string once, in the listed order, with no quotation marks, bullets, numerals, speaker tags, owner tags, labels such as FIELD or LABEL, or any other added text. Preserve punctuation, apostrophes, capitalization, and spelling exactly. The four short final strings are small hand-lettered ink labels placed beside their corresponding map points: one over Denmark, one over southern Sweden, one beside the tiny hall at Lejre, and one at England's coast. They are map labels, not a title or legend.
+
+Who were the Danes and the Geats? Look at the map. About fifteen hundred years ago, the Danes lived on the islands and coasts of what is now Denmark. The Geats lived across the water, in what is now southern Sweden. Between them lay the sea, and the sea was their road.
+
+In old Danish stories, King Hrothgar's family ruled from a place called Lejre. There, archaeologists have found the post-holes of great wooden halls, one almost fifty metres long. And the old poem this story comes from was made far away, in England, by people whose ancestors had sailed there from these very coasts.
+
+Danes
+
+Geats
+
+Lejre
+
+England
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+There are no story characters and no people anywhere on this page. No Beowulf, Hrothgar, or any person. Do not draw faces, figures, crowds, or human silhouettes. The only living forms may be the tiny striped-sail ships, with no visible figures. Do not include balloons, captions, oil-painted scenes, blood, wounds, gore, fantasy effects, or invented symbols. Keep the page's reading path clear: first the illuminated beginning and first prose field at left, then the map and its four point labels, then the second prose field below the map. Preserve the reference's restrained brown, blue, green, and vellum palette and the quiet authority of a handmade medieval chronicle.

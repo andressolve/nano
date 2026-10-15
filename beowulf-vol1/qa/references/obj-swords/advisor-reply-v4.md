@@ -1,0 +1,1 @@
+RESET: Rewrote `obj-swords` from the clarified ledger locks, enforcing the 60–65% human-to-giant scale hierarchy, approved hilt silhouettes, and blade-free melted state; recorded the ruling in `HANDOFF.md`.

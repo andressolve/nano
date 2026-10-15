@@ -1,0 +1,1 @@
+RETIRE: Retired `obj-swords`; human swords remain locked on their approved character sheets, and the story-critical giant sword is split into `obj-giant-sword-whole` and anchored `obj-giant-sword-hilt` plates.

@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "beowulf-vol1",
+    title: "Beowulf: The Hall, the Mere, and the Dragon",
+    cover: "beowulf-vol1/pages/page-01.png",
+    published: "2026-10-14",
+    category: "Myth & Literature",
+    series: "Beowulf",
+    summary: "Something in the fens hates the music of the greatest hall in the world, and for twelve winters nobody dares sleep there. Then the young man his own people laughed at crosses the sea to fight it with his bare hands, dives to the bottom of a black lake after its mother, and fifty years later, an old king too proud to ask for help, walks out alone to meet a dragon. Fifty-seven illustrated pages of three monsters, a rival who lends his sword, and the one boy who stays, plus six Chronicle pages on mead-halls, named swords, buried hoards, and the single scorched book that saved the story."
+  },
+  {
     slug: "king-arthur-vol1",
     title: "King Arthur, Volume I: The Sword and the Table",
     cover: "king-arthur-vol1/pages/page-01.png",

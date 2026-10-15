@@ -1,0 +1,5 @@
+[page-46-v1.png](/Users/andresrodriguez/Documents/monte_inspired/books/beowulf-vol1/qa/production/page-46/candidates/page-46-v1.png) — 1024×1536, BASE  
+[page-46-v1.md](/Users/andresrodriguez/Documents/monte_inspired/books/beowulf-vol1/qa/production/page-46/prompts/page-46-v1.md) — SHA256 `b419e62c73d044c91d24a57d60ff6bda5439faa3368e84bd125a7aef047bc25e`  
+[page-46-v1.md](/Users/andresrodriguez/Documents/monte_inspired/books/beowulf-vol1/qa/production/page-46/audits/page-46-v1.md) — SHA256 `1fafba3859c9fe758c32bd697ebfb83b4dcce4a25b3d4b3d201a30b07d57d6e3`  
+[page-46-v1-600x900.png](/Users/andresrodriguez/Documents/monte_inspired/books/beowulf-vol1/qa/production/page-46/proofs/page-46-v1-600x900.png) — SHA256 `ad727e97669d03cb0c8acc007e155f8276406e87934700fcb023f60ac245f9e1`  
+[page-46-v1-768x1152.png](/Users/andresrodriguez/Documents/monte_inspired/books/beowulf-vol1/qa/production/page-46/proofs/page-46-v1-768x1152.png) — SHA256 `a49787e5efa91c334544eaac6f726e484923605cca7d1f45d6bc17f6b14c250c`

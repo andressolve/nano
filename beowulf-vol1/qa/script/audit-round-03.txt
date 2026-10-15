@@ -1,0 +1,22 @@
+pages: 57   dramatic 22  prose 12  spectacle 17  chronicle 6
+mode share target ≈ 60 / 20 / 13 over the story pages; chronicle ≤ 15% of the book — a book of only dramatic scenes has lost the form
+
+BLOCKERS: none
+WARNINGS (craft signals, judged by the script critic):
+  - p17: spectacle page carries 31 words — text should stay under 15% of attention
+  - p18: spectacle page carries 34 words — text should stay under 15% of attention
+  - p24: spectacle page carries 38 words — text should stay under 15% of attention
+  - p31: spectacle page carries 32 words — text should stay under 15% of attention
+  - p38: spectacle page carries 35 words — text should stay under 15% of attention
+  - p39: spectacle page carries 31 words — text should stay under 15% of attention
+  - p49: spectacle page carries 39 words — text should stay under 15% of attention
+  - p57: the book ends on a chronicle page — confirm the story's last turn lands before it
+
+FIVE-WORD AUDIT — 6 balloons of five words or fewer. Each needs the explicit ambiguity audit
+(complete thought or intentional answer? one visible referent? clear without notes? forceful, not compressed?):
+  - p18: BEOWULF: 'Looking for me?'
+  - p34: BEOWULF: 'Yes, my lord.'
+  - p40: WIGLAF: "I'll gather the army!"
+  - p41: BEOWULF: 'Every time.'
+  - p47: WIGLAF: 'He needs us now!'
+  - p47: WIGLAF: "Then I'll go by myself."

@@ -1,0 +1,5 @@
+- `qa/production/page-15/candidates/page-15-v1.png` — 1024×1536, BASE — SHA256 `a6b70aff...`
+- `qa/production/page-15/prompts/page-15-v1.md` — SHA256 `3749e4e7...`
+- `qa/production/page-15/audits/page-15-v1.md` — SHA256 `5fbf9ba5...`
+- `qa/production/page-15/proofs/page-15-v1-600x900.png` — SHA256 `ef892a40...`
+- `qa/production/page-15/proofs/page-15-v1-768x1152.png` — SHA256 `a12f5849...`

@@ -1,0 +1,73 @@
+# Production ledger
+
+One row per promoted page, appended at promotion and never edited afterwards. A re-promotion appends a new row; the latest row for a page is canonical.
+
+| Page | Mode | Versions | Promoted | SHA-256 | Note |
+|---|---|---|---|---|---|
+| 01 | S | 1 | v1 | 3e7a073c43680bc2e5c475926678e5149f757a7c8a16240ff4c09aa67425087f | independent critic APPROVED |
+| 02 | D | 1 | v1 | 883938572676a797d9d644ec5358aa3b95d5e682966a3b8d5f07fde7c5c2b66b | independent critic APPROVED |
+| 03 | P | 1 | v1 | 56b8507649c8aee4affcc1dac5db46bd01c250a11cd6c54efbdbf012ec5dd5a8 | independent critic APPROVED |
+| 04 | D | 2 | v2 | e100800c8c49557dcef4822cbc7e9ff91983b1b8c178863ed028cb9f2e5b3b15 | independent critic APPROVED |
+| 05 | P | 1 | v1 | c6aa12ecb12347c64a22710e4c5de972f266b4ae898bbff6163d57e56c81a71d | independent critic APPROVED |
+| 06 | D | 1 | v1 | a2feb69b4734899916407fa1e0bf7f2b1fae36f36ed8b8e5f60f2b89757ab3c8 | independent critic APPROVED |
+| 07 | C | 1 | v1 | 6dd6790e1ce1695fb805ff978a7d9aaeb092a864fa41fd5956d0bead7cea8ad9 | independent critic APPROVED |
+| 08 | P | 2 | v2 | 4f0ddecf072bb4b5d4a2c8f4a7242854e278967aebe1ced47342e56a0d03c82f | independent critic APPROVED |
+| 09 | P | 1 | v1 | 23e4172e61ef29a8f41b2012e6fc6bd204388fee3ecd864dae7ea8b31beddc86 | independent critic APPROVED |
+| 10 | D | 1 | v1 | 8f3352881ec10fd796051c754fe1fe75d261ccbba6cd02176a639421aefd670b | independent critic APPROVED |
+| 02 | D | 2 | v2 | defe03029234aaf651631c55f7e8680b1ea1be96fec71b44f6d66764b1b35eee | independent critic APPROVED |
+| 04 | D | 4 | v4 | a3ce0a55221a58902ced01fc9a80ce24dee67300285d5aacce121f2793161ba7 | independent critic APPROVED |
+| 11 | D | 1 | v1 | e26875eb55f75ccc81b2092db6a5edb6e6572b00c12dc064231c8e85609aa75b | independent critic APPROVED |
+| 12 | P | 1 | v1 | 7541f11801f463b90e065f974ab3c250b80d1fdc42b431b2d1c78af6403653e7 | independent critic APPROVED |
+| 13 | D | 1 | v1 | 0e8c83adf7fb44c01d42ba990bdb0a4426e71f87c50508843a92cd9b1c8507bd | independent critic APPROVED |
+| 14 | C | 1 | v1 | 2dd0a5e07598a1acca97727427a8bcd087417a04a2ba26fe4f9cf134bbc35c3d | independent critic APPROVED |
+| 15 | D | 1 | v1 | a6b70aff85c5638d24ed2c73788d2030d8432df04bad4b71756eff0114c30d5e | independent critic APPROVED |
+| 16 | P | 1 | v1 | 3e6fb35344f1373c0d4edc3d5b60ee80bc34b5b5c6c00668e2d642461962e3a0 | independent critic APPROVED |
+| 17 | S | 1 | v1 | 66d9db43b64fdbe8b8f014e9ba85097dc3c0b1d5083925c11982494d6e82a340 | independent critic APPROVED |
+| 18 | S | 1 | v1 | 139337843946998c698eca9f0cd6481017e37867296f75f65a19a6eded3f3ddd | independent critic APPROVED |
+| 19 | S | 1 | v1 | 06784136795bb99701b475461bad2e110b2aef11b01a5dd0f73caf92f42ec550 | independent critic APPROVED |
+| 20 | P | 1 | v1 | 6d25505d6dfcaacdc2ea56a164c5f2e57308e3c7c77d4c703861ecfa7b215bf5 | independent critic APPROVED |
+| 18 | S | 2 | v2 | f7ca0b41f250e96229522bf21969495a3c60669ddc330dd55665f24b120cf81a | independent critic APPROVED |
+| 17 | S | 2 | v2 | 21cac32983b99f2869b80e2a4622bdb3c9c23746927a749db3682dd9f48a9294 | independent critic APPROVED |
+| 21 | D | 1 | v1 | cb85f267f6fb754aa9972f903525942e15ac5e1b885434a25a0ff5792adc81fe | independent critic APPROVED |
+| 22 | D | 1 | v1 | 2afe6eb364e0585ac8120a8f99680575e8b22f36d522f525b6f877f27f42bfc7 | independent critic APPROVED |
+| 23 | C | 1 | v1 | 51f06ca6051b36ce55acbd33f9b79f505ba5f255efd09fdb9d48a516b621c90d | independent critic APPROVED |
+| 24 | S | 1 | v1 | 5cae2e55c367f154542496e10c4c61b5731638b69dfba2ec80b392c06ad7e9d8 | independent critic APPROVED |
+| 25 | D | 1 | v1 | 429fd384ae2e8dc4f173ca37ce15c0eae968bf17550780468562c2a17dedcbd5 | independent critic APPROVED |
+| 26 | P | 1 | v1 | 5fc572cf5d7e8582e0559bb5e006ed5840d8e88949cdca88bb59236b344eec96 | independent critic APPROVED |
+| 27 | D | 1 | v1 | e89109b09e9ab3d6f6206ba7a0d8f6fce16d409ced722b02831c4ba750150cc4 | independent critic APPROVED |
+| 28 | S | 1 | v1 | 3fa632850f32c731940a204c5f0d940c9d51c03ef6d659bab3a8908d07b89243 | independent critic APPROVED |
+| 29 | S | 2 | v2 | 02d48d2bc25325f9d0db9cb209ed969c2cdd1e037e8d010e07ba9f911758bd41 | independent critic APPROVED |
+| 30 | S | 1 | v1 | ba999f698e1411e9a642e266ce0d885c7236e90c68392a1bc077a31dd7d5590d | independent critic APPROVED |
+| 31 | S | 1 | v1 | ead77d644786339851fa4d3550114534d776c6ae0847bb7d55a3476931805cf8 | independent critic APPROVED |
+| 32 | D | 1 | v1 | 951a014cc57bade5230996abf0c9d1a8fa080fac00ba638be15e6604c17f79e1 | independent critic APPROVED |
+| 33 | D | 1 | v1 | 56f112ec0575a89e8ff419fd6437f34011ddcb3f451195536c079c317e94b93a | independent critic APPROVED |
+| 34 | D | 1 | v1 | 238b67dca7e4ea5a1c896b95554f4682a3c96acd315951d10824fa19fca15e91 | independent critic APPROVED |
+| 35 | P | 1 | v1 | 86863000e56c486b79d3bd351a7d7caf92c8b6e08d365478fb3357892750be19 | independent critic APPROVED |
+| 36 | C | 1 | v1 | 375dae142fd47d78bb84608ac21168a47cf40ea9a4b1b156c5b3b1020dff509a | independent critic APPROVED |
+| 37 | P | 1 | v1 | e70bc932f65ea9e9608c7d0798d31341ed3f9e441f19c6c87eb8f77b216a7867 | independent critic APPROVED |
+| 38 | S | 1 | v1 | d9b776b558805d23bffec38e140d144e62beafb1ac2c39c920674f567a60eea7 | independent critic APPROVED |
+| 39 | S | 1 | v1 | 7d41b7201d62085f63508a79635a56440b99190d6f17f1862bf22cc7e92c0874 | independent critic APPROVED |
+| 40 | D | 2 | v2 | 2a012378ca9727fdabf7cd4e3391e7a8329e72dd01458a7a00bbb981d142e2c4 | independent critic APPROVED |
+| 41 | D | 1 | v1 | f66cd41d3830a3885276c0512eec4ab50470372d4d23404b0206cbe88c396491 | independent critic APPROVED |
+| 42 | C | 1 | v1 | 8399621b0bb08576019af5903d45b2119620b785364b33efb01dfaf4f1baaf55 | independent critic APPROVED |
+| 43 | P | 1 | v1 | 65e7d5ee03c870941b6fb249623d484c6e2310309848d4bd2376c9ec7a26b4ea | independent critic APPROVED |
+| 44 | D | 1 | v1 | 421f2dd2bb5f45e6975438a7e022cb6e2c1e13655a1c838361946d70800e525b | independent critic APPROVED |
+| 45 | S | 1 | v1 | b69fa9b8880246aeb59fb0f76f5a0cf5f1eb38dd5ec7a65a85734cd2a97c6713 | independent critic APPROVED |
+| 46 | S | 1 | v1 | aeabcc265d4789deeab6d7e18419171f5a2b2170bf62773841fed6872714d593 | independent critic APPROVED |
+| 47 | D | 1 | v1 | d651aab6b2596db975cc1824daccc4df4f7d474bfb1c189513ba452d608b0d08 | independent critic APPROVED |
+| 48 | D | 2 | v2 | 509b70cdf4f45ac507426e7d28262477c2c8ac459dfe0034b79e48919ea2e67a | independent critic APPROVED |
+| 49 | S | 1 | v1 | 0bdcb34e01e33afd84975ba229b627c1e4dc9938ffdff8172b6f873dce659008 | independent critic APPROVED |
+| 50 | D | 1 | v1 | 236005ad1e5d838ad77dd5e174734e3c21b168cf3d7a6c26a7f3d47647e8a333 | independent critic APPROVED |
+| 51 | S | 1 | v1 | 2cfbabc59fc1c5ea9ee3cb6a973e094bf523aa77982b5239440fa75af3bc241b | independent critic APPROVED |
+| 52 | D | 2 | v2 | 25a1e954a322e66e8b31615e4622038bd369f48960f02115a2c6269868e5998c | independent critic APPROVED |
+| 53 | D | 1 | v1 | ffde03820542da9ef2d0a62714c4162b499cb5a4ae61ddc122c6e13ce94e05c8 | independent critic APPROVED |
+| 54 | S | 1 | v1 | 1fcd2b15928d99c9bbac6b8682cac6d282bf1bfa7009f07f2009ec853d5c2d60 | independent critic APPROVED |
+| 55 | P | 1 | v1 | e0d40721fb1ce0a10fada0925304d38705a5b1ec3ad03c4cde6095bbe2db60ed | independent critic APPROVED |
+| 56 | S | 2 | v2 | 83cea49a02866c307041ea1bf544b11cd91602595eabcddeb838bd272baa7b65 | independent critic APPROVED |
+| 57 | C | 1 | v1 | 74233743c60fd832eb9ccc3e9ee588e3c6efc2eb6bd2e4af5eaf30431fe029c6 | independent critic APPROVED |
+| 46 | S | 2 | v2 | d74ce75a0314ed832f933a604bcd4a9d6dd8ffe9870f9ce602e9aeb116cbdf9f | independent critic APPROVED |
+| 48 | D | 3 | v3 | a930d2f3b1f5477dadbd795e84d198a0001283a4e7fcdd0a58c48a81a5289c71 | independent critic APPROVED |
+| 06 | D | 3 | v3 | d4fabbf22e0b781c5086e247f779f667a765e949533da1e4c9afc73612e4d113 | independent critic APPROVED |
+| 07 | C | 2 | v2 | a4a1afd6e8ff7cc6fa4e23ee5c0e84dddd506d1fc4c972bd056f8042cbb79985 | independent critic APPROVED |
+| 21 | D | 2 | v2 | abe04d9ea45f99c3f1df1d027453ed05713fd86d7ea1ec6dcddbb755ae2d688e | independent critic APPROVED |
+| 42 | C | 2 | v2 | 6a0aa87e2ca962680644cdc3eee83af3d8b347e941ebfc117e9c936df740cc2c | independent critic APPROVED |

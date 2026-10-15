@@ -1,0 +1,1 @@
+RESET: Rewrote `set-barrow` from scratch around its mound–black doorway–bright steam lock, applied all mandatory value/palette findings, and recorded the decision in `HANDOFF.md`.

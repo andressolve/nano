@@ -1,0 +1,1 @@
+RESET: Rebuilt Young Beowulf’s prompt from the clarified nose-and-brow lock, preserved costume/story identity, and recorded the decision in HANDOFF.md.
