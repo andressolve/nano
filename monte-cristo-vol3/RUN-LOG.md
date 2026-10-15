@@ -267,3 +267,9 @@ Count REVISE verdicts by category:
 - A mute character needs one rule taught once and kept literally (the asker speaks the answer); three critics flagged every place the convention slipped.
 - Run the page loop in parallel with a reference regate when the regate's findings touch only critic-only boards.
 - Two men in the same costume value in one wide panel: give the non-protagonist a head marker that holds at a distance and a different depth, in the packet, before generation.
+
+## Nano publication — 2026-10-15
+
+Owner: "add to nano. commit and push". Published 56 final pages and 34 approved references, byte-identical to production, plus the reader (with toolbar and ending library links) and the text records; candidates, proofs, superseded references and logs excluded by `.gitignore`. Card added first in `stories.js`. Commit `255d72d` pushed to `origin/main`; Pages run `38738436905` success. Live checks: reader 200 with the correct title, pages 1 and 56 200, live `stories.js` carries the card first.
+
+Live reader: https://andressolve.github.io/nano/monte-cristo-vol3/index.html

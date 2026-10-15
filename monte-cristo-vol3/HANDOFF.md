@@ -10,7 +10,7 @@ bounded action.
 
 `ADAPTATION` → `SCRIPT_GATE` → `REFERENCES` → `PACKETS` → `PRODUCTION` → `PUBLICATION`
 
-Current: **COMPLETE — publication waits on the owner's word**
+Current: **PUBLISHED (Nano, 2026-10-15)**
 
 ## The story (presented to the owner, 2026-10-14)
 
@@ -123,10 +123,12 @@ in the corridor).
 
 | 2026-10-15 | p12 "Mademoiselle" stray mark fixed by `--edit` (verified by fresh transcription); gate 11–20 regate APPROVED. **Whole-book gate round 3 APPROVED — no findings, no typos** (`qa/whole-book.md`; rounds 1–2 kept as `whole-book-round-1.md`, `-round-2.md`). **Book complete.** Ship record in `RUN-LOG.md`; "the second figure drawn as the principal" promoted to `method/07-FAILURE-MODES.md` (seen twice) and the template packet spec; selftest CLEAN; infra re-frozen 2026-10-15, INTACT. |
 
+| 2026-10-15 | **Owner: "add to nano. commit and push." Published to Nano:** commit `255d72d`, Pages run `38738436905` success; live at https://andressolve.github.io/nano/monte-cristo-vol3/index.html (reader 200 with the correct title, pages 1 and 56 200, card first in live `stories.js`). Publication copy adds the toolbar and ending library links; its verifier requires them and reports CLEAN. 56 pages and 34 locks byte-identical to production. Only `.gitignore`, `stories.js` and `monte-cristo-vol3/` were staged; the nano repo's other uncommitted work was left untouched. |
+
 ## Open holds
 
 NONE
 
 ## Next bounded action
 
-None until the owner's word. To publish to Nano (only on the owner's instruction): copy `pages/`, `refs/approved/` and `index.html` into `~/Documents/nano/monte-cristo-vol3/` (add the toolbar and ending library links as Beowulf's publication copy did), add the card to `stories.js`, verify, commit and push. Owner one-liners ("page N: panel K: …") are executed as `pagerun.py monte-cristo-vol3 --page N --edit "…"`, regated, and recorded here.
+None. Published. Owner one-liners ("page N: panel K: …") are executed in monte_inspired as `pagerun.py monte-cristo-vol3 --page N --edit "…"`, regated, then the page is copied to nano and pushed.
