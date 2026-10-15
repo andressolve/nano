@@ -301,3 +301,9 @@ Count REVISE verdicts by category:
 - **Cost:** Codex in-app on the ChatGPT subscription (no API spend).
 - **Failure modes the gates did not catch earlier than they should:** the reserved colour on an extra (seen twice → promoted to `method/07-FAILURE-MODES.md`); the extra drawn as a principal (watchlist); a Chronicle map label the page critic passed but the whole-book gate caught (watch for maps: the card should name every label's position).
 - **Open, nonblocking, not taken:** time-of-day drift across pp 26–27 and 43–48; p53 broken Naegling reads short; p13 Hrothgar's laugh small; p2 Wealhtheow's balloon sits near Unferth (attributed correctly by every cold reader).
+
+## Nano publication — 2026-10-14
+
+Owner: "add it nano, commit and push". Published 57 final pages and 34 approved references, byte-identical to production, plus the reader (with toolbar and ending library links) and the text records; candidates, proofs, superseded references and logs excluded by `.gitignore`. Card added first in `stories.js`. Commit `850469d` pushed to `origin/main`; Pages run `38660871975` success. Live checks: reader 200 with the correct title, pages 1 and 57 200, live `stories.js` carries the card first.
+
+Live reader: https://andressolve.github.io/nano/beowulf-vol1/index.html

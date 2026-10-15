@@ -10,7 +10,7 @@ bounded action.
 
 `ADAPTATION` → `SCRIPT_GATE` → `REFERENCES` → `PACKETS` → `PRODUCTION` → `PUBLICATION`
 
-Current: **COMPLETE — awaiting the owner's word to publish**
+Current: **PUBLISHED (Nano, 2026-10-14)**
 
 ## Owner decisions on record
 
@@ -53,6 +53,7 @@ Current: **COMPLETE — awaiting the owner's word to publish**
 | 2026-10-14 | **Whole-book gate APPROVED** (`qa/whole-book.md`, mandatory findings none; blind retell complete, no misidentification, all modes match the contract). Edit pass on its nonblocking list: p6 lowercase 'he' → 'He'; pp46, 48 castle-like ruined towers removed from the headland background. Not taken (cosmetic, the critic says the beat carries): p13 Hrothgar's laugh small; time-of-day drift pp43–53; p7 map label placement. Then regates 1–10 and 41–50, then a fresh whole-book gate, then the reader. |
 | 2026-10-14 | Whole-book gate R2 REVISE (p7 map labelled the mainland 'England') → `--edit` p7 (and p21 cloak recoloured), regates 1–10 and 21–30 APPROVED; R3 APPROVED (p42 stray accent → `--edit`, verified by a fresh one-line transcription, regate 41–50 APPROVED); **R4 APPROVED, no findings, no typos** (`qa/whole-book.md`; earlier rounds kept as `whole-book-round-1.md`, `-round-2.md`). |
 | 2026-10-14 | **Reader built** (`index.html`, verifier CLEAN); reader critic (`qa/_publication/reader-critic.md`) REVISE on the #page-58/59 aliases — overruled as the packet's own spec (King Arthur convention); two nonblocking fixes taken. **Book complete.** Ship record in `RUN-LOG.md`; 'reserved colour on an extra' promoted to `method/07-FAILURE-MODES.md` (seen twice); infra manifest re-frozen; selftest CLEAN. |
+| 2026-10-14 | **Owner: "add it nano, commit and push." Published to Nano:** commit `850469d`, Pages run `38660871975` success; live at https://andressolve.github.io/nano/beowulf-vol1/index.html (reader 200 with the correct title, pages 1 and 57 200, card first in live `stories.js`). Publication copy adds the toolbar and ending library links; its verifier requires them and reports CLEAN. Only `.gitignore`, `stories.js` and `beowulf-vol1/` were staged; the nano repo's other uncommitted work was left untouched. |
 
 ## Open holds
 
@@ -60,4 +61,4 @@ NONE
 
 ## Next bounded action
 
-None until the owner reads the book (`books/beowulf-vol1/index.html`). On the owner's word: publish to Nano as King Arthur was (add to the library, commit and push), and record it here. Owner one-liners ("page N: panel K: …") are executed as `pagerun.py beowulf-vol1 --page N --edit "…"`, then the batch regate and a whole-book gate.
+None. Published. Owner one-liners ("page N: panel K: …") are executed in monte_inspired as `pagerun.py beowulf-vol1 --page N --edit "…"`, regated, then the page is copied to nano and pushed.
