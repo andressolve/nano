@@ -125,6 +125,8 @@ in the corridor).
 
 | 2026-10-15 | **Owner: "add to nano. commit and push." Published to Nano:** commit `255d72d`, Pages run `38738436905` success; live at https://andressolve.github.io/nano/monte-cristo-vol3/index.html (reader 200 with the correct title, pages 1 and 56 200, card first in live `stories.js`). Publication copy adds the toolbar and ending library links; its verifier requires them and reports CLEAN. 56 pages and 34 locks byte-identical to production. Only `.gitignore`, `stories.js` and `monte-cristo-vol3/` were staged; the nano repo's other uncommitted work was left untouched. |
 
+| 2026-10-15 | Owner: "i love what ive read of this one. bravo: great work!" Handoff prepared: `10-PRODUCTION-MEMOIR.md` (the run's journal and learnings), RUN-LOG health metric and per-page record filled, three Watch items added to `method/07-FAILURE-MODES.md` (selftest CLEAN, infra re-frozen), kickoff for the final volume at `notes/NEXT-SESSION-MONTE-CRISTO-VOL4.md`, memory updated. |
+
 ## Open holds
 
 NONE

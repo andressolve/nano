@@ -19,13 +19,69 @@ Count REVISE verdicts by category:
 
 | Category | REVISEs | Pages |
 |---|---|---|
-| Craft | 0 | |
-| Gate | 0 | |
+| Craft | 10 | p5 (C1), p28 (C1 C2), p30 (C1), p52 (C1 C2), p55 ×2 (off-script; one wrong letter), p23 (register drift, batch gate), p37 ×3 (Villefort drawn as the Count: sequence, continuity, then cold read after the first edit) |
+| Gate | 1 | p26 edit v2 (C2 hierarchy on composition the edit did not touch; promoted by advisor override) |
 
 ## Per-page record
 
 | Page | Mode | Cands | Reports | Promoted | REVISE reasons, in order | Cat. |
 |---|---|---|---|---|---|---|
+| 1 | P | 2 | 2 | v2 (edit) | whole-book: 'Volume Iii' → `--edit` | Edit |
+| 2 | D | 1 | 1 | v1 | — | — |
+| 3 | D | 1 | 1 | v1 | — | — |
+| 4 | D | 1 | 1 | v1 | — | — |
+| 5 | D | 2 | 2 | v2 | C1 | Craft |
+| 6 | D | 1 | 1 | v1 | — | — |
+| 7 | S | 1 | 1 | v1 | — | — |
+| 8 | D | 1 | 1 | v1 | — | — |
+| 9 | D | 1 | 1 | v1 | — | — |
+| 10 | P | 1 | 1 | v1 | — | — |
+| 11 | D | 1 | 1 | v1 | — | — |
+| 12 | D | 2 | 2 | v2 (edit) | whole-book R2: stray accent on 'Mademoiselle' → `--edit` | Edit |
+| 13 | D | 1 | 1 | v1 | — | — |
+| 14 | P | 1 | 1 | v1 | — | — |
+| 15 | D | 1 | 1 | v1 | — | — |
+| 16 | D | 1 | 1 | v1 | — | — |
+| 17 | D | 1 | 1 | v1 | — | — |
+| 18 | P | 1 | 1 | v1 | — | — |
+| 19 | D | 1 | 1 | v1 | — | — |
+| 20 | D | 1 | 1 | v1 | — | — |
+| 21 | D | 1 | 1 | v1 | — | — |
+| 22 | S | 1 | 1 | v1 | — | — |
+| 23 | P | 2 | 2 | v2 | continuity 21–30: register drift → regenerated with a register note | Craft |
+| 24 | D | 1 | 1 | v1 | — | — |
+| 25 | D | 1 | 1 | v1 | — | — |
+| 26 | D | 2 | 2 | v2 (edit, override) | whole-book: 'iis' → `--edit`; edit critic C2 on untouched composition → advisor override | Gate |
+| 27 | P | 1 | 1 | v1 | — | — |
+| 28 | D | 2 | 2 | v2 | C1, C2 | Craft |
+| 29 | D | 1 | 1 | v1 | — | — |
+| 30 | D | 2 | 2 | v2 | C1 | Craft |
+| 31 | P | 1 | 1 | v1 | — | — |
+| 32 | S | 1 | 1 | v1 | — | — |
+| 33 | D | 1 | 1 | v1 | — | — |
+| 34 | D | 1 | 1 | v1 | — | — |
+| 35 | P | 1 | 1 | v1 | — | — |
+| 36 | D | 1 | 1 | v1 | — | — |
+| 37 | D | 3 | 3 | v3 (edit ×2) | sequence/continuity 31–40: Villefort drawn as the Count → `--edit`; cold read still tripped → second `--edit` | Craft |
+| 38 | S | 1 | 1 | v1 | — | — |
+| 39 | P | 1 | 1 | v1 | — | — |
+| 40 | D | 1 | 1 | v1 | — | — |
+| 41 | D | 1 | 1 | v1 | — | — |
+| 42 | S | 1 | 1 | v1 | — | — |
+| 43 | D | 1 | 1 | v1 | — | — |
+| 44 | D | 1 | 1 | v1 | — | — |
+| 45 | D | 1 | 1 | v1 | — | — |
+| 46 | D | 1 | 1 | v1 | — | — |
+| 47 | P | 1 | 1 | v1 | — | — |
+| 48 | D | 1 | 1 | v1 | — | — |
+| 49 | S | 1 | 1 | v1 | — | — |
+| 50 | D | 1 | 1 | v1 | — | — |
+| 51 | D | 2 | 2 | v2 (edit) | whole-book: hussar unmounted → `--edit` | Edit |
+| 52 | D | 2 | 2 | v2 | C1, C2 | Craft |
+| 53 | P | 1 | 1 | v1 | — | — |
+| 54 | D | 1 | 1 | v1 | — | — |
+| 55 | D | 3 | 3 | v3 | v1 off-script (C1–C4); v2 one wrong letter 'u stranger' (C1) → FULL_PROMPT_RESET | Craft |
+| 56 | S | 2 | 2 | v2 (edit) | whole-book: hussar unmounted → `--edit` | Edit |
 
 ## Entries
 
@@ -273,3 +329,7 @@ Count REVISE verdicts by category:
 Owner: "add to nano. commit and push". Published 56 final pages and 34 approved references, byte-identical to production, plus the reader (with toolbar and ending library links) and the text records; candidates, proofs, superseded references and logs excluded by `.gitignore`. Card added first in `stories.js`. Commit `255d72d` pushed to `origin/main`; Pages run `38738436905` success. Live checks: reader 200 with the correct title, pages 1 and 56 200, live `stories.js` carries the card first.
 
 Live reader: https://andressolve.github.io/nano/monte-cristo-vol3/index.html
+
+## 2026-10-15 — owner's verdict and handoff
+
+Owner, after reading on Nano: "i love what ive read of this one. bravo: great work!" The full journal of this run is `10-PRODUCTION-MEMOIR.md`; the next session's kickoff (Volume IV) is `notes/NEXT-SESSION-MONTE-CRISTO-VOL4.md` at the workspace root. Watch items from this run (seen once) were added to `method/07-FAILURE-MODES.md` as `Watch:` entries.
