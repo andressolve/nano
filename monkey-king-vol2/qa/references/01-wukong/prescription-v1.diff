@@ -1,0 +1,28 @@
+--- 09-REFERENCE-PLAN.md (before)
++++ 09-REFERENCE-PLAN.md (after)
+@@ -194,7 +194,11 @@
+ View (b): full length in the robe with the staff, one foot up on a low
+ stone, the other hand shading his eyes.
+ View (c): strict ninety-degree profile, short forward muzzle, projecting ear,
+-golden ruff, long tail, the robe's belt and patch.
++golden ruff, long tail, the robe's belt and patch. Add one clearly visible tiny
++straight needle tucked immediately behind the projecting right ear in view
++(c), aligned close to the skull and matching the red-lacquer-and-gold staff
++identity at miniature scale; do not add any other ornament or change the ear
++silhouette.
+ View (d): the released state: the same monkey in the rags of old gold scale
+ armor gone dull green with age, hanging off him in broken plates over a faded
+ red tunic and the tiger-skin kilt; fur matted with moss and dust; no cap; arms
+@@ -204,6 +208,12 @@
+ quick against huge, round, pink-gray and slow; a short monkey muzzle against a
+ long pig snout and floppy ears; a hemp robe against a black tunic. Never a
+ human face, never a monk's shaven head or a monk's robe and kasaya.
++
++Preserve the existing face proportions, low brow, wide-set round eyes, golden
++ruff, wiry build, active posture, costume value blocks, and staff geometry,
++but replace the hatched modeling with visible brush-and-ink contours and flat
++mineral-pigment washes whose pooling and paper tooth carry the form; shadows
++may remain dimensional but must not be built from etched hatch fields.
+ 
+ *(register paragraph, verbatim)*
+ 

@@ -1,0 +1,1 @@
+RETIRE: Retired overloaded `obj-skulls-raft`; its open-cord lock lives on approved `08-wujing`, and the story-critical transformed state is isolated as `obj-nine-skull-raft`.

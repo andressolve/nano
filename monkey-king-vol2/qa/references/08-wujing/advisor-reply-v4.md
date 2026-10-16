@@ -1,0 +1,1 @@
+RESET: Wujing’s ledger and sheet prompt now lock a clear 4–1–4 skull-cord arrangement below the beard, preserving exactly nine story-critical skulls while making them countable and consistent at page scale; the decision is recorded in `HANDOFF.md`.

@@ -1,0 +1,55 @@
+pages: 47   dramatic 30  prose 7  spectacle 10  chronicle 0
+mode share target ≈ 60 / 20 / 13 over the story pages; chronicle ≤ 15% of the book — a book of only dramatic scenes has lost the form
+
+BLOCKERS: none
+
+FIVE-WORD AUDIT — 48 balloons of five words or fewer. Each needs the explicit ambiguity audit
+(complete thought or intentional answer? one visible referent? clear without notes? forceful, not compressed?):
+  - p5: WUKONG: "MASTER! You're here at last!"
+  - p5: SANZANG: 'A monkey? Inside the mountain?'
+  - p6: SANZANG: 'I looked down.'
+  - p8: SANZANG: "Please don't eat me."
+  - p9: SANZANG: "Nothing. It's a robe."
+  - p11: ROBBER: "Who's this? Your pet?"
+  - p11: WUKONG: 'Watch the needle.'
+  - p13: SANZANG: "No! Stop! You'll kill him!"
+  - p13: WUKONG: "That's the idea! Move, Master!"
+  - p15: WUKONG: 'And then?'
+  - p15: AO GUANG: 'Because he kept going back.'
+  - p15: AO GUANG: "You're leaving?"
+  - p17: SANZANG: "I wasn't going to."
+  - p17: SANZANG: 'Why did you come back?'
+  - p17: SANZANG: "I'm glad you came back."
+  - p18: WUKONG: 'Another present? For me?'
+  - p18: SANZANG: 'It suits you.'
+  - p19: SANZANG: 'Gold, hold fast.'
+  - p20: WUKONG: 'STOP! Make it stop!'
+  - p21: SANZANG: 'Gold, hold fast.'
+  - p21: SANZANG: "I'm sorry. I'm sorry!"
+  - p21: WUKONG: 'Who taught you those words?'
+  - p21: SANZANG: 'The lady in white. Guanyin.'
+  - p22: GUANYIN: 'Yes.'
+  - p22: WUKONG: 'Then take it off.'
+  - p25: WUKONG: 'It ATE your HORSE!'
+  - p26: WUKONG: 'Got you. Now we talk.'
+  - p27: DRAGON: 'Yes!'
+  - p27: DRAGON: 'Oh no.'
+  - p28: SANZANG: 'Thank you.'
+  - p31: SANZANG: "Wukong, you won't hurt him?"
+  - p32: PIG: "Darling! I'm home!"
+  - p33: WUKONG AS BRIDE: "My father says you're ugly."
+  - p33: WUKONG AS BRIDE: 'Not anymore.'
+  - p34: WUKONG: 'Hello, dumpling!'
+  - p34: PIG: 'AAAAH!'
+  - p35: WUKONG: 'And then you ate them!'
+  - p36: SANZANG: 'Will you behave yourself?'
+  - p36: PIG: "I'll try very hard."
+  - p36: BAJIE: "Eight? Couldn't it be two?"
+  - p36: OLD GAO: "Please don't."
+  - p39: SANZANG: 'Why not?'
+  - p39: BAJIE: 'I can. Pigs float.'
+  - p41: WUKONG: 'For tea! Not to fight!'
+  - p42: WUKONG: 'So?'
+  - p42: OGRE: 'The pilgrim?'
+  - p43: OGRE: 'Are you the tenth one?'
+  - p43: SANZANG: 'The tenth what?'

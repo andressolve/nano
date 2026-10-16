@@ -1,0 +1,29 @@
+VERDICT: APPROVED
+
+## Collision matrix
+
+| Comparison | Risk | What carries the separation |
+|---|---:|---|
+| Intra-ensemble: robber 1 / robber 5 | Medium, controlled | Both are forceful square-faced men, but the leader is the tallest and broadest, with a visibly longer square jaw, longer nose, dark-gray wrap, and broad chopper; robber 5 is shorter and stockier, with a compressed broad face, heavier converging brows, striped brown wrap, and cudgel. The long-versus-compressed face proportions survive costume-free crop, profile, grayscale, and reaction. |
+| Intra-ensemble: robber 2 / robber 6 | Medium, controlled | Both are lanky and hollow-cheeked, but robber 2 has the decisive hooked nose, shorter face, narrow pinched jaw, brown wrap, and forward-folded wiry posture; robber 6 has a much longer near-rectangular face, straighter projecting nose, faded blue-gray wrap, and tall upright lanky silhouette. Their profile carriers remain separate without costume. |
+| Intra-ensemble: robber 3 / robber 5 | Low | Robber 3 is heavy and round-faced with soft brows, fleshy cheeks, and an ochre wrap; robber 5 is stocky rather than heavy, with a broad angular jaw, deep-set eyes, and the ensemble's heaviest brows. Round softness versus compressed angularity remains legible in grayscale and reaction. |
+| 02 Sanzang | Low | The nearest candidate is robber 4, but his narrow angular face, sloping brows, visible hair at the temples, head-wrap, rough short jacket, asymmetric guarded stance, and plain short staff separate him from Sanzang's smooth long oval, fully shaven dome, straight brows, upright prayer posture, ankle robe, and ringed staff. In a costume-free face crop, robber 4's cheek and jaw angles still separate him from the monk's smooth oval. |
+| 03 Guanyin | Negligible | Six earthbound male working faces and compact rough silhouettes oppose Guanyin's tall female figure, long serene oval, high hair mass under a white veil, red brow dot, cloud, willow, and vase. The sex, face construction, posture, and silhouette survive grayscale and removal of props. |
+| 04 Ao Guang | None | Ordinary human heads, human scale, wrapped hair, and workman builds cannot collide with the vast dragon-lord's long scaled head, antlers, whiskers, fin beard, and enormous seated silhouette. |
+| 05 Dragon | None | The six bipedal human silhouettes and faces are categorically separate from the slim white serpentine body, narrow dragon face, horns, mane, and four clawed legs. |
+| 06 White Horse | None | Human faces and upright clothed bodies are categorically separate from the quadruped horse silhouette, long muzzle, upright ears, mane, and tail. |
+| 07 Bajie | Low | Robbers 3 and 5 share some body mass with Bajie, but both retain ordinary clean-shaven human faces, human noses and ears, closed jackets, and balanced legs; Bajie's long pig snout, nose disc, tusks, huge floppy ears, belly-led slouch, and rake dominate at every scale and in grayscale. |
+| 08 Wujing | Low | The tall leader and lanky robber 6 remain ordinary human in face, skin, hair containment, and scale. Wujing's blue-gray long hollow face, heavy brow ridge, broad flat nose, wild red hair and beard, extreme gaunt height, nine-skull necklace, hunched shoulders, and crescent spade remain categorical separators. |
+| 09 Old Gao | Low | Robbers 2 and 6 are the nearest by wiry build, but both are visibly younger, clean-shaven, head-wrapped, and road-ready, with straighter backs. Old Gao's round deeply wrinkled face, bald crown with gray fringe and rear knot, long hanging gray moustache, chin wisp, stoop, and anxious hand posture survive costume-free crop, profile, reaction, and grayscale. |
+| 10 Wukong | None | Every robber is an adult human with a human nose, jaw, ears, and hairline; Wukong's short pale monkey muzzle, golden face ruff, wide round eyes, upright monkey ears, small wiry body, asymmetrical crouch, and tail remain categorical separators even without robe, band, or staff. |
+| 11 Gao Daughter | Negligible | The young woman's round gentle female face, paired side loops, slight build, folded-hands posture, and long skirt do not collide with any robber's male working face, head-wrap, trouser silhouette, guarded posture, or weapon-bearing gesture. |
+| 12 Wukong Bride | Negligible | The bride state retains the Gao Daughter's female face, paired loops, slight long-skirt silhouette, and gold brow band, then changes into Wukong's monkey face and tail. None overlaps the robbers' ordinary male faces, wrapped heads, trouser silhouettes, or weapon gestures. |
+
+## Mandatory findings
+
+None. The candidate carries the full ensemble lock trait by trait: six clean-shaven human working men aged within the intended range; the prescribed ordered face shapes, builds, wraps, weapons, rough value pattern, and postures; and the same six three-quarter heads below in the same order. The face structures remain mutually recoverable after costume removal and through thumbnail, grayscale, strict-profile inference, reactive expression, same-panel opposition, and long-absence re-entry. No Never-list item appears. There is no lettering, label, watermark, border, or unlisted continuity prop.
+
+## Nonblocking observations
+
+- The sheet uses a pale mountain-road wash rather than a completely plain warm-paper field. It stays low-contrast, creates no false silhouette, adds no prop or identity marker, and cannot collide with an approved character lock. Because the robbers recur only on pp. 11–13 and the setting contributes no consequential continuity, this is presentation noise rather than a reference-system defect.
+- Robbers 1 and 5, and robbers 2 and 6, are the ensemble's closest internal pairs. Their face-length, nose, jaw, build, and posture carriers are nevertheless sufficiently structural to hold without wrap colour or weapon.

@@ -1,0 +1,1 @@
+RESET: Wukong now locks a consistent swept golden-fur crown and one visible red-and-gold needle tip, preserving his story-critical staff transformation and clear separation from Bajie.

@@ -1,0 +1,5 @@
+- `qa/production/page-21/candidates/page-21-v1.png` — 1024×1536, BASE — SHA256 `221b10e27d414aa72aca39903ebc43a51ef77d97c2d0936b853f6cc9212695fa`
+- `qa/production/page-21/prompts/page-21-v1.md` — SHA256 `1abf490b56f8bad02b9f4bb98e8613055d65adf844df43e9d2adfc202a8f1131`
+- `qa/production/page-21/audits/page-21-v1.md` — SHA256 `316a7d26da5f13398841e9b7d428bc16f509da2ceb69737417b4ca870dc44beb`
+- `qa/production/page-21/proofs/page-21-v1-600x900.png` — SHA256 `8095107c077dd0d1113c3556baeb2464887d1cba7c188357c1caddec65f365f9`
+- `qa/production/page-21/proofs/page-21-v1-768x1152.png` — SHA256 `80b143b53e1a4daf92b133950381064180d1422f3f328871c5482fa91347d688`

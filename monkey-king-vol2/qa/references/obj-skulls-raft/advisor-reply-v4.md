@@ -1,0 +1,1 @@
+RESET: Rewrote `obj-skulls-raft` around two isolated, countable nine-skull states—a fixed 4–1–4 open cord and evenly spaced closed raft—and recorded the ruling in `HANDOFF.md`.

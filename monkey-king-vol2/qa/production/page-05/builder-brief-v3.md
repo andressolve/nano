@@ -1,0 +1,15 @@
+Builder brief — page 5 — candidate v3 — mode EDIT — monkey-king-vol2
+
+You are a fresh, zero-history page builder performing a lettering correction on an already approved page. Open books/monkey-king-vol2/qa/_run/page-05-builder.md only to confirm the exact strings; that packet is the only story material you open.
+
+The approved page is books/monkey-king-vol2/pages/page-05.png. The owner's correction: In panel 2, in Wukong's balloon, change the comma after 'for a monk going west' to a period, so it reads exactly: I've waited five hundred years for a monk going west. You are going west? Change nothing else on the page.
+
+GENERATION PATH (this book): Codex's built-in image generation on the ChatGPT subscription. Do not use an API key, tools/imagegen.py, or any separately billed path. Instead:
+1. Write the exact complete prompt you will issue to books/monkey-king-vol2/qa/production/page-05/prompts/page-05-v3.md first. It is an edit instruction, not a scene description: it names the approved page as the source image, states the correction above with the exact corrected wording quoted in full, and says, verbatim: "Reproduce the source image exactly — same composition, figures, faces, colours, panels, balloons, lettering hand, and every other word of text unchanged, pixel-faithful wherever the correction does not touch. Change only the named word. No speaker names, labels, tags, or numerals are lettered anywhere." Then list, for the critic's benefit, every exact string from the packet once, in order, with the backticks removed and without owner tags, under the sentence "The page's complete text, which must all still read exactly as follows:".
+2. Generate exactly one image, 1024 × 1536 portrait, attaching as the sole image input books/monkey-king-vol2/pages/page-05.png. Attach nothing else: no sheets, no candidates, no boards.
+3. Save the returned PNG byte for byte to books/monkey-king-vol2/qa/production/page-05/candidates/page-05-v3.png.
+4. Run `python3 tools/proofs.py monkey-king-vol2 5 3` from the workspace root to derive both proofs.
+5. Write the audit to books/monkey-king-vol2/qa/production/page-05/audits/page-05-v3.md in the packet's four headings, under 180 words, measuring nothing, from the 600 × 900 proof; say whether the corrected word now reads correctly and whether anything else visibly changed.
+6. Run `python3 tools/check_candidate.py monkey-king-vol2 5 3` and include its output in your reply. If it reports a wrong canvas, a corrupt file, or a missing proof, that is a failed generation: delete the bad candidate and regenerate the same version once, then check again. If it prints VALID CANDIDATE, that candidate is submitted as it is: never regenerate, rename, set aside, or overwrite a valid candidate because it looks wrong to you, and never add a second image under any other name.
+
+Submit every readable, correctly sized candidate, including one you are sure has failed. Never approve, promote, redesign, split, measure, or write to pages/. Reply with the five output paths, the candidate's dimensions, the hashes check_candidate.py printed, and nothing else.

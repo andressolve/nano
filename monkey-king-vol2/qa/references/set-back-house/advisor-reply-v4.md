@@ -1,0 +1,1 @@
+RESET: Rebuilt `set-back-house` as a courtyard-side cutaway with a shut exterior-padlocked door and intact pre-p34 roof; recorded the ruling in `HANDOFF.md`.

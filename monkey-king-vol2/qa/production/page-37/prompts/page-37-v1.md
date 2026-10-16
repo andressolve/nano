@@ -1,0 +1,25 @@
+Create one finished, flattened 1024 × 1536 portrait story page in a 2:3 proportion, with lettering baked into the artwork. This is a canonical printed illustrated-novel page, not a mockup, spread, model sheet, collage, or layout study. Use the three attached character sheets only as identity references and create a new staged farmhouse-gate scene. No page number, title, production label, speaker name, editorial note, or any invented text.
+
+Use Mineral Ink: visible brush-and-ink line on toothed paper, flat washes of malachite green, azurite blue, cinnabar red, shell white, and flat gold leaf, Chinese blue-green landscape tradition lit cinematically with real cast shadows and depth. Preserve paper tooth and pigment pooling. Avoid glossy concept art, airbrushed skin, engraved cross-hatching, anime proportions, children's-book softness, and plastic 3D rendering. The morning farmhouse gate is an earthen wall with a tile roof and a heavy wooden gate.
+
+Build a clear top-to-bottom reading path with one dominant image. At the top, make a row split into two small, clean single-speaker beats read left to right: Sanzang alone on the left, palms together, mouth visible; then the kneeling pig alone looking up, mouth visible. Below them, a narrow wide strip shows Sanzang alone again, kindly. Keep each balloon on its owner's side with an open tail corridor. Below that, show Bajie on the left standing with a carrying pole and two bundles over his shoulder, a rake tied along it, turning back; Old Gao stands on the right in the gateway, with his reply clearly lower than Bajie's line.
+
+Make the dominant lower image close and tall, plainly the largest image on the page: inside the gate on the right, the daughter looks at Bajie for a long quiet moment while swinging one heavy gate leaf shut with exactly two hands. Outside on the left, Bajie stands with his enormous floppy ears drooping; Wukong stands beside him, grinning, his mouth visible. Farther beyond them, small Sanzang waits on a white horse on the road. The silent daughter's face and the closing gate own the final turn. Use no more than two small reaction insets. Keep every essential element inside generous safe margins and keep all lettering clear of panel borders and faces.
+
+Sanzang is a slender upright young shaven-headed man in a saffron robe and red kasaya with a ringed wooden staff. The horse is white with a pale-blue mane and red saddle, never bay. Old Gao is a small stooped bald old man with a gray fringe, hanging gray moustache, and indigo jacket. Bajie is a big round pig-headed man with long snout, pink-gray nose disc, small tusks, enormous floppy ears hanging to his jaw, black bristle on pink-gray hide, huge belly, black tunic, and blue sash. The daughter is a young woman with a round gentle face, straight dark brows, two neat black hair loops, pale green high-collared jacket, and darker green skirt; she is silent and wears no gold. Wukong is a small wiry golden monkey with a heart-shaped pale face, round gold eyes with red rings, small upright cupped ears, swept golden ruff, long tail, mended hemp robe at the left shoulder, thin gold band flush on his brow, and a tiny red-and-gold staff needle behind his right ear.
+
+The monk's staff must never resemble Wukong's staff. Do not show Guanyin, Wukong's armour state, writing on the gate, lintel, or bundles, or any other woman, monk, pig, ogre, dragon, or named figure. The daughter has no balloon. Keep the daughter and Old Gao distinct. All spoken lines use large, upright, rounded mixed-case hand lettering in organic oval warm-ivory balloons with restrained dark painted outlines; no serif, italic, typeset, rectangular, or rounded-rectangle speech boxes. Tails end beside the correct visible mouth in open space. Use literary serif only for prose fields, but this page has no prose field.
+
+At the upper-left, Sanzang, standing alone with palms together and mouth visible, says: "Will you behave yourself on the road?"
+
+At the upper-right, the kneeling pig, looking up with mouth visible, says: "I'll try very hard."
+
+In the narrow strip below, Sanzang alone, kindly and with mouth visible, says: "Then I'll call you Bajie. It means 'eight rules'. You'll need every one of them."
+
+In the middle strip, Bajie on the left turns back beneath the carrying pole and says: "Eight? Couldn't it be two? Father-in-law, keep my bed made. If this doesn't work out, I'll be back."
+
+In the gateway on the right, Old Gao answers clearly lower than Bajie's line and says: "Please don't."
+
+In the dominant lower scene, Wukong beside the drooping-eared Bajie grins with his mouth visible and says: "That's her answer, Pig. Pick up your feet."
+
+Render exactly these six strings once each, in this order, with clear ownership; no other text anywhere on the page. No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.

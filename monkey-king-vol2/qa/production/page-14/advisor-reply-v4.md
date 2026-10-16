@@ -1,0 +1,1 @@
+RESET: Restaged Page 14 into three unsplit full-width panels with fixed 1–7 balloon lanes, explicit speaker tails, and clear mouths; all strings remain unchanged, the ruling is recorded, and rebuilt packets verify CLEAN.

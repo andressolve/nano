@@ -1,0 +1,119 @@
+--- 04-CHARACTER-LEDGER.md (before)
++++ 04-CHARACTER-LEDGER.md (after)
+@@ -48,9 +48,10 @@
+ red ring of fire around each iris** (from the furnace, Volume I); low brow;
+ two rounded, soft-edged, cupped macaque ears at the sides of the head at
+ eye level, as on the Volume I sheets, never pointed and never rising above the
+-brow; a compact rounded golden ruff of fur around the head; uncapped (Volume
+-II), the crown is short smooth fur as in Volume I's stone-born view, never
+-hair, tufts, or a swept crest. Small and wiry, a head shorter
++brow; a golden face ruff continuous with a pronounced swept-back crown and
++rear ruff of separated golden fur tufts, longest behind the ears and held as
++the same silhouette in every view. The swept mass is monkey fur, not human
++hair, and the pale heart-shaped face stays clear inside it. Small and wiry, a head shorter
+ than any human in the book, long arms, a long tail always in frame. Never
+ stands square: one foot up on something, crouched, mid-leap, or sitting on a
+ thing meant for sitting under.
+@@ -69,13 +70,15 @@
+ The staff (unchanged): a straight constant-diameter red-lacquered iron
+ cylinder, blunt gold end caps, tight flush gold banding only beside the caps;
+ a tiny red-and-gold needle behind his right ear when not in use, lying close
+-and parallel to the skull and ending inside the ruff's outer silhouette.
++and parallel to the skull, with one capped tip allowed to show just beyond the
++rear ruff as a single red-and-gold tick.
+ 
+ **Never:** gray or silver fur, a stooped back, a stick. A human face. A
+ monk's shaven head, a monk's kasaya. A cap after p 20. The band never jeweled,
+ never wide, never a crown, never a different colour from the staff's gold.
+-Never pointed, triangular, or elf-like ears; never a swept spiky hair crest; the
+-stored needle never projects beyond the ear or head silhouette.
++Never pointed, triangular, or elf-like ears; never smooth human coiffure or
++long hanging hair. The swept crown must read as fur continuous with the cheek
++ruff. The stored needle is never doubled, oversized, or shaped like a horn.
+ The staff never has mid-shaft collars, rings, a tapered point, a blade, the
+ monk's ringed staff head, or the pig's rake teeth.
+ 
+--- 09-REFERENCE-PLAN.md (before)
++++ 09-REFERENCE-PLAN.md (after)
+@@ -174,17 +174,15 @@
+ Sun Wukong, the Monkey King, is unmistakably a monkey, not a man. His face is
+ short and heart-shaped, with a pale hairless muzzle and pale cheek field, a
+ wide mouth, a low brow, and large round gold eyes set wide, each iris circled
+-by one thin red ring of fire. The uncapped head is exactly the bare head of
+-the fourth view on the attached Volume I body sheet, the young monkey in the
+-leaf kilt standing on the split stone: a smoothly rounded skull covered in
+-short golden fur continuous with the face ruff, and two rounded, soft-edged,
+-cupped macaque ears set at the sides of the head at eye level, never pointed,
+-never elf-like, never rising above the brow line. In Volume I a cap always
+-covered his crown; the cap is gone now, and the crown is plain short fur with
+-the entire crown silhouette in every view forming one low, smoothly rounded
+-dome of short fur continuous with the ruff; remove every projecting spike,
+-crest, and rearward-swept tuft, while preserving the short heart-shaped pale
+-face field. Use this identical face, ear, and ruff geometry in all four views.
++by one thin red ring of fire. Use the bare head in the fourth view on the
++attached Volume I body sheet, the young monkey in the leaf kilt standing on
++the split stone, as the anchor for face and ear proportions: two
++rounded, soft-edged, cupped macaque ears sit at the sides of the head at eye
++level, never pointed or elf-like. The cap is gone. Around the short
++heart-shaped pale face, lock one pronounced swept-back crown and rear ruff of
++separated golden fur tufts, longest behind the ears. This is monkey fur
++continuous with the cheek ruff, not human hair. Use the identical face, round
++ear geometry, and swept golden-fur silhouette in all four views.
+ 
+ His body is small and wiry, a head shorter than any human, with long arms and
+ a long tail fully visible in every full-body view. His posture is always
+@@ -198,28 +196,28 @@
+ the left shoulder, over the tiger-skin kilt; his feet are bare. He has no cap,
+ gold brow band, or armor. When the full staff is absent, show one tiny straight
+ red-lacquer-and-gold needle tucked flat into the fur just behind his right
+-ear, shortened and moved inward, parallel to the skull, so both ends lie fully
+-within the golden ruff contour and it reads only as a small red-and-gold glint
+-rather than an outward-projecting ornament. Never add a second needle or any
+-other head ornament.
++ear, close and parallel to the skull, with one capped tip showing just beyond
++the rear ruff as a clear single red-and-gold tick. It must read as the stored
++staff, not as part of the ear or a horn. Never add a second needle or any other
++head ornament.
+ The full staff is a straight constant-diameter red-lacquered iron cylinder,
+ taller than Wukong, with blunt gold end caps and tight flush gold bands only
+ beside the caps; it has no mid-shaft collar, ring, taper, point, blade, ringed
+ head, or rake teeth.
+ 
+ View (a): three-quarter head and shoulders from his right side in even light;
+-show the compact round ruff, the small lateral round ear, both gold eyes with
+-their thin red iris rings, and the tiny silhouette-contained needle behind the
++show the swept golden-fur ruff, the small lateral round ear, both gold eyes with
++their thin red iris rings, and the single red-and-gold needle tip behind the
+ right ear.
+ View (b): full length in the pilgrim robe, holding the full staff, one foot on
+ a low stone and the other hand shading his eyes; show the left-shoulder patch
+ and the entire long tail.
+ View (c): full-length strict right-side ninety-degree profile, facing left;
+-keep the short muzzle, compact round ruff, small round right ear, and tiny
+-silhouette-contained needle exact. Put one foot on a low stone, pitch the
++keep the short muzzle, swept golden-fur ruff, small round right ear, and single
++projecting needle tip exact. Put one foot on a low stone, pitch the
+ torso slightly forward, and show the entire tail.
+ View (d): just released after five hundred years under the mountain, arms
+-flung wide and laughing. Keep exactly the same face, ears, and compact ruff,
++flung wide and laughing. Keep exactly the same face, ears, and swept ruff,
+ but break the ruff and limb fur into dusty matted clumps with sparse muted moss
+ embedded at the surface; the fur remains unmistakably golden-tawny beneath the
+ dirt. He wears the old gold scale armor of Volume I gone dull green and broken
+@@ -227,11 +225,11 @@
+ gold brow band.
+ 
+ Wukong must remain distinct from Bajie at page scale and in grayscale: small,
+-wiry, golden, short-muzzled, round-eared, long-tailed, active, and light-robed,
+-never huge, round, pink-gray, long-snouted, floppy-eared, slow, or dressed in a
+-black tunic. Never give Wukong a human face, gray or silver fur, a stooped back,
+-a monk's shaven head, saffron robe, red kasaya, tall or pointed ears, or a
+-swept spiky hair crest.
++wiry, golden, short-muzzled, round-eared, swept-furred, long-tailed, active,
++and light-robed, never huge, round, pink-gray, long-snouted, floppy-eared,
++slow, or dressed in a black tunic. Never give Wukong a human face, gray or
++silver fur, a stooped back, a monk's shaven head, saffron robe, red kasaya,
++tall or pointed ears, or a smooth human coiffure or long hanging hair.
+ 
+ Model form with broad visible brush-and-ink contours and flat mineral-pigment
+ washes that pool on toothed paper. Do not use parallel or crossed hatch marks

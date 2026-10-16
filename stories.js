@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "monkey-king-vol2",
+    title: "Monkey King, Volume II: The Road West",
+    cover: "monkey-king-vol2/pages/page-01.png",
+    published: "2026-10-16",
+    category: "Myth & Literature",
+    series: "Monkey King · Volume II",
+    summary: "Five hundred years under a mountain end when a frightened young monk climbs up and peels off the seal. The price of freedom: walk him all the way west, every mile on foot, and never fly him over. The monkey who could cross the world in one somersault quarrels, leaves, comes back for a reason he won't explain, and finds a gold band on his head. Forty-eight illustrated pages of a dragon who eats the horse and becomes the horse, a pig who marries the wrong bride, a river ogre with nine skulls, and the fastest creature in the world learning to wait for the slowest."
+  },
+  {
     slug: "monte-cristo-vol3",
     title: "The Count of Monte Cristo, Volume III: The King's Attorney",
     cover: "monte-cristo-vol3/pages/page-01.png",

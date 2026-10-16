@@ -1,0 +1,1 @@
+RESET: Clarified Wukong’s compact round ruff, short lateral round ears, silhouette-contained needle, and burial-matted fur; rebuilt his prompt cleanly and recorded the decision in `HANDOFF.md`.

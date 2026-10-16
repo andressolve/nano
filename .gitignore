@@ -60,3 +60,12 @@ monte-cristo-vol3/refs/superseded/
 monte-cristo-vol3/pages/proofs/
 monte-cristo-vol3/logs/
 monte-cristo-vol3/**/__pycache__/
+
+# Monkey King Volume II: publish final pages, approved references, and text
+# records; production candidates, proofs and logs stay in monte_inspired.
+monkey-king-vol2/qa/**/*.png
+monkey-king-vol2/refs/candidates/
+monkey-king-vol2/refs/superseded/
+monkey-king-vol2/pages/proofs/
+monkey-king-vol2/qa/_logs/
+monkey-king-vol2/**/__pycache__/

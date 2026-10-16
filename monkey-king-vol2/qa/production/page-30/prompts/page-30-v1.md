@@ -1,0 +1,33 @@
+Create one finished, flattened 1024 × 1536 portrait story page in a 2:3 aspect ratio, with lettering baked in natively. This is a canonical printed illustrated-novel page, not a prototype, mockup, sample sheet, spread, layout study, montage, model sheet, portrait board, or collage. Use the three attached approved reference images only as identity and place references, and draw a new staged scene in which the characters act.
+
+Use a mineral-ink brush-and-ink style on toothed paper, with flat washes of malachite green, azurite blue, cinnabar red, shell white, and flat gold leaf, like the Chinese blue-green landscape tradition lit as a film. Show visible ink line, paper tooth, pigment pooling at wash edges, real cast shadows, and real depth. Avoid smooth prestige-oil realism, glossy concept-art surfaces, airbrushed skin, engraved cross-hatching, anime proportions, children's-book softness, and plastic 3D rendering. At dusk use ochre, dust, and autumn rust with indigo shadows; the farmhouse interior is warm lantern light against darkening blue outside.
+
+The reader must immediately understand that a frightened old farmer is telling the travellers about the pig who married his daughter, and that Wukong decides to meet the pig tonight. The single dominant turn is the old man's story in the lamplit front room. The pig is only told about and is never shown.
+
+Build a clear top-to-bottom reading path with three moments. At the top, make a shallow dusk strip of shuttered village houses and a barred farmhouse gate. Old Gao is inside on the LEFT, peering through the crack of the gate with his eye and mouth visible and holding a lantern; he is a small stooped old man with a round wrinkled brown face, bald crown, gray fringe tied in a small knot behind, thin gray moustache hanging past his chin, and faded indigo jacket. Outside on the RIGHT stand Wukong and Sanzang behind on the white horse. Old Gao speaks from the upper-left balloon, and Wukong replies from the right in a clearly lower balloon. Every door is barred; show the physical bars and closed gate, but no writing on any gate, lintel, or lantern.
+
+Make the middle image the largest and dominant image on the page: a close, tall, lamplit front room occupying about half the page, with a wooden table covered in noodle bowls that nobody is eating. Old Gao sits or stands on the LEFT, wringing his hands, owning the page. Sanzang and Wukong sit silently on the RIGHT. Give Old Gao two balloons stacked on the left, the first higher than the second, with both tails ending beside his visible mouth. Keep this quiet storytelling image larger and more intimate than the dusk strip and the final strip.
+
+At the bottom, use one strip cut into two readable beats from left to right. On the wider LEFT beat, show Old Gao close and desperate, with his mouth visible and his balloon at his mouth. On the RIGHT beat, show Wukong alone close, grinning, with his balloon at his mouth. The last beat must clearly turn the complaint into Wukong's plan to wait for the pig tonight.
+
+Use the attached Old Gao reference exactly for his identity, posture, costume, and habitual gesture. Use the attached Wukong reference in its pilgrim-banded views for a small wiry golden monkey a head shorter than the monk: short heart-shaped pale face, round gold eyes with a thin red ring, small upright cupped ears, swept golden ruff, long tail, hemp robe mended at the left shoulder, tiger-skin kilt, and a thin plain gold band flush on his brow. No cap and no earlier armor-rag state. Draw Sanzang as a slender upright young man with a long oval beardless face, fully shaven head, straight dark brows, saffron robe, red kasaya with a gold grid, and ringed wooden staff. Draw the white horse slim and white with a pale-blue mane, sea-green eyes, and dark red saddle; never bay. Keep Sanzang and Old Gao unmistakably distinct: young, upright, and shaven in saffron and red against old, stooped, gray-fringed, gray-moustached, and indigo.
+
+Use the attached farmhouse reference for the barred gate vignette, front-room architecture, table, bowls, and lantern light, but add the people and stage the new page. The monk is present and quiet. The pig, the daughter, Guanyin, villagers, and all other figures are absent; do not show the pig even as a shadow, picture, or reflection. Do not show any other monk, woman in white, pig, ogre, or dragon. The monk's ringed wooden staff must never resemble Wukong's red-and-gold iron staff. Do not place writing on objects or scenery except for the six listed strings.
+
+Keep every essential element inside a generous outer safe margin. No balloon, caption, or prose field crosses a panel border. Use at most two small reaction insets and keep the page hierarchy clear. The first speaker in each panel stands on the LEFT. Opposed speakers occupy opposite sides, with each balloon on its owner's side. The reply sits clearly lower than the line that prompts it. Every balloon tail ends in open space beside its own speaker's visible mouth; no tail points into a crowd, prop, or animal. Silent figures have no balloon and no tail fragment. Use warm ivory organic oval balloons with restrained dark painted outlines. Dialogue lettering is rounded, upright, hand-lettered mixed case, warm and slightly irregular, never serif, italic, boxed, condensed, geometric, cursive, all-capital, or typeset. Use comfortable readable lettering at page scale. No invented text, laugh lines, labels, captions, page number, title, production mark, or editorial text appears anywhere else.
+
+The exact visible text, in reading order, is:
+
+Go away! This is Gao's farm, and we don't open the gate after dark! We've got trouble here!
+
+What kind of trouble? I catch demons.
+
+Three years ago a strong young man came and asked to marry my youngest daughter. He ploughed like ten oxen, so we said yes.
+
+Then his face changed. Ears. A snout. Now he's a pig with a rake, and he eats a cartload of rice a day!
+
+We told him to go. He locked my daughter in the back house, and he comes back to her every night.
+
+Every night? Good. Tonight he'll find me there.
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
