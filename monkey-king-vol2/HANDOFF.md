@@ -10,7 +10,7 @@ bounded action.
 
 `ADAPTATION` → `SCRIPT_GATE` → `REFERENCES` → `PACKETS` → `PRODUCTION` → `PUBLICATION`
 
-Current: **SHIPPED (local)** — complete, fully gated, reader approved; Nano publication awaits the owner's word
+Current: **PUBLISHED (Nano, 2026-10-16)**
 
 ## Owner decisions on record
 
@@ -59,6 +59,7 @@ Current: **SHIPPED (local)** — complete, fully gated, reader approved; Nano pu
 | 2026-10-16 | p46 edit (v7) promoted: one woven raft, nine skulls (continuity gate confirmed). `max_versions` recorded as 7 in `book.toml` because `verify.py` counts the edit as a seventh generation; the cap stays 6 in practice for every other page. A fresh continuity critic then flagged p47: at night the sand river had gone deep blue like ordinary water (two earlier critics had accepted it as night). Taken: p47 prompt holds the river sand-gold/neutral under night light; p47 regenerated, then `--gates 48`. |
 | 2026-10-16 | p47 re-promoted (v3, sand river held sand-gold at night). **Batch gate 41–48 APPROVED** (sequence, continuity, cold read). All five batch gates approved; 48 of 48 pages promoted. Phase 6 begun: whole-book gate (fresh milestone critic) and reader build (from `qa/_publication/BUILDER.md`, Monte Cristo III's reader as template) in parallel. |
 | 2026-10-16 | **Whole-book gate APPROVED** (`qa/whole-book.md`, findings NONE). Nonblocking list fixed by in-generator edits (p5 period, p29 closing quote, gold band removed from Wukong's brow on pp 14, 15, 18 panel 1); batches 1–10, 11–20, 21–30 re-gated APPROVED. **Reader** built (`index.html`), verifier CLEAN, reader critic APPROVED. Ship record in `RUN-LOG.md`; lessons into `method/07-FAILURE-MODES.md` (infra re-frozen, selftest CLEAN). |
+| 2026-10-16 | **Owner: "commit and push". Published to Nano:** commit `18efd7d`, Pages run `38978388997` success; live at https://andressolve.github.io/nano/monkey-king-vol2/index.html (reader 200 with the correct title, pages 1 and 48 200, card first in live `stories.js`). Publication copy adds the toolbar and ending library links; its verifier requires them and reports CLEAN. Pages byte-identical to production. Only `.gitignore`, `stories.js` and `monkey-king-vol2/` were staged; nano's other uncommitted work was left untouched. |
 
 ## Open holds
 
@@ -66,4 +67,4 @@ NONE
 
 ## Next bounded action
 
-Done. Open `books/monkey-king-vol2/index.html` to read. On the owner's word, publish to Nano the way Monte Cristo III was published (copy pages and reader into the Nano library, add the library links, commit, push, verify live). Next in the queue (menu vote): Monte Cristo Vol IV kickoff is in `notes/NEXT-SESSION-MONTE-CRISTO-VOL4.md`; Monkey King Vol III would continue the road west.
+Done and published. Next session: Monkey King, Volume III — paste the kickoff in `notes/NEXT-SESSION-MONKEY-KING-VOL3.md`. The journal for it is `10-PRODUCTION-MEMOIR.md` (Part V: threads and source ground). Run scripts: `notes/monkey-king-vol2-run-scripts/` (`supervise.sh <slug>`).
