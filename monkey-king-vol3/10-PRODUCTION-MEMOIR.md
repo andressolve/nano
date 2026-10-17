@@ -2,7 +2,7 @@
 
 Started 2026-10-16 from the kickoff in `notes/NEXT-SESSION-MONKEY-KING-VOL3.md`
 ("fully autonomous, greenlight ① given in advance, publish to nano when
-ready"). Completed 2026-10-17. Numbers are in `RUN-LOG.md`; failure modes in
+ready"). Completed 2026-10-17 and published to Nano the same day (commit `f70de0a`) on the owner's advance authorization. Numbers are in `RUN-LOG.md`; failure modes in
 `method/07-FAILURE-MODES.md`. This is what Volume IV should know.
 
 ## Part I — The decisions that made the book
@@ -81,6 +81,7 @@ rounds take only mandatory findings; each round found exactly one real thing.
   charcoal slash. The p32 edit then drifted out of the register (glossy oil,
   bright fires) — regenerated with a register-emphasis section.
 - **Wrong name lettered** on p45 v2 ("Wujing" for "Wukong") — full reset.
+- **A gilded shrine** (regate after the whole-book edits): pp 45–47, all in the dark hall, drifted page by page into warm gold ornament and a Buddha altar; setting-only edits fixed them, and the p47 edit moved a balloon tail to the wrong mouth (fixed in a second edit naming both changes). **For IV: an edit instruction names every element that must not move, balloon tails included.**
 - **Bajie drift** (whole-book gate): two different pig faces across the book,
   the softer one with no tusks and sometimes a cap; edited on eight pages.
   Bajie's sheet was attached on only some pages — pages drawing him from words

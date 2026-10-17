@@ -10,7 +10,7 @@ bounded action.
 
 `ADAPTATION` → `SCRIPT_GATE` → `REFERENCES` → `PACKETS` → `PRODUCTION` → `PUBLICATION`
 
-Current: **WHOLE-BOOK GATE**
+Current: **PUBLISHED (Nano, 2026-10-17)**
 
 ## The story (presented at greenlight ①)
 
@@ -78,6 +78,8 @@ Current: **WHOLE-BOOK GATE**
 | 2026-10-17 | **All 49 pages promoted; batch gates 1–10, 11–20, 21–30, 31–40, 41–49 all APPROVED.** p45 took three candidates (v2 lettered "Wujing" for "Wukong"; full prompt reset). Reader `index.html` built (verifier CLEAN). Whole-book gate launched (fresh milestone critic on 600×900 proofs in `qa/_review/proofs-600/`). |
 | 2026-10-17 | **Whole-book gate APPROVED**, mandatory findings NONE, no typos (`qa/whole-book.md`). Nonblocking list worked: Bajie's face drifted on pp 1, 3, 5, 9, 10, 11, 18, 46 (soft tuskless cartoon pig, sometimes a cap) → in-generator edits to the locked pig face; p41 horse not limping → edit. Edits p3 and p10 blocked by their edit critics on things the edit did not touch (Wujing's reed sash read as a forbidden "cord"; p10's blow staging, approved at page and batch gates) → advisor overrides (`promote.py --owner-override`, reasons in the ledger); the cards' "cord" clause clarified. Regates 1–10, 11–20 APPROVED. |
 | 2026-10-17 | Regate 41–49: sequence and cold read APPROVED; continuity REVISE — pp 45–47 drifted from the locked black-stone hall into a warm gilded shrine (gold Buddha altar on p47). Ruling: take it; setting-only edits on 45, 46, 47 (black stone, iron lamps, cold cage light, no gold), then `--gates 49` (`fix4547.sh`). |
+| 2026-10-17 | p47's hall edit moved the first balloon's tail to Wukong (real attribution defect, edit critic REVISE); second edit fixed hall and tail together. **Batch gate 41–49 APPROVED** (re-gated). **Reader critic APPROVED.** Ship record in `RUN-LOG.md`, journal `10-PRODUCTION-MEMOIR.md`; method/07 updated (two watches promoted, two new watches, one corollary); selftest CLEAN; infra re-frozen (INFRA INTACT). |
+| 2026-10-17 | **Published to Nano** on the owner's advance authorization: commit `f70de0a` (only `.gitignore`, `stories.js` and `monkey-king-vol3/` staged; nano's other uncommitted work untouched). Publication copy adds the toolbar and ending library links; its verifier requires them and reports CLEAN; pages byte-identical to production. |
 
 ## Open holds
 
@@ -85,4 +87,4 @@ NONE
 
 ## Next bounded action
 
-Whole-book gate → edit its nonblocking list (`pagerun.py --page N --edit`) → regate touched batches → reader critic (`qa/_publication/CRITIC.md`) → ship record, memoir, method/07, infra freeze, selftest → publish to Nano (authorized in advance).
+Done and published. Next session: Monkey King, Volume IV — paste the kickoff in `notes/NEXT-SESSION-MONKEY-KING-VOL4.md`. Journal: `10-PRODUCTION-MEMOIR.md` (Part V: threads and source ground). Run scripts: `notes/monkey-king-vol3-run-scripts/`.
