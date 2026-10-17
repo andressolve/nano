@@ -1,0 +1,1 @@
+RESET: Rewrote `06-white-horse` from the inherited lock, fixed the wound as one contained bloodless right-foreleg gash, removed the bandage ambiguity, and recorded the ruling in `HANDOFF.md`.

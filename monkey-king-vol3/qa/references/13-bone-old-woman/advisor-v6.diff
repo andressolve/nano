@@ -1,0 +1,144 @@
+--- 04-CHARACTER-LEDGER.md (before)
++++ 04-CHARACTER-LEDGER.md (after)
+@@ -316,13 +316,15 @@
+ her eyes.
+ **Disguise 2 — the old woman (pp 9–10):** a small bent old woman of about
+ eighty, white hair in a tight bun with a wooden pin, a short broad deeply
+-wrinkled kind face, narrow dark eyes with the same small green pinpoints, and a
+-small toothless mouth. She wears a **dark brown padded jacket** to the hips,
+-darker trousers and cloth shoes, and leans on a shoulder-high **bamboo cane**,
+-weeping and wiping her cheek with her bare fingers. **Wukong's sight-reveal is
+-facial only:** the true shape's long-jawed skull appears as a faint inner image
+-inside her intact living face; the image ends under her chin, and her body,
+-clothes and hands remain wholly living.
++wrinkled kind face with wide cheeks, a small low rounded nose, a blunt rounded
++chin, narrow dark eyes with the same small green pinpoints, and a small
++toothless mouth. She wears a **dark brown padded jacket** to the hips, darker
++trousers and cloth shoes, and leans on a shoulder-high **bamboo cane**, weeping
++and wiping her cheek with her bare fingers. **Wukong's sight-reveal is a
++graphic shadow, not anatomical transparency:** the old woman remains wholly
++living and opaque, while one flat pale-gray head-and-shoulders shadow sits
++immediately behind her; its head alone has the true shape's long-jawed skull
++silhouette. The shadow has no green lights, skeletal body or bone hands.
+ **Disguise 3 — the old man (pp 13–15):** a thin old man of about eighty,
+ a long wispy white beard, a bald brown head with a white fringe, a **gray
+ lay-pilgrim's gown**, a string of brown wooden **prayer beads** in his hands,
+@@ -338,9 +340,10 @@
+ gold, a red dot between the brows (Guanyin — "the lady in white"). Never
+ blood, guts or rotting flesh. Never the monk's saffron or red. The disguises
+ never wear gold, saffron, red kasaya, or the gold band; the girl's jacket is
+-peach-pink, never the monk's saffron. The old woman's sight-reveal never shows
+-bone hands or any skeleton below her chin, and she never carries a
+-handkerchief.
++peach-pink, never the monk's saffron. The old woman's sight-reveal never puts a
++skull inside or over her living face, never shows a skeletal body or bone
++hands, and never adds a separate Bone Lady figure or extra green lights; she
++never carries a handkerchief.
+ 
+ **Voice:** in her true shape, slow and hungry, purring. In disguise, sweet,
+ plain, and a little too eager.
+--- 09-REFERENCE-PLAN.md (before)
++++ 09-REFERENCE-PLAN.md (after)
+@@ -468,18 +468,19 @@
+ spine; four small clawed legs; a tapering tail. No robes, no crown, no human
+ body. Expression at rest: quick, brave, a little frightened.
+ 
+-Views: (a) three-quarter head and neck, (b) one complete long S-curve body,
+-(c) strict-profile dragon head, and (d) the dragon recoiling in the air with
+-the anatomical right foreleg unmistakably the raised limb, carrying one short,
+-straight, closed dark gash on the front of the leg below the knee, wholly
+-inside the white limb with clear unmarked white scales at both ends. Remove the
+-torso mark and every red halo or blood-like tint. The wound must match approved
+-06 White Horse in side and placement and must contain no blood, open flesh,
+-bandage, wrap, ring, or dangling material. Remove every horse head, horse body,
+-hoof, bridle, rein, saddle, and stirrup from the sheet. Preserve the dragon's
+-primary markers in all applicable views: short narrow young face, two short
+-unbranched pale-gold horn spikes, large round sea-green eyes, pale-blue dorsal
+-mane, slim white serpentine build, and four small clawed legs.
++Views: exactly four dragon-only views: (a) three-quarter dragon head and neck,
++(b) one complete long S-curve dragon body, (c) strict-profile dragon head, and
++(d) the recoiling wounded dragon. In view (d), the anatomical right foreleg is
++clearly the single raised foreground limb; place one short, straight, closed
++charcoal-dark gash on the front of that limb below the knee, wholly inside the
++white scales with unmarked white at both ends. Remove the parallel second
++stroke and every red or blood-like tint; add no bandage, wrap, ring, open
++flesh, or dangling material. The wound must match approved 06 White Horse in
++side and placement. Remove every horse head, horse body, hoof, bridle, rein,
++saddle, and stirrup. Preserve continuity with approved 06 only through the
++sea-green eyes, pale-blue mane, white value, slim build, and matching wound
++placement; the dragon state itself must be carried by the short narrow horned
++face, four clawed legs, and serpentine body.
+ 
+ The white dragon must never be confused with an old robed dragon lord: no
+ antlers, no whiskers, no fin beard, no blue-green scales, no gold eyes, no
+@@ -573,20 +574,19 @@
+ 
+ A character reference sheet, 1536 × 1024 landscape, four views of the same
+ figure on one uninterrupted plain warm-paper ground, with no scenery, border,
+-lettering or labels. Attach the approved sheet of the Bone Lady as the identity
+-of the spirit hidden inside this disguise.
++lettering or labels. Attach the approved Bone Lady only as the shape reference
++for the supernatural shadow in view (d), never as a separate figure.
+ 
+ The figure is a wholly living village woman of about eighty, small and shorter
+ than the girl, with a strongly bent back and rounded shoulders. Her face is
+-short and broad: wide cheeks, a short lower face, deep wrinkles, a sorrowful
+-brow and a small toothless mouth. Shorten the nasal projection, lower and round
+-its tip, and broaden the lower face into a blunt rounded chin; preserve that
+-same short-broad facial structure in both three-quarter heads so the disguise
+-cannot drift toward the old man's longer profile. Narrow dark eyes hold one tiny
+-cold-green pinpoint at the centre of each eye. Her white hair is pulled into a
+-tight bun secured by one plain wooden pin.
+-She weeps and pleads, leaning her weight on a plain shoulder-high bamboo cane.
+-When she wipes a tear, her bare fingers touch her cheek.
++short and broad, almost round: wide full cheeks, a short lower face, a small
++low rounded nose, a blunt rounded chin, deep wrinkles, a sorrowful brow and a
++small toothless mouth. Keep this same compact face in both three-quarter views
++and in strict profile. Her narrow dark eyes hold exactly one tiny cold-green
++pinpoint at the centre of each eye. Her white hair is pulled into a tight bun
++secured by one plain wooden pin. She weeps and pleads, leaning her weight on a
++plain shoulder-high bamboo cane. When she wipes a tear, her bare fingers touch
++her cheek.
+ 
+ Costume: a dark brown padded cotton jacket ending at the hips, darker brown
+ trousers and plain cloth shoes. No jewellery and no carried object except the
+@@ -594,27 +594,23 @@
+ 
+ Views: (a) three-quarter head and shoulders, weeping, bare fingertips at one
+ cheek; (b) full length, bent over the cane; (c) strict profile, clearly showing
+-the short broad face, rounded chin, bent back, tight bun and wooden pin; (d) a
+-second head-and-shoulders view of the same living face as Wukong sees it.
+-There must be exactly four depictions total. Remove that entire fifth figure:
+-no separate full-length Bone Lady at upper right. Keep the true-shape primary
+-marker only as the one faint long-jawed skull watermark wholly inside view
+-(d)'s living facial oval, ending at the underside of her chin; retain exactly
+-two aligned green pinpoints total and no bone anywhere else on the sheet.
+-Preserve visibly continuous wrinkled living skin plus
+-both living eyes, her nose, lips, chin, white hair and bun over the entire face;
+-reduce the skull to a low-contrast watermark beneath that surface; end it at
+-the underside of the chin. Do not retain the present right-shifted full skull
+-with a separate pair of green eyes, which produces three green lights and
+-replaces the living right eye, cheek, nose and mouth instead of lying beneath
+-them. Her neck, jacket and living hands are opaque and ordinary; no other bone
+-is visible anywhere.
++the short broad face, low rounded nose, blunt chin, bent back, tight bun and
++wooden pin; (d) a second three-quarter head-and-shoulders view of the same
++wholly living, opaque old woman as Wukong sees her. Immediately behind view
++(d), place one flat, low-contrast pale-gray head-and-shoulders shadow. Its head
++alone has the approved Bone Lady's long-jawed skull silhouette; its shoulders
++simply echo the old woman's jacket. The shadow is a graphic sign, not another
++body and not a transparent layer inside her face. Its eye hollows are unlit.
++The only green on the entire sheet is the same two tiny pinpoints in the old
++woman's living eyes. Exactly four depictions total; no separate Bone Lady,
++skeletal body, bone hands or additional skull anywhere.
+ 
+ Keep her unmistakable from the other disguises: elderly woman, short broad
+ wrinkled face, white bun, compact bent silhouette, dark-brown clothes and cane;
+ never the girl's black plait, peach jacket or basket, and never the old man's
+ bald head, beard, gray gown or prayer beads. Never gold, white robes, veil,
+-saffron, red kasaya, blood or a handkerchief.
++saffron, red kasaya, blood or a handkerchief. Never place a skull inside or
++over her living face.
+ 
+ *(register paragraph, verbatim)*
+ 

@@ -1,0 +1,1 @@
+RESET: Relocked `06-white-horse` around the stable right-flank, lifted-right-hoof injury pose; the fresh gash and final bandage remain page instructions, avoiding the unstable red leg ring while preserving the story wound.

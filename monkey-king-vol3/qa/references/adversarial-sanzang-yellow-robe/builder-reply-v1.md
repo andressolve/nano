@@ -1,0 +1,3 @@
+Output: [adversarial-sanzang-yellow-robe-v1.png](/Users/andresrodriguez/Documents/monte_inspired/books/monkey-king-vol3/refs/candidates/adversarial-sanzang-yellow-robe-v1.png)  
+SHA-256: `7455a95a3bf5d47c6e69ab3fee659495a0817ccbf8beee64fed74d8a7ff106f8`  
+Audit: [adversarial-sanzang-yellow-robe-v1.audit.md](/Users/andresrodriguez/Documents/monte_inspired/books/monkey-king-vol3/refs/candidates/adversarial-sanzang-yellow-robe-v1.audit.md)

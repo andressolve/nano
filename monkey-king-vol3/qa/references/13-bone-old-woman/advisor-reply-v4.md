@@ -1,0 +1,1 @@
+RESET: Rebuilt `13-bone-old-woman` around her proven living design and confined Wukong’s reveal to the Bone Lady’s skull inside her intact face; updated the ledger, prompt block, and HANDOFF record.

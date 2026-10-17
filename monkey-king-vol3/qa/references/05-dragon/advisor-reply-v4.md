@@ -1,0 +1,1 @@
+RESET: Rebuilt `05-dragon` around the dragon parent alone, clarified the shared wound lock and tack-free dragon form, and recorded the ruling in `HANDOFF.md`.

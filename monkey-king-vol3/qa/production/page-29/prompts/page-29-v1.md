@@ -1,0 +1,25 @@
+Create one finished, flattened 1024 × 1536 portrait story page in a 2:3 ratio, with lettering baked in natively. This is a canonical printed illustrated novel page, not a prototype, mockup, sample sheet, spread, layout study, montage, model sheet, portrait board, or collage. Use the attached references only for identity and place; create a new staged scene. No page number, title, production label, speaker name, label, tag, numeral, editorial text, or any invented writing appears. The only visible text is the three exact strings specified below, rendered once each and in the listed order.
+
+Use the Mineral Ink register: brush-and-ink line on toothed paper, flat washes of malachite green, azurite blue, cinnabar red, shell white, and flat gold leaf; Chinese blue-green landscape tradition lit like a film, with real cast shadows and depth; visible ink line, paper tooth, and pigment pooling at wash edges. Avoid glossy concept-art surfaces, airbrushed skin, engraved cross-hatching, anime proportions, children's-book softness, and plastic 3D rendering. The inside of the Yellow Robe's pagoda is black stone with iron-lamp light and no daylight colour.
+
+Make a clear top-to-bottom reading path with two panels. The upper panel is a shallow setup occupying about one third of the page. Sanzang is on the left, sitting against a black pillar inside one loose storybook rope, frightened. Wujing sits beside him farther left inside that same loose rope, silent. The Yellow Robe is on the right, crouched close in front of Sanzang, grinning, with one hand holding exactly one single plain cup of water. Give the Yellow Robe two organic oval dialogue balloons stacked on the right beside his visible mouth, the first higher and the second clearly lower, with both tails ending beside his mouth. Stage the Yellow Robe as the speaker rather than lettering his name.
+
+The dominant lower panel owns the page and shows the transformation. The Yellow Robe is on the right in profile, his cheeks full as he sprays a fine silver mist from his mouth across the panel over Sanzang. The spray must visibly carry the change: Sanzang's shape swells; black stripes rise through the saffron robe; the red kasaya tears at the shoulder; the ropes fall slack; his face becomes a lean orange tiger face with black stripes and the monk's own dark almond eyes, wide and frightened, never snarling and never showing aggression. His two hands remain pressed together as they become striped paws. Wujing is at the far left straining away against his ropes. Put the exact sound cue inside the silver spray. The transformation is strange and magical, not wounding: no blood and no gore.
+
+Preserve the attached character locks exactly. The Yellow Robe is a huge, wide, square deep-indigo face with tusks, pale silver eyes, black topknot, and short square black beard, wearing a mustard-ochre robe with silver stars over black armour. Sanzang in the upper panel is young, shaven, smooth oval-faced, with dark almond eyes, saffron robe, and red kasaya with gold grid. In the lower panel, Sanzang is an orange tiger with black stripes, the torn red kasaya with gold grid over the left shoulder, and the monk's calm dark almond eyes, never tiger-yellow; never draw a human face on a tiger body. Draw Wujing from the packet description as a gaunt, stooped slate blue-gray hollow-faced ogre with wild red hair and red beard, sand-brown sleeveless tunic and reed sash, roped; no skulls anywhere on him. Keep the demon structurally distinct from both Wujing and Sanzang. Wukong, Bajie, the horse, monkeys, meat, and cage are absent; no other monkey, pig, ogre, dragon, monk, or woman appears. No readable writing other than the three listed strings.
+
+Use warm ivory organic oval balloons with restrained dark painted outlines. Dialogue is rounded, upright, mixed-case hand lettering, never serif, italic, typeset, boxed, rectangular, or rounded-rectangle. Keep all essential text clear of faces, hands, props, panel borders, and balloon crossings, with tails ending in open space beside the speaking mouth. Do not add laugh lines, labels, captions, object text, or any other marks that resemble writing. Letter the first Yellow Robe balloon in the upper panel beside his mouth:
+
+A monk who won't hurt anyone! Let's see how gentle you are with claws and teeth.
+
+Letter the second Yellow Robe balloon lower than the first, still beside his mouth:
+
+Everybody's a beast underneath, monk. When you eat that meat, you'll know it too. Then I'll eat you.
+
+Letter the sound cue exactly inside the silver spray:
+
+PFFFT
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+Output exactly one new finished page at 1024 × 1536 portrait. Attach only the three approved reference images supplied with this request: the Yellow Robe sheet, the Sanzang sheet, and the Sanzang-tiger sheet. Do not attach or reproduce any candidate, board, page, or other image.

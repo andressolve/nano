@@ -1,0 +1,24 @@
+pages: 48   dramatic 30  prose 7  spectacle 11  chronicle 0
+mode share target ≈ 60 / 20 / 13 over the story pages; chronicle ≤ 15% of the book — a book of only dramatic scenes has lost the form
+
+BLOCKERS: none
+WARNINGS (craft signals, judged by the script critic):
+  - p30: dramatic page with no dialogue
+
+FIVE-WORD AUDIT — 15 balloons of five words or fewer. Each needs the explicit ambiguity audit
+(complete thought or intentional answer? one visible referent? clear without notes? forceful, not compressed?):
+  - p6: BAJIE: 'Frogs! The noodles are frogs!'
+  - p7: SANZANG: 'Gold, hold fast.'
+  - p7: WUKONG: 'Master, no!'
+  - p9: SANZANG: "Wukong, don't you dare."
+  - p14: SANZANG: 'Wukong, no!'
+  - p16: SANZANG: 'Gold, hold fast.'
+  - p18: SANZANG: "I won't look at you."
+  - p18: WUJING: "I'll walk at his back."
+  - p26: BAJIE: "He's, um, busy."
+  - p26: WUJING: 'He was sent away.'
+  - p32: HORSE: 'Bajie. Listen to me.'
+  - p33: BAJIE: 'You can TALK?'
+  - p39: BAJIE: 'Big brother! Wait for me!'
+  - p43: BAJIE: "He's getting away! Chase him!"
+  - p47: WUKONG: "And what if I'm wrong?"

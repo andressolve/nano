@@ -1,0 +1,1 @@
+RESET: Relocked `05-dragon` with a compact shield-nosed lizard head and one bold proof-scale right-foreleg slash, preserving cross-form identity while making the dragon distinct from the horse and its injury consistently readable.

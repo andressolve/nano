@@ -1,0 +1,112 @@
+--- 09-REFERENCE-PLAN.md (before)
++++ 09-REFERENCE-PLAN.md (after)
+@@ -78,7 +78,7 @@
+ | 07 bajie | `refs/parents/07-bajie.png` | **none** — view (d) flying on his small lumpy sagging cloud |
+ | 08 wujing | `refs/parents/08-wujing.png` | **the skulls are gone** — the same face, build and costume with no necklace, no cord, no skull anywhere; habitual gesture becomes a hand closed at the bare chest where they hung; view (d) bound with rope, head bowed |
+ | 06 white-horse | `refs/parents/06-white-horse.png` | **none** — view (d) the wounded right foreleg, hoof lifted |
+-| 05 dragon | `refs/parents/05-dragon.png` (and approved `06-white-horse` for the wound's placement) | **none** — view (d) recoiling in the air with the clean dark cut on the right foreleg |
++| 05 dragon | `refs/parents/05-dragon.png` | **none** — view (d) recoiling in the air with the clean dark cut on the right foreleg |
+ | set-flower-fruit | `refs/parents/v1-set-peak.png`, `refs/parents/v1-set-cave.png` | five hundred years on: the same peak, waterfall and cave; the Volume I red banner now a faded pink rag on the old flagpole |
+ | adversarial-bone-lady-guanyin | `refs/parents/03-guanyin.png` | critic-only comparison: Guanyin is named once and never drawn in this book; the reader remembers "the lady in white" |
+ 
+@@ -99,7 +99,7 @@
+ | 07 | `07-bajie` — continuity: pig head, belly, black tunic, rake; view (d) flying on his lumpy cloud | character | 1 | p1 | `../parents/07-bajie` |
+ | 08 | `08-wujing` — continuity WITHOUT the skulls: gaunt slate ogre, red beard, crescent spade; view (d) bound with rope, head bowed | character | 1 | p1 | `../parents/08-wujing` |
+ | 06 | `06-white-horse` — continuity: the Third Prince as a horse, saddled; view (d) the wounded right foreleg, hoof lifted | character | 1 | p1 | `../parents/06-white-horse` |
+-| 05 | `05-dragon` — continuity: the slim white serpent dragon; view (d) recoiling with the clean cut on the right foreleg | character (state) | 30 | p30 | `../parents/05-dragon` `06-white-horse` |
++| 05 | `05-dragon` — continuity: the slim white serpent dragon; view (d) recoiling with the clean cut on the right foreleg | character (state) | 30 | p30 | `../parents/05-dragon` |
+ | 11 | `11-bone-lady` — the White Bone Lady, true shape: skull face, loose black hair, ash-gray and violet burial silk; view (d) the mist escaping | character | 2 | p2 | new |
+ | 12 | `12-bone-girl` — disguise one: the girl, peach-pink jacket, single plait with a red string, lidded basket, green pinpoints in the eyes; view (d) as Wukong sees her | character (state) | 4 | p4 | `11-bone-lady` |
+ | 13 | `13-bone-old-woman` — disguise two: the old woman, white bun, dark brown padded jacket, bamboo cane, green pinpoints; view (d) as Wukong sees her | character (state) | 9 | p9 | `11-bone-lady` |
+@@ -453,45 +453,34 @@
+ Their faces must remain structurally distinct even in profile, reduced scale,
+ grayscale, partial hair, and travel clothes.
+ 
+-## 05 — THE WHITE DRAGON (continuity sheet, anchored on Volume II's approved 05 and this volume's approved 06)
+-
+-A character reference sheet, 1536 × 1024 landscape, exactly four dragon-only
+-views on one plain warm-paper ground, no lettering of any kind, no labels.
+-Attach the approved Volume II dragon sheet and the approved white horse sheet:
+-this is the same young dragon, unchanged, and the horse is what he becomes;
+-the wound on his right foreleg is in the same place as the horse's.
+-
+-The Third Prince, a young dragon. A slim serpentine dragon, white as river
+-foam, long and lithe; a short narrow young dragon face with no beard and no
+-fins at the jaw; two small short unbranched pale-gold horn spikes, never
+-antlers; large round sea-green eyes; a pale-blue mane running the length of the
+-spine; four small clawed legs; a tapering tail. No robes, no crown, no human
+-body. Expression at rest: quick, brave, a little frightened.
+-
+-Views: exactly four dragon-only views: (a) three-quarter dragon head and neck,
+-(b) one complete long S-curve dragon body, (c) strict-profile dragon head, and
+-(d) the recoiling wounded dragon. In view (d), make the anatomical right
+-foreleg the single clearly raised foreground limb and place one short,
+-straight, closed
+-charcoal-dark gash on the front of that limb below the knee, wholly inside the
+-white scales with unmarked white at both ends. No parallel stroke, red tint,
+-blood, open flesh, bandage, wrap, ring, or dangling material. The wound must
+-match approved 06 White Horse in side and placement. Remove every horse head,
+-horse body, hoof, bridle, rein, saddle, and stirrup. Preserve cross-form
+-identity only through the sea-green eyes, pale-blue mane, white value, slim
+-build, and matching wound placement; preserve dragon-state separation through
+-the short narrow horned face, four clawed legs, and complete serpentine body.
+-
+-Remove every mountain, tree, rock, waterfall, pool, splash, horizon, and ground
+-vignette; place the four dragon-only views on one uninterrupted plain
+-warm-paper field so the pale-blue mane, white body value, clawed limb structure,
+-and S-curve silhouette remain readable without scenic edges or values acting as
+-identity markers.
+-
+-The white dragon must never be confused with an old robed dragon lord: no
+-antlers, no whiskers, no fin beard, no blue-green scales, no gold eyes, no
+-robes, no human body. It is a slim white serpent with sea-green eyes and a
+-pale-blue mane.
++## 05 — THE WHITE DRAGON (continuity sheet, anchored on Volume II's approved 05)
++
++A character reference sheet, 1536 × 1024 landscape, showing exactly four
++views of the same dragon on one uninterrupted plain warm-paper field. No
++lettering, labels, borders, scenery, ground line, or environmental vignette.
++Use the attached approved Volume II `05-dragon` sheet as the sole identity
++anchor and keep the character young and unchanged.
++
++The Third Prince in dragon form is a slim white serpentine dragon, long and
++lithe, with a complete tapering tail and four small clawed legs. His face is
++short, narrow, and young: large round sea-green eyes, a short reptilian mouth,
++two small unbranched pale-gold horn spikes, and no beard or jaw fins. A
++pale-blue mane begins at the crown and runs along the spine. At rest he looks
++quick, brave, and a little frightened. He wears no costume or tack.
++
++Arrange four cleanly separated poses without frames: (a) a three-quarter head
++and neck, (b) the complete dragon in a long readable S-curve, (c) a strict
++profile head, and (d) the complete dragon recoiling in startled pain. In view
++(d), turn his anatomical right side toward the viewer and lift the right
++foreleg alone into the foreground, clearly separated from the chest. Put one
++short, straight, closed charcoal-dark gash on the front of that foreleg below
++the knee, wholly inside the white scales with clear unmarked white at both
++ends.
++
++Never give the wound a second stroke, red tint, blood, open flesh, bandage,
++wrap, ring, or dangling material. Never draw horse anatomy, hooves, bridle,
++reins, saddle, or stirrups. Never draw antlers, whiskers, a fin beard,
++blue-green scales, gold eyes, robes, a crown, or a human body.
+ 
+ *(register paragraph, verbatim)*
+ 
+@@ -648,10 +637,13 @@
+ Views: (a) three-quarter head and shoulders, the beads at his chest, the green
+ pinpoints clear; (b) full length, stooped a little, the beads in both hands;
+ (c) strict profile showing the bald crown, the white fringe and the long beard;
+-(d) as the monkey sees him: the same old man in the same pose as (a), and
+-through his face and his hands on the beads a pale, translucent ghost of the
+-attached bone lady's skull face and long bone fingers showing, like a figure
+-seen through thin paper; his beard, gown and beads unchanged.
++(d) as the monkey sees him: reuse view (a)'s three-quarter pose; keep the
++complete long, lined, sun-browned living face and both flesh hands visibly
++present; align one pale, low-contrast translucent long-jawed skull ghost within
++the face and translucent long bone-finger ghosts within the hands, as if seen
++through thin paper; keep the bald crown, white fringe, long wispy beard, gown,
++and brown beads unchanged over and around the overlay. No exposed or
++replacement skull, no exposed or replacement skeletal hands.
+ 
+ The old man must never be confused with the young monk: eighty, never
+ twenty-five; a white fringe and a long white beard, never a fully shaven smooth

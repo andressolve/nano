@@ -1,0 +1,1 @@
+RESET: Kept the proven short, broad living design and replaced unstable facial transparency with one skull-headed shadow behind her intact head, preventing extra figures, exposed bones, and duplicate eye lights.

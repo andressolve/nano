@@ -1,0 +1,33 @@
+--- 09-REFERENCE-PLAN.md (before)
++++ 09-REFERENCE-PLAN.md (after)
+@@ -657,16 +657,13 @@
+ big, lazy, delighted, cruel.
+ 
+ Costume: a long robe of mustard-ochre over black lamellar armour, the robe's
+-edges stitched with a border of small silver stars; a wide black belt; black
+-boots. His weapon: a broad curved scimitar with a silver blade and a black
+-hilt. Replace every robe-border emblem in all four views with one consistent
+-silver star having exactly seven clearly separated points; remove the eighth
+-point and any crossing stroke, secondary ray, or highlight that can read as an
+-eighth point, while keeping the motifs confined to the robe edges. Make the
+-grip, guard, collar, and pommel of the single scimitar uniformly matte black
+-with no gold, brass, bronze, or ochre fitting; retain silver only on the broad
+-curved blade. Keep the motifs confined to the robe edges and retain the
+-mustard-ochre/black value pattern.
++edges stitched with a border of small silver stars (any small star shape —
++five, six, seven or eight points all pass; the point count is not a story
++object and is never blocking); a wide black belt; black boots. His weapon: a
++broad curved scimitar with a silver blade and a dark hilt — black or dark iron
++preferred; a small dark-bronze guard is nonblocking, but no bright gold
++anywhere on him (bright gold is Wukong's). Keep the motifs confined to the
++robe edges and retain the mustard-ochre/black value pattern.
+ 
+ Views: (a) three-quarter head and shoulders, laughing, the tusks and the
+ silver eyes clear; (b) full length, feet planted wide. Redesign the gesture
+@@ -772,5 +769,5 @@
+ - **set-pagoda-hall.** One great dark hall of black stone inside the pagoda, lit by a few small iron lamps with low warm flames: a wide stone bed heaped with dark furs on a low dais; one thick black stone pillar standing free in the hall; against the far wall an iron cage taller than a man, empty, its barred door shut; from a single high narrow window, one shaft of cold white moonlight falling across the floor onto the cage. Black, iron and deep shadow, the lamps the only warm points, the moonlight the only cold one; no gold inside, no meat, no bones, no ropes, no weapons, no glyphs, no figures. Never the sea palace's shell-white columns, never a farmhouse room.
+ - **set-road-west.** A long dirt road going west through rolling green hills toward far blue mountains, clean early-morning light from behind the viewer, long soft shadows across the road, a line of dark pines falling away at the left edge behind. Malachite and soft azurite, pale gold early light; no milestone, no buildings, no figures, no glyphs. Never the dry white ridge, never the ochre dust valley of the earlier volume.
+ - **obj-basket.** One borderless, unlettered object plate on uninterrupted warm paper with clear space between three views of the same round lidded bamboo basket with a bamboo hoop handle. Left: the basket closed, the lid on. Centre: the lid lifted and resting against it, the basket full of white rice and pale noodles. Right: the lid off and the same basket full of small pale cream-coloured grubs, drawn simply like grains of rice that have begun to wriggle, and two to four small bright green frogs sitting on top (any count in that range passes), one climbing out over the rim. Woven pale bamboo, white rice, green frogs; nothing rotting, no blood, no slime, no flies, no figures, no hands, no scenery.
+-- **obj-bones.** One borderless, unlettered object plate on uninterrupted warm paper: a neat low heap of clean, dry, white bones lying on a patch of pale road dust — long bones, ribs and small bones laid together, not counted, not scattered — with the white skull resting on top, facing the viewer, its brow wide and smooth with one flat, clean, recessed carved band running straight across it from temple to temple, the band blank and empty, ready to carry an inscription; and separately at the right, the same skull alone in three-quarter close-up, the blank carved band clear across the brow. Clean bone white and pale dust; no letters, glyphs or marks of any kind in the band or anywhere else, no blood, no flesh, no hair, no cloth, no green light in the eye-hollows, no figures.
++- **obj-bones.** One borderless, unlettered object plate on one uninterrupted warm-paper ground: a neat, low, cohesive heap of clean, dry, white bones lying on only a small patch of pale road dust — long bones, ribs and small bones laid together rather than radiating outward or scattering across the foreground, not counted — with the white skull resting on top, facing the viewer, its brow wide and smooth with one flat, clean, recessed rectangular band running straight across the frontal brow from temple to temple, the band blank and empty, ready to carry an inscription, with no paired wraparound grooves or raised cap-like strip; and separately at the right, the same skull alone in three-quarter close-up, the same blank carved band clear across the brow, with no paired wraparound grooves or raised cap-like strip. Restrict the plate to clean bone white, ash shadow, pale road dust, and warm paper; no saturated teal or malachite landscape and no gold foliage. No lake, mountains, cliffs, living pines, foliage, clouds, or any other scenery; no letters, glyphs or marks of any kind in the band or anywhere else, no blood, no flesh, no hair, no cloth, no green light in the eye-hollows, no figures.
+ - **obj-cage-meat.** One borderless, unlettered object plate on uninterrupted warm paper: one iron cage taller than a man, square, of thick black-iron bars with a barred door, shut, standing on a black stone floor; on the cage floor inside, one plain cooked joint of meat on a single bone, brown and dry, whole and untouched, set on the bare stone; a single shaft of cold white moonlight falls through the bars onto it. Black iron, black stone, brown meat, one cold light; no blood, no raw red flesh, no bones scattered, no animal, no figure, no straw, no scenery beyond the floor.

@@ -1,0 +1,21 @@
+Create one finished, flattened 1024 × 1536 portrait 2:3 story page for a premium illustrated novel, with lettering baked in natively. This is a canonical printed page, not a prototype, mockup, sample sheet, spread, layout study, montage, model sheet, portrait board, or collage. Use the two attached images only as identity and object references: the first is the approved Sanzang-as-tiger character sheet; the second is the approved iron-cage-and-meat object plate. Draw a new staged scene, not copies of the references.
+
+Use the Mineral Ink register: visible brush-and-ink line on toothed paper, flat washes of malachite green, azurite blue, cinnabar red, shell white, and flat gold leaf, Chinese blue-green landscape tradition lit like a film, real cast shadows and real depth, visible paper tooth and pigment pooling at wash edges. This is not smooth prestige-oil realism, glossy concept art, airbrushed skin, engraved cross-hatching, anime, children's-book softness, or plastic 3D. The Yellow Robe's pagoda inside is black stone lit by iron lamps, with no daylight colour. Keep the page quiet, dark, and solemn.
+
+Make one dominant, close and tall illustration owning most of the page. In the black stone hall, lit by one iron lamp, place an iron cage taller than a man at centre-right with its door shut. Inside, show Sanzang as a thin, lean, long-legged orange tiger with black stripes, visibly thin from not eating, sitting upright with his front paws together and his head and face turned toward the stone wall at the back of the cage, away from the meat. Preserve the monk's calm dark almond eyes, never tiger-yellow; never snarl, never eat, never give him a human face. His torn red kasaya with its gold-thread grid hangs over his left shoulder and is knotted at his throat. On the cage floor in front of him, show one whole untouched joint of meat on a bone. The meat is not bitten or bloody.
+
+High above, show the hall's one window with a wooden shutter closed tight over it: no sky and no moonlight enter. Far left, deep in shadow, show Wujing tied with rope to a thick black pillar, watching the cage. He is a small, tall gaunt slate blue-gray ogre with a long hollow face, wild red hair and red beard, and a sand-brown sleeveless tunic. He is silent and has no balloon. No skulls or necklace appear on him. Keep the cage, tiger, meat, and Wujing's face unobscured.
+
+Below the plain black stone wall, across the lower part of the page and never over the cage, tiger, meat, or Wujing's face, place one matte parchment prose field. It is left-aligned with a calm ragged right edge, spacious and readable, with four clearly separated paragraphs in a legible literary serif. The field contains exactly these four paragraphs, once each, in this order:
+
+The Yellow Robe put the tiger in an iron cage and threw in a joint of meat.
+
+The monk had never eaten meat in his life. Now he had a tiger's hunger, which is enormous, and a tiger's claws and teeth.
+
+He turned his face to the wall and sat with his front paws together.
+
+All day the meat lay there. When the demon went to bed, it was still there, and he did not laugh about it quite so loudly. Before he lay down, he pulled the shutter across the high window, as he did every night, so that no light from the sky could fall on him.
+
+The prose is the only text on the page. No balloons, captions, sound cues, labels, signs, page number, title, production label, speaker name, editorial text, cage lettering, or wall lettering. No Wukong, Yellow Robe, horse, dragon, or other figures. No blood. Preserve a clear top-to-bottom reading path and make the tiger turning from the meat the dominant visual turn; the shutter's closure is visible high above as the consequence. Keep the demon's bed, extra lamps, and stonework subordinate. Do not add any invented words or marks.
+
+Use safe margins and comfortable literary prose lettering. Never allow text to cross a panel or image boundary, overlap figures or essential faces, or become cramped or illegible. The page is a single integrated illustration with no panel borders. No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.

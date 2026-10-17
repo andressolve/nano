@@ -1,0 +1,27 @@
+Create one finished, flattened illustrated-novel story page in a 1024 x 1536 portrait canvas with a 2:3 aspect ratio. This is a canonical printed page, not a prototype, mockup, spread, layout study, montage, model sheet, portrait board, or collage. Use the three attached character references only for identity and reproduce the characters in a new staged scene. Bake the lettering into the page natively.
+
+Use the Mineral Ink register: visible brush-and-ink line on toothed paper, flat washes of malachite green, azurite blue, cinnabar red, shell white, and flat gold leaf, with real cast shadows and depth. Show paper tooth and pigment pooling at wash edges. Use the Chinese blue-green landscape tradition lit like a film. Avoid smooth prestige-oil realism, glossy concept-art surfaces, airbrushed skin, engraved cross-hatching, anime proportions, children's-book softness, and plastic 3D rendering. Flower-Fruit Mountain is wet malachite green and white water, warm and loud. The Water Curtain Cave is wet stone with a bright white waterfall curtain and a stone throne.
+
+Build one clear top-to-bottom reading path with three horizontal beats: a shallow top strip, a dominant central panel, and a shallow bottom strip. The central panel is plainly the largest and owns the page. Keep all essential content within a generous safe margin, keep clear gutters between panels, and leave no balloon or prose field crossing a panel border. Do not put any page number, title, production label, editorial text, speaker name, label, tag, or numeral on the page.
+
+Top strip: seen from a little way back, Bajie has just landed on the wet green peak at the left and staggers as a swarm of small young brown monkeys leaps onto him from every side. Monkeys hang from his floppy ears and tug his rake. Bajie is the only speaker in this beat; place his organic oval balloon in the upper left with its tail ending beside his visibly open mouth.
+
+Dominant central panel: inside the Water Curtain Cave, the white waterfall is a bright curtain behind the scene on the left. Bajie stands small in the middle distance on the left, being dragged forward by the monkeys. Wukong is close and large on the right, lounging sideways on a stone throne, one bare foot raised on the throne arm, his long tail hanging over it, a peach at his mouth, and his eyes turned away from Bajie. His short heart-shaped face, pale hairless muzzle, golden-tawny fur, large round gold eyes with a thin red ring, low brow, small cupped upright ears, swept golden ruff, small wiry build, hemp robe with mended left shoulder, tiger-skin kilt, and long tail must remain faithful to the Wukong reference. The thin plain gold band is clearly visible on his brow beneath a flower crown and leaves. He never stands square. Wukong is the only speaker in this beat; place his organic oval balloon in the upper right with its tail ending beside his visible mouth.
+
+Bottom strip: Bajie lies flat on his belly on the cave floor at the left, chin raised, with three or four monkeys sitting on his back. He pleads toward Wukong; place his organic oval balloon in the upper left with its tail ending beside his visibly open mouth. Wukong remains on the throne at the right, still looking away and chewing; place his second balloon lower right, clearly below Bajie's balloon, with its tail ending beside Wukong's visible mouth. Keep the reply visually lower than the line that prompts it. The monkeys are noise and weight, never the focus.
+
+Bajie must retain the pig head, long snout, pink-gray nose disc, floppy ears reaching the jaw, small black eyes, huge belly, black tunic, blue sash, and rake from the reference. The monkeys must be small, brown, bare, young, and dark-eyed, with no clothing, gold, bands, ruffs, speech, or balloons. Contrast Wukong's golden fur, ruff, robe, and gold band against their plain brown forms. No monk, Wujing, horse, or other pig, ogre, dragon, monk, woman, or named figure appears. No eye flare. No monkey carries gold. The focal action uses exactly two hands where visible and keeps tails and mouths clear of hands, props, and bystanders. The rake must not resemble Wukong's red-and-gold iron staff.
+
+Letter exactly these four strings once each, in this reading order, with clear ownership carried only by staging, placement, and balloon tails:
+
+Ow! Let go of my ears! I've come to see the Monkey King!
+
+Who's this? I don't know any pigs. Throw him in the waterfall.
+
+Big brother! It's me, Bajie! You know me!
+
+I knew a Bajie once. He talked a monk into sending me away.
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed. Use warm ivory balloon fills and restrained dark painted outlines. Make speech comfortably readable at proof scale, with short replies large and clear. Every visible speaker's mouth is visible and each tail ends beside its own mouth in open space. Do not add punctuation, sound cues, captions, labels, laugh lines, invented text, or any other lettering.
+
+Never use a rectangular or rounded-rectangle speech box, condensed comic-display face, geometric UI font, cursive body text, all-capital prose, distressed letterforms, thin old-style italics, or tiny handwritten documents. Keep the page premium, warm, comic in its refusal, and unmistakably about Wukong knowing exactly who Bajie is while pretending not to.

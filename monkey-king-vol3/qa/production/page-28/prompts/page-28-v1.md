@@ -1,0 +1,27 @@
+Use case: illustration-story.
+Asset type: one finished, flattened 1024 × 1536 portrait story page for a printed illustrated novel, 2:3 ratio, with lettering baked in natively. Generate exactly one new staged page, never a montage, model sheet, board, collage, mockup, spread, or layout study. Use only the three attached images as identity and setting references: Image 1 is the approved Sanzang character sheet, Image 2 is the approved Wujing character sheet, and Image 3 is the approved Yellow Robe pagoda-hall setting plate. Do not copy any page or candidate.
+
+Create a dramatic page in the black inner hall of the Yellow Robe's pagoda. The dominant turn is Sanzang admitting what he did; his sorrowful close face must own the page. Build a clear top-to-bottom reading path with one dominant middle image and two quieter strips.
+
+Register: Mineral Ink. Brush-and-ink line on toothed paper, flat washes of mineral pigment, visible ink line, visible paper tooth, pigment pooling at wash edges, Chinese blue-green landscape tradition lit like a film, real cast shadows and real depth. The inner pagoda hall is black stone lit by iron lamps, with no daylight colour. Use malachite, azurite, cinnabar, shell white, and flat gold-leaf accents only where natural to the register. Not glossy concept-art surfaces, airbrushed skin, engraved cross-hatching, anime proportions, children's-book softness, or plastic 3D rendering.
+
+Top strip: show the black stone hall in iron-lamp light. Wujing is on the left and Sanzang is on the right, both sitting on the stone floor with their backs against the same thick black pillar. One loose storybook rope loops once around the pillar and the two captives. Wujing's head is bowed and his mouth is visible as he speaks; Sanzang is silent. Place Wujing's single balloon upper left beside his mouth, with its tail ending at his mouth. Keep this strip quieter and smaller than the central image.
+
+Dominant middle panel: make it the largest image by far, close and tall. Sanzang is on the right, the loose rope crossing his robe, turning his face toward Wujing with his mouth open, sorrow and honesty visible in his face. Wujing's gaunt profile appears at the left edge, silent and listening. Place two Sanzang balloons stacked on the right above and beside Sanzang's mouth, the first higher and the second lower; both tails end at Sanzang's mouth and never approach Wujing's mouth. Keep the quiet confession close and legible rather than turning it into an action tableau.
+
+Bottom strip: silent aftermath with no balloons and no tail fragments. Sanzang sits at the pillar looking at nothing, quiet and sorrowful; Wujing sits beside him looking at Sanzang; the dark hall surrounds them.
+
+Sanzang is young and fully shaven with a high head, smooth oval face, straight dark brows, dark almond eyes, and a sorrowful expression. He wears a saffron robe under a red kasaya with a gold grid and remains a man, never a tiger. Wujing is gaunt, with a slate blue-gray hollow face, red-brown eyes, wild red hair and red beard, a sand-brown sleeveless tunic, and a reed sash. He is tired but unhurt, with no blood. No skulls appear anywhere on Wujing. Preserve the identities, build, costume state, and habitual gestures from the attached sheets.
+
+Wukong is absent: no monkey, ghost, memory image, or reflection of him. The Yellow Robe, Bajie, the horse, and every other unlisted character are absent. No weapons are in reach: neither Wujing's spade nor the monk's staff appears. Iron lamps only. If a high window is visible it is shuttered. If the iron cage appears, it is empty, unlit, and never focal. No blood. No readable writing other than the three listed strings.
+
+The page has an outer safe margin, generous gutters, and no essential lettering at the bottom edge. Speech is large, comfortable, and highly legible at proof size. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons with warm ivory fill and restrained dark painted outlines, never serif, never italic, never boxed. The only serif lettering permitted is an illustrated-prose field, but this page has no prose field. No balloon, caption, or prose field crosses a panel border. Every visible speaker's mouth is unobstructed and every tail ends beside its own speaker's mouth in open space. Sanzang's two replies are stacked in order, with the reply clearly lower than the line that prompts it. No invented sound cues, captions, labels, page number, title, production mark, speaker name, or editorial text.
+
+Letter these exact three strings once each, in this order, without quotation marks, without prefixes, and without any extra text:
+Wukong told me to walk at your back, Master. I went looking for the pig instead. I didn't keep you safe.
+No, Wujing. I sent away the one who could have kept me.
+I saw a girl and was sure she was a girl. He told me three times, and three times I said the words.
+
+No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+The output must be a finished portrait story page with the three readable strings exactly as given, clear ownership by placement and balloon tails, the central close on Sanzang's face as the visual priority, and no other visible text.

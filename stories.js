@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "monkey-king-vol3",
+    title: "Monkey King, Volume III: Sent Away",
+    cover: "monkey-king-vol3/pages/page-01.png",
+    published: "2026-10-17",
+    category: "Myth & Literature",
+    series: "Monkey King · Volume III",
+    summary: "On a ridge of white rock, a demon made of bone puts on three kind faces to get one bite of the monk. Only the Monkey King can see the skull under the smile, and every time he strikes, the monk says the three words that crush the gold band on his head. The third time, Wukong asks first, is told no, and saves the monk anyway, and is sent home. Forty-nine illustrated pages of a basket of frogs, a monk turned into a tiger who will not eat the meat, a horse who speaks once, a pig who flies the wrong way to tell the truth, and a monkey who goes back for the one who sent him away."
+  },
+  {
     slug: "monkey-king-vol2",
     title: "Monkey King, Volume II: The Road West",
     cover: "monkey-king-vol2/pages/page-01.png",

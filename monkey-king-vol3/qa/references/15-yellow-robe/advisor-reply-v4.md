@@ -1,0 +1,1 @@
+RESET: Rewrote `15-yellow-robe` from the stable identity lock, made star point count nonblocking, clarified dark-metal scimitar fittings and single-weapon staging, and recorded the ruling in `HANDOFF.md`.
