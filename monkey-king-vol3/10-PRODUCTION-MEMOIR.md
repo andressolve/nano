@@ -3,7 +3,7 @@
 Started 2026-10-16 from the kickoff in `notes/NEXT-SESSION-MONKEY-KING-VOL3.md`
 ("fully autonomous, greenlight ① given in advance, publish to nano when
 ready"). Completed 2026-10-17 and published to Nano the same day (commit `f70de0a`) on the owner's advance authorization. Numbers are in `RUN-LOG.md`; failure modes in
-`method/07-FAILURE-MODES.md`. This is what Volume IV should know.
+`method/07-FAILURE-MODES.md`. Owner's verdict: "absolutely epic… bravo… i did not see any image gen glitches." This is what Volume IV should know.
 
 ## Part I — The decisions that made the book
 
@@ -106,3 +106,5 @@ Gold and Silver Horned Kings and the gourd that answers to your name (ch 32–35
 the Red Boy and his fire (ch 40–42); the Cart Slow kingdom and the three Daoist
 immortals (ch 44–46). The gourd that swallows whoever answers to his name is
 the natural next test of the promise: a trick Wukong cannot see through.
+
+**Reader quiz (owner correction, 2026-10-17):** the correct option was always the longest; Volume IV's quiz uses equal-length options and varied letters (method/01 Phase 6).

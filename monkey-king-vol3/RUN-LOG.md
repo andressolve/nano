@@ -289,3 +289,14 @@ Count REVISE verdicts by category:
 | Into the method | register drift and the edit critic re-judging untouched composition promoted to failure modes (seen twice); counted-ornament corollary; watches: the safety filter on a captivity page, a recurring secondary drawn from words |
 
 Published to Nano on the owner's advance authorization (see HANDOFF).
+
+## Owner verdict — 2026-10-17
+
+"the books was absolutely epic. well done. amazing work! bravo! and i did not see any image gen glitches. well done! congrats!"
+
+What the run believes earned it (keep doing these):
+- **Story:** a volume mandate that named the failure to avoid (the fool monk and the flawless monkey) and a seeing rule the reader could feel; six script rounds, each taking the real findings, the last ones only mandatory.
+- **No visible glitches:** every gate's nonblocking list treated as a work list — Bajie's drift on eight pages, the limp, the wound colour, the gilded hall — fixed by edits and re-gated before shipping, rather than recorded as residuals.
+- **Parallel phases:** references, packets (eight writers) and the reader built while gates ran.
+
+One correction from the owner: **the quiz's correct answer was always the longest option.** Rule now in `method/01-PIPELINE.md` Phase 6 (equal-length options, correct answer longest in at most two of five, letters varied; reader critic checks it).
