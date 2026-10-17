@@ -80,6 +80,7 @@ Current: **PUBLISHED (Nano, 2026-10-17)**
 | 2026-10-17 | Regate 41–49: sequence and cold read APPROVED; continuity REVISE — pp 45–47 drifted from the locked black-stone hall into a warm gilded shrine (gold Buddha altar on p47). Ruling: take it; setting-only edits on 45, 46, 47 (black stone, iron lamps, cold cage light, no gold), then `--gates 49` (`fix4547.sh`). |
 | 2026-10-17 | p47's hall edit moved the first balloon's tail to Wukong (real attribution defect, edit critic REVISE); second edit fixed hall and tail together. **Batch gate 41–49 APPROVED** (re-gated). **Reader critic APPROVED.** Ship record in `RUN-LOG.md`, journal `10-PRODUCTION-MEMOIR.md`; method/07 updated (two watches promoted, two new watches, one corollary); selftest CLEAN; infra re-frozen (INFRA INTACT). |
 | 2026-10-17 | **Published to Nano** on the owner's advance authorization: commit `f70de0a` (only `.gitignore`, `stories.js` and `monkey-king-vol3/` staged; nano's other uncommitted work untouched). Publication copy adds the toolbar and ending library links; its verifier requires them and reports CLEAN; pages byte-identical to production. |
+| 2026-10-17 | Nano Pages run `39024679904` success; live at https://andressolve.github.io/nano/monkey-king-vol3/index.html (reader 200 with the correct title, pages 1 and 49 200, card first in live `stories.js`). |
 
 ## Open holds
 
