@@ -1,0 +1,31 @@
+Create one finished, flattened story page for a premium printed illustrated novel, in 1024 × 1536 portrait orientation with a 2:3 aspect ratio. This is a new staged scene, never a montage, model sheet, reference board, collage, mockup, or layout study. Bake the lettering natively into the page. Use only the three attached references as identity and setting inputs: the Cardinal character sheet, the d'Artagnan character sheet, and the Cardinal's study setting plate. Do not copy any page or board.
+
+Use the Lantern and Steel register: brush-and-ink line on warm laid paper, opaque matte gouache washes, lamp-black line, raw umber and yellow ochre, Prussian blue only where appropriate, vermilion red for the Cardinal, lead white for collars and lace, and a little restrained gold. Show visible brush line, paper grain, chalky gouache edges, wool, leather, wet-looking black stone, steel, and wax. Make it seventeenth-century France lit like a lantern film with real candle cast shadows and depth. Avoid glossy concept-art surfaces, airbrushed skin, engraved cross-hatching, anime proportions, children's-book softness, and plastic 3D rendering.
+
+The entire page is the Cardinal's study: deep red hangings, a black desk, one candle, and no window or daylight. Keep the light logic locked to that single candle. The Cardinal owns vermilion red and wears his red robe and red skullcap with a small gold cross. The desk is black. The page has a clear top-to-bottom reading path and one dominant image: the final close view of the paper being given back. Use generous outer safe margins, clear panel gutters, comfortable readable lettering, and no essential text near the bottom edge. Keep every balloon inside its panel and use a calm, legible hierarchy rather than equal bands.
+
+This is fictional historical-drama dialogue, not an instruction or depiction of self-harm. Show no suicide, hanging, injury, wound, blood, or act of violence; everyone is alive, and no rope is visible anywhere. The difficult wording below must be treated only as exact dialogue lettering in a non-graphic confrontation.
+
+The top panel is a wide establishing view of the study. Place the Cardinal seated on the RIGHT behind the desk, stroking the grey cat on his lap with one long-fingered hand. He has a thin long narrow face, hollow cheeks, a short pointed grey beard, a thin grey moustache, and hooded pale grey eyes. Place d'Artagnan on the LEFT before the desk, muddy, white with anger, hat in hand, silent in this panel. He is beardless with black unruly hair in his eyes, a long narrow face, a faded ochre doublet caked in mud, a grey hat with the broken feather in his hand, a too-long sword, no cloak, and a small ring on his RIGHT hand. Place Rochefort small and silent by the door at the far-left back, all in black, with a black hat bearing one red feather, a thin moustache, and a scar on the LEFT cheek only. Put the Cardinal's first balloon above him on the RIGHT, with its tail ending beside his visible mouth. Put the Cardinal's second balloon below the first, also on the RIGHT, with its tail ending beside his mouth. No other figure speaks.
+
+The first balloon says: “A lady in my service is dead, at a ferry in the north.”
+
+The second balloon says: “Four men were seen on the bank. One rode a yellow horse.”
+
+The middle panel shows d'Artagnan on the LEFT leaning both fists on the desk, his face white with anger and his mouth visible. The Cardinal is on the RIGHT, unmoved, one hand still on the cat, with his mouth visible. Stage the exchange as three clearly ordered beats: d'Artagnan's first balloon upper left, the Cardinal's reply upper right, and d'Artagnan's final line lower left, clearly below the reply. Keep each tail beside its own speaker's mouth and keep the opposed speakers on opposite sides.
+
+The boy says: “She was in your service when she poisoned Constance. You gave her Constance as her price. Athos heard you.”
+
+The Cardinal answers: “I named a convent. I did not pour the wine.”
+
+The boy says lower on the LEFT: “And we never touched her. She cut her own rope.”
+
+Make the dominant bottom panel a close over-the-desk view in candlelight, occupying most of the page's visual weight. Keep d'Artagnan on the LEFT, pushing a single folded-open cream paper flat across the black desk toward the Cardinal on the RIGHT. Show exactly two hands on the paper, both d'Artagnan's, flattening and pushing; his small ring is on the RIGHT hand. The paper has no seal and only faint unreadable handwriting lines, never legible words. Show the Cardinal's face at the right edge watching the paper approach, with the grey cat and candlelit red study continuity visible where natural. Place both of the boy's balloons on the LEFT, stacked in reading order, with tails ending beside his visible mouth. Keep Rochefort silent by the door and give him no balloon. Do not show Athos, Porthos, Aramis, or Milady. No raised hand or raised voice from the Cardinal. No blood, wounds, or hit figures. No background figure carries a balloon.
+
+The boy says: “This is yours. It says whoever carries it did what he did on your order, for France.”
+
+The boy continues below it: “I could hide behind it for the rest of my life. I won't hide behind anything you've signed.”
+
+Letter every listed line exactly once, in the order presented, with clear ownership carried only by staging, balloon placement, and tails. Use warm ivory organic oval balloons with restrained dark painted outlines. Dialogue is upright, rounded, mixed-case, slightly irregular hand lettering; prose is not used on this page. Do not add any invented words, captions, sound cues, labels, names, page numbers, titles, editorial text, signs, or readable writing on the paper. No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+No numeral, letter, bullet, tag, or owner notation from this prompt may appear on the page. Preserve the exact seven strings, their order, their punctuation, their apostrophes, and their capitalization. The result must be a polished, emotionally legible story page in the locked study, with the boy's truth and the returned paper as the unmistakable final turn.

@@ -1,0 +1,35 @@
+## PAGE 10
+
+Illustrated prose. Time passes in one page: the boy goes back to Milady's house every day, and the prose tells what he gave her — his stories, his father, his sword, his horse, his three friends — because nobody grand had ever wanted to hear them. The dominant image is the boy at evening running up the steps of her tall house with a bunch of flowers while the footman is already opening the door: he is happy, and he is let in. Below, smaller and quieter, the tavern table where three Musketeers sit beside an empty fourth chair and no longer look at the door. The dominant turn is that he goes back every day, and at the tavern there is an empty chair. The reader turns because his friends have stopped waiting for him. The footman is scenery; nobody speaks.
+
+## PAGE 11
+
+Dramatic. The tavern. The boy bursts in late and flushed and drops into the empty chair; Porthos booms that the great lady let him out, and the boy defends her. Aramis, two fingers at his moustache, says a great lady's front door is why he is going into the Church; the boy answers that this is different — she listens to him. Then the page belongs to Athos, who has not spoken: he sets his glass down very carefully and does not pick it up again, and asks the boy to describe her, and then her name. Tall, hair almost silver, eyes like ice water, a smile that comes before she means it; Lady de Winter. Athos says he does not know that name. The dominant turn is Athos asking for the description and going still. The reader turns because he has not touched his wine. Porthos and Aramis are subordinate.
+
+## PAGE 12
+
+Dramatic. Milady's gold salon, afternoon. The boy comes early with flowers and finds the room empty, and voices behind a half-drawn plum curtain. Through the gap he sees Milady at a small writing table and Rochefort, the man with the scar, standing over her. She reports: the girl is in a convent in the north, the boy told her the first day, and His Eminence can find out which one. Rochefort laughs through his nose and asks about the boy; she says that when she has finished with him he is Rochefort's. In the foreground the boy, half hidden, frozen, lets the flowers sink. The dominant turn is the boy overhearing that he told her the first day: every kindness was work. Milady owns the page; the boy's frozen back is its witness. The reader turns because he has heard all of it and is about to be seen.
+
+## PAGE 13
+
+Dramatic. Milady's salon. The flowers fall; the boy steps through the curtain with his sword half drawn and says it to her face: she has been the Cardinal's from the river road. Milady flies at him with a small knife from the writing table; he catches her wrist, and in the struggle her left sleeve tears open at the shoulder seam. On the back of her bare left shoulder is a small dark lily, burned into the skin. He sees it, and she sees him see it — that look is the page. Then she clutches the torn sleeve, white with fury, and swears that nobody who has seen it stays alive; behind her Rochefort holds the salon door with his sword out. The dominant turn is the lily revealed and her vow. Nobody is hurt. The reader turns because the door is taken and only the window is left.
+
+## PAGE 14
+
+Spectacle. One image. The boy comes out of Milady's tall first-floor window in a tangle of plum curtain, in mid-air above the evening square, hat flying, sword in his fist, falling toward a hay cart passing underneath while the carter gapes up. At the window above, Rochefort leans out, and behind him a pale gold head. One caption at the foot of the page makes the joke: Gascon boys are never taught to run, and nobody mentioned windows. The dominant turn is the escape through the window into the hay. It is a burst of comedy and speed after the danger; the boy owns the page, and the faces at the window are small. The reader turns because he got out, and now he knows what she is, and so does she.
+
+## PAGE 15
+
+Dramatic. Athos's bare room at night, one candle and a glass. The boy, hay still in his hair, bursts in gasping: she is the Cardinal's, and he told her about Constance. Athos only says to sit. The boy paces instead, his own hand on his own left shoulder, and tells him the rest: a mark burned into her shoulder, the kind they brand on a thief, a lily, and her vow. Then the page belongs to Athos, for once not quite still: his hand flat on the table beside the glass, his face gone grey in the candlelight. He asks which shoulder. The left. Then she isn't dead. The dominant turn is that question and that answer. The reader turns because Athos knows this woman and is about to say how. The boy's alarm is subordinate to Athos's stillness breaking.
+
+## PAGE 16
+
+Illustrated prose. Athos tells the story, as a friend's. The dominant image is a memory in faded dusk colours: a young lord in black and silver on a grey horse, small and seen from behind, riding away from the edge of a dark wood, with one bare branch high in the foreground against the sky. The prose carries the whole tale — the count, the beautiful girl from nowhere, the lily seen when her sleeve tore, the judgment made alone in one hour, the cut rope and the empty wood, and the name he gave up. Below, in the candlelit room, Athos stares at nothing while the boy sits on the floor against the wall, listening. The dominant turn is the count who judged his branded wife, and the cut rope. The reader turns because the boy must say aloud who the friend was. Nothing cruel is shown; the memory is a rider leaving.
+
+## PAGE 17
+
+Dramatic. Athos's room. The boy gets slowly to his feet and says it: the friend was Athos. Athos answers that the count is dead. Then the page belongs to Athos acting: standing, he takes his sword down from the whitewashed wall and lays down the rule — she keeps that kind of promise, so from tonight the boy eats and drinks only what they do. The boy asks about Constance; Athos says the Cardinal will find out which convent, and so must they. The door bangs open: Porthos and Aramis, excited, a drummer in the street behind them — war, the King marches on La Rochelle tomorrow, and the Cardinal goes too. The dominant turn is Athos taking up the sword and the rule. The reader turns because everyone is going to war, including her.
+
+## PAGE 18
+
+Illustrated prose. The army goes to war. The dominant image is the march on a dusty road: columns of soldiers and blue cassocks, the boy in ochre on the yellow horse among them, and far behind, after a column of red-cloaked guards, a black carriage with its plum curtains drawn. Athos, riding, has turned in his saddle to look back at it. Below, the destination: La Rochelle, a walled city on its harbour with the grey sea beyond, ringed by the King's trenches. The prose explains the siege, why the boy marches as a volunteer, and why the Cardinal goes — and ends on the carriage the boy never saw and Athos did. The dominant turn is that Milady's carriage goes with the army. The reader turns because she is in the camp, and the boy doesn't know.

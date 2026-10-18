@@ -5,6 +5,15 @@
  */
 window.NANO_STORIES = [
   {
+    slug: "three-musketeers-vol2",
+    title: "The Three Musketeers, Volume II: Milady",
+    cover: "three-musketeers-vol2/pages/page-01.png",
+    published: "2026-10-18",
+    category: "Myth & Literature",
+    series: "The Three Musketeers · Volume II",
+    summary: "The Cardinal has a new hand: Milady, a smiling English widow nobody suspects, who opens her front door to the boy from Gascony and learns exactly what she came for. Then he sees the lily burned on her shoulder, and Athos tells the one story he has never told. Fifty-eight illustrated pages of poisoned wine, a breakfast eaten for a bet under the enemy's guns, a race north to a convent one hour too late, four friends holding on to each other in a flood, and a blue cloak that costs more than the boy ever imagined."
+  },
+  {
     slug: "monkey-king-vol3",
     title: "Monkey King, Volume III: Sent Away",
     cover: "monkey-king-vol3/pages/page-01.png",

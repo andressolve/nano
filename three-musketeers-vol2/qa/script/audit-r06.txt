@@ -1,0 +1,38 @@
+pages: 58   dramatic 37  prose 12  spectacle 9  chronicle 0
+mode share target ≈ 60 / 20 / 13 over the story pages; chronicle ≤ 15% of the book — a book of only dramatic scenes has lost the form
+
+BLOCKERS: none
+
+FIVE-WORD AUDIT — 31 balloons of five words or fewer. Each needs the explicit ambiguity audit
+(complete thought or intentional answer? one visible referent? clear without notes? forceful, not compressed?):
+  - p3: ATHOS: 'Good. Nor was I.'
+  - p6: D'ARTAGNAN: "d'Artagnan. From Gascony."
+  - p7: CONSTANCE: 'What lady?'
+  - p7: D'ARTAGNAN: 'Lady de Winter. Milady.'
+  - p9: MILADY: 'How very clever of her.'
+  - p11: ATHOS: 'Describe her.'
+  - p11: ATHOS: 'Her name.'
+  - p11: D'ARTAGNAN: 'Lady de Winter.'
+  - p11: ATHOS: "I don't know that name."
+  - p12: ROCHEFORT: 'Well? His Eminence is waiting.'
+  - p12: ROCHEFORT: 'And the boy?'
+  - p15: ATHOS: 'Sit down.'
+  - p15: ATHOS: 'Which shoulder?'
+  - p15: ATHOS: "Then she isn't dead."
+  - p19: ATHOS: 'Stop.'
+  - p19: D'ARTAGNAN: "But it's from you!"
+  - p20: PORTHOS: 'That was good grass.'
+  - p23: CARDINAL: 'We ride.'
+  - p24: ATHOS: 'Do you know me?'
+  - p24: ATHOS: "Give me the Cardinal's paper."
+  - p27: ATHOS: 'Porthos. Are you hungry?'
+  - p27: PORTHOS: 'Always. Why?'
+  - p28: PORTHOS: "Who'll bet against us?"
+  - p31: PORTHOS: "I haven't finished my chicken."
+  - p35: ROCHEFORT: 'He would sooner die, Eminence.'
+  - p39: MILADY: 'The Gascon?'
+  - p39: ROCHEFORT: "And if she won't come?"
+  - p41: CONSTANCE: "To d'Artagnan."
+  - p43: D'ARTAGNAN: 'Constance?'
+  - p45: D'ARTAGNAN: "I'm going to kill her."
+  - p50: D'ARTAGNAN: 'Never.'

@@ -1,0 +1,323 @@
+--- 04-CHARACTER-LEDGER.md (before)
++++ 04-CHARACTER-LEDGER.md (after)
+@@ -105,7 +105,9 @@
+ 
+ **Costume:** the Musketeer's blue cassock with the white cross, worn open over
+ a black doublet; black hat, one white plume; a plain steel-hilted sword. No
+-sling in this volume. In the river (pp 49–50): hatless, soaked to the chest.
++sling in this volume. In the river (pp 49–50): hatless, straight hair clumped
++wet against his temples and neck; the cassock, collar and black doublet soaked,
++visibly darkened and clinging through the chest.
+ In the memory (p 16): a young lord in black and silver on a grey horse, the
+ same face younger, beardless — drawn small and from behind.
+ 
+@@ -281,23 +283,32 @@
+ rides north to warn her → arrests the boy: "Five times, and this time I have
+ an order" → at the end, nearly smiles.
+ 
+-**Structural lock:** a dark man of middle height, taller than d'Artagnan,
+-shorter than Athos: a square hard face, heavy black brows, black eyes, a
+-strong jaw, sallow skin, and **a pale scar anatomically fixed to the left
+-side, running from the left temple down across the cheekbone to the corner
+-of the mouth**. It is visible only when the left facial plane is exposed;
+-his right-cheek profile is clean and must never inherit or mirror the scar.
+-Black hair, straight, to the collar; a thin black moustache, no
+-beard. Compact, muscular, sits a horse sideways, stands with his weight back
+-and his chin up. Habitual gesture: a laugh through the nose.
++**Structural lock:** a dark man of middle height, taller than d'Artagnan and
++a head shorter than Athos. His compact fighting build has broad shoulders,
++chest, forearms, and thighs, with none of Athos's tall, long-legged read; he
++remains far narrower than Porthos. A short, broad, square hard face: short
++lower facial third, nearly parallel jaw sides, broad flat chin; heavy black
++brows, black eyes, strong jaw, sallow skin, and **one pale scar anatomically
++fixed to the left side, running from the left temple down across the
++cheekbone to the corner of the mouth**. It is visible only when the left
++facial plane is exposed; his right-cheek profile is clean and must never
++inherit or mirror the scar. Black hair, straight, ending in a blunt line at
++the collar with no wave or lock below it; one thin black moustache, with
++clean skin below the lower lip and across the chin, no beard or lip tuft.
++Sits a horse sideways, stands with his weight back and his chin up. Habitual
++gesture: a laugh through the nose.
+ 
+ **Costume:** black from hat to boot: a black doublet, black cloak, black hat
+-with a single red feather; a plain black-hilted sword. No sling in this
+-volume. Never the guards' red cassock.
+-
+-**Never:** blue, a white cross, a pointed beard, stillness with hands on a
+-pommel (Athos). Red robes (the Cardinal). A scar anywhere but the left side of
+-the face, including any mark on the right cheek in a right-cheek profile.
++with a single red feather; a plain black-hilted sword. Clasps, buttons,
++buckles, and sword furniture are blackened steel or near-black: the red
++feather is his only colour accent. No sling in this volume. Never the
++guards' red cassock.
++
++**Never:** tall or rangy; a long tapered face or narrow pointed chin; hair
++below the collar; a beard, goatee, lip tuft, or chin stubble; bright metal
++hardware. Blue, a white cross, a pointed beard, stillness with hands on a
++pommel (Athos). Red robes (the Cardinal). A scar anywhere but the left side
++of the face, including any mark on the right cheek in a right-cheek profile.
+ 
+ **Voice:** clipped and mocking, and always one word too many, which is how
+ the boy knows he is not calm.
+--- 09-REFERENCE-PLAN.md (before)
++++ 09-REFERENCE-PLAN.md (after)
+@@ -489,67 +489,53 @@
+ ## 02 — ATHOS (continuity sheet, anchored on Volume I's approved 02, no sling)
+ 
+ A character reference sheet, 1536 × 1024 landscape, four views of the same
+-figure on one plain warm-paper ground, no lettering of any kind, no labels, no
+-borders between views. Attach the approved Volume I sheet: this is the same
+-man a few months later, unchanged. Copy his face, beard, hair, height, cassock,
+-hat and sword in views (a), (b) and (c) exactly as they are drawn there. Do not
+-redesign or refine anything; this is a continuity pass. **There is no sling in
+-any view**: both arms are free and whole. Replace the attached sheet's fourth
+-view (the arm in the sling) entirely with the new view (d) below.
+-
+-Athos, a Musketeer, thirty and looking older. Tall, straight as a post, the
+-tallest man in the book. Long pale face, high forehead, straight nose, grey
+-eyes, hooded and level, deep vertical lines beside the mouth. Redraw the full
+-hair mass in every view as dark-brown, straight shoulder-length sections
+-with a clean pushed-back front hairline; in view (d), clump those same dark
+-straight sections wet against the temples and neck, with no wave, curl, or
+-face-crossing fringe. Preserve the high forehead as the primary face
+-marker; a short pointed beard and a neat moustache, dark. Preserve the current
+-face length, pointed beard, lean broad build and hands-on-pommel stillness.
+-Lean and broad-shouldered, no stomach.
+-Stands with both hands folded on the pommel of his sword, point on the
+-ground, and does not shift his weight. Habitual gesture: stillness.
+-Expression at rest: level, unamused, and not unkind.
+-
+-Default costume, views (a), (b), (c): the Musketeer's blue cassock with the
+-white cross, worn open over a black doublet; black breeches and boots; a
+-black hat with one white plume; a plain steel-hilted sword.
+-
+-View (a): a true three-quarter head-and-shoulders study in even light, hat
+-on, the long pale face, high forehead, hooded grey eyes, the lines by the
+-mouth, the pointed dark beard and neat moustache, the shoulder-length hair
+-pushed back.
+-
+-View (b): full length, hat on, both hands folded on the pommel, point on the
+-ground, feet together, absolutely still.
+-
+-View (c): a true ninety-degree profile from hat to boots, same light, keeping
+-the height, the straight back, the pointed beard, and the hands on the pommel.
+-
+-Views (a)–(c) have no scenery and no props beyond the sword and hat.
+-
+-View (d): the same man full length, hatless and soaked through after wading
+-into a flooded river: the sword at his hip; his right arm stretched straight
+-out in front of him with the hand open, palm up, offering it; his face quiet
+-and grave, not pleading. Remove every suspended drip, falling droplet and
+-puddle/ground-water mark. Carry the river-state marker only through the
+-clumped wet hair and the cassock, collar, and black doublet visibly soaked and
+-darkened through the chest, with wet cloth weight and adhesion unmistakable
+-even at thumbnail and in grayscale, while preserving the straight extended
+-right arm and open palm. No water, bank or scenery drawn; only the soaked
+-figure on the plain ground. The pointed beard and the lines by the mouth
+-unchanged.
+-
+-Athos must never be confused with Rochefort. Differentiators that must
+-survive grayscale and thumbnail: a short pointed beard against a thin
+-moustache with no beard; no scar against a scar on the left cheek; a head
+-taller; the blue cassock with the white cross against all black; a white plume
+-against a red feather; stillness with hands on the pommel against weight back
+-and chin up; hatless, long straight dark hair to the shoulder against
+-collar-length straight black hair. He must never be confused with the
+-Cardinal: standing, thirty, dark-haired, in blue, against seated, grey, in red.
+-Never a scar, never a sling, never a stomach, never red hair, never fair hair,
+-never a book.
++figure on one plain warm-paper ground. Use the attached approved Volume I
++sheet as the identity anchor: Athos is the same man a few months later, with
++the same face, proportions, hair, beard, costume and sword. No lettering,
++labels, borders or scenery. No sling in any view; both arms are whole and free.
++
++Athos is a thirty-year-old Musketeer who looks older. He is the tallest man in
++the book, tall and lean with broad shoulders, no stomach, and a rigid upright
++posture. His face is long and pale, with a high forehead, straight nose, level
++hooded grey eyes, deep vertical lines beside the mouth, a neat dark moustache
++and a short pointed dark beard. His dark-brown hair is straight, reaches his
++shoulders, and is pushed cleanly back from the forehead. His resting expression
++is level, unamused and not unkind. Stillness is his identifying gesture.
++
++In views (a)–(c), he wears the Musketeer's blue cassock with the white cross,
++open over a black doublet, with black breeches and boots, a black hat with one
++white plume, and a plain steel-hilted sword.
++
++View (a): a large three-quarter head-and-shoulders study in even light, hat on,
++clearly showing the high forehead, long face, hooded eyes, mouth lines,
++straight pushed-back shoulder-length hair, moustache and pointed beard.
++
++View (b): full length, hat on, feet together, straight as a post. Both hands
++are folded on the sword pommel with the point resting on the ground. His weight
++does not shift.
++
++View (c): a true ninety-degree full-length profile in the same light, hat on,
++showing the long face, high forehead, pointed beard, straight back, great
++height and both hands resting on the pommel.
++
++View (d): full length in his river state, hatless and drenched from head
++through chest. His straight dark hair forms heavy wet clumps pressed flat to
++the temples, skull and neck. The blue cassock is saturated and markedly darker
++across the chest; its collar has collapsed with water and the cassock and black
++doublet hang heavy and cling to the torso in wet vertical folds. This soaked
++state must be unmistakable in grayscale and at thumbnail size. The sword stays
++at his hip. He remains upright and controlled, extending his right arm straight
++forward with the hand open, palm up, offering it; his face is quiet and grave,
++not pleading. The ground stays plain and dry-looking: no river, bank, puddle,
++splash, rain or suspended droplets.
++
++Identity separations: Athos is a head taller than Rochefort, with a pointed
++beard, no scar, shoulder-length hair, a blue-and-white cassock, a white plume
++and a still vertical posture; Rochefort has only a thin moustache, a left-cheek
++scar, collar-length hair, black clothes, a red feather, weight back and chin
++up. Athos is thirty, dark-haired, broad-shouldered and standing; the Cardinal
++is older, grey, narrow and seated. Athos never has a scar, sling, stomach, red
++hair, fair hair or book.
+ 
+ *(register paragraph, verbatim)*
+ 
+@@ -560,85 +546,65 @@
+ 
+ A character reference sheet, 1536 × 1024 landscape, four views of the same
+ figure on one plain warm-paper ground, no lettering of any kind, no labels, no
+-borders between views. Attach the approved Volume I sheet: this is the same
+-man a few months later, unchanged. Copy his face, his scar, his moustache, his
+-hair, his build and his black costume in views (a), (b) and (c) exactly as
+-they are drawn there. This is a continuity pass. **He is not injured**: no
+-sling, no arm held to the chest, both arms free. Replace the attached sheet's
+-fourth view (the soaked man with the arm across his chest) entirely with the
+-new view (d) below.
+-
+-Rochefort, the man with the scar, forty. A dark man of middle height, taller
+-than the boy and a head shorter than the tallest Musketeer: square hard face,
+-heavy black brows, black eyes, strong jaw, sallow skin, and a pale scar
+-anatomically fixed to his LEFT side, running from the left temple down across
+-the left cheekbone to the left corner of the mouth. The scar exists on his
+-left side only; his right cheek is unmarked, and any view that shows the right
+-cheek shows no scar. Apply the same directional convention to views (a)–(c):
+-whenever the scarred left plane is exposed, the nose must point screen-right;
+-every right-cheek view must contain no scar or scar-like mark. Preserve only
+-one scar and keep its endpoints identical in all four views. Black hair,
+-straight, to the collar; a thin black
+-moustache; no beard. Shorten the lower facial third in all four views and widen
+-both mandibular angles until the jaw sides read nearly parallel, terminating in
+-a broad, flatter chin. Preserve the same shortened square skull through the
+-strict profile and both full-length heads. Remove every dark designed hair mark below
+-the lower lip and from the chin in all four views. Replace it with uninterrupted
+-clean sallow skin and retain only one thin black moustache. Rochefort must have
+-no beard, goatee, or lip tuft. Cut the back mass to a single clean collar-length
+-terminal line, straighten the strands, and remove every lock that falls below
+-the collar. Keep that exact short, straight silhouette in the profile and
+-bareheaded views. Reduce the apparent leg-to-torso elongation and broaden the
+-shoulder girdle, chest, forearms, and thighs enough to produce a compact
+-middle-height fighting build, while remaining far narrower than Porthos.
+-Preserve weight back and chin up in views (b)–(d); do not solve this with a
+-bulkier cloak alone. Habitual gesture: a laugh through the nose. Expression at
+-rest: amused at someone else's expense.
+-
+-Default costume, views (a), (b), (c): black from hat to boot: a black
+-doublet, a black cloak, black breeches and boots, a black hat with a single
+-red feather, a plain black-hilted sword. Repaint every gold or brass costume
+-fitting—the cloak clasps, buttons, buckles, and sword furniture—as blackened
+-steel or neutral near-black. The single red feather must remain the only
+-chromatic accent and primary marker on the otherwise unbroken black silhouette.
+-Never a cassock, never a cross.
+-
+-View (a): a true three-quarter head-and-shoulders study in even light, hat
+-on, turned so the nose points screen-right and Rochefort's anatomical left
+-cheek is the near, fully exposed plane. Keep a single continuous scar fixed
+-from the left temple across the left cheekbone to the left mouth corner. The
+-square face, heavy black brows, and thin moustache have no beard.
+-
+-View (b): full length, hat on, weight back, chin up, one hand on the hilt,
+-head turned so the nose points screen-right and the scarred anatomical-left
+-plane is exposed, the red feather clearly the only colour on him.
+-
+-View (c): redraw as a true ninety-degree anatomical-left profile with the nose
+-pointing screen-right and the single scar continuous from the left temple
+-across the left cheekbone to the left mouth corner, from hat to boots, same
+-light, with the thin moustache, no beard.
+-The right cheek must remain entirely unmarked in every right-cheek view.
+-
+-Views (a)–(c) have no scenery.
+-
+-View (d): the same man full length, bareheaded, the black hat with its red
+-feather held in his right hand at his side, standing with his weight back and
+-chin up. Redraw view (d) with the head turned in the same directional
+-convention as view (c)—nose screen-right, anatomical left cheek exposed—and
+-keep the entire right cheek blank in every view. Preserve one continuous scar
+-only, from left temple across left cheekbone to the left mouth corner. His
+-straight black hair to the collar fully visible; the left hand resting on the
+-hilt; the black cloak hanging straight. Both arms free and whole.
+-
+-Rochefort must never be confused with Athos. Differentiators that must
+-survive grayscale and thumbnail: a thin moustache with no beard against a
+-short pointed beard; a scar against none; middle height against the tallest
+-man in the book; all black with a red feather against a blue cassock with a
+-white cross and a white plume; weight back and chin up against stillness with
+-hands on the pommel; bareheaded, straight black hair ending at the collar
+-against long dark hair to the shoulder. Never blue, never a white cross, never
+-a pointed beard, never red robes, never a scar on the right cheek, never a
+-sling.
++borders between views. Attach the approved Volume I sheet as an identity,
++palette, and costume continuity reference: this is the same man a few months
++later. The binding face, hair, build, and scar construction below takes
++priority. He is uninjured, with two free, whole arms: no sling and no arm held
++to the chest.
++
++Rochefort, forty, is a compact middle-height fighting man, taller than
++d'Artagnan and a head shorter than Athos. Give him broad shoulders, chest,
++forearms, and thighs, but keep him far narrower than Porthos; his proportions
++must read compact rather than tall or long-legged. He stands with his weight
++back, chest open, and chin raised, amused at someone else's expense.
++
++His skull is short, broad, square, and hard: a short lower facial third,
++nearly parallel jaw sides, and a broad flat chin. He has sallow skin, heavy
++black brows, black eyes, and one thin black moustache. The skin below his lower
++lip and across his chin is clean: no beard, goatee, lip tuft, or stubble mark.
++His straight black hair ends in one blunt line at the collar, with no wave,
++curl, or lock below the collar.
++
++He has one pale scar on his anatomical LEFT side, continuous from the left
++temple across the left cheekbone to the left corner of the mouth. In every
++left-side view below, his nose points screen-right and the scarred left plane
++faces the viewer. His anatomical right cheek is completely unmarked. Keep the
++scar's path and endpoints identical in all four studies.
++
++His costume is an unbroken black value mass: black doublet, cloak, breeches,
++boots, and hat; one plain black-hilted sword. Clasps, buttons, buckles, and
++sword furniture are blackened steel or neutral near-black. A single red
++feather in the hat is the only colour accent. Never a cassock, cross, bright
++metal fitting, blue garment, white plume, red robe, or extra prop.
++
++View (a): a large head-and-shoulders left three-quarter study in even light,
++hat on, nose pointing screen-right, scarred left cheek fully exposed. Make the
++short square skull, broad flat chin, thin moustache, clean chin, and blunt
++collar-length hair unmistakable.
++
++View (b): full length in the default costume, body mostly frontal, head in the
++same left three-quarter direction with the nose pointing screen-right. Weight
++back, chin up, one hand on the sword hilt. The compact muscular proportions,
++black silhouette, and single red feather must read at thumbnail size.
++
++View (c): full length in a strict ninety-degree anatomical-left profile, nose
++pointing screen-right. Show the scar as one continuous line from left temple
++across cheekbone to mouth corner, with the short square skull, broad flat chin,
++thin moustache, compact build, and straight collar-length hair unchanged.
++
++View (d): full length and bareheaded, head again turned left three-quarter so
++the nose points screen-right and the scarred left cheek faces the viewer. His
++right hand holds the black hat with its red feather at his side; his left hand
++rests on the sword hilt. Both arms are free and whole; the black cloak hangs
++straight; the blunt collar-length hair is fully visible.
++
++Views (a)–(d) contain no scenery. Rochefort must remain unmistakable from
++Athos in grayscale, at thumbnail size, and in a costume-free face crop:
++Rochefort is shorter and compact, with a short square face, broad flat chin,
++thin moustache only, collar-length hair, left-cheek scar, weight-back pose,
++and black value mass; Athos is a head taller and still, with a long pale face,
++pointed beard, shoulder-length hair, blue-and-white value mass, and hands on
++the pommel.
+ 
+ *(register paragraph, verbatim)*
+ 

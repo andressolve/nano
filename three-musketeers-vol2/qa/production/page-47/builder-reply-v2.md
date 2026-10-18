@@ -1,0 +1,5 @@
+- `books/three-musketeers-vol2/qa/production/page-47/candidates/page-47-v2.png` — 1024×1536, TARGETED — SHA256 `a99a17fdadb1f86f9ab69b3fc920254c218fda74e0ba21e850d97972748cc9d5`
+- `books/three-musketeers-vol2/qa/production/page-47/prompts/page-47-v2.md` — SHA256 `bb62d82ecd7d4397eb0b019953d31646b2709ca8153b0fcb582261b2727cb35f`
+- `books/three-musketeers-vol2/qa/production/page-47/audits/page-47-v2.md` — SHA256 `2fd8330d611b73aa6e7ed0eeafab263aebd181b02b33a4df96c2cd947a974b74`
+- `books/three-musketeers-vol2/qa/production/page-47/proofs/page-47-v2-600x900.png` — SHA256 `4b377818277f54a7a6e7ed0eeafab263aebd181b02b33a4df96c2cd947a974b74`
+- `books/three-musketeers-vol2/qa/production/page-47/proofs/page-47-v2-768x1152.png` — SHA256 `44272da049de013a20ac3dfcddfb41fe2b68541cf30f31a23272c12d75ab102c`

@@ -1,0 +1,3 @@
+Output: [adversarial-milady-aramis-v1.png](/Users/andresrodriguez/Documents/monte_inspired/books/three-musketeers-vol2/refs/candidates/adversarial-milady-aramis-v1.png)  
+SHA-256: `bb262eed4d278bedd4189415099820d902a17db1f2340b1bcbb91144b0102a6a`  
+Audit: [adversarial-milady-aramis-v1.audit.md](/Users/andresrodriguez/Documents/monte_inspired/books/three-musketeers-vol2/refs/candidates/adversarial-milady-aramis-v1.audit.md)

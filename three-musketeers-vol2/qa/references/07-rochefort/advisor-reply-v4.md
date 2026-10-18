@@ -1,0 +1,1 @@
+RESET: Clarified Rochefort’s short-square face, compact build, left-only scar, clean moustache-only chin, and all-black costume lock; rebuilt his prompt from scratch with the ledger authoritative over the parent and recorded the ruling in `HANDOFF.md`.

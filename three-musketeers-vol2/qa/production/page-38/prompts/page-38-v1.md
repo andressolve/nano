@@ -1,0 +1,31 @@
+Create one finished, flattened 1024 × 1536 portrait story page in a 2:3 aspect ratio, with lettering baked into the artwork. This is a canonical printed illustrated novel page, not a prototype, mockup, sample sheet, spread, layout study, montage, model sheet, portrait board, or collage. Use the two attached character sheets only as identity references and create a new staged scene in which the two women act. Do not depict or reproduce the reference sheets themselves.
+
+Use the Lantern and Steel register: brush-and-ink line on warm laid paper with opaque matte gouache washes; lamp-black line; raw umber and yellow ochre; Prussian blue accents; lead white for collars; visible brush line and paper grain; chalky gouache edges; tactile wool, leather, wet stone, and wax. Seventeenth-century France should feel like a lantern film. The Béthune cloister is evening stone and arches with grey-blue light, bold flat shadow under the arches, and no glossy surfaces or gilding. Avoid smooth prestige-oil realism, airbrushed skin, engraved cross-hatching, anime proportions, children's-book softness, plastic 3D rendering, or concept-art gloss.
+
+Make the page a dramatic turn with one clear top-to-bottom reading path. The dominant turn is Constance warning Milady against Lady de Winter to her face without knowing that Milady is Lady de Winter. Use three vertically stacked beats in the cloister, with the middle beat the largest and most important image. The top beat is a quieter establishing movement; the middle beat is the dominant close conversation; the bottom beat is the dangerous aftermath. Keep the cloister and evening light subordinate to the women's faces and the warning.
+
+At the top, stage the two women walking arm in arm toward the reader beneath the cloister arches. Milady is on the left, a head taller, turned toward Constance, with her left hand resting on Constance's arm and the dark-stoned ring visible. Constance is on the right, small and looking up. Milady's mouth is visible and her balloon is upper left. Constance's mouth is visible and her reply is clearly lower on the right. Their tails end beside their own mouths and nowhere else.
+
+In the large middle panel, seat them on a stone bench. Constance is on the left, leaning forward and worried for the boy, her hands moving as she speaks. Milady is on the right, listening and smiling. Keep the exchange legible as three ordered speech beats: Constance's first line upper left, Constance's second line beneath it on the left, then Milady's reply lower right beside her smiling mouth. Use organic oval balloons with clear tails and no crossing attribution.
+
+At the bottom, make a close, quiet danger beat: Milady's face over Constance's shoulder, her smile gone, her ice-blue eyes cold, her thumb turning the dark ring. Constance remains in the foreground at left in three-quarter profile with cheek and mouth visible. Constance's final balloon is upper left with its tail to her mouth. Milady says nothing in this beat. The reader should turn knowing exactly how much danger Constance has talked herself into.
+
+Use the attached Constance sheet exactly for identity: small round freckled face, wide-set hazel eyes, dark brown curls escaping a white cap, dove-grey dress with a white collar, and only the Béthune costume. Use the attached Milady sheet exactly for identity: heart-shaped very pale face, ice-blue eyes, pale ash-gold ringlets bound under a black veil pushed back, plain dark charcoal widow's dress, and the flat square violet-black stone on the ring of her left hand. Keep their separation unmistakable at page scale: Milady is taller and pale, with bound pale-gold hair and charcoal; Constance is smaller and freckled, with dark curls under a white cap and light dove grey.
+
+Do not use the other views from either sheet. Do not draw an apron, keys, plum costume, men, close nuns, or any other figure. No background figure carries a balloon. No blood or wounds. Do not put readable words on objects or in the architecture. Do not add a page number, title, production label, speaker name, editorial note, invented caption, sound effect, laugh line, or any other text. The only visible text is the six listed speech strings below, each rendered exactly once and in this order.
+
+The first balloon, beside Milady on the left in the top beat, reads exactly: And this boy of yours. Does he know where you are?
+
+The second balloon, beside Constance on the right in the top beat, reads exactly: Not yet. The Queen promised to write to him when it's safe, and then he'll come. He promised me.
+
+The third balloon, beside Constance on the left in the middle beat, reads exactly: I worry about him. In Paris a great lady was being kind to him. Lady de Winter.
+
+The fourth balloon, beneath the third beside Constance on the left in the middle beat, reads exactly: I told him to be careful of ladies who are kind for no reason.
+
+The fifth balloon, lower right beside Milady's smiling mouth in the middle beat, reads exactly: Lady de Winter. I've heard of her. You were right to warn him.
+
+The sixth balloon, beside Constance in the foreground at the left in the bottom beat, reads exactly: You're not like that. You're kind because you're hiding too.
+
+Use warm ivory balloon fills and restrained dark painted outlines. Dialogue is rounded upright mixed-case hand lettering, warm and slightly irregular, never serif, never italic, never a typeset book face, never condensed comic-display, geometric UI, cursive body text, all-capital prose, distressed, or tiny. Keep every balloon inside the artwork with comfortable breathing room, clear ownership, and tails ending beside the speaker's visible mouth. Preserve a clear safe margin around the page and keep all lettering away from panel borders. No speaker names, labels, tags, or numerals are lettered anywhere; the only text on the page is the listed strings. Dialogue is hand-lettered in a rounded upright mixed-case hand inside organic oval balloons, never serif, never italic, never boxed.
+
+Render a single coherent page with three stacked panels, a dominant middle panel, believable anatomy, two hands for the named ring gesture, and no extraneous text. The result must be a new illustrated novel page, not a contact sheet or reference study.

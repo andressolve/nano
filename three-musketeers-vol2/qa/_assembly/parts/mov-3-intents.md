@@ -1,0 +1,27 @@
+## PAGE 19
+
+A dramatic page in the camp before La Rochelle, morning. A camp boy brings d'Artagnan a dark green bottle with a paper tied round its neck, and he reads it aloud, delighted: wine from his three friends. The dominant turn: a poisoned bottle "from your friends", and Athos stops the boy drinking. The largest moment is the cork out and the bottle at his lips while Athos strides up between the tents and brings his hand down over its mouth, Porthos and Aramis behind him. Then Athos holds the bottle away at arm's length and says the thing that chills the page: his name is on a bottle he never sent. The boy owns the delight; Athos owns the turn. The reader turns because if the wine is not from his friends, it is from someone who wants him dead.
+
+## PAGE 20
+
+A dramatic page in the camp. Athos tips the wine out onto the grass, and where it falls the grass goes black and curls; the four stand looking down at it, and Porthos says the only thing he can. The dominant turn: the grass goes black, Milady is in the camp, and no letter is safe. The blackened grass is the image that owns the page. Below it, Athos tells the boy what he saw, a black carriage with plum curtains at the back of the Cardinal's train; the boy rounds on him for keeping it back, and Athos answers that he is sure now. Then the boy wants to write to the Queen to move Constance, and Aramis, low and quiet, tells him every letter out of this camp is read by the Cardinal. The reader turns because Milady is trying to kill him, and they cannot even send a letter to save Constance.
+
+## PAGE 21
+
+An illustrated-prose page across two places: a dark heath at night, and the yard of a lonely inn. The dominant turn: the Cardinal makes the three escort him to the Red Dovecote. The largest image is the heath, where Athos, Porthos and Aramis on patrol are stopped by a cloaked rider and two red-cloaked guards, and a flash of red robe shows under the rider's cloak. Below, the inn with one lit window and a sign painted with a red dove, and in its yard a lady's carriage with its curtains drawn. The prose tells why d'Artagnan is not with them and gives the Cardinal's quiet orders. The riders and the carriage stay small and clear; the prose sits in the night sky. The reader turns because the Cardinal has come to meet someone, and the three are waiting right underneath.
+
+## PAGE 22
+
+A dramatic page in the Red Dovecote, in two rooms joined by one broken stovepipe. Downstairs by the hearth, Porthos and Aramis play dice while Athos stands at the wall with his ear to the pipe and tells them to be quiet. The dominant turn: through the stovepipe Athos hears Milady's price, the boy and the girl at Béthune. The largest image is the room above, by one candle: the Cardinal in a plain cloak over his red, writing at a small table, and Milady across from him in a grey travelling cloak. He sends her to England; she names her price; he gives her the girl and tells her where the girl is. Then, downstairs again, Athos's still face beside the pipe and Porthos's dice stopped in his fist. The reader turns because Athos now knows where Constance is, and so does Milady.
+
+## PAGE 23
+
+A dramatic page in the Red Dovecote, the room above and the room below. The dominant turn: the Cardinal gives Milady the paper, and Athos stays behind and goes up. The largest image is upstairs: the Cardinal folding a paper and handing it to Milady across the candle, telling her that whatever she does with it, she did by his order; she answers that then she shall do a great deal. Downstairs, the Cardinal comes down the stair with his hood up and says they ride; Porthos and Aramis rise, but Athos does not move from the wall and makes an excuse about his horse. Last, Athos alone at the foot of the dark stair, looking up at the line of candlelight under the door, his hand on his hilt. The reader turns because Athos is going up the stair to a woman he once hanged.
+
+## PAGE 24
+
+A dramatic page in the small room above the inn. Athos stands in the open doorway with his hat in his hand and asks Milady whether she knows him. The dominant turn: Athos and Milady face to face; he takes the paper and lets her go. The largest image is Milady rising with the candle between them and her face changing; it is the only time in the book she is afraid. She names him as a count she heard was dead, and he answers that he thought he had hanged her. Then his sword point rests on the table, never on her; he asks for the Cardinal's paper and she pushes it across, mocking him; he tells her he will not judge her alone twice, and warns her off the boy and the girl. The reader turns because Athos has the paper, and he has let Milady go.
+
+## PAGE 25
+
+An illustrated-prose page across two places: the heath at dawn, and a tent in the camp at first light. The dominant turn: her carriage turns north, and Béthune is on the road to the sea. The largest image is the dawn heath: a small black carriage racing away up a long straight road to the north, and Athos on his horse on a rise watching it go, the folded paper in his hand. Below, in the tent, Athos tells the boy alone what it means, and the boy is already on his feet, buckling on his sword. The prose, set in the dawn sky, joins the Cardinal's words to the road and the convent. The carriage stays small and far; Athos stays still. The reader turns because the boy is ready to ride, and nobody has said he can.

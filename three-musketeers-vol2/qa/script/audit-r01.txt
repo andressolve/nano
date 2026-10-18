@@ -1,0 +1,45 @@
+pages: 57   dramatic 36  prose 12  spectacle 9  chronicle 0
+mode share target ≈ 60 / 20 / 13 over the story pages; chronicle ≤ 15% of the book — a book of only dramatic scenes has lost the form
+
+BLOCKERS (structural — fix before the script critic reads):
+  - p17: ATHOS balloon is 26 words (max 24): "She swore you'd die for seeing it. She keeps that kind of pr"
+  - p34: CARDINAL balloon is 26 words (max 24): 'Then let Milady arrange it. The King will give them leave, a'
+  - p53: CARDINAL balloon is 25 words (max 24): 'A lady in my service is dead, at a ferry in the north. Four '
+WARNINGS (craft signals, judged by the script critic):
+  - book.toml says 52 pages; script has 57 — update book.toml (page count follows the script, never the reverse)
+
+FIVE-WORD AUDIT — 33 balloons of five words or fewer. Each needs the explicit ambiguity audit
+(complete thought or intentional answer? one visible referent? clear without notes? forceful, not compressed?):
+  - p3: ATHOS: 'Good.'
+  - p6: D'ARTAGNAN: "d'Artagnan. From Gascony."
+  - p7: CONSTANCE: 'What lady?'
+  - p7: D'ARTAGNAN: 'Lady de Winter. Milady.'
+  - p9: MILADY: 'How very clever of her.'
+  - p11: ATHOS: 'Describe her.'
+  - p11: ATHOS: 'Her name.'
+  - p11: D'ARTAGNAN: 'Lady de Winter.'
+  - p11: ATHOS: "I don't know that name."
+  - p12: ROCHEFORT: 'Well? His Eminence is waiting.'
+  - p12: ROCHEFORT: 'And the boy?'
+  - p15: ATHOS: 'Sit down.'
+  - p15: ATHOS: 'Which shoulder?'
+  - p15: ATHOS: "Then she isn't dead."
+  - p19: ATHOS: 'Stop.'
+  - p19: D'ARTAGNAN: "But it's from you!"
+  - p20: PORTHOS: 'That was good grass.'
+  - p23: CARDINAL: 'We ride.'
+  - p24: ATHOS: 'Do you know me?'
+  - p24: ATHOS: "The Cardinal's paper."
+  - p26: ATHOS: 'Porthos. Are you hungry?'
+  - p26: PORTHOS: 'Always. Why?'
+  - p27: PORTHOS: "Who'll bet against us?"
+  - p30: PORTHOS: "I haven't finished my chicken."
+  - p34: CARDINAL: 'Who are they?'
+  - p34: ROCHEFORT: 'He would sooner die, Eminence.'
+  - p38: MILADY: 'The Gascon?'
+  - p38: ROCHEFORT: "And if she won't come?"
+  - p40: CONSTANCE: "To d'Artagnan."
+  - p42: D'ARTAGNAN: 'Constance?'
+  - p44: D'ARTAGNAN: "I'm going to kill her."
+  - p49: D'ARTAGNAN: 'Never.'
+  - p55: ATHOS: "There. D'Artagnan."

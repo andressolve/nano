@@ -78,3 +78,9 @@ monkey-king-vol3/refs/superseded/
 monkey-king-vol3/pages/proofs/
 monkey-king-vol3/qa/_logs/
 monkey-king-vol3/**/__pycache__/
+three-musketeers-vol2/qa/**/*.png
+three-musketeers-vol2/refs/candidates/
+three-musketeers-vol2/refs/superseded/
+three-musketeers-vol2/pages/proofs/
+three-musketeers-vol2/qa/_logs/
+three-musketeers-vol2/**/__pycache__/

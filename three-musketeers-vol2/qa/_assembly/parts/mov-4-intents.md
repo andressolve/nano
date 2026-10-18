@@ -1,0 +1,43 @@
+## PAGE 26
+
+Dramatic. First light through the canvas of Athos's tent. The boy stands at the flap, armed and shaking with anger: Athos had Milady at the point of his sword and let her ride away toward Constance. Athos, seated and still, answers that he once judged her alone, in an hour, without a question, and will not do it twice. The boy says he will go now; Athos tells him plainly that a man who leaves the siege without the King's leave is shot on the road, and the three who follow him too. The dominant turn: the boy rounds on Athos for letting her go, and learns that deserters are shot. He slams his sword home and demands leave today, unforgiving; Athos's "Good" accepts the hate. The reader turns because the boy is furious and there is still no way out of the camp. The tent, the stool and the morning light stay subordinate to the two faces.
+
+## PAGE 27
+
+Dramatic. Porthos and Aramis duck into the tent, having heard the shouting three tents away; Aramis warns, low and dry, that every tent in this camp has ears. Athos stands up at last and looks out through the flap at the city walls and, halfway to them, a ruined fort on the bare ground, the angry boy beside him. He needs a place nobody can listen and the King's leave, and he knows where to get both. Then he turns to Porthos and asks if he is hungry. The dominant turn: Athos's plan, a place nobody can hear and the King's leave, begins with breakfast. Athos standing and looking out owns the page; the ruined fort in the distance is the answer the reader sees before anyone names it. The reader turns on Porthos's "Always. Why?" The tent's furniture stays subordinate.
+
+## PAGE 28
+
+Dramatic. Morning in the camp before La Rochelle. Porthos, enormous, climbs onto a barrel in the middle of the camp, arms wide, and shouts his bet to a crowd of soldiers: the four will eat breakfast in the bastion of Saint-Gervais, under the city's guns, for one whole hour. Who will bet against them? Coins rain into an upturned helmet; the whole army bets against them. Below, the boy sees the point (nobody can listen out there) and Athos adds the rest: everybody will watch, and the King rewards what the whole army saw. The dominant turn: Porthos bets the whole army they will breakfast in the bastion for an hour. Porthos on his barrel owns the page. The reader turns because four men are about to walk out to the enemy's walls with a basket. The crowd and the coins stay subordinate.
+
+## PAGE 29
+
+Spectacle. Seen from behind and above the trenches: the four walk out across broken, cratered ground in the bright morning toward a ruined fort, with the grey walls of the city beyond. Porthos carries a huge basket, Aramis a bottle under each arm, Athos a folded white tablecloth over his arm, the boy out in front. Behind them the whole army has climbed up along the trenches to watch. The dominant turn: the four walk out to the bastion with the whole army watching. One image, one caption; the absurd small picnic against the vast dangerous ground is the joke and the courage at once. The reader turns because they are about to sit down to breakfast in a fort the enemy wants back. Individual soldiers stay anonymous and subordinate.
+
+## PAGE 30
+
+Dramatic. Inside the ruined bastion, a white tablecloth over a fallen block of stone, bread, a roast chicken and wine; the four sit down and Porthos is already eating, while behind them a tall cracked wall leans outward. Athos unfolds the Cardinal's paper, and its words are shown large: whoever carries it did what was done by the Cardinal's order. Aramis sees what it means; the boy, half on his feet, wants to burn it and ride; Athos holds him down by the arm and decides to keep it, because when they catch the Cardinal's lady the paper will stop the Cardinal hanging them. The dominant turn: breakfast and the paper, which they will keep as their shield. The four at their absurd breakfast with the paper opening owns the page. The reader turns because the boy wants to run. The food stays subordinate.
+
+## PAGE 31
+
+Dramatic. Over the broken parapet, a dozen townsmen-soldiers climb the slope with a ladder. Aramis points at them with a chicken leg and observes that in theory this is where they leave; Porthos has not finished his chicken. Then the four fire from the parapet into a wall of white musket smoke, and beyond it the attackers drop their ladder and run back down the slope; nobody is hit. Back at the tablecloth, Porthos picks up his chicken, Athos sits down, and the boy stays at the parapet staring north, counting minutes while she rides. The dominant turn: the first attack is driven off, and the boy counts the minutes. The smoke and the running ladder-men own the page; the boy's face in the last panel gives it its ache. The reader turns because Athos says they will come back with more.
+
+## PAGE 32
+
+Dramatic. Down the slope a whole company is coming now, forty men with three ladders, steel caps glinting, and the boy at the parapet shouts it. Porthos answers that the wall is in their way and they should give it to them. Then Porthos sets his huge shoulder against the tall cracked wall that leans out over the slope, the boy and Aramis pushing beside him and Athos braced with his back against it, and the top stones begin to tilt outward with dust falling. The dominant turn: forty attackers come, and Porthos sets his shoulder to the cracked wall. The four straining together against the leaning wall, with "All for one — and push!", owns the page. The reader turns because the wall is going over. The approaching company is a small distant strip.
+
+## PAGE 33
+
+Spectacle. The great wall comes down outward across the slope in a roaring avalanche of stone and dust. The ladders vanish into it; far below, the attackers are all running back toward the city, and nobody is under the falling stone. On the broken top of the ruin, small against the sky, Porthos throws both arms in the air. The dominant turn: the wall comes down between them and the city, and nobody is under it. One full image, one sound and one caption; the scale of the collapse and the tiny triumphant Porthos carry it. The reader turns because the hour is not over yet. Individual attackers stay small, distant and unhurt.
+
+## PAGE 34
+
+Dramatic. On top of the rubble Aramis ties his white lace handkerchief to a pike as a flag so the King can see whose bastion this is. Athos looks at the sun: that is the hour, and one minute more, for good manners. The boy rounds on him, desperate: she is half a day ahead. Athos answers that it will be a minute this army never forgets, and they go. They walk back across the open ground with the basket while the army stands along the trenches, hats in the air, and Porthos boasts of his wall while the boy already looks north to Béthune. The dominant turn: the hour and one minute, the handkerchief flying, the walk back. The flag on the rubble and the clash over the minute own the page. The reader turns because the whole army saw it, and so did someone on the hill.
+
+## PAGE 35
+
+Dramatic. On a hill behind the lines, the Cardinal sits a grey horse, his red showing under a dark cloak, with Rochefort beside him on a black horse; far below, four small figures walk into a cheering camp and a tiny white flag flies on the ruined bastion. Rochefort names them sourly. The Cardinal, quiet, works it out aloud: the tall one was at the Red Dovecote and heard him name Béthune; the King will give them leave and they will ride there. He would rather have the boy in his red than in the ground. Rochefort says the boy would sooner die. Then let Milady arrange it, the Cardinal says, turning his horse: ride north tonight and warn her that four men are coming. The dominant turn: the Cardinal deduces Béthune and sends Rochefort north to warn Milady. The two riders above the small distant triumph own the page.
+
+## PAGE 36
+
+Illustrated prose. Four riders on a long straight road through flat country in driving rain, poplars bending, a post inn behind them, the yellow horse in front. The King gave them leave that same afternoon; it is six days to Béthune; they change horses where they can, except the yellow one, which will not be changed and keeps up. The boy does not talk. He promised Constance he would not come before the Queen said she was safe, and he is coming anyway, doing the sum at every milestone: half a day was nothing, half a day was everything. Far ahead, small under a moon, a single rider in black with a red feather gallops north. The dominant turn: leave given, six days north, he is breaking his promise and she is half a day ahead. The riders in the rain own the page. The reader turns because somebody is ahead of them both.
