@@ -10,7 +10,7 @@ bounded action.
 
 `ADAPTATION` → `SCRIPT_GATE` → `REFERENCES` → `PACKETS` → `PRODUCTION` → `PUBLICATION`
 
-Current: **COMPLETE — awaiting the owner's word on publication to Nano**
+Current: **PUBLISHED (Nano, 2026-10-18)**
 
 ## Owner decisions on record
 
@@ -97,12 +97,12 @@ Current: **COMPLETE — awaiting the owner's word on publication to Nano**
 
 | 2026-10-17 | Edit pass: p49, p32, p44, p6, p16 (quotation marks verified by a fresh narrow transcription), p37 promoted as edits; p50's edit blocked by its critic on an untouched rope coil → advisor override after a one-question check (card clause clarified to "no noose"); the clarified card made packets stale and refused three edits until `assemble.py` was rerun. Regates 01–10, 11–20, 31–40 APPROVED; 41–50 continuity caught p50's edit drifted into glossy photographic realism → regenerated with a register-emphasis section → promoted first try → 41–50 APPROVED. A fresh check found two small hatted figures still on the quay steps on p50: ruled acceptable (they read as Porthos and Aramis holding the chain from the landing, as on p49; every gate approved; a further edit risks the register again). Reader critic APPROVED; its stale zoom placeholder ("The Yellow Horse") fixed in `index.html`; verifier CLEAN. Ship record in `RUN-LOG.md`, journal in `10-PRODUCTION-MEMOIR.md`; method/07 updated (four entries), packet-spec template updated; selftest CLEAN; infra re-frozen, INFRA INTACT. |
 
+| 2026-10-18 | Owner: "commit and push" — **published to Nano**: commit `6f58a9f` (only `.gitignore`, `stories.js` and `three-musketeers-vol2/` staged; nano's other uncommitted work untouched). Publication copy adds the toolbar and ending library links; its verifier requires them and reports CLEAN; pages byte-identical to production; card first on the shelf. Pages run `39142420610` success; live at https://andressolve.github.io/nano/three-musketeers-vol2/index.html (reader 200 with the correct title, pages 1 and 58 200, card first in live `stories.js`). |
+
 ## Open holds
 
 NONE
 
 ## Next bounded action
 
-The book is complete and gated. Publication to Nano waits for the owner's word
-(copy the Volume I / Monkey King III Nano publication path: publication copy of
-`index.html` with library links, pages, commit and push only when asked).
+Done and published. A Volume III (Twenty Years After) would start from `10-PRODUCTION-MEMOIR.md` Part V.
