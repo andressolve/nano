@@ -105,4 +105,4 @@ NONE
 
 ## Next bounded action
 
-Done and published. A Volume III (Twenty Years After) would start from `10-PRODUCTION-MEMOIR.md` Part V.
+Done and published. Volume III (Twenty Years After): paste the kickoff in `notes/NEXT-SESSION-THREE-MUSKETEERS-VOL3.md`. Journal: `10-PRODUCTION-MEMOIR.md` (Part V threads, Part VI publication). Run scripts: `notes/three-musketeers-vol2-run-scripts/`.

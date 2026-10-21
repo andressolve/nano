@@ -289,3 +289,9 @@ Count REVISE verdicts by category:
 | Failures the page gate did not catch | p50's onlooker-removal edit drifted into glossy photographic realism (continuity regate); the boy's end-of-book blue cassock drawn from his sheet's fourth view on p8 (page critic caught it as C4, but it was a systemic packet gap) |
 | Into the method | the costume-from-the-sheet failure inverted (later view drawn early) → standing "name the allowed views"; the returning character locked against an ideal (Rochefort) → standing "parent is the authority; conform the ledger"; stacked character sheets → at most two per page (template updated); the edit critic and the drifted edit, each seen again |
 | Residuals accepted | p50: two small hatted figures on the quay steps (read as Porthos and Aramis holding the chain from the landing; all gates approved); p58 the boy second from left; p11/p22 balloon zigzag order |
+
+## Publication — 2026-10-18
+
+Published to Nano on the owner's word ("commit and push"): nano commit `6f58a9f` (only `.gitignore`, `stories.js` and `three-musketeers-vol2/` staged; nano's other uncommitted work untouched), handoff record `b75c129`. Publication copy adds the toolbar and ending library links (its verifier requires both; CLEAN); pages byte-identical to production; card first on the shelf. GitHub Pages run `39142420610` success; live at https://andressolve.github.io/nano/three-musketeers-vol2/index.html (reader 200 with the correct title, pages 1 and 58 200, card first in the live `stories.js`).
+
+Owner verdict: not yet recorded.

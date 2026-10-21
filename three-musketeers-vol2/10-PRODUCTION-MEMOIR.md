@@ -2,7 +2,9 @@
 
 Started and finished 2026-10-17 from the kickoff in
 `notes/NEXT-SESSION-THREE-MUSKETEERS-VOL2.md` ("fully autonomous, greenlight ①
-given in advance"; publication waits for the owner's word). Numbers are in
+given in advance"; publication waits for the owner's word). Published to Nano
+on 2026-10-18 on the owner's "commit and push" (commit `6f58a9f`; live at
+https://andressolve.github.io/nano/three-musketeers-vol2/index.html). Numbers are in
 `RUN-LOG.md`; failure modes in `method/07-FAILURE-MODES.md`. This is what a
 Volume III should know.
 
@@ -105,3 +107,15 @@ Threads this volume leaves:
   grown and apart, Mordaunt (Milady's son), the English civil war, the
   Fronde. Milady's son hunting the four who stood on the bank is the natural
   engine.
+- **Kickoff for Volume III:** `notes/NEXT-SESSION-THREE-MUSKETEERS-VOL3.md`.
+
+## Part VI — Publication
+
+Published 2026-10-18 the Monkey King III way: the book copied into
+`~/Documents/nano/` without candidates, proofs or logs; two library links
+added to the publication copy (toolbar and ending) and required by its
+verifier; six gitignore rules; the card first in `stories.js`; only those
+staged, so nano's other uncommitted work was untouched. Pages deploy
+succeeded and the live reader, pages 1 and 58, and the card were checked.
+"Commit and push" in this workspace means this: `monte_inspired` has no git
+repository of its own.
