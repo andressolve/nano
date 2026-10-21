@@ -1,6 +1,6 @@
 # Monkey King, Volume III: Sent Away — handoff
 
-**Updated:** 2026-10-16
+**Updated:** 2026-10-20
 
 This is the one dynamic state file. `tools/status.py` derives state from disk;
 this file records what disk cannot: owner decisions, holds, and the next
@@ -81,6 +81,8 @@ Current: **PUBLISHED (Nano, 2026-10-17)**
 | 2026-10-17 | p47's hall edit moved the first balloon's tail to Wukong (real attribution defect, edit critic REVISE); second edit fixed hall and tail together. **Batch gate 41–49 APPROVED** (re-gated). **Reader critic APPROVED.** Ship record in `RUN-LOG.md`, journal `10-PRODUCTION-MEMOIR.md`; method/07 updated (two watches promoted, two new watches, one corollary); selftest CLEAN; infra re-frozen (INFRA INTACT). |
 | 2026-10-17 | **Published to Nano** on the owner's advance authorization: commit `f70de0a` (only `.gitignore`, `stories.js` and `monkey-king-vol3/` staged; nano's other uncommitted work untouched). Publication copy adds the toolbar and ending library links; its verifier requires them and reports CLEAN; pages byte-identical to production. |
 | 2026-10-17 | Nano Pages run `39024679904` success; live at https://andressolve.github.io/nano/monkey-king-vol3/index.html (reader 200 with the correct title, pages 1 and 49 200, card first in live `stories.js`). |
+| 2026-10-17 | **Owner verdict:** "the book was absolutely epic. well done. amazing work! bravo! and i did not see any image gen glitches." One correction: in the reader quiz the longest option was always the correct answer. Rule added to `method/01-PIPELINE.md` Phase 6 (equal-length options, correct answer longest in at most two of five, letters varied; the reader critic checks it); recorded in RUN-LOG, journal and memory; infra re-frozen, selftest CLEAN. This book's live quiz is unchanged (offered to the owner as a rewrite). |
+| 2026-10-17 | Handoff prepared for the next series volume: `notes/NEXT-SESSION-THREE-MUSKETEERS-VOL2.md` (used the same day; *The Three Musketeers, Volume II: Milady* published to Nano 2026-10-18, see `books/three-musketeers-vol2/`). Monkey King Volume IV kickoff remains ready in `notes/NEXT-SESSION-MONKEY-KING-VOL4.md`. |
 
 ## Open holds
 
